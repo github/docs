@@ -65,10 +65,6 @@ jobs:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: 'Set env vars'
         run: |

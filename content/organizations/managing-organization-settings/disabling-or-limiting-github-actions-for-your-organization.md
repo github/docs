@@ -108,8 +108,8 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion actions-default-workflow-permissions-restrictive %}
+By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` scope.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}
@@ -159,7 +159,7 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
+Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 

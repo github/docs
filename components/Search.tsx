@@ -112,17 +112,17 @@ export function Search({
       revalidateIfStale: false,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
+      // By default, when the URL changes to the hook, the `data` and `error`
+      // are reset. Just as if it was the very first mount.
+      // Previously we used to keep a copy of the "last" data output
+      // so that we don't immediately wipe away any search results
+      // when waiting for the new ones.
+      // With the `keepPreviousData` option, it simply doesn't reset the
+      // `data` output just because the URL is changing from what it
+      // was previously.
+      keepPreviousData: true,
     }
   )
-
-  const [previousData, setPreviousData] = useState<Data | undefined>()
-  useEffect(() => {
-    if (data) {
-      setPreviousData(data)
-    } else if (!query) {
-      setPreviousData(undefined)
-    }
-  }, [data, query])
 
   // The `isLoading` boolean will become false every time the useSWR hook
   // fires off a new XHR. So it toggles from false/true often.
@@ -229,7 +229,7 @@ export function Search({
             isHeaderSearch={isHeaderSearch}
             isMobileSearch={isMobileSearch}
             isLoading={isLoading}
-            results={previousData}
+            results={data}
             closeSearch={closeSearch}
             debug={debug}
             query={query}
