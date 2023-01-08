@@ -16,7 +16,11 @@ topics:
   - Pull requests
 shortTitle: Allow changes to a branch
 ---
-Only pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. To learn more about upstream repositories, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+When a user creates a pull request from its fork, the user generally has the authority to decide who can commit to the pull request's compare branch. If the pull request authors want greater collaboration, they can grant specific people permission to commit to the pull request's compare branch. Permission can be granted to:
+- Upstream repository maintainers
+- Users with push access to the upstream repository
+
+To learn more about upstream repositories, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 Pull request authors can give these permissions when they initially create a pull request from a user-owned fork or after they create the pull request. For more information, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
