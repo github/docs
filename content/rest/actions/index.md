@@ -18,6 +18,7 @@ children:
   - /oidc
   - /permissions
   - /secrets
+  - /variables
   - /self-hosted-runner-groups
   - /self-hosted-runners
   - /workflow-jobs

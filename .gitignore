@@ -14,7 +14,6 @@ coverage/
 .next
 .eslintcache
 *.tsbuildinfo
-translations/
 
 # blc: broken link checker
 blc_output.log
