@@ -68,7 +68,7 @@ If your instance has subdomain isolation disabled:
 
 To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, and *PUBLIC-EMAIL-ADDRESS* with your email address.
 
-If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}. You will be prompted with username, password entering, and please note to use your personal access token as the password upon prompt.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -86,10 +86,7 @@ $ npm login --scope=@OWNER --registry=https://{% ifversion fpt or ghec %}npm.pkg
 If your instance has subdomain isolation disabled:
 
 ```shell
-$ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/
-> Username: USERNAME
-> Password: TOKEN
-> Email: PUBLIC-EMAIL-ADDRESS
+$ npm login --scope=@OWNER --registry=https://HOSTNAME/_registry/npm/ --auth-type=legacy
 ```
 {% endif %}
 
