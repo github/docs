@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
 
 module.exports = {
-  mode: 'development',
+  mod
   devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map', // no 'eval' outside of development
   entry: './javascripts/index.ts',
   output: {
