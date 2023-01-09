@@ -119,8 +119,8 @@ If your instance has subdomain isolation disabled:
   <servers>
     <server>
       <id>github</id>
-      <username>USERNAME</username>
-      <password>TOKEN</password>
+      <username>Username</username>
+      <password>Token</password>
     </server>
   </servers>
 </settings>
