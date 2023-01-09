@@ -58,7 +58,9 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches`](/rest/reference/actions#create-a-workflow-dispatch-event) (write)
 - [`PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable`](/rest/reference/actions#enable-a-workflow) (write)
 {% ifversion fpt or ghec or ghae %}- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/reference/actions#get-workflow-usage) (read){% endif %}
-{% ifversion fpt or ghec or ghes > 3.8 %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs`](/rest/actions/workflow-runs#list-workflow-runs-for-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions/required-workflows#get-required-workflow-usage) (read){% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 %}
 - [`GET /repos/{owner}/{repo}/actions/variables`](/rest/reference/actions#list-repository-variables) (read)
 - [`GET /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#get-a-repository-variable) (read)
 - [`POST /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#create-a-repository-variable) (write)
@@ -78,7 +80,7 @@ shortTitle: GitHub App permissions
 - [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories`](/rest/reference/actions#set-selected-repositories-for-an-organization-variable) (write)
 - [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#add-selected-repository-to-an-organization-variable) (write)
 - [`DELETE /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#remove-selected-repository-from-an-organization-variable) (write)
-{% endif %}
+{%- endif %}
 
 ## Administration
 
@@ -498,6 +500,10 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day) (read)
 - [`GET /search/labels`](/rest/reference/search#search-labels) (read)
 - [`GET /repos/{owner}/{repo}/topics`](/rest/reference/repos#get-all-repository-topics) (read)
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#list-selected-repositories-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id`}](/rest/reference/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow') (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/reference/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#set-selected-repositories-for-a-required-workflow) (read){% endif %}
 
 ## Notifications
 
@@ -529,6 +535,15 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team) (write){% endif %}
 - [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization) (write)
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization) (read)
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /orgs/{org}/actions/required_workflows`](/rest/reference/actions#list-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#get-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#list-selected-repositories-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`POST /orgs/{org}/actions/required_workflows`](/rest/reference/actions#create-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#delete-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#update-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id`}](/rest/reference/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow') (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/reference/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#set-selected-repositories-for-a-required-workflow) (write){% endif %}
 
 {% ifversion fpt or ghec %}
 
