@@ -1,6 +1,6 @@
 ---
 title: Custom Repository Roles
-intro: ''
+intro: 'Use the REST API to interact with custom repository roles.'
 versions:
   fpt: '*'
   ghes: '>=3.4'

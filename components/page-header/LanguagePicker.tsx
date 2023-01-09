@@ -41,8 +41,12 @@ export const LanguagePicker = ({ variant }: Props) => {
   const locale = router.locale || 'en'
 
   const { t } = useTranslation('picker')
-  // 92BD1212-61B8-4E7A: Remove `.filter(lang => !lang.wip)` for the public ship of ko, fr, de, ru
-  const langs = Object.values(languages).filter((lang) => !lang.wip)
+  // Remember, in this context `languages` is only the active ones
+  // that are available. I.e. no wip ones.
+  // Also, if the current context has a page and that page has own ideas
+  // about which languages it's available in (e.g. early-access)
+  // it would already have been paired down.
+  const langs = Object.values(languages)
 
   if (langs.length < 2) {
     return null

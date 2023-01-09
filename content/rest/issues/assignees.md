@@ -2,7 +2,7 @@
 title: Issue assignees
 allowTitleToDifferFromFilename: true
 shortTitle: Assignees
-intro: ''
+intro: 'Use the REST API to manage assignees on issues and pull requests.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issue assignees API
+## About issue and pull request assignees
 
-The Issue assignees API supports managing assignees on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}
+You can use the REST API to view, add, and remove assignees on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %}

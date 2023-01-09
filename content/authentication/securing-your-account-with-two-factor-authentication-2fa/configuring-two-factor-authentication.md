@@ -40,7 +40,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
+- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
 
 {% tip %}
 
@@ -57,7 +57,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
     ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". 
+6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
 ![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {%- else %}
 5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.

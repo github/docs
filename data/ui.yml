@@ -256,8 +256,10 @@ product_guides:
     how_to: How-to guide
     reference: Reference
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prev_guide: Previous
+  next_guide: Next
+  more_guides: More guides →
+  current_progress: '{i} of {n} in learning path'
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide
