@@ -185,7 +185,7 @@
     "dev": "cross-env npm start",
     "index-test-fixtures": "node script/search/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- tests/content/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
-    "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules TEST_TRANSLATION=true jest tests/linting/lint-files.js",
+    "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/linting/lint-files.js",
     "prepare": "husky install",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
