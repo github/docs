@@ -193,6 +193,14 @@ You can help mitigate this risk by following these good practices:
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 {% endif %}
 
+{% ifversion required-workflows %}
+
+## Required workflows
+
+Required workflows allow you to specify workflows to run on selected repositories or all repositories in your organization, providing the ability to enforce organization-wide security policies while only maintaining a single workflow. Required workflows appear as required status checks on pull requests and the checks must succeed before the pull request can be merged. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+
+{% endif %}
+
 {% ifversion internal-actions %}
 ## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
 
