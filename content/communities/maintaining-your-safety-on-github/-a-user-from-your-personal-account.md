@@ -1,18 +1,13 @@
 ---
-title: Blocking a user from your personal account
+title: a user from caseyour personal account
 intro: 'You can block a user to deny them access to your activity and repositories, and to prevent them from sending you notifications.'
 redirect_from:
-  - /articles/blocking-a-user-from-your-personal-account
-  - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
-versions:
-  fpt: '*'
-  ghec: '*'
-topics:
+  - /articles/blocking-a-user-from-your-personal-
   - Community
 shortTitle: Block from your account
 ---
 
-## About blocking users
+## About users
 
 You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
