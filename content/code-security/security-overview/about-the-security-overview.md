@@ -33,17 +33,19 @@ shortTitle: About the security overview
 {% ifversion ghec or ghes or ghae %}
 The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 
 
-- Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. 
-- Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown only for enterprises that use {% data variables.product.prodname_GH_advanced_security %}.
+- Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. {% ifversion ghes or ghae %}
+- Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %} and for public repositories.
 
-For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+{% endif %}
+
+For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies){% ifversion ghes or ghae %}" and{% elsif ghec %}," "[About {% data variables.secret-scanning.user_alerts %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)" and{% endif %} "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
 ## About filtering and sorting alerts
 
 The security overview provides a powerful way to understand the security of a group of repositories. The views are interactive with filters that allow you to drill into the aggregated data and identify sources of high risk or low feature coverage. As you apply multiple filters to focus on narrower areas of interest, the data across the view changes to reflect your selection. For more information, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
 {% ifversion security-overview-alert-views %}
-There are also dedicated views for each type of security alert that you can use to limit your analysis to a specific set of alerts, and then narrow the results further with a range of filters specific to each view. For example, in the {% data variables.product.prodname_secret_scanning %} alert view, you can use the `Secret type` filter to view only {% data variables.product.prodname_secret_scanning %} alerts for a specific secret, like a GitHub {% data variables.product.pat_generic %}.
+There are also dedicated views for each type of security alert that you can use to limit your analysis to a specific set of alerts, and then narrow the results further with a range of filters specific to each view. For example, in the {% data variables.product.prodname_secret_scanning %} alert view, you can use the `Secret type` filter to view only {% data variables.secret-scanning.alerts %} for a specific secret, like a GitHub {% data variables.product.pat_generic %}.
 {% endif %}
 
 {% note %}
@@ -58,14 +60,15 @@ There are also dedicated views for each type of security alert that you can use 
 
 You can find the security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows aggregated data that you can drill down into, as you add each filter, the data is updated to reflect the repositories or alerts that you've selected.
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %}For example, the team can use the "Security Coverage" page to monitor the adoption of features across your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %}, or use the "Security Risk" page to identify repositories with more than five open {% data variables.product.prodname_secret_scanning %} alerts.{% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %}
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %}For example, the team can use the "Security Coverage" page to monitor the adoption of features across your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %}, or use the "Security Risk" page to identify repositories with more than five open {% data variables.secret-scanning.alerts %}.{% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you rollout {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %}
 
 Organization owners and security managers for organizations have access to the security overview for their organizations. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can also access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 
-{% ifversion security-overview-org-risk-coverage %}
+{% ifversion security-overview-single-repo-enablement or security-overview-org-risk-coverage %}
+
 ### Security Risk view
 
-This view shows data about the repositories affected by different types of security alert. 
+This view shows data about the repositories affected by different types of security alert.
 
 - Use the **Type** and **Teams** drop-downs to add repository type and team filters.
 - Click **Open alerts** or **Repositories affected** to show only repositories with a specific type of security alert.
@@ -74,18 +77,28 @@ In addition, when you click in the search box, a list of the full set of filters
 
 ![Screenshot of the Security Risk view for an organization](/assets/images/help/security-overview/security-risk-view.png)
 
+
 ### Security Coverage view
 
-This view shows data about which repositories are using security features. 
+This view shows data about which repositories are using security features.
 
 - Use the **Type** and **Teams** drop-downs to add repository type and team filters.
 - Click **Alerts enabled** and other features listed in the header to see only repositories with those features enabled.
 - Change any `FEATURE:enabled` filter to `FEATURE:not-enabled` in the search box to see repositories that haven't enabled a feature.
+{%- ifversion security-overview-single-repo-enablement %}
+- For any repository, click **Security Settings** to enable security features that have a one-click setup.
+
+In addition, when you click in the search box, a list of the full set of filters available is shown.
+
+![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
+
+{%- elsif security-overview-org-risk-coverage %}
 - For any repository, click the ellipsis (**...**) then **Security Settings** to enable additional features.
 
 In addition, when you click in the search box, a list of the full set of filters available is shown.
 
 ![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view.png)
+{% endif %}
 
 {% else %}
 

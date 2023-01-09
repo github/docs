@@ -15,9 +15,9 @@ topics:
 
 
 
-The [Status API][status API] is responsible for tying together commits with
+You can use the REST API to tie together commits with
 a testing service, so that every push you make can be tested and represented
-in a {% data variables.product.product_name %} pull request.
+in a {% data variables.product.product_name %} pull request. For more information about the relevant endpoints, see "[Commit statuses][status API]."
 
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -178,7 +178,7 @@ build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/commits#commit-statuses
+[status API]: /rest/commits/statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

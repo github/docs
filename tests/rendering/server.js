@@ -47,7 +47,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
     const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
@@ -215,7 +215,7 @@ describe('server', () => {
     const $ = await getDOM(
       '/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
     )
-    expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
+    expect($('[data-testid="permissions-statement"]').text()).toContain('GitHub Pages site')
   })
 
   // see issue 9678

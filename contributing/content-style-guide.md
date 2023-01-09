@@ -279,11 +279,13 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 ## Links
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking.
-For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-For links to another section in the same article: `For more information, see "[Header text]()."`
-For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
-For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
+- For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+- For links to another section in the same article: `For more information, see "[Header text]()."`
+- For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+- For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
+- For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
 Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
@@ -609,6 +611,12 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
+
+## Videos
+
+You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
+
+Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
 
 ## Voice and tone
 

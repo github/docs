@@ -1,6 +1,6 @@
 ---
 title: Releases
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+intro: 'Use the REST API to create, modify, and delete releases and release assets.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

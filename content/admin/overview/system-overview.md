@@ -82,7 +82,7 @@ For more information, see "[Configuring backups on your appliance](/admin/config
 
 {% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-Currently, the base operating system for {% data variables.product.product_name %} is Debian 9 (Stretch), which receives support under the Debian Long Term Support program.  There are plans to move to a newer base operating system before the end of the Debian LTS period for Stretch.
+Currently, the base operating system for {% data variables.product.product_name %} is Debian 10 (Buster), which receives support under the Debian Long Term Support program. 
 
 Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 

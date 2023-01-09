@@ -59,7 +59,7 @@ jobs:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["ja", "es", "pt", "cn", "ru", "fr", "ko", "de"]
+            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -114,7 +114,7 @@ jobs:
         if: ${{ matrix.language != 'en' }}
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          repository: github/docs-internal.${{ fromJSON('{"cn":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
+          repository: github/docs-internal.${{ fromJSON('{"zh":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           path: translation
 

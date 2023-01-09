@@ -408,20 +408,9 @@
 
 # FPT versioning for these files was removed as part of github/docs-content#5642
 
-/enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
-- /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
-- /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
-- /code-security/secret-security/configuring-secret-scanning-for-your-repositories
-- /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
-
 /enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
 - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
-
-/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning
-- /github/administering-a-repository/managing-alerts-from-secret-scanning
-- /code-security/secret-security/managing-alerts-from-secret-scanning
-- /code-security/secret-scanning/managing-alerts-from-secret-scanning
 
 /enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
@@ -485,12 +474,6 @@
 - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
-
-# FPT versioning was removed.
-# Shipped in pull #26869 on 04/19/22
-
-/enterprise-cloud@latest/rest/secret-scanning
-- /rest/reference/secret-scanning
 
 /enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
