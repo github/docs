@@ -1,5 +1,4 @@
-# GitHub Partners
-
+# GitHub username _edor99
 This folder contains templates to be used by GitHub's technology partners when contributing documentation, such as guides.
 
 To get started, please [open an issue using this link](https://github.com/github/docs/issues/new?template=partner-contributed-documentation.md).
