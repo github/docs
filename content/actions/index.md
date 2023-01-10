@@ -24,7 +24,7 @@ featuredLinks:
     - /actions/learn-github-actions/events-that-trigger-workflows
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
-    - /actions/learn-github-actions/environment-variables
+    - /actions/learn-github-actions/variables
     - /actions/security-guides/encrypted-secrets
 changelog:
   label: actions

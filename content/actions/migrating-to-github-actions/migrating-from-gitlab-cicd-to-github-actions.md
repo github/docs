@@ -301,9 +301,9 @@ For more information, see "[Events that trigger workflows](/actions/reference/ev
 
 ## Variables and secrets
 
-GitLab CI/CD and {% data variables.product.prodname_actions %} support setting environment variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
+GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
 
-For more information, see "[Environment variables](/actions/reference/environment-variables)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+For more information, see "[Variables](/actions/learn-github-actions/variables)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 ## Caching
 

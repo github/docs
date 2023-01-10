@@ -16,7 +16,7 @@ topics:
 shortTitle: Encrypted secrets
 ---
 
- 
+
 
 
 ## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
