@@ -93,7 +93,9 @@ When you connect to a codespace using the browser, or the {% data variables.prod
 
    ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
 
-If you are using a codespace in the browser, or in the {% data variables.product.prodname_vscode %} desktop application, and you have [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) turned on, any changes you make to your editor setup in the current codespace, such as changing your theme or keyboard bindings, are automatically synced to any instances of {% data variables.product.prodname_vscode %} that are signed into your {% data variables.product.prodname_dotcom %} account and to any other codespaces you create.
+### About Settings Sync
+
+You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."
 
 ## Next steps
 
