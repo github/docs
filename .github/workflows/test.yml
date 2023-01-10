@@ -110,69 +110,11 @@ jobs:
           .github/actions-scripts/merge-early-access.sh
           rm -fr docs-early-access
 
-      - name: Clone Simplified Chinese
+      - name: Clone all translations
         if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.zh-cn
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/zh-cn
-
-      - name: Clone Japanese
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ja-jp
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ja-jp
-
-      - name: Clone Spanish
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.es-es
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/es-es
-
-      - name: Clone Portuguese
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.pt-br
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/pt-br
-
-      - name: Clone German
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.de-de
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/de-de
-
-      - name: Clone French
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.fr-fr
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/fr-fr
-
-      - name: Clone Russian
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ru-ru
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ru-ru
-
-      - name: Clone Korean
-        if: ${{ matrix.test-group == 'translations' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ko-kr
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ko-kr
 
       - name: Gather files changed
         env:
