@@ -39,7 +39,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
   if (!isHealthy) {
     core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
   } else {
-    const markdownTable = await main(core, owner, repo, baseSHA, headSHA)
+    const markdownTable = await main(owner, repo, baseSHA, headSHA)
     core.setOutput('changesTable', markdownTable)
   }
 }
