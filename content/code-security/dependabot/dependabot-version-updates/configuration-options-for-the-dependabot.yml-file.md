@@ -249,6 +249,9 @@ Supported options
 {% endnote %}
 
 - `prefix` specifies a prefix for all commit messages.
+   When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message, unless you end the end the prefix with a space.
+   The code snippet below provides examples of both in the same configuration file.
+
 - `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 - `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
 
