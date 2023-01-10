@@ -42,9 +42,18 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 ## Authenticating to the {% data variables.product.prodname_container_registry %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+{% data reusables.package_registry.authenticate-packages %}
+
+{% ifversion packages-registries-v2 %}
+
+### Authenticating in a {% data variables.product.prodname_actions %} workflow
+
+This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+
+{% data reusables.package_registry.v2-actions-codespaces %}
 {% endif %}
+
+### Authenticating with a {% data variables.product.pat_v1 %}
 
 {% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.location.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
 
@@ -62,7 +71,7 @@ This example pushes the `2.5` version of the image.
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
-When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 ## Pulling container images
 
