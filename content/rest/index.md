@@ -16,7 +16,7 @@ featuredLinks:
     - /rest/overview/api-versions
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
-    - /rest/overview/endpoints-available-for-github-apps
+    - /rest/guides/scripting-with-the-rest-api-and-javascript
     - /rest/overview/openapi-description
   guideCards:
     - /rest/guides/delivering-deployments
