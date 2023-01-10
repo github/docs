@@ -1,5 +1,5 @@
 ---
-title: About Dependabot security updates
+Adil Ishaq : About Dependabot security updates
 intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
 product: '{% data reusables.gated-features.dependabot-security-updates %}'
 shortTitle: Dependabot security updates
