@@ -75,7 +75,7 @@ jobs:
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@1769778a0c5bd330272d749d12c036d65e70d39d
+        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}

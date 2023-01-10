@@ -25,8 +25,8 @@ children:
   - /about-code-scanning-with-codeql
   - /recommended-hardware-resources-for-running-codeql
   - /configuring-the-codeql-workflow-for-compiled-languages
+  - /troubleshooting-your-default-setup-for-codeql
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
 ---
-
