@@ -114,3 +114,7 @@ Certain development features can potentially add risk to your environment. For e
 #### Using extensions
 
 Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+
+#### Using Settings Sync
+
+{% data variables.product.prodname_vscode_shortname %}'s Settings Sync can allow potentially malicious content to transfer across devices. If you're creating a codespace for a repository whose contents you do not trust, you should open the codespace in the browser and leave Settings Sync disabled.
