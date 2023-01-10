@@ -28,50 +28,58 @@ const MAX_COMMENT_SIZE = 125000
 
 const PROD_URL = 'https://docs.github.com'
 
-run()
+// When this file is invoked directly from action as opposed to being imported
+if (import.meta.url.endsWith(process.argv[1])) {
+  const owner = context.repo.owner
+  const repo = context.payload.repository.name
+  const baseSHA = context.payload.pull_request.base.sha
+  const headSHA = context.payload.pull_request.head.sha
 
-async function run() {
   const isHealthy = await waitUntilUrlIsHealthy(new URL('/healthz', APP_URL).toString())
   if (!isHealthy) {
-    return core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
+    core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
+  } else {
+    const markdownTable = await main(core, owner, repo, baseSHA, headSHA)
+    core.setOutput('changesTable', markdownTable)
   }
+}
 
+async function main(owner, repo, baseSHA, headSHA) {
   const octokit = github.getOctokit(GITHUB_TOKEN)
   // get the list of file changes from the PR
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
-    owner: context.repo.owner,
-    repo: context.payload.repository.name,
-    basehead: `${context.payload.pull_request.base.sha}...${context.payload.pull_request.head.sha}`,
+    owner,
+    repo,
+    basehead: `${baseSHA}...${headSHA}`,
   })
 
   const { files } = response.data
 
-  let markdownTable =
-    '| **Source** | **Preview** | **Production** | **What Changed** |\n|:----------- |:----------- |:----------- |:----------- |\n'
+  const markdownTableHead = [
+    '| **Source** | **Preview** | **Production** | **What Changed** |',
+    '|:----------- |:----------- |:----------- |:----------- |',
+  ]
+  let markdownTable = ''
 
   const pathPrefix = 'content/'
-  const articleFiles = files.filter(
-    ({ filename }) => filename.startsWith(pathPrefix) && !filename.endsWith('/index.md')
-  )
+  const articleFiles = files.filter(({ filename }) => filename.startsWith(pathPrefix))
 
   const lines = await Promise.all(
     articleFiles.map(async (file) => {
       const sourceUrl = file.blob_url
       const fileName = file.filename.slice(pathPrefix.length)
-      const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
+      const fileUrl = fileName.replace('/index.md', '').replace(/\.md$/, '')
 
       // get the file contents and decode them
       // this script is called from the main branch, so we need the API call to get the contents from the branch, instead
       const fileContents = await getContents(
-        context.repo.owner,
-        context.payload.repository.name,
+        owner,
+        repo,
         // Can't get its content if it no longer exists.
         // Meaning, you'd get a 404 on the `getContents()` utility function.
         // So, to be able to get necessary meta data about what it *was*,
         // if it was removed, fall back to the 'base'.
-        file.status === 'removed'
-          ? context.payload.pull_request.base.sha
-          : context.payload.pull_request.head.sha,
+        file.status === 'removed' ? baseSHA : headSHA,
         file.filename
       )
 
@@ -164,7 +172,13 @@ async function run() {
     return previous
   }, markdownTable.length)
 
+  if (cappedLines.length) {
+    cappedLines.unshift(...markdownTableHead)
+  }
+
   markdownTable += cappedLines.join('\n')
 
-  core.setOutput('changesTable', markdownTable)
+  return markdownTable
 }
+
+export default main
