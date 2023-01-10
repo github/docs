@@ -73,9 +73,9 @@ For more information about the tools and packages available on {% data variables
 
 ## Using variables and secrets
 
-CircleCI and {% data variables.product.prodname_actions %} support setting environment variables in the configuration file and creating secrets using the CircleCI or {% data variables.product.product_name %} UI.
+CircleCI and {% data variables.product.prodname_actions %} support setting variables in the configuration file and creating secrets using the CircleCI or {% data variables.product.product_name %} UI.
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and "[Creating and using encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)" and "[Creating and using encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
 ## Caching
 

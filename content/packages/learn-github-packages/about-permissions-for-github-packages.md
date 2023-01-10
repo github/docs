@@ -22,6 +22,7 @@ The following {% data variables.product.prodname_registry %} registries support 
 - {% data variables.product.prodname_container_registry %}
 {% ifversion packages-npm-v2 %}- npm registry{% endif %}
 {% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
+{% ifversion packages-rubygems-v2 %}- RubyGems registry{% endif %}
 
 {% endif %}
 
@@ -34,10 +35,10 @@ The following {% data variables.product.prodname_registry %} registries **only**
 
 {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
 {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- RubyGems registry
 - Apache Maven registry
 - Gradle registry
 {% ifversion packages-nuget-v2 %}{% else %}- NuGet registry{% endif %}
+{% ifversion packages-rubygems-v2 %}{% else %}- RubyGems registry{% endif %}
 
 For {% ifversion ghes %}the {% data variables.product.prodname_container_registry %}{% else %}other registries{% endif %}, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. {% ifversion docker-ghcr-enterprise-migration %}For information about migration to the {% data variables.product.prodname_container_registry %}, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
