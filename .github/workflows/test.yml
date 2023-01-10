@@ -27,8 +27,36 @@ env:
   ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
-  test:
+  figureOutMatrix:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.result }}
+    steps:
+      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        id: set-matrix
+        with:
+          script: |
+            // We only want to run the 'translations' suite when we know
+            // we're on the private docs-internal repo because only that
+            // one has ability to clone the remote (private) translations
+            // repos.
+            const all = [
+              'content',
+              'graphql',
+              'meta',
+              'rendering',
+              'routing',
+              'unit',
+              'linting',
+            ];
+            if (context.payload.repository.full_name === 'github/docs-internal') {
+              all.push('translations');
+            }
+            return all;
+
+  test:
+    needs: figureOutMatrix
     # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
@@ -36,17 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group:
-          [
-            content,
-            graphql,
-            meta,
-            rendering,
-            routing,
-            unit,
-            linting,
-            translations,
-          ]
+        test-group: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Install a local Elasticsearch for testing
         # For the sake of saving time, only run this step if the test-group

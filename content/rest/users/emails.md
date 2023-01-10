@@ -1,6 +1,6 @@
 ---
 title: Emails
-intro: ''
+intro: Use the REST API to manage email addresses of authenticated users.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,8 +10,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Emails API
-
-Management of email addresses via the API requires that you authenticate through basic auth, or through OAuth with a correct scope for the endpoint.
+## About email administration
 
 {% data reusables.user-settings.user-api %}
