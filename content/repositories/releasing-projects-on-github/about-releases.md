@@ -1,54 +1,5 @@
----
-title: About releases
-intro: 'You can create a release to package software, along with release notes and links to binary files, for other people to use.'
-redirect_from:
-  - /articles/downloading-files-from-the-command-line
-  - /articles/downloading-files-with-curl
-  - /articles/about-releases
-  - /articles/getting-the-download-count-for-your-releases
-  - /github/administering-a-repository/getting-the-download-count-for-your-releases
-  - /github/administering-a-repository/about-releases
-  - /github/administering-a-repository/releasing-projects-on-github/about-releases
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
-  - Repositories
----
-## About releases
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% else %}
-![An overview of releases](/assets/images/help/releases/releases-overview.png)
-{% endif %}
-
-Releases are deployable software iterations you can package and make available for a wider audience to download and use.
-
-Releases are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging), which mark a specific point in your repository's history. A tag date may be different than a release date since they can be created at different times. For more information about viewing your existing tags, see "[Viewing your repository's releases and tags](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)."
-
-You can receive notifications when new releases are published in a repository without receiving notifications about other updates to the repository. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
-
-Anyone with read access to a repository can view and compare releases, but only people with write permissions to a repository can manage releases. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
-
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.6 %}
-When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
-{% endif %}
-
-{% ifversion fpt or ghec %}
-People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
-
-If a release fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-
-You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
-{% endif %}
-
+#title :bitcoin'
+#releases.md 
 You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[Releases](/rest/reference/releases)."
 
 {% ifversion fpt or ghec %}
@@ -56,4 +7,69 @@ You can also use the Releases API to gather information, such as the number of t
 
  Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
 
-{% endif %}
+{% "var" %}
+
+                   ZACHRY T WOOD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Cash and Cash Equivalents, Beginning of Period                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Department of the Treasury                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Internal Revenue Service                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Calendar Year                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Due: 04/18/2022                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   USD in "000'"s                                                                                                                
+"'"ACCOUNT@NUMBER@CONTENT:ENCODED@ENCODING=PNCBUSINESSBANKACCOUNTOWNERSDEBITMASTERACCOUTVISACARDCRE
+DITCARDCARDACCOUNT-#4034910067530719&ENABLE&ACTIVATEACTITVITYENABABLINGACCOUNNTNUMBER-#:=:==47-2041-
+6547@071921891@031000053@PNCBANK":," 575 Washington Boul
+
+                   Repayments for Long Term Debt                                                                                Issuer: UNIT                                                                                                
+600 Coolidge Drive, Suite 300V
+
+                   Costs and expenses:                                                                                                                                                                        
+Folsom, CA 95630
+
+                   Cost of revenues                                                                                  Employeer Identification Number (EIN) :XXXXX1725                                        
+6553 Phone number: 888.901.9695
+
+                   Research and development                                                                                                DR                        \                                                
+Fax number: 888.901.9695
+
+                   Sales and marketing                                                                                  WOO                                                                                                
+Website: https://intuit.taxaudit.com
+
+                   General and administrative                                                                                "Taxable Marital Status:                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                   European Commission fines                                                                                                Married                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Total costs and expenses                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Income from operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Other income (expense), net                                                                                units                                                                5222 
+BRADFORD DR
+
+                   Income before income taxes                                                                                TX:48                                                                                DALLAS TX 75235                0                                                                                                                                                                                                                                                                                                                                                                
+                   Provision for income taxes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Net income         674678000                                        4                Other Benefits and        Earning's Statement                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                          Information         Regular                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                   *include interest paid, capital obligation, and underweighting                                                                                
+$75,698,871,600 44833 Pto Balance Overtime
+
+                                                                                           Total Work Hrs        " Bonus                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)                                                                                        
+year to date
+
+                                                                                           Original document                                                                Important Notes          
+Additions"+$$22,756,988,716,000.00":,''
+
+                                                                                                           _______________________________________________________________________________________________________________                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                   $70,842,743,866                                                                                                YOUR BASIC/DILUTED EPS RATE HAS BEEN 
+CHANGED FROM $756,988,716,000.00
+
+                                                                                                   $70,842,743,866                                                                                        COMPANY 
+PH Y: 650-253-0000
+
+                                                                                                                                                                                                           NON-NEGOTIABLE                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                            0.001 TO 112.20 PAR SHARE VALUE                                                                                                                                                                                                                                                                                                                                                                                                                        
+                   $70,842,743,866                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                   $22,677,000,000,000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   *include interest paid, capital obligation, and underweighting                                                                                
+$257,637,118,600
+
+                   Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                   Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
