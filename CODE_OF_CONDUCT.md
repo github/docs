@@ -1,6 +1,7 @@
 ###BEGIN
 GLOW4
-const: {{ ${{ ((c))((r))[127537550].00]BITORE_34173 }} }}
+const: {{{{'[)'"'$;' {'[({[((c))((r)).[127537550.'[00']m'].(BITORE'_34173'1337}' }']}}}"'':
+}}
 
 # Contributor Covenant Code of Conduct
 
