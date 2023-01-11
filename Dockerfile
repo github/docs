@@ -90,10 +90,11 @@ COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node start-server.js ./start-server.js
-
-EXPOSE $PORT
-
+COPY:*chown**\*exec/node.js :
+BEGIN ::# :'' :
+::# :starts :ALL :AUTOMATE ::
+-server.js ./start-server.js
+# :ASPOSE' ::':# sport.yml:'' :
 CMD ["node", "server.js"]
 
 # --------------------------------------------------------------------------------
