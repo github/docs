@@ -23,7 +23,7 @@ When you want to work on a project, you can choose to create a new codespace or 
 
 {% data reusables.codespaces.max-number-codespaces %} Similarly, if you reach the maximum number of active codespaces and you try to start another, you are prompted to stop one of your active codespaces.
 
-If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine. 
+If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine.
 
 {% data reusables.codespaces.prebuilds-crossreference %}
 
@@ -43,7 +43,7 @@ When a codespace times out, your data is preserved from the last time your chang
 
 You can rebuild your codespace to implement changes to your dev container configuration. For most uses, you can create a new codespace as an alternative to rebuilding a codespace. By default, when you rebuild your codespace, {% data variables.product.prodname_github_codespaces %} will reuse images from your cache to speed up the rebuild process. Alternatively, you can perform a full rebuild, which clears your cache and rebuilds the container with fresh images.
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)" and "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
+For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)" and "[Performing a full rebuild of a container](/codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container)."
 
 ## Stopping a codespace
 

@@ -24,19 +24,19 @@ For more information on exactly how {% data variables.product.prodname_github_co
 ## Creating your codespace
 
 1. Navigate to the [github/haikus-for-codespaces](https://github.com/github/haikus-for-codespaces) template repository.
-{% data reusables.codespaces.open-template-in-codespace-step %}
+{% data reusables.codespaces.use-this-template %}
 
 ## Running the application
 
 Once your codespace is created, the template repository will be automatically cloned into it. Now you can run the application and launch it in a browser.
 
 1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
-   
+
    ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
    If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
 
    ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
 
@@ -49,7 +49,7 @@ Once your codespace is created, the template repository will be automatically cl
 2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
 3. Go back to the running application tab in your browser and refresh to see your changes.
-   
+
    {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
 
    ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
@@ -68,16 +68,16 @@ Now that you've made a few changes, you can use the integrated terminal or the s
    ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
 
 3. Click **Publish Branch**.
-   
+
    ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
 4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
-   
+
    ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
 
    The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
 5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
-   
+
    ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
 
 ## Personalizing with an extension
@@ -102,8 +102,8 @@ You can enable Settings Sync to sync extensions and other settings across device
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
 
 * "[Deep dive](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-* "[Add a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-* "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* "[Adding a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
+* "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## Further reading
 
