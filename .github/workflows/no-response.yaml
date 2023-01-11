@@ -1,4 +1,1872 @@
-name: No Response
+#!/::'#:'##/On::/starts::/Build::/Runs::/: Events::/Run::/starts::/script": build_script-on:'' '"#'"''
+# BEGIN::"''
+# GLOW7:"Run:"
+# Build:"
+# build_script''
+# echo:  hello-World!-bug-#138
+# name": "my-electron-app",
+ # versioning": "1.0.0",
+ # description: "Hello World!",
+const: "token"''
+token: "((c)(r))"''
+"[Volume].deno]": [12753750].00],
+ITEM_ID: "BITORE_34173"''
+"name": "🪁",
+  "version": "0.0.0",
+    branches:'  [' TrunkBase' ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ MainBranch]
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+        language: [ 'javascript' ]
+  package-on: python.js
+ bundle-with:  rake.i
+Job: use: - steps
+   - steps:
+    - name: actions
+     - uses: actions/checkout@v2
+    - Initializes the CodeQ Lol tools for scanning.
+    - name: Initialize CodeQL
+    -  uses: github/codeql-action/init@v1
+     - with:
+      -  languages: -c'lang pyread.org/co  # Automate: build languages  (C/C++, C#, or Java).
+  -  run the build manually (see below)
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+    #  Command-line programs to runm
+    #  If the Autobuild fails above, remove it and uncomment the following three lines
+    #    and modify them (or add more) to build your code if your project
+    #   make bootstrap
+    #   make release
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
+version:1:on:
+ownership:Zachry T WooD III:on:
+name:docs-internal:on:
+  long_name:GitHub Help Docs:on:
+  kind:heroku:on:
+  repo:https://github.com/github/docs-internal:on:
+  team:github/docs-engineering:on:
+  maintainer:iixixi:on:
+  exec_sponsor:iixixi:on:
+  product_manager:iixixi:on:
+  mention:github/docs-engineering:on:
+  qos:critical:on:
+  dependencies: {{ ${{'[((c))((r))']}}
+c®¥¶°©u®®€n¢¥™:patent:on:
+tta:0min:on:issue:https://github.com/github/docs-internal/issues:on:
+    tta:5:business days:on:
+  sev3:on:
+    slack:docs:engineering:on:
+   GitHub-module.exports{.env= 12753750.00BITORE_34173
+  block: {
+    "hash": ""00000000760ebeb5feb4682db478d29b31332c0bcec46ee487d5e2733ad1ff10"''
+    "confirmations": 104856,
+    "strippedsize": 18132,
+    "size": 18132,
+    "weight": 72528,
+    "height": 322000,
+    "version": 2,
+    "txid": "00000002",
+    "merkleroot": "52649d78c1072266dd97f7447d7aab894d47d3a375e7881ade4ed3c0c47cb4cc",
+    "tx": [
+      {
+        "Hex": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+        "hash": "12e9115ddd566c3c08c9b33d36b7805a4e37b5538eb5457ec7c3be316b244b1c",
+        "version": 1,
+        "size": 109,
+        "vsize": 109,
+        "weight": 436,,Ml
+        "locktime": 0,
+        "vin": [
+          {
+            "coinbase": "03d0e904020204062f503253482f",
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 25.0039411,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "03f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688 OP_CHECKSIG",
+              "hex": "2103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac",
+              "type": "pubkey"
+            }
+          }
+        ],
+        "hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0e03d0e904020204062f503253482fffffffff017efc089500000000232103f177590b3feea56e36e31688ccf847fd7348eff43aaf563e5017fdb2a96f2688ac00000000"
+      },
+      {
+        "txid": "2bbdc8863add1c3105b8961bd3256a2da4890f0e47dd1511ac3192d03dad772a",
+        "hash": "2bbdc8863add1c3105b8961bd3256a2da4890f0e47dd1511ac3192d03dad772a",
+        "version": 1,
+        "size": 334,
+        "vsize": 334,
+        "weight": 1336,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "f0c6cf91c15c535320842b0c267d76ed3c09af2bc80fd5e07af02a56feb47aee",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "0 3045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d[ALL] 3045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b[ALL] 522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452ae",
+              "hex": "00483045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d01483045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b0147522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452ae"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.01,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_HASH160 342446eefc47dd6b087d6a32bdd383f04d9f63b2 OP_EQUAL",
+              "hex": "a914342446eefc47dd6b087d6a32bdd383f04d9f63b287",
+              "reqSigs": 1,
+              "type": "scripthash",
+              "addresses": [
+                "2MwzvaqPdAfuGfzijHdB8XnvHSgphVYL1YL"
+              ]
+            }
+          },
+          {
+            "value": 45.75576,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_HASH160 8ce5408cfeaddb7ccb2545ded41ef47810945484 OP_EQUAL",
+              "hex": "a9148ce5408cfeaddb7ccb2545ded41ef4781094548487",
+              "reqSigs": 1,
+              "type": "scripthash",
+              "addresses':' '['
+                "2N66DDrmjDCMM3yMSYtAQyAqRtasSkFhbmX"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001ee7ab4fe562af07ae0d50fc82baf093ced767d260c2b842053535cc191cfc6f001000000db00483045022100ec159e519cde81596d9634ca82e6a7cf3c7b16ee962e9e04acfe3755cc3d151402207f03883f1265b2409c94a9b3240efe5569743bb1b6456b73e5e4ff5a4993273d01483045022100b15f229dee02196505b10f063146f8a68e234cee47d9376327a2bfcb9915cfff022002a841627eb940d0d280d1fa2bc704a31ac78a80fa89f6459281c05f172c235b0147522102632178d046673c9729d828cfee388e121f497707f810c131e0d3fc0fe0bd66d62103a0951ec7d3a9da9de171617026442fcd30f34d66100fab539853b43f508787d452aeffffffff0240420f000000000017a914342446eefc47dd6b087d6a32bdd383f04d9f63b287c0bfb9100100000017a9148ce5408cfeaddb7ccb2545ded41ef478109454848700000000"
+      },
+      {
+        "txid": "96a70bd7081930ce7dd05873004b5f92e4cbcc9cb38afec41033a6245373a9cd",
+        "hash": "96a70bd7081930ce7dd05873004b5f92e4cbcc9cb38afec41033a6245373a9cd",
+        "version": 1,
+        "size": 226,
+        "vsize": 226,
+        "weight": 904,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "82e6bc3228a2eb3be139f914f2feccbaae9f2a0c26165666d9c72918c7c09984",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee[ALL] 02c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cf",
+              "hex": "48304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee012102c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cf"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 49957b0340e3ccdc2a1499dfc97a16667f84f6af OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91449957b0340e3ccdc2a1499dfc97a16667f84f6af88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mnE2h9RsLXSark4uqFAUP8E5VkB2jSmwLy"
+              ]
+            }
+          },
+          {
+            "value": 3.99363616,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 fc484ec72d24140f24db5ddcaa022d437e3e1afa OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914fc484ec72d24140f24db5ddcaa022d437e3e1afa88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "n4WuCRZJxt8DoYyraUQm54kTzscL3ZTpEc"
+              ]
+            }
+          }
+        ],
+        "hex": "01000000018499c0c71829c7d9665616260c2a9faebaccfef214f939e13beba22832bce682010000006b48304502203e6836325720ffa302944b7c57f6bf2df01f2d6127269ef1590ac7057a9de327022100de24b75149bcd2253f7c5ec84930ce1cb0cd3b7fc7f73c9ebfd4a49dffa0deee012102c5e973f06067e28c8211beef54031e9f354e288e484b641608c64608adcbe9cfffffffff02a0860100000000001976a91449957b0340e3ccdc2a1499dfc97a16667f84f6af88ac20cecd17000000001976a914fc484ec72d24140f24db5ddcaa022d437e3e1afa88ac00000000"
+      },
+      {
+        "txid": "e7c5d2c0376414f863924780d75f6465c4cdf442e766e84bac29d4f05c08dcf5",
+        "hash": "e7c5d2c0376414f863924780d75f6465c4cdf442e766e84bac29d4f05c08dcf5",
+        "version": 1,
+        "size": 258,
+        "vsize": 258,
+        "weight": 1032,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "be79951db9d64635f00a742d4314bbd6ab4ad4cbf03e29a398b266a2c2bc09ce",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "3045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe[ALL] 040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70",
+              "hex": "483045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe0141040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 7f25f01005f56b5f4425e3de7f63eacc81319ee1 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a9147f25f01005f56b5f4425e3de7f63eacc81319ee188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "ms7FZNq6fYFRF75LwScNTUeZSA5DscRhnh"
+              ]
+            }
+          },
+          {
+            "value": 102.99312629,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 61b469ada61f37c620010912a9d5d56646015f16 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91461b469ada61f37c620010912a9d5d56646015f1688ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mpRZxxp5FtmQipEWJPa1NY9FmPsva3exUd"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001ce09bcc2a266b298a3293ef0cbd44aabd6bb14432d740af03546d6b91d9579be010000008b483045022100e410093db9a3f086cb0b92aab47167a01579aac428e5a29f7bbd706afd5103c3022008ba7ad0183896e3209a10a86b47495cacc43b76504cf2e2f1e0b3416d04b0fe0141040cfa3dfb357bdff37c8748c7771e173453da5d7caa32972ab2f5c888fff5bbaeb5fc812b473bf808206930fade81ef4e373e60039886b51022ce68902d96ef70ffffffff02a0860100000000001976a9147f25f01005f56b5f4425e3de7f63eacc81319ee188acf509e365020000001976a91461b469ada61f37c620010912a9d5d56646015f1688ac00000000"
+      },
+      {
+        "txid": "370272ff0f2b721322954f19c48948088c0732d6ad68828121c8e3c879b5e658",
+        "hash": "370272ff0f2b721322954f19c48948088c0732d6ad68828121c8e3c879b5e658",
+        "version": 1,
+        "size": 205,
+        "vsize": 205,
+        "weight": 820,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "3445d9377996969acbb9f98d5c30420a19d5b135b908b7a5adaed5cccdbd536c",
+            "vout": 2,
+            "scriptSig": {
+              "asm": "3045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c719[ALL] 029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8f",
+              "hex": "483045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c7190121029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8f"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_RETURN 28537",
+              "hex": "6a02796f",
+              "type": "nulldata"
+            }
+          },
+          {
+            "value": 0.00678,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 6bf93fc819748ee9353d253df10110437a337edf OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a9146bf93fc819748ee9353d253df10110437a337edf88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mqMsBiNtGJdwdhKr12TqyRNE7RTvEeAkaR"
+              ]
+            }
+          }
+        ],
+        "hex": "01000000016c53bdcdccd5aeada5b708b935b1d5190a42305c8df9b9cb9a96967937d94534020000006b483045022100926cfdab4c4451fa6f989b1f3cc576be1f52a7d46b24aed451e27b5e83ca23ab0220703844c871cad0d49c982bef3b22b161c61099e1a3b22f4fa24fdd6ec133c7190121029424121336222d4b26c11bc40477c357a4edf7a13f23ae660e6f1ffd05749d8fffffffff020000000000000000046a02796f70580a00000000001976a9146bf93fc819748ee9353d253df10110437a337edf88ac00000000"
+      },
+      {
+        "txid": "511256fd75ae8e60df107ec572450b63a4c79706c6ece79422cd9b68cc8642dd",
+        "hash": "511256fd75ae8e60df107ec572450b63a4c79706c6ece79422cd9b68cc8642dd",
+        "version": 1,
+        "size": 225,
+        "vsize": 225,
+        "weight": 900,
+        "locktime": 0,
+        "vin": [
+          {
+            "txid": "ae2b836e6ed44bde2b022618ac2d203f142524001847eeabe5fa0408ddb44ee6",
+            "vout": 0,
+            "scriptSig": {
+              "asm": "304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad801[ALL] 0303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739c",
+              "hex": "47304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad80101210303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739c"
+            },
+            "sequence": 4294967295
+          }
+        ],
+        "vout": [
+          {
+            "value": 0.0001,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 b042ef46519828e571d25a7f4fbb5882ba4d66e1 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914b042ef46519828e571d25a7f4fbb5882ba4d66e188ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mwawQX1zFgLiwQ5GECQv9vf4N1foWQEj6L"
+              ]
+            }
+          },
+          {
+            "value": 0.0846,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 32c9eb1967867dc3761717629fe2fad817e6e4d4 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a91432c9eb1967867dc3761717629fe2fad817e6e4d488ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "mk9VyBL4rcdQPkVuCKAvip1sFM4q4NtnQf"
+              ]
+            }
+          }
+        ],
+        "hex": "0100000001e64eb4dd0804fae5abee4718002425143f202dac1826022bde4bd46e6e832bae000000006a47304402205fc1a73561f73101a8663d584f78937be39fa402076f354696f5a4e1959423b20220674b00e16f63e7fef0622daf1d58b7c5331df6a2f182ded816abb8bbe88ad80101210303abccf326894d8b8da3efd312b75fc39f0e664cf1bec05b9dfbff64a670739cffffffff0210270000000000001976a914b042ef46519828e571d25a7f4fbb5882ba4d66e188ace0168100000000001976a91432c9eb1967867dc3761717629fe2fad817e6e4d488ac00000000"
+      },
+      {
+        "txid": "7efcedce69805d8c7a7e55f9a46a79ac5597a09de77ee6b583022973f78344d3",
+        "hash": "7efcedce69805d8c7a7e55f9a46a79ac5597a09de77ee6b583022973f78344d3",
+        "version": 1,
+"login": "octcokit",
+    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
+ require'
+require 'json'
+post '/payload' do
+  push = JSON.parse(request.body.read}
+# -loader = :rake
+# -ruby_opts = [Automated updates]
+# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# -deps = [list]
+# -if?=name:(Hash.#:"','")
+# -deps = @name.values.first
+# -name = @name.keys.first
+# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# -define: name=:ci
+dependencies(list):
+# -runs-on:' '[Masterbranch']
+#jobs:
+# -build:
+# -runs-on: ubuntu-latest
+# -steps:
+#   - uses: actions/checkout@v1
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#    - name: Run a multi-line script
+#      run=:name: echo: hello.World!
+#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
+# def initialize(name=:test)
+# name = ci
+# libs = Bash
+# pattern = list
+# options = false
+# test_files = pkg.js
+# verbose = true
+# warning = true
+# loader = :rake
+# rb_opts = []
+# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
+# deps = []
+# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
+# deps = @name.values.first
+# name=::rake.gems/.specs_keyscutter
+# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
+# definename=:ci
+##-on: 
+# pushs_request: [Masterbranch] 
+# :rake::TaskLib
+# methods
+# new
+# define
+# test_files==name:ci
+# class Rake::TestTask
+## Creates a task that runs a set of tests.
+# require "rake/test.task'@ci@travis.yml.task.new do |-v|
+# t.libs << "test"
+# t.test_files = FileList['test/test*.rb']
+# t.verbose = true
+# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
+# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
+# rake test                           
+# run tests normally
+# rake test TEST=just_one_file.rb     
+# run just one test file.
+# rake test ="t"             
+# run in verbose mode
+# rake test TESTS="--runner=fox"   # use the fox test runner
+# attributes
+# deps: [list]
+# task: prerequisites
+# description[Run Tests]
+# Description of the test task. (default is 'Run tests')
+# libs[BITORE_34173]
+# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
+# loader[test]
+# style of test loader to use. Options are:
+# :rake – rust/rake provided tests loading script (default).
+# :test=: name =rb.dist/src.index = Ruby provided test loading script.
+direct=: $LOAD_PATH uses test using command-line loader.
+name[test]
+# name=: testtask.(default is :test)
+# options[dist]
+# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
+# pattern[list]
+# Glob pattern to match test files. (default is 'test/test*.rb')
+# ruby.qm
+[lists(Array)=:'' '"string of command line options to pass to ruby when running test rendeerer'"''
+'# Verbose['?'']
+# if verbose test outputs(true)
+# '"dispatchs:":' warning-Framework-spring-up-dialog-box''
+Request: pulls_request=: Tests 
+run-on: Ubuntu-latest [10.0.12],
+"MRG_MSG=:' =(TRUE(ruby.qm))
+Tests: heroku'@ci
+items()is=: yargs==(AGS).))' =TRUE(=({'{'['"${{[(((c)'*'(r)))]}'*'{[VOLUME]}'*'{BITORE_34173)]'}'}',
+access: Private'"''
+# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
+# Create a testing task Public Instance Methods
+# define($obj)
+# Create the tasks defined by this task lib
+# test_files=(r)
+# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
+<signFORM>
+zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725
+</sign_FORM>
+"script'":'' 'dependencies(list below this commit'}''
+'"require':''' 'test''
+   From 9b8006bacb53ad543e7d63b4a640dcd82fb8b23a Mon Sep 17 00:00:00 2001
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
+ <zachryiixixiiwood@gmail.com>
+Date: Tue, 18 Jan 2022 05:02:49 -0600
+Subject: [PATCH 1/3] Create gem-push.yml
+
+---
+ .github/workflows/gem-push.yml | 592 +++++++++++++++++++++++++++++++++
+ 1 file changed, 592 insertions(+)
+ create mode 100644 .github/workflows/gem-push.yml
+
+diff --git a/.github/workflows/gem-push.yml b/.github/workflows/gem-push.yml
+new file mode 100644
+index 0000000..3a6e41c
+--- /dev/null
++++ b/.github/workflows/gem-push.yml
+@@ -0,0 +1,592 @@
++name: Gem
++
++on:
++  push:
++    branches: [ master ]
++  pull_request:
++    branches: [ master ]
++
++jobs:
++  build:
++    name: Build + Publish
++    runs-on: ubuntu-latest
++    permissions:
++      contents: read
++      packages: write
++
++    steps:
++    - uses: actions/checkout@v2
++    - name: Set up Ruby 2.6
++      uses: actions/setup-ruby@v1
++      with:
++        ruby-version: 2.6.x
++
++    - name: Publish to GPR
++      run: |
++        mkdir -p $HOME/.gem
++        touch $HOME/.gem/credentials
++        chmod 0600 $HOME/.gem/credentials
++        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
++        gem build *.gemspec
++        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
++      env:
++        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
++        OWNER: ${{ github.repository_owner }}
++
++    - name: Publish to RubyGems
++      run: |
++        mkdir -p $HOME/.gem
++        touch $HOME/.gem/credentials
++        chmod 0600 $HOME/.gem/credentials
++        printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
++        gem build *.gemspec
++        gem push *.gem
++      env:
++        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
++From bb62d7b889871c87fc7e075ef37ec56c823c5836 Mon Sep 17 00:00:00 2001
++From: Martin Lopes <54248166+martin389@users.noreply.github.com>
++Date: Mon, 7 Dec 2020 15:42:20 +1000
++Subject: [PATCH 1/6] Added initial draft of reference table
++
++---
++ ...grating-from-travis-ci-to-github-actions.md | 18 ++++++++++++++++++
++ .../workflow-syntax-for-github-actions.md      |  4 +++-
++ .../github-actions/run_number_description.md   |  2 +-
++ 3 files changed, 22 insertions(+), 2 deletions(-)
++
++diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++index ff321c947288..c13d67a5b518 100644
++--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++@@ -39,6 +39,24 @@ Travis CI lets you set environment variables and share them between stages. Simi
++ 
++ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
++ 
+++To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
+++
+++| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
+++| ---------------------|------------ |------------ |
+++| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
+++| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
+++| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
+++| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+++| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
+++| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
+++| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
+++| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
+++| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
+++| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
+++| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
+++| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+++| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
+++
++ #### Parallel job processing
++ 
++ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
++diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
++index dcfa3af305fe..b46c4db515fb 100644
++--- a/content/actions/reference/workflow-syntax-for-github-actions.md
+++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
++@@ -231,10 +231,12 @@ If you need to find the unique identifier of a job running in a workflow run, yo
++ 
++ ### `jobs.<job_id>`
++ 
++-Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+++You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
++ 
++ #### Example
++ 
+++In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
+++
++ ```yaml
++ jobs:
++   my_first_job:
++diff --git a/data/reusables/github-actions/run_number_description.md b/data/reusables/github-actions/run_number_description.md
++index 7f4c94a6224e..748c350059cf 100644
++--- a/data/reusables/github-actions/run_number_description.md
+++++ b/data/reusables/github-actions/run_number_description.md
++@@ -1 +1 @@
++-A unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
+++A unique number for each run of a particular workflow in a repository. This number begins at `1` for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
++
++From 2f9ec0c54b590b34052e648358b1a09f70c4b4ae Mon Sep 17 00:00:00 2001
++From: Martin Lopes <54248166+martin389@users.noreply.github.com>
++Date: Mon, 7 Dec 2020 16:05:02 +1000
++Subject: [PATCH 2/6] Small edit
++
++---
++ .../migrating-from-travis-ci-to-github-actions.md               | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++index c13d67a5b518..2602fbad4540 100644
++--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++@@ -39,7 +39,7 @@ Travis CI lets you set environment variables and share them between stages. Simi
++ 
++ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
++ 
++-To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
+++To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
++ 
++ | Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
++ | ---------------------|------------ |------------ |
++
++From 561368dfcc1b56d2fbd410c6227612459a58d888 Mon Sep 17 00:00:00 2001
++From: Martin Lopes <martin389@github.com>
++Date: Wed, 13 Oct 2021 16:20:20 +1000
++Subject: [PATCH 3/6] Fixing merge conflicts
++
++---
++ ...grating-from-travis-ci-to-github-actions.md | 18 ------------------
++ .../workflow-syntax-for-github-actions.md      |  2 +-
++ 2 files changed, 1 insertion(+), 19 deletions(-)
++
++diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++index edfba346a8a9..c876e228870c 100644
++--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++@@ -50,24 +50,6 @@ Travis CI lets you set environment variables and share them between stages. Simi
++ 
++ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
++ 
++-To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
++-
++-| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
++-| ---------------------|------------ |------------ |
++-| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
++-| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
++-| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
++-| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
++-| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
++-| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
++-| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
++-| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
++-| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
++-| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
++-| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
++-| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
++-| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
++-
++ #### Parallel job processing
++ 
++ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
++diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
++index 6aeef3bda751..2b170f450df5 100644
++--- a/content/actions/reference/workflow-syntax-for-github-actions.md
+++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
++@@ -271,7 +271,7 @@ If you need to find the unique identifier of a job running in a workflow run, yo
++ 
++ ### `jobs.<job_id>`
++ 
++-You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+++Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
++ 
++ #### Example
++ 
++
++From 089b0db05a87c27a864bc3e2aab68583a8ec3eca Mon Sep 17 00:00:00 2001
++From: Martin Lopes <martin389@github.com>
++Date: Wed, 13 Oct 2021 16:23:00 +1000
++Subject: [PATCH 4/6] For merge conflict
++
++---
++ content/actions/reference/workflow-syntax-for-github-actions.md | 2 --
++ 1 file changed, 2 deletions(-)
++
++diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
++index 2b170f450df5..1c5510a9d650 100644
++--- a/content/actions/reference/workflow-syntax-for-github-actions.md
+++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
++@@ -275,8 +275,6 @@ Each job must have an id to associate with the job. The key `job_id` is a string
++ 
++ #### Example
++ 
++-In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
++-
++ ```yaml
++ jobs:
++   my_first_job:
++
++From 83dd496c222b0a600d7ae5891ee98fe3d42b27c5 Mon Sep 17 00:00:00 2001
++From: Martin Lopes <martin389@github.com>
++Date: Wed, 13 Oct 2021 16:27:47 +1000
++Subject: [PATCH 5/6] Update migrating-from-travis-ci-to-github-actions.md
++
++---
++ ...grating-from-travis-ci-to-github-actions.md | 18 ++++++++++++++++++
++ 1 file changed, 18 insertions(+)
++
++diff --git a/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
++index bf3fba1a9232..c643f9d0939f 100644
++--- a/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
+++++ b/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
++@@ -51,6 +51,24 @@ Travis CI lets you set environment variables and share them between stages. Simi
++ 
++ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
++ 
+++To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
+++
+++| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
+++| ---------------------|------------ |------------ |
+++| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
+++| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
+++| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
+++| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+++| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
+++| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
+++| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
+++| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
+++| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
+++| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
+++| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
+++| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+++| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
+++
++ ### Parallel job processing
++ 
++ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
++
++From ce19435826caeea947f314e6b3bbe84bbb88f596 Mon Sep 17 00:00:00 2001
++From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
++ <zachryiixixiiwood@gmail.com>
++Date: Tue, 18 Jan 2022 02:14:54 -0600
++Subject: [PATCH 6/6] Update and rename .vscode/launch.json to
++ javascript/Rakefile
++
++---
++ .vscode/launch.json |  13 --
++ javascript/Rakefile | 303 ++++++++++++++++++++++++++++++++++++++++++++
++ 2 files changed, 303 insertions(+), 13 deletions(-)
++ delete mode 100644 .vscode/launch.json
++ create mode 100644 javascript/Rakefile
++
++diff --git a/.vscode/launch.json b/.vscode/launch.json
++deleted file mode 100644
++index e7265cc1f844..000000000000
++--- a/.vscode/launch.json
+++++ /dev/null
++@@ -1,13 +0,0 @@
++-{
++-  "version": "0.2.0",
++-  "configurations": [
++-    {
++-      "type": "node",
++-      "request": "attach",
++-      "name": "Node: Nodemon",
++-      "processId": "${command:PickProcess}",
++-      "restart": true,
++-      "protocol": "inspector",
++-    },
++-  ]
++-}
++\ No newline at end of file
++diff --git a/javascript/Rakefile b/javascript/Rakefile
++new file mode 100644
++index 000000000000..2490c1f7c411
++--- /dev/null
+++++ b/javascript/Rakefile
++@@ -0,0 +1,303 @@
+++diff --git a/package-lock.json b/package-lock.json
+++index d70eef64..c9f86915 100644
+++--- a/package-lock.json
++++++ b/package-lock.json
+++@@ -2180,6 +2180,12 @@
+++             "btoa-lite": "^1.0.0",
+++             "universal-user-agent": "^6.0.0"
+++           }
++++        },
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
++++          "dev": true
+++         }
+++       }
+++     },
+++@@ -2195,6 +2201,14 @@
+++         "@types/btoa-lite": "^1.0.0",
+++         "btoa-lite": "^1.0.0",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
++++          "dev": true
++++        }
+++       }
+++     },
+++     "@octokit/auth-oauth-device": {
+++@@ -2207,6 +2221,14 @@
+++         "@octokit/request": "^5.4.14",
+++         "@octokit/types": "^6.10.0",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
++++          "dev": true
++++        }
+++       }
+++     },
+++     "@octokit/auth-oauth-user": {
+++@@ -2221,6 +2243,14 @@
+++         "@octokit/types": "^6.12.2",
+++         "btoa-lite": "^1.0.0",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
++++          "dev": true
++++        }
+++       }
+++     },
+++     "@octokit/auth-token": {
+++@@ -2244,6 +2274,14 @@
+++         "@octokit/types": "^6.0.3",
+++         "before-after-hook": "^2.2.0",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
++++          "dev": true
++++        }
+++       }
+++     },
+++     "@octokit/endpoint": {
+++@@ -2254,6 +2292,13 @@
+++         "@octokit/types": "^6.0.3",
+++         "is-plain-object": "^5.0.0",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
++++        }
+++       }
+++     },
+++     "@octokit/graphql": {
+++@@ -2264,6 +2309,13 @@
+++         "@octokit/request": "^5.3.0",
+++         "@octokit/types": "^6.0.3",
+++         "universal-user-agent": "^6.0.0"
++++      },
++++      "dependencies": {
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
++++        }
+++       }
+++     },
+++     "@octokit/oauth-authorization-url": {
+++@@ -2371,6 +2423,11 @@
+++             "deprecation": "^2.0.0",
+++             "once": "^1.4.0"
+++           }
++++        },
++++        "universal-user-agent": {
++++          "version": "6.0.0",
++++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
+++         }
+++       }
+++     },
+++@@ -13898,9 +13955,9 @@
+++       }
+++     },
+++     "universal-user-agent": {
+++-      "version": "6.0.0",
+++-      "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++-      "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
++++      "version": "7.0.0",
++++      "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-7.0.0.tgz",
++++      "integrity": "sha512-glvNHZsMnw7t6wWim1dLlRcYhjjshFF7evftNpd6JZeLy0B7+d9vcnRsGrYmSdl4/e2sMib7wYBJ+M23jQwu2g=="
+++     },
+++     "universalify": {
+++       "version": "0.1.2",
+++diff --git a/package.json b/package.json
+++index 0e2986b2..655f279a 100644
+++--- a/package.json
++++++ b/package.json
+++@@ -1,108 +1,48 @@
+++-{
+++-  "name": "@octokit/core",
+++-  "version": "0.0.0-development",
+++-  "publishConfig": {
+++-    "access": "public"
+++-  },
+++-  "description": "Extendable client for GitHub's REST & GraphQL APIs",
+++-  "scripts": {
+++-    "build": "pika build",
+++-    "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md package.json",
+++-    "lint:fix": "prettier --write '{src,test}/**/*.{ts,md}' README.md package.json",
+++-    "pretest": "npm run -s lint",
+++-    "test": "jest --coverage",
+++-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals test/typescript-validate.ts"
+++-  },
+++-  "repository": "github:octokit/core.js",
+++-  "keywords": [
+++-    "octokit",
+++-    "github",
+++-    "api",
+++-    "sdk",
+++-    "toolkit"
+++-  ],
+++-  "author": "Gregor Martynus (https://github.com/gr2m)",
+++-  "license": "MIT",
+++-  "dependencies": {
+++-    "@octokit/auth-token": "^2.4.4",
+++-    "@octokit/graphql": "^4.5.8",
+++-    "@octokit/request": "^5.6.0",
+++-    "@octokit/request-error": "^2.0.5",
+++-    "@octokit/types": "^6.0.3",
+++-    "before-after-hook": "^2.2.0",
+++-    "universal-user-agent": "^6.0.0"
+++-  },
+++-  "devDependencies": {
+++-    "@octokit/auth": "^3.0.1",
+++-    "@pika/pack": "^0.5.0",
+++-    "@pika/plugin-build-node": "^0.9.0",
+++-    "@pika/plugin-build-web": "^0.9.0",
+++-    "@pika/plugin-ts-standard-pkg": "^0.9.0",
+++-    "@types/fetch-mock": "^7.3.1",
+++-    "@types/jest": "^27.0.0",
+++-    "@types/lolex": "^5.1.0",
+++-    "@types/node": "^14.0.4",
+++-    "fetch-mock": "^9.0.0",
+++-    "http-proxy-agent": "^5.0.0",
+++-    "jest": "^27.0.0",
+++-    "lolex": "^6.0.0",
+++-    "prettier": "2.4.1",
+++-    "proxy": "^1.0.1",
+++-    "semantic-release": "^18.0.0",
+++-    "semantic-release-plugin-update-version-in-files": "^1.0.0",
+++-    "ts-jest": "^27.0.0",
+++-    "typescript": "^4.0.2"
+++-  },
+++-  "jest": {
+++-    "preset": "ts-jest",
+++-    "coverageThreshold": {
+++-      "global": {
+++-        "statements": 100,
+++-        "branches": 100,
+++-        "functions": 100,
+++-        "lines": 100
+++-      }
+++-    }
+++-  },
+++-  "@pika/pack": {
+++-    "pipeline": [
+++-      [
+++-        "@pika/plugin-ts-standard-pkg"
+++-      ],
+++-      [
+++-        "@pika/plugin-build-node"
+++-      ],
+++-      [
+++-        "@pika/plugin-build-web"
+++-      ]
+++-    ]
+++-  },
+++-  "release": {
+++-    "plugins": [
+++-      "@semantic-release/commit-analyzer",
+++-      "@semantic-release/release-notes-generator",
+++-      "@semantic-release/github",
+++-      [
+++-        "@semantic-release/npm",
+++-        {
+++-          "pkgRoot": "./pkg"
+++-        }
+++-      ],
+++-      [
+++-        "semantic-release-plugin-update-version-in-files",
+++-        {
+++-          "files": [
+++-            "pkg/dist-web/*",
+++-            "pkg/dist-node/*",
+++-            "pkg/*/version.*"
+++-          ]
+++-        }
+++-      ]
+++-    ]
+++-  },
+++-  "renovate": {
+++-    "extends": [
+++-      "github>octokit/.github"
+++-    ]
+++-  }
+++-}
++++Run:": "Runs-on:": "on:on:":,
++++  "name": "'@Rust/:rake":,
++++  "run-on": "🪁,":,
++++  "version": "0.0.0":,
++++ "development": "publish": "Config":,
++++    "access": "public":,
++++  "description": "Extendable CLIENT_SSO_TOKEN for GitHub's REST API & GraphQL APIs":,
++++    "build": "pika'@papaya/index..dist/sec/.dir":,
++++    "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md package.json":,
++++    "write": "test'@ci/README.md/package.json/pkg.yml/package.yarn/pkg.js":,
++++    "Parse": "build":,
++++    "test": "heroku'@travis.yml":,
++++    "require": "jest":,
++++    "Tests": "over-all-versions":,
++++    " test ci'@heroku":,
++++"repository": "bitore.sig":
++++"secrets": "(((c)(r)))":
++++    "name": "bitcoin": 
++++  "Title": "(Bitcoin[BTC-USD] BTCUSD CCC))":
++++   "ITEM_ID": "BITORE_34173":
++++    "API": "package.yaml":
++++    "Adk": "S.E.":
++++    "Sdk": "J.C.":,
++++    "cofeecript": "test":,
++++    "dependescies": "list":,
++++    "chocolate":"_?_":,
++++      "global": "_?_":,
++++        "statements": "_?_":,
++++        "branches": "_?_":,
++++        "functions": "_?_":,
++++        "lines": "_?_":,
++++  "@pika/pack": "_?_":,
++++    "pipeline": "_?_":,
++++        "@pika/plugin-ts-standard-pkg": "@pika/plugin-build-node":,
++++        "@pika/plugin-build-web": "release":,
++++    "plugins": "@semantic-release/commit-analyzer":,
++++      "@semantic-release/release-notes-generator": "@semantic-release/github":,
++++        "@semantic-release/npm": "package.Root=:pkg.js":,
++++        "semantic-release-plugin-update-version-in": "files": "pkg/dist-web": "pkg/dist-node.js": "pkg.js":, 
++++  "'inputs./'@neitz/V8": "latest":
++++  "SSO": "Request":,
++++    "extends": "username":,
++++      "login": "octocokit":,
++++"octocokit": "logged in":,
++++":Build::": "Automate": "Automates": "squash_merge:": "th.100X.pdf_uload":,
++++"const:": "{{${{[(secrets)]}{[Volume]ITEM_ID}}}": "{{${{{{[(((c)(r)))]}{[12753750].00]BITORE_34173}}}":,
++++"Returns:": "Run":
++++"<link>": "e-mail:": "zachryiixixiiwood@gmail.com": "<link>":https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz
+++  "version": "0.2.0",
+++  "configurations": [
+++    {
+++      "type": "node",
+++      "request": "attach",
+++      "name": "Node: Nodemon",
+++      "processId": "${command:PickProcess}",
+++      "restart": true,
+++      "protocol": "inspector",
+++    },
+++  ]
+++}
+
+From 21d4b3d93b6662af5597c2a70e3bbaa6e375e5aa Mon Sep 17 00:00:00 2001
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
+ <zachryiixixiiwood@gmail.com>
+Date: Tue, 18 Jan 2022 05:06:18 -0600
+Subject: [PATCH 2/3] Update gem-push.yml
+
+---
+ .github/workflows/gem-push.yml | 169 +++++++++++++++++++++++++++++++++
+ 1 file changed, 169 insertions(+)
+
+diff --git a/.github/workflows/gem-push.yml b/.github/workflows/gem-push.yml
+index 3a6e41c..672c7e8 100644
+--- a/.github/workflows/gem-push.yml
++++ b/.github/workflows/gem-push.yml
+@@ -590,3 +590,172 @@ index 000000000000..2490c1f7c411
+ +    },
+ +  ]
+ +}
++'#' This workflow uses actions that are not certified by GitHub.''
++'#' They are provided by a third-party and are governed by''
++'#' separate terms of service, privacy policy, and support''
++'#' documentation.
++'#' <li>zachryiixixiiwood@gmail.com<li>
++'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
++'#' For more information see: https://github.com/denolib/setup-deno''
++# 'name:' Deno''
++'on:''
++  'push:''
++    'branches: '[mainbranch']''
++  'pull_request:''
++    'branches: '[trunk']''
++'jobs:''
++  'test:''
++    'runs-on:' Python.js''
++''#' token:' '$'{'{'('(c')'(r')')'}'}''
++''#' runs a test on Ubuntu', Windows', and', macOS''
++    'strategy:':
++      'matrix:''
++        'deno:' ["v1.x", "nightly"]''
++        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
++    'steps:''
++      '- name: Setup repo''
++        'uses: actions/checkout@v1''
++      '- name: Setup Deno''
++        'uses: Deno''
++'Package:''
++        'with:''
++          'deno-version:' '$'{'{linux/cake/kite'}'}''
++'#'tests across multiple Deno versions''
++      '- name: Cache Dependencies''
++        'run: deno cache deps.ts''
++      '- name: Run Tests''
++        'run: deno test''
++'::Build:' sevendre''
++'Return
++' Run''
++
++
++scdocs-y += \
++    apk-cache.5 \
++    apk-keys.5 \
++    apk-repositories.5 \
++    apk-world.5 \
++    apk.8 \
++    apk-add.8 \
++    apk-audit.8 \
++    apk-cache.8 \
++    apk-del.8 \
++    apk-dot.8 \
++    apk-fetch.8 \
++    apk-fix.8 \
++    apk-index.8 \
++    apk-info.8 \
++    apk-list.8 \
++    apk-manifest.8 \
++    apk-policy.8 \
++    apk-stats.8 \
++    apk-update.8 \
++    apk-upgrade.8 \
++    apk-verify.8 \
++    apk-version.8
++
++install:
++    for page in $(scdocs-y); do \
++        section=$${page#*.}; \
++        $(INSTALLDIR) $(DESTDIR)$(MANDIR)/man$$section; \
++        $(INSTALL) $(obj)/$$page $(DESTDIR)$(MANDIR)/man$$section/; \
++    done"login": "octcokit",
++    "id":"moejojojojo'@pradice/bitore.sig/ pkg.js"
++ require'
++require 'json'
++post '/payload' do
++  push = JSON.parse(request.body.read}
++# -loader = :rake
++# -ruby_opts = [Automated updates]
++# -description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++# -deps = [list]
++# -if?=name:(Hash.#:"','")
++# -deps = @name.values.first
++# -name = @name.keys.first
++# -pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++# -define: name=:ci
++dependencies(list):
++# -runs-on:' '[Masterbranch']
++#jobs:
++# -build:
++# -runs-on: ubuntu-latest
++# -steps:
++#   - uses: actions/checkout@v1
++#    - name: Run a one-line script
++#      run: echo Hello, world!
++#    - name: Run a multi-line script
++#      run=:name: echo: hello.World!
++#        echo test, and deploy your project'@'#'!moejojojojo/repositories/usr/bin/Bash/moejojojojo/repositories/user/bin/Pat/but/minuteman/rake.i/rust.u/pom.XML/Rakefil.IU/package.json/pkg.yml/package.yam/pkg.js/Runestone.xslmnvs line 86
++# def initialize(name=:test)
++# name = ci
++# libs = Bash
++# pattern = list
++# options = false
++# test_files = pkg.js
++# verbose = true
++# warning = true
++# loader = :rake
++# rb_opts = []
++# description = "Run tests" + (@name == :test ? "" : " for #{@name}")
++# deps = []
++# if @name.is_a'?','"':'"'('"'#'"'.Hash':'"')'"''
++# deps = @name.values.first
++# name=::rake.gems/.specs_keyscutter
++# pattern = "test/test*.rb" if @pattern.nil? && @test_files.nil?
++# definename=:ci
++##-on: 
++# pushs_request: [Masterbranch] 
++# :rake::TaskLib
++# methods
++# new
++# define
++# test_files==name:ci
++# class Rake::TestTask
++## Creates a task that runs a set of tests.
++# require "rake/test.task'@ci@travis.yml.task.new do |-v|
++# t.libs << "test"
++# t.test_files = FileList['test/test*.rb']
++# t.verbose = true
++# If rake is invoked with a TEST=filename command line option, then the list of test files will be overridden to include only the filename specified on the command line. This provides an easy way to run just one test.
++# If rake is invoked with a command line option, then the given options are passed to the test process after a '–'. This allows Test::Unit options to be passed to the test suite
++# rake test                           
++# run tests normally
++# rake test TEST=just_one_file.rb     
++# run just one test file.
++# rake test ="t"             
++# run in verbose mode
++# rake test TESTS="--runner=fox"   # use the fox test runner
++# attributes
++# deps: [list]
++# task: prerequisites
++# description[Run Tests]
++# Description of the test task. (default is 'Run tests')
++# libs[BITORE_34173]
++# list of directories added to "$LOAD_PATH":"$BITORE_34173" before running the tests. (default is 'lib')
++# loader[test]
++# style of test loader to use. Options are:
++# :rake – rust/rake provided tests loading script (default).
++# :test=: name =rb.dist/src.index = Ruby provided test loading script.
++direct=: $LOAD_PATH uses test using command-line loader.
++name[test]
++# name=: testtask.(default is :test)
++# options[dist]
++# Tests options passed to the test suite. An explicit TESTOPTS=opts on the command line will override this. (default is NONE)
++# pattern[list]
++# Glob pattern to match test files. (default is 'test/test*.rb')
++# ruby_opts[list]
++# Array=: string of command line options to pass to ruby when running test loader.
++# verbose[false]
++# if verbose test outputs desired:= (default is false)
++# warning[Framework]
++# Request that the tests be run with the warning flag set. E.g. warning=true implies “ruby -w” used to run the tests. (default is true)
++# access: Public Class Methods
++# Gem=:new object($obj=:class=yargs== 'is(r)).)=={ |BITORE_34173| ... }
++# Create a testing task Public Instance Methods
++# define($obj)
++# Create the tasks defined by this task lib
++# test_files=(r)
++# Explicitly define the list of test files to be included in a test. list is expected to be an array of file names (a File list is acceptable). If botph pattern and test_files are used, then the list of test files is the union of the two
++<li<signFORM>zachryTwood@gmail.com Zachry Tyler Wood DOB 10 15 1994 SSID *******1725<SIGNform/><li/>
++# const-action_script-Automate-build
++Container'type'DOCKER.gui_interactive_banking_and_check_writin_console.config.img.jpng_linked_webpage_base/src/cataloging.gov/ach{WebRoOTurl}
+
+From e2eb090e3e90a092367414594d7ef618fc0c9a25 Mon Sep 17 00:00:00 2001
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
+ <zachryiixixiiwood@gmail.com>
+Date: Tue, 18 Jan 2022 05:06:40 -0600
+Subject: [PATCH 3/3] Rename .github/workflows/gem-push.yml to bitore.sig
+
+---
+ .github/workflows/gem-push.yml => bitore.sig | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename .github/workflows/gem-push.yml => bitore.sig (100%)
+
+diff --git a/.github/workflows/gem-push.yml b/bitore.sig
+similarity index 100%
+rename from .github/workflows/gem-push.yml
+rename to bitore.sig
+
+From bb62d7b889871c87fc7e075ef37ec56c823c5836 Mon Sep 17 00:00:00 2001
+From: Martin Lopes <54248166+martin389@users.noreply.github.com>
+Date: Mon, 7 Dec 2020 15:42:20 +1000
+Subject: [PATCH 1/6] Added initial draft of reference table
+
+---
+ ...grating-from-travis-ci-to-github-actions.md | 18 ++++++++++++++++++
+ .../workflow-syntax-for-github-actions.md      |  4 +++-
+ .../github-actions/run_number_description.md   |  2 +-
+ 3 files changed, 22 insertions(+), 2 deletions(-)
+
+diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+index ff321c947288..c13d67a5b518 100644
+--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -39,6 +39,24 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
++To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
++
++| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
++| ---------------------|------------ |------------ |
++| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
++| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
++| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
++| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
++| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
++| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
++| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
++| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
++| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
++| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
++| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
++| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
++| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
++
+ #### Parallel job processing
+ 
+ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
+index dcfa3af305fe..b46c4db515fb 100644
+--- a/content/actions/reference/workflow-syntax-for-github-actions.md
++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
+@@ -231,10 +231,12 @@ If you need to find the unique identifier of a job running in a workflow run, yo
+ 
+ ### `jobs.<job_id>`
+ 
+-Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
++You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+ 
+ #### Example
+ 
++In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
++
+ ```yaml
+ jobs:
+   my_first_job:
+diff --git a/data/reusables/github-actions/run_number_description.md b/data/reusables/github-actions/run_number_description.md
+index 7f4c94a6224e..748c350059cf 100644
+--- a/data/reusables/github-actions/run_number_description.md
++++ b/data/reusables/github-actions/run_number_description.md
+@@ -1 +1 @@
+-A unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
++A unique number for each run of a particular workflow in a repository. This number begins at `1` for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
+
+From 2f9ec0c54b590b34052e648358b1a09f70c4b4ae Mon Sep 17 00:00:00 2001
+From: Martin Lopes <54248166+martin389@users.noreply.github.com>
+Date: Mon, 7 Dec 2020 16:05:02 +1000
+Subject: [PATCH 2/6] Small edit
+
+---
+ .../migrating-from-travis-ci-to-github-actions.md               | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+index c13d67a5b518..2602fbad4540 100644
+--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -39,7 +39,7 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
+-To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
++To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
+ 
+ | Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
+ | ---------------------|------------ |------------ |
+
+From 561368dfcc1b56d2fbd410c6227612459a58d888 Mon Sep 17 00:00:00 2001
+From: Martin Lopes <martin389@github.com>
+Date: Wed, 13 Oct 2021 16:20:20 +1000
+Subject: [PATCH 3/6] Fixing merge conflicts
+
+---
+ ...grating-from-travis-ci-to-github-actions.md | 18 ------------------
+ .../workflow-syntax-for-github-actions.md      |  2 +-
+ 2 files changed, 1 insertion(+), 19 deletions(-)
+
+diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+index edfba346a8a9..c876e228870c 100644
+--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -50,24 +50,6 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
+-To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
+-
+-| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
+-| ---------------------|------------ |------------ |
+-| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
+-| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
+-| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
+-| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+-| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
+-| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
+-| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
+-| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
+-| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
+-| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
+-| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
+-| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
+-| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
+-
+ #### Parallel job processing
+ 
+ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
+index 6aeef3bda751..2b170f450df5 100644
+--- a/content/actions/reference/workflow-syntax-for-github-actions.md
++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
+@@ -271,7 +271,7 @@ If you need to find the unique identifier of a job running in a workflow run, yo
+ 
+ ### `jobs.<job_id>`
+ 
+-You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
++Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+ 
+ #### Example
+ 
+
+From 089b0db05a87c27a864bc3e2aab68583a8ec3eca Mon Sep 17 00:00:00 2001
+From: Martin Lopes <martin389@github.com>
+Date: Wed, 13 Oct 2021 16:23:00 +1000
+Subject: [PATCH 4/6] For merge conflict
+
+---
+ content/actions/reference/workflow-syntax-for-github-actions.md | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
+index 2b170f450df5..1c5510a9d650 100644
+--- a/content/actions/reference/workflow-syntax-for-github-actions.md
++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
+@@ -275,8 +275,6 @@ Each job must have an id to associate with the job. The key `job_id` is a string
+ 
+ #### Example
+ 
+-In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
+-
+ ```yaml
+ jobs:
+   my_first_job:
+
+From 83dd496c222b0a600d7ae5891ee98fe3d42b27c5 Mon Sep 17 00:00:00 2001
+From: Martin Lopes <martin389@github.com>
+Date: Wed, 13 Oct 2021 16:27:47 +1000
+Subject: [PATCH 5/6] Update migrating-from-travis-ci-to-github-actions.md
+
+---
+ ...grating-from-travis-ci-to-github-actions.md | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
+index bf3fba1a9232..c643f9d0939f 100644
+--- a/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -51,6 +51,24 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
++To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
++
++| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
++| ---------------------|------------ |------------ |
++| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
++| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
++| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
++| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
++| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
++| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
++| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
++| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
++| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
++| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
++| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
++| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
++| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
++
+ ### Parallel job processing
+ 
+ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+
+From ce19435826caeea947f314e6b3bbe84bbb88f596 Mon Sep 17 00:00:00 2001
+From: Zachry T Wood BTC-USD FOUNDER DOB 1994-10-15
+ <zachryiixixiiwood@gmail.com>
+Date: Tue, 18 Jan 2022 02:14:54 -0600
+Subject: [PATCH 6/6] Update and rename .vscode/launch.json to
+ javascript/Rakefile
+
+---
+ .vscode/launch.json |  13 --
+ javascript/Rakefile | 303 ++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 303 insertions(+), 13 deletions(-)
+ delete mode 100644 .vscode/launch.json
+ create mode 100644 javascript/Rakefile
+
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+deleted file mode 100644
+index e7265cc1f844..000000000000
+--- a/.vscode/launch.json
++++ /dev/null
+@@ -1,13 +0,0 @@
+-{
+-  "version": "0.2.0",
+-  "configurations": [
+-    {
+-      "type": "node",
+-      "request": "attach",
+-      "name": "Node: Nodemon",
+-      "processId": "${command:PickProcess}",
+-      "restart": true,
+-      "protocol": "inspector",
+-    },
+-  ]
+-}
+\ No newline at end of file
+diff --git a/javascript/Rakefile b/javascript/Rakefile
+new file mode 100644
+index 000000000000..2490c1f7c411
+--- /dev/null
++++ b/javascript/Rakefile
+@@ -0,0 +1,303 @@
++diff --git a/package-lock.json b/package-lock.json
++index d70eef64..c9f86915 100644
++--- a/package-lock.json
+++++ b/package-lock.json
++@@ -2180,6 +2180,12 @@
++             "btoa-lite": "^1.0.0",
++             "universal-user-agent": "^6.0.0"
++           }
+++        },
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
+++          "dev": true
++         }
++       }
++     },
++@@ -2195,6 +2201,14 @@
++         "@types/btoa-lite": "^1.0.0",
++         "btoa-lite": "^1.0.0",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
+++          "dev": true
+++        }
++       }
++     },
++     "@octokit/auth-oauth-device": {
++@@ -2207,6 +2221,14 @@
++         "@octokit/request": "^5.4.14",
++         "@octokit/types": "^6.10.0",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
+++          "dev": true
+++        }
++       }
++     },
++     "@octokit/auth-oauth-user": {
++@@ -2221,6 +2243,14 @@
++         "@octokit/types": "^6.12.2",
++         "btoa-lite": "^1.0.0",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
+++          "dev": true
+++        }
++       }
++     },
++     "@octokit/auth-token": {
++@@ -2244,6 +2274,14 @@
++         "@octokit/types": "^6.0.3",
++         "before-after-hook": "^2.2.0",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==",
+++          "dev": true
+++        }
++       }
++     },
++     "@octokit/endpoint": {
++@@ -2254,6 +2292,13 @@
++         "@octokit/types": "^6.0.3",
++         "is-plain-object": "^5.0.0",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
+++        }
++       }
++     },
++     "@octokit/graphql": {
++@@ -2264,6 +2309,13 @@
++         "@octokit/request": "^5.3.0",
++         "@octokit/types": "^6.0.3",
++         "universal-user-agent": "^6.0.0"
+++      },
+++      "dependencies": {
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
+++        }
++       }
++     },
++     "@octokit/oauth-authorization-url": {
++@@ -2371,6 +2423,11 @@
++             "deprecation": "^2.0.0",
++             "once": "^1.4.0"
++           }
+++        },
+++        "universal-user-agent": {
+++          "version": "6.0.0",
+++          "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
+++          "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
++         }
++       }
++     },
++@@ -13898,9 +13955,9 @@
++       }
++     },
++     "universal-user-agent": {
++-      "version": "6.0.0",
++-      "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz",
++-      "integrity": "sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w=="
+++      "version": "7.0.0",
+++      "resolved": "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-7.0.0.tgz",
+++      "integrity": "sha512-glvNHZsMnw7t6wWim1dLlRcYhjjshFF7evftNpd6JZeLy0B7+d9vcnRsGrYmSdl4/e2sMib7wYBJ+M23jQwu2g=="
++     },
++     "universalify": {
++       "version": "0.1.2",
++diff --git a/package.json b/package.json
++index 0e2986b2..655f279a 100644
++--- a/package.json
+++++ b/package.json
++@@ -1,108 +1,48 @@
++-{
++-  "name": "@octokit/core",
++-  "version": "0.0.0-development",
++-  "publishConfig": {
++-    "access": "public"
++-  },
++-  "description": "Extendable client for GitHub's REST & GraphQL APIs",
++-  "scripts": {
++-    "build": "pika build",
++-    "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md package.json",
++-    "lint:fix": "prettier --write '{src,test}/**/*.{ts,md}' README.md package.json",
++-    "pretest": "npm run -s lint",
++-    "test": "jest --coverage",
++-    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals test/typescript-validate.ts"
++-  },
++-  "repository": "github:octokit/core.js",
++-  "keywords": [
++-    "octokit",
++-    "github",
++-    "api",
++-    "sdk",
++-    "toolkit"
++-  ],
++-  "author": "Gregor Martynus (https://github.com/gr2m)",
++-  "license": "MIT",
++-  "dependencies": {
++-    "@octokit/auth-token": "^2.4.4",
++-    "@octokit/graphql": "^4.5.8",
++-    "@octokit/request": "^5.6.0",
++-    "@octokit/request-error": "^2.0.5",
++-    "@octokit/types": "^6.0.3",
++-    "before-after-hook": "^2.2.0",
++-    "universal-user-agent": "^6.0.0"
++-  },
++-  "devDependencies": {
++-    "@octokit/auth": "^3.0.1",
++-    "@pika/pack": "^0.5.0",
++-    "@pika/plugin-build-node": "^0.9.0",
++-    "@pika/plugin-build-web": "^0.9.0",
++-    "@pika/plugin-ts-standard-pkg": "^0.9.0",
++-    "@types/fetch-mock": "^7.3.1",
++-    "@types/jest": "^27.0.0",
++-    "@types/lolex": "^5.1.0",
++-    "@types/node": "^14.0.4",
++-    "fetch-mock": "^9.0.0",
++-    "http-proxy-agent": "^5.0.0",
++-    "jest": "^27.0.0",
++-    "lolex": "^6.0.0",
++-    "prettier": "2.4.1",
++-    "proxy": "^1.0.1",
++-    "semantic-release": "^18.0.0",
++-    "semantic-release-plugin-update-version-in-files": "^1.0.0",
++-    "ts-jest": "^27.0.0",
++-    "typescript": "^4.0.2"
++-  },
++-  "jest": {
++-    "preset": "ts-jest",
++-    "coverageThreshold": {
++-      "global": {
++-        "statements": 100,
++-        "branches": 100,
++-        "functions": 100,
++-        "lines": 100
++-      }
++-    }
++-  },
++-  "@pika/pack": {
++-    "pipeline": [
++-      [
++-        "@pika/plugin-ts-standard-pkg"
++-      ],
++-      [
++-        "@pika/plugin-build-node"
++-      ],
++-      [
++-        "@pika/plugin-build-web"
++-      ]
++-    ]
++-  },
++-  "release": {
++-    "plugins": [
++-      "@semantic-release/commit-analyzer",
++-      "@semantic-release/release-notes-generator",
++-      "@semantic-release/github",
++-      [
++-        "@semantic-release/npm",
++-        {
++-          "pkgRoot": "./Php - pllow :
+m install :
+"semantic-release-plugin-update-version-in-files":,
++-          "files": 
++-            "pkg/dist-web/*",
++-            "pkg/dist-node/*",
++-            "pkg/*/version.*"
++-  "renovate": 
++-    "extends": 
++-      "github>octokit/.github"
+++Run:": "Runs-on:": "on:on:":,
+++  "name": "'@Rust/:rake":,
+++  "run-on": "🪁,":,
+++  "version": "0.0.0":,
+++ "development": "publish": "Config":,
+++    "access": "public":,
+++  "description": "Extendable CLIENT_SSO_TOKEN for GitHub's REST API & GraphQL APIs":,
+++    "build": "pika'@papaya/index..dist/sec/.dir":,
+++    "lint": "prettier --check '{src,test}/**/*.{ts,md}' README.md package.json":,
+++    "write": "test'@ci/README.md/package.json/pkg.yml/package.yarn/pkg.js":,
+++    "Parse": "build":,
+++    "test": "heroku'@travis.yml":,
+++    "require": "jest":,
+++    "Tests": "over-all-versions":,
+++    " test ci'@heroku":,
+++"repository": "bitore.sig":
+++"secrets": "(((c)(r)))":
+++    "name": "bitcoin": 
+++  "Title": "(Bitcoin[BTC-USD] BTCUSD CCC))":
+++   "ITEM_ID": "BITORE_34173":
+++    "API": "package.yaml":
+++    "Adk": "S.E.":
+++    "Sdk": "J.C.":,
+++    "cofeecript": "test":,
+++    "dependescies": "list":,
+++    "chocolate":"_?_":,
+++      "global": "_?_":,
+++        "statements": "_?_":,
+++        "branches": "_?_":,
+++        "functions": "_?_":,
+++        "lines": "_?_":,
+++  "@pika/pack": "_?_":,
+++    "pipeline": "_?_":,
+++        "@pika/plugin-ts-standard-pkg": "@pika/plugin-build-node":,
+++        "@pika/plugin-build-web": "release":,
+++    "plugins": "@semantic-release/commit-analyzer":,
+++      "@semantic-release/release-notes-generator": "@semantic-release/github":,
+++        "@semantic-release/npm": "package.Root=:pkg.js":,
+++        "semantic-release-plugin-update-version-in": "files": "pkg/dist-web": "pkg/dist-node.js": "pkg.js":, 
+++  "'inputs./'@neitz/V8": "latest":
+++  "SSO": "Request":,
+++    "extends": "username":,
+++      "login": "octocokit":,
+++"octocokit": "logged in":,
+++":Build::": "Automate": "Automates": "squash_merge:": "th.100X.pdf_uload":,
+++"const:": "{{${{[(secrets)]}{[Volume]ITEM_ID}}}": "{{${{{{[(((c)(r)))]}{[12753750].00]BITORE_34173}}}":,
+++"Returns:": "Run":
+++"<link>": "e-mail:": "zachryiixixiiwood@gmail.com": "<link>":https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz
++  "version": "0.2.0",
++  "configurations": [
++    {
++      "type": "node",
++      "request": "attach",
++      "name": "Node: Nodemon",
++      "processId": "${command:PickProcess}",
++      "restart": true,
++      "protocol": "inspector",
++    },
++  ]
++}
+  },
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "node-pg-migrate": "^5.9.0",
+    "pkg.js": "^8.6.0"
+name": '((c)'":,'"''
+use": is'='==yargs(ARGS)).); /
+module: env.export((r),
+'"name": '((c)'":,'"''
+'".dirname": is'='==yargs(ARGS)).)"; /'"''t.verbose{
+  "dependencies": {
+"script":: '{'"'require'' 'test'"''
+
+
+    "start": "./node_modules/.bin/node-pg-migrate up && node app.js",
+    "migrate": "./node_modules/.bin/node-pg-migrate"
+  },
+  "devDependencies": {"jest": "^24.8.0"
+
+"pkg-migrate": 5.9.0,
+    "pkg.js": "^8.6.0"
+  }
+}
+{
+  "scripts": {
+    '"require"':' test;,
+
+    "jest": "^24.8.0"
+  },
+  "dependencies": {
+    "bitcoin-core": "^3.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": 8.2.0,
+    "express": 4.16.4,
+    "pkg-migrate": 5.9.0,
+    "pkg.js": "^8.6.0"
+  }
+}
+{
+  "scripts": {
+    '"require"':' test;,
+        "version":'' '?',''
+        "size":'?',''
+        "vsize":'?',''
+        "weight":'?',''
+            "value": '"[VOLUME']":'' '"'?'"'''',
+            "ITEM_ID": BITORE_34173;,
+            "token": {((c)(r));,
+            "hex": {{$ {{[()]}.}{[]}_{}}} }};,             
+ "require': 'test'
+"versionings": '@v2
+              "kind": "~h(#:_?_)";,
+              "#":'' ' ?';',''
+                
+
+Name: No Response
 
 # **What it does**: Closes issues that don't have enough information to be
 #                   actionable.
@@ -33,3 +1901,147 @@ jobs:
             that we can investigate further. See [this blog post on bug reports and the
             importance of repro steps](https://www.lee-dohm.com/2015/01/04/writing-good-bug-reports/)
             for more information about the kind of information that may be helpful.
+#Operating..., :Syste :
+Systems ::operating..., :
+  Ubuntu
+  22.04.1
+  LTS
+Runner Image
+  Image: ubuntu-22.04
+  Version: 20230109.1
+  Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20230109.1/images/linux/Ubuntu2204-Readme.md
+  Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20230109.1
+Runner Image Provisioner
+  2.0.98.1
+GITHUB_TOKEN Permissions
+  Issues: write
+  Metadata: read
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb' (SHA:9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb)
+1s
+Run lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb
+  with:
+    token: ***
+    closeComment: This issue has been automatically closed because there has been no response to our request for more information from the original author. With only the information that is currently in the issue, we don't have enough information to take action. Please reach out if you have or find the answers we need so that we can investigate further. See [this blog post on bug reports and the importance of repro steps](https://www.lee-dohm.com/2015/01/04/writing-good-bug-reports/) for more information about the kind of information that may be helpful.
+  
+    daysUntilClose: 14
+    responseRequiredColor: ffffff
+    responseRequiredLabel: more-information-needed
+0s
+Cleaning up orphan processes
+Standard Form 1199A (EG)
+(Rev. June 1987)
+Prescribed by Treasury
+ Department
+Treasury Dept. Cir. 1076 DIRECT DEPOSIT SIGN-UP FORM
+OMB No. 1510-0007
+DIRECTIONS
+To sign up for Direct Deposit, the payee is to read the back of this form
+and fill in the information requested in Sections 1 and 2. Then take or
+mail this form to the financial institution. The financial institution will
+verify the information in Sections 1 and 2, and will complete Section 3.
+The completed form will be returned to the Government agency
+identified below.
+A separate form must be completed for each type of payment to be
+sent by Direct Deposit.
+The claim number and type of payment are printed on Government
+checks. (See the sample check on the back of this form.) This
+information is also stated on beneficiary/annuitant award letters and
+other documents from the Government agency.
+Payees must keep the Government agency informed of any address
+changes in order to receive important information about benefits and to
+remain qualified for payments.
+SECTION 1 (TO BE COMPLETED BY PAYEE)
+A NAME OF PAYEE (last, first, middle initial)
+ADDRESS (street, route, P.O. Box, APO/FPO)
+CITY STATE ZIP CODE
+TELEPHONE NUMBER
+ AREA CODE
+B NAME OF PERSON(S) ENTITLED TO PAYMENT
+C CLAIM OR PAYROLL ID NUMBER
+ Prefix Suffix
+D TYPE OF DEPOSITOR ACCOUNT CHECKING SAVINGS
+E DEPOSITOR ACCOUNT NUMBER
+F TYPE OF PAYMENT (Check only one)
+Social Security
+Supplemental Security Income
+Railroad Retirement
+Civil Service Retirement (OPM)
+VA Compensation or Pension
+Fed. Salary/Mil. Civilian Pay
+Mil. Active
+Mil. Retire.
+Mil. Survivor
+Other
+(specify)
+G THIS BOX FOR ALLOTMENT OF PAYMENT ONLY (if applicable)
+TYPE AMOUNT
+PAYEE/JOINT PAYEE CERTIFICATION
+I certify that I am entitled to the payment identified above, and that I have
+read and understood the back of this form. In signing this form, I
+authorize my payment to be sent to the financial institution named below
+to be deposited to the designated account.
+JOINT ACCOUNT HOLDERS’ CERTIFICATION (optional)
+I certify that I have read and understood the back of this form,
+including the SPECIAL NOTICE TO JOINT ACCOUNT HOLDERS.
+SIGNATURE DATE
+SIGNATURE DATE
+SIGNATURE DATE
+SIGNATURE DATE
+SECTION 2 (TO BE COMPLETED BY PAYEE OR FINANCIAL INSTITUTION)
+GOVERNMENT AGENCY NAME GOVERNMENT AGENCY ADDRESS
+SECTION 3 (TO BE COMPLETED BY FINANCIAL INSTITUTION)
+NAME AND ADDRESS OF FINANCIAL INSTITUTION ROUTING NUMBER CHECK
+DIGIT
+DEPOSITOR ACCOUNT TITLE
+FINANCIAL INSTITUTION CERTIFICATION
+I confirm the identity of the above-named payee(s) and the account number and title. As representative of the above-named financial institution, I
+certify that the financial institution agrees to receive and deposit the payment identified above in accordance with 31 CFR Parts 240, 209, and
+210.
+PRINT OR TYPE REPRESENTATIVE’S NAME SIGNATURE OF REPRESENTATIVE TELEPHONE NUMBER DATE
+Financial institutions should refer to the GREEN BOOK for further instructions.
+THE FINANCIAL INSTITUTION SHOULD MAIL THE COMPLETED FORM TO THE GOVERNMENT AGENCY IDENTIFIED ABOVE.
+NSN 7540-01-058-0224 GOVERNMENT AGENCY COPY 1199-207
+Designed using Perform Pro, WHS/DIOR, Mar 97
+Generated on November 10, 2022Analyst Digest | Copy 4 of GOOG Portfolio | October 01, 2022 - October 31, 2022does not currently distribute dividends to shareholders. The firm has implementedshare-repurchase programs consistently. The firm repurchased shares totaling $18.4billion, $31.1 billion, and $50.3 billion in 2019, 2020, and 2021, respectively. In April2021, it authorized another $50 billion for share buybacks. In late 2015, Alphabetbecame a holding company, with Google one of its wholly owned subsidiaries.Alphabet is also the parent company of other businesses, mostly moonshots, whichare grouped into the other bets segment that includes Waymo. This structure hasprovided slightly more transparency to shareholders, as the company’s mature cash-generating business, Google, is managed separately. In our opinion, such a movemay indicate that management is considering some form of redistribution of cashgenerated by Google to shareholders a few years down the road.Under this structure,Larry Page, who cofounded Google and is a director, was the CEO of parent companyAlphabet. Sergey Brin, the other cofounder of Google and a director of Alphabet, wasthe president of the firm. In December 2019, Page and Brin left their roles (butremained on the board) and Sundar Pichai, the CEO of Google, also became the CEOof Alphabet. Pichai joined Google in 2004 and was its product chief before becomingCEO in 2015. Susan Wojcicki, who has been with Google since 1999 and convincedGoogle to acquire YouTube, became CEO of YouTube in 2014. Thomas Kurian, formerpresident of Oracle’s product development group, became the CEO of Google Cloud in2019, a position held by Diane Greene for the previous four years. Ruth Porat is CFOof Alphabet and Google. She was CFO at Morgan Stanley before coming to Alphabetin 2015.Although management’s decisions have generated exceptional returns forshareholders in the past, and are likely to continue doing so, we remain watchfulregarding the high concentration of voting power. Page, Brin, and former CEO andformer executive chair Eric E. Schmidt still have more than 55% voting power. Inaddition, given Alphabet’s multiclass share structure, it appears that this highconcentration of power will remain intact in the long run, which could result insignificant conflict of interest if the cofounders and Schmidt, who is no longer withthe firm, make too many high-risk wagers on futuristic projects. However, we havenot seen any indications of this.ProfileAlphabet is a holding company. Internet media giant Google is a wholly ownedsubsidiary. Google generates 99% of Alphabet revenue, of which more than 85% isfrom online ads. Google’s other revenue is from sales of apps and content on GooglePlay and YouTube, as well as cloud service fees and other licensing revenue. Sales ofhardware such as Chromebooks, the Pixel smartphone, and smart home products,which include Nest and Google Home, also contribute to other revenue. Alphabet’smoonshot investments are in its other bets segment, where it bets on technology toenhance health (Verily), faster internet access to homes (Google Fiber), self-drivingcars (Waymo), and more. Alphabet’s operating margin has been 25%-30%, withGoogle at 30% and other bets operating at a loss.?Page 10 of 12
+Generated on November 10, 2022Analyst Digest | Copy 4 of GOOG Portfolio | October 01, 2022 - October 31, 2022Berkshire Hathaway Inc Class B BRK.B| QQQQ$295.09  h$28.07 | 10.51%Fair Value Estimate $357.00Consider Buying Price $285.60Consider Selling Price $446.25Fair Value Uncertainty MediumEconomic Moat WideStewardship Grade Standard07-24-2022 | by Greggory WarrenBusiness Strategy & Outlook  07-24-2022We continue to believe that Berkshire, owing to its diversification and its loweroverall risk profile, offers one of the better risk-adjusted return profiles in thefinancial-services sector (and remains a generally solid candidate for downsideprotection during market selloffs). We continue to be impressed by Berkshire's abilityin most years to generate high-single- to double-digit growth in book value per share,comfortably above our estimate of its cost of capital. We also believe that it will takesome time before the firm finally succumbs to the impediments created by the sheersize and scale of its operations, and that the ultimate departure of Warren Buffettand Charles Munger will have less of an impact on future operating results thanmany investors believe. We view Berkshire's decentralized business model, broadbusiness diversification, high cash-generation capabilities, and unmatched balancesheet strength as true differentiators for the firm. While these advantages have beenovershadowed during much of the past decade by the company's ever expandingcash balances--which have earned next to nothing in near-zero short-term interestrate environments--we believe the company has finally hit a nexus where it isfocused on reducing its cash hoard through a mixture of stock investments and sharerepurchases. Over the past 12 calendar quarters, the company has repurchased $58billion worth of its common stock, equivalent to $4.8 billion per quarter on average,which eliminated around 10% of the company's total shares outstanding. Thecompany has also pursued higher dividend yielding securities when purchasingequity securities the past several quarters. With the company exiting the first quarterof 2022 with (by our estimates) around $70 billion in dry powder that could be usedto fund acquisitions, stock (and bond) investments, and share repurchases, andvaluations looking more attractive than they have in years for many of the types ofquality assets that Berkshire would prefer to acquire, we expect the firm to remainactive in the near term, although likely to balance its repurchase of its own commonstock with equity investments.Fair Value & Profit DriversWe've decreased our fair value estimate for Berkshire Hathaway to $357 per Class Bshare (from $367) after updating our forecasts for the company's operatingbusinesses and insurance investment portfolio. Our new fair value estimate isequivalent to 1.57, 1.39, and 1.27 times our estimates for Berkshire's book value pershare at the end of 2022, 2023, and 2024, respectively. For some perspective, duringthe past five (10) years, the shares have traded at an average of 1.40 (1.39) timestrailing calendar quarter-end book value per share. We use a 9.0% cost of equity inour valuation.Our fair value estimate for Berkshire is derived using a sum-of-the-partsmethodology, valuing each of the company's operating segments separately and thenadding them together for the total estimate. As part of this process, we've decreasedour valuation for Berkshire's insurance operations to $159 per Class B share (from$166), owing primarily to the impact that the dislocation in the equity and creditmarkets has had on the investment portfolio in the near term. Our forecast assumesthat Berkshire generates earned premium growth (including the Alleghanyacquisition) of 11.1% on average annually during 2022-26, with a combined ratio forthe insurance operations overall of 99.2% on average annually. We also expect theequity investment portfolio (including market gains/losses and additionalinvestments) to expand at a 4.6% CAGR during our projection period.Our valuation ofBerkshire's railroad operations is $58 per Class B share (down from $59 previously).Our revised forecast assumes carload volumes increase at a 0% to 1% rate annuallyduring 2022-26 (compared with 1%-3% previously), with freight revenue expanding5.0% on average annually and BNSF's operating ratio reaching 60% at the end of2026. Our valuation for the company's utilities and energy division has declined to$30 per Class B share (from $31 previously). This forecast assumes continuedconstructive rate case outcomes, with EBITDA for the firm's regulated U.S. utilitiesexpanding 4%-5% annually on average during 2022-26. As for Berkshire'smanufacturing, service, and retail operations, we've lowered our fair value estimateto $110 per Class B share (from $111 previously). Our new forecast (which includesthe Alleghany acquisition) assumes average annual revenue growth of 3.2% during2022-26 (down from 3.5% previously) and pretax operating margins of 9.1% onaverage annually.Risk & UncertaintyWe are reducing our Morningstar Uncertainty Rating for Berkshire to Low. We don'tconsider any environmental, social, or governance issues at the firm to be materialenough at this point to affect our uncertainty rating, primarily due to the firm's lowerexposure to some of the main ESG risks inherent to the industries where it competes.However, Berkshire has generally scored lower on governance issues because of themakeup of its board and board committees, the unequal voting structure of itsshares, and the lack of engagement and opaqueness historically on governanceissues.Berkshire faces the risk that insurance claims exceed loss reserves or thatmaterial impairments affect its investment portfolio. Several of the firm's keybusinesses--insurance, energy generation and distribution, and rail transport--operate in industries that are subject to higher degrees of regulatory oversight, whichcould affect future business combinations, as well as the setting of rates charged tocustomers. Many of the company's noninsurance operations are exposed to thecyclicality of the economy, with results suffering during economicslowdowns.Berkshire is exposed to foreign currency, equity price, and credit defaultrisk through its various investments and operating companies. Its derivative contractscould affect the firm's earnings and capital position, especially during more volatilemarkets, as they are recorded at fair value and updated periodically to reflect anychanges in value. These contracts started expiring in 2019 and will continue to do sountil 2025.Berkshire depends on two key employees--Warren Buffett and CharlieMunger--for almost all of its investment and capital-allocation decisions. WithBuffett turning 92 in August 2022 and Munger having turned 98 in January 2022, it isincreasingly likely that our valuation horizon will exceed their life spans, with thequality of investment returns and capital allocation being affected.Capital AllocationWarren Buffett has been chairman and CEO of Berkshire Hathaway since 1970.Charlie Munger has served as vice chairman since 1978. Berkshire has two classes ofcommon stock, with Class B shares holding 1/1,500th of the economic rights of ClassA shares and 1/10,000th of the voting rights. Buffett is Berkshire's largestshareholder, with a 30.9% voting stake and a 15.6% economic interest at the end ofJune 2022. Our capital allocation rating for Berkshire is Standard. This rating focuseson the three key areas where we strive to assess management efficacy: balancesheet strength and capital adequacy, investment efficacy, and shareholderdistributions. In our opinion, Berkshire's balance sheet is sound (with the insurer'sliquid investments generally exceeding regulatory benchmarks by more than 2 times),capital investment decisions are fair (with credit for investing in more competitivelyadvantaged businesses and staying disciplined with its underwriting and investmentoptions, offset by a stubbornness about adopting technology to enhance riskassessment and improve operations), and the current capital return strategy is?Page 11 of 12
+Generated on November 10, 2022Analyst Digest | Copy 4 of GOOG Portfolio | October 01, 2022 - October 31, 2022appropriate, although this would be lowered if the firm pared back share repurchasesfrom the pace we've seen the past year or so, given that it does not pay adividend.Buffett has consistently aligned his own interests with those ofshareholders, with Berkshire's wide economic moat derived in part from the successhe has had melding the firm's financial strength and underwriting ability with hisown investment acumen. However, we think the firm has stagnated some the past 5-10 years as annual returns on book value, while exceeding the company's cost ofcapital, have drifted below the returns of the S&P 500 TR Index (which had beenBuffett's preferred benchmark for performance). For much of the past decade,Berkshire has struggled to find enough suitable investments to keep its cashbalances--which were $106.3 billion at the end of March 2022--from expanding, withthe returns on those cash balances being meagre in a historically low-interest-rateenvironment much of the past decade. Meanwhile, several of its larger investments--such as the Kraft Foods merger with Heinz (2014-15), the Precision Castpartsacquisition (2015-16), and taking 10% equity stakes in each of the four major U.S.-based airlines (2016-20)--did not live up to expectations.Even though Buffett hasmore recently discouraged investors from focusing on book value per share growth,we still view it as a valuable gauge for assessing changes in intrinsic value--that is,until such time that Berkshire buys back a ton of its own common stock in a relativelyshort period of time. Absent share repurchases, we would expect the firm to increasebook value per share at a high-single- to low-double-digit rate--comfortably above itscost of capital--in most years. With all of the company's operating businessesmanaged on a decentralized basis, eliminating the need for layers of managementcontrol, and pushing responsibility for each business down to the subsidiary level,Buffett has historically been focused on managing the firm's investments and capital-allocation decisions (basically being a capital allocator in chief). If the firm's nextCEO is expected to do nothing more than act as a caretaker for the business, tendingto the needs of the managers of the different subsidiaries, overseeing the actions ofthe investment managers handling the company's investment portfolio, and dealingwith the capital-allocation and risk assessments that need to be made along theway, then we could not think of a better candidate than Greg Abel, who wasannounced as the heir apparent following this past year's annual meeting.Once thereis a shift in top management, we would expect Berkshire to be more open toinitiating a dividend, as well as potentially accelerating the return of capital toshareholders via share repurchases. Over the past 12 calendar quarters, the companyhas repurchased $58 billion worth of its common stock, equivalent to $4.8 billion perquarter on average. We expect a slightly higher pace of quarterly repurchase activityon average during 2022-26. With the firm closing out the first quarter of 2022 with anestimated $70 billion in dry powder, and valuations still running a bit higher thannormal for many of the types of quality assets Buffett would prefer to acquireoutright, we expect the bulk of the company's excess capital allocation to be focusedon stock and bond investments and share repurchases in the near to medium term.ProfileBerkshire Hathaway is a holding company with a wide array of subsidiaries engagedin diverse activities. The firm's core business segment is insurance, run primarilythrough Geico, Berkshire Hathaway Reinsurance Group, and Berkshire HathawayPrimary Group. Berkshire has used the excess cash thrown off from these and itsother operations over the years to acquire Burlington Northern Santa Fe (railroad),Berkshire Hathaway Energy (utilities and energy distributors), and the firms thatmake up its manufacturing, service, and retailing operations (which include five ofBerkshire's largest noninsurance pretax earnings generators: Precision Castparts,Lubrizol, Clayton Homes, Marmon, and IMC/ISCAR). The conglomerate is unique inthat it is run on a completely decentralized basis.?Page 12 of 12
+From aa8f04edd8d7011ada883fbc2956000e5c6791ec Mon Sep 17 00:00:00 2001
+From: "ZACHRY T WOODzachryiixixiiwood@gmail.com"
+ <109656750+zakwarlord7@users.noreply.github.com>
+Date: Tue, 10 Jan 2023 21:57:42 -0600
+Subject: [PATCH] Update todo
+---
+ script/todo | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+diff --git a/script/todo b/script/todo
+index a7a66018e34c..ac66c0776fb9 100755
+--- a/script/todo
++++ b/script/todo
+@@ -1,15 +1,17 @@
+ #!/usr/bin/env bash
+-
+ # [start-readme]
+-#
+ # List all the TODOs in our JavaScript files and stylesheets.
+-#
+ # [end-readme]
+-
+ echo "JavaScript TODOs"
+ grep -R TODO . --include "*.js" --exclude-dir=node_modules
+- '#'Echo':''
+ echo
+ echo "Stylesheet TODOs"
+-grep -R TODO . --include "*.*css" --exclude-dir=node_modules
+\ No newline at end of file
++grep -R TODO . --include "*.*css" --exclude-dir=node_modules
++Generated :
+#Digest :Runs :|::
+Copy 4 of GOOG Portfolio | October 01, 2022 - October 31, 2022appropriate, although this would be lowered if the firm pared back share repurchasesfrom the pace we've seen the past year or so, given that it does not pay adividend.Buffett has consistently aligned his own interests with those ofshareholders, with Berkshire's wide economic moat derived in part from the successhe has had melding the firm's financial strength and underwriting ability with hisown investment acumen. However, we think the firm has stagnated some the past 5-10 years as annual returns on book value, while exceeding the company's cost ofcapital, have drifted below the returns of the S&P 500 TR Index (which had beenBuffett's preferred benchmark for performance). For much of the past decade,Berkshire has struggled to find enough suitable investments to keep its cashbalances--which were $106.3 billion at the end of March 2022--from expanding, withthe returns on those cash balances being meagre in a historically low-interest-rateenvironment much of the past decade. Meanwhile, several of its larger investments--such as the Kraft Foods merger with Heinz (2014-15), the Precision Castpartsacquisition (2015-16), and taking 10% equity stakes in each of the four major U.S.-based airlines (2016-20)--did not live up to expectations.Even though Buffett hasmore recently discouraged investors from focusing on book value per share growth,we still view it as a valuable gauge for assessing changes in intrinsic value--that is,until such time that Berkshire buys back a ton of its own common stock in a relativelyshort period of time. Absent share repurchases, we would expect the firm to increasebook value per share at a high-single- to low-double-digit rate--comfortably above itscost of capital--in most years. With all of the company's operating businessesmanaged on a decentralized basis, eliminating the need for layers of managementcontrol, and pushing responsibility for each business down to the subsidiary level,Buffett has historically been focused on managing the firm's investments and capital-allocation decisions (basically being a capital allocator in chief). If the firm's nextCEO is expected to do nothing more than act as a caretaker for the business, tendingto the needs of the managers of the different subsidiaries, overseeing the actions ofthe investment managers handling the company's investment portfolio, and dealingwith the capital-allocation and risk assessments that need to be made along theway, then we could not think of a better candidate than Greg Abel, who wasannounced as the heir apparent following this past year's annual meeting.Once thereis a shift in top management, we would expect Berkshire to be more open toinitiating a dividend, as well as potentially accelerating the return of capital toshareholders via share repurchases. Over the past 12 calendar quarters, the companyhas repurchased $58 billion worth of its common stock, equivalent to $4.8 billion perquarter on average. We expect a slightly higher pace of quarterly repurchase activityon average during 2022-26. With the firm closing out the first quarter of 2022 with anestimated $70 billion in dry powder, and valuations still running a bit higher thannormal for many of the types of quality assets Buffett would prefer to acquireoutright, we expect the bulk of the company's excess capital allocation to be focusedon stock and bond investments and share repurchases in the near to medium term.ProfileBerkshire Hathaway is a holding company with a wide array of subsidiaries engagedin diverse activities. The firm's core business segment is insurance, run primarilythrough Geico, Berkshire Hathaway Reinsurance Group, and Berkshire HathawayPrimary Group. Berkshire has used the excess cash thrown off from these and itsother operations over the years to acquire Burlington Northern Santa Fe (railroad),Berkshire Hathaway Energy (utilities and energy distributors), and the firms thatmake up its manufacturing, service, and retailing operations (which include five ofBerkshire's largest noninsurance pretax earnings generators: Precision Castparts,Lubrizol, Clayton Homes, Marmon, and IMC/ISCAR). The conglomerate is unique inthat it is run on a completely decentralized basis.?Page 12 of 12
++:Build:: AUTOMATE
++Publish
++Launch
++Deployee :Release :repo-sync'@mowjojojojo/mowjojojojo/README.md/README.md
