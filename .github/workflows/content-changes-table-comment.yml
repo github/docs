@@ -83,6 +83,7 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
+        if: ${{ steps.changes.outputs.changesTable != '' }}
         uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}

@@ -1,7 +1,7 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 
-import { getDOM } from '../helpers/e2etest.js'
+import { get, getDOM } from '../helpers/e2etest.js'
 import getRest, { getEnabledForApps, categoriesWithoutSubcategories } from '../../lib/rest/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../script/rest/test-open-api-schema.js'
@@ -59,6 +59,15 @@ describe('REST references docs', () => {
         .get()
       expect(schemaSlugs.every((slug) => domH3Ids.includes(slug))).toBe(true)
     }
+  })
+
+  test('404 if unrecognized apiVersion', async () => {
+    const res = await get(
+      `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
+        apiVersion: 'junk',
+      })}`
+    )
+    expect(res.statusCode).toBe(404)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {

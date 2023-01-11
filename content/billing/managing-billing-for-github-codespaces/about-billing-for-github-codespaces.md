@@ -33,6 +33,8 @@ Otherwise use of {% data variables.product.prodname_github_codespaces %} applies
 
 For information about how to configure an organization to be billed for codespace usage, see "[Enabling {% data variables.product.prodname_github_codespaces %} for your organization](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}. 
 
+{% ifversion fpt %}
+
 ### Monthly included storage and core hours for personal accounts
 
 The following storage and core hours of usage are included, free of charge, for personal accounts:
@@ -63,6 +65,8 @@ If you are blocked from resuming a codespace and you want to continue to work on
 - Wait for your monthly included usage to reset at the start of the next monthly billing cycle. 
 
 If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method and a spending limit, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota.
+
+{% endif %}
 
 ### Pricing for paid usage
 
