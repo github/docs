@@ -9,19 +9,19 @@ featuredLinks:
   guides:
     - /actions/learn-github-actions
     - /actions/examples
-    - /actions/guides/about-continuous-integration
-    - /actions/deployment/deploying-with-github-actions
-    - /actions/guides/about-packaging-with-github-actions
+    - /actions/automating-builds-and-tests/about-continuous-integration
+    - /actions/deployment/about-deployments/deploying-with-github-actions
+    - /actions/publishing-packages/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/learn-github-actions/using-starter-workflows
-    - /actions/guides/publishing-nodejs-packages
-    - /actions/guides/building-and-testing-powershell
+    - /actions/using-workflows/using-starter-workflows
+    - /actions/publishing-packages/publishing-nodejs-packages
+    - /actions/automating-builds-and-tests/building-and-testing-powershell
   popular:
-    - /actions/learn-github-actions/workflow-syntax-for-github-actions
+    - /actions/using-workflows/workflow-syntax-for-github-actions
     - /actions/learn-github-actions
     - /actions/examples
-    - /actions/learn-github-actions/events-that-trigger-workflows
+    - /actions/using-workflows/events-that-trigger-workflows
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/variables
@@ -63,4 +63,3 @@ children:
   - /creating-actions
   - /guides
 ---
-
