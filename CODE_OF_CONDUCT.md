@@ -1,5 +1,49 @@
 # Contributor Covenant Code of Conduct
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chili Piper</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="/images/logo.svg" sizes="16x16" type="image/svg+xml" />
+    <link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png" />
+    <meta name="robots" content="noindex" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <meta name="detectify-verification" content="5e071c751a0e23112ea1518f15add258" />
+    <link
+      rel="chrome-webstore-item"
+      href="https://chrome.google.com/webstore/detail/digckgagekofoajjlaeceojmdokllfmf"
+    />
+    
+    <style> /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}</style>
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="preconnect" href="https://logo.clearbit.com" crossorigin >
+    <link rel="preconnect" href="https://com-chilipiper-prod1.mini.snplow.net" crossorigin >
+    <link rel="preconnect" href="https://o94797.ingest.sentry.io" crossorigin >
+    <link rel="preconnect" href="https://rs.fullstory.com" crossorigin >
+    <link rel="preconnect" href="https://edge.fullstory.com" crossorigin >
+    <script type="module" crossorigin src="/book/assets/index.4ebfc9df.js"></script>
+    <link rel="modulepreload" crossorigin href="/book/assets/moment.4a2c3b7d.js">
+    <link rel="stylesheet" href="/book/assets/index.0f10c334.css">
+  </head>
+
+  <body>
+    <script src="/book/env-config.js"></script>
+    <div id="root" class="mount"></div>
+    <div id="react-root-portal"></div>
+    
+    <script>
+      window.global = window
+    </script>
+
+  </body>
+</html>
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
