@@ -35,7 +35,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 - {% data variables.product.prodname_dependabot_alerts %}
 - Two-factor authentication enforcement
 - 2,000 {% data variables.product.prodname_actions %} minutes per month
-- 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec %}
 - 120 {% data variables.product.prodname_github_codespaces %} core hours per month
 - 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 
@@ -44,7 +44,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 - {% data variables.contact.github_support %} via email
 - 3,000 {% data variables.product.prodname_actions %} minutes per month
-- 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
+- 2 GB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec %}
 - 180 {% data variables.product.prodname_github_codespaces %} core hours per month
 - 20 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 - Advanced tools and insights in private repositories:
