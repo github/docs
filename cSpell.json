@@ -46,8 +46,9 @@
       "description": "Reference: https://stackoverflow.com/questions/11229831/regular-expression-to-remove-html-tags-from-a-string"
     },
     {
-      "name": "Liquid Syntax",
-      "pattern": "\\{[%][-] (.*) [%]\\}"
+      "name": "Liquid Syntax With Dash",
+      "pattern": "\\{[%]- (.*) [%]\\}",
+      "description": "Some of the GitHub docs have this syntax"
     },
     {
       "name": "Liquid Syntax",
@@ -74,6 +75,7 @@
     "Multi-line code blocks",
     "HTML Tags",
     "Liquid Syntax",
+    "Liquid Syntax With Dash",
     "Markdown Image",
     "Frontmatter"
   ],
