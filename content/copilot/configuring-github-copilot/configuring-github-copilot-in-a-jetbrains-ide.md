@@ -78,7 +78,7 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
 1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
 1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
 1. Edit the settings according to your personal preferences.
-   - To adjust the behaviour and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
+   - To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
    - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
    - Under "Disabled languages," use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
 
