@@ -1,6 +1,6 @@
 ---
 title: Users
-intro: The Users API allows to get public and private information about the authenticated user.
+intro: Use the REST API to get public and private information about authenticated users.
 redirect_from:
   - /v3/users
   - /rest/reference/users

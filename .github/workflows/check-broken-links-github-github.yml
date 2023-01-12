@@ -52,17 +52,10 @@ jobs:
           path: docs-early-access
           ref: main
 
-      - name: Setup Node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
       - name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
-      - name: Install Node.js dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Build server
         run: npm run build

@@ -1,3 +1,9 @@
-1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)), then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**.
+1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files**.
 
-   !["Codespaces: Add Development Container Configuration Files..." in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   ![Screenshot of the "Codespaces: Add Development Container Configuration Files" option](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+
+1. In this example, the template repository from which you created the codespace already contains a dev container configuration, so a message is displayed telling you that the configuration file already exists. We're going to overwrite the existing configuration file, so click **Continue**.
+
+1. Click **Show All Definitions**.
+
+   ![Screenshot of the "Show All Definitions" option](/assets/images/help/codespaces/show-all-definitions.png)

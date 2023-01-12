@@ -28,7 +28,7 @@ export const getAutomatedPageContextFromRequest = (req: any): AutomatedPageConte
   const page = req.context.page
 
   return {
-    title: page.titlePlainText,
+    title: page.title,
     intro: page.intro,
     renderedPage: req.context.renderedPage || '',
     miniTocItems: req.context.miniTocItems || [],
