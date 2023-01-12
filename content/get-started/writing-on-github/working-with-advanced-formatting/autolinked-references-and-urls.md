@@ -11,7 +11,6 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Auto linked references
-cSpell:ignore jlord, sheetsee
 ---
 ## URLs
 

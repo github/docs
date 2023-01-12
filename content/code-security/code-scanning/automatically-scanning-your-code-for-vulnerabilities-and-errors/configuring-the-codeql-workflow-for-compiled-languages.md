@@ -27,7 +27,6 @@ topics:
   - C#
   - Java
   - Kotlin
-cSpell:ignore Kbuild, qmake
 ---
 
 

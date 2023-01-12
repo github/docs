@@ -13,7 +13,6 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-for-packages
   - /github/searching-for-information-on-github/searching-on-github/searching-for-packages
-cSpell:ignore ORGNAME, codertocat
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 

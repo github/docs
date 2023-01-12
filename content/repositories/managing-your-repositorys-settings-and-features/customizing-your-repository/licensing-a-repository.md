@@ -12,7 +12,6 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-cSpell:ignore choosealicense
 ---
 ## Choosing the right license
 

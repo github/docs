@@ -14,7 +14,6 @@ topics:
   - Infrastructure
   - Set up
 shortTitle: Install on AWS
-cSpell:ignore EIPs
 ---
 ## Prerequisites
 

@@ -14,7 +14,6 @@ versions:
 topics:
   - GitHub search
 shortTitle: Search issues & PRs
-cSpell:ignore TEAMNAME, gjtorikian, benbalter, jlord, myorg, ORGNAME, resque, libgit, shumway
 ---
 You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 

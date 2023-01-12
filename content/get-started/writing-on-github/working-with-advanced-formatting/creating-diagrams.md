@@ -4,7 +4,6 @@ intro: Create diagrams to convey information through charts and graphs
 versions:
   feature: mermaid
 shortTitle: Create diagrams
-cSpell:ignore TopoJSON
 ---
 
 ## About creating diagrams

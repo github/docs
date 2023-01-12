@@ -14,7 +14,6 @@ type: overview
 topics:
   - Security
 miniTocMaxHeadingLevel: 3
-cSpell:ignore Libsodium
 ---
 
 {% data reusables.actions.enterprise-beta %}

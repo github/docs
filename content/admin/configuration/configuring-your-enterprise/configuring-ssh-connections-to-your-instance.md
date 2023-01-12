@@ -13,7 +13,6 @@ topics:
   - Networking
   - Security
   - SSH
-cSpell:ignore gitauth
 ---
 
 ## About SSH connections to your instance

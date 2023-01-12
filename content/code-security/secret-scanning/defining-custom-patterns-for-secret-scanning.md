@@ -13,7 +13,6 @@ type: how_to
 topics:
   - Advanced Security
   - Secret scanning
-cSpell:ignore Hyperscan
 ---
 
 

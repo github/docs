@@ -17,7 +17,6 @@ topics:
   - Codespaces
   - Set up
   - Fundamentals
-cSpell:ignore Conda
 ---
 
 ## About dev containers

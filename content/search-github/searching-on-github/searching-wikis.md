@@ -12,7 +12,6 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-cSpell:ignore ORGNAME
 ---
 You can search wikis globally across all of {% data variables.product.product_name %}, or search wikis within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 

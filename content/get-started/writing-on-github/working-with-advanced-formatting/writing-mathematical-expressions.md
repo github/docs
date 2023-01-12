@@ -4,7 +4,6 @@ intro: 'Use Markdown to display mathematical expressions on {% data variables.pr
 versions:
   feature: math
 shortTitle: Mathematical expressions
-cSpell:ignore Wikibooks
 ---
 
 ## About writing mathematical expressions

@@ -5,7 +5,6 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
-cSpell:ignore Enrolments
 ---
 ## About registering an LMS to your classroom
 

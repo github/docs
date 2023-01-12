@@ -15,7 +15,6 @@ topics:
   - Infrastructure
   - Monitoring
   - Performance
-cspell:ignore collectd
 ---
 ## Set up an external `collectd` server
 

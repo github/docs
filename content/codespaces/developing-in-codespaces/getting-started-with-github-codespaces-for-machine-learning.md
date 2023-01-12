@@ -9,7 +9,6 @@ type: tutorial
 topics:
   - Codespaces
   - Developer
-cSpell:ignore Numpy, Matplotlib, seaborn, scikit, Keras, Plotly
 ---
 
 ## Introduction

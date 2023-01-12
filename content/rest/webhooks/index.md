@@ -16,7 +16,6 @@ children:
   - /repos
 redirect_from:
   - /rest/reference/webhooks
-cSpell:ignore PSHB
 ---
 
 ## About repository webhooks

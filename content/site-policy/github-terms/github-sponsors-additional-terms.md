@@ -8,7 +8,6 @@ versions:
 topics:
   - Policy
   - Legal
-cSpell:ignore SEPA
 ---
 
 Your participation in the GitHub Sponsors Program (the "Program") is subject to the [GitHub Terms of Service](/github/site-policy/github-terms-of-service) (the "Agreement"), as well as the following additional terms ("Additional Terms"). Any use of the GitHub Sponsors Program that violates the Agreement will also be a violation of these Additional Terms. Any capitalized terms used but not defined below have the meanings in the Agreement. These Additional Terms for the GitHub Sponsors Program describe the relationship between GitHub and you, the "Sponsored Developer", for the Program. The Additional Terms are effective as of the date you accept them ("Effective Date").

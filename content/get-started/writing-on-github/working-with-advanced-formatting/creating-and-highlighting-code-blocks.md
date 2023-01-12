@@ -11,7 +11,6 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Create code blocks
-cSpell:ignore TopoJSON
 ---
 
 ## Fenced code blocks

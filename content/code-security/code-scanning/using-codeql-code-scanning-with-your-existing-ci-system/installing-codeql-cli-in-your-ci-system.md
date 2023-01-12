@@ -23,7 +23,6 @@ redirect_from:
   - /code-security/secure-coding/running-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-cli-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
-cSpell:ignore qlpack
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 

@@ -10,7 +10,6 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
-cSpell:ignore WORKDIR
 ---
 
 {% data reusables.actions.enterprise-beta %}

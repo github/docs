@@ -18,7 +18,6 @@ versions:
 topics:
   - Profiles
 shortTitle: Personalize
-cSpell:ignore cpython,boto,botocore,certifi,chardet,matplotlib,ianare,exif,idna,jmespath,numpy,pycurl,pyparsing,pyserial,dateutil,pyyaml,enthought,scimath,scipy,benjaminp,urllib,pytest,iniconfig,itsdangerous,lxml,markupsafe,pypa,pexpect,ptyprocess,pyparsing,pytz,pluggy,uiri,werkzeug,dmnfarrell,tkintertable,fprime,cppy,madler,lucene,libyaml,twbs,vuejs,carrotsearch,hppc,Joda,tdunning,locationtech
 ---
 ## Changing your profile picture
 

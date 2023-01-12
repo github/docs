@@ -12,7 +12,6 @@ versions:
   ghec: '*'
   ghes: '*'
   ghae: '*'
-cSpell:ignore Etco
 ---
 
 {% data reusables.actions.enterprise-beta %}

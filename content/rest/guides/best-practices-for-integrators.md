@@ -12,7 +12,6 @@ versions:
 topics:
   - API
 shortTitle: Integrator best practices
-cSpell:ignore Resque
 ---
 
 

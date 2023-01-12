@@ -14,7 +14,6 @@ type: overview
 topics:
   - Enterprise
 shortTitle: Billing for your enterprise
-cSpell:ignore robocat, devtocat, prodocat, doctocat, monalisa
 ---
 
 ## About billing for your enterprise

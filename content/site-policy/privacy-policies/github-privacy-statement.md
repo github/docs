@@ -14,7 +14,6 @@ versions:
 topics:
   - Policy
   - Legal
-cSpell:ignore Projensdorf, Altenholz, Vijzelstraat, Cliquez, obtenir, française, Déclaration, confidentialité
 ---
 
 Effective date: December 15, 2022

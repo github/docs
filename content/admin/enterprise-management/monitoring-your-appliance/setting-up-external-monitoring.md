@@ -14,7 +14,6 @@ topics:
   - Monitoring
   - Performance
 shortTitle: Set up external monitoring
-cspell:ignore collectd
 ---
 ## About SNMP
 

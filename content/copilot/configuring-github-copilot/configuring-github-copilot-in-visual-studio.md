@@ -7,7 +7,6 @@ versions:
 shortTitle: Visual Studio
 topics:
   - Copilot
-cSpell:ignore Nextsuggestion, Previoussuggestion
 ---
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}
