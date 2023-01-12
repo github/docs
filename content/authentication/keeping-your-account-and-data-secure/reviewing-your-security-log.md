@@ -43,7 +43,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
 | [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
-| [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}{% ifversion pat-v2%}
+| [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}{% ifversion pat-v2 %}
 | [`personal_access_token`](#personal_access_token-category-actions) | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
