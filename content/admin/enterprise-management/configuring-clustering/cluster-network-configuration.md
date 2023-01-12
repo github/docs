@@ -14,6 +14,7 @@ topics:
   - Infrastructure
   - Networking
 shortTitle: Configure a cluster network
+cSpell:ignore collectd
 ---
 ## Network considerations
 

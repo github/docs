@@ -13,6 +13,7 @@ topics:
   - High availability
   - Infrastructure
 shortTitle: Initiate failover to appliance
+cSpell:ignore Resque
 ---
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 

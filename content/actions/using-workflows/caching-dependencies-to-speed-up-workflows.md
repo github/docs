@@ -14,6 +14,7 @@ type: tutorial
 topics:
   - Workflows
 miniTocMaxHeadingLevel: 3
+cSpell:ignore pipenv
 ---
 
 ## About caching workflow dependencies

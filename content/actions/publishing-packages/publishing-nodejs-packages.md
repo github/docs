@@ -17,6 +17,7 @@ topics:
   - Publishing
   - Node
   - JavaScript
+cSpell:ignore npmrc
 ---
 
 {% data reusables.actions.enterprise-beta %}
