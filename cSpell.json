@@ -245,6 +245,11 @@
       "description": "Some of the GitHub docs have this syntax"
     },
     {
+      "name": "Liquid Syntax With Both Dashes",
+      "pattern": "\\{[%]- (.*) -[%]\\}",
+      "description": "Some of the GitHub docs have this syntax"
+    },
+    {
       "name": "Liquid Syntax",
       "pattern": "\\{[%] (.*) [%]\\}"
     },
@@ -270,6 +275,7 @@
     "Liquid Syntax",
     "Liquid Syntax With Start Dash",
     "Liquid Syntax With End Dash",
+    "Liquid Syntax With Both Dashes",
     "Markdown Image",
     "Frontmatter"
   ],
