@@ -11,7 +11,6 @@ versions:
   ghec: '*'
 topics:
   - API
-cSpell:disable
 ---
 
 ![The Gundamcat](/assets/images/gundamcat.png)
