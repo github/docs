@@ -15,6 +15,7 @@ topics:
   - Upgrades
   - User account
 shortTitle: Billing process
+cSpell:ignore Kumiko, Ravi, Mada, Mada's
 ---
 Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
