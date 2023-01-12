@@ -11,7 +11,7 @@ versions:
 shortTitle: Neovim
 ---
 
-## Checking if {% data variables.product.prodname_copilot%} is operational
+## Checking if {% data variables.product.prodname_copilot %} is operational
 
 To check if GitHub Copilot is operational, run the following command in Neovim:
 
