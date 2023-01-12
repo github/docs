@@ -26,7 +26,7 @@ shortTitle: Manage encrypted secrets
 {% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
 When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
 
-After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example: 
+After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
 
 {% raw %}
 ```yaml
@@ -45,7 +45,7 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 ## Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
-{% data reusables.actions.permissions-statement-secrets-repository %}
+{% data reusables.repositories.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -63,7 +63,7 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
-{% data reusables.actions.permissions-statement-secrets-organization %}
+{% data reusables.organizations.secrets-permissions-statement %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -75,7 +75,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. If you chose **Selected repositories**:
 
    * Click {% octicon "gear" aria-label="The Gear icon" %}.
-   * Choose the repositories that can access this secret. 
+   * Choose the repositories that can access this secret.
      ![Select repositories for this secret](/assets/images/help/dependabot/secret-repository-access.png)
    * Click **Update selection**.
 
@@ -84,7 +84,7 @@ When creating a secret in an organization, you can use a policy to limit which r
    The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
    ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-org-secret.png)
-   
+
 ## Adding {% data variables.product.prodname_dependabot %} to your registries IP allow list
 
 If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. For more information, see "[Meta](/rest/reference/meta)."

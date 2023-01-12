@@ -72,13 +72,7 @@ jobs:
           gitref=$(cd ${{ matrix.language_dir }} && git rev-parse --short HEAD)
           echo "gitref=$gitref" >> $GITHUB_ENV
 
-      - name: 'Setup node'
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-
-      - name: npm ci
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Create translation health report
         run: |

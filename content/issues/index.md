@@ -3,28 +3,28 @@ title: GitHub Issues
 shortTitle: GitHub Issues
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
-  overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
+  overview: /issues/tracking-your-work-with-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
 featuredLinks:
   guides:
-    - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
+    - /issues/tracking-your-work-with-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
-    - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view
-    - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
+    - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
+    - /issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
     - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
-    - /issues/tracking-your-work-with-issues/creating-issues/about-issues
+    - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
     - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
-    - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
+    - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
   videos:
     - title: Planning at scale with Issues – Mario Rodriguez
@@ -74,4 +74,3 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
-

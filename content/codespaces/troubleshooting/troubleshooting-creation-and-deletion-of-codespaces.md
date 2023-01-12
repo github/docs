@@ -50,11 +50,11 @@ If you create a codespace and the creation fails:
    {% note %}
 
    **Note**: To view the logs during a build:
-   * In the browser, click **View logs.** 
+   * In the browser, click **View logs.**
 
    ![Screenshot of the Codespaces web UI with the View logs link emphasized](/assets/images/help/codespaces/web-ui-view-logs.png)
 
-   * In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed. 
+   * In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed.
 
    ![Screenshot of VS Code with the Building codespace link emphasized](/assets/images/help/codespaces/vs-code-building-codespace.png)
 
@@ -66,7 +66,7 @@ If you create a codespace and the creation fails:
 A codespace can only be deleted by:
 * The person who created the codespace.
 * An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period. 
+* Automatic deletion at the end of a retention period.
 
 For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
@@ -93,4 +93,4 @@ This codespace is currently running in recovery mode due to a container error.
 ```
 Review the creation logs and update the dev container configuration as needed. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
 
-You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
