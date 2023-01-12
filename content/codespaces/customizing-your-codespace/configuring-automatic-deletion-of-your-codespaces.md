@@ -24,7 +24,7 @@ Automatic deletion happens irrespective of whether a codespace contains unpushed
 
 If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
-Each codespace has its own retention period. You may, therefore, have codespaces with different rentention periods. For example, if:
+Each codespace has its own retention period. You may, therefore, have codespaces with different retention periods. For example, if:
 * You created a codespace, changed your default retention period, then created another codespace.
 * You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
 * You created a codespace from an organization-owned repository that has a retention period configured for the organization.
