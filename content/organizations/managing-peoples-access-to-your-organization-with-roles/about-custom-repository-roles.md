@@ -66,8 +66,8 @@ You can only choose an additional permission if it's not already included in the
 - Create a discussion category
 - Edit a discussion category
 - Delete a discussion category 
-- Mark or un-mark discussion answers 
-- Hide or un-hide discussion comments 
+- Mark or unmark discussion answers 
+- Hide or unhide discussion comments 
 - Convert issues to discussions 
 
 For more information, see "[{% data variables.product.prodname_discussions %}](/discussions)."
