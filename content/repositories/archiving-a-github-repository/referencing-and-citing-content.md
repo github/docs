@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 shortTitle: Reference & cite content
+cSpell:ignore Zenodo, Figshare
 ---
 ## Issuing a persistent identifier for your repository with Zenodo
 
