@@ -1,0 +1,29 @@
+name: Spellcheck
+
+on:
+  push:
+    branches:
+      - master #or main if that's what the project is using
+    paths:
+      # This ensures the check will only be run when something changes in the docs content
+      - "content/**/*" # or whatever the path to the markdown / docs files happens to be
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "content/**/*"
+jobs:
+  spellcheck:
+    name: "Spellcheck Docs Content"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out the code
+      - uses: actions/setup-node@v1
+        name: Setup node
+        with:
+          node-version: "16"
+      - run: npm install -g cspell
+        name: Install cSpell
+      - run: cspell --config ./cSpell.json "content/**/*.md" --no-progress # Update for path to the markdown files
+        name: Run cSpell
