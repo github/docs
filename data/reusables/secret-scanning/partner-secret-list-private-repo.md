@@ -67,6 +67,9 @@ Dynatrace | Dynatrace Access Token | dynatrace_access_token
 Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
 EasyPost | EasyPost Production API Key | easypost_production_api_key
 EasyPost | EasyPost Test API Key | easypost_test_api_key
+{%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
+eBay | eBay Production Client ID (App ID) with eBay Production Client Secret (Cert ID) | ebay_production_client_id </br>ebay_production_client_secret
+eBay | eBay Sandbox Client ID (App ID) with eBay Sandbox Client Secret (Cert ID) | ebay_sandbox_client_id </br>ebay_sandbox_client_secret{% endif %}
 Fastly | Fastly API Token | fastly_api_token
 {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Figma | Figma {% data variables.product.pat_generic_title_case %} |figma_pat{% endif %}

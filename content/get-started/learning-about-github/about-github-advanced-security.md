@@ -88,7 +88,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data reusables.advanced-security.starter-workflow-overview %}
 
-For more information on starter workflows, see "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" and "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+For more information on starter workflows, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" and "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
 
 {% endif %}
 
