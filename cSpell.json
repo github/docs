@@ -47,6 +47,10 @@
     },
     {
       "name": "Liquid Syntax",
+      "pattern": "\\{[%][-] (.*) [%]\\}"
+    },
+    {
+      "name": "Liquid Syntax",
       "pattern": "\\{[%] (.*) [%]\\}"
     },
     {
