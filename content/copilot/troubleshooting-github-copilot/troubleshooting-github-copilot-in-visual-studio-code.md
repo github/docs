@@ -16,7 +16,7 @@ shortTitle: Visual Studio Code
 The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. The log files are useful for diagnosing connection issues.
 1. Open the **View** menu in {% data variables.product.prodname_vscode %}.
 1. Click **Output**.
-1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
+1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot %}** from the dropdown menu.
 
 ![Screenshot of {% data variables.product.prodname_copilot%} Output pane](/assets/images/help/copilot/vsc-output-pane.png)
 
@@ -31,15 +31,15 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
 
 ## Viewing network connectivity diagnostics logs
 
-If you encounter problems connecting to {% data variables.product.prodname_copilot%} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
+If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    - For Mac:
       - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>   
    - For Windows or Linux:
       - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> 
-1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot%}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
-1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can actually access the necessary services.
+1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot %}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
+1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot %} can actually access the necessary services.
 
 ## Viewing Electron logs
 
@@ -57,5 +57,5 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-- "[Configuring {% data variables.product.prodname_copilot%} proxy support](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)"
+- "[Configuring {% data variables.product.prodname_copilot %} proxy support](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)"
 - "[Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)" in the {% data variables.product.prodname_vscode %} documentation
