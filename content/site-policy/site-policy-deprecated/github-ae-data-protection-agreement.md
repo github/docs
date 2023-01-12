@@ -119,7 +119,7 @@ No Use in Marketing and CCPA. GitHub will not use the Protected Data for the pur
 GitHub is liable for onward transfers of Protected Data to its subprocessors, such as its third-party payment processor. In the event that GitHub does transfer the Protected Data to a third-party subprocessor, or GitHub installs, uses, or enables a third party or third-party services to process the Protected Data on GitHub’s behalf, GitHub will ensure that the third-party subprocessor is bound by written agreement that requires them to provide at least the same level of confidentiality, security, and privacy protection as is required of GitHub by this DPA and the Applicable Data Protection Laws.
 
 #### 6.2 Acceptance of GitHub Subprocessors.
-Customer authorizes GitHub and its subprocesors to appoint and use subprocessors in accordance with this Section 6 and the Agreement.
+Customer authorizes GitHub and its subprocessors to appoint and use subprocessors in accordance with this Section 6 and the Agreement.
 
 #### 6.3 General Consent for Onward Subprocessing.
 Customer provides a general consent for GitHub to engage onward subprocessors, conditional on GitHub’s compliance with the following requirements:
