@@ -15,6 +15,7 @@ topics:
   - Containers
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
+cSpell:ignore kustomize
 ---
 
 {% data reusables.actions.enterprise-beta %}

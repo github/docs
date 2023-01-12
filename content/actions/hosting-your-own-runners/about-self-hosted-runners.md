@@ -143,7 +143,7 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
 {% elsif ghes or ghae %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
-{% ifversion ghes > 3.4%}
+{% ifversion ghes > 3.4 %}
 For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
 {%- endif %}
 {%- endif %}
