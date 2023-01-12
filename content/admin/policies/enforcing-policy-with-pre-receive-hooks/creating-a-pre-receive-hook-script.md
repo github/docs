@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
+cSpell:ignore stafftools
 ---
 
 {% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}
