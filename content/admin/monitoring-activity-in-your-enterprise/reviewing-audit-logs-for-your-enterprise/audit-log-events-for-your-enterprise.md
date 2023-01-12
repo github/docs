@@ -22,7 +22,7 @@ topics:
   - Security
 ---
 
-{% ifversion ghec%}
+{% ifversion ghec %}
 ## About audit log events for your enterprise
 
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
