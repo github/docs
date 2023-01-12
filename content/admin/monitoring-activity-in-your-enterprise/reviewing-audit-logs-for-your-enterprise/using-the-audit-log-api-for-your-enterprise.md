@@ -14,6 +14,7 @@ topics:
   - Enterprise
   - Logging
   - API
+cSpell:ignore auditlog
 ---
 
 ## Using the audit log API
