@@ -7,6 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: Configure default editor
+cSpell:ignore Typora, Aptana
 ---
 ## Supported editors
 
