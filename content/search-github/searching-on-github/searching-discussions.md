@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
   - /github/searching-for-information-on-github/searching-on-github/searching-discussions
+cSpell:ignore ORGNAME
 ---
 
 ## About searching for discussions
