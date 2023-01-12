@@ -38,7 +38,7 @@ When someone posts or replies to a public discussion on a team's page, members o
 
 By default, if your username is mentioned in a team discussion, you'll receive notifications for the post mentioning your username and any replies to that post. Also, by default, if you reply to a post, you will receive notifications for other replies to the post.
 
-To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to unwatch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're unwatching that team's discussions.
+To turn off notifications for team discussions, you can unsubscribe to a specific discussion post or change your notification settings to un-watch or completely ignore a specific team's discussions. You can subscribe to notifications for a specific discussion post even if you're un-watching that team's discussions.
 
 For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
