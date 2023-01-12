@@ -17,7 +17,7 @@ featuredLinks:
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
     - /desktop
-    - /github/getting-started-with-github/github-cli
+    - /github-cli/github-cli/about-github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
   label: education
