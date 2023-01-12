@@ -14,6 +14,7 @@ versions:
 topics:
   - GitHub search
 shortTitle: Search for repositories
+cSpell:ignore webos
 ---
 You can search for repositories globally across all of {% data variables.location.product_location %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
