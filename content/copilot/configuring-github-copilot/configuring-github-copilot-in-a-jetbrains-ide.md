@@ -11,7 +11,7 @@ shortTitle: JetBrains
 
 ## About {% data variables.product.prodname_copilot %} in JetBrains IDEs
 
-If you use a Jetbrains IDE, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.prodname_dotcom_the_website %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other Jetbrains IDEs may differ.
+If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.prodname_dotcom_the_website %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other JetBrains IDEs may differ.
 
 {% data reusables.copilot.dotcom-settings %}
 
@@ -84,7 +84,7 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
 
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a Jetbrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. 
+You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a JetBrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. 
 
 1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
 1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.

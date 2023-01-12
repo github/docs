@@ -11,11 +11,11 @@ versions:
 shortTitle: JetBrains
 ---
 
-To troubleshoot issues with {% data variables.product.prodname_copilot %} or your Jetbrains IDE, you can view the log files. The location of the log files depends on the Jetbrains IDE you are using. For more information, see "[Configuring GitHub Copilot in a JetBrains IDE](/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide)."
+To troubleshoot issues with {% data variables.product.prodname_copilot %} or your JetBrains IDE, you can view the log files. The location of the log files depends on the JetBrains IDE you are using. For more information, see "[Configuring GitHub Copilot in a JetBrains IDE](/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide)."
 
 ## Collecting log files
 
-These steps describe how to view and collect the log files for the following Jetbrains IDEs:
+These steps describe how to view and collect the log files for the following JetBrains IDEs:
 
 - IntelliJ IDEA
 - Android Studio
