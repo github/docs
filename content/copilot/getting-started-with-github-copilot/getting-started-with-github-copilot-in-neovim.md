@@ -7,6 +7,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
+cSpell:ignore nvim
 ---
 
 {% data reusables.copilot.copilot-cta-button %}
