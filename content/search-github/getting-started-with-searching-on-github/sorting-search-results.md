@@ -12,6 +12,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
+cSpell:ignore tada
 ---
 Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
 
