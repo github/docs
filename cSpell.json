@@ -2,9 +2,21 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "CCPA",
+    "CSAM",
+    "deidentify",
+    "Geolocation",
+    "ITAR",
+    "Majeure",
+    "offences",
+    "subprocessor’s",
+    "Subprocessors",
+    "Unpublish",
+    "Unpublishing",
+    "waitlist",
+    "Whitespaces"
   ],
-  "ignoreWords": [
-  ],
+  "ignoreWords": [],
   "patterns": [
     {
       "name": "Markdown links",
@@ -63,7 +75,6 @@
       "pattern": "/^(-{3}|[+]{3})$[\\s\\S]*?^\\1$/gm",
       "description": "Reference: https://github.com/streetsidesoftware/cspell/discussions/3456"
     }
-
   ],
   "ignoreRegExpList": [
     "Markdown links",
