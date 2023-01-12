@@ -89,7 +89,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
   ```
   {% note %}
   
-  **Note:** Azure does not automatically create a FQDNS entry for the VM. For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."
+  **Note:** Azure does not automatically create a FQDN entry for the VM. For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."
   
   {% endnote %}
   
