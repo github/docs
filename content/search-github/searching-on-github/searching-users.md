@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-cSpell:ingnore fullname
+cSpell:ignore fullname
 ---
 You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
