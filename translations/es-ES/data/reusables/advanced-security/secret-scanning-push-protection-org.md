@@ -1,6 +1,0 @@
-1. Debajo de "{% data variables.product.prodname_secret_scanning_caps %}" y debajo de "Protección contra subida", haz clic en **Habilitar todo**. ![Captura de pantalla que muestra cómo habilitar la protección de subida para el {% data variables.product.prodname_secret_scanning %} en una organización](/assets/images/help/organizations/secret-scanning-enable-push-protection.png)
-1. Opcionalmente, haz clic en "Habilitar automáticamente los repositorios privados agregados al {% data variables.product.prodname_secret_scanning %}".{% ifversion push-protection-custom-link-orgs %}
-1. Opcionalmente, para incluir un enlace personalizado en el mensaje, el cual verán los miembros cuando intenten subir un secreto, selecciona **Agregar un enlace de recurso en el CLI e IU web cuando se bloquee un comentario** y después escribe una URL y haz clic en **Guardar enlace**.
-   {% ifversion push-protection-custom-link-orgs-beta %}{% indented_data_reference reusables.advanced-security.custom-link-beta spaces=3 %}{% endif %}
-
-   ![Captura de pantalla que muestra la casilla de verificación y campo de texto para habilitar un enlace personalizado](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}

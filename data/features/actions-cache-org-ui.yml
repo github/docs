@@ -1,0 +1,8 @@
+# Reference: #8112
+# Documentation for the Actions cache list UI for organizations
+# Related feature flags are actions-cache-admin-ui and actions-cache-ui
+# All features released at the same time, but have different versions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

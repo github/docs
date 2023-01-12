@@ -1,6 +1,0 @@
-## Habilitar o inhabilitar {% data variables.product.prodname_copilot %}
-
-You can enable or disable {% data variables.product.prodname_copilot %} from within JetBrains. El icono de estado del {% data variables.product.prodname_copilot %} en el panel inferior de la ventana de JetBrains indica si se habilitó o inhabilitó el {% data variables.product.prodname_copilot %}. Cuando se inhabilita, el icono se resalta. Cuando se inhabilita, el icono se pone gris.
-
-1. Para habilitar o inhabilitar el {% data variables.product.prodname_copilot %}, haz clic en el icono de estado en el panel inferior de la ventana de JetBrains. ![Screenshot of status icon in JetBrains](/assets/images/help/copilot/status-icon-jetbrains.png)
-2. If you are disabling {% data variables.product.prodname_copilot %}, JetBrains will ask whether you want to disable the feature globally, or for the language of the file you are currently editing. Para inhabilitar globalmente, haz clic en **Inhabilitar conclusiones**. Alternatively, click the button to disable completions for the language of the file you are currently editing. ![Screenshot of options to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)

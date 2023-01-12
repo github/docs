@@ -1,5 +1,6 @@
 ---
 title: Publishing Java packages with Gradle
+shortTitle: Publish Java packages with Gradle
 intro: You can use Gradle to publish Java packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
@@ -15,7 +16,6 @@ topics:
   - Publishing
   - Java
   - Gradle
-shortTitle: Java packages with Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -34,7 +34,7 @@ For more information about creating a CI workflow for your Java project with Gra
 You may also find it helpful to have a basic understanding of the following:
 
 - "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[Environment variables](/actions/reference/environment-variables)"
+- "[Variables](/actions/learn-github-actions/variables)"
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
 
@@ -160,10 +160,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-java %}
@@ -241,10 +241,10 @@ on:
     types: [created]
 jobs:
   publish:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java

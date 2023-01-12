@@ -1,1 +1,0 @@
-企業がどのように{% data variables.product.company_short %}の製品を使って自分たちのソフトウェア開発サイクルをサポートできるかということに関する詳しい情報については「[Entepriseの{% data variables.product.prodname_dotcom %}について](/admin/overview/about-github-for-enterprises)」を参照してください。

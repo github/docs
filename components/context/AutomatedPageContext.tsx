@@ -6,6 +6,8 @@ export type AutomatedPageContextT = {
   intro: string
   renderedPage: string | JSX.Element[]
   miniTocItems: Array<MiniTocItem>
+  product?: string
+  permissions?: string
 }
 
 export const AutomatedPageContext = createContext<AutomatedPageContextT | null>(null)
@@ -30,5 +32,7 @@ export const getAutomatedPageContextFromRequest = (req: any): AutomatedPageConte
     intro: page.intro,
     renderedPage: req.context.renderedPage || '',
     miniTocItems: req.context.miniTocItems || [],
+    product: page.product || '',
+    permissions: page.permissions || '',
   }
 }

@@ -79,7 +79,7 @@ For more information about {% data variables.product.prodname_actions %}, see "[
 
 When you configure your site to publish with {% data variables.product.prodname_actions %}, {% data variables.product.product_name %} will suggest starter workflows for common publishing scenarios. The general flow of a workflow is to:
 
-1. Trigger whenever there is a push to the default branch of the repository or whenever a pull request that targets the default branch is opened, reopened, or updated.
+1. Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.
 1. Use the [`actions/checkout`](https://github.com/actions/checkout) action to check out the repository contents.
 1. If required by your site, build any static site files.
 1. Use the [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact) action to upload the static files as an artifact.
@@ -87,11 +87,13 @@ When you configure your site to publish with {% data variables.product.prodname_
 
 The starter workflows use a deployment environment called `github-pages`. If your repository does not already include an environment called `github-pages`, the environment will be created automatically. We recommend that you add an environment protection rule so that only the default branch can deploy to this environment. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
+{% ifversion fpt or ghec %}
 {% note %}
 
 **Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[Managing a custom domain for your GitHub Pages site](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
 
 {% endnote %}
+{% endif %}
 
 ### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
 

@@ -20,3 +20,4 @@ sections:
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
     - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - The [file finder](/search-github/searching-on-github/finding-files-on-github) does not return any results. To restore functionality, reinstall the 3.3.12 patch release using a full upgrade package. For more information, see "[Upgrading GitHub Enterprise Server](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)."

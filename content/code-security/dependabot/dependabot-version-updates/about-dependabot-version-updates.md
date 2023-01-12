@@ -1,6 +1,7 @@
 ---
 title: About Dependabot version updates
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+product: '{% data reusables.gated-features.dependabot-version-updates %}'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
@@ -37,6 +38,8 @@ When {% data variables.product.prodname_dependabot %} identifies an outdated dep
 If you enable _security updates_, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
+
+{% data reusables.dependabot.dependabot-updates-and-actions %}
 
 {% data reusables.dependabot.dependabot-tos %}
 

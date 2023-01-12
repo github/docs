@@ -1,5 +1,6 @@
 ---
 title: Publishing Docker images
+shortTitle: Publish Docker images
 intro: 'You can publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
@@ -43,6 +44,12 @@ You might also find it helpful to have a basic understanding of the following:
 ## About image configuration
 
 This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+
+{% data reusables.package_registry.about-annotation-keys %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
+
+{% endif %}
 
 In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
 

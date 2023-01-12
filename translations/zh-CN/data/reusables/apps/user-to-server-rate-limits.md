@@ -1,1 +1,0 @@
-{% ifversion ghes %}默认情况下，用户到服务器{% else %}用户到服务器{% endif %} 请求限制为每个经过身份验证的用户每小时 {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} 个请求。 来自由用户授权的 OAuth 应用程序或用户拥有的个人访问令牌的所有请求，以及使用用户的任何身份验证凭据进行身份验证的请求，共享相同的配额，即该用户每小时 {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} 个请求。

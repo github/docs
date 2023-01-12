@@ -5,4 +5,3 @@
     ```
     
     - Use the default key type and at least `4096` bits with no expiry. 
-    - Use `web-flow` as the username. 

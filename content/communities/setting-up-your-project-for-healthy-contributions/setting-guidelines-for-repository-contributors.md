@@ -58,7 +58,7 @@ You can create default contribution guidelines for your organization{% ifversion
 
 If you're stumped, here are some good examples of contribution guidelines:
 
-- The Atom editor [contribution guidelines](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
+- The {% data variables.product.prodname_docs %} [contribution guidelines](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
 - The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
 - The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 

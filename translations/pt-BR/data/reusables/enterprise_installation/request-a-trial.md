@@ -1,1 +1,0 @@
-Você pode solicitar uma versão de avaliação para avaliar {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_server %}]({% ifversion ghae %}/enterprise-server@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)".

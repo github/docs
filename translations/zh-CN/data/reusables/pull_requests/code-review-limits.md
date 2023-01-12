@@ -1,1 +1,0 @@
-默认情况下，在公共存储库中，任何用户都可以提交审查以批准或请求对拉取请求进行更改。 组织所有者和存储库管理员可以限制谁能够对请求进行审批的拉取请求评审或请求更改。 更多信息请参阅“[管理组织中的拉取请求评审](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”和“[管理存储库中的拉取请求评审](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository)”。

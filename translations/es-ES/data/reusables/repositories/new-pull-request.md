@@ -1,1 +1,0 @@
-1. Sobre la lista de archivos, da clic en {% octicon "git-pull-request" aria-label="The pull request icon" %} **Solicitud de extracción**. ![Enlace de "Solicitud de extracción" sobre la lsita de archivos](/assets/images/help/pull_requests/pull-request-start-review-button.png)

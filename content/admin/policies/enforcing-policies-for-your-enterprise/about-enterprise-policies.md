@@ -22,7 +22,7 @@ By default, no enterprise policies are enforced. To identify policies that shoul
 While you're configuring enterprise policies, to help you understand the impact of changing each policy, you can view the current configurations for the organizations owned by your enterprise.
 
 {% ifversion ghes %}
-Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.product.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
+Another way to enforce standards within your enterprise is to use pre-receive hooks, which are scripts that run on {% data variables.location.product_location %} to implement quality checks. For more information, see "[Enforcing policy with pre-receive hooks](/admin/policies/enforcing-policy-with-pre-receive-hooks)."
 {% endif %}
 
 ## Further reading

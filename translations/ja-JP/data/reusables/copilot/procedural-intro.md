@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot %}は、コーディング中にAIペアプログラマから自動補完スタイルの提案を提供します。 詳しい情報については「[{% data variables.product.prodname_copilot %}について](/copilot/overview-of-github-copilot/about-github-copilot)」を参照してください。

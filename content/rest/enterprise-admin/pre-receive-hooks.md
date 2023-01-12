@@ -1,6 +1,6 @@
 ---
 title: Pre-receive Hooks
-intro: 'The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks.'
+intro: 'Use the REST API to create, list, update and delete pre-receive hooks.'
 versions:
   ghes: '*'
 topics:
@@ -8,7 +8,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+## About pre-receive hooks
+
+These endpoints are only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators. Normal users will receive a `404` response.
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
 ### Object attributes
 

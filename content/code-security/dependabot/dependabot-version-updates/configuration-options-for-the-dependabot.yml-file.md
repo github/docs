@@ -11,7 +11,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 type: reference
 topics:
   - Dependabot
@@ -32,6 +32,12 @@ The {% data variables.product.prodname_dependabot %} configuration file, *depend
 You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+
+{% note %}
+
+**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the *dependabot.yml* file.
+
+{% endnote %}
 
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
@@ -77,19 +83,19 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   # Maintain dependencies for Composer
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 
 ### `directory`
@@ -105,29 +111,31 @@ updates:
     # Files stored in repository root
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   - package-ecosystem: "npm"
     # Files stored in `app` directory
     directory: "/app"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the
     # default location of `.github/workflows`
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 
 ### `schedule.interval`
 
 **Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
 
-- `daily`—runs on every weekday, Monday to Friday.
-- `weekly`—runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).
-- `monthly`—runs once each month. This is on the first day of the month.
+| Interval types | Frequency |
+|----------------|-----------|
+| `daily` | Runs on every weekday, Monday to Friday.|
+| `weekly`| Runs once each week. By default, this is on Monday. To modify this, use [`schedule.day`](#scheduleday).|
+| `monthly` | Runs once each month. This is on the first day of the month. |
 
 ```yaml
 # Set update schedule for each package manager
@@ -179,7 +187,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow updates for Lodash
       - dependency-name: "lodash"
@@ -189,7 +197,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
@@ -197,7 +205,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     allow:
       # Allow only direct updates for
       # Django and any packages starting "django"
@@ -222,7 +230,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Add assignees
     assignees:
       - "octocat"
@@ -236,7 +244,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
 
 {% endnote %}
 
@@ -254,7 +262,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     commit-message:
       # Prefix all commit messages with "npm"
       prefix: "npm"
@@ -262,7 +270,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Prefix all commit messages with "Composer"
     # include a list of updated dependencies
     commit-message:
@@ -272,7 +280,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
@@ -283,7 +291,7 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
-   
+
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -318,7 +326,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     ignore:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
@@ -389,7 +397,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Specify labels for npm pull requests
     labels:
       - "npm"
@@ -410,7 +418,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Associate pull requests with milestone "4"
     milestone: 4
 ```
@@ -429,14 +437,14 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Disable version updates for npm dependencies
     open-pull-requests-limit: 0
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Allow up to 10 open pull requests for pip dependencies
     open-pull-requests-limit: 10
 ```
@@ -457,7 +465,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     pull-request-branch-name:
       # Separate sections of the branch name with a hyphen
       # for example, `dependabot-npm_and_yarn-next_js-acorn-6.4.1`
@@ -470,8 +478,28 @@ By default, {% data variables.product.prodname_dependabot %} automatically rebas
 
 Available rebase strategies
 
-- `disabled` to disable automatic rebasing.
 - `auto` to use the default behavior and rebase open pull requests when changes are detected.
+- `disabled` to disable automatic rebasing.
+
+When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
+- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
+- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
+- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
+- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
+
+{% endnote %}
+
+When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests.
+
+{% note %}
+
+**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
+
+{% endnote %}
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -483,7 +511,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Disable rebasing for npm pull requests
     rebase-strategy: "disabled"
 ```
@@ -535,7 +563,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Add reviewers
     reviewers:
       - "octocat"
@@ -581,7 +609,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       # Check for npm updates at 9am UTC
       time: "09:00"
 ```
@@ -598,7 +626,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       time: "09:00"
       # Use Japan Standard Time (UTC +09:00)
       timezone: "Asia/Tokyo"
@@ -616,7 +644,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Raise pull requests for version updates
     # to pip against the `develop` branch
     target-branch: "develop"
@@ -678,8 +706,8 @@ Available update strategies
 | `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
 | `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
 | `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm` | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm` | Increase the version requirement only when required by the new version. |
+| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
+| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
 
 ```yaml
 # Customize the manifest version strategy
@@ -689,7 +717,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Update the npm manifest file to relax
     # the version requirements
     versioning-strategy: widen
@@ -697,7 +725,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Increase the version requirements for Composer
     # only when required
     versioning-strategy: increase-if-necessary
@@ -705,7 +733,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     # Only allow updates to the lockfile for pip and
     # ignore any version updates that affect the manifest
     versioning-strategy: lockfile-only
@@ -714,12 +742,31 @@ updates:
 ## Configuration options for private registries
 
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+{% ifversion ghes > 3.7 %}
+{% note %}
+
+**Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
+
+- Bundler
+- Docker
+- Gradle
+- Maven
+- npm
+- Nuget
+- Python
+- Yarn
+
+{% endnote %}
+
+{% else %}
 
 {% note %}
 
 **Note:** Private registries behind firewalls on private networks are not supported.
 
 {% endnote %}
+
+{% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following *dependabot.yml* file, configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
@@ -754,8 +801,7 @@ You use the following options to specify access settings. Registry settings must
 | `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
 | `key`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
 | `token`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base`            | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
-
+| `replaces-base`            | For registries{% ifversion dependabot-private-registries %}, if the boolean value is `true`, {% data variables.product.prodname_dependabot %} will resolve dependencies by using the specified URL rather than the base URL of that specific ecosystem. For example, for registries{% endif %} with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
 
 Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
@@ -776,14 +822,22 @@ registries:
 
 ### `docker-registry`
 
-{% note %}
-
-**Note:** We don't support the Azure Container Registry (ACR).
-
-{% endnote %}
+{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password.
-
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  dockerhub:
+    type: docker-registry
+    url: https://registry.hub.docker.com
+    username: octocat
+    password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -794,9 +848,22 @@ registries:
     password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
 ```
 {% endraw %}
+{% endif %}
 
-The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
-
+The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -807,6 +874,7 @@ registries:
     password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
 ```
 {% endraw %}
+{% endif %}
 
 ### `git`
 
@@ -837,10 +905,43 @@ registries:
 ```
 {% endraw %}
 
+{% ifversion dependabot-hex-self-hosted-support %}
+### `hex-repository`
+
+The `hex-repository` type supports an authentication key.
+
+`repo` is a required field, which must match the name of the repository used in your dependency declaration.
+
+The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
+
+{% raw %}
+```yaml
+registries:
+   github-hex-repository:
+     type: hex-repository
+     repo: private-repo
+     url: https://private-repo.example.com
+     auth-key: ${{secrets.MY_AUTH_KEY}}
+     public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
+```
+{% endraw %}{% endif %}
+
 ### `maven-repository`
 
 The `maven-repository` type supports username and password.
-
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  maven-artifactory:
+    type: maven-repository
+    url: https://artifactory.example.com
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -850,7 +951,7 @@ registries:
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
-{% endraw %}
+{% endraw %}{% endif %}
 
 ### `npm-registry`
 
@@ -858,6 +959,30 @@ The `npm-registry` type supports username and password, or token.
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    username: octocat
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
+    replaces-base: true
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -877,7 +1002,9 @@ registries:
     url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
-{% endraw %}
+{% endraw %} {% endif %}
+{% ifversion dependabot-yarn-v3-update %}
+For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
 
 ### `nuget-feed`
 
@@ -900,7 +1027,8 @@ registries:
   nuget-azure-devops:
     type: nuget-feed
     url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 {% endraw %}
 
@@ -926,7 +1054,8 @@ registries:
   python-azure:
     type: python-index
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
-    token: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    username: octocat@example.com
+    password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
 {% endraw %}
@@ -935,6 +1064,30 @@ registries:
 
 The `rubygems-server` type supports username and password, or token.
 
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  ruby-example:
+    type: rubygems-server
+    url: https://rubygems.example.com
+    username: octocat@example.com
+    password: ${{secrets.MY_RUBYGEMS_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+registries:
+  ruby-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/octocat/github_api
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+   replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -954,7 +1107,7 @@ registries:
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
-{% endraw %}
+{% endraw %}{% endif %}
 
 ### `terraform-registry`
 
@@ -970,7 +1123,7 @@ registries:
 ```
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %} 
+{% ifversion fpt or ghec or ghes > 3.4 %}
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -987,6 +1140,6 @@ updates:{% ifversion fpt or ghec or ghes > 3.5 %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
 ```
 {% endif %}

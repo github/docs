@@ -1,1 +1,0 @@
-外部認証プロバイダにアカウントを持たない一部のユーザに認証を許可したいなら、{% data variables.product.product_location %}のローカルアカウントへの認証のフォールバックを許可できます。 詳しい情報については「[プロバイダ外のユーザへのビルトイン認証の許可](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)」を参照してください。

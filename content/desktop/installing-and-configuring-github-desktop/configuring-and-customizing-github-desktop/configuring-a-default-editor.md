@@ -14,7 +14,6 @@ shortTitle: Configure default editor
 
 {% mac %}
 
-- [Atom](https://atom.io/)
 - [MacVim](https://macvim-dev.github.io/macvim/)
 - [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
@@ -43,7 +42,6 @@ shortTitle: Configure default editor
 
 {% windows %}
 
-- [Atom](https://atom.io/)
 - [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/)
 - [Visual Studio Codium](https://vscodium.com/)
 - [Sublime Text](https://www.sublimetext.com/)

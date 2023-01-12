@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}の各リポジトリは、個人もしくはOrganizationが所有しています。 人、リポジトリ、Organizationとは、{% data variables.product.product_name %}上で接続してフォローすることによってやりとりできます。 詳しい情報については「[ソーシャル機能](/articles/be-social)」を参照してください。

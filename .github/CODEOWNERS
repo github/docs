@@ -15,13 +15,6 @@ Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering
 package.json @github/docs-engineering
 
-# Localization
-/.github/actions-scripts/create-translation-batch-pr.js @github/docs-engineering
-/.github/workflows/create-translation-batch-pr.yml @github/docs-engineering
-/.github/workflows/crowdin.yml @github/docs-engineering
-/crowdin*.yml @github/docs-engineering
-/translations/ @Octomerger
-
 # Site Policy
 /content/site-policy/ @github/site-policy-admins
 

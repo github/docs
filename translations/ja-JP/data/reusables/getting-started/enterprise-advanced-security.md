@@ -1,1 +1,0 @@
-EnterpriseアカウントでGitHub Advanced Securityライセンスを持っているなら、{% data variables.product.prodname_dotcom %}のAdvanced Securityの機能を管理するポリシーをEnterpriseが所有するOrganizationに適用できます。 詳しい情報については「[EnetrpriseアカウントでのAdvanced Securityのポリシーの適用](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise)」を参照してください。

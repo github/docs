@@ -1,17 +1,34 @@
 import { Client } from '@elastic/elasticsearch'
 
-// The reason this is exported is so the middleware endpoints can
-// find out if the environment variable has been set (and is truthy)
-// before attempting to call the main function in this file.
-export const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
+export const POSSIBLE_HIGHLIGHT_FIELDS = ['title', 'content', 'headings']
+export const DEFAULT_HIGHLIGHT_FIELDS = ['title', 'content']
+
+const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
+  if (!ELASTICSEARCH_URL) {
+    // If this was mistakenly not set, it will eventually fail
+    // when you use the Client. But `new Client({node: undefined})`
+    // won't throw. And the error you get when you actually do try
+    // to use that Client instance is cryptic compared to this
+    // plain and simple thrown error.
+    throw new Error(`$ELASTICSEARCH_URL is not set`)
+  }
   return new Client({
     node: ELASTICSEARCH_URL,
+    // The default is 30,000ms but we noticed that the median time is about
+    // 100-150ms with some occasional searches taking multiple seconds.
+    // The default `maxRetries` is 5 which is a sensible number.
+    // If a query gets stuck, it's better to (relatively) quickly give up
+    // and retry. So if it takes longer than this time here, we're banking on
+    // that it was just bad luck and that it'll work if we simply try again.
+    // See internal issue #2318.
+    requestTimeout: 1000,
   })
 }
+
 // The true work horse that actually performs the Elasticsearch query
 export async function getSearchResults({
   indexName,
@@ -23,7 +40,11 @@ export async function getSearchResults({
   topics,
   includeTopics,
   usePrefixSearch,
+  highlights,
 }) {
+  if (topics && !Array.isArray(topics)) {
+    throw new Error("'topics' has to be an array")
+  }
   const t0 = new Date()
   const client = getClient()
   const from = size * (page - 1)
@@ -41,34 +62,48 @@ export async function getSearchResults({
       should: matchQueries,
     },
   }
-  if (topics) {
-    throw new Error('Not implemented yet')
+
+  const topicsFilter = (topics || []).map((topic) => {
+    return {
+      term: {
+        // Remember, 'topics' is a keyword field, meaning you need
+        // to filter by "Webhooks", not "webhooks"
+        topics: topic,
+      },
+    }
+  })
+  if (topicsFilter.length) {
+    matchQuery.bool.filter = topicsFilter
   }
 
-  const highlight = getHighlightConfiguration(query)
+  const highlightFields = highlights || DEFAULT_HIGHLIGHT_FIELDS
+  const highlight = getHighlightConfiguration(query, highlightFields)
 
   const searchQuery = {
-    index: indexName,
     highlight,
     from,
     size,
-    // Since we know exactly which fields from the source we're going
-    // need we can specify that here. It's an inclusion list.
-    // We can save precious network by not having to transmit fields
-    // stored in Elasticsearch to here if it's not going to be needed
-    // anyway.
-    _source_includes: [
-      'title',
-      'url',
-      'breadcrumbs',
-      // 'headings'
-      'popularity',
-    ],
+
+    // COMMENTED out because of ES 7.11.
+    // Once we're on ES >7.11  we can add this option in.
+    // // Since we know exactly which fields from the source we're going
+    // // need we can specify that here. It's an inclusion list.
+    // // We can save precious network by not having to transmit fields
+    // // stored in Elasticsearch to here if it's not going to be needed
+    // // anyway.
+    // _source_includes: [
+    //   'title',
+    //   'url',
+    //   'breadcrumbs',
+    //   // 'headings'
+    //   'popularity',
+    // ],
   }
 
-  if (includeTopics) {
-    searchQuery._source_includes.push('topics')
-  }
+  // See note above why this is excluded in ES 7.11
+  // if (includeTopics) {
+  //   searchQuery._source_includes.push('topics')
+  // }
 
   if (sort === 'best') {
     // To sort by a function score, you need to wrap the primary
@@ -107,15 +142,17 @@ export async function getSearchResults({
     throw new Error(`Unrecognized sort enum '${sort}'`)
   }
 
-  const result = await client.search(searchQuery)
+  const result = await client.search({ index: indexName, body: searchQuery })
 
-  const hits = getHits(result.hits.hits, { indexName, debug, includeTopics })
+  // const hitsAll = result.hits  // ES >7.11
+  const hitsAll = result.body // ES <=7.11
+  const hits = getHits(hitsAll.hits.hits, { indexName, debug, includeTopics, highlightFields })
   const t1 = new Date()
 
   const meta = {
-    found: result.hits.total,
+    found: hitsAll.hits.total,
     took: {
-      query_msec: result.took,
+      query_msec: hitsAll.took,
       total_msec: t1.getTime() - t0.getTime(),
     },
     page,
@@ -131,6 +168,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_HEADINGS = 3.0
   const BOOST_CONTENT = 1.0
   const BOOST_AND = 2.5
+  const BOOST_EXPLICIT = 3.5
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
   // play if nothing else matches. E.g. a search for `Acions`
@@ -168,41 +206,108 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
     const matchPhraseStrategy = usePrefixSearch ? 'match_phrase_prefix' : 'match_phrase'
     matchQueries.push(
       ...[
+        {
+          [matchPhraseStrategy]: {
+            title_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE * BOOST_TITLE, query },
+          },
+        },
         { [matchPhraseStrategy]: { title: { boost: BOOST_PHRASE * BOOST_TITLE, query } } },
+        {
+          [matchPhraseStrategy]: {
+            headings_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE * BOOST_HEADINGS, query },
+          },
+        },
         { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
-        { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
       ]
     )
+    // If the content is short, it is given a disproportionate advantage
+    // in search ranking. For example, our category and map-topic pages
+    // often includes a list of other document titles but because it's so
+    // short it thinks that content is really relevant. This only applies
+    // when you use `match_phrase_prefix` which first makes a search
+    // all preceeding terms and then manually appends matches on the last word.
+    // See https://www.elastic.co/guide/en/elasticsearch/reference/7.17/query-dsl-match-query-phrase-prefix.html#match-phrase-prefix-query-notes
+    if (!usePrefixSearch) {
+      matchQueries.push(
+        ...[
+          { [matchPhraseStrategy]: { content: { boost: BOOST_PHRASE, query } } },
+          {
+            [matchPhraseStrategy]: {
+              content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
+            },
+          },
+        ]
+      )
+    }
   }
 
   // Unless the query was something like `"foo bar"` search on each word
   if (!(isMultiWordQuery && query.startsWith('"') && query.endsWith('"'))) {
-    if (usePrefixSearch && !isMultiWordQuery) {
+    const matchStrategy = usePrefixSearch ? 'match_bool_prefix' : 'match'
+    if (isMultiWordQuery) {
       matchQueries.push(
         ...[
-          { prefix: { title: { boost: BOOST_TITLE, value: query } } },
-          { prefix: { headings: { boost: BOOST_HEADINGS, value: query } } },
-          { prefix: { content: { boost: BOOST_CONTENT, value: query } } },
-        ]
-      )
-    } else {
-      if (isMultiWordQuery) {
-        matchQueries.push(
-          ...[
-            { match: { title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' } } },
-            { match: { headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' } } },
-            { match: { content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' } } },
-          ]
-        )
-      }
-      matchQueries.push(
-        ...[
-          { match: { title: { boost: BOOST_TITLE, query } } },
-          { match: { headings: { boost: BOOST_HEADINGS, query } } },
-          { match: { content: { boost: BOOST_CONTENT, query } } },
+          {
+            [matchStrategy]: {
+              title_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_TITLE * BOOST_AND,
+                query,
+                operator: 'AND',
+              },
+            },
+          },
+          {
+            [matchStrategy]: {
+              headings_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_HEADINGS * BOOST_AND,
+                query,
+                operator: 'AND',
+              },
+            },
+          },
+          {
+            [matchStrategy]: {
+              content_explicit: {
+                boost: BOOST_EXPLICIT * BOOST_CONTENT * BOOST_AND,
+                query,
+                operator: 'AND',
+              },
+            },
+          },
+          {
+            [matchStrategy]: {
+              title: { boost: BOOST_TITLE * BOOST_AND, query, operator: 'AND' },
+            },
+          },
+          {
+            [matchStrategy]: {
+              headings: { boost: BOOST_HEADINGS * BOOST_AND, query, operator: 'AND' },
+            },
+          },
+          {
+            [matchStrategy]: {
+              content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' },
+            },
+          },
         ]
       )
     }
+    matchQueries.push(
+      ...[
+        { [matchStrategy]: { title_explicit: { boost: BOOST_EXPLICIT * BOOST_TITLE, query } } },
+        {
+          [matchStrategy]: {
+            headings_explicit: { boost: BOOST_EXPLICIT * BOOST_HEADINGS, query },
+          },
+        },
+        {
+          [matchStrategy]: { content_explicit: { boost: BOOST_EXPLICIT * BOOST_CONTENT, query } },
+        },
+        { [matchStrategy]: { title: { boost: BOOST_TITLE, query } } },
+        { [matchStrategy]: { headings: { boost: BOOST_HEADINGS, query } } },
+        { [matchStrategy]: { content: { boost: BOOST_CONTENT, query } } },
+      ]
+    )
   }
 
   // Add a fuzzy query if it's not too short or too long.
@@ -245,14 +350,26 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   return matchQueries
 }
 
-function getHits(hits, { indexName, debug, includeTopics }) {
+function getHits(hits, { indexName, debug, includeTopics, highlightFields }) {
   return hits.map((hit) => {
+    // Return `hit.highlights[...]` based on the highlight fields requested.
+    // So if you searched with `&highlights=headings&highlights=content`
+    // this will become:
+    //   {
+    //      content: [...],
+    //      headings: [...]
+    //   }
+    // even if there was a match on 'title'.
+    const hitHighlights = Object.fromEntries(
+      highlightFields.map((key) => [key, (hit.highlight && hit.highlight[key]) || []])
+    )
+
     const result = {
       id: hit._id,
       url: hit._source.url,
       title: hit._source.title,
-      breadcrumbs: hit._source.breadcrumbs || [],
-      highlights: hit.highlight || {},
+      breadcrumbs: hit._source.breadcrumbs,
+      highlights: hitHighlights,
     }
     if (includeTopics) {
       result.topics = hit._source.topics || []
@@ -274,31 +391,38 @@ function getHits(hits, { indexName, debug, includeTopics }) {
 // of highlights of content under each title. If we feel it shows too
 // many highlights in the search result UI, we can come back here
 // and change it to something more appropriate.
-function getHighlightConfiguration(query) {
-  return {
-    pre_tags: ['<mark>'],
-    post_tags: ['</mark>'],
-    fields: {
-      title: {
-        fragment_size: 200,
-        number_of_fragments: 1,
-      },
-      headings: { fragment_size: 150, number_of_fragments: 2 },
-      // The 'no_match_size' is so we can display *something* for the
-      // preview if there was no highlight match at all within the content.
-      content: {
-        fragment_size: 150,
-        number_of_fragments: 3,
-        no_match_size: 150,
+function getHighlightConfiguration(query, highlights) {
+  const fields = {}
+  if (highlights.includes('title')) {
+    fields.title = {
+      fragment_size: 200,
+      number_of_fragments: 1,
+    }
+  }
+  if (highlights.includes('headings')) {
+    fields.headings = { fragment_size: 150, number_of_fragments: 2 }
+  }
+  if (highlights.includes('content')) {
+    // The 'no_match_size' is so we can display *something* for the
+    // preview if there was no highlight match at all within the content.
+    fields.content = {
+      fragment_size: 150,
+      number_of_fragments: 3,
+      no_match_size: 150,
 
-        highlight_query: {
-          match_phrase_prefix: {
-            content: {
-              query,
-            },
+      highlight_query: {
+        match_phrase_prefix: {
+          content: {
+            query,
           },
         },
       },
-    },
+    }
+  }
+
+  return {
+    pre_tags: ['<mark>'],
+    post_tags: ['</mark>'],
+    fields,
   }
 }

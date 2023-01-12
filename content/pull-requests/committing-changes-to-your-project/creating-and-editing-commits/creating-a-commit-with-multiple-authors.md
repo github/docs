@@ -14,7 +14,7 @@ shortTitle: With multiple authors
 ---
 ## Required co-author information
 
-Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
@@ -43,7 +43,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
-  ```shell
+  ```
   $ git commit -m "Refactor usability tests.
   >
   >
@@ -57,15 +57,15 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
   If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
-  ```shell
+  ```
   $ git commit -m "Refactor usability tests.
   >
   >
-  Co-authored-by: <em>name</em> &lt;<em>name@example.com</em>&gt;
-  Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
+  Co-authored-by: NAME <NAME@EXAMPLE.COM>
+  Co-authored-by: AUTHOR-NAME <ANOTHER-NAME@EXAMPLE.COM>"
   ```
 
-The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ## Creating co-authored commits on {% data variables.product.product_name %}
 
@@ -79,7 +79,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
   ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
 4. Click **Commit changes** or **Propose changes**.
 
-The new commit and message will appear on {% data variables.product.product_location %}.
+The new commit and message will appear on {% data variables.location.product_location %}.
 
 ## Further reading
 {% ifversion ghes or ghae %}

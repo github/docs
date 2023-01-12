@@ -15,8 +15,8 @@ Before you can download this data, you must enable {% data variables.product.pro
 To preview the metrics available to download, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
 
 To download these metrics, you must be an enterprise owner or organization owner on {% data variables.product.prodname_ghe_cloud %}.
-  - If {% data variables.product.product_location %} is connected to an enterprise account on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your enterprise account](#downloading-metrics-from-your-enterprise-account)."
-  - If {% data variables.product.product_location %} is connected to an organization on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your organization](#downloading-metrics-from-your-organization)."
+  - If {% data variables.location.product_location %} is connected to an enterprise account on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your enterprise account](#downloading-metrics-from-your-enterprise-account)."
+  - If {% data variables.location.product_location %} is connected to an organization on {% data variables.product.prodname_ghe_cloud %}, see "[Downloading metrics from your organization](#downloading-metrics-from-your-organization)."
 
 To learn more about {% data variables.product.prodname_github_connect %}, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
 
@@ -38,7 +38,7 @@ To learn more about {% data variables.product.prodname_github_connect %}, see "[
 1. In the top-right corner of {% data variables.product.prodname_ghe_cloud %}, click your profile photo, then click **Your organizations**.
   ![Drop down menu with "Your organizations" option](/assets/images/help/enterprises/github-enterprise-cloud-organizations.png)
 
-2. In the list of organizations, next to the organization that's connected to {% data variables.product.product_location %}, click **Settings**.
+2. In the list of organizations, next to the organization that's connected to {% data variables.location.product_location %}, click **Settings**.
   ![Settings button next to {% data variables.product.prodname_ghe_cloud %} organization](/assets/images/help/enterprises/settings-for-ghec-org.png)
 
 3. On the left, click **GitHub Connect**.

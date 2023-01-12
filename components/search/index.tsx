@@ -92,7 +92,7 @@ export function Search() {
       {error ? (
         <SearchError error={error} />
       ) : results ? (
-        <SearchResults results={results} />
+        <SearchResults results={results} query={query} />
       ) : hasQuery ? (
         <Loading />
       ) : (

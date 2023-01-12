@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
 topics:
   - Repositories
   - Dependabot

@@ -1,6 +1,6 @@
 ---
 title: Connecting a repository to a package
-intro: 'You can connect a repository to a container image on {% data variables.product.product_location %}.'
+intro: 'You can connect a repository to a container image on {% data variables.location.product_location %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
@@ -36,9 +36,9 @@ By connecting a repository to a package, the package landing page will show info
 1. In your Dockerfile, add this line, replacing {% ifversion ghes %}`HOSTNAME`, {% endif %}`OWNER` and `REPO` with your details:
 
  ```shell
- LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPO</em>
+ LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPO
  ```
- For example, if you're the user `monalisa` and own `my-repo`, and {% data variables.product.product_location %} hostname is `github.companyname.com`, you would add this line to your Dockerfile:
+ For example, if you're the user `monalisa` and own `my-repo`, and {% data variables.location.product_location %} hostname is `github.companyname.com`, you would add this line to your Dockerfile:
  ```shell
  LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/monalisa/my-repo
  ```

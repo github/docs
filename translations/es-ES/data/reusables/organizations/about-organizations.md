@@ -1,3 +1,0 @@
-Tu equipo puede colaborar en {% data variables.product.product_name %} utilizando una cuenta de organización que sirva como contenedor para tu trabajo compartido y proporcione al trabajo un nombre y marca únicos.
-
-Cad apersona que utiliza {% data variables.product.prodname_dotcom %} siempre inicia sesión en una cuenta personal y varias de estas cuentas personales pueden colaborar en proyectos compartidos si se unen a la misma cuenta organizacional. Un subconjunto de estas cuentas personales puede obtener el rol de propietario de la organización, el cual permite a estas personas administrar el acceso a los recursos de la organización de forma granular, utilizando características administrativas y de seguridad sofisticadas.

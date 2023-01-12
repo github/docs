@@ -1,7 +1,7 @@
 ---
 title: Configuring the referrer policy for your enterprise
 shortTitle: Configure referrer policy
-intro: 'You can increase the privacy of {% data variables.product.product_location %} by configuring the policy for cross-origin requests.'
+intro: 'You can increase the privacy of {% data variables.location.product_location %} by configuring the policy for cross-origin requests.'
 versions:
   ghes: '*'
 type: how_to
@@ -14,15 +14,15 @@ topics:
 
 ## About the referrer policy for your enterprise
 
-The referrer policy controls the information that {% data variables.product.product_name %} transmits in HTTP headers when someone visits a link from {% data variables.product.product_location %} to an external site.
+The referrer policy controls the information that {% data variables.product.product_name %} transmits in HTTP headers when someone visits a link from {% data variables.location.product_location %} to an external site.
 
-By default, when a user on {% data variables.product.product_location %} visits a link to another site from a file or comment on your instance, the request includes the hostname for your instance in plain text within the `Referer` header. If the link leads to an external website, the owner of the website could read the hostname for your instance in requests or log files.
+By default, when a user on {% data variables.location.product_location %} visits a link to another site from a file or comment on your instance, the request includes the hostname for your instance in plain text within the `Referer` header. If the link leads to an external website, the owner of the website could read the hostname for your instance in requests or log files.
 
 You can control the information that {% data variables.product.product_name %} sends when a user visits a link from your instance.
 
 ## Enabling the `same-origin` referrer policy
 
-You can enable the `same-origin` referrer policy to instruct modern browsers to exclude the hostname for {% data variables.product.product_location %} from requests to external websites. The setting applies to all links from the web interface on your instance. By default, {% data variables.product.product_name %} uses the `origin-when-cross-origin` and `strict-origin-when-cross-origin` referrer policies, which means your instance's hostname will appear in HTTP and HTTPS requests to external websites.
+You can enable the `same-origin` referrer policy to instruct modern browsers to exclude the hostname for {% data variables.location.product_location %} from requests to external websites. The setting applies to all links from the web interface on your instance. By default, {% data variables.product.product_name %} uses the `origin-when-cross-origin` and `strict-origin-when-cross-origin` referrer policies, which means your instance's hostname will appear in HTTP and HTTPS requests to external websites.
 
 {% note %}
 

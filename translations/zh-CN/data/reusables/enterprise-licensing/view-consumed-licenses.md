@@ -1,1 +1,0 @@
-同步许可证使用情况后，您可以在 {% data variables.product.prodname_dotcom_the_website %} 上的企业设置中看到所有环境中已使用许可证的报告。 更多信息请参阅“[查看 {% data variables.product.prodname_enterprise %} 的许可证使用情况](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)”。

@@ -27,7 +27,7 @@ topics:
 {% endnote %}
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
+{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 {% note %}
 
 **Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)."
@@ -49,9 +49,20 @@ You can search for archived repositories. For more information, see "[Searching 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Archive this repository** or **Unarchive this repository**.
+3. Under "Danger Zone", click **Archive this repository**
    ![Archive this repository button](/assets/images/help/repository/archive-repository.png)
 4. Read the warnings.
-5. Type the name of the repository you want to archive or unarchive.
+5. Type the name of the repository you want to archive.
   ![Archive repository warnings](/assets/images/help/repository/archive-repository-warnings.png)
 6. Click **I understand the consequences, archive this repository**.
+
+## Unarchiving a repository
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. Under "Danger Zone", click **Unarchive this repository**
+  ![Unarchive this repository button](/assets/images/help/repository/unarchive-repository.png)
+4. Read the warnings.
+5. Type the name of the repository you want to unarchive.
+  ![Unarchive repository warnings](/assets/images/help/repository/unarchive-repository-warnings.png)
+6. Click **I understand the consequences, unarchive this repository**.  

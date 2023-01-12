@@ -1,1 +1,0 @@
-1. Pasa el puntero del mouse sobre la línea de código en donde te gustaría agregar un comentario y haz clic en el icono de comentarios azul. Para agregar un comentario en varias líneas, haz clic y arrastra le mouse para seleccionar el rango de líneas y luego haz clic en el icono de comentarios azul. ![Icono de comentario azul](/assets/images/help/commits/hover-comment-icon.gif)

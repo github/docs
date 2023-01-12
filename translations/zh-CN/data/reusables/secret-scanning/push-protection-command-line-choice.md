@@ -1,1 +1,0 @@
-当您尝试将受支持的密钥推送到启用了 {% data variables.product.prodname_secret_scanning %} 作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止推送。 You can remove the secret from your branch or follow a provided URL to allow the push. 

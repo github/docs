@@ -1,8 +1,7 @@
 ---
 title: SCIM
-intro: You can control and manage your GitHub organization members access using SCIM API.
+intro: Use the REST API to control and manage your GitHub organization members access with SCIM.
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - API
@@ -11,23 +10,23 @@ redirect_from:
   - /rest/reference/scim
 ---
 
-## About the SCIM API
+## About SCIM
 
 ### SCIM Provisioning for Organizations
 
-The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership. The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). The {% data variables.product.product_name %} SCIM endpoint that an IdP should use is: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
+These endpoints are used by SCIM-enabled Identity Providers (IdPs) to automate provisioning of {% data variables.product.product_name %} organization membership and are based on version 2.0 of the [SCIM standard](http://www.simplecloud.info/). IdPs should use the base URL `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/` for {% data variables.product.product_name %} SCIM endpoints.
 
 {% note %}
 
 **Notes:** 
-  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
+  - These endpoints are only available for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+  - These endpoints cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
 
 {% endnote %}
 
-### Authenticating calls to the SCIM API
+### Authentication
 
-You must authenticate as an owner of a {% data variables.product.product_name %} organization to use its SCIM API. The API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. You may also use a personal access token, but you must first [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+You must authenticate as an owner of a {% data variables.product.product_name %} organization to use these endpoints. The REST API expects an [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
 ### Mapping of SAML and SCIM data
 
@@ -47,7 +46,7 @@ Name | Type | Description
 
 {% note %}
 
-**Note:** Endpoint URLs for the SCIM API are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
+**Note:** These endpoints are case sensitive. For example, the first letter in the `Users` endpoint must be capitalized:
 
 ```shell
 GET /scim/v2/organizations/{org}/Users/{scim_user_id}

@@ -2,7 +2,7 @@
 title: GitHub Actions Artifacts
 allowTitleToDifferFromFilename: true
 shortTitle: Artifacts
-intro: 'The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts.'
+intro: 'Use the REST API to interact with artifacts in {% data variables.product.prodname_actions %}.'
 topics:
   - API
 versions:
@@ -12,8 +12,8 @@ versions:
   ghec: '*'
 ---
 
-## About the Artifacts API
+## About artifacts in {% data variables.product.prodname_actions %} 
 
-The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts. {% data reusables.actions.about-artifacts %} For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+You can use the REST API to download, delete, and retrieve information about workflow artifacts in {% data variables.product.prodname_actions %}. {% data reusables.actions.about-artifacts %} For more information, see "[Storing workflow data as artifacts](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

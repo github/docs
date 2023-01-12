@@ -29,6 +29,8 @@ children:
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
   - /setting-team-creation-permissions-in-your-organization
+  - /creating-an-announcement-banner-for-your-organization
+  - /limiting-oauth-app-and-github-app-access-requests
   - /managing-scheduled-reminders-for-your-organization
   - /managing-the-default-branch-name-for-repositories-in-your-organization
   - /managing-default-labels-for-repositories-in-your-organization

@@ -33,10 +33,10 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
 | `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
 | `actor.avatar_url` | The URL of the actor's profile image. |
-| `repo` | The repository object where the event occurred.  |
-| `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
-| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
+| `repository` | The repository object where the event occurred.  |
+| `repository.id` | The unique identifier of the repository. |
+| `repository.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
+| `repository.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 | `public` | Whether the event is visible to all users. |
 | `created_at` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
@@ -63,7 +63,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
     "public": false,
     "payload": {
     },
-    "repo": {
+    "repository": {
       "id": 3,
       "name": "octocat/Hello-World",
       "url": "https://api.github.com/repos/octocat/Hello-World"

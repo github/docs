@@ -1,5 +1,6 @@
 ---
 title: Reviewing deployments
+shortTitle: Review deployments
 intro: You can approve or reject jobs awaiting review.
 product: '{% data reusables.gated-features.environments %}'
 versions:

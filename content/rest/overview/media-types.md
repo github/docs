@@ -41,7 +41,7 @@ put it after `github`:
 
 ## Comment body properties
 
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
+The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and [gist comments](/rest/reference/gists#comments) all accept these same media types:
 
 ### Raw
 
@@ -91,8 +91,7 @@ Return the raw blob data.
 
 ## Commits, commit comparison, and pull requests
 
-The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support
-[diff][git-diff] and [patch][git-patch] formats:
+The REST API to manage [commits](/rest/reference/repos#commits) and [pull requests](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
 ### diff
 

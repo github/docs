@@ -24,13 +24,13 @@ shortTitle: Create HA replica
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the replica appliance's IP address using SSH.
   ```shell
-  $ ssh -p 122 admin@<em>REPLICA IP</em>
+  $ ssh -p 122 admin@REPLICA_IP
   ```
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
   ```shell
-  $ ghe-repl-setup <em>PRIMARY IP</em>
+  $ ghe-repl-setup PRIMARY_IP
   ```
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}
@@ -39,29 +39,31 @@ shortTitle: Create HA replica
 
 This example configuration uses a primary and two replicas, which are located in three different geographic regions. While the three nodes can be in different networks, all nodes are required to be reachable from all the other nodes. At the minimum, the required administrative ports should be open to all the other nodes. For more information about the port requirements, see "[Network Ports](/enterprise/admin/guides/installation/network-ports/#administrative-ports)."
 
+{% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[Configuring a repository cache](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+
 1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
   ```shell
-  (replica1)$ ghe-repl-setup <em>PRIMARY IP</em>
+  (replica1)$ ghe-repl-setup PRIMARY_IP
   (replica1)$ ghe-repl-start
   ```
 2. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
   ```shell
-  (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
+  (replica2)$ ghe-repl-setup --add PRIMARY_IP
   (replica2)$ ghe-repl-start
   ```
 3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
   On the primary:
   ```shell
-  (primary)$ ghe-repl-node --datacenter <em>[PRIMARY DC NAME]</em>
+  (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
   ```
   On the first replica:
   ```shell
-  (replica1)$ ghe-repl-node --datacenter <em>[FIRST REPLICA DC NAME]</em>
+  (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
   ```
   On the second replica:
   ```shell
-  (replica2)$ ghe-repl-node --datacenter <em>[SECOND REPLICA DC NAME]</em>
+  (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
   ```
   {% tip %}
 
@@ -90,9 +92,9 @@ Configure Geo DNS using the IP addresses of the primary and replica nodes. You c
 For testing, you can add entries to the local workstation's `hosts` file (for example, `/etc/hosts`). These example entries will resolve requests for `HOSTNAME` to `replica2`. You can target specific hosts by commenting out different lines.
 
 ```
-# <primary IP>     <em>HOSTNAME</em>
-# <replica1 IP>    <em>HOSTNAME</em>
-<replica2 IP>    <em>HOSTNAME</em>
+# <primary IP>      HOSTNAME 
+# <replica1 IP>     HOSTNAME 
+<replica2 IP>     HOSTNAME 
 ```
 
 ## Further reading

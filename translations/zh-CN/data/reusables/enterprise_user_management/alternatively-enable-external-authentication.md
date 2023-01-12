@@ -1,1 +1,0 @@
-或者，您可以为 {% data variables.product.product_location %} 配置外部身份验证。 如果您使用外部身份验证，则必须通过您的身份验证提供程序邀请人员使用您的实例。 更多信息请参阅“[关于企业的身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)”。

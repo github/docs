@@ -1,1 +1,0 @@
-1. "Check your IP address（IPアドレスをチェック）"の下で、IPアドレスを入力してください。 !["Check IP address"テキストフィールドのスクリーンショット](/assets/images/help/security/check-ip-address.png)

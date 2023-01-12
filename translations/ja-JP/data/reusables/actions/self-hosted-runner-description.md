@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}セルフホストランナーでは、ハードウェア、オペレーティングシステム、ソフトウェアツールについて{% data variables.product.prodname_dotcom %}ホストランナーよりもコントロールできます。 {% endif %}セルフホストランナーでは、大規模なジョブを実行するために処理能力やメモリを強化したカスタムハードウェア構成を作ったり、ローカルネットワークで利用できるソフトウェアをインストールしたり、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}ホストランナーでは提供されていない{% endif %}オペレーティングシステムを選択したりできます。

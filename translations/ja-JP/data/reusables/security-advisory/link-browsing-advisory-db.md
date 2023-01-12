@@ -1,1 +1,0 @@
-詳しい情報については、「[{% data variables.product.prodname_advisory_database %} のセキュリティアドバイザリを参照する](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database)」を参照してください。

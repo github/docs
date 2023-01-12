@@ -1,1 +1,0 @@
-Actividad relacionada con las tarjetas en un {% data variables.projects.projects_v1_board %}. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[tarjetas de proyecto](/rest/reference/projects#cards)".

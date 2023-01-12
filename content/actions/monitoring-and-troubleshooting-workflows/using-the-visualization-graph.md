@@ -1,5 +1,6 @@
 ---
 title: Using the visualization graph
+shortTitle: Visualization graph
 intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
@@ -8,7 +9,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Use the visualization graph
 ---
 
 {% data reusables.actions.enterprise-beta %}

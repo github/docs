@@ -10,7 +10,7 @@ const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
 const router = express.Router()
 
 // Returns a client side redirect if one exists for the given path.
-router.get('/', function redirects(req, res, next) {
+router.get('/', function redirects(req, res) {
   if (!req.query.path) {
     return res.status(400).send("Missing 'path' query string")
   }

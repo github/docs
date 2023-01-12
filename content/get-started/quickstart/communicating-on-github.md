@@ -150,3 +150,5 @@ For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt o
 {% endif %}
 
 For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+
+To learn some advanced formatting features that will help you communicate, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."

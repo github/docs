@@ -1,1 +1,0 @@
-1. Edite o produto e as versões afetados pela vulnerabilidade de segurança que esta consultoria de segurança aborda. If applicable, you can add multiple affected products to the same advisory. ![Metadados da consultoria de segurança](/assets/images/help/security/security-advisory-affected-product.png)

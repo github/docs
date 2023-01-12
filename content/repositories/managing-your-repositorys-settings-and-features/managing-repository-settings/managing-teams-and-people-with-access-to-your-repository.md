@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: issue-5974
+  ghae: '>= 3.4'
 topics:
   - Repositories
 shortTitle: Teams & people
@@ -32,7 +32,7 @@ For more information about repository roles, see "[Permission levels for a perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -44,7 +44,7 @@ For more information about repository roles, see "[Permission levels for a perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -56,7 +56,7 @@ For more information about repository roles, see "[Permission levels for a perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -71,7 +71,7 @@ For more information about repository roles, see "[Permission levels for a perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}

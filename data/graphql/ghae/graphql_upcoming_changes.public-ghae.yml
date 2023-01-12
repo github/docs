@@ -54,12 +54,6 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: breaking
     owner: synthead
-  - location: Repository.defaultMergeQueue
-    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
-    reason: '`defaultMergeQueue` will be removed.'
-    date: '2022-04-01'
-    criticality: breaking
-    owner: colinshum
   - location: AddPullRequestToMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:
@@ -68,22 +62,44 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: LockMergeQueueInput.branch
+  - location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:
-      The merge queue is locked for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones
-  - location: MergeLockedMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      Changes are merged into the repository's default branch, the `branch` argument
+      PRs are removed from the merge queue for the base branch, the `branch` argument
       is now a no-op
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
+  - location: PackageType.NPM
+    description: '`NPM` will be removed.'
+    reason:
+      NPM will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
+  - location: PackageType.NUGET
+    description: '`NUGET` will be removed.'
+    reason:
+      NUGET will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2022-11-21'
+    criticality: breaking
+    owner: s-anupam
+  - location: PackageType.RUBYGEMS
+    description: '`RUBYGEMS` will be removed.'
+    reason:
+      RUBYGEMS will be removed from this enum as this type will be migrated to
+      only be used by the Packages REST API.
+    date: '2022-12-28'
+    criticality: breaking
+    owner: ankitkaushal01
+  - location: Commit.changedFiles
+    description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
+    reason: '`changedFiles` will be removed.'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: adamshwert
   - location: ProjectNextFieldType.ASSIGNEES
     description:
       '`ASSIGNEES` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
@@ -91,7 +107,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.DATE
@@ -101,7 +117,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.ITERATION
@@ -111,7 +127,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.LABELS
@@ -121,7 +137,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.LINKED_PULL_REQUESTS
@@ -132,7 +148,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.MILESTONE
@@ -142,7 +158,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.NUMBER
@@ -152,7 +168,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.REPOSITORY
@@ -162,7 +178,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.REVIEWERS
@@ -172,7 +188,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.SINGLE_SELECT
@@ -182,7 +198,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TEXT
@@ -192,7 +208,7 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TITLE
@@ -202,7 +218,17 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: lukewar
+  - location: ProjectNextFieldType.TRACKED_BY
+    description:
+      '`TRACKED_BY` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+      to find a suitable replacement.'
+    reason:
+      The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
+      API.
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
   - location: ProjectNextFieldType.TRACKS
@@ -212,30 +238,70 @@ upcoming_changes:
     reason:
       The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2`
       API.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: lukewar
-  - location: RemovePullRequestFromMergeQueueInput.branch
-    description: '`branch` will be removed.'
+  - location: ProjectV2View.visibleFields
+    description:
+      '`visibleFields` will be removed. Check out the `ProjectV2View#fields`
+      API as an example for the more capable alternative.'
     reason:
-      PRs are removed from the merge queue for the base branch, the `branch` argument
-      is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
+      The `ProjectV2View#visibleFields` API is deprecated in favour of the more
+      capable `ProjectV2View#fields` API.
+    date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
-    owner: jhunschejones
+    owner: mattruggio
+  - location: PackageType.MAVEN
+    description: '`MAVEN` will be removed.'
+    reason:
+      MAVEN will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2023-02-10'
+    criticality: breaking
+    owner: ankitkaushal01
+  - location: ProjectV2View.groupBy
+    description:
+      '`groupBy` will be removed. Check out the `ProjectV2View#group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#order_by` API is deprecated in favour of the more capable
+      `ProjectV2View#group_by_field` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: alcere
+  - location: ProjectV2View.sortBy
+    description:
+      '`sortBy` will be removed. Check out the `ProjectV2View#sort_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#sort_by` API is deprecated in favour of the more capable
+      `ProjectV2View#sort_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: ProjectV2View.verticalGroupBy
+    description:
+      '`verticalGroupBy` will be removed. Check out the `ProjectV2View#vertical_group_by_fields`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2View#vertical_group_by` API is deprecated in favour of the
+      more capable `ProjectV2View#vertical_group_by_fields` API.
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: traumverloren
+  - location: Repository.squashPrTitleUsedAsDefault
+    description:
+      '`squashPrTitleUsedAsDefault` will be removed. Use `Repository.squashMergeCommitTitle`
+      instead.'
+    reason: '`squashPrTitleUsedAsDefault` will be removed.'
+    date: '2023-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/pull_requests
   - location: RepositoryVulnerabilityAlert.fixReason
     description: '`fixReason` will be removed.'
     reason:
       The `fixReason` field is being removed. You can still use `fixedAt` and
       `dismissReason`.
-    date: '2022-10-01T00:00:00+00:00'
+    date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
-  - location: UnlockAndResetMergeGroupInput.branch
-    description: '`branch` will be removed.'
-    reason:
-      The current merge group for the repository's default branch, the `branch`
-      argument is now a no-op
-    date: '2022-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jhunschejones

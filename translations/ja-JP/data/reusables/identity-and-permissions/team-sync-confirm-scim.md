@@ -1,1 +1,0 @@
-1. ユーザがSAMLを有効化しており、潜在的なプロビジョニングのエラーを回避するためにリンクされたSCIMアイデンティティを持っていることを確認するようおすすめします。 詳しい情報については「[Organizationでのアイデンティティ及びアクセス管理のトラブルシューティング](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)」を参照してください。

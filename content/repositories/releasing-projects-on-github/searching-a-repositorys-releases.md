@@ -6,8 +6,8 @@ shortTitle: Searching releases
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
-  ghae: issue-4974
+  ghes: '*'
+  ghae: '>= 3.4'
 topics:
   - Repositories
 ---

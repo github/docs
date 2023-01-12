@@ -56,8 +56,8 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
    - Change the value for `project` to the name of your project board. If you have multiple project boards with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
    - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
    - Change the value for `repo-token`:
-     1. Create a personal access token with the `repo` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
-     1. Store this personal access token as a secret in your repository. For more information about storing secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+     1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
      1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
 6. {% data reusables.actions.commit-workflow %}
 

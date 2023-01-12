@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql %}のアラートを、たとえばコードがサポートされていないサニタイズのライブラリを使っているといった理由で偽陽性の結果として却下する場合、{% data variables.product.prodname_codeql %}リポジトリに貢献して分析を改善することを検討してください。 {% data variables.product.prodname_codeql %}に関する詳しい情報については「[{% data variables.product.prodname_codeql %}に貢献する](https://github.com/github/codeql/blob/main/CONTRIBUTING.md)」を参照してください。

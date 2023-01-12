@@ -10,7 +10,7 @@ import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 export const LandingHero = () => {
-  const { product_video, shortTitle, title, beta_product, intro, introLinks } =
+  const { productVideo, shortTitle, title, beta_product, intro, introLinks } =
     useProductLandingContext()
   const { t } = useTranslation('product_landing')
   const [renderIFrame, setRenderIFrame] = useState(false)
@@ -22,7 +22,7 @@ export const LandingHero = () => {
 
   return (
     <header className="d-lg-flex gutter-lg mb-6">
-      <div className={cx('col-12 mb-3 mb-lg-0', product_video && 'col-lg-6')}>
+      <div className={cx('col-12 mb-3 mb-lg-0', productVideo && 'col-lg-6')}>
         <h1>
           {shortTitle || title}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
@@ -51,13 +51,13 @@ export const LandingHero = () => {
             })}
       </div>
 
-      {product_video && (
+      {productVideo && (
         <div className="col-12 col-lg-6">
           <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
             <iframe
               title={`${shortTitle} Video`}
               className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
-              src={renderIFrame ? product_video : ''}
+              src={renderIFrame ? productVideo : ''}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -1,1 +1,0 @@
-始める前に、Enterpriseへ{% data variables.product.prodname_actions %}をどのように導入するかを計画する必要があります。 詳しい情報については「[Enterpriseへの{% data variables.product.prodname_actions %}の導入](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)」を参照してください。

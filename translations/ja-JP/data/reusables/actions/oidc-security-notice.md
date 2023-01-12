@@ -1,1 +1,0 @@
-- 先に進む前に、アクセストークンが予測できるやり方でのみ割り当てられるよう、セキュリティの戦略を計画しなければなりません。 クラウドプロバイダーによるアクセストークンの発行を制御するためには、信頼できないリポジトリがクラウドのリソースに対するアクセストークンをリクエストできないよう、少なくとも1つの条件を定義**しなければ**なりません。 詳しい情報については「[クラウドとのOIDCトラストの設定](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)」を参照してください。

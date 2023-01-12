@@ -1,3 +1,0 @@
-チームはOrganizationアカウントを使うことで{% data variables.product.product_name %}上で共同作業できます。Organizationアカウントは共有作業のコンテナとして働き、作業に固有の名前とブランドを与えます。
-
-{% data variables.product.prodname_dotcom %}を使う各人は、常に個人アカウントにサインインし、複数の個人アカウントが同じOrganizationアカウントに参加することによって、共有されたプロジェクト上で共同作業できます。 これらの個人アカウントの一部にOrganiationオーナーのロールを与えることができます。これによって、それらの人々は洗練されたセキュリティ及び管理機能を使い、詳細にOrganizationのリソースへのアクセスを管理できるようになります。

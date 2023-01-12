@@ -1,1 +1,0 @@
-Enterpriseアカウントのオーナーは、既存のOrganizationアカウントをEnterpriseに参加するよう招待できます。 詳しい情報については「[OrganizationをEnterpriseアカウントへ参加するよう招待する](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)」を参照してください。

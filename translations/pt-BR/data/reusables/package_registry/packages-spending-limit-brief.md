@@ -1,1 +1,0 @@
-If you are a monthly-billed customer, your account will have a default spending limit of 0 US dollars (USD), which prevents additional usage of storage or data transfer after you reach the included amounts. Se você pagar a sua conta por fatura, sua conta terá um limite de gastos padrão ilimitado.

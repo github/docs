@@ -1,1 +1,0 @@
-1. 要创建可供审查的拉取请求，请单击 **Create Pull Request（创建拉取请求）**。 要创建草稿拉取请求，请使用下拉列表选择 **Create Draft Pull Request（创建草稿拉取请求）**，然后单击 **Draft Pull Request（草稿拉取请求）**。 有关拉取请求草稿的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。![创建拉取请求按钮](/assets/images/help/pull_requests/pullrequest-send.png)

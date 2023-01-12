@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql %}は{% data variables.product.company_short %}が開発した、セキュリティチェックを自動化するためのコード分析エンジンです。 {% data variables.product.prodname_codeql %}を使ってコードを分析し、結果を{% data variables.product.prodname_code_scanning %}アラートとして表示できます。

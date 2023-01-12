@@ -83,6 +83,10 @@ If you have any paid product or are a member of an organization with a paid prod
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
+{% ifversion fpt or ghec or ghes %}
+{% data reusables.support.support-ticket-translation-option %}
+{% endif %}
+
 {% ifversion ghes or ghec %}
 
 To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)."
@@ -122,7 +126,7 @@ Enterprise owners can also add support entitlements to members of organizations 
 {% ifversion fpt or ghec %}
 ## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days.
+If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
 
 {% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service#3-access).
 {% endif %}
@@ -177,7 +181,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} does not provide Japanese-language support on December 28th through January 3rd as well as on the holidays listed in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{% ifversion ghes %}{% data reusables.enterprise_enterprise_support.installing-releases %}{% endif %}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 {% endif %}
 

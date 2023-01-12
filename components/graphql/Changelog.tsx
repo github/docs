@@ -17,51 +17,42 @@ export function Changelog({ changelogItems }: Props) {
     const slug = slugger.slug(heading)
 
     return (
-      <div className={cx(styles.markdownBody, styles.automatedPages)} key={item.date}>
+      <div key={item.date}>
         <h2 id={slug}>
           <LinkIconHeading slug={slug} />
           {heading}
         </h2>
-        {item.schemaChanges &&
-          item.schemaChanges.map((change, index) => (
-            <React.Fragment key={`${item.date}-schema-changes-${index}`}>
-              <p>{change.title}</p>
-              <ul>
-                {change.changes.map((change) => (
-                  <li key={`${item.date}-${change}`}>
-                    <span dangerouslySetInnerHTML={{ __html: change }} />
-                  </li>
-                ))}
-              </ul>
-            </React.Fragment>
-          ))}
-        {item.previewChanges &&
-          item.previewChanges.map((change, index) => (
-            <React.Fragment key={`${item.date}-preview-changes-${index}`}>
-              <p>{change.title}</p>
-              <ul>
-                {change.changes.map((change) => (
-                  <li key={`${item.date}-${change}`}>
-                    <span dangerouslySetInnerHTML={{ __html: change }} />
-                  </li>
-                ))}
-              </ul>
-            </React.Fragment>
-          ))}
-        {item.upcomingChanges &&
-          item.upcomingChanges.map((change, index) => (
-            <React.Fragment key={`${item.date}-upcoming-changes-${index}`}>
-              <p>{change.title}</p>
+        {(item.schemaChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
+            <p>{change.title}</p>
+            <ul>
               {change.changes.map((change) => (
-                <li key={`${item.date}-${change}`}>
-                  <span dangerouslySetInnerHTML={{ __html: change }} />
-                </li>
+                <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
               ))}
-            </React.Fragment>
-          ))}
+            </ul>
+          </React.Fragment>
+        ))}
+        {(item.previewChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
+            <p>{change.title}</p>
+            <ul>
+              {change.changes.map((change) => (
+                <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
+              ))}
+            </ul>
+          </React.Fragment>
+        ))}
+        {(item.upcomingChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
+            <p>{change.title}</p>
+            {change.changes.map((change) => (
+              <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
+            ))}
+          </React.Fragment>
+        ))}
       </div>
     )
   })
 
-  return <div>{changes}</div>
+  return <div className={cx(styles.markdownBody, styles.automatedPages)}>{changes}</div>
 }

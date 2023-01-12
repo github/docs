@@ -1,1 +1,0 @@
-1. Debajo de "{% data variables.product.prodname_secret_scanning_caps %}" y debajo de "Protección contra subida", haz clic en **Habilitar**. ![Captura de pantalla que muestra cómo habilitar la protección de subida para el {% data variables.product.prodname_secret_scanning %} en un repositorio](/assets/images/help/repository/secret-scanning-enable-push-protection.png)

@@ -5,6 +5,6 @@
         "title": "Foo",
         "headings": "",
         "content": "This is a fixture with the silly foo word. Exclusively for GHAE.",
-        "topics": ["test", "fixture"]
+        "topics": ["Test", "Fixture"]
     }
 }

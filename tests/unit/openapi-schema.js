@@ -6,7 +6,7 @@ import { describe } from '@jest/globals'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
-import { allVersions } from '../../lib/all-versions.js'
+import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import getRest from '../../lib/rest/index.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -14,15 +14,32 @@ const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
 
 async function getFlatListOfOperations(version) {
   const flatList = []
-  const operations = await getRest(version)
 
+  if (isApiVersioned(version)) {
+    const apiVersions = allVersions[version].apiVersions
+
+    for (const apiVersion of apiVersions) {
+      const operations = await getRest(version, apiVersion)
+      flatList.push(...createCategoryList(operations))
+    }
+  } else {
+    const operations = await getRest(version)
+    flatList.push(...createCategoryList(operations))
+  }
+
+  return flatList
+}
+
+function createCategoryList(operations) {
+  const catSubCatList = []
   for (const category of Object.keys(operations)) {
     const subcategories = Object.keys(operations[category])
     for (const subcategory of subcategories) {
-      flatList.push(...operations[category][subcategory])
+      catSubCatList.push(...operations[category][subcategory])
     }
   }
-  return flatList
+
+  return catSubCatList
 }
 
 describe('markdown for each rest version', () => {
@@ -41,8 +58,15 @@ describe('markdown for each rest version', () => {
     const allCategories = new Set()
 
     for (const version in allVersions) {
-      const restOperations = await getRest(version)
-      Object.keys(restOperations).forEach((category) => allCategories.add(category))
+      if (isApiVersioned(version)) {
+        for (const apiVersion of allVersions[version].apiVersions) {
+          const apiOperations = await getRest(version, apiVersion)
+          Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+        }
+      } else {
+        const apiOperations = await getRest(version)
+        Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+      }
     }
 
     const referenceDir = path.join(__dirname, '../../content/rest')
@@ -70,11 +94,14 @@ describe('OpenAPI schema validation', () => {
   // even though the version is not yet supported in the docs)
   test('every OpenAPI version must have a schema file in the docs', async () => {
     const decoratedFilenames = walk(schemasPath).map((filename) => path.basename(filename, '.json'))
-
     Object.values(allVersions)
       .map((version) => version.openApiVersionName)
       .forEach((openApiBaseName) => {
-        expect(decoratedFilenames.includes(openApiBaseName)).toBe(true)
+        // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
+        // now checking if the decorated file names now start with an openApiBaseName
+        expect(
+          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName))
+        ).toBe(true)
       })
   })
 
@@ -86,11 +113,17 @@ describe('OpenAPI schema validation', () => {
   })
 
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
-    expect.assertions(Object.keys(allVersions).length)
+    const countAssertions = Object.keys(allVersions)
+      .map((version) => allVersions[version].apiVersions.length)
+      .reduce((prevLength, currLength) => prevLength + currLength)
+
+    expect.assertions(countAssertions)
     await Promise.all(
       Object.keys(allVersions).map(async (version) => {
-        const operations = await getRest(version)
-        expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
+        for (const apiVersion of allVersions[version].apiVersions) {
+          const operations = await getRest(version, apiVersion)
+          expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
+        }
       })
     )
   })

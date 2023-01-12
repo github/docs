@@ -1,6 +1,6 @@
 ---
 title: Configuring built-in authentication
-intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.product.product_location %}.'
+intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.location.product_location %}.'
 permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
@@ -21,7 +21,7 @@ shortTitle: Configure built-in authentication
 
 ## About built-in authentication
 
-By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.product.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
+By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.location.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
 
 You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
 

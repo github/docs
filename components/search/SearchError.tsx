@@ -19,6 +19,7 @@ export function SearchError({ error }: Props) {
         {process.env.NODE_ENV === 'development' && <code>{error.toString()}</code>}
       </Flash>
       <Box>
+        {/* This deliberately uses a <a> instead of <Link> so it triggers a full reload. */}
         <a href={`/${locale}${asPath}`}>Try reloading the page</a>
       </Box>
     </div>

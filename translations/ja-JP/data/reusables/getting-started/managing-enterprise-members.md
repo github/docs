@@ -1,1 +1,0 @@
-{% data variables.product.product_location %}のメンバーの設定を管理し、アクティビティを監査できます。 {% ifversion ghes %}Enterpriseのメンバーをサイト管理者に昇格させ、{% endif %}休眠ユーザを管理し、ユーザのアクティビティのAudit logを表示させ、Enteprriseのメンバーに表示されるメッセージをカスタマイズできます。 詳しい情報については「[Enterpriseのユーザの管理](/admin/user-management/managing-users-in-your-enterprise)」を参照してください。

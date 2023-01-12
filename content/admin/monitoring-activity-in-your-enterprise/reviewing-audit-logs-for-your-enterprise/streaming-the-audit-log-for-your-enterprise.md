@@ -86,18 +86,12 @@ For information on creating or accessing your access key ID and secret key, see 
 {% ifversion streaming-oidc-s3 %}
 #### Setting up streaming to S3 with OpenID Connect
 
-{% note %}
-
-**Note:** Streaming to Amazon S3 with OpenID Connect is currently in beta and subject to change.
-
-{% endnote %}
-
 1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
    - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
    - For "Audience", use `sts.amazonaws.com`.
 1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. {% data variables.product.prodname_dotcom %} requires only the following permissions.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
    ```
    {
@@ -109,7 +103,7 @@ For information on creating or accessing your access key ID and secret key, see 
             "Action": [
                "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::example-bucket/*"
+            "Resource": "arn:aws:s3:::EXAMPLE-BUCKET/*"
         }
       ]
    }
@@ -317,7 +311,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 {% ifversion pause-audit-log-stream %}
 ## Pausing audit log streaming
 
-Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.product.product_location %} and are then exported when you unpause the stream.
+Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
 
 {% ifversion streaming-datadog %}
 Datadog only accepts logs from up to 18 hours in the past. If you pause a stream to a Datadog endpoint for more than 18 hours, you risk losing logs that Datadog won't accept after you resume streaming.

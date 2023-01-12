@@ -1,6 +1,6 @@
 ---
 title: Configuring pull request merges
-intro: 'You can configure pull request merges on {% data variables.product.product_location %} to match your workflow and preferences for managing Git history.'
+intro: 'You can configure pull request merges on {% data variables.location.product_location %} to match your workflow and preferences for managing Git history.'
 redirect_from:
   - /articles/configuring-pull-request-merges
   - /github/administering-a-repository/configuring-pull-request-merges

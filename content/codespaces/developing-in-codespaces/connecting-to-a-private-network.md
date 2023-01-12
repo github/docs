@@ -1,7 +1,6 @@
 ---
 title: Connecting to a private network
 intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,7 +17,7 @@ By default, your codespaces have access to all resources on the public internet,
 
 ## Connecting to resources on a private network
 
-There are currently two methods of accessing resources on a private network within Codespaces.
+There are currently two methods of accessing resources on a private network within {% data variables.product.prodname_github_codespaces %}.
 - Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
 - Using a VPN. 
 
@@ -39,9 +38,9 @@ The {% data variables.product.prodname_cli %} extension allows you to create a b
 
 As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.
 
-We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
+We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from {% data variables.product.prodname_github_codespaces %}](https://github.com/codespaces-contrib/codespaces-openvpn)."
 
-There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_codespaces %}.
+There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_github_codespaces %}.
 
 These third party solutions include:
 

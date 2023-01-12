@@ -1,5 +1,6 @@
 ---
 title: Adding a workflow status badge
+shortTitle: Add a status badge
 intro: You can display a status badge in your repository to indicate the status of your workflows.
 redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
@@ -8,7 +9,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Add a status badge
 ---
 
 {% data reusables.actions.enterprise-beta %}

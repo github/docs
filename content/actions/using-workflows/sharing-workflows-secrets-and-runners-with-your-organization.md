@@ -1,7 +1,7 @@
 ---
 title: 'Sharing workflows, secrets, and runners with your organization'
-shortTitle: Sharing workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets, and self-hosted runners.'
+shortTitle: Share workflows with your organization
+intro: 'Learn how you can use organization features to collaborate with your team, by sharing starter workflows, secrets,{% ifversion actions-configuration-variables %} variables,{% endif %} and self-hosted runners.'
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
@@ -34,7 +34,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% data reusables.actions.internal-actions-summary %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ### Reusing workflows
 
 {% data reusables.actions.reusable-workflows %}
@@ -44,22 +44,28 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 {% data reusables.actions.workflow-organization-templates %} For more information, see "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 
-## Sharing secrets within an organization
+## Sharing secrets{% ifversion actions-configuration-variables %} and variables{% endif %} within an organization
 
-You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
+You can centrally manage your secrets {% ifversion actions-configuration-variables %} and variables{% endif %} within an organization, and then make them available to selected repositories. This also means that you can update a secret {% ifversion actions-configuration-variables %} or variable{% endif %} in one location, and have the change apply to all repository workflows that use the it.
 
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
+When creating a secret {% ifversion actions-configuration-variables %} or variable{% endif %} in an organization, you can use a policy to limit which repositories can access it. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
-{% data reusables.actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-and-variables-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secrets-and-variables %}
+{%- ifversion actions-configuration-variables %}
+1. Click the **Secrets** or **Variables** tab, and create the secret or variable with your desired values and options.
+
+   For more information, see "[Creating encrypted secrets for an organization](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)" or "[Creating configuration variables for an organization](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
+{%- else %}
 1. Click **New secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
 1. From the **Repository access** dropdown list, choose an access policy.
 1. Click **Add secret**.
+{%- endif %}
 
 ## Share self-hosted runners within an organization
 

@@ -1,6 +1,6 @@
 ---
 title: Configuring commit merging for pull requests
-intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.product.product_location %} in your repository.'
+intro: 'You can enforce, allow, or disable merging with a merge commit for all pull request merges on {% data variables.location.product_location %} in your repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ shortTitle: Configure commit merging
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.{% ifversion default-merge-squash-commit-message %}
+1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.{% ifversion default-merge-squash-commit-message %}
  ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %}
  ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %}
 {% ifversion ghes < 3.6  %}

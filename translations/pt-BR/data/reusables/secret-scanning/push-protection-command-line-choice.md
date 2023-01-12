@@ -1,1 +1,0 @@
-Ao tentar enviar um segredo compatível para um repositório ou organização com {% data variables.product.prodname_secret_scanning %} como uma proteção push habilitada, o {% data variables.product.prodname_dotcom %} bloqueará o push. You can remove the secret from your branch or follow a provided URL to allow the push. 

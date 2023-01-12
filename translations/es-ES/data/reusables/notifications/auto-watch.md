@@ -1,1 +1,0 @@
-Observarás automáticamente todos los repositorios que crees y que pertenezcan a tu cuenta personal. También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes observar cualquier otro repositorio manualmente.

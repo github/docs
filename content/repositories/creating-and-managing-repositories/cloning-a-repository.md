@@ -1,6 +1,6 @@
 ---
 title: Cloning a repository
-intro: 'When you create a repository on {% data variables.product.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
+intro: 'When you create a repository on {% data variables.location.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
 redirect_from:
   - /articles/cloning-a-repository
   - /articles/cloning-a-repository-from-github
@@ -16,9 +16,9 @@ topics:
 ---
 ## About cloning a repository
 
-You can clone a repository from {% data variables.product.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.product.product_location %} to your local machine.
+You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
 
-Cloning a repository pulls down a full copy of all the repository data that {% data variables.product.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.product.product_location %}, or pull other people's changes from {% data variables.product.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
+Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
@@ -42,13 +42,13 @@ You can clone your existing repository or clone another person's existing reposi
 To clone a repository locally, use the `repo clone` subcommand. Replace the `repository` parameter with the repository name. For example, `octo-org/octo-repo`, `monalisa/octo-repo`, or `octo-repo`. If the `OWNER/` portion of the `OWNER/REPO` repository argument is omitted, it defaults to the name of the authenticating user.
 
 ```shell
-gh repo clone <em>repository</em>
+gh repo clone REPOSITORY
 ```
 
 You can also use the GitHub URL to clone a repository.
 
 ```shell
-gh repo clone <em>https://github.com/cli/cli</em>
+gh repo clone https://github.com/PATH-TO/REPOSITORY
 ```
 
 {% endcli %}

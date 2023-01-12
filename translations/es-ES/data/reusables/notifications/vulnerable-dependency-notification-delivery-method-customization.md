@@ -1,1 +1,0 @@
-Puedes elegir el método y frecuencia de entrega de las notificaciones sobre las {% data variables.product.prodname_dependabot_alerts %} en los repositorios que estás observando o en donde te hayas suscrito a las notificaciones para las alertas de seguridad.

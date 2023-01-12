@@ -16,34 +16,26 @@ shortTitle: Form calls with GraphQL
 
 ## Authenticating with GraphQL
 
-To communicate with the GraphQL server, you'll need an OAuth token with the right scopes.
+{% note %}
 
-Follow the steps in "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" to create a token. The scopes you require depends on the type of data you're trying to request. For example, select the **User** scopes to request user data. If you need access to repository information, select the appropriate **Repository** scopes.
+**Note**: You need to create a {% data variables.product.pat_v1 %}, {% data variables.product.prodname_github_app %}, or {% data variables.product.prodname_oauth_app %} to authenticate to the GraphQL API. The GraphQL API does not support authentication with {% data variables.product.pat_v2 %}s.
 
-{% ifversion fpt or ghec %}
-
-To match the behavior of the [GraphQL Explorer](/graphql/guides/using-the-explorer), request the following scopes:
-
-{% else %}
-
-The following scopes are recommended:
-
-{% endif %}
+{% endnote %}
 
 
-```
-repo
-read:packages
-read:org
-read:public_key
-read:repo_hook
-user
-read:discussion
-read:enterprise
-read:gpg_key
-```
+### Authenticating with a {% data variables.product.pat_v1_caps %}
 
-The API notifies you if a resource requires a specific scope.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" to create a {% data variables.product.pat_v1 %}. The data that you are requesting will dictate which scopes you will need. For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
+
+If your token does not have the required scopes to access a resource, the API will return an error message that states what scopes your token needs.
+
+### Authenticating with a {% data variables.product.prodname_github_app %}
+
+If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a {% data variables.product.prodname_github_app %}. To authenticate as a {% data variables.product.prodname_github_app %} , you must first generate a private key in PEM format. Then, you must use this key to sign a JSON Web Token (JWT). You can use the JSON Web Token to request an installation token from {% data variables.product.company_short %} that you can use to authenticate to the GraphQL API. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+
+### Authenticating with a {% data variables.product.prodname_oauth_app %}
+
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[Creating an OAuth App](/apps/building-oauth-apps/creating-an-oauth-app)" and " [Authorizing OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## The GraphQL endpoint
 
@@ -62,7 +54,7 @@ In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In Gr
 To query GraphQL using cURL, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
 ```shell
-curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
+curl -H "Authorization: bearer TOKEN" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
@@ -90,7 +82,7 @@ GraphQL queries return only the data you specify. To form a query, you must spec
 Queries are structured like this:
 
 <pre>query {
-  <em>JSON objects to return</em>
+  JSON-OBJECT-TO-RETURN
 }</pre>
 
 For a real-world example, see "[Example query](#example-query)."
@@ -106,8 +98,8 @@ To form a mutation, you must specify three things:
 Mutations are structured like this:
 
 <pre>mutation {
-  <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
-    <em>MutationNamePayload</em>
+  MUTATION-NAME(input: {MUTATION-NAME-INPUT!}) {
+    MUTATION-NAME-PAYLOAD
   }
 }</pre>
 

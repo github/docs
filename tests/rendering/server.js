@@ -5,7 +5,11 @@ import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
 import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import {
+  SURROGATE_ENUMS,
+  makeLanguageSurrogateKey,
+} from '../../middleware/set-fastly-surrogate-key.js'
+import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -22,7 +26,8 @@ describe('server', () => {
     // The first page load takes a long time so let's get it out of the way in
     // advance to call out that problem specifically rather than misleadingly
     // attributing it to the first test
-    await get('/en')
+    const res = await get('/en')
+    expect(res.statusCode).toBe(200)
   })
 
   test('supports HEAD requests', async () => {
@@ -42,7 +47,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
     const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
@@ -79,21 +84,24 @@ describe('server', () => {
 
   test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
     const enterpriseProducts = [
-      `/en/enterprise-server@${enterpriseServerReleases.latest}`,
-      '/en/enterprise-cloud@latest',
+      `enterprise-server@${enterpriseServerReleases.latest}`,
+      'enterprise-cloud@latest',
     ]
 
-    enterpriseProducts.forEach(async (ep) => {
-      const $ = await getDOM(ep)
+    for (const ep of enterpriseProducts) {
+      const $ = await getDOM(`/en/${ep}`)
       const sidebarItems = $('[data-testid=sidebar] li a').get()
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
-      const productItems = $('[data-testid=product] div a').get()
-      const productTitles = productItems.map((el) => $(el).text().trim())
-      const productHrefs = productItems.map((el) => $(el).attr('href'))
+      const productItems = activeProducts.filter(
+        (prod) => prod.external || prod.versions.includes(ep)
+      )
+      const productTitles = productItems.map((prod) => prod.name)
+      const productHrefs = productItems.map((prod) =>
+        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`
+      )
 
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
-
       const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
 
       expect(
@@ -104,11 +112,12 @@ describe('server', () => {
         hrefsInProductsButNotSidebar.length,
         `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
       ).toBe(0)
-    })
+    }
   })
 
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect('content-security-policy' in res.headers).toBe(true)
 
     const csp = new CspParse(res.headers['content-security-policy'])
@@ -130,8 +139,12 @@ describe('server', () => {
 
   test('sets Fastly cache control headers', async () => {
     const res = await get('/en')
+    expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {
@@ -202,7 +215,7 @@ describe('server', () => {
     const $ = await getDOM(
       '/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
     )
-    expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
+    expect($('[data-testid="permissions-statement"]').text()).toContain('GitHub Pages site')
   })
 
   // see issue 9678
@@ -227,6 +240,7 @@ describe('server', () => {
 
   test('serves /categories.json for support team usage', async () => {
     const res = await get('/categories.json')
+    expect(res.statusCode).toBe(200)
 
     // check for CORS header
     expect(res.headers['access-control-allow-origin']).toBe('*')
@@ -234,7 +248,7 @@ describe('server', () => {
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
 
     const categories = JSON.parse(res.text)
     expect(Array.isArray(categories)).toBe(true)
@@ -409,7 +423,7 @@ describe('server', () => {
     })
 
     test('links that point to /assets are not rewritten with a language code', async () => {
-      const $ = await getDOM('/en/github/site-policy/github-privacy-statement')
+      const $ = await getDOM('/en/site-policy/privacy-policies/github-privacy-statement')
       expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(
         true
       )
@@ -601,12 +615,16 @@ describe('server', () => {
       const res = await get('/articles/deleting-a-team', { followRedirects: false })
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
-      // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
+      expect(res.statusCode).toBe(302)
       expect(res.text).toBe(
         'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
@@ -616,8 +634,12 @@ describe('server', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     // This test exists because in a previous life, our NextJS used to
@@ -635,8 +657,12 @@ describe('server', () => {
 
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects / to /en when unsupported language preference is specified', async () => {
@@ -649,8 +675,12 @@ describe('server', () => {
       })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
       expect(res.headers['set-cookie']).toBeUndefined()
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('adds English prefix to old article URLs', async () => {
@@ -658,8 +688,11 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
-      // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {
@@ -874,12 +907,14 @@ describe('search', () => {
 describe('?json query param for context debugging', () => {
   it('uses query param value as a key', async () => {
     const res = await get('/en?json=page')
+    expect(res.statusCode).toBe(200)
     const page = JSON.parse(res.text)
     expect(typeof page.title).toBe('string')
   })
 
   it('returns a helpful message with top-level keys if query param has no value', async () => {
     const res = await get('/en?json')
+    expect(res.statusCode).toBe(200)
     const context = JSON.parse(res.text)
 
     expect(context.message.includes('context object is too big to display')).toBe(true)
@@ -921,7 +956,10 @@ describe('static routes', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {

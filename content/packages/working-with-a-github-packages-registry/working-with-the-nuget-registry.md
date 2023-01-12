@@ -26,17 +26,27 @@ shortTitle: NuGet registry
 
 {% data reusables.package_registry.authenticate-packages %}
 
-### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+{% ifversion packages-nuget-v2 %}
+This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %} {% endif %}
+
+Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
+{% ifversion packages-nuget-v2 %}{% else %}{% data reusables.package_registry.authenticate-packages-github-token %}{% endif %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %}
+{% ifversion packages-nuget-v2 %}
 
-### Authenticating with a personal access token
+{% data reusables.package_registry.v2-actions-codespaces %}
+
+{% endif %}
+
+### Authenticating with a {% data variables.product.pat_generic %}
+
+{% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -44,9 +54,9 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 
 You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
-- `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
-- `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
+- `TOKEN` with your {% data variables.product.pat_v1 %}.
+- `OWNER` with the name of the user or organization account that owns {% ifversion packages-nuget-v2 %}the package you want to install, or to which you want to publish a package{% else %}the repository containing your project{% endif %}.{% ifversion ghes or ghae %}
+- `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
 {% endif %}
@@ -89,11 +99,21 @@ If your instance has subdomain isolation disabled:
 
 ## Publishing a package
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT).
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}.
 
-### Publishing a package using a GitHub PAT as your API key
+{% ifversion packages-nuget-v2 %}
 
-If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+The NuGet registry stores packages within your organization or personal account, and allows you to associate packages with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
+
+{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+
+If you specify a `RepositoryURL` in your `nuget.config` file, the published package will automatically be connected to the specified repository. For more information, see "[Publishing a package using a `nuget.config` file](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+
+{% endif %}
+
+### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
+
+If you don't already have a PAT to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 1. Create a new project.
   ```shell
@@ -104,9 +124,9 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
   dotnet pack --configuration Release
   ```
 
-3. Publish the package using your PAT as the API key.
+3. Publish the package using your {% data variables.product.pat_generic %} as the API key.
   ```shell
-  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
   ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -121,10 +141,10 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
   dotnet new console --name OctocatApp
   ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
+    - `OWNER` with the name of the user or organization account that owns the repository to which you want to connect your package.
+    - `REPOSITORY` with the name of the repository to which you want to connect your package.                      
     - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
-    - `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
+    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -155,7 +175,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
+To connect multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
 
 For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
 
@@ -232,7 +252,7 @@ Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not s
 
 If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
 
-If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a PAT with the `read:packages` scope and pass this token in as a secret.
+If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a {% data variables.product.pat_v1 %} with the `read:packages` scope and pass this token in as a secret.
  
 ## Further reading
 

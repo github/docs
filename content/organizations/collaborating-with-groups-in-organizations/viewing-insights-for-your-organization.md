@@ -13,15 +13,15 @@ shortTitle: View organization insights
 permissions: Organization members can view organization insights.
 ---
 
-## About organization insights
-
-You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
-
 {% note %}
 
 **Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
+
+## About organization insights
+
+You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
 
 ## Viewing organization activity insights
 

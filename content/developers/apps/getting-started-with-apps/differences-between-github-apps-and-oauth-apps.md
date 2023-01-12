@@ -22,7 +22,10 @@ You can install GitHub Apps in your personal account or organizations you own. I
 
 {% data reusables.apps.app_manager_role %}
 
-By contrast, users _authorize_ OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+By contrast, users authorize OAuth Apps, which gives the app the ability to act as the authenticated user. For example, you can authorize an OAuth App that finds all notifications for the authenticated user. You can always revoke permissions from an OAuth App.
+
+{% ifversion limit-app-access-requests %}
+{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 

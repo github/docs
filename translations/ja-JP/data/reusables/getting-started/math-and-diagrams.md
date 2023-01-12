@@ -1,1 +1,0 @@
-{% ifversion mermaid %}Markdownを使って描画された数式、図、マップ、3Dモデルをwikiに追加できます。 描画された数式の作成に関する詳しい情報については「[数式の作成](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)」を参照してください。 図、マップ、3Dモデルの作成に関する詳しい情報については「[図の作成](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)」を参照してください。{% endif %}

@@ -1,5 +1,6 @@
 ---
 title: Using workflow run logs
+shortTitle: Workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
@@ -98,23 +99,23 @@ After deleting logs, the **Delete all logs** button is removed to indicate that 
 To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
 
 ```shell
-gh run view <em>run-id</em> --log
+gh run view RUN_ID --log
 ```
 
 You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
 
 ```shell
-gh run view --job <em>job-id</em> --log
+gh run view --job JOB_ID --log
 ```
 
 You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
 
 ```shell
-gh run view --job <em>job-id</em> --log | grep error
+gh run view --job JOB_ID --log | grep error
 ```
 
 To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
 
 ```shell
-gh run view --job <em>job-id</em> --log-failed
+gh run view --job JOB_ID --log-failed
 ```

@@ -1,6 +1,6 @@
 ---
 title: Announcement
-intro: The Announcement API allows you to manage the global announcement banner in your enterprise.
+intro: Use the REST API to manage the global announcement banner in your enterprise.
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,6 +9,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Announcement
+## About announcements
 
-The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+You can use the REST API to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

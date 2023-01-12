@@ -1,1 +1,0 @@
-{% data variables.product.prodname_cli %}は、Pull Request、Issue、{% data variables.product.prodname_actions %}、そしてその他の{% data variables.product.product_name %}の機能をターミナルにもたらすコマンドラインツールなので、すべての作業を1カ所で行えるようになります。

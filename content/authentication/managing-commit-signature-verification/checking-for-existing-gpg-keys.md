@@ -29,7 +29,7 @@ shortTitle: Existing GPG keys
     * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/articles/generating-a-new-gpg-key).
     * If there's an existing GPG key pair and you want to use it to sign commits and tags, you can display the public key using the following command, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
       ```shell
-      $ gpg --armor --export <em>3AA5C34371567BD2</em>
+      $ gpg --armor --export 3AA5C34371567BD2
       # Prints the GPG key ID, in ASCII armor format
       ```
       You can then [add your GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).

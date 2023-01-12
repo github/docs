@@ -14,6 +14,7 @@ children:
   - /managing-the-forking-policy-for-your-repository
   - /managing-pull-request-reviews-in-your-repository
   - /managing-the-commit-signoff-policy-for-your-repository
+  - /managing-the-push-policy-for-your-repository
   - /managing-git-lfs-objects-in-archives-of-your-repository
   - /enabling-anonymous-git-read-access-for-a-repository
   - /about-email-notifications-for-pushes-to-your-repository
@@ -21,4 +22,3 @@ children:
   - /configuring-tag-protection-rules
 shortTitle: Manage repository settings
 ---
-

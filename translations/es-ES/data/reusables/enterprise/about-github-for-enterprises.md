@@ -1,1 +1,0 @@
-Para obtener más información sobre cómo nuestros negocios pueden utilizar los productos de {% data variables.product.company_short %} para apoyar su ciclo de desarrollo de software, consulta la sección "[Acerca de {% data variables.product.prodname_dotcom %} para empresas](/admin/overview/about-github-for-enterprises)".

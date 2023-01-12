@@ -1,1 +1,0 @@
-Quando você aumenta os recursos da CPU, recomendamos adicionar pelo menos 6.5 GB de memória para cada vCPU (até 16 vCPUs) que você fornecer para a instância. Ao usar mais de 16 vCPUs, você não precisa adicionar 6.5 GB de memória para cada vCPU, mas você deve monitorar sua instância para garantir que ela tenha memória suficiente.

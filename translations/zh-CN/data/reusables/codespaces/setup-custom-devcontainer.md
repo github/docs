@@ -1,1 +1,0 @@
-若要将存储库设置为使用自定义开发容器，需要创建一个或多个 `devcontainer.json` 文件。 您可以从模板、 {% data variables.product.prodname_vscode %} 中添加这些内容，也可以编写自己的模板。 有关开发容器配置的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。

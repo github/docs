@@ -28,9 +28,17 @@ shortTitle: Manage payment tiers
 1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
    - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
    - To create tiers without using with any of the draft suggestions, click **Skip this step**.
-   !["Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+     
+     ![Screenshot of "Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
+
+1. Optionally, in the text boxes under "Custom amounts", type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
+
+   ![Screenshot of custom amounts fields](/assets/images/help/sponsors/custom-amounts.png)
+
 1. Optionally, to edit a draft tier, find the draft tier and click **Edit**.
-  ![Edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
+
+   ![Screenshot of edit button next to draft tier](/assets/images/help/sponsors/draft-tier-edit.png)
+
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.add-welcome-message %}
@@ -87,13 +95,3 @@ If you transfer a repository that has been added to a sponsorship tier, sponsors
    ![Screenshot of dropdown menu to choose the repository to grant sponsors access to](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}
-
-## Enabling tiers with custom amounts
-
-{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
-{% data reusables.sponsors.enable-custom-amounts %}
-
-## Disabling tiers with custom amounts
-
-You can disable tiers with custom amounts by deselecting the **Enable custom amounts** option on the **Sponsor tiers** tab. If you disable custom amounts, all custom tiers are retired.

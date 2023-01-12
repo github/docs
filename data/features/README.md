@@ -13,6 +13,7 @@ Add a `versions` block to the YML file with the short names of the versions the 
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
   ghae: '*'
 ```
@@ -30,6 +31,7 @@ You can also use the feature in frontmatter in content files:
 ```yaml
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '>3.1'
   feature: 'meow'
 ```

@@ -1,1 +1,0 @@
-Uma matriz de tarefas pode gerar 256 tarefas no máximo por execução do fluxo de trabalho. Este limite aplica-se tanto a executores hospedados em {% data variables.product.product_name %} quanto a executores auto-hospedados.

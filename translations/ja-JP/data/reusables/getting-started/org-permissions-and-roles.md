@@ -1,1 +1,0 @@
-Organizationの各ユーザは、Organizationへのアクセスレベルを定義するロールを持ちます。 メンバーロールがデフォルトで、「チームメンテナ」権限とともにオーナー及び支払いマネージャーのロールを割り当てることができます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。

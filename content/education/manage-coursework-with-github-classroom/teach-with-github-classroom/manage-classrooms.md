@@ -59,13 +59,19 @@ If your course already has a roster, you can update the students on the roster o
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
-1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, click {% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system** and follow the instructions. For more information, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
-    !["Import from a learning management system" button](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. Provide the student identifiers for your roster.
+1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Import from...** button to import a roster from your LMS course. For more information, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+   
+   {% note %}
+
+  **Note:** {% data reusables.classroom.google-classroom-note %}
+
+  {% endnote %}
+
+2. Provide the student identifiers for your roster.
      - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
      - To create a roster manually, type your student identifiers.
        ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
-1. Click **Create roster**.
+3. Click **Create roster**.
   !["Create roster" button](/assets/images/help/classroom/click-create-roster-button.png)
 
 ## Adding students to the roster for your classroom
@@ -75,10 +81,15 @@ Your classroom must have an existing roster to add students to the roster. For m
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
-1. To the right of "Classroom roster", click **Update students**.
+1. To the right of "Classroom roster", click **Update students**. If you have already linked your classroom to an LMS course, then you will see a **Sync from...** button instead. 
   !["Update students" button to the right of "Classroom roster" heading above list of students](/assets/images/help/classroom/click-update-students-button.png)
 1. Follow the instructions to add students to the roster.
-    - To import students from an LMS, click **Sync from a learning management system**. For more information about importing a roster from an LMS, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
+    - To import students from an LMS, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Sync from...** button. For more information, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+        {% note %}
+
+        **Note:** {% data reusables.classroom.google-classroom-note %}
+
+        {% endnote %}
     - To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
       ![Modal for choosing method of adding students to classroom](/assets/images/help/classroom/classroom-add-students-to-your-roster.png)
 

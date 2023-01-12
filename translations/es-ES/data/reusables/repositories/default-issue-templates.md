@@ -1,1 +1,0 @@
-Puedes crear plantillas de propuestas predeterminadas y un archivo de configuración predeterminado para las plantillas de propuestas de tu organización o cuenta personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."

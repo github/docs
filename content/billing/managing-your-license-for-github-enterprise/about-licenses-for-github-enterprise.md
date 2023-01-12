@@ -27,7 +27,7 @@ In order to use a {% data variables.product.prodname_ghe_server %} instance, you
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 
-When you purchase or renew {% data variables.product.prodname_enterprise %}, {% data variables.product.company_short %} provides a license file {% ifversion ghec %}for your deployments of {% data variables.product.prodname_ghe_server %}{% elsif ghes %}for {% data variables.product.product_location_enterprise %}{% endif %}. A license file has an expiration date and controls the number of people who can use {% data variables.product.product_location_enterprise %}. After you download and install {% data variables.product.prodname_ghe_server %}, you must upload the license file to unlock the application for you to use.
+When you purchase or renew {% data variables.product.prodname_enterprise %}, {% data variables.product.company_short %} provides a license file {% ifversion ghec %}for your deployments of {% data variables.product.prodname_ghe_server %}{% elsif ghes %}for {% data variables.location.product_location_enterprise %}{% endif %}. A license file has an expiration date and controls the number of people who can use {% data variables.location.product_location_enterprise %}. After you download and install {% data variables.product.prodname_ghe_server %}, you must upload the license file to unlock the application for you to use.
 
 For more information about downloading your license file, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)." 
 

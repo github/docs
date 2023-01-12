@@ -17,9 +17,7 @@ async function buildRenderedPage(req) {
 
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
-  const renderedPage = await pageRenderTimed(context)
-
-  return renderedPage
+  return await pageRenderTimed(context)
 }
 
 async function buildMiniTocItems(req) {
@@ -34,7 +32,7 @@ async function buildMiniTocItems(req) {
   return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
 }
 
-export default async function renderPage(req, res, next) {
+export default async function renderPage(req, res) {
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is

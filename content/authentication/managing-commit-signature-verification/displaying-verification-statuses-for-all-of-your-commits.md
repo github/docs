@@ -5,6 +5,7 @@ intro: You can enable vigilant mode for commit signature verification to mark al
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - Identity
   - Access management
@@ -12,6 +13,7 @@ redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
   - /github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
 ---
+
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
 ## About vigilant mode

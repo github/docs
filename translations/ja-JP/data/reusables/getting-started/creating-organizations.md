@@ -1,1 +1,0 @@
-{% data variables.product.product_location %}に新しいOrganizationを作成し、会社もしくはグループの構造を反映させることができます。 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。

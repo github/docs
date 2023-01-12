@@ -1,1 +1,0 @@
-{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} can use internal repositories to practice "innersource" within your enterprise. Enterpriseアカウントのメンバーは、{% ifversion ghes %}プライベートモードを無効化されていても、{% endif %}プロプライエタリな情報をパブリックに共有することなく、オープンソースの方法論を用いてコラボレートできます。

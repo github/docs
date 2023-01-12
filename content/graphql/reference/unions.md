@@ -4,10 +4,10 @@ redirect_from:
   - /v4/union
   - /v4/reference/union
 versions:
-  fpt: "*"
-  ghec: "*"
-  ghes: "*"
-  ghae: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - API
 ---
@@ -19,5 +19,7 @@ A [union](https://graphql.github.io/graphql-spec/June2018/#sec-Unions) is a type
 For example, a field marked as an [`ProjectCardItem`](/graphql/reference/unions#projectcarditem) could be an [`Issue`](/graphql/reference/objects#issue) or a [`PullRequest`](/graphql/reference/objects#pullrequest) because each of those objects can be inside a project card. Using a union instead of an object gives you flexibility.
 
 For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
+
+{% data reusables.projects.graphql-ghes %}
 
 <!-- Content after this section is automatically generated -->

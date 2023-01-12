@@ -1,12 +1,13 @@
 ---
 title: Configuring GitHub Copilot settings on GitHub.com
-intro: "You can configure {% data variables.product.prodname_copilot %}'s behavior on {% data variables.product.prodname_dotcom_the_website %}, which affects how {% data variables.product.prodname_copilot %} functions in any IDE that you use."
+intro: 'You can configure {% data variables.product.prodname_copilot %}''s behavior on {% data variables.product.prodname_dotcom_the_website %}, which affects how {% data variables.product.prodname_copilot %} functions in any IDE that you use.'
 product: '{% data reusables.gated-features.copilot %}'
+permissions: 'People with individual {% data variables.product.prodname_copilot %} subscriptions can configure their settings on {% data variables.product.prodname_dotcom_the_website %}.'
 miniTocMaxHeadingLevel: 3
 topics:
   - Copilot
 versions:
- feature: 'copilot'
+  feature: copilot
 redirect_from:
   - /github/copilot/about-github-copilot-telemetry
   - /github/copilot/github-copilot-telemetry-terms

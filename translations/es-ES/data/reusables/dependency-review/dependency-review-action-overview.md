@@ -1,3 +1,0 @@
-The {% data variables.product.prodname_dependency_review_action %} scans your pull requests for dependency changes and raises an error if any new dependencies have known vulnerabilities. The action is supported by an API endpoint that compares the dependencies between two revisions and reports any differences.
-
-Para obtener más información sobre la acción y la terminal de la API, consulta las secciones "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-reinforcement)" y "[Revisión de dependencias](/rest/dependency-graph/dependency-review)" en la documentación de la API, respectivamente.

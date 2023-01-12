@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %} no cobra ninguna cuota de patrocinios de las cuentas personales, así que el 100 % de estos patrocinios irán a la organización o desarrollador patrocinados. No habrá la cueta de 10% para patrocinios de las organizaciones durante el beta.

@@ -44,7 +44,7 @@ An identifier in {% data variables.product.prodname_classroom %} is a unique ID 
 
 ## roster
 
-A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
+A roster allows a teacher to manage students and assignment submissions in a classroom on {% data variables.product.prodname_classroom %}. Teachers can create a roster by entering a list of student identifiers, or by connecting {% data variables.product.prodname_classroom %} to a learning management system (LMS). For more information about identifiers, see the definition of "[identifier](#identifier)." For more information about connecting {% data variables.product.prodname_classroom %} to an LMS, see "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
 ---
 

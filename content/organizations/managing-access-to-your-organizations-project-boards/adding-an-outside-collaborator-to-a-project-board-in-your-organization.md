@@ -1,5 +1,5 @@
 ---
-title: Adding an outside collaborator to a {% data variables.product.prodname_project_v1 %} in your organization
+title: 'Adding an outside collaborator to a {% data variables.product.prodname_project_v1 %} in your organization'
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can add an outside collaborator and customize their permissions to a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization

@@ -63,69 +63,73 @@ export const ArticleCards = () => {
 
   return (
     <div>
-      <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
-      <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
-        <div data-testid="card-filter-types">
-          <div
-            onClick={() => clickDropdown(typesRef)}
-            onKeyDown={() => clickDropdown(typesRef)}
-            role="button"
-            tabIndex={-1}
-            className="text-uppercase f6 color-fg-muted d-block"
-          >
-            {t('filters.type')}
+      <div data-search="hide">
+        <label htmlFor="guide-filter-form">{t('filter_instructions')}</label>
+        <form name="guide-filter-form" className="mt-2 mb-5 d-flex d-flex">
+          <div data-testid="card-filter-types">
+            <div
+              onClick={() => clickDropdown(typesRef)}
+              onKeyDown={() => clickDropdown(typesRef)}
+              role="button"
+              tabIndex={-1}
+              className="text-uppercase f6 color-fg-muted d-block"
+            >
+              {t('filters.type')}
+            </div>
+            <ActionMenu anchorRef={typesRef}>
+              <ActionMenu.Button>
+                {typeFilter ? typeFilter.text : t('filters.all')}
+              </ActionMenu.Button>
+              <ActionMenu.Overlay aria-label="types" data-testid="types-dropdown">
+                <ActionList selectionVariant="single">
+                  {types.map((type) => {
+                    return (
+                      <ActionList.Item onSelect={() => setTypeFilter(type)} key={type.text}>
+                        {type.text}
+                      </ActionList.Item>
+                    )
+                  })}
+                </ActionList>
+              </ActionMenu.Overlay>
+            </ActionMenu>
           </div>
-          <ActionMenu anchorRef={typesRef}>
-            <ActionMenu.Button>{typeFilter ? typeFilter.text : t('filters.all')}</ActionMenu.Button>
-            <ActionMenu.Overlay aria-label="types" data-testid="types-dropdown">
-              <ActionList selectionVariant="single">
-                {types.map((type) => {
-                  return (
-                    <ActionList.Item onSelect={() => setTypeFilter(type)} key={type.text}>
-                      {type.text}
-                    </ActionList.Item>
-                  )
-                })}
-              </ActionList>
-            </ActionMenu.Overlay>
-          </ActionMenu>
-        </div>
 
-        <div data-testid="card-filter-topics" className="mx-4">
-          <div
-            onClick={() => clickDropdown(topicsRef)}
-            onKeyDown={() => clickDropdown(topicsRef)}
-            role="button"
-            tabIndex={-1}
-            className="text-uppercase f6 color-fg-muted d-block"
-          >
-            {t('filters.topic')}
+          <div data-testid="card-filter-topics" className="mx-4">
+            <div
+              onClick={() => clickDropdown(topicsRef)}
+              onKeyDown={() => clickDropdown(topicsRef)}
+              role="button"
+              tabIndex={-1}
+              className="text-uppercase f6 color-fg-muted d-block"
+            >
+              {t('filters.topic')}
+            </div>
+            <ActionMenu anchorRef={topicsRef}>
+              <ActionMenu.Button>
+                {topicFilter ? topicFilter.text : t('filters.all')}
+              </ActionMenu.Button>
+              <ActionMenu.Overlay aria-label="topics" data-testid="topics-dropdown">
+                <ActionList selectionVariant="single">
+                  {topics.map((topic) => {
+                    return (
+                      <ActionList.Item onSelect={() => setTopicFilter(topic)} key={topic.text}>
+                        {topic.text}
+                      </ActionList.Item>
+                    )
+                  })}
+                </ActionList>
+              </ActionMenu.Overlay>
+            </ActionMenu>
           </div>
-          <ActionMenu anchorRef={topicsRef}>
-            <ActionMenu.Button>
-              {topicFilter ? topicFilter.text : t('filters.all')}
-            </ActionMenu.Button>
-            <ActionMenu.Overlay aria-label="topics" data-testid="topics-dropdown">
-              <ActionList selectionVariant="single">
-                {topics.map((topic) => {
-                  return (
-                    <ActionList.Item onSelect={() => setTopicFilter(topic)} key={topic.text}>
-                      {topic.text}
-                    </ActionList.Item>
-                  )
-                })}
-              </ActionList>
-            </ActionMenu.Overlay>
-          </ActionMenu>
-        </div>
-      </form>
+        </form>
 
-      <div role="status" className="color-fg-muted">
-        {guides.length === 0
-          ? t('guides_found.none')
-          : guides.length === 1
-          ? t('guides_found.one')
-          : t('guides_found.multiple').replace('{n}', guides.length)}
+        <div role="status" className="color-fg-muted">
+          {guides.length === 0
+            ? t('guides_found.none')
+            : guides.length === 1
+            ? t('guides_found.one')
+            : t('guides_found.multiple').replace('{n}', guides.length)}
+        </div>
       </div>
 
       <ul ref={articleCardRef} className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
@@ -144,6 +148,7 @@ export const ArticleCards = () => {
       {guides.length > numVisible && (
         <button
           className="col-12 mt-5 text-center text-bold color-fg-accent btn-link"
+          data-search="hide"
           onClick={loadMore}
         >
           {t('load_more')}

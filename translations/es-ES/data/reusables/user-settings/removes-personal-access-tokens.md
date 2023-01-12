@@ -1,1 +1,0 @@
-Como medida de precaución en seguridad, {% data variables.product.company_short %} elimina automáticamente los tokens de acceso personal que no se hayan utilizando en un año. Para proporcionar seguridad adicional, te recomendamos ampliamente que agregues una fecha de vencimiento a tus tokens de acceso personal.

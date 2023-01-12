@@ -16,22 +16,33 @@ import { Link } from 'components/Link'
 
 import styles from './Search.module.scss'
 
-// This is a temporary thing purely for the engineers of this project.
-// When we are content that the new Elasticsearch-based middleware can
-// wrap searches that match the old JSON format, but based on Elasticsearch
-// behind the scene, we can change this component to always use
-// /api/search/legacy. Then, when time allows we can change this component
-// to use the new JSON format (/api/search/v1) and change the code to
-// use that instead.
-const USE_LEGACY_SEARCH = JSON.parse(process.env.NEXT_PUBLIC_USE_LEGACY_SEARCH || 'false')
+const SEARCH_API_ENDPOINT = '/api/search/v1'
 
-type SearchResult = {
+type Hit = {
+  id: string
   url: string
-  breadcrumbs: string
   title: string
-  content: string
-  score: number
-  popularity: number
+  breadcrumbs: string
+  highlights: {
+    title: Array<string>
+    content: Array<string>
+  }
+  score?: number
+  popularity?: number
+  es_url?: string
+}
+
+// Note, the JSON will contain other keys too, but since we don't use
+// them in this component, we don't need to specify them.
+type Meta = {
+  found: {
+    value: number
+  }
+}
+
+type Data = {
+  hits: Hit[]
+  meta: Meta
 }
 
 type Props = {
@@ -67,14 +78,18 @@ export function Search({
     : 'en'
 
   const fetchURL = query
-    ? `/${USE_LEGACY_SEARCH ? 'api/search/legacy' : 'search'}?${new URLSearchParams({
+    ? `${SEARCH_API_ENDPOINT}?${new URLSearchParams({
         language,
         version,
         query,
+        // In its current state, can't with confidence know if the user
+        // initiated a search because of the input debounce or if the
+        // user has finished typing.
+        autocomplete: 'true',
       })}`
     : null
 
-  const { data: results, error: searchError } = useSWR<SearchResult[], Error>(
+  const { data, error: searchError } = useSWR<Data, Error>(
     fetchURL,
     async (url: string) => {
       const response = await fetch(url)
@@ -97,17 +112,17 @@ export function Search({
       revalidateIfStale: false,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
+      // By default, when the URL changes to the hook, the `data` and `error`
+      // are reset. Just as if it was the very first mount.
+      // Previously we used to keep a copy of the "last" data output
+      // so that we don't immediately wipe away any search results
+      // when waiting for the new ones.
+      // With the `keepPreviousData` option, it simply doesn't reset the
+      // `data` output just because the URL is changing from what it
+      // was previously.
+      keepPreviousData: true,
     }
   )
-
-  const [previousResults, setPreviousResults] = useState<SearchResult[] | undefined>()
-  useEffect(() => {
-    if (results) {
-      setPreviousResults(results)
-    } else if (!query) {
-      setPreviousResults(undefined)
-    }
-  }, [results, query])
 
   // The `isLoading` boolean will become false every time the useSWR hook
   // fires off a new XHR. So it toggles from false/true often.
@@ -122,7 +137,7 @@ export function Search({
   // mean saying "Loading..." is a lie!
   // That's why we combine them into a final one. We're basically doing
   // this to favor *NOT* saying "Loading...".
-  const isLoadingRaw = Boolean(query && !results && !searchError)
+  const isLoadingRaw = Boolean(query && !data && !searchError)
   const [isLoadingDebounced] = useDebounce<boolean>(isLoadingRaw, 500)
   const isLoading = isLoadingRaw && isLoadingDebounced
 
@@ -214,7 +229,7 @@ export function Search({
             isHeaderSearch={isHeaderSearch}
             isMobileSearch={isMobileSearch}
             isLoading={isLoading}
-            results={previousResults}
+            results={data}
             closeSearch={closeSearch}
             debug={debug}
             query={query}
@@ -340,7 +355,7 @@ function ShowSearchResults({
   isHeaderSearch: boolean
   isMobileSearch: boolean
   isLoading: boolean
-  results: SearchResult[] | undefined
+  results: Data | undefined
   closeSearch: () => void
   debug: boolean
   query: string
@@ -459,30 +474,58 @@ function ShowSearchResults({
           {t('search_results_for')}: {query}
         </h1>
         <p className="ml-4 mb-4 text-normal f5">
-          {t('matches_displayed')}: {results.length === 0 ? t('no_results') : results.length}
+          {results.meta.found.value === 0 ? (
+            t('no_results')
+          ) : (
+            <span>
+              {t('matches_found')}: {results.meta.found.value.toLocaleString()}
+            </span>
+          )}
+          .{' '}
+          {results.meta.found.value > results.hits.length && (
+            <span>
+              {t('matches_displayed')}:{' '}
+              {results.meta.found.value === 0 ? t('no_results') : results.hits.length}
+            </span>
+          )}
         </p>
 
         <ActionList variant="full">
-          {results.map(({ url, breadcrumbs, title, content, score, popularity }) => {
+          {results.hits.map((hit, index) => {
+            const { url, breadcrumbs, title, highlights, score, popularity } = hit
+
+            const contentHTML =
+              highlights.content && highlights.content.length > 0
+                ? highlights.content.join('<br>')
+                : ''
+            const titleHTML =
+              highlights.title && highlights.title.length > 0 ? highlights.title[0] : title
+
             return (
               <ActionList.Item className="width-full" key={url}>
-                <Link href={url} className="no-underline color-fg-default">
+                <Link
+                  href={url}
+                  className="no-underline color-fg-default"
+                  onClick={() => {
+                    sendEvent({
+                      type: EventType.searchResult,
+                      search_result_query: Array.isArray(query) ? query[0] : query,
+                      search_result_index: index,
+                      search_result_total: results.hits.length,
+                      search_result_rank: (results.hits.length - index) / results.hits.length,
+                      search_result_url: url,
+                    })
+                  }}
+                >
                   <div
                     data-testid="search-result"
                     className={cx('list-style-none', styles.resultsContainer)}
                   >
                     <div className={cx('py-2 px-3')}>
-                      {/* Breadcrumbs in search records don't include the page title. These fields may contain <mark> elements that we need to render */}
                       <Label size="small" variant="accent">
-                        {breadcrumbs.length === 0
-                          ? title.replace(/<\/?[^>]+(>|$)|(\/)/g, '')
-                          : breadcrumbs
-                              .split(' / ')
-                              .slice(0, 1)
-                              .join(' ')
-                              .replace(/<\/?[^>]+(>|$)|(\/)/g, '')}
+                        {breadcrumbs ? breadcrumbs.split(' / ')[0] : title}
                       </Label>
-                      {debug && (
+                      {debug && score !== undefined && popularity !== undefined && (
                         <small className="float-right">
                           score: {score.toFixed(4)} popularity: {popularity.toFixed(4)}
                         </small>
@@ -490,13 +533,13 @@ function ShowSearchResults({
                       <h2
                         className={cx('mt-2 text-normal f3 d-block')}
                         dangerouslySetInnerHTML={{
-                          __html: title,
+                          __html: titleHTML,
                         }}
                       />
                       <div
                         className={cx(styles.searchResultContent, 'mt-1 d-block overflow-hidden')}
                         style={{ maxHeight: '2.5rem' }}
-                        dangerouslySetInnerHTML={{ __html: content }}
+                        dangerouslySetInnerHTML={{ __html: contentHTML }}
                       />
                       <div
                         className={'d-block mt-2 opacity-70 text-small'}

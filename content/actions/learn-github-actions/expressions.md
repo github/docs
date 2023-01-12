@@ -137,9 +137,9 @@ For more information, see "[Object filters](#object-filters)."
 
 #### Example matching an array of strings
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJSON()` to check if an array of strings contains an `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -169,7 +169,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 #### Example
 
-`format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
+{% raw %}
+```js
+format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+```
+{% endraw %}
 
 Returns 'Hello Mona the Octocat'.
 
@@ -223,8 +227,12 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix
+      - id: set-matrix{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+{%- endif %}{% raw %}
   job2:
     needs: job1
     runs-on: ubuntu-latest
@@ -277,7 +285,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".

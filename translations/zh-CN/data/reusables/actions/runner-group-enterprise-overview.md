@@ -1,3 +1,0 @@
-Runner groups are used to control access to runners at the organization and enterprise level. Enterprise owners can configure access policies that control which organizations {% ifversion restrict-groups-to-workflows %}and workflows {% endif %}in an enterprise have access to the runner group. 组织所有者可以配置访问策略，以控制组织中哪些存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 可以访问运行器组。
-
-When an enterprise owner grants access to a runner group, organization owners can see the runner group listed in the organization's runner settings. 然后，组织所有者可以为企业运行器组分配更细致的存储库{% ifversion restrict-groups-to-workflows %} 和工作流程{% endif %} 访问策略。

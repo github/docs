@@ -50,9 +50,10 @@ The repository owner has full control of the repository. In addition to the acti
 | Manage data use for a private repository | "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"|{% endif %}
 | Define code owners for the repository | "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)" |
 | Archive the repository | "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
-| Create security advisories | "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
+| Create security advisories | "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)" |
 | Display a sponsor button | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
 | Allow or disallow auto-merge for pull requests | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | 
+| Manage webhooks and deploy keys	| "[Managing deploy keys](/developers/overview/managing-deploy-keys#deploy-keys)" |
 
 ## Collaborator access for a repository owned by a personal account
 

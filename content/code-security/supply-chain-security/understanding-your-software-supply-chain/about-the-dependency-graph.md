@@ -33,7 +33,9 @@ When you create a pull request containing changes to dependencies that targets t
 
 ## Dependency graph availability
 
-{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. For more information, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."{% endif %}
+{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. {% endif %}For more information {% ifversion ghes %}about configuration of the dependency graph{% endif %}, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
+
+{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
@@ -70,30 +72,25 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 {%- ifversion dependency-graph-rust-support %}
-| Cargo{% ifversion ghes = 3.6 or ghae-issue-7563 %}<sup>[*]</sup>{% endif %} | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+| Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
-{%- elsif ghes = 3.2 %}
-| Go modules | Go | `go.mod` | `go.mod` |
-{%- endif %}
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
+{%- ifversion dependency-graph-dart-support %}
+| pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
+{%- endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 {%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
-
-{% ifversion ghes = 3.6 or ghae-issue-7563 %}
-[*] For the initial release of Rust support, dependency graph does not have the metadata and mappings required to detect transitive dependencies. Dependency graph displays transitive dependencies, one level deep, when they are defined in a `Cargo.lock` file. {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are available for vulnerable dependencies defined in the `Cargo.lock` file.
-{% endif %}
 
 {% ifversion github-actions-in-dependency-graph %}
 [†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."

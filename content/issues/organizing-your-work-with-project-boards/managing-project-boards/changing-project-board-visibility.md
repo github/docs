@@ -1,12 +1,12 @@
 ---
-title: Changing {% data variables.product.prodname_project_v1 %} visibility
+title: 'Changing {% data variables.product.prodname_project_v1 %} visibility'
 intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can make a {% data variables.projects.projects_v1_board %} {% ifversion ghae %}internal{% else %}public{% endif %} or private.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/changing-project-board-visibility
   - /articles/changing-project-board-visibility
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 shortTitle: Change visibility

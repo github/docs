@@ -1,9 +1,9 @@
 ---
-title: 'Managing your views'
+title: Managing your views
 intro: 'Learn how to create, save, and manage your project views.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects

@@ -1,1 +1,0 @@
-環境は、`production`、`staging`、`development`のような一般的なターゲットを記述するために使われます。 {% data variables.product.prodname_actions %}ワークフローが環境にデプロイする場合、その環境はリポジトリのメインページに表示されます。 環境を使って、ジョブが進むために承認を必要にしたり、ワークフローをトリガーできるブランチを制限したり、シークレットへのアクセスを制限したりできます。 環境の作成に関する詳しい情報については「[デプロイメントのための環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。

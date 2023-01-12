@@ -1,1 +1,0 @@
-1. 在项目的 *package.json* 中验证 `repository（仓库）`字段。 `repository（仓库）`字段必须匹配 {% data variables.product.prodname_dotcom %} 仓库的 URL。 For example, if your repository URL is `github.com/my-org/test` then the repository field should be `https://github.com/my-org/test.git`.

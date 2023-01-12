@@ -4,6 +4,804 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>OrganizationMigration</code> was added</p>",
+          "<p>Type <code>OrganizationMigrationState</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationConnection</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationEdge</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationField</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldIteration</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectField</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectFieldOption</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationInput</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationPayload</code> was added</p>",
+          "<p>Type <code>StripeConnectAccount</code> was added</p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>AddReactionPayload</code></p>",
+          "<p>Input field <code>headRepositoryId</code> was added to input object type <code>CreatePullRequestInput</code></p>",
+          "<p>Field <code>publishSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>retireSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>startOrganizationMigration</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>fieldConstraints</code> was added to object type <code>ProjectNext</code></p>",
+          "<p>Field <code>projectFieldConstraint</code> was added to object type <code>ProjectNextItemFieldValue</code></p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>RemoveReactionPayload</code></p>",
+          "<p>Field <code>hasVulnerabilityAlertsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to interface <code>Sponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>activeStripeConnectAccount</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>isActive</code> was added to object type <code>Sponsorship</code></p>",
+          "<p>Field <code>author</code> was added to object type <code>SponsorshipNewsletter</code></p>",
+          "<p>Input field <code>fieldConstraintId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Input field <code>fieldWithSettingId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsSponsor</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PackageType.RUBYGEMS</code>:<code>RUBYGEMS</code> will be removed. <strong>Effective 2022-12-28</strong>.</p>",
+          "<p>On member <code>PackageType.MAVEN</code>:<code>MAVEN</code> will be removed. <strong>Effective 2023-02-10</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-01-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>Claimable</code> was added</p>",
+          "<p>Type <code>CreateAttributionInvitationInput</code> was added</p>",
+          "<p>Type <code>CreateAttributionInvitationPayload</code> was added</p>",
+          "<p>Type <code>CreateSponsorsListingInput</code> was added</p>",
+          "<p>Type <code>CreateSponsorsListingPayload</code> was added</p>",
+          "<p>Type <code>MannequinConnection</code> was added</p>",
+          "<p>Type <code>MannequinEdge</code> was added</p>",
+          "<p>Type <code>MannequinOrder</code> was added</p>",
+          "<p>Type <code>MannequinOrderField</code> was added</p>",
+          "<p>Type <code>SponsorsCountryOrRegionCode</code> was added</p>",
+          "<p>Field <code>createAttributionInvitation</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>createSponsorsListing</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>mannequins</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>isDraft</code> was added to object type <code>SponsorsTierAdminInfo</code></p>",
+          "<p>Field <code>isPublished</code> was added to object type <code>SponsorsTierAdminInfo</code></p>",
+          "<p>Field <code>isRetired</code> was added to object type <code>SponsorsTierAdminInfo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>RepositoryVulnerabilityAlert.fixReason</code>:<code>fixReason</code> will be removed. <strong>Effective 2023-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fiscalHost</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p><code>WorkflowRun</code> object implements <code>UniformResourceLocatable</code> interface</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PackageType.NPM</code>:<code>NPM</code> will be removed. <strong>Effective 2022-11-21</strong>.</p>",
+          "<p>On member <code>PackageType.NUGET</code>:<code>NUGET</code> will be removed. <strong>Effective 2022-11-21</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-12-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorsListingFeatureableItem</code> was added</p>",
+          "<p>Field <code>featureable</code> was added to object type <code>SponsorsListingFeaturedItem</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-12-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>totalCommentsCount</code> was added to object type <code>PullRequest</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-12-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'TRADE_RESTRICTION<code>was added to enum</code>RepositoryLockReason'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddEnterpriseOrganizationMemberInput</code> was added</p>",
+          "<p>Type <code>AddEnterpriseOrganizationMemberPayload</code> was added</p>",
+          "<p>Field <code>addEnterpriseOrganizationMember</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorsListingFeaturedItem</code> was added</p>",
+          "<p>Type <code>SponsorsListingFeaturedItemFeatureableType</code> was added</p>",
+          "<p>Field <code>featuredItems</code> was added to object type <code>SponsorsListing</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>includeAsSponsor: Boolean</code> added to field <code>User.sponsorsActivities</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>TransferEnterpriseOrganizationInput</code> was added</p>",
+          "<p>Type <code>TransferEnterpriseOrganizationPayload</code> was added</p>",
+          "<p>Field <code>transferEnterpriseOrganization</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument 'maintainerLogins: [String!]<code>added to field</code>Organization.sponsorshipsAsSponsor'</p>",
+          "<p>Argument 'maintainerLogins: [String!]<code>added to field</code>Sponsorable.sponsorshipsAsSponsor'</p>",
+          "<p>Field <code>contactEmailAddress</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>nameRaw</code> was added to object type <code>Submodule</code></p>",
+          "<p>Field <code>pathRaw</code> was added to object type <code>Submodule</code></p>",
+          "<p>Field <code>nameRaw</code> was added to object type <code>TreeEntry</code></p>",
+          "<p>Field <code>pathRaw</code> was added to object type <code>TreeEntry</code></p>",
+          "<p>Argument 'maintainerLogins: [String!]<code>added to field</code>User.sponsorshipsAsSponsor'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>teamId</code> was added to input object type 'CreateProjectV2Input'</p>",
+          "<p>Field <code>billingCountryOrRegion</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>residenceCountryOrRegion</code> was added to object type <code>SponsorsListing</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Repository.squashPrTitleUsedAsDefault</code>:<code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead. <strong>Effective 2023-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-11-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>repositoryId</code> was added to input object type 'CreateProjectV2Input'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'LinkProjectV2ToTeamInput' was added</p>",
+          "<p>Type 'LinkProjectV2ToTeamPayload' was added</p>",
+          "<p>Type 'ProjectV2Filters' was added</p>",
+          "<p>Type 'ProjectV2State' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromTeamInput' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromTeamPayload' was added</p>",
+          "<p>Field 'linkProjectV2ToTeam<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unlinkProjectV2FromTeam<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'filterBy: ProjectV2Filters<code>added to field</code>Team.projectsV2'</p>",
+          "<p>Argument <code>query: String</code> added to field 'Team.projectsV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>since: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>since: DateTime</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>since: DateTime</code> added to field <code>User.sponsorsActivities</code></p>",
+          "<p>Argument <code>until: DateTime</code> added to field <code>User.sponsorsActivities</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>hasDiscussionsEnabled</code> was added to interface <code>RepositoryInfo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-11-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ArchiveProjectV2ItemInput' was added</p>",
+          "<p>Type 'ArchiveProjectV2ItemPayload' was added</p>",
+          "<p>Type 'LinkProjectV2ToRepositoryInput' was added</p>",
+          "<p>Type 'LinkProjectV2ToRepositoryPayload' was added</p>",
+          "<p>Type 'UnarchiveProjectV2ItemInput' was added</p>",
+          "<p>Type 'UnarchiveProjectV2ItemPayload' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromRepositoryInput' was added</p>",
+          "<p>Type 'UnlinkProjectV2FromRepositoryPayload' was added</p>",
+          "<p>Field <code>lockAllowsFetchAndMerge</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Field <code>lockBranch</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Field <code>requireLastPushApproval</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Input field <code>lockAllowsFetchAndMerge</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>lockBranch</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requireLastPushApproval</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Field 'archiveProjectV2Item<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'linkProjectV2ToRepository<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unarchiveProjectV2Item<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unlinkProjectV2FromRepository<code>was added to object type</code>Mutation'</p>",
+          "<p>Enum value 'TRACKED_BY<code>was added to enum</code>ProjectNextFieldType'</p>",
+          "<p>Enum value 'TRACKED_BY<code>was added to enum</code>ProjectV2FieldType'</p>",
+          "<p>Field <code>hasDiscussionsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Input field <code>lockAllowsFetchAndMerge</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>lockBranch</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requireLastPushApproval</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>hasDiscussionsEnabled</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectNextFieldType.TRACKED_BY</code>:<code>TRACKED_BY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-11-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>filename</code> was added to object type <code>IssueTemplate</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-10-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>teams</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field 'projectV2<code>was added to object type</code>Team'</p>",
+          "<p>Field 'projectsV2<code>was added to object type</code>Team'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-10-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>language</code> was added to object type <code>TreeEntry</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-10-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>Comparison</code> was added</p>",
+          "<p>Type <code>ComparisonCommitConnection</code> was added</p>",
+          "<p>Type <code>ComparisonStatus</code> was added</p>",
+          "<p>Type 'ProjectV2SortByField' was added</p>",
+          "<p>Type 'ProjectV2SortByFieldConnection' was added</p>",
+          "<p>Type 'ProjectV2SortByFieldEdge' was added</p>",
+          "<p>Field <code>sortByFields</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Field <code>verticalGroupByFields</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Field <code>compare</code> was added to object type <code>Ref</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectV2View.sortBy</code>:<code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative. <strong>Effective 2023-04-01</strong>.</p>",
+          "<p>On member <code>ProjectV2View.verticalGroupBy</code>:<code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative. <strong>Effective 2023-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-10-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>PUB</code> was added to enum <code>DependencyGraphEcosystem</code></p>",
+          "<p>Field <code>groupByFields</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Enum value <code>PUB</code> was added to enum <code>SecurityAdvisoryEcosystem</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectV2View.groupBy</code>:<code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative. <strong>Effective 2023-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-10-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateLinkedBranchInput</code> was added</p>",
+          "<p>Type <code>CreateLinkedBranchPayload</code> was added</p>",
+          "<p>Type <code>DeleteLinkedBranchInput</code> was added</p>",
+          "<p>Type <code>DeleteLinkedBranchPayload</code> was added</p>",
+          "<p>Type <code>LinkedBranch</code> was added</p>",
+          "<p>Type <code>LinkedBranchConnection</code> was added</p>",
+          "<p>Type <code>LinkedBranchEdge</code> was added</p>",
+          "<p>Field <code>linkedBranches</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>createLinkedBranch</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteLinkedBranch</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-10-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>view</code> was added to object type 'ProjectV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddProjectDraftIssueInput.assigneeIds</code>:<code>assigneeIds</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectDraftIssueInput.body</code>:<code>body</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectDraftIssueInput.projectId</code>:<code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectDraftIssueInput.title</code>:<code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectDraftIssuePayload.projectNextItem</code>:<code>projectNextItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectNextItemInput.contentId</code>:<code>contentId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectNextItemInput.projectId</code>:<code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>AddProjectNextItemPayload.projectNextItem</code>:<code>projectNextItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>DeleteProjectNextItemInput.itemId</code>:<code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>DeleteProjectNextItemInput.projectId</code>:<code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>DeleteProjectNextItemPayload.deletedItemId</code>:<code>deletedItemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Issue.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Issue.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.addProjectDraftIssue</code>:<code>addProjectDraftIssue</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.addProjectNextItem</code>:<code>addProjectNextItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.deleteProjectNextItem</code>:<code>deleteProjectNextItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.updateProjectDraftIssue</code>:<code>updateProjectDraftIssue</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.updateProjectNext</code>:<code>updateProjectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Mutation.updateProjectNextItemField</code>:<code>updateProjectNextItemField</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Organization.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Organization.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Organization.recentProjectsNext</code>:<code>recentProjectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.closed</code>:<code>closed</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.creator</code>:<code>creator</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.defaultView</code>:<code>defaultView</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.description</code>:<code>description</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.fieldConstraints</code>:<code>fieldConstraints</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.fields</code>:<code>fields</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.items</code>:<code>items</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.number</code>:<code>number</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.owner</code>:<code>owner</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.public</code>:<code>public</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.repositories</code>:<code>repositories</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.resourcePath</code>:<code>resourcePath</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.shortDescription</code>:<code>shortDescription</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.title</code>:<code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.url</code>:<code>url</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNext.views</code>:<code>views</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.dataType</code>:<code>dataType</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.settings</code>:<code>settings</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextField.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.dataType</code>:<code>dataType</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.id</code>:<code>id</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.settings</code>:<code>settings</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldCommon.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.ASSIGNEES</code>:<code>ASSIGNEES</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.DATE</code>:<code>DATE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.ITERATION</code>:<code>ITERATION</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.LABELS</code>:<code>LABELS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.LINKED_PULL_REQUESTS</code>:<code>LINKED_PULL_REQUESTS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.MILESTONE</code>:<code>MILESTONE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.NUMBER</code>:<code>NUMBER</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.REPOSITORY</code>:<code>REPOSITORY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.REVIEWERS</code>:<code>REVIEWERS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.SINGLE_SELECT</code>:<code>SINGLE_SELECT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.TEXT</code>:<code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.TITLE</code>:<code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextFieldType.TRACKS</code>:<code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.content</code>:<code>content</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.creator</code>:<code>creator</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.fieldValues</code>:<code>fieldValues</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.isArchived</code>:<code>isArchived</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.title</code>:<code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.type</code>:<code>type</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItem.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.creator</code>:<code>creator</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.projectField</code>:<code>projectField</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.projectFieldConstraint</code>:<code>projectFieldConstraint</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.projectItem</code>:<code>projectItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextItemFieldValue.value</code>:<code>value</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.configuration</code>:<code>configuration</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.dataType</code>:<code>dataType</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.settings</code>:<code>settings</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationField.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldConfiguration.completedIterations</code>:<code>completedIterations</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldConfiguration.duration</code>:<code>duration</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldConfiguration.iterations</code>:<code>iterations</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldConfiguration.startDay</code>:<code>startDay</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldIteration.duration</code>:<code>duration</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldIteration.id</code>:<code>id</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldIteration.startDate</code>:<code>startDate</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldIteration.title</code>:<code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextIterationFieldIteration.titleHTML</code>:<code>titleHtml</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOrderField.CREATED_AT</code>:<code>CREATED_AT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOrderField.NUMBER</code>:<code>NUMBER</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOrderField.TITLE</code>:<code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOrderField.UPDATED_AT</code>:<code>UPDATED_AT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOwner.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextOwner.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextRecent.recentProjectsNext</code>:<code>recentProjectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.dataType</code>:<code>dataType</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.options</code>:<code>options</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.settings</code>:<code>settings</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectField.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectFieldOption.id</code>:<code>id</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectFieldOption.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectNextSingleSelectFieldOption.nameHTML</code>:<code>nameHtml</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.createdAt</code>:<code>createdAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.databaseId</code>:<code>databaseId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.filter</code>:<code>filter</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.groupBy</code>:<code>groupBy</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.groupedItems</code>:<code>groupedItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.items</code>:<code>items</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.layout</code>:<code>layout</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.name</code>:<code>name</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.number</code>:<code>number</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.project</code>:<code>project</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.sortBy</code>:<code>sortBy</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.updatedAt</code>:<code>updatedAt</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.verticalGroupBy</code>:<code>verticalGroupBy</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>ProjectView.visibleFields</code>:<code>visibleFields</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>PullRequest.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>PullRequest.projectNextItems</code>:<code>projectNextItems</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>PullRequest.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Repository.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Repository.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>Repository.recentProjectsNext</code>:<code>recentProjectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.closed</code>:<code>closed</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.description</code>:<code>description</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.projectId</code>:<code>projectId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.public</code>:<code>public</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.shortDescription</code>:<code>shortDescription</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextInput.title</code>:<code>title</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextItemFieldInput.fieldConstraintId</code>:<code>fieldConstraintId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextItemFieldInput.fieldId</code>:<code>fieldId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextItemFieldInput.itemId</code>:<code>itemId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextItemFieldInput.value</code>:<code>value</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextItemFieldPayload.projectNextItem</code>:<code>projectNextItem</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>UpdateProjectNextPayload.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>User.projectNext</code>:<code>projectNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>User.projectsNext</code>:<code>projectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>",
+          "<p>On member <code>User.recentProjectsNext</code>:<code>recentProjectsNext</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>dashboardResourcePath</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>dashboardUrl</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>resourcePath</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>url</code> was added to object type <code>SponsorsListing</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>databaseId</code> was added to interface <code>Migration</code></p>",
+          "<p>Field <code>databaseId</code> was added to object type <code>RepositoryMigration</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ClearProjectV2ItemFieldValueInput' was added</p>",
+          "<p>Type 'ClearProjectV2ItemFieldValuePayload' was added</p>",
+          "<p>Field <code>pullRequestReviewComment</code> was added to object type <code>DeletePullRequestReviewCommentPayload</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>Enterprise.members</code></p>",
+          "<p>Argument <code>hasTwoFactorEnabled: Boolean</code> added to field <code>EnterpriseOwnerInfo.admins</code></p>",
+          "<p>Field 'clearProjectV2ItemFieldValue<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CheckRunState</code> was added</p>",
+          "<p>Type <code>CheckRunStateCount</code> was added</p>",
+          "<p>Type <code>StatusContextStateCount</code> was added</p>",
+          "<p>Field <code>fields</code> was added to object type 'ProjectV2View'</p>",
+          "<p>Field <code>checkRunCount</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>checkRunCountsByState</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>statusContextCount</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>",
+          "<p>Field <code>statusContextCountsByState</code> was added to object type <code>StatusCheckRollupContextConnection</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectV2View.visibleFields</code>:<code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>diffSide</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>line</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>startDiffSide</code> was added to object type <code>PullRequestThread</code></p>",
+          "<p>Field <code>startLine</code> was added to object type <code>PullRequestThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>EnterpriseAllowPrivateRepositoryForkingPolicyValue</code> was added</p>",
+          "<p>Field <code>changedFilesIfAvailable</code> was added to object type <code>Commit</code></p>",
+          "<p>Field <code>allowPrivateRepositoryForkingSettingPolicyValue</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Input field <code>policyValue</code> was added to input object type <code>UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Commit.changedFiles</code>:<code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead. <strong>Effective 2023-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-09-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SshSignature</code> was added</p>",
+          "<p>Type <code>WorkflowRunConnection</code> was added</p>",
+          "<p>Type <code>WorkflowRunEdge</code> was added</p>",
+          "<p>Type <code>WorkflowRunOrder</code> was added</p>",
+          "<p>Type <code>WorkflowRunOrderField</code> was added</p>",
+          "<p>Input field <code>conclusions</code> was added to input object type <code>CheckRunFilter</code></p>",
+          "<p>Input field <code>statuses</code> was added to input object type <code>CheckRunFilter</code></p>",
+          "<p>Field <code>runs</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-09-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>MergeCommitMessage</code> was added</p>",
           "<p>Type <code>MergeCommitTitle</code> was added</p>",
           "<p>Type <code>SquashMergeCommitMessage</code> was added</p>",

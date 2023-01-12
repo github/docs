@@ -60,19 +60,34 @@ export function RestCodeSamples({ operation, slug }: Props) {
   }))
 
   // Menu options for the language selector
-  const languageSelectOptions: LanguageOptionT[] = [
-    { key: CURLKEY, text: 'cURL' },
-    { key: JSKEY, text: 'JavaScript' },
-  ]
-  // Not all examples support the GH CLI language option. If any of
-  // the examples don't support it, we don't show GH CLI as an option.
-  if (!languageExamples.some((example) => example.ghcli === undefined)) {
-    languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+  const languageSelectOptions: LanguageOptionT[] = [{ key: CURLKEY, text: 'cURL' }]
+
+  // Management Console operations are not supported by Octokit
+  if (operation.subcategory !== 'management-console') {
+    languageSelectOptions.push({ key: JSKEY, text: 'JavaScript' })
+
+    // Not all examples support the GH CLI language option. If any of
+    // the examples don't support it, we don't show GH CLI as an option.
+    if (!languageExamples.some((example) => example.ghcli === undefined)) {
+      languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+    }
   }
 
   // Menu options for the example selector
+
+  // We show the media type in the examples menu items for each example if
+  // there's more than one example and if the media types aren't all the same
+  // for the examples (e.g. if all examples have content type `application/json`,
+  // we won't show that information in the menu items).
+  const showExampleOptionMediaType =
+    languageExamples.length > 1 &&
+    !languageExamples.every(
+      (example) => example.response.contentType === languageExamples[0].response.contentType
+    )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
-    text: example.description,
+    text: showExampleOptionMediaType
+      ? `${example.description} (${example.response.contentType})`
+      : example.description,
     // maps to the index of the example in the languageExamples array
     languageIndex: index,
   }))
@@ -99,7 +114,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
     setSelectedLanguage(languageKey)
     Cookies.set('codeSampleLanguagePreferred', languageKey, {
       sameSite: 'strict',
-      secure: true,
+      secure: document.location.protocol !== 'http:',
     })
   }
 

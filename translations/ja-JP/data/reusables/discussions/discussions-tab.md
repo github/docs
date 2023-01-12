@@ -1,1 +1,0 @@
-1. リポジトリもしくはOrganizationの名前の下で、{% octicon "comment-discussion" aria-label="The discussion icon" %} **Discussions（ディスカッション）**をクリックしてください。 ![リポジトリの"ディスカッション"タブ](/assets/images/help/discussions/repository-discussions-tab.png)

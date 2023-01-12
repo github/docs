@@ -17,7 +17,7 @@ shortTitle: Increase storage capacity
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.product.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+As more users join {% data variables.location.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
 
 ## Requirements and recommendations
 
@@ -71,7 +71,7 @@ As more users join {% data variables.product.product_location %}, you may need t
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. If your appliance is configured for high-availability or geo-replication, to stop replication run the `ghe-repl-stop` command on each replica node:
 
    ```shell
    $ ghe-repl-stop

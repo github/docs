@@ -1,6 +1,6 @@
 ---
 title: Repository Pre-receive Hooks
-intro: The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
+intro: Use the REST API to view and modify enforcement of the pre-receive hooks that are available to a repository.
 versions:
   ghes: '*'
 topics:
@@ -9,7 +9,10 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### Object attributes
+## About repository pre-receive hooks
+
+{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+
 
 | Name                | Type     | Description                                               |
 |---------------------|----------|-----------------------------------------------------------|

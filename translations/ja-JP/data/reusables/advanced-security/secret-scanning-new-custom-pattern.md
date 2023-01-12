@@ -1,1 +1,0 @@
-1. "{% data variables.product.prodname_secret_scanning_caps %}"の下の"Custom patterns（カスタムパターン）"の下で、 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}**New pattern（新規パターン）**{% elsif ghes = 3.2 %}**New custom pattern（新規カスタムパターン）**{% endif %}をクリックしてください。

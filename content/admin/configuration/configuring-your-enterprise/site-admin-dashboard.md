@@ -51,7 +51,7 @@ For more information on audit logging in general, see "[About the audit log for 
 
 ## Reports
 
-If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
 Specifically, you can download CSV reports that list
 
@@ -62,12 +62,12 @@ Specifically, you can download CSV reports that list
 - all organizations
 - all repositories
 
-You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a personal access token with the `site_admin` scope. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 For example, here is how you would download the "all users" report using cURL:
 
 ```shell
-curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftools/reports/all_users.csv
+curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv
 ```
 
 To access the other reports programmatically, replace `all_users` with `active_users`, `dormant_users`, `suspended_users`, `all_organizations`, or `all_repositories`.
@@ -164,7 +164,7 @@ You can create a new index, or you can click on an existing index in the list to
 - Start a new index repair job.
 - Enable or disable index repair jobs.
 
-A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.product.product_location %} even though those repositories are actually indexed.
+A progress bar shows the current status of a repair job across background workers. The bar is the percentage difference of the repair offset with the highest record ID in the database. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
 
 To minimize the effects on I/O performance and reduce the chances of operations timing out, run the repair job during off-peak hours. As the job reconciles the search index with database and Git repository data, one CPU will be used. Monitor your system's load averages and CPU usage with a utility like `top`. If you don't notice any significant increase in resource consumption, it should also be safe to run an index repair job during peak hours.
 
@@ -177,7 +177,7 @@ This allows you to enable or disable both search and index operations on source 
 {% endif %}
 ## Reserved logins
 
-Certain words are reserved for internal use in {% data variables.product.product_location %}, which means that these words cannot be used as usernames.
+Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
 
 For example, the following words are reserved, among others:
 
@@ -192,20 +192,20 @@ For the full list or reserved words, navigate to "Reserved logins" in the site a
 {% ifversion ghas-committers-calculator %}
 ## {% data variables.product.prodname_advanced_security %} Committers
 
-You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
+You can see the number of active committers that are currently using {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
 
-Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of licensed seats that are currently being used.
+Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that are currently being used.
 
-Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
+Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
 
-Under "Calculate Additional Advanced Committers", you can calculate how many more additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
+Under "Calculate Additional Advanced Committers", you can calculate how many more additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
 
 ```
 example-org
 octo-org/octo-repo
 ```
 
-The result is the number of additional seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
+The result is the number of additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
 
 For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[About billing for {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 {% endif %}
@@ -216,7 +216,7 @@ Refer to this section of the site admin dashboard to manage organizations, peopl
 
 ## Repositories
 
-This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
+This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
 
 - [Blocking force pushes to a repository](/enterprise/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
 - [Configuring {% data variables.large_files.product_name_long %}](/enterprise/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
@@ -224,21 +224,21 @@ This is a list of the repositories on {% data variables.product.product_location
 
 ## All users
 
-Here you can see all of the users on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Site admins
 
-Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
 
 ## Dormant users
 {% ifversion ghes %}
-Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and suspend all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 
-- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
+- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
 - Has not generated any activity within that time period.
 - Is not a site administrator.
 
@@ -246,4 +246,4 @@ Here you can see and suspend all of the inactive users on {% data variables.prod
 
 ## Suspended users
 
-Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/enterprise/admin/guides/user-management/auditing-ssh-keys).

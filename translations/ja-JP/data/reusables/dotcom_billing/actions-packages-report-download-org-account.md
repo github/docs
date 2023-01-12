@@ -1,2 +1,0 @@
-1. あるいは、 "Usage this month（今月の利用状況）"の隣の**Get usage report（利用レポートの取得）**をクリックして、{% data variables.product.prodname_actions %}、
-{% data variables.product.prodname_registry %}、{% data variables.product.prodname_codespaces %}のストレージ利用のCSVレポートのダウンロードリンクを含むメールを受け取ってください。 このメールは、アカウントのプライマリメールアドレスに送信されます。 レポートがカバーする範囲を過去7日、30日、90日、180日から選択できます。 ![CSVレポートのダウンロード](/assets/images/help/billing/actions-packages-report-download.png)

@@ -3,7 +3,7 @@ deprecated: false
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
 
   {% endnote %}
 
@@ -30,7 +30,7 @@ sections:
         - |
           You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)."
           
-          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature will be available in an upcoming release. [Updated: 2022-08-26]
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0 and 3.6.1. The feature is available in the 3.6.2 release. [Updated: 2022-09-22]
 
     - heading: Audit logs
       notes:
@@ -109,6 +109,8 @@ sections:
         # https://github.com/github/releases/issues/2160
         - |
           Users can select multiple Dependabot alerts, then dismiss or reopen or dismiss the alerts. For example, from the **Closed alerts** tab, you can select multiple alerts that have been previously dismissed, and then reopen them all at once. For more information, see "[About Dependabot alerts](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
+
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0. The feature is available in GitHub Enterprise Server 3.7.0 and later. [Updated: 2022-10-19]
 
         # https://github.com/github/releases/issues/2232
         - |
@@ -203,15 +205,6 @@ sections:
         - |
           While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
 
-        # https://github.com/github/releases/issues/1973
-        - |
-          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
-
-        # https://github.com/github/releases/issues/2179
-        - |
-          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
-
         # https://github.com/github/releases/issues/2220
         - |
           Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
@@ -255,6 +248,12 @@ sections:
         - |
           Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
 
+    - heading: GitHub Mobile
+      notes:
+        # https://github.com/github/releases/issues/2514
+        - |
+          In GitHub Mobile for iOS 1.80.0 and later, users can edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
+
     - heading: Releases
       notes:
         # https://github.com/github/releases/issues/2281
@@ -283,6 +282,8 @@ sections:
   changes:
     - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
     - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
+    - |
+      VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -297,3 +298,8 @@ sections:
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - |
+      After upgrading a replica node to GitHub Enterprise Server 3.6.0 or later and restarting replication, Git replication may stop progressing and continue to show `WARNING: git replication is behind the primary …`. If you encounter this known issue, [contact {% data variables.contact.enterprise_support %}](https://docs.github.com/en/enterprise-server@3.6/support/contacting-github-support/creating-a-support-ticket). [Updated: 2022-10-03]
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

@@ -1,1 +1,0 @@
-{% data variables.product.company_short %} 强烈建议您验证任何新配置以在过渡环境中进行身份验证。 不正确的配置可能会导致 {% data variables.product.product_location %} 停机。 更多信息请参阅“[设置暂存实例](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)”。

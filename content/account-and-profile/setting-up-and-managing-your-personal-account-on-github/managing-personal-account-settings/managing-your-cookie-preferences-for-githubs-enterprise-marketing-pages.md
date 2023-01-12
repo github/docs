@@ -1,6 +1,6 @@
 ---
 title: Managing your cookie preferences for GitHub's enterprise marketing pages
-intro: "You can control how {% data variables.product.company_short %} uses information from non-essential tracking cookies for enterprise marketing pages."
+intro: 'You can control how {% data variables.product.company_short %} uses information from non-essential tracking cookies for enterprise marketing pages.'
 versions:
   fpt: '*'
   ghes: '*'

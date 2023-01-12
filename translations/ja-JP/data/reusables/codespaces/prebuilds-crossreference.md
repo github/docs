@@ -1,1 +1,0 @@
-codespaceの作成を高速化するために、リポジトリの管理者はリポジトリで{% data variables.product.prodname_codespaces %}の事前ビルドを有効化できます。 詳しい情報については「[{% data variables.product.prodname_github_codespaces %}の事前ビルドについて](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)」を参照してください。

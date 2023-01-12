@@ -1,15 +1,17 @@
 ---
 title: Security Managers
-intro: ''
+intro: 'Use the REST API to manage security managers in an organization.'
 versions:
   fpt: '*'
   ghes: '>=3.7'
-  ghae: 'issue-7691'
+  ghae: '>= 3.7'
   ghec: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
 

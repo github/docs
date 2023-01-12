@@ -1,1 +1,0 @@
-1. Opcionalmente, ingresa una descripción de la dirección o rango de direcciones IP permitidas. ![Campo clave para agregar un nombre a la dirección IP](/assets/images/help/security/ip-address-name-field.png)

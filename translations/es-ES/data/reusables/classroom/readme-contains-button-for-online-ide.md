@@ -1,1 +1,0 @@
-Cuando un alumno acepta una tarea con un IDE, dicho repositorio incluirá un archivo _README.md_ con un botón especial en la parte superior del archivo. El botón vincula al alumno directamente con el espacio de trabajo en el IDE.

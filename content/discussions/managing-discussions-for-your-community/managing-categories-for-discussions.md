@@ -31,7 +31,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
 ## Creating a category
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Click **New category**.
@@ -45,7 +45,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
 You can edit a category to change the category's emoji, title, description, and discussion format.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
 {% data reusables.discussions.discussions-tab %}
 1. To the right of a category in the list, click {% octicon "pencil" aria-label="The pencil icon" %}.
   ![Edit button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-edit-for-category.png)
@@ -58,7 +58,7 @@ You can edit a category to change the category's emoji, title, description, and 
 
 When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
+1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
 {% data reusables.discussions.discussions-tab %}
 1. To the right of a category in the list, click {% octicon "trash" aria-label="The trash icon" %}.
   ![Trash button to the right of category in list of categories for a repository](/assets/images/help/discussions/click-delete-for-category.png)

@@ -1,1 +1,0 @@
-- WindowsまたはLinuxでは、<kbd>Alt</kbd>+<kbd>]</kbd>を押せば次の提案に、<kbd>Alt</kbd>+<kbd>[</kbd>を押せば前の提案に移ります。

@@ -1,1 +1,0 @@
-当您允许推送密钥时，将在“Security（安全）”选项卡中创建警报。 {% data variables.product.prodname_dotcom %} 将关闭警报，如果指定机密为误报或仅在测试中使用，则不会发送通知。 如果指定密钥是真实的，并且稍后将修复它，{% data variables.product.prodname_dotcom %} 使安全警报保持打开状态，并向提交的作者以及存储库管理员发送通知。 更多信息请参阅“[管理来自密码扫描的警报](/code-security/secret-scanning/managing-alerts-from-secret-scanning)”。

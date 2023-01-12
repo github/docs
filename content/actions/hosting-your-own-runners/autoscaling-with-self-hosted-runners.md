@@ -1,10 +1,11 @@
 ---
 title: Autoscaling with self-hosted runners
+shortTitle: Autoscale self-hosted runners
 intro: You can automatically scale your self-hosted runners in response to webhook events.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.2'
+  ghes: '*'
   ghae: '*'
 type: overview
 ---
@@ -22,7 +23,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 The following repositories have detailed instructions for setting up these autoscalers: 
 
-- [actions-runner-controller/actions-runner-controller](https://github.com/actions-runner-controller/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
+- [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
 - [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
 
 Each solution has certain specifics that may be important to consider:
@@ -54,7 +55,7 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
 
 ## Controlling runner software updates on self-hosted runners
 
@@ -63,7 +64,7 @@ By default, self-hosted runners will automatically perform a software update whe
 To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. For example:
 
 ```shell
-./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
+./config.sh --url https://github.com/YOUR-ORGANIZATION --token EXAMPLE-TOKEN --disableupdate
 ```
 
 If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.

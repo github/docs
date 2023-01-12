@@ -28,7 +28,7 @@ As an alternative to running {% data variables.product.prodname_code_scanning %}
 
 If you use a third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data, you can upload this to {% data variables.product.prodname_dotcom %}. For more information, see "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
-{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% data reusables.code-scanning.about-analysis-origins-link %}
 {% endif %}
 

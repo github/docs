@@ -1,1 +1,0 @@
-1. Decide qué fuente de publicación quieres utilizar. Para obtener más información, consulta la sección "[Configurar una fuente de publicación para tu sitio de GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".

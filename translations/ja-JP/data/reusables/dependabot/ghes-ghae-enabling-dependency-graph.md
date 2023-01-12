@@ -1,1 +1,0 @@
-システムで依存関係グラフが利用できないのであれば、Enterpriseオーナーは依存関係グラフを有効化できます。 詳しい情報については「[Enterpriseでの依存関係グラフの有効化](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)」を参照してください。

@@ -56,7 +56,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for  {% data variables.product.prodname_registry %}, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
- If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes each job uses up to the nearest minute.
+ If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
 
 {% note %}
 
@@ -67,13 +67,16 @@ The storage used by a repository is the total storage used by {% data variables.
 ### Per-minute rates
 
 {% data reusables.billing.billing-standard-runners %}
-{% ifversion actions-hosted-runners %}{% data reusables.billing.billing-hosted-runners %}{% endif %}
+{%- ifversion actions-hosted-runners %}
+{% data reusables.billing.billing-hosted-runners %}
+{%- endif %}
 
 - The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 - {% data reusables.user-settings.context_switcher %}
 {% ifversion actions-hosted-runners %} 
 - For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[Using {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners)."
 - Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 {% endif %}
 
 ## Calculating minute and storage spending

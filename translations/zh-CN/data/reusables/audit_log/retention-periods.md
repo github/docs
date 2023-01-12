@@ -1,3 +1,0 @@
-审核日志列出了由影响企业{% ifversion not ghec %} 的活动触发的事件。 Audit logs for {% data variables.product.product_name %} are retained indefinitely{% ifversion audit-data-retention-tab %}, unless an enterprise owner configured a different retention period. For more information, see "[Configuring the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise)."{% else %}.{% endif %}{% else %} within the current month and up to the previous six months. 审核日志将 Git 事件保留 7 天。{% endif %}
-
-{% data reusables.audit_log.only-three-months-displayed %}

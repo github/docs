@@ -1,1 +1,0 @@
-{% data variables.product.company_short %}は、認証に関する新しい設定をステージング環境で検証することを強くおすすめします。 正しくない設定によって、{% data variables.product.product_location %}のダウンタイムが生じる可能性があります。 詳しい情報については "[ステージングインスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)"を参照してください。

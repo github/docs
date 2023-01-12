@@ -1,5 +1,6 @@
 ---
 title: Enabling debug logging
+shortTitle: Enable debug logging
 intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
@@ -15,9 +16,9 @@ versions:
 
 These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
 
-- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-variables-repository %}
 - {% data reusables.actions.permissions-statement-secrets-environment %}
-- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-and-variables-organization %}
 - {% data reusables.actions.permissions-statement-secrets-api %}
 
 For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."

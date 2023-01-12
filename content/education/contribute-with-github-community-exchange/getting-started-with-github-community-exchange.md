@@ -1,6 +1,6 @@
 ---
 title: Getting started with GitHub Community Exchange
-shortTitle: 'Get started'
+shortTitle: Get started
 intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
 versions:
   fpt: '*'

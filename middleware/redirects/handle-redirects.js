@@ -3,10 +3,7 @@ import { URL } from 'url'
 import { pathLanguagePrefixed } from '../../lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '../../lib/enterprise-server-releases.js'
 import getRedirect from '../../lib/get-redirect.js'
-import { cacheControlFactory } from '../cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
-const noCacheControl = cacheControlFactory(0)
+import { defaultCacheControl, languageCacheControl } from '../cache-control.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
@@ -20,30 +17,40 @@ export default function handleRedirects(req, res, next) {
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-    noCacheControl(res)
+    languageCacheControl(res)
     return res.redirect(302, `/${language}`)
   }
 
-  // Don't try to redirect if the URL is `/search` which is the XHR
-  // endpoint. It should not become `/en/search`.
-  // It's unfortunate and looks a bit needlessly complicated. But
-  // it comes from the legacy that the JSON API endpoint was and needs to
-  // continue to be `/search` when it would have been more neat if it
-  // was something like `/api/search`.
-  // If someone types in `/search?query=foo` manually, they'll get JSON.
-  // Maybe sometime in 2023 we remove `/search` as an endpoint for the
-  // JSON.
-  if (req.path === '/search') return next()
+  // The URL `/search` was the old JSON API. We no longer use it anywhere
+  // and neither does support.github.com any more.
+  // But there could be legacy third-party integrators which we don't know
+  // about.
+  // In the future we might want to re-use this for our dedicated search
+  // result page which is `/$lang/search` but until we're certain all
+  // third-party search apps have noticed, we can't do that. Perhaps
+  // some time in mid to late 2023.
+  if (req.path === '/search') {
+    let url = '/api/search/legacy'
+    if (Object.keys(req.query).length) {
+      url += `?${new URLSearchParams(req.query)}`
+    }
+    // This is a 302 redirect.
+    // Why not a 301? Because permanent redirects tend to get very stuck
+    // in client caches (e.g. browsers) which would make it hard to one
+    // day turn this redirect into a redirect to `/en/search` which is
+    // how all pages work when typed in without a language prefix.
+    return res.redirect(url)
+  }
 
   // begin redirect handling
   let redirect = req.path
   let queryParams = req._parsedUrl.query
 
-  // If process.env.ELASTICSEARCH_URL isn't set, you can't go to the
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE isn't set, you can't go to the
   // dedicated search results page.
   // If that's the case, use the "old redirect" where all it does is
   // "correcting" the old query string 'q' to 'query'.
-  if (!process.env.ELASTICSEARCH_URL && 'q' in req.query && !('query' in req.query)) {
+  if (!process.env.ENABLE_SEARCH_RESULTS_PAGE && 'q' in req.query && !('query' in req.query)) {
     // update old-style query params (#9467)
     const newQueryParams = new URLSearchParams(queryParams)
     newQueryParams.set('query', newQueryParams.get('q'))
@@ -51,19 +58,19 @@ export default function handleRedirects(req, res, next) {
     return res.redirect(301, `${req.path}?${newQueryParams.toString()}`)
   }
 
-  // If process.env.ELASTICSEARCH_URL is set, the dedicated search
+  // If process.env.ENABLE_SEARCH_RESULTS_PAGE is set, the dedicated search
   // result page is ready. If that's the case, we can redirect to
   // `/$locale/search?query=...` from `/foo/bar?query=...` or from
   // (the old style) `/foo/bar/?q=...`
   if (
-    process.env.ELASTICSEARCH_URL &&
+    process.env.ENABLE_SEARCH_RESULTS_PAGE &&
     ('q' in req.query ||
       ('query' in req.query &&
         !(req.path.endsWith('/search') || req.path.startsWith('/api/search'))))
   ) {
     // If you had the old legacy format of /some/uri?q=stuff
     // it needs to redirect to /en/search?query=stuff or
-    // /some/uri?query=stuff depending on if ELASTICSEARCH_URL has been
+    // /some/uri?query=stuff depending on if ENABLE_SEARCH_RESULTS_PAGE has been
     // set up.
     // If you have the new format of /some/uri?query=stuff it too needs
     // to redirect to /en/search?query=stuff
@@ -144,9 +151,9 @@ export default function handleRedirects(req, res, next) {
 
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
-    cacheControl(res)
+    defaultCacheControl(res)
   } else {
-    noCacheControl(res)
+    languageCacheControl(res)
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)

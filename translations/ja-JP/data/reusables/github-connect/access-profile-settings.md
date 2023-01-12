@@ -1,1 +1,0 @@
-1. {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %}上で、任意のページの右上のプロフィール写真をクリックし、続いて**Settings（設定）**をクリックしてください。 ![ユーザバーの [Settings（設定）] アイコン](/assets/images/help/settings/userbar-account-settings.png)

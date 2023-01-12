@@ -13,6 +13,7 @@ delete featureVersions.properties.versions.properties.feature
 
 // Call it invalid if any properties other than version properties are found.
 featureVersions.additionalProperties = false
-featureVersions.properties.versions.additionalProperties = false
+// TODO - UNCOMMENT THE FOLLOWING LINE WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
+// featureVersions.properties.versions.additionalProperties = false
 
 export default featureVersions

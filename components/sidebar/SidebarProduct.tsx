@@ -1,19 +1,35 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
-import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { Link } from 'components/Link'
 import { AllProductsLink } from 'components/sidebar/AllProductsLink'
-import styles from './SidebarProduct.module.scss'
 import { RestCollapsibleSection } from './RestCollapsibleSection'
 import { ProductCollapsibleSection } from './ProductCollapsibleSection'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { ApiVersionPicker } from './ApiVersionPicker'
+
+import styles from './SidebarProduct.module.scss'
 
 export const SidebarProduct = () => {
   const router = useRouter()
+  const [sidebarWidth, setSidebarWidth] = useState(0)
+  const sidebarRef = useRef<HTMLUListElement>(null)
   const { currentProduct, currentProductTree } = useMainContext()
   const { t } = useTranslation(['products'])
+  const isRestPage = currentProduct && currentProduct.id === 'rest'
+
+  useEffect(() => {
+    function updateSize() {
+      if (sidebarRef.current) {
+        setSidebarWidth(sidebarRef.current.offsetWidth)
+      }
+    }
+    window.addEventListener('resize', updateSize)
+    updateSize()
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
   useEffect(() => {
     const activeArticle = document.querySelector('[data-is-current-page=true]')
@@ -36,16 +52,16 @@ export const SidebarProduct = () => {
     routePath.includes(href)
   )
 
-  const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
+  const productTitle = currentProductTree.shortTitle || currentProductTree.title
 
   const productSection = () => (
     <li className="my-3" data-testid="product-sidebar-items">
       <ul className="list-style-none">
         {currentProductTree &&
           currentProductTree.childPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.page.documentType === 'article'
+            const isStandaloneCategory = childPage.documentType === 'article'
 
-            const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+            const childTitle = childPage.shortTitle || childPage.title
             const isActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
             const defaultOpen = hasExactCategory ? isActive : false
@@ -93,11 +109,12 @@ export const SidebarProduct = () => {
     )
     return (
       <>
+        <ApiVersionPicker width={sidebarWidth} variant="header" />
         <li className="my-3">
           <ul className="list-style-none">
             {conceptualPages.map((childPage, i) => {
-              const isStandaloneCategory = childPage.page.documentType === 'article'
-              const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+              const isStandaloneCategory = childPage.documentType === 'article'
+              const childTitle = childPage.shortTitle || childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
               const defaultOpen = hasExactCategory ? isActive : false
@@ -145,9 +162,8 @@ export const SidebarProduct = () => {
         <li className="my-3">
           <ul className="list-style-none">
             {restPages.map((childPage, i) => {
-              const isStandaloneCategory = childPage.page.documentType === 'article'
-
-              const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+              const isStandaloneCategory = childPage.documentType === 'article'
+              const childTitle = childPage.shortTitle || childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
               const defaultOpen = hasExactCategory ? isActive : false
@@ -175,22 +191,28 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <ul data-testid="sidebar" className={styles.container}>
-      <AllProductsLink />
+    <ul data-testid="sidebar" ref={sidebarRef} className={cx(isRestPage && 'pt-10')}>
+      <div
+        className={cx(isRestPage && styles.apiAllProductsLink, isRestPage && styles.apiFixedHeader)}
+        style={{ width: `${sidebarWidth}px` }}
+      >
+        <AllProductsLink />
+      </div>
 
-      {!currentProductTree.page.hidden && (
-        <>
-          <li data-testid="sidebar-product" title={productTitle} className="my-2">
-            <Link
-              href={currentProductTree.href}
-              className="pl-4 pr-5 pb-1 f4 color-fg-default no-underline"
-            >
-              {productTitle}
-            </Link>
-          </li>
-          {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection()}
-        </>
-      )}
+      <li data-testid="sidebar-product" title={productTitle} className="my-2">
+        <Link
+          href={currentProductTree.href}
+          className={cx(
+            'pl-4 pr-5 pb-1 f4 color-fg-default no-underline',
+            isRestPage && styles.apiTitle,
+            isRestPage && styles.apiFixedHeader
+          )}
+          style={{ width: `${sidebarWidth}px` }}
+        >
+          {productTitle}
+        </Link>
+      </li>
+      {isRestPage ? restSection() : productSection()}
     </ul>
   )
 }

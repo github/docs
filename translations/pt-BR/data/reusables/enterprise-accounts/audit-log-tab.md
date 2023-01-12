@@ -1,1 +1,0 @@
-1. Em "Configurações de {% octicon "gear" aria-label="The Settings gear" %}", clique em **Log de Auditoria**. ![Aba Log de auditoria na barra lateral da conta corporativa](/assets/images/help/business-accounts/enterprise-account-settings-audit-log-tab.png)

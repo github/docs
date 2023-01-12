@@ -1,1 +1,0 @@
-Enterpriseの設定を確認すれば、Enterpriseが{% data variables.product.prodname_GH_advanced_security %}ライセンスを持っているかを確認できます。 詳しい情報については「[EnterpriseでのGitHub Advanced Securityの有効化](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise#checking-whether-your-license-includes-github-advanced-security)」を参照してください。

@@ -1,8 +1,9 @@
 import { expect, jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
+import { describeIfDedicatedSearchResultsPage } from '../helpers/conditional-runs.js'
 
-describe('search results page', () => {
+describeIfDedicatedSearchResultsPage('search results page', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   test('says something if no query is provided', async () => {

@@ -1,1 +1,0 @@
-Enterpriseのオーナーは、{% data variables.product.product_location %}内のすべてのOrganizationにリポジトリ管理ポリシーを設定するか、各Organizationに個別のポリシーの設定を許可できます。 詳しい情報については、「[Enterprise でのリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)」を参照してください。

@@ -1,1 +1,0 @@
-デフォルトでは、過去3ヶ月のイベントのみが表示されます。 それよりも古いイベントを表示するには、`created`パラメータでデータの範囲を指定しなければなりません。 詳しい情報については、「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)」を参照してください。

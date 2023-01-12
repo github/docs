@@ -34,8 +34,6 @@ sections:
         - |
           Dependabot version and security updates are now generally available in GitHub Enterprise Server 3.5. All the popular ecosystems and features that work on GitHub.com repositories now can be set up on your GitHub Enterprise Server instance. Dependabot on GitHub Enterprise Server requires GitHub Actions and a pool of self-hosted Dependabot runners, GitHub Connect enabled, and Dependabot enabled by an admin. For more information, see "[Setting up Dependabot updates](https://docs.github.com/en/enterprise-server@3.5/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
 
-
-
     - heading: Server Statistics in public beta
       notes:
         # https://github.com/github/releases/issues/2183
@@ -336,6 +334,12 @@ sections:
         - |
           Repository owners can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with the Maintain or Admin role in the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
 
+    - heading: Edit files within pull requests in GitHub Mobile for iOS
+      notes:
+        # https://github.com/github/releases/issues/2514
+        - |
+          In GitHub Mobile for iOS 1.80.0 and later, users can now edit files within a pull request's topic branch. Support for editing files will come to GitHub Mobile for Android in a future release. [Updated: 2022-09-13]
+
   bugs:
     # https://github.com/github/releases/issues/1934
     - |
@@ -351,6 +355,11 @@ sections:
           - In version 3.0, the minimum requirement for memory increased from 16 GB to 32 GB. As of 3.5.0, system preflight checks will fail if the system has less than 28 GB of memory.
 
         For more information, see the minimum requirements for each supported deployment platform in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)." [Updated: 2022-06-20]
+      
+    # https://github.com/github/releases/issues/2479
+    - |
+      VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
+
     # https://github.com/github/releases/issues/2063
     - |
       To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
@@ -435,3 +444,6 @@ sections:
         - Enabling the **Update branch** button for all pull requests in a repository
         - Light high contrast theme
       - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+      - |
+        GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+      - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

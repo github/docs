@@ -38,23 +38,23 @@ shortTitle: Install on Hyper-V
 
 1. In PowerShell, create a new Generation 1 virtual machine, configure the size based on your user license count, and attach the {% data variables.product.prodname_ghe_server %} image you downloaded. For more information, see "[New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps)" in the Microsoft documentation.
   ```shell
-  PS C:\> New-VM -Generation 1 -Name <em>VM_NAME</em> -MemoryStartupBytes <em>MEMORY_SIZE</em> -BootDevice VHD -VHDPath <em>PATH_TO_VHD</em>  
+  PS C:\> New-VM -Generation 1 -Name VM_NAME -MemoryStartupBytes MEMORY_SIZE -BootDevice VHD -VHDPath PATH_TO_VHD  
   ```
 {% data reusables.enterprise_installation.create-attached-storage-volume %} Replace `PATH_TO_DATA_DISK` with the path to the location where you create the disk. For more information, see "[New-VHD](https://docs.microsoft.com/powershell/module/hyper-v/new-vhd?view=win10-ps)" in the Microsoft documentation.
   ```shell
-  PS C:\> New-VHD -Path <em>PATH_TO_DATA_DISK</em> -SizeBytes <em>DISK_SIZE</em>
+  PS C:\> New-VHD -Path PATH_TO_DATA_DISK -SizeBytes DISK_SIZE
   ```
 3. Attach the data disk to your instance. For more information, see "[Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)" in the Microsoft documentation.
   ```shell
-  PS C:\> Add-VMHardDiskDrive -VMName <em>VM_NAME</em> -Path <em>PATH_TO_DATA_DISK</em>
+  PS C:\> Add-VMHardDiskDrive -VMName VM_NAME -Path PATH_TO_DATA_DISK
   ```
 4. Start the VM. For more information, see "[Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps)" in the Microsoft documentation.
   ```shell
-  PS C:\> Start-VM -Name <em>VM_NAME</em>
+  PS C:\> Start-VM -Name VM_NAME
   ```
 5. Get the IP address of your VM. For more information, see "[Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)" in the Microsoft documentation.
   ```shell
-  PS C:\> (Get-VMNetworkAdapter -VMName <em>VM_NAME</em>).IpAddresses
+  PS C:\> (Get-VMNetworkAdapter -VMName VM_NAME).IpAddresses
   ```
 6. Copy the VM's IP address and paste it into a web browser.
 

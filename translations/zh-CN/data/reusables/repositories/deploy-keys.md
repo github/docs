@@ -1,1 +1,0 @@
-您可以使用部署密钥（授予对单个存储库的访问权限的 SSH 密钥）从 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的存储库启动到服务器的项目。 {% data variables.product.product_name %} 将密钥的公共部分直接附加到仓库而不是个人帐户，密钥的私有部分仍保留在服务器上。 更多信息请参阅“[交付部署](/rest/guides/delivering-deployments)”。

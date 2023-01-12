@@ -30,7 +30,7 @@ export const HeaderNotifications = () => {
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
-    if (userLanguage && userLanguage !== 'en') {
+    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]) {
       let href = `/${userLanguage}`
       if (currentPathWithoutLanguage !== '/') {
         href += currentPathWithoutLanguage

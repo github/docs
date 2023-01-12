@@ -1,2 +1,0 @@
-8. Debajo de "Guarda tus códigos de recuperación", haz clic en **Descargar** para descargar los códigos de recuperación de tu dispositivo. Guárdalos en una ubicación segura, ya que tus códigos de recuperación pueden ayudarte a volver a tu cuenta en caso de que pierdas el acceso. ![Lista de códigos de recuperación a descargar](/assets/images/help/2fa/2fa_wizard_download_recovery_codes.png)
-9. Después de guardar tus códigos de recuperación bifactoriales, haz clic en **he guardado mis códigos de recuperación** para habilitar la autenticación bifactorial para tu cuenta.

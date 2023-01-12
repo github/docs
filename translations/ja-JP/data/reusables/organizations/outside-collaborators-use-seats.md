@@ -1,1 +1,0 @@
-プライベート{% ifversion ghec %}もしくはインターナル{% endif %}リポジトリへ外部のコラボレータを追加すると、有料ライセンスが使用されます。 詳しい情報については「{% ifversion fpt or ghec %}[ユーザごとの価格付けについて](/billing/managing-billing-for-your-github-account/about-per-user-pricing){% elsif ghes or ghae %}[Enterpriseでの支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise){% endif %}」を参照してください。

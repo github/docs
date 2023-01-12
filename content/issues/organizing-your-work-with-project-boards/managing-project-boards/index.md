@@ -1,9 +1,9 @@
 ---
-title: Managing {% data variables.product.prodname_projects_v1 %}
-shortTitle: Managing {% data variables.product.prodname_projects_v1 %}
-intro: Learn how to create and manage {% data variables.projects.projects_v1_boards %}
+title: 'Managing {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Managing {% data variables.product.prodname_projects_v1 %}'
+intro: 'Learn how to create and manage {% data variables.projects.projects_v1_boards %}'
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Issues
   - Projects

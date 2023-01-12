@@ -1,1 +1,0 @@
-Cuando se habilitan las restricciones, solo el tipo de usuario de {% data variables.product.product_name %} que hayas especificado podrá participar en las interacciones. Las restricciones expiran automáticamente después de una duración definida.

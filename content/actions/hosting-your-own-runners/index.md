@@ -1,5 +1,6 @@
 ---
 title: Hosting your own runners
+shortTitle: Self-hosted runners
 intro: You can create self-hosted runners to run workflows in a highly customizable environment.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners

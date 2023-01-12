@@ -7,7 +7,7 @@ name: 'Orphaned assets check'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '13 10 * * *' # Once a day at 10:13 UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -17,21 +17,75 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+      - name: Checkout English repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.15.0'
-          cache: npm
+      # TODO: Can be removed after we no longer keep translations in-repo
+      - name: Remove existing language translations
+        run: |
+          rm -rf translations
 
-      - name: Install
-        run: npm ci
+      - name: Checkout the zh-cn repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.zh-cn
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/zh-CN
+
+      - name: Checkout the ja-jp repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ja-jp
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/ja-JP
+
+      - name: Checkout the es-es repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.es-es
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/es-ES
+
+      - name: Checkout the pt-br repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.pt-br
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/pt-BR
+
+      - name: Checkout the de-de repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.de-de
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/de-DE
+
+      - name: Checkout the fr-fr repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.fr-fr
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/fr-FR
+
+      - name: Checkout the ru-ru repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ru-ru
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/ru-RU
+
+      - name: Checkout the ko-kr repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.ko-kr
+          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          path: translations/ko-KR
+
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Check for orphaned assets
         env:
@@ -43,7 +97,7 @@ jobs:
           ./script/find-orphaned-assets.js | xargs git rm
 
           # If nothing to commit, exit now. It's fine. No orphans.
-          git status | grep 'nothing to commit' && exit 0
+          git status -- ':!translations*' | grep 'nothing to commit' && exit 0
 
           # Replicated from the translation pipeline PR-maker Action
           git config --global user.name "docubot"

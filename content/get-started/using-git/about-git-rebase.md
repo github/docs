@@ -22,7 +22,7 @@ Typically, you would use `git rebase` to:
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.location.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 {% endwarning %}
 
@@ -31,7 +31,7 @@ Typically, you would use `git rebase` to:
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
 ```shell
-$ git rebase --interactive <em>other_branch_name</em>
+$ git rebase --interactive OTHER-BRANCH-NAME
 ```
 
 ## Rebasing commits against a point in time

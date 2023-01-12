@@ -1,3 +1,0 @@
-La bitácora de auditoría de tu organización te permite, como propietario de la organización, revisar las acciones que llevan a cabo los miembros de la organización dentro del mes actual y los últimos seis meses. Para obtener más información, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)".
-
-También puedes revisar y configurar los niveles de permiso de las integraciones instaladas en tu organización. Para obtener más información, consulta la sección "[Revisar las integraciones autorizadas de tu organización](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)".

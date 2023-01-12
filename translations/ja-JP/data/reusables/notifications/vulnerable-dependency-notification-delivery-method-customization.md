@@ -1,1 +1,0 @@
-Watchしているリポジトリあるいはセキュリティアラートの通知をサブスクライブしたところの{% data variables.product.prodname_dependabot_alerts %}に関する通知の配信方法と頻度を選択できます。

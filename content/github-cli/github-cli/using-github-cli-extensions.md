@@ -35,7 +35,7 @@ If the owner and repository are used, `gh` will install the extension using the 
 To install an extension in development from the current directory, use `.` as the value for the `repo` parameter.
 
 ```shell
-gh extension install <em>repo</em>
+gh extension install REPO
 ```
 
 If you already have an extension by the same name installed, the command will fail. For example, if you have installed `octocat/gh-whoami`, you must uninstall it before installing `hubot/gh-whoami`.
@@ -53,7 +53,7 @@ gh extension list
 To update an extension, use the `extensions upgrade` subcommand. Replace the `extension` parameter with the name of the extension.
 
 ```shell
-gh extension upgrade <em>extension</em>
+gh extension upgrade EXTENSION
 ```
 
 To update all installed extensions, use the `--all` flag.
@@ -67,5 +67,5 @@ gh extension upgrade --all
 To uninstall an extension, use the `extensions remove` subcommand. Replace the `extension` parameter with the name of the extension.
 
 ```shell
-gh extension remove <em>extension</em>
+gh extension remove EXTENSION
 ```

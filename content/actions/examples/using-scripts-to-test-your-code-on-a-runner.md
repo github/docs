@@ -1,6 +1,6 @@
 ---
 title: Using scripts to test your code on a runner
-shortTitle: Using scripts to test your code on a runner
+shortTitle: Use scripts to test your code on a runner
 intro: 'How to use essential {% data variables.product.prodname_actions %} features for continuous integration (CI).'
 versions:
   fpt: '*'
@@ -41,7 +41,7 @@ topics:
 
 ## Example workflow
 
-{% data reusables.actions.example-docs-engineering-intro %} [`link-check-all.yml`](https://github.com/github/docs/blob/main/.github/workflows/link-check-all.yml).
+{% data reusables.actions.example-docs-engineering-intro %} [`check-broken-links-github-github.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-broken-links-github-github.yml).
 
 {% data reusables.actions.note-understanding-example %}
 

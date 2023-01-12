@@ -1,1 +1,0 @@
-影响一个或多个存储库的 {% data variables.product.prodname_dependabot_alerts %} 的电子邮件通知包括 `X-GitHub-Severity` 标头字段。 可以使用 `X-GitHub-Severity` 标头字段的值来筛选电子邮件通知中的 {% data variables.product.prodname_dependabot_alerts %}。

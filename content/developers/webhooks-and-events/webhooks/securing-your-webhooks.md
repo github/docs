@@ -12,7 +12,7 @@ versions:
 topics:
   - Webhooks
 ---
-Once your server is configured to receive payloads, it'll listen for any payload sent to the endpoint you configured. For security reasons, you probably want to limit requests to those coming from GitHub. There are a few ways to go about this--for example, you could opt to allow requests from GitHub's IP address--but a far easier method is to set up a secret token and validate the information.
+Once your server is configured to receive payloads, it'll listen for any payload sent to the endpoint you configured. For security reasons, you probably want to limit requests to those coming from GitHub. There are a few ways to go about this (for example, you could opt to allow requests from GitHub's IP address) but a far easier method is to set up a secret token and validate the information.
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
@@ -30,7 +30,7 @@ To set your token on GitHub:
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=<em>your_token</em>
+$ export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!

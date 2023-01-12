@@ -21,7 +21,7 @@ topics:
 shortTitle: Remove yourself
 ---
 {% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
 {% else %}
 2. In the left sidebar, click **Repositories**.

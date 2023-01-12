@@ -1,1 +1,0 @@
-{% data variables.product.product_name %} 3.6はOrganizationに保存されたDockerイメージの移行をサポートしています。 将来のリリースでは、ユーザが所有するイメージの移行がサポートされます。

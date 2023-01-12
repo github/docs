@@ -6,7 +6,6 @@ import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { namePrefix } from '../../lib/search/config.js'
-import LunrIndex from './lunr-search-index.js'
 import { writeIndexRecords } from './search-index-records.js'
 
 // Build a search data file for every combination of product version and language
@@ -14,11 +13,9 @@ import { writeIndexRecords } from './search-index-records.js'
 export default async function syncSearchIndexes({
   language,
   version,
-  dryRun,
   notLanguage,
   outDirectory,
-  compressFiles,
-  generateLunrIndex,
+  config = {},
 }) {
   const t0 = new Date()
 
@@ -39,7 +36,7 @@ export default async function syncSearchIndexes({
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
-  const indexablePages = await findIndexablePages()
+  const indexablePages = await findIndexablePages(config.filter)
   const redirects = {}
   indexablePages.forEach((page) => {
     const href = page.relativePath.replace('index.md', '').replace('.md', '')
@@ -52,6 +49,7 @@ export default async function syncSearchIndexes({
     }
   })
 
+  let countRecordsTotal = 0
   // Build and validate all indices
   for (const languageCode of languagesToBuild) {
     for (const pageVersion of versionsToBuild) {
@@ -66,33 +64,29 @@ export default async function syncSearchIndexes({
       // github-docs-dotcom-en, github-docs-2.22-en
       const indexName = `${namePrefix}-${indexVersion}-${languageCode}`
 
-      // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@2.22
+      // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@3.7
       const records = await buildRecords(
         indexName,
         indexablePages,
         pageVersion,
         languageCode,
-        redirects
+        redirects,
+        config
       )
-      if (generateLunrIndex) {
-        const index = new LunrIndex(indexName, records)
-
-        if (!dryRun) {
-          await index.write({ outDirectory, compressFiles })
-          console.log('wrote index to file: ', indexName)
-        }
-      } else {
-        const fileWritten = await writeIndexRecords(indexName, records, {
-          outDirectory,
-          compressFiles,
-        })
-        console.log(`wrote records to ${fileWritten}`)
-      }
+      countRecordsTotal += records.length
+      const fileWritten = await writeIndexRecords(indexName, records, outDirectory)
+      console.log(`wrote records to ${fileWritten}`)
     }
   }
   const t1 = new Date()
   const tookSec = (t1.getTime() - t0.getTime()) / 1000
 
   console.log('\nDone!')
-  console.log(`Took ${tookSec.toFixed(1)} seconds`)
+  console.log(`Took ${chalk.bold(formatSeconds(tookSec))}`)
+  const rate = (countRecordsTotal / tookSec).toFixed(1)
+  console.log(`Rate ~${chalk.bold(rate)} pages per second.`)
+}
+
+function formatSeconds(seconds) {
+  return new Date(seconds * 1000).toISOString().substr(11, 8)
 }

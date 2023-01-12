@@ -1,1 +1,0 @@
-Para configurar los flujos de trabajo automáticos para el {% data variables.projects.projects_v1_board %} de un repositorio, debes tener acceso de escritura a dicho repositorio. Los propietarios y miembros de las organizaciones pueden configurar flujos de trabajo automáticos en un {% data variables.projects.projects_v1_board %} de toda la organización.

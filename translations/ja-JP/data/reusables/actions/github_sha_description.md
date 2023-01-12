@@ -1,1 +1,0 @@
-ワークフローをトリガーしたコミットSHA。 このコミットSHAの値は、ワークフローをトリガーしたイベントに依存します。 詳しい情報については「[ワークフローをトリガーするイベント](/actions/using-workflows/events-that-trigger-workflows)」 たとえば、`ffac537e6cbbf934b08745a378932722df287a53`です。

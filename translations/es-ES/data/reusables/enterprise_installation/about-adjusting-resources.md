@@ -1,1 +1,0 @@
-Para obtener más información sobre el ajuste de recursos para una instancia existente, consulta las secciones "[Incrementar la capacidad de almacenamiento](/enterprise/admin/installation/increasing-storage-capacity)" e "[Incrementar los recursos de memoria o de CPU](/enterprise/admin/installation/increasing-cpu-or-memory-resources)".

@@ -42,11 +42,20 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 ## Authenticating to the {% data variables.product.prodname_container_registry %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
-To authenticate to the {% data variables.product.prodname_container_registry %} (`ghcr.io`) within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+{% data reusables.package_registry.authenticate-packages %}
+
+{% ifversion packages-registries-v2 %}
+
+### Authenticating in a {% data variables.product.prodname_actions %} workflow
+
+This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
+
+{% data reusables.package_registry.v2-actions-codespaces %}
 {% endif %}
 
-{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.product.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
+### Authenticating with a {% data variables.product.pat_v1 %}
+
+{% ifversion ghes %}Ensure that you replace `HOSTNAME` with {% data variables.location.product_location_enterprise %} hostname or IP address in the examples below.{% endif %}
 
 {% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
@@ -62,7 +71,7 @@ This example pushes the `2.5` version of the image.
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE_NAME:2.5
   ```
 
-When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 ## Pulling container images
 
@@ -136,3 +145,65 @@ This example builds the `hello_docker` image:
   ```shell
   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/OWNER/NEW_IMAGE_NAME:latest
   ```
+
+## Labelling container images
+
+{% data reusables.package_registry.about-annotation-keys %} Values for supported keys will appear on the package page for the image.
+
+For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+
+For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see "[Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images)."
+
+The following annotation keys are supported in the {% data variables.product.prodname_container_registry %}.
+
+Key | Description
+------|------------
+| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
+| `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
+| `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
+
+To add a key as a Docker label, we recommend using the `LABEL` instruction in your `Dockerfile`. For example, if you're the user `monalisa` and you own `my-repo`, and your image is distributed under the terms of the MIT license, you would add the following lines to your `Dockerfile`:
+
+```dockerfile
+LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/monalisa/my-repo
+LABEL org.opencontainers.image.description="My container image"
+LABEL org.opencontainers.image.licenses=MIT
+```
+
+Alternatively, you can add labels to an image at buildtime with the `docker build` command.
+
+```shell
+$ docker build \
+ --label "org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/monalisa/my-repo" \
+ --label "org.opencontainers.image.description=My container image" \
+ --label "org.opencontainers.image.licenses=MIT"
+```
+
+### Adding a description to multi-arch images
+
+A multi-arch image is an image that supports multiple architectures. It works by referencing a list of images, each supporting a different architecture, within a single manifest.
+
+The description that appears on the package page for a multi-arch image is obtained from the `annotations` field in the image's manifest. Like Docker labels, annotations provide a way to associate metadata with an image, and support pre-defined annotation keys. For more information, see [Annotations](https://github.com/opencontainers/image-spec/blob/main/annotations.md) in the `opencontainers/image-spec` repository.
+
+To provide a description for a multi-arch image, set a value for the `org.opencontainers.image.description` key in the `annotations` field of the manifest, as follows.
+
+```json
+"annotations": {
+  "org.opencontainers.image.description": "My multi-arch image"
+}
+```
+
+For example, the following {% data variables.product.prodname_actions %} workflow step builds and pushes a multi-arch image. The `outputs` parameter sets the description for the image.
+
+```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
+
+- name: Build and push Docker image
+  uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+  with:
+    context: .
+    file: ./Dockerfile
+    platforms: {% raw %}${{ matrix.platforms }}{% endraw %}
+    push: true
+    outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
+```

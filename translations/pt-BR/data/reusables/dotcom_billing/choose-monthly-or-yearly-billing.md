@@ -1,1 +1,0 @@
-1. Em "Upgrade summary" (Resumo da atualização), escolha se deseja pagar mensalmente ou anualmente. ![Botões de rádio com escolha de cobrança mensal ou anual](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

@@ -7,8 +7,11 @@ You can create an example workflow in your repository that automatically trigger
 1. In your repository, create the `.github/workflows/` directory to store your workflow files.
 1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
 
-   ```yaml
+   ```yaml{:copy}
    name: learn-github-actions
+   {%- ifversion actions-run-name %}
+   run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
+   {%- endif %}
    on: [push]
    jobs:
      check-bats-version:
@@ -38,9 +41,23 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  <em>Optional</em> - The name of the workflow as it will appear in the Actions tab of the {% data variables.product.prodname_dotcom %} repository.
+  <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
 </td>
 </tr>
+{%- ifversion actions-run-name %}
+<tr>
+<td>
+
+  ```yaml
+  run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
+  ```
+</td>
+<td>
+
+  <em>Optional</em> - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
+</td>
+</tr>
+{%- endif %}
 <tr>
 <td>
 

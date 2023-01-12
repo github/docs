@@ -1,1 +1,0 @@
-1. Opcionalmente, exclua o branch. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)".

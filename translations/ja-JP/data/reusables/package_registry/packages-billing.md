@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %}の利用は、パブリックパッケージについては無料です。 プライベートパッケージについては、{% data variables.product.product_location %}上の各アカウントは使用している製品に応じて一定量の無料ストレージとデータ転送を受け取ります。 含まれる金額を超える利用については、支出制限によって管理されます。

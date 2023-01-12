@@ -1,6 +1,6 @@
 import robotsParser from 'robots-parser'
 import { get } from '../helpers/e2etest.js'
-import { jest } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
 
 describe('robots.txt', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -12,6 +12,7 @@ describe('robots.txt', () => {
         Host: 'docs.github.com',
       },
     })
+    expect(res.statusCode).toBe(200)
     robots = robotsParser('https://docs.github.com/robots.txt', res.text)
   })
 

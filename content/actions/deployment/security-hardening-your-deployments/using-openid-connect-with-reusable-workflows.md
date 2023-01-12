@@ -1,13 +1,12 @@
 ---
 title: Using OpenID Connect with reusable workflows
-shortTitle: Using OpenID Connect with reusable workflows
+shortTitle: OpenID Connect with reusable workflows
 intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: issue-4757
   ghec: '*'
   ghes: '>=3.5'
 type: how_to
@@ -23,7 +22,7 @@ topics:
 
 Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)."
 
-You should be familiar with the concepts described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows" and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+You should be familiar with the concepts described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)" and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 
 ## Defining the trust conditions
 
