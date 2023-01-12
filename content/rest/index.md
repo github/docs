@@ -20,8 +20,8 @@ featuredLinks:
     - /rest/overview/openapi-description
   guideCards:
     - /rest/guides/delivering-deployments
-    - /rest/guides/getting-started-with-the-checks-api
-    - /rest/guides/traversing-with-pagination
+    - /rest/guides/using-the-rest-api-to-interact-with-checks
+    - /rest/guides/using-pagination-in-the-rest-api
 changelog:
   label: 'api, apis'
 layout: product-landing

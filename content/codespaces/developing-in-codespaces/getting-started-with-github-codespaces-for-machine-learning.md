@@ -17,7 +17,7 @@ This guide introduces you to machine learning with {% data variables.product.pro
 
 ## Building a simple image classifier
 
-We'll use a Jupyter notebook to build a simple image classifier. 
+We'll use a Jupyter notebook to build a simple image classifier.
 
 Jupyter notebooks are sets of cells that you can execute one after another. The notebook we'll use includes a number of cells that build an image classifier using [PyTorch](https://pytorch.org/). Each cell is a different phase of that process: download a dataset, set up a neural network, train a model, and then test that model.
 
@@ -26,13 +26,13 @@ We'll run all of the cells, in sequence, to perform all phases of building the i
 ### Creating a codespace
 
 1. Go to the [github/codespaces-jupyter](https://github.com/github/codespaces-jupyter) template repository.
-{% data reusables.codespaces.open-template-in-codespace-step %}
+{% data reusables.codespaces.use-this-template %}
 
 A codespace for this template will open in a web-based version of {% data variables.product.prodname_vscode %}.
 
-### Opening the image classifier notebook 
+### Opening the image classifier notebook
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
+The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `notebooks/image-classifier.ipynb` notebook file.
@@ -51,7 +51,7 @@ The image classifier notebook contains all the code you need to download a datas
 
 ## Configuring NVIDIA CUDA for your codespace
 
-Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
 {% note %}
 
@@ -64,7 +64,7 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
 
    ```json{:copy}
      "features": {
-       "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
+       "ghcr.io/devcontainers/features/nvidia-cuda:1": {
          "installCudnn": true
        }
      }
@@ -85,7 +85,7 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
        }
      },
      "features": {
-       "ghcr.io/devcontainers/features/nvidia-cuda:1": { 
+       "ghcr.io/devcontainers/features/nvidia-cuda:1": {
          "installCudnn": true
        }
      }
