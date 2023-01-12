@@ -98,7 +98,7 @@ puts jwt
 
 #### Using Python
 
-Here is a similar script for generating a JWT in Python. Note you will have to use `pip install jwt` in order to use this script. This script will prompt you for the location of your PEM file, or you can pass it as an inline argument when you execute the script. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the value in single quotes.
+Here is a similar script for generating a JWT in Python. Note you will have to use `pip install jwt` in order to use this script. This script will prompt you for the location of your PEM file and your app's ID, or you can pass them as inline arguments when you execute the script.
 
 ```python{:copy}
 #!/usr/bin/env python3
@@ -113,15 +113,15 @@ if len(sys.argv) > 1:
 else:
     pem = input("Enter path of private PEM file: ")    
 
-# Get the App ID from input / defaultß
+# Get the App ID
 if len(sys.argv) > 2:
     app_id = sys.argv[2]
 else:
     app_id = input("Enter your APP ID: ") 
 
 # Open PEM
-with open(pem, 'rb') as fh:
-    signing_key = jwt.jwk_from_pem(fh.read())
+with open(pem, 'rb') as pem_file:
+    signing_key = jwt.jwk_from_pem(pem_file.read())
     
 payload = {
     # Issued at time
