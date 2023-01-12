@@ -12,6 +12,7 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
+cSpell:ignore libsodium
 ---
 
 
