@@ -34,7 +34,7 @@ export const useTocLandingContext = (): TocLandingContextT => {
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
   return {
-    title: req.context.page.titlePlainText,
+    title: req.context.page.title,
     productCallout: req.context.page.product || '',
     introPlainText: req.context.page.introPlainText,
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
