@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub search
-cSpell:ignore vimrc, OGRNAME, shumway
+cSpell:ignore vimrc, ORGNAME, shumway
 ---
 
 {% ifversion github-code-search %}
