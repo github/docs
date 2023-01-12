@@ -23,13 +23,15 @@ This guide will show you how to sign up for {% data variables.product.prodname_c
 
 ## Signing up for {% data variables.product.prodname_copilot %}
 
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription for your personal account. 
-
 {% note %}
 
 **Note:** If you are a member of an organization owned by a {% data variables.product.prodname_ghe_cloud %} account with a {% data variables.product.prodname_copilot %} subscription, and you have been assigned a {% data variables.product.prodname_copilot %} seat by your organization, you can proceed to "[Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}](/copilot/quickstart#installing-the-github-copilot-extension-for-visual-studio-code)."
 
 {% endnote %}
+
+Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription for your personal account.
+
+{% data reusables.copilot.tp-users-trial-eligibility %}
 
 {% data reusables.copilot.signup-procedure %}
 

@@ -11,6 +11,11 @@ export default function setStaticAssetCaching(req, res, next) {
 // would make it intelligently different if its content has changed.
 function isChecksummed(path) {
   if (path.startsWith('/assets/cb-')) return true
-  if (path.startsWith('/_next/static') && /[a-f0-9]{16}/.test(path)) return true
+  if (path.startsWith('/_next/static')) {
+    // E.g. /_next/static/chunks/0e226fb0-f47400d931ae7427.js
+    if (/[a-f0-9]{16}/.test(path)) return true
+    // E.g. /_next/static/NkhGE2zLVuDHVh7pXdtVC/_buildManifest.js
+    if (/\/\w{21}\//.test(path)) return true
+  }
   return false
 }

@@ -10,7 +10,6 @@ import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
-import loadData from '../../lib/site-data.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
@@ -25,21 +24,11 @@ if (!process.env.GITHUB_TOKEN) {
 
 const versionsToBuild = Object.keys(allVersions)
 
-const currentLanguage = 'en'
-
 main()
 
 async function main() {
   const previewsJson = {}
   const upcomingChangesJson = {}
-
-  const siteData = loadData()
-
-  // create a bare minimum context for rendering the graphql-object.html layout
-  const context = {
-    currentLanguage,
-    site: siteData[currentLanguage].site,
-  }
 
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
@@ -72,10 +61,6 @@ async function main() {
       schemaJsonPerVersion,
       path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
     )
-
-    // Add some version specific data to the context
-    context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
-    context.currentVersion = version
 
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {

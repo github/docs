@@ -169,7 +169,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 #### Example
 
-`format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
+{% raw %}
+```js
+format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+```
+{% endraw %}
 
 Returns 'Hello Mona the Octocat'.
 

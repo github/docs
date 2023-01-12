@@ -2,7 +2,7 @@
 title: Issue events
 allowTitleToDifferFromFilename: true
 shortTitle: Events
-intro: The Issue events API can return different types of events triggered by activity in issues and pull requests.
+intro: Use the REST API to retrieve events triggered by activity in issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issue events API
+## About events
 
-The Issue events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." An events API for GitHub activity outside of issues and pull requests is also available. For more information, see the "[Events API](/developers/webhooks-and-events/github-event-types)."
+You can use the REST API to view different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." To view GitHub activity outside of issues and pull requests, you can use the [Events](/developers/webhooks-and-events/github-event-types) endpoints.
 
 {% data reusables.pull_requests.issues-pr-shared-api %}
