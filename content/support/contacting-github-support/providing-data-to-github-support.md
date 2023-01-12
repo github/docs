@@ -13,6 +13,7 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/providing-data-to-github-support
 topics:
   - Support
+cSpell:ignore Collectd
 ---
 
 ## About diagnostic files and support bundles
