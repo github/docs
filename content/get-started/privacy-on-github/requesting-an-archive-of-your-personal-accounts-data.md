@@ -22,7 +22,7 @@ When you request an export of your personal data through settings on {% data var
 
 By default, the download link expires after seven days. At any time before the download link expires, you can disable the link from your user settings. For more information, see "[Deleting access to an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data/#deleting-access-to-an-archive-of-your-personal-accounts-data)."
 
-If your operating system cannot natively unpack the `tar.gz` file, you can use a third-party tool to extract the archived files. For more information, see "[How to unzip a tar.gz file](https://opensource.com/article/17/7/how-unzip-targz-file)" on Opensource.com.
+If your operating system cannot natively unpack the `tar.gz` file, you can use a third-party tool to extract the archived files. For more information, see "[How to unzip a tar.gz file](https://opensource.com/article/17/7/how-unzip-targz-file)" on <Opensource.com>.
 
 The generated `tar.gz` file reflects the data stored at the time you started the data export.
 

@@ -11,6 +11,7 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
+cSpell:ignore nonwindows
 ---
 
 {% data reusables.actions.enterprise-beta %}
