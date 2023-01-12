@@ -144,7 +144,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 You can directly upload a support bundle to our server if:
 - You have SSH access to {% data variables.location.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to `enterprise-bundles.github.com` and `esbtoolsproduction.blob.core.windows.net`.
 
 1. Upload the bundle to our support bundle server:
   ```shell
