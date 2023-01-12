@@ -47,7 +47,7 @@ In a file or pull request, you can also use the {% octicon "kebab-horizontal" ar
 2. Click to open the file whose line history you want to view.
 3. In the upper-right corner of the file view, click **Blame** to open the blame view.
 ![Blame button](/assets/images/help/repository/blame-button.png)
-4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
+4. To see earlier revisions of a specific line, or re-blame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing.
 ![Prior blame button](/assets/images/help/repository/prior-blame-button.png)
 
 {% ifversion blame-ignore-revs %}
