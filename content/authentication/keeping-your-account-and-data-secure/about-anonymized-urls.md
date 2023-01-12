@@ -13,6 +13,7 @@ versions:
 topics:
   - Identity
   - Access management
+cSpell:ignore Camo
 ---
 To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
 
