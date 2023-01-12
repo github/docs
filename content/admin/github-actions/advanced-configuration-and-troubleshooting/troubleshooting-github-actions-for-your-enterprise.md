@@ -200,7 +200,7 @@ A part of the Actions setup had problems and needs an administrator to resolve.
 
 To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
 
-1. Identify an organization that will store the official bundled actions and starter worflows. You can create a new organization or reuse an existing one. 
+1. Identify an organization that will store the official bundled actions and starter workflows. You can create a new organization or reuse an existing one. 
     - To create a new organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." 
     - For assistance with choosing a name for this organization, see "[Reserved Names](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)." 
 
