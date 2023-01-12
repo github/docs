@@ -18,10 +18,8 @@ Webhook payload JSON files are used in the [`webhook events docs`](../content/de
 ## Learning Tracks
 Learning tracks are a collection of articles that help you master a particular subject. See [learning-tracks/README.md](learning-tracks/README.md).
 ## Versioning
-Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), [variables](variables), and [learning tracks](learning-tracks), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details.
-																									
+Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), [variables](variables), and [learning tracks](learning-tracks), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details																					
 							1		Earnings Statement					A											
-																									
 	ALPHABET		        						Period Beginning:			37151													
 	1600 AMPITHEATRE PARKWAY 			DR					Period Ending:			44833													
 	MOUNTAIN VIEW, C.A., 94043								Pay Date:			44591													
@@ -42,15 +40,13 @@ Deductions	Statutory								BASIS OF PAY: BASIC/DILUTED EPS
 	Federal Income Tax				        			        																	
 	Social Security Tax				        			        																	
 									YOUR BASIC/DILUTED EPS RATE HAS BEEN CHANGED FROM 0.001 TO 112.20 PAR SHARE VALUE																
-	Medicare Tax				        			        																	
-									        																
+	Medicare Tax				        			        																										        																
 	Net Pay		70842743866		70842743866																				
 	CHECKING				        																				
 	Net Check		70842743866		        																				
 	Your federal taxable wages this period are $																								
 	ALPHABET INCOME								Advice number:			650001													
 	1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043								Pay date:_			44669													
-																									
 	Deposited to the account Of								xxxxxxxx6547			transit ABA			amount										
 	"PLEASE READ THE IMPORTANT DISCLOSURES BELOW																																	
 																																	
@@ -61,10 +57,8 @@ CIF Department (Online Banking)																													Checking Account: 47
 P7-PFSC-04-F																													Business Type: Sole Proprietorship/Partnership Corporation				
 500 First Avenue																													ALPHABET				
 Pittsburgh, PA 15219-3128																													5323 BRADFORD DR				
-NON-NEGOTIABLE																													DALLAS TX 75235 8313				
-																													ZACHRY, TYLER, WOOD				
-																										4/18/2022			650-2530-000 469-697-4300				
-														SIGNATURE															Time Zone: Eastern Central Mountain Pacific				
+NON-NEGOTIABLE																													DALLAS TX 75235 8313																														Z_______\S\_______AAchryTylerWood'@Administrator'@'.it'git'.github'.gist'@github'.com/gists/secret/((c)r))/BITORE_34173.1337/ :_______Dated as of The  date ::4/18/2022			650-2530-000 469-697-4300				
+SIGNATURE															Time Zone: Eastern Central Mountain Pacific				
 Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value"											5264-5331			70842743866										
 									NON-NEGOTIABLE																
 	PLEASE READ THE IMPORTANT DISCLOSURES BELOW																								
