@@ -1,0 +1,77 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+  ],
+  "ignoreWords": [
+  ],
+  "patterns": [
+    {
+      "name": "Markdown links",
+      "pattern": "\\((.*)\\)",
+      "description": ""
+    },
+    {
+      "name": "Markdown code blocks",
+      "pattern": "/^(\\s*`{3,}).*[\\s\\S]*?^\\1/gmx",
+      "description": "Taken from the cSpell example at https://cspell.org/configuration/patterns/#verbose-regular-expressions"
+    },
+    {
+      "name": "Inline code blocks",
+      "pattern": "\\`([^\\`\\r\\n]+?)\\`",
+      "description": "https://stackoverflow.com/questions/41274241/how-to-capture-inline-markdown-code-but-not-a-markdown-code-fence-with-regex"
+    },
+    {
+      "name": "Link contents",
+      "pattern": "\\<a(.*)\\>",
+      "description": ""
+    },
+    {
+      "name": "Snippet references",
+      "pattern": "-- snippet:(.*)",
+      "description": ""
+    },
+    {
+      "name": "Snippet references 2",
+      "pattern": "\\<\\[sample:(.*)",
+      "description": "another kind of snippet reference"
+    },
+    {
+      "name": "Multi-line code blocks",
+      "pattern": "/^\\s*```[\\s\\S]*?^\\s*```/gm"
+    },
+    {
+      "name": "HTML Tags",
+      "pattern": "<[^>]*>",
+      "description": "Reference: https://stackoverflow.com/questions/11229831/regular-expression-to-remove-html-tags-from-a-string"
+    },
+    {
+      "name": "Liquid Syntax",
+      "pattern": "\\{[%] (.*) [%]\\}"
+    },
+    {
+      "name": "Markdown Image",
+      "pattern": "!\\[(.*)\\]\\((.*)\\)"
+    },
+    {
+      "name": "Frontmatter",
+      "pattern": "/^(-{3}|[+]{3})$[\\s\\S]*?^\\1$/gm",
+      "description": "Reference: https://github.com/streetsidesoftware/cspell/discussions/3456"
+    }
+
+  ],
+  "ignoreRegExpList": [
+    "Markdown links",
+    "Markdown code blocks",
+    "Inline code blocks",
+    "Link contents",
+    "Snippet references",
+    "Snippet references 2",
+    "Multi-line code blocks",
+    "HTML Tags",
+    "Liquid Syntax",
+    "Markdown Image",
+    "Frontmatter"
+  ],
+  "ignorePaths": []
+}
