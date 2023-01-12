@@ -13,6 +13,7 @@ versions:
 topics:
   - API
 shortTitle: SSH agent forwarding
+cSpell:ignore Friedl's
 ---
 
 
