@@ -5,6 +5,7 @@ versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can connect learning management systems to {% data variables.product.prodname_classroom %}.'
 shortTitle: Register an LMS
+cSpell:ignore Enrolments
 ---
 ## About registering an LMS to your classroom
 
@@ -78,7 +79,7 @@ You must be using Moodle version 3.0 or greater.
 2. Click the "Site administration" tab in the top level menu.
 3. On the "Site administration" page, click the "Plugins" tab, then scroll down to the "Authentication" section and click **Manage authentication**.
 4. Next to the "LTI" field, click the toggle button to enable LTI.
-5. Click the "Plugins" tab again, then scroll down to "Enrollments" and click **Manage enrol plugins**.
+5. Click the "Plugins" tab again, then scroll down to "Enrolments" and click **Manage enrol plugins**.
 6. Next to the "Publish as LTI tool" field, click the toggle button to enable publishing as an LTI tool.
 7. Return to the "Site administration" page by clicking on the "Site administration" tab in the top level menu, then scroll down to the "Security" section and click **HTTP Security**.
 8. Next to "Allow frame embedding", select the checkbox to enable frame embedding, then click **Save changes**.
