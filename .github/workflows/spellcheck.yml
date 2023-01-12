@@ -1,20 +1,23 @@
 name: Spellcheck
 
+# **What it does**: Spell-checks all the markdown files underneath the "content" folder
+# **Why we have it**: To prevent spelling errors and typos in documentation
+# **Who does it impact**: Everyone that works on docs or docs-internal.
+
 on:
   push:
     branches:
-      - main #or main if that's what the project is using
+      - main
     paths:
-      # This ensures the check will only be run when something changes in the docs content
-      - "content/**/*" # or whatever the path to the markdown / docs files happens to be
+      - 'content/**/*'
   pull_request:
     branches:
       - main
     paths:
-      - "content/**/*"
+      - 'content/**/*'
 jobs:
   spellcheck:
-    name: "Spellcheck Docs Content"
+    name: 'Spellcheck Docs Content'
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
@@ -22,8 +25,8 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: "16"
+          node-version: '16'
       - name: Install cSpell
         run: npm install -g cspell
       - name: Run cSpell
-        run: cspell --config ./cSpell.json "content/**/*.md" --no-progress # Update for path to the markdown files
+        run: cspell --config ./cSpell.json "content/**/*.md" --no-progress
