@@ -262,6 +262,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
   GOOS=linux GOARCH=amd64 go build -o gh-EXTENSION-NAME-linux-amd64
   GOOS=darwin GOARCH=amd64 go build -o gh-EXTENSION-NAME-darwin-amd64
   gh release create v1.0.0 ./*amd64*
+ ```
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
 
