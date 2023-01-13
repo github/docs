@@ -168,8 +168,4 @@ jobs:
         env:
           DIFF_FILE: get_diff_files.txt
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
-          # By default, when `process.env.NODE_ENV === 'test'` it forces the
-          # tests run only in English. The exception is the
-          # `tests/translations/` suite which needs all languages to be set up.
-          ENABLED_LANGUAGES: ${{ matrix.test-group == 'translations' && 'all' || '' }}
         run: npm test -- tests/${{ matrix.test-group }}/

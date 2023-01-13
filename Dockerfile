@@ -74,8 +74,6 @@ ENV NODE_ENV production
 # Preferred port for server.js
 ENV PORT 4000
 
-ENV ENABLED_LANGUAGES "en"
-
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
@@ -100,10 +98,6 @@ CMD ["node", "server.js"]
 # PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
 FROM preview as production
-
-# Override what was set for previews
-# Make this match the default of `Object.keys(languages)` in lib/languages.js
-ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

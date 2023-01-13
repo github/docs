@@ -53,12 +53,8 @@ program
   .description('Creates Elasticsearch index from records')
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
-  .addOption(
-    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
-  )
-  .addOption(
-    new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
-  )
+  .addOption(new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on'))
+  .addOption(new Option('--not-language <LANGUAGE...>', 'Specific language to omit'))
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
   .argument('<source-directory>', 'where the indexable files are')
@@ -413,9 +409,13 @@ function escapeHTML(content) {
 }
 
 async function loadRecords(indexName, sourceDirectory) {
-  const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
-  const payload = await fs.readFile(filePath)
-  return JSON.parse(payload)
+  try {
+    const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
+    const payload = await fs.readFile(filePath)
+    return JSON.parse(payload)
+  } catch (err) {
+    throw new Error(`No records named ${indexName}-records.json, or not valid format.`)
+  }
 }
 
 function getSnowballLanguage(language) {
