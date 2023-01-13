@@ -61,6 +61,10 @@
                 {
                   "name": "WEB_CONCURRENCY",
                   "value": "1"
+                },
+                {
+                  "name": "ENABLED_LANGUAGES",
+                  "value": "en"
                 }
               ],
               "resources": {
