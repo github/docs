@@ -67,7 +67,7 @@ shortTitle: Manage payment tiers
 
 To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled. 
+When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is canceled. 
 
 Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
 
