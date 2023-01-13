@@ -1,6 +1,6 @@
 ## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
 
-Once you have an active {% data variables.product.prodname_copilot %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
+Once you have an active {% data variables.product.prodname_copilot %} {% ifversion fpt %}trial or{% endif %} subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
 
 ### Enabling or disabling duplication detection
 
