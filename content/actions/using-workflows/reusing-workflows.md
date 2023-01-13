@@ -142,7 +142,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        steps:
        - uses: actions/labeler@v4
          with:
-           repo-token: ${{ secrets.envPAT }}
+           envPAT: ${{ secrets.envPAT }}
            configuration-path: ${{ inputs.config-path }}
    ```
    {% endraw %}
