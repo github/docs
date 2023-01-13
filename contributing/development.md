@@ -42,7 +42,7 @@ The [`script/bookmarklets`](../script/bookmarklets) directory contains some brow
 
 ### Enabling different languages
 
-By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
+By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you'll need to clone that language into your translations directory.
 
 The supported language codes are defined in [lib/languages.js](../lib/languages.js).
 

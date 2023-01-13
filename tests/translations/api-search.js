@@ -2,18 +2,21 @@ import { jest, test, expect } from '@jest/globals'
 
 import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
 import { get } from '../helpers/e2etest.js'
+import { languageKeys } from '../../lib/languages.js'
+
+const langs = languageKeys.filter((lang) => lang !== 'en').filter((lang) => lang === 'ja') // temporary: only has japanese fixture so far
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware in non-English', () => {
   jest.setTimeout(60 * 1000)
 
-  test('basic search in Japanese', async () => {
+  test.each(langs)('basic search in %s', async (lang) => {
     const sp = new URLSearchParams()
     // To see why this will work,
     // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
     // which clearly has a record with the title "Foo"
     sp.set('query', 'foo')
-    sp.set('language', 'ja')
+    sp.set('language', lang)
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.text)
