@@ -51,7 +51,8 @@ jobs:
           mkdir ./lib/rest/static/dereferenced
           find rest-api-description/descriptions-next -type f -name "*.deref.json" -exec sh -c 'cp $1 ./lib/rest/static/dereferenced' sh {} \;
           cd rest-api-description
-          HEAD_SHA=$(git rev-parse HEAD) >> $GITHUB_OUTPUT
+          echo "OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "Copied files from `github/rest-api-description` repo. Commit SHA: ${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})"
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -80,7 +81,7 @@ jobs:
           commit-message: 'Add decorated OpenAPI schema files'
           title: Update OpenAPI Description
           body: |
-            '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.HEAD_SHA }})
+            '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.'
-          branch: openapi-update-${{ steps.rest-api-description.outputs.HEAD_SHA }})
+          branch: openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
