@@ -1,15 +1,13 @@
-name: OpenAPI generate decorated schema files
+name: Sync OpenAPI schema
 
-# **What it does**: On 'Update OpenAPI Descriptions' PRs opened by github-openapi-bot, this workflow runs the script to generate the decorated OpenAPI files and commit them to the PR.
-# **Why we have it**: So we can consume OpenAPI changes, decorate them, and publish them to the REST API docs.
+# **What it does**: Once a day, this workflow syncs the dereferenced files from github/rest-api-description and creates a pull request if there are updates to any of the static files we generate from the OpenAPI.
+# **Why we have it**: So we can consume OpenAPI changes.
 # **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
 
 on:
-  pull_request:
-    # This prevents the workflow from running continuously. We only want
-    # this workflow to run once on the initial open.
-    types:
-      - opened
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
@@ -22,13 +20,14 @@ concurrency:
 
 jobs:
   generate-decorated-files:
-    if: >-
-      ${{
-        github.repository == 'github/docs-internal' &&
-        github.event.pull_request.user.login == 'github-openapi-bot'
-      }}
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
+      - if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
+
       - name: Label pull requests with 'github-openapi-bot'
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
@@ -36,61 +35,54 @@ jobs:
 
       - name: Checkout repository code
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+        # Check out a nested repository inside of previous checkout
+      - name: Checkout rest-api-description repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          # actions/checkout by default will leave you in a detached head state
-          # so we need to specify the PR head ref explicitly since we're making
-          # changes that we want to commit to the branch.
-          ref: ${{ github.event.pull_request.head.ref }}
-          # Using a PAT is necessary so that the new commit will trigger the
-          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          repository: github/rest-api-description
+          path: rest-api-description
+
+      - name: Copy dereferenced OpenAPI files
+        id: rest-api-description
+        run: |
+          mkdir ./lib/rest/static/dereferenced
+          find rest-api-description/descriptions-next -type f -name "*.deref.json" -exec sh -c 'cp $1 ./lib/rest/static/dereferenced' sh {} \;
+          cd rest-api-description
+          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/rest-api-description repo. Commit SHA: $OPENAPI_COMMIT_SHA"
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Decorate the dereferenced OpenAPI schemas
-        run: script/rest/update-files.js --decorate-only
+        run: script/rest/update-files.js --decorate-only --open-source
 
-      - name: Check if pull request should be closed
-        id: close-pr
+        # This action performs the diff and if no files have been change
+        # the action exits silently.
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: |
-          echo "If there are no changes, exit"
-          NUM_FILES_CHANGED=$(git diff --name-only -- lib/rest/static/decorated | wc -l)
-          if [[ $NUM_FILES_CHANGED -eq 0 ]]
-            then
-              echo "No decorated file changes found"
-              gh pr comment "$PR_URL" --body "🤖 This pull request has no changes to lib/rest/static/decorated, so it is being closed automatically."
-              gh pr close "$PR_URL" --delete-branch
-              echo "NO_DECORATED=true" >> $GITHUB_OUTPUT
-              exit 0
-          fi
-
-      - name: Check in the decorated files
-        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
-        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
-        with:
-          # The arguments for the `git add` command
-          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/webhooks/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
-
-          # The message for the commit
-          message: 'Add decorated OpenAPI schema files'
-
-        env:
-          # Disable pre-commit hooks; they don't play nicely with add-and-commit
+          # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
-
-      - name: Remove the dereferenced files
-        if: ${{ steps.close-pr.outputs.NO_DECORATED != 'true' }}
-        uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
-          # The arguments for the `git add` command
-          remove: '["lib/rest/static/dereferenced/*"]'
+          # Need to use a token with repo and workflow scopes for this step.
+          # Token should be a PAT because actions performed with GITHUB_TOKEN
+          # don't trigger other workflows and this action force pushes updates
+          # from the default branch.
+          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          add-paths: |
+            - lib/rest/static/apps
+            - lib/rest/static/decorated
+            - lib/webhooks/static/decorated
+            - lib/redirects/static/client-side-rest-api-redirects.json
+          commit-message: 'Add decorated OpenAPI schema files'
+          title: Update OpenAPI Description
+          body: |
+            '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
 
-          # The message for the commit
-          message: 'Removed dereferenced OpenAPI schema files'
-
-        env:
-          # Disable pre-commit hooks; they don't play nicely with add-and-commit
-          HUSKY: '0'
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.'
+          branch: openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
