@@ -21,6 +21,18 @@ Your project can track draft issues, issues, and pull requests.
 
 ### Adding issues and pull requests to a project
 
+{% ifversion projects-v2-timeline-events %}
+
+{% note %} 
+
+**Note:** Timeline events for Projects is currently in beta and subject to change.
+
+{% endnote %}
+
+When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
+
+{% endif %}
+
 #### Pasting the URL of an issue or pull request
 
 {% data reusables.projects.add-item-via-paste %}
