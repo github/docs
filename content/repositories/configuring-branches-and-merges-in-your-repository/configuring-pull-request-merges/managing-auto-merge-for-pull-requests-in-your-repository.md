@@ -13,7 +13,7 @@ topics:
 redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository
-shortTitle: Manage auto merge
+shortTitle: Manage auto-merge
 ---
 ## About auto-merge
 
@@ -26,4 +26,5 @@ If you allow auto-merge for pull requests in your repository, people with write 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**.
-  ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+  
+2. ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
