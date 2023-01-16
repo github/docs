@@ -37999,7 +37999,7 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -38081,7 +38081,7 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -62953,7 +62953,7 @@
         },
         {
           "name": "tiers",
-          "description": "<p>The published tiers for this GitHub Sponsors listing.</p>",
+          "description": "<p>The tiers for this GitHub Sponsors profile.</p>",
           "type": "SponsorsTierConnection",
           "id": "sponsorstierconnection",
           "kind": "objects",
@@ -62987,6 +62987,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeUnpublished",
+              "defaultValue": false,
+              "description": "<p>Whether to include tiers that aren't published. Only admins of the Sponsors\nlisting can see draft tiers. Only admins of the Sponsors listing and viewers\nwho are currently sponsoring on a retired tier can see those retired tiers.\nDefaults to including only published tiers, which are visible to anyone who\ncan see the GitHub Sponsors profile.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -71430,7 +71441,7 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -71512,7 +71523,7 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -76152,7 +76163,7 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
@@ -76234,7 +76245,7 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
