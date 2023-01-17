@@ -282,8 +282,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    # Prefix all commit messages with "Composer" plus its scope, such as a list
-    # of updated dependencies
+    # Prefix all commit messages with "Composer" plus its scope, that is, a
+    # list of updated dependencies
     commit-message:
       prefix: "Composer"
       include: "scope"
