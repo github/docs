@@ -28,6 +28,8 @@ You can restrict access to private organization assets by configuring an allow l
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
+## About IP allow list management
+
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
 If you set up an allow list you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization. The creator of a {% data variables.product.prodname_github_app %} can configure an allow list for their application, specifying the IP addresses at which the application runs. By inheriting their allow list into yours, you avoid connection requests from the application being refused. For more information, see "[Allowing access by {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)."
@@ -61,7 +63,7 @@ You can also configure allowed IP addresses at the enterprise account level, and
 
 ## Allowing access by {% data variables.product.prodname_github_apps %}
 
-If you're using an allow list, you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization. 
+If you're using an allow list, you can also choose to automatically add to your allow list any IP addresses configured for {% data variables.product.prodname_github_apps %} that you install in your organization.
 
 {% data reusables.identity-and-permissions.ip-allow-lists-address-inheritance %}
 

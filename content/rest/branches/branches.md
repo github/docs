@@ -1,6 +1,6 @@
 ---
 title: Branches
-intro: The Branches API allows you to modify branches and their protection settings.
+intro: Use the REST API to modify branches and their protection settings.
 versions:
   fpt: '*'
   ghes: '*'

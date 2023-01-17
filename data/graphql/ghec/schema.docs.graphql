@@ -991,6 +991,11 @@ type AddReactionPayload {
   reaction: Reaction
 
   """
+  The reaction groups for the subject.
+  """
+  reactionGroups: [ReactionGroup!]
+
+  """
   The reactable subject.
   """
   subject: Reactable
@@ -7154,6 +7159,11 @@ input CreatePullRequestInput {
   in the same network, namespace `head_ref_name` with a user like this: `username:branch`.
   """
   headRefName: String!
+
+  """
+  The Node ID of the head repository.
+  """
+  headRepositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 
   """
   Indicates whether maintainers can modify the pull request.
@@ -21142,6 +21152,16 @@ type Mutation {
   ): PinIssuePayload
 
   """
+  Publish an existing sponsorship tier that is currently still a draft to a GitHub Sponsors profile.
+  """
+  publishSponsorsTier(
+    """
+    Parameters for PublishSponsorsTier
+    """
+    input: PublishSponsorsTierInput!
+  ): PublishSponsorsTierPayload
+
+  """
   Regenerates the identity provider recovery codes for an enterprise
   """
   regenerateEnterpriseIdentityProviderRecoveryCodes(
@@ -21322,6 +21342,16 @@ type Mutation {
   ): ResolveReviewThreadPayload
 
   """
+  Retire a published payment tier from your GitHub Sponsors profile so it cannot be used to start new sponsorships.
+  """
+  retireSponsorsTier(
+    """
+    Parameters for RetireSponsorsTier
+    """
+    input: RetireSponsorsTierInput!
+  ): RetireSponsorsTierPayload
+
+  """
   Revoke the migrator role to a user for all organizations under an enterprise account.
   """
   revokeEnterpriseOrganizationsMigratorRole(
@@ -21380,6 +21410,16 @@ type Mutation {
     """
     input: SetUserInteractionLimitInput!
   ): SetUserInteractionLimitPayload
+
+  """
+  Starts a GitHub Enterprise Importer organization migration.
+  """
+  startOrganizationMigration(
+    """
+    Parameters for StartOrganizationMigration
+    """
+    input: StartOrganizationMigrationInput!
+  ): StartOrganizationMigrationPayload
 
   """
   Starts a GitHub Enterprise Importer (GEI) repository migration.
@@ -25700,7 +25740,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ipAllowListForInstalledAppsEnabledSetting: IpAllowListForInstalledAppsEnabledSettingValue!
 
   """
-  Check if the given account is sponsoring this user/organization.
+  Whether the given account is sponsoring this user/organization.
   """
   isSponsoredBy(
     """
@@ -26508,16 +26548,26 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   sponsorsListing: SponsorsListing
 
   """
-  The sponsorship from the viewer to this user/organization; that is, the
-  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+  The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.
   """
-  sponsorshipForViewerAsSponsor: Sponsorship
+  sponsorshipForViewerAsSponsor(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the viewer's sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
-  The sponsorship from this user/organization to the viewer; that is, the
-  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.
   """
-  sponsorshipForViewerAsSponsorable: Sponsorship
+  sponsorshipForViewerAsSponsorable(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -26550,9 +26600,15 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
+    """
+    Whether to include only sponsorships that are active right now, versus all
+    sponsorships this maintainer has ever received.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -26586,9 +26642,14 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
+    """
+    Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -26702,6 +26763,28 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   The HTTP URL listing organization's teams
   """
   teamsUrl: URI!
+
+  """
+  The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has
+  spent on GitHub to fund sponsorships. Only returns a value when viewed by the
+  user themselves or by a user who can manage sponsorships for the requested organization.
+  """
+  totalSponsorshipAmountAsSponsorInCents(
+    """
+    Filter payments to those that occurred on or after this time.
+    """
+    since: DateTime
+
+    """
+    Filter payments to those made to the users or organizations with the specified usernames.
+    """
+    sponsorableLogins: [String!] = []
+
+    """
+    Filter payments to those that occurred before this time.
+    """
+    until: DateTime
+  ): Int
 
   """
   The organization's Twitter username.
@@ -27275,6 +27358,102 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
 }
 
 """
+A GitHub Enterprise Importer (GEI) organization migration.
+"""
+type OrganizationMigration implements Node {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: String
+
+  """
+  The reason the organization migration failed.
+  """
+  failureReason: String
+  id: ID!
+
+  """
+  The remaining amount of repos to be migrated.
+  """
+  remainingRepositoriesCount: Int
+
+  """
+  The name of the source organization to be migrated.
+  """
+  sourceOrgName: String!
+
+  """
+  The URL of the source organization to migrate.
+  """
+  sourceOrgUrl: URI!
+
+  """
+  The migration state.
+  """
+  state: OrganizationMigrationState!
+
+  """
+  The name of the target organization.
+  """
+  targetOrgName: String!
+
+  """
+  The total amount of repositories to be migrated.
+  """
+  totalRepositoriesCount: Int
+}
+
+"""
+The Octoshift Organization migration state.
+"""
+enum OrganizationMigrationState {
+  """
+  The Octoshift migration has failed.
+  """
+  FAILED
+
+  """
+  The Octoshift migration is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The Octoshift migration has not started.
+  """
+  NOT_STARTED
+
+  """
+  The Octoshift migration is performing post repository migrations.
+  """
+  POST_REPO_MIGRATION
+
+  """
+  The Octoshift migration is performing pre repository migrations.
+  """
+  PRE_REPO_MIGRATION
+
+  """
+  The Octoshift migration has been queued.
+  """
+  QUEUED
+
+  """
+  The Octoshift org migration is performing repository migrations.
+  """
+  REPO_MIGRATION
+
+  """
+  The Octoshift migration has succeeded.
+  """
+  SUCCEEDED
+}
+
+"""
 Used for argument of CreateProjectV2 mutation.
 """
 union OrganizationOrUser = Organization | User
@@ -27758,6 +27937,9 @@ enum PackageType {
   A maven package.
   """
   MAVEN
+    @deprecated(
+      reason: "MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2023-02-10 UTC."
+    )
 
   """
   An npm package.
@@ -27784,6 +27966,9 @@ enum PackageType {
   A rubygems package.
   """
   RUBYGEMS
+    @deprecated(
+      reason: "RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-12-28 UTC."
+    )
 }
 
 """
@@ -29373,6 +29558,34 @@ type ProjectNext implements Closable & Node & Updatable {
     )
 
   """
+  List of fields and their constraints in the project
+  """
+  fieldConstraints(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectNextFieldConfigurationConnection!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
   List of fields in the project
   """
   fields(
@@ -29723,6 +29936,51 @@ interface ProjectNextFieldCommon {
 }
 
 """
+Configurations for project next fields.
+"""
+union ProjectNextFieldConfiguration = ProjectNextField | ProjectNextIterationField | ProjectNextSingleSelectField
+
+"""
+The connection type for ProjectNextFieldConfiguration.
+"""
+type ProjectNextFieldConfigurationConnection {
+  """
+  A list of edges.
+  """
+  edges: [ProjectNextFieldConfigurationEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [ProjectNextFieldConfiguration]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type ProjectNextFieldConfigurationEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: ProjectNextFieldConfiguration
+}
+
+"""
 The connection type for ProjectNextField.
 """
 type ProjectNextFieldConnection {
@@ -30068,6 +30326,14 @@ type ProjectNextItemFieldValue implements Node {
     )
 
   """
+  The project field that contains this value and it's constraint.
+  """
+  projectFieldConstraint: ProjectNextFieldConfiguration!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
   The project item that contains this value.
   """
   projectItem: ProjectNextItem!
@@ -30130,6 +30396,158 @@ type ProjectNextItemFieldValueEdge {
   The item at the end of the edge.
   """
   node: ProjectNextItemFieldValue
+}
+
+"""
+An iteration field inside a project.
+"""
+type ProjectNextIterationField implements Node & ProjectNextFieldCommon {
+  """
+  Iteration configuration settings
+  """
+  configuration: ProjectNextIterationFieldConfiguration!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The field's type.
+  """
+  dataType: ProjectNextFieldType!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+  id: ID!
+
+  """
+  The project field's name.
+  """
+  name: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The project that contains this field.
+  """
+  project: ProjectNext!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The field's settings.
+  """
+  settings: String
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+}
+
+"""
+Iteration field configuration for a project.
+"""
+type ProjectNextIterationFieldConfiguration {
+  """
+  The iteration's completed iterations
+  """
+  completedIterations: [ProjectNextIterationFieldIteration!]!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's duration in days
+  """
+  duration: Int!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's iterations
+  """
+  iterations: [ProjectNextIterationFieldIteration!]!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's start day of the week
+  """
+  startDay: Int!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+}
+
+"""
+Iteration field iteration settings for a project.
+"""
+type ProjectNextIterationFieldIteration {
+  """
+  The iteration's duration in days
+  """
+  duration: Int!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's ID.
+  """
+  id: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's start date
+  """
+  startDate: Date!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's title.
+  """
+  title: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The iteration's html title.
+  """
+  titleHTML: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
 }
 
 """
@@ -30222,6 +30640,105 @@ interface ProjectNextOwner {
     """
     sortBy: ProjectNextOrderField = TITLE
   ): ProjectNextConnection!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+}
+
+"""
+A single select field inside a project.
+"""
+type ProjectNextSingleSelectField implements Node & ProjectNextFieldCommon {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The field's type.
+  """
+  dataType: ProjectNextFieldType!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+  id: ID!
+
+  """
+  The project field's name.
+  """
+  name: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Options for the single select field
+  """
+  options: [ProjectNextSingleSelectFieldOption!]!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The project that contains this field.
+  """
+  project: ProjectNext!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The field's settings.
+  """
+  settings: String
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+}
+
+"""
+Single select field option for a configuration for a project.
+"""
+type ProjectNextSingleSelectFieldOption {
+  """
+  The option's ID.
+  """
+  id: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The option's name.
+  """
+  name: String!
+    @deprecated(
+      reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
+    )
+
+  """
+  The option's html name.
+  """
+  nameHTML: String!
     @deprecated(
       reason: "The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/, to find a suitable replacement. Removal on 2023-01-01 UTC."
     )
@@ -32736,6 +33253,36 @@ type PublicKeyEdge {
   The item at the end of the edge.
   """
   node: PublicKey
+}
+
+"""
+Autogenerated input type of PublishSponsorsTier
+"""
+input PublishSponsorsTierInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the draft tier to publish.
+  """
+  tierId: ID! @possibleTypes(concreteTypes: ["SponsorsTier"])
+}
+
+"""
+Autogenerated return type of PublishSponsorsTier
+"""
+type PublishSponsorsTierPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The tier that was published.
+  """
+  sponsorsTier: SponsorsTier
 }
 
 """
@@ -37790,6 +38337,11 @@ type RemoveReactionPayload {
   reaction: Reaction
 
   """
+  The reaction groups for the subject.
+  """
+  reactionGroups: [ReactionGroup!]
+
+  """
   The reactable subject.
   """
   subject: Reactable
@@ -40852,6 +41404,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Whether vulnerability alerts are enabled for the repository.
+  """
+  hasVulnerabilityAlertsEnabled: Boolean!
+
+  """
   Indicates if the repository has wiki feature enabled.
   """
   hasWikiEnabled: Boolean!
@@ -43748,6 +44305,36 @@ type RestrictedContribution implements Contribution {
 }
 
 """
+Autogenerated input type of RetireSponsorsTier
+"""
+input RetireSponsorsTierInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the published tier to retire.
+  """
+  tierId: ID! @possibleTypes(concreteTypes: ["SponsorsTier"])
+}
+
+"""
+Autogenerated return type of RetireSponsorsTier
+"""
+type RetireSponsorsTierPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The tier that was retired.
+  """
+  sponsorsTier: SponsorsTier
+}
+
+"""
 A user, team, or app who has the ability to dismiss a review on a protected branch.
 """
 type ReviewDismissalAllowance implements Node {
@@ -45214,7 +45801,7 @@ interface Sponsorable {
   hasSponsorsListing: Boolean!
 
   """
-  Check if the given account is sponsoring this user/organization.
+  Whether the given account is sponsoring this user/organization.
   """
   isSponsoredBy(
     """
@@ -45364,16 +45951,26 @@ interface Sponsorable {
   sponsorsListing: SponsorsListing
 
   """
-  The sponsorship from the viewer to this user/organization; that is, the
-  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+  The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.
   """
-  sponsorshipForViewerAsSponsor: Sponsorship
+  sponsorshipForViewerAsSponsor(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the viewer's sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
-  The sponsorship from this user/organization to the viewer; that is, the
-  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.
   """
-  sponsorshipForViewerAsSponsorable: Sponsorship
+  sponsorshipForViewerAsSponsorable(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -45406,9 +46003,15 @@ interface Sponsorable {
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
+    """
+    Whether to include only sponsorships that are active right now, versus all
+    sponsorships this maintainer has ever received.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -45442,9 +46045,14 @@ interface Sponsorable {
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
+    """
+    Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -45478,6 +46086,28 @@ interface Sponsorable {
     """
     orderBy: SponsorshipOrder
   ): SponsorshipConnection!
+
+  """
+  The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has
+  spent on GitHub to fund sponsorships. Only returns a value when viewed by the
+  user themselves or by a user who can manage sponsorships for the requested organization.
+  """
+  totalSponsorshipAmountAsSponsorInCents(
+    """
+    Filter payments to those that occurred on or after this time.
+    """
+    since: DateTime
+
+    """
+    Filter payments to those made to the users or organizations with the specified usernames.
+    """
+    sponsorableLogins: [String!] = []
+
+    """
+    Filter payments to those that occurred before this time.
+    """
+    until: DateTime
+  ): Int
 
   """
   Whether or not the viewer is able to sponsor this user/organization.
@@ -47012,6 +47642,13 @@ type SponsorsListing implements Node {
   activeGoal: SponsorsGoal
 
   """
+  The Stripe Connect account currently in use for payouts for this Sponsors
+  listing, if any. Will only return a value when queried by the maintainer
+  themselves, or by an admin of the sponsorable organization.
+  """
+  activeStripeConnectAccount: StripeConnectAccount
+
+  """
   The name of the country or region with the maintainer's bank account or fiscal
   host. Will only return a value when queried by the maintainer themselves, or
   by an admin of the sponsorable organization.
@@ -47110,7 +47747,7 @@ type SponsorsListing implements Node {
   sponsorable: Sponsorable!
 
   """
-  The published tiers for this GitHub Sponsors listing.
+  The tiers for this GitHub Sponsors profile.
   """
   tiers(
     """
@@ -47127,6 +47764,15 @@ type SponsorsListing implements Node {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Whether to include tiers that aren't published. Only admins of the Sponsors
+    listing can see draft tiers. Only admins of the Sponsors listing and viewers
+    who are currently sponsoring on a retired tier can see those retired tiers.
+    Defaults to including only published tiers, which are visible to anyone who
+    can see the GitHub Sponsors profile.
+    """
+    includeUnpublished: Boolean = false
 
     """
     Returns the last _n_ elements from the list.
@@ -47421,12 +48067,18 @@ type Sponsorship implements Node {
   id: ID!
 
   """
+  Whether the sponsorship is active. False implies the sponsor is a past sponsor
+  of the maintainer, while true implies they are a current sponsor.
+  """
+  isActive: Boolean!
+
+  """
   Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
   """
   isOneTimePayment: Boolean!
 
   """
-  Check if the sponsor has chosen to receive sponsorship update emails sent from
+  Whether the sponsor has chosen to receive sponsorship update emails sent from
   the sponsorable. Only returns a non-null value when the viewer has permission to know this.
   """
   isSponsorOptedIntoEmail: Boolean
@@ -47529,6 +48181,11 @@ type SponsorshipEdge {
 An update sent to sponsors of a user or organization on GitHub Sponsors.
 """
 type SponsorshipNewsletter implements Node {
+  """
+  The author of the newsletter.
+  """
+  author: User
+
   """
   The contents of the newsletter, the message the sponsorable wanted to give.
   """
@@ -47907,6 +48564,51 @@ type StarredRepositoryEdge {
 }
 
 """
+Autogenerated input type of StartOrganizationMigration
+"""
+input StartOrganizationMigrationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The migration source access token.
+  """
+  sourceAccessToken: String!
+
+  """
+  The URL of the organization to migrate.
+  """
+  sourceOrgUrl: URI!
+
+  """
+  The ID of the enterprise the target organization belongs to.
+  """
+  targetEnterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
+
+  """
+  The name of the target organization.
+  """
+  targetOrgName: String!
+}
+
+"""
+Autogenerated return type of StartOrganizationMigration
+"""
+type StartOrganizationMigrationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The new organization migration.
+  """
+  orgMigration: OrganizationMigration
+}
+
+"""
 Autogenerated input type of StartRepositoryMigration
 """
 input StartRepositoryMigrationInput {
@@ -48262,6 +48964,46 @@ enum StatusState {
   Status is successful.
   """
   SUCCESS
+}
+
+"""
+A Stripe Connect account for receiving sponsorship funds from GitHub Sponsors.
+"""
+type StripeConnectAccount {
+  """
+  The account number used to identify this Stripe Connect account.
+  """
+  accountId: String!
+
+  """
+  The name of the country or region of an external account, such as a bank
+  account, tied to the Stripe Connect account. Will only return a value when
+  queried by the maintainer of the associated GitHub Sponsors profile
+  themselves, or by an admin of the sponsorable organization.
+  """
+  billingCountryOrRegion: String
+
+  """
+  The name of the country or region of the Stripe Connect account. Will only
+  return a value when queried by the maintainer of the associated GitHub
+  Sponsors profile themselves, or by an admin of the sponsorable organization.
+  """
+  countryOrRegion: String
+
+  """
+  Whether this Stripe Connect account is currently in use for the associated GitHub Sponsors profile.
+  """
+  isActive: Boolean!
+
+  """
+  The GitHub Sponsors profile associated with this Stripe Connect account.
+  """
+  sponsorsListing: SponsorsListing!
+
+  """
+  The URL to access this Stripe Connect account on Stripe's website.
+  """
+  stripeDashboardUrl: URI!
 }
 
 """
@@ -53416,6 +54158,20 @@ input UpdateProjectNextItemFieldInput {
   clientMutationId: String
 
   """
+  The id of the field to be updated. Only supports custom fields and status for now.
+
+  **Upcoming Change on 2023-01-01 UTC**
+  **Description:** `fieldConstraintId` will be removed. Follow the ProjectV2 guide at https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/,
+  to find a suitable replacement.
+  **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
+  """
+  fieldConstraintId: ID
+    @possibleTypes(
+      concreteTypes: ["ProjectNextField", "ProjectNextIterationField", "ProjectNextSingleSelectField"]
+      abstractType: "ProjectNextFieldConfiguration"
+    )
+
+  """
   The id of the field to be updated.
 
   **Upcoming Change on 2023-01-01 UTC**
@@ -53424,6 +54180,19 @@ input UpdateProjectNextItemFieldInput {
   **Reason:** The `ProjectNext` API is deprecated in favour of the more capable `ProjectV2` API.
   """
   fieldId: ID @possibleTypes(concreteTypes: ["ProjectNextField"])
+
+  """
+  The id of the field to be updated. Only supports custom fields and status for now.
+
+  **Upcoming Change on 2022-10-01 UTC**
+  **Description:** `fieldWithSettingId` will be removed. Use `fieldConstraintId` instead
+  **Reason:** Renamed to fieldConstraintId to improve naming consistency.
+  """
+  fieldWithSettingId: ID
+    @possibleTypes(
+      concreteTypes: ["ProjectNextField", "ProjectNextIterationField", "ProjectNextSingleSelectField"]
+      abstractType: "ProjectNextFieldConfiguration"
+    )
 
   """
   The id of the item to be updated. This field is required.
@@ -54709,7 +55478,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   isSiteAdmin: Boolean!
 
   """
-  Check if the given account is sponsoring this user/organization.
+  Whether the given account is sponsoring this user/organization.
   """
   isSponsoredBy(
     """
@@ -55607,16 +56376,26 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   sponsorsListing: SponsorsListing
 
   """
-  The sponsorship from the viewer to this user/organization; that is, the
-  sponsorship where you're the sponsor. Only returns a sponsorship if it is active.
+  The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.
   """
-  sponsorshipForViewerAsSponsor: Sponsorship
+  sponsorshipForViewerAsSponsor(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the viewer's sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
-  The sponsorship from this user/organization to the viewer; that is, the
-  sponsorship you're receiving. Only returns a sponsorship if it is active.
+  The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.
   """
-  sponsorshipForViewerAsSponsorable: Sponsorship
+  sponsorshipForViewerAsSponsorable(
+    """
+    Whether to return the sponsorship only if it's still active. Pass false to
+    get the sponsorship back even if it has been cancelled.
+    """
+    activeOnly: Boolean = true
+  ): Sponsorship
 
   """
   List of sponsorship updates sent from this sponsorable to sponsors.
@@ -55649,9 +56428,15 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
+    """
+    Whether to include only sponsorships that are active right now, versus all
+    sponsorships this maintainer has ever received.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -55685,9 +56470,14 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
+    """
+    Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.
+    """
+    activeOnly: Boolean = true
+
     """
     Returns the elements in the list that come after the specified cursor.
     """
@@ -55796,6 +56586,28 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
     """
     since: DateTime
   ): RepositoryConnection!
+
+  """
+  The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has
+  spent on GitHub to fund sponsorships. Only returns a value when viewed by the
+  user themselves or by a user who can manage sponsorships for the requested organization.
+  """
+  totalSponsorshipAmountAsSponsorInCents(
+    """
+    Filter payments to those that occurred on or after this time.
+    """
+    since: DateTime
+
+    """
+    Filter payments to those made to the users or organizations with the specified usernames.
+    """
+    sponsorableLogins: [String!] = []
+
+    """
+    Filter payments to those that occurred before this time.
+    """
+    until: DateTime
+  ): Int
 
   """
   The user's Twitter username.

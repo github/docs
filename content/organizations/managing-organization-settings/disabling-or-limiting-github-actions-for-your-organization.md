@@ -81,6 +81,57 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
+{% ifversion required-workflows %}
+
+## Adding a required workflow to an organization
+
+{% data reusables.actions.workflows.required-workflow-beta %}
+
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+
+#### Prerequisites
+
+Before configuring a required workflow, note the following prerequisites:
+
+{% data reusables.actions.workflows.required-workflow-prerequisites %}
+
+#### Restrictions and behaviors for the source repository
+
+Note the following restrictions and behaviors for the source repository and workflow:
+
+{% data reusables.actions.workflows.required-workflow-source-notes %}
+
+#### Restrictions and behaviors for the target repository
+
+Note the following restrictions and behaviors for the target repositories:
+
+{% data reusables.actions.workflows.required-workflow-target-notes %}
+
+#### Configuring a required workflow for your organization
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. Next to "Required Workflows", click **Add workflow**.
+
+   ![Screenshot showing the 'Add workflow' button](/assets/images/help/settings/actions-required-workflows-add.png)
+
+1. Select the repository that contains the workflow and enter the path to the workflow.
+
+   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflow-locate.png)
+
+1. Under "Apply to repositories...", select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
+
+   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflows-repos.png)
+
+1. Optionally, if you chose "Selected repositories", click {% octicon "gear" aria-label="The Gear icon" %} to open the repository selection modal, then select the repositories, and click **Apply selection**. You can use filters to narrow down your search.
+
+   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflows-select-repos.png)
+
+1. To add the required workflow, click **Add workflow**.
+
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## Enabling workflows for private repository forks
 
@@ -108,8 +159,8 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion actions-default-workflow-permissions-restrictive %}
+By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` scope.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}
@@ -159,7 +210,7 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
+Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 

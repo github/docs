@@ -32,7 +32,7 @@ You can use the {% data variables.product.prodname_codeql_cli %} to run {% data 
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)." For an overview of the options for CI systems, see "[About CodeQL {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
+Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)." For an overview of the options for CI systems, see "[About CodeQL {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
 
 {% data reusables.code-scanning.licensing-note %}
 
@@ -78,9 +78,9 @@ If you use the {% data variables.product.prodname_codeql_cli %} to analyze code 
 {% endnote %}
 {% endif %}
 
-## Testing the {% data variables.product.prodname_codeql_cli %} set up
+## Testing the {% data variables.product.prodname_codeql_cli %} configuration
 
-After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly set up to create and analyze databases.
+After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases.
 
 - `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
 - `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.

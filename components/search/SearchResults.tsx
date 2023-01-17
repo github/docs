@@ -139,7 +139,7 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
   return (
     <Box borderRadius={2} p={2}>
       <Pagination
-        pageCount={totalPages}
+        pageCount={Math.min(totalPages, 10)}
         currentPage={page}
         hrefBuilder={hrefBuilder}
         onPageChange={(event, page) => {

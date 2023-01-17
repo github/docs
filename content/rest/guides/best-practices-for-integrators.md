@@ -135,15 +135,14 @@ In this example the `closed` action is checked first before calling the `process
 
 ## Dealing with rate limits
 
-The GitHub API [rate limit](/rest/overview/resources-in-the-rest-api#rate-limiting) ensures that the API is fast and available for everyone.
+The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
 
-If you hit a rate limit, it's expected that you back off from making requests and try again later when you're permitted to do so. Failure to do so may result in the banning of your app.
-
-You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
+If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ## Dealing with secondary rate limits
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
+{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
 * Make authenticated requests, or use your application's client ID and secret. Unauthenticated
@@ -152,15 +151,14 @@ To avoid hitting this limit, you should ensure your application follows the guid
   or client ID concurrently.
 * If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
   or client ID, wait at least one second between each request.
-* When you have been limited, use the `Retry-After` response header to slow down. The value of the
+* When you have been limited, wait before retrying your request.
+   * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
   `Retry-After` header will always be an integer, representing the number of seconds you should wait
   before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
   before sending more requests.
-* Requests that create content which triggers notifications, such as issues, comments and pull requests,
-  may be further limited and will not include a `Retry-After` header in the response. Please create this
-  content at a reasonable pace to avoid further limiting.
+   * Otherwise, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-We reserve the right to change these guidelines as needed to ensure availability.
+{% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
 
 {% endif %}
 

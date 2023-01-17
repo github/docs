@@ -215,7 +215,7 @@ describe('server', () => {
     const $ = await getDOM(
       '/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
     )
-    expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
+    expect($('[data-testid="permissions-statement"]').text()).toContain('GitHub Pages site')
   })
 
   // see issue 9678

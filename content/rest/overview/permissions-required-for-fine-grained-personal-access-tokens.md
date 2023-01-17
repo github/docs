@@ -138,6 +138,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`GET /user/codespaces/{codespace_name}`](/rest/reference/codespaces#get-a-codespace-for-the-authenticated-user) (read)
 - [`PATCH /user/codespaces/{codespace_name}`](/rest/reference/codespaces#update-a-codespace-for-the-authenticated-user) (write)
 - [`DELETE /user/codespaces/{codespace_name}`](/rest/reference/codespaces#delete-a-codespace-for-the-authenticated-user) (write)
+- [`POST /user/codespaces/{codespace_name}/publish`](/rest/codespaces/codespaces#create-a-repository-from-an-unpublished-codespace) (write)
 
 ## Codespaces lifecycle admin
 
