@@ -47,7 +47,7 @@ This guide assumes that you have a complete definition for a Docker image stored
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-{% data reusables.package_registry.about-docker-labels %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
+{% data reusables.package_registry.about-annotation-keys %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
 
 {% endif %}
 

@@ -26,6 +26,8 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 {% ifversion packages-registries-v2 %}
 ### Authenticating to package registries with granular permissions
 
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be owned by a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)." 
+
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 ### Authenticating to package registries with repository-scoped permissions

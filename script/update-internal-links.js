@@ -22,7 +22,6 @@ import walk from 'walk-sync'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import visit from 'unist-util-visit'
 import { loadPages, loadPageMap } from '../lib/page-data.js'
-import loadSiteData from '../lib/site-data.js'
 import loadRedirects from '../lib/redirects/precompile.js'
 import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
 import { allVersionKeys } from '../lib/all-versions.js'
@@ -60,12 +59,10 @@ async function main() {
   const pageList = await loadPages()
   const pageMap = await loadPageMap(pageList)
   const redirects = await loadRedirects(pageList)
-  const site = await loadSiteData()
 
   const context = {
     pages: pageMap,
     redirects,
-    site: site.en.site,
     currentLanguage: 'en',
   }
 

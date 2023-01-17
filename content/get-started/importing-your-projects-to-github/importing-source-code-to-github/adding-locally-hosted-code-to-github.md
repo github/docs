@@ -58,7 +58,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `main`.
    
    If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
 
@@ -105,7 +105,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `main`.
    
    If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
 
@@ -151,7 +151,7 @@ If you have existing source code or repositories stored locally on your computer
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
-4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `master`.
+4. Use the `init` command to initialize the local directory as a Git repository. By default, the initial branch is called `main`.
    
    If you’re using Git 2.28.0 or a later version, you can set the name of the default branch using `-b`.
 

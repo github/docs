@@ -8,7 +8,6 @@ import { getLiquidConditionals } from '../../script/helpers/get-liquid-condition
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import frontmatter from '../../lib/frontmatter.js'
 import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
@@ -66,15 +65,8 @@ describe('lint Liquid versioning', () => {
 
     beforeAll(async () => {
       fileContents = await fs.readFile(file, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif']).concat(
-        getLiquidConditionals(bodyContent, ['ifversion', 'elsif'])
-      )
-
-      ifConditionals = getLiquidConditionals(data, 'if').concat(
-        getLiquidConditionals(bodyContent, 'if')
-      )
+      ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+      ifConditionals = getLiquidConditionals(fileContents, 'if')
     })
 
     // `ifversion` supports both standard and feature-based versioning.

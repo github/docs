@@ -25,6 +25,7 @@ const MAX_SIZE = 50 // How much you return has a strong impact on performance
 const DEFAULT_PAGE = 1
 const POSSIBLE_SORTS = ['best', 'relevance']
 const DEFAULT_SORT = POSSIBLE_SORTS[0]
+const MAX_PAGE = 10
 
 // If someone searches for `...&version=3.5` what they actually mean
 // is `ghes-3.5`. This is because of legacy formatting with the old search.
@@ -185,7 +186,7 @@ const validationMiddleware = (req, res, next) => {
       key: 'page',
       default_: DEFAULT_PAGE,
       cast: (v) => parseInt(v, 10),
-      validate: (v) => v >= 1 && v <= 10,
+      validate: (v) => v >= 1 && v <= MAX_PAGE,
     },
     { key: 'sort', default_: DEFAULT_SORT, validate: (v) => POSSIBLE_SORTS.includes(v) },
     {

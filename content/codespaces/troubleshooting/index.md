@@ -16,7 +16,7 @@ children:
   - /troubleshooting-creation-and-deletion-of-codespaces
   - /troubleshooting-your-connection-to-github-codespaces
   - /troubleshooting-prebuilds
-  - /troubleshooting-dotfiles-for-codespaces
+  - /troubleshooting-personalization-for-codespaces
   - /troubleshooting-port-forwarding-for-github-codespaces
   - /troubleshooting-github-codespaces-clients
   - /troubleshooting-gpg-verification-for-github-codespaces
