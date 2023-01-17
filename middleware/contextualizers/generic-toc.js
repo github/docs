@@ -98,6 +98,9 @@ async function getTocItems(node, context, opts) {
         if (page.rawIntro) {
           // The intro can contain Markdown even though it might not
           // contain any Liquid.
+          // Deliberately don't use `textOnly:true` here because we intend
+          // to display the intro, in a table of contents component,
+          // with the HTML (dangerouslySetInnerHTML).
           intro = await page.renderProp('rawIntro', context)
         }
       }

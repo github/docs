@@ -35,18 +35,6 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
 
-  # This might seem a bit strange, but it's clever. Since this action
-  # uses a matrix to deal with one language at a time, we can use this
-  # to pretend it's always the same directory.
-  TRANSLATIONS_ROOT_ES_ES: translation
-  TRANSLATIONS_ROOT_ZH_CN: translation
-  TRANSLATIONS_ROOT_JA_JP: translation
-  TRANSLATIONS_ROOT_PT_BR: translation
-  TRANSLATIONS_ROOT_FR_FR: translation
-  TRANSLATIONS_ROOT_RU_RU: translation
-  TRANSLATIONS_ROOT_KO_KR: translation
-  TRANSLATIONS_ROOT_DE_DE: translation
-
 jobs:
   figureOutMatrix:
     runs-on: ubuntu-latest
@@ -110,22 +98,13 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Checkout the non-English repo
+      - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.${{ fromJSON('{"zh":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translation
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
-      - name: Setup Node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7

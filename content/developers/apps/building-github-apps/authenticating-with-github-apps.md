@@ -98,12 +98,14 @@ puts jwt
 
 #### Using Python
 
-Here is a similar script for generating a JWT in Python. Note you will have to use `pip install jwt` in order to use this script. This script will prompt you for the location of your PEM file, or you can pass it as an inline argument when you execute the script. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the value in single quotes.
+Here is a similar script for generating a JWT in Python. Note you will have to use `pip install jwt` in order to use this script. This script will prompt you for the location of your PEM file and your app's ID, or you can pass them as inline arguments when you execute the script.
 
 ```python{:copy}
+#!/usr/bin/env python3
 import jwt
 import time 
 import sys
+
 
 # Get PEM file path
 if len(sys.argv) > 1:
@@ -111,23 +113,30 @@ if len(sys.argv) > 1:
 else:
     pem = input("Enter path of private PEM file: ")    
 
+# Get the App ID
+if len(sys.argv) > 2:
+    app_id = sys.argv[2]
+else:
+    app_id = input("Enter your APP ID: ") 
+
 # Open PEM
-with open(pem, 'r') as pem_file:
-    signing_key = pem_file.read()
+with open(pem, 'rb') as pem_file:
+    signing_key = jwt.jwk_from_pem(pem_file.read())
     
 payload = {
     # Issued at time
     'iat': int(time.time()),
     # JWT expiration time (10 minutes maximum)
     'exp': int(time.time()) + 600, 
-    # {% data variables.product.prodname_github_app %}'s identifier
-    'iss': 'YOUR_APP_ID' 
+    # GitHub App's identifier
+    'iss': app_id 
 }
     
 # Create JWT
-encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
+jwt_instance = jwt.JWT()
+encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
      
-print(f"JWT:  ", encoded_jwt())
+print(f"JWT:  ", encoded_jwt)
 ```
 
 Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
