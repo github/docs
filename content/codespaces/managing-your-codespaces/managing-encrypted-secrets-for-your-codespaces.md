@@ -42,7 +42,7 @@ You can choose which repositories should have access to each secret. Then, you c
 
 You can store up to 100 secrets for {% data variables.product.prodname_github_codespaces %}.
 
-Secrets are limited to 64 KB in size.
+Secrets are limited to 48 KB in size.
 
 ## Adding a secret
 

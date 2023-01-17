@@ -35,14 +35,6 @@ From the main page of your repository, click **{% octicon "gear" aria-label="The
 - To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 - To change who can access your repository and adjust permissions, click **Manage access**. For more information, see"[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
 
-## Setting a security policy
-
-1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
-1. Click **Security policy**.
-1. Click **Start setup**.
-1. Add information about supported versions of your project and how to report vulnerabilities.
-
-For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 ## Managing the dependency graph
 
@@ -147,6 +139,17 @@ Alternatively, you can use the advanced setup, which generates a workflow file y
 {% endif %}
 
 {% endif %}
+
+## Setting a security policy
+
+If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named _SECURITY.md_ in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
+
+1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
+2. Click **Security policy**.
+3. Click **Start setup**.
+4. Add information about supported versions of your project and how to report vulnerabilities.
+
+For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 ## Next steps
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[Viewing and updating {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[Managing pull requests for dependency updates](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Managing {% data variables.product.prodname_code_scanning %} for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," and "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
