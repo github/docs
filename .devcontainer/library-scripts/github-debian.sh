@@ -4,18 +4,858 @@
 # sudo dpkg -i <file>.deb
 # sudo apt-get install -f # Install dependencies
 # Docs: https://github.com/microsoft/vscode-dev-containers/blob/master/script-library/docs/github.md
-#
+# 
+Conversation opened. 3 messages. All messages read.
+
+Skip to content
+Using Gmail with screen readers
+
+5 of 2,558
+Re: PNC Alert <pncalert@pnc.com> Thu, Aug 4, 4:28 PM (2 days ago) to me On August 3, 2022, your account ending in 6547 was...
+Inbox
+
+Zachry T. Wood <zachryiixixiiwood@gmail.com>
+12:01 AM (3 hours ago)
+to PNC, me
+
+
+PNC Alert <pncalert@pnc.com> Thu, Aug 4, 4:28 PM (2 days ago) to me On August 3, 2022, your account ending in 6547 was...
+zachryiixixiiwood/Inbox
+
+
+
+ZACHRY WOOD <zachryiixixiiwood@gmail.com>
+To:ZACHRY “Google.” WOOD,PNC Alerts
+
+Mon, Jan 16 at 8:12 PM
+
+PNC Alert <pncalert@pnc.com>
+Thu, Aug 4, 4:28 PM (2 days ago)
+to me
+On August 3, 2022, your account ending in 6547 was overdrawn. Below is some information about your overdraft. To view your Insufficient Funds Notice, which includes additional information about the transactions that led to your overdraft, sign on to Online Banking at pnc.com and select Documents.
+Account ending in 6547
+The following (1) item(s) were presented for posting on August 3, 2022. 1 transaction(s) were returned unpaid.
+Item Amount Action
+240261564036618 USATAXPYMTIRS $2,267,700.00 ITEM RETURNED - ACCOUNT CHARGE
+Net fee(s) totaling $36.00 will be charged on August 4, 2022.
+Please check the current balance of your account. If needed, make a deposit or transfer funds as soon as possible to bring your account above $0 and help avoid any additional fees.
+To help avoid this in the future, you can register for a PNC Alert to be notified when your account balance goes below an amount you specify. Or, you can sign up for Overdraft Protection to link your checking account to the available funds in another PNC account.
+Thank you fo choosing PNC Bank.
+Contact Us
+Privacy Policy
+Security Policy
+About This Email
+This message was sent as a service email to inform you of a transaction or matter affecting your account. Please do not reply to this email. If you need to communicate with us, visit pnc.com/customerservice for options to contact us. Keep in mind that PNC will never ask you to send confidential information by unsecured email or provide a link in an email to a sign on page that requires you to enter personal information.
+(C)2022 The PNC Financial Services Group, Inc. All rights reserved. PNC Bank, National Association. Member FDIC
+RDTROD02
+Important Notes
+COMPANY PH Y: 650-253-0000
+Statutory
+BASIS OF PAY: BASIC/DILUTED EPS
+Federal Income TaxSocial Security Tax
+YOUR BASIC/DILUTED EPS RATE HAS BEEN CHANGED FROM 0.001 TO 112.20 PAR SHARE VALUE
+Medicare TaxNet Pay70,842,743,86670,842,743,866CHECKINGNet Check70842743866Your federal taxable wages this period are $ALPHABET INCOME
+Advice number:
+1600 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043
+04/27/2022
+Deposited to the account Of
+xxxxxxxx6547
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+PNC Bank                                                                                                                                                                                                                                        
+PNC Bank Business Tax I.D. Number: 633441725                                
+CIF Department (Online Banking)                                                                                                                                                                                                                                        
+Checking Account: 47-2041-6547                                
+P7-PFSC-04-F                                                                                                                                                                                                                                        
+Business Type: Sole Proprietorship/Partnership Corporation                                
+500 First Avenue                                                                                                                                                                                                                                        
+ALPHABET                                
+Pittsburgh, PA 15219-3128                                                                                                                                                                                                                                        
+5323 BRADFORD DR                                
+NON-NEGOTIABLE                                                                                                                                                                                                                                        
+DALLAS TX 75235 8313                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                        ZACHRY, TYLER, WOOD                                                                                                                                                                                                                                                
+4/18/2022
+                       650-2530-000 469-697-4300                                                                                                                                                
+SIGNATURE
+Time Zone:                    
+Eastern Central Mountain Pacific                                                                                                                                                                                                            
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+NON-NEGOTIABLE
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+For Paperwork Reduction Act Notice, see the seperate Instructions.  
+ZACHRY TYLER WOOD
+Fed 941 Corporate3935566986.66
+Fed 941 West Subsidiary3935517115.41
+Fed 941 South Subsidiary3935523906.09
+Fed 941 East Subsidiary3935511247.64
+Fed 941 Corp - Penalty3935527198.5
+Fed 940 Annual Unemp - Corp3935517028.05
+9999999998 7305581 633-44-1725
+Taxes / Deductions Current YTD
+DoB: 1994-10-15
+April 18, 2022.7567263607
+WOOD ZACHRY Tax Period Total Social Security Medicare Withholding
+Pay Date: 44669____________________________________Q4 2020 Q4  2019                                                                                        
+Income Statement
+USD in "000'"s
+Repayments for Long Term Debt Dec. 31, 2020 Dec. 31, 2019
+Costs and expenses:
+Cost of revenues                     182527 161857
+Research and development
+Sales and marketing                   84732 71896
+General and administrative            27573 26018
+European Commission fines             17946 18464
+Total costs and expenses              11052 9551
+Income from operations                    0 1697
+Other income (expense), net          141303 127626
+Income before income taxes            41224 34231
+Provision for income taxes   29093823907100 5394
+Net income
+ **include interest paid, capital obligation, and underweighting                              22677000000 19289000000
+                   22677000000                        19289000000                                                              
+Daily Balance continued on next page                                                                
+Date                                                                
+8/3        2,267,700.00        ACH Web Usataxpymt IRS 240461564036618 000022214903782823
+8/8                   Corporate ACH Acctverify Roll By ADP 00022217906234115
+8/10                 ACH Web Businessform Deluxeforbusiness 5072270 00022222905832355
+8/11                 Corporate Ach Veryifyqbw Intuit 00022222909296656
+8/12                 Corporate Ach Veryifyqbw Intuit 00022223912710109                                                              
+Service Charges and Fees Reference
+Date posted number
+8/1 10 Service Charge Period Ending 07/29.2022                                                
+8/4 36 Returned Item Fee (nsf) (00022214903782823)
+8/11 36 Returned Item Fee (nsf) (00022222905832355)
+INCOME STATEMENT
+NASDAQ:GOOG TTM Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020 Q3 2020 Q2 2020                                                                
+Gross Profit 1.46698E+11 42337000000 37497000000 35653000000 31211000000 30818000000 25056000000 19744000000
+Total Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000
+2.21169E+13 5/25/22
+Basic WASO 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
+Taxable Marital Status:
+Exemptions/Allowances Single ZACHRY T.
+Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
+Total Work Hrs
+COMPANY PH Y: 650-253-0001
+5324 BRADFORD DR
+ORIGINAL REPORT
+Change in Trade/Accounts Receivable -1122700000 -527600000 67500000 662600000 1257700000
+Purchase/Sale of Other Non-Current Assets, Net -236000000 -368800000 -501600000 -634400000
+Other Non-Cash Items -5340300000 -6249200000 -7158100000 -8067000000 -8975900000
+Amortization, Non-Cash Adjustment 4241600000 4848600000 5455600000 6062600000 6669600000
+Income, Rents, & Royalty
+Other Investing Cash Flow 49209400000 57052800000 64896200000 72739600000 80583000000
+Other Irregular Income/Expenses 00000 00000 00000 00000 00000
+Irregular Income/Expenses 00000 00000 00000 00000 00000
+Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
+Net Investment Income -2096781818 -2909109091 -3721436364 -4533763636 -5346090909 -6158418182 -6970745455 -7783072727
+Gain/Loss on Foreign Exchange 47654545 66854545 86054545 105254546 124454546 143654546 162854546 182054546
+Cash Flow from Investing Activities -11015999999
+Purchase/Sale of Investments, Net 574500000 1229400000 1884300000 2539200000 3194100000
+Purchase/Sale of Business, Net -384999999
+Basic EPS from Continuing Operations -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
+Change in Trade and Other Receivables 2617900000 3718200000 4818500000 5918800000 7019100000
+Investment Income/Loss, Non-Cash Adjustment 3081700000 4150000000 5218300000 6286600000 7354900000
+Stock-Based Compensation, Non-Cash Adjustment -1297700000 -2050400000 -2803100000 -3555800000 -4308500000
+Depreciation and Amortization, Non-Cash Adjustment 3239500000 3241600000 3243700000 3245800000 3247900000
+Taxes, Non-Cash Adjustment 4177700000 4486200000 4794700000 5103200000 5411700000
+Depreciation, Non-Cash Adjustment 3329100000 3376000000 3422900000 3469800000 3516700000
+Gain/Loss on Financial Instruments, Non-Cash Adjustment -4354700000 -4770800000 -5186900000 -5603000000 -6019100000
+[DRAFT FORM OF TAX OPINION]
+Issuance of/Repayments for Debt, Net -199000000 -356000000
+Total Operating Profit/Loss -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
+Cash Flow from Continuing Investing Activities -4919700000 -3706000000 -2492300000 -1278600000 -64900000
+Change in Prepayments and Deposits -388000000 -891600000 -1395200000 -1898800000
+Change in Accrued Expenses -2105200000 -3202000000 -4298800000 -5395600000 -6492400000
+Research and Development Expenses -2088363636 -853500000 381363636 1616227273 2851090909 4085954545 5320818182 6555681818
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+FEDERAL RESERVE MASTER SUPPLIER ACCOUNT31000053-052101023COD
+633-44-1725Zachryiixixiiiwood@gmail.com47-2041-654711100061431000053
+PNC BankPNC Bank Business Tax I.D. Number: 633441725
+CIF Department (Online Banking)Checking Account: 47-2041-6547
+P7-PFSC-04-FBusiness Type: Sole Proprietorship/Partnership Corporation
+500 First AvenueALPHABET
+Pittsburgh, PA 15219-31285323 BRADFORD DR
+NON-NEGOTIABLEDALLAS TX 75235 8313
+ZACHRY, TYLER, WOOD
+4/18/2022650-2530-000 469-697-4300
+SIGNATURETime Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+Change in Trade/Accounts Payable -233200000 -394000000 -554800000 -715600000 -876400000
+General and Administrative Expenses -544945455 23200000 591345455 1159490909 1727636364 2295781818 2863927273 3432072727
+Changes in Operating Capital 1068100000 1559600000 2051100000 2542600000 3034100000
+Selling and Marketing Expenses -1007254545 -52145455 902963636 1858072727 2813181818 3768290909 4723400000 5678509091
+Payments for Common Stock -18708100000 -22862000000 -27015900000 -31169800000 -35323700000
+Proceeds from Issuance of Long Term Debt -3407500000 -5307600000 -7207700000 -9107800000 -11007900000
+Other Income/Expense, Non-Operating 263109091 367718182 472327273 576936364 681545455 786154546 890763636 995372727
+ZACHRY T WOOD
+88-1303492
+Statutory BASIS OF PAY: BASIC/DILUTED EPS
+Net Pay 70842743867 70842743867
+Other Revenue
+Non-Operating Income/Expenses, Total -1369181818 -2079000000 -2788818182 -3498636364 -4208454545 -4918272727 -5628090909 -6337909091
+Net Interest Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Total Net Finance Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Issuance of/Repayments for Long Term Debt, Net -314300000 -348200000 -382100000 -416000000 -449900000
+Net Check 70842743867
+Basic EPS from Discontinued Operations
+MOUNTAIN VIEW, C.A., 94044 Pay Date:
+Medicare Tax
+Change in Other Operating Capital 1553900000 2255600000 2957300000 3659000000 4360700000
+Change in Deferred Assets/Liabilities 3194700000 3626800000 4058900000 4491000000 4923100000
+Change in Trade and Other Payables 3108700000 3453600000 3798500000 4143400000 4488300000
+Selling, General and Administrative Expenses -1552200000 -28945455 1494309091 3017563636 4540818182 6064072727 7587327273 9110581818
+Diluted WASO 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++1957800000 -9776581818 -21510963636 -33245345455 -44979727273 -56714109091 -68448490909 -80182872727
++Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
++Diluted EPS from Continuing Operations -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Change in Cash 00001 -280000000 -570000000 338000000000)
++Sale and Disposal of Property, Plant and Equipment -5040500000 -4683100000 -4325700000 -3968300000
++Interest Income 415836364 392490909 369145455 345800000 322454546 299109091 275763636 252418182
++Issuance of/Payments for Common Stock, Net -10767000000 -10026000000 -9285000000 -8544000000 -7803000000
++Cost of Goods and Services -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Proceeds from Issuance of Common Stock -5806333333 -3360333333 -914333333
++1349355888 2024033776 75698871601 Information
++DALLAS TX 75235-8315
++Sales of Other Non-Current Assets
++Cost of Revenue -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Operating Income/Expenses -3640563636 -882445455 1875672727 4633790909 7391909091 10150027273 12908145455 15666263636
++Fiscal year end September 28th., 2022. | USD
++Cash and Cash Equivalents, Beginning of Period -13098000000 -26353000000 -4989999999
++Other Adjustments to Net Income Available to Common Stockholders
++Federal:
++Gross Pay 75698871601 Important Notes
++Cash Flow from Financing Activities -13997000000 -12740000000
++EMPLOYER IDENTIFICATION NUMBER: 61-1767920
++-1288666667 -885666667 -482666667
++Pretax Income -7187981818 -12156918182 -17125854545 -22094790909 -27063727273 -32032663636 -37001600000 -41970536364
++Reported Normalized and Operating Income/Expense Supplemental Section
++Reported Normalized Operating Profit
++Cash Flow Supplemental Section 181000000000) -146000000000) 110333333 123833333 137333333
++Interest Expense Net of Capitalized Interest 48654545 69900000 91145455 112390909 133636364 154881818 176127273 197372727
++Diluted Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income after Non-Controlling/Minority Interests -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Reported Effective Tax Rate 00001 00000 00000 00000 00000 00000
++Reported Normalized Diluted EPS
++Basic Weighted Average Shares Outstanding 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
++Diluted Weighted Average Shares Outstanding 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++Deposited to the account Of xxxxxxxx6548
++Purchase of Investments 16018900000 24471400000 32923900000 41376400000 49828900000
++Sale of Investments -64179300000 -79064600000 -93949900000 -108835200000 -123720500000
++ALPHABET
++CHECKING
++31622,6:39 PM
++GOOGL_income-statement_Quarterly_As_Originally_Reported Q4 2022
++Morningstar.com Intraday Fundamental Portfolio View Print Report Print
++Income/Loss before Non-Cash Adjustment 21353400000 21135400000 20917400000 20699400000 20481400000
++Cash Generated from Operating Activities 19636600000 18560200000 17483800000 16407400000 15331000000
++3/6/2022 at 6:37 PM
++Net Cash Flow from Continuing Operating Activities, Indirect 35231800000 36975800000 38719800000 40463800000 42207800000
++Cash and Cash Equivalents, End of Period
++Proceeds from Issuance/Exercising of Stock Options/Warrants -2971300000 -3400800000 -3830300000 -4259800000 -4689300000
++Cash Flow from Operating Activities, Indirect 24934000001 Q3 2022 Q2 2022 Q1 2022 Q4 2021
++Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Other Financing Cash Flow
++Total Adjustments for Non-Cash Items 20351200000 21992600000 23634000000 25275400000 26916800000
++Change in Other Current Assets -3290700000 -3779600000 -4268500000 -4757400000 -5246300000
++Depreciation, Amortization and Depletion, Non-Cash Adjustment 4986300000 5327600000 5668900000 6010200000 6351500000
++Change in Payables and Accrued Expenses -3298800000 -4719000000 -6139200000 -7559400000 -8979600000
++Repayments for Long Term Debt -117000000 -660800000 -1204600000 -1748400000 -2292200000
++Income Statement Supplemental Section
++Reported Normalized Income
++Cash and Cash Equivalents, Beginning of Period 25930000001 235000000000) 10384666667 15035166667 19685666667
++Net Income after Extraordinary Items and Discontinued Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income from Continuing Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Provision for Income Tax 1695218182 2565754545 3436290909 4306827273 5177363636 6047900000 6918436364 7788972727
++Total Operating Profit/Loss as Reported, Supplemental -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
++Based on facts as set forth in. 06551
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++ALPHABET INCOME Advice number: 000101
++ALPHABET
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++1601 AMPITHEATRE PARKWAY DR Period Ending:
++1601 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043 Calendar Year---
++Purchase/Sale and Disposal of Property, Plant and Equipment, Net -6772900000 -6485800000 -6198700000 -5911600000 -5624500000
++Purchase of Property, Plant and Equipment -5218300000 -4949800000 -4681300000 -4412800000 -4144300000
++Effect of Exchange Rate Changes 28459100000 29853400000 31247700000 32642000000 34036300000
++00000 -15109109116 111165509049 50433933761 50951012042 45733930204 40516848368 -84621400136 -96206781973
++00002 Earnings Statement
+On Monday, January 16, 2023 at 08:12:27 PM CST, ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
+
+
+PNC Alert <pncalert@pnc.com>
+Thu, Aug 4, 4:28 PM (2 days ago)
+to me
+On August 3, 2022, your account ending in 6547 was overdrawn. Below is some information about your overdraft. To view your Insufficient Funds Notice, which includes additional information about the transactions that led to your overdraft, sign on to Online Banking at pnc.com and select Documents.
+Account ending in 6547
+The following (1) item(s) were presented for posting on August 3, 2022. 1 transaction(s) were returned unpaid.
+Item Amount Action
+240261564036618 USATAXPYMTIRS $2,267,700.00 ITEM RETURNED - ACCOUNT CHARGE
+Net fee(s) totaling $36.00 will be charged on August 4, 2022.
+Please check the current balance of your account. If needed, make a deposit or transfer funds as soon as possible to bring your account above $0 and help avoid any additional fees.
+To help avoid this in the future, you can register for a PNC Alert to be notified when your account balance goes below an amount you specify. Or, you can sign up for Overdraft Protection to link your checking account to the available funds in another PNC account.
+Thank you fo choosing PNC Bank.
+Contact Us
+Privacy Policy
+Security Policy
+About This Email
+This message was sent as a service email to inform you of a transaction or matter affecting your account. Please do not reply to this email. If you need to communicate with us, visit pnc.com/customerservice for options to contact us. Keep in mind that PNC will never ask you to send confidential information by unsecured email or provide a link in an email to a sign on page that requires you to enter personal information.
+(C)2022 The PNC Financial Services Group, Inc. All rights reserved. PNC Bank, National Association. Member FDIC
+RDTROD02
+Important Notes
+COMPANY PH Y: 650-253-0000
+Statutory
+BASIS OF PAY: BASIC/DILUTED EPS
+Federal Income TaxSocial Security Tax
+YOUR BASIC/DILUTED EPS RATE HAS BEEN CHANGED FROM 0.001 TO 112.20 PAR SHARE VALUE
+Medicare TaxNet Pay70,842,743,86670,842,743,866CHECKINGNet Check70842743866Your federal taxable wages this period are $ALPHABET INCOME
+Advice number:
+1600 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043
+04/27/2022
+Deposited to the account Of
+xxxxxxxx6547
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+PNC Bank                                                                                                                                                                                                                                        
+PNC Bank Business Tax I.D. Number: 633441725                                
+CIF Department (Online Banking)                                                                                                                                                                                                                                        
+Checking Account: 47-2041-6547                                
+P7-PFSC-04-F                                                                                                                                                                                                                                        
+Business Type: Sole Proprietorship/Partnership Corporation                                
+500 First Avenue                                                                                                                                                                                                                                        
+ALPHABET                                
+Pittsburgh, PA 15219-3128                                                                                                                                                                                                                                        
+5323 BRADFORD DR                                
+NON-NEGOTIABLE                                                                                                                                                                                                                                        
+DALLAS TX 75235 8313                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                        ZACHRY, TYLER, WOOD                                                                                                                                                                                                                                                
+4/18/2022
+                       650-2530-000 469-697-4300                                                                                                                                                
+SIGNATURE
+Time Zone:                    
+Eastern Central Mountain Pacific                                                                                                                                                                                                            
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+NON-NEGOTIABLE
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+For Paperwork Reduction Act Notice, see the seperate Instructions.  
+ZACHRY TYLER WOOD
+Fed 941 Corporate3935566986.66
+Fed 941 West Subsidiary3935517115.41
+Fed 941 South Subsidiary3935523906.09
+Fed 941 East Subsidiary3935511247.64
+Fed 941 Corp - Penalty3935527198.5
+Fed 940 Annual Unemp - Corp3935517028.05
+9999999998 7305581 633-44-1725
+Taxes / Deductions Current YTD
+DoB: 1994-10-15
+April 18, 2022.7567263607
+WOOD ZACHRY Tax Period Total Social Security Medicare Withholding
+Pay Date: 44669____________________________________Q4 2020 Q4  2019                                                                                        
+Income Statement
+USD in "000'"s
+Repayments for Long Term Debt Dec. 31, 2020 Dec. 31, 2019
+Costs and expenses:
+Cost of revenues                     182527 161857
+Research and development
+Sales and marketing                   84732 71896
+General and administrative            27573 26018
+European Commission fines             17946 18464
+Total costs and expenses              11052 9551
+Income from operations                    0 1697
+Other income (expense), net          141303 127626
+Income before income taxes            41224 34231
+Provision for income taxes   29093823907100 5394
+Net income
+ **include interest paid, capital obligation, and underweighting                              22677000000 19289000000
+                   22677000000                        19289000000                                                              
+Daily Balance continued on next page                                                                
+Date                                                                
+8/3        2,267,700.00        ACH Web Usataxpymt IRS 240461564036618 000022214903782823
+8/8                   Corporate ACH Acctverify Roll By ADP 00022217906234115
+8/10                 ACH Web Businessform Deluxeforbusiness 5072270 00022222905832355
+8/11                 Corporate Ach Veryifyqbw Intuit 00022222909296656
+8/12                 Corporate Ach Veryifyqbw Intuit 00022223912710109                                                              
+Service Charges and Fees Reference
+Date posted number
+8/1 10 Service Charge Period Ending 07/29.2022                                                
+8/4 36 Returned Item Fee (nsf) (00022214903782823)
+8/11 36 Returned Item Fee (nsf) (00022222905832355)
+INCOME STATEMENT
+NASDAQ:GOOG TTM Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020 Q3 2020 Q2 2020                                                                
+Gross Profit 1.46698E+11 42337000000 37497000000 35653000000 31211000000 30818000000 25056000000 19744000000
+Total Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000
+2.21169E+13 5/25/22
+Basic WASO 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
+Taxable Marital Status:
+Exemptions/Allowances Single ZACHRY T.
+Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
+Total Work Hrs
+COMPANY PH Y: 650-253-0001
+5324 BRADFORD DR
+ORIGINAL REPORT
+Change in Trade/Accounts Receivable -1122700000 -527600000 67500000 662600000 1257700000
+Purchase/Sale of Other Non-Current Assets, Net -236000000 -368800000 -501600000 -634400000
+Other Non-Cash Items -5340300000 -6249200000 -7158100000 -8067000000 -8975900000
+Amortization, Non-Cash Adjustment 4241600000 4848600000 5455600000 6062600000 6669600000
+Income, Rents, & Royalty
+Other Investing Cash Flow 49209400000 57052800000 64896200000 72739600000 80583000000
+Other Irregular Income/Expenses 00000 00000 00000 00000 00000
+Irregular Income/Expenses 00000 00000 00000 00000 00000
+Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
+Net Investment Income -2096781818 -2909109091 -3721436364 -4533763636 -5346090909 -6158418182 -6970745455 -7783072727
+Gain/Loss on Foreign Exchange 47654545 66854545 86054545 105254546 124454546 143654546 162854546 182054546
+Cash Flow from Investing Activities -11015999999
+Purchase/Sale of Investments, Net 574500000 1229400000 1884300000 2539200000 3194100000
+Purchase/Sale of Business, Net -384999999
+Basic EPS from Continuing Operations -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
+Change in Trade and Other Receivables 2617900000 3718200000 4818500000 5918800000 7019100000
+Investment Income/Loss, Non-Cash Adjustment 3081700000 4150000000 5218300000 6286600000 7354900000
+Stock-Based Compensation, Non-Cash Adjustment -1297700000 -2050400000 -2803100000 -3555800000 -4308500000
+Depreciation and Amortization, Non-Cash Adjustment 3239500000 3241600000 3243700000 3245800000 3247900000
+Taxes, Non-Cash Adjustment 4177700000 4486200000 4794700000 5103200000 5411700000
+Depreciation, Non-Cash Adjustment 3329100000 3376000000 3422900000 3469800000 3516700000
+Gain/Loss on Financial Instruments, Non-Cash Adjustment -4354700000 -4770800000 -5186900000 -5603000000 -6019100000
+[DRAFT FORM OF TAX OPINION]
+Issuance of/Repayments for Debt, Net -199000000 -356000000
+Total Operating Profit/Loss -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
+Cash Flow from Continuing Investing Activities -4919700000 -3706000000 -2492300000 -1278600000 -64900000
+Change in Prepayments and Deposits -388000000 -891600000 -1395200000 -1898800000
+Change in Accrued Expenses -2105200000 -3202000000 -4298800000 -5395600000 -6492400000
+Research and Development Expenses -2088363636 -853500000 381363636 1616227273 2851090909 4085954545 5320818182 6555681818
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+FEDERAL RESERVE MASTER SUPPLIER ACCOUNT31000053-052101023COD
+633-44-1725Zachryiixixiiiwood@gmail.com47-2041-654711100061431000053
+PNC BankPNC Bank Business Tax I.D. Number: 633441725
+CIF Department (Online Banking)Checking Account: 47-2041-6547
+P7-PFSC-04-FBusiness Type: Sole Proprietorship/Partnership Corporation
+500 First AvenueALPHABET
+Pittsburgh, PA 15219-31285323 BRADFORD DR
+NON-NEGOTIABLEDALLAS TX 75235 8313
+ZACHRY, TYLER, WOOD
+4/18/2022650-2530-000 469-697-4300
+SIGNATURETime Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+Change in Trade/Accounts Payable -233200000 -394000000 -554800000 -715600000 -876400000
+General and Administrative Expenses -544945455 23200000 591345455 1159490909 1727636364 2295781818 2863927273 3432072727
+Changes in Operating Capital 1068100000 1559600000 2051100000 2542600000 3034100000
+Selling and Marketing Expenses -1007254545 -52145455 902963636 1858072727 2813181818 3768290909 4723400000 5678509091
+Payments for Common Stock -18708100000 -22862000000 -27015900000 -31169800000 -35323700000
+Proceeds from Issuance of Long Term Debt -3407500000 -5307600000 -7207700000 -9107800000 -11007900000
+Other Income/Expense, Non-Operating 263109091 367718182 472327273 576936364 681545455 786154546 890763636 995372727
+ZACHRY T WOOD
+88-1303492
+Statutory BASIS OF PAY: BASIC/DILUTED EPS
+Net Pay 70842743867 70842743867
+Other Revenue
+Non-Operating Income/Expenses, Total -1369181818 -2079000000 -2788818182 -3498636364 -4208454545 -4918272727 -5628090909 -6337909091
+Net Interest Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Total Net Finance Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Issuance of/Repayments for Long Term Debt, Net -314300000 -348200000 -382100000 -416000000 -449900000
+Net Check 70842743867
+Basic EPS from Discontinued Operations
+MOUNTAIN VIEW, C.A., 94044 Pay Date:
+Medicare Tax
+Change in Other Operating Capital 1553900000 2255600000 2957300000 3659000000 4360700000
+Change in Deferred Assets/Liabilities 3194700000 3626800000 4058900000 4491000000 4923100000
+Change in Trade and Other Payables 3108700000 3453600000 3798500000 4143400000 4488300000
+Selling, General and Administrative Expenses -1552200000 -28945455 1494309091 3017563636 4540818182 6064072727 7587327273 9110581818
+Diluted WASO 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++1957800000 -9776581818 -21510963636 -33245345455 -44979727273 -56714109091 -68448490909 -80182872727
++Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
++Diluted EPS from Continuing Operations -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Change in Cash 00001 -280000000 -570000000 338000000000)
++Sale and Disposal of Property, Plant and Equipment -5040500000 -4683100000 -4325700000 -3968300000
++Interest Income 415836364 392490909 369145455 345800000 322454546 299109091 275763636 252418182
++Issuance of/Payments for Common Stock, Net -10767000000 -10026000000 -9285000000 -8544000000 -7803000000
++Cost of Goods and Services -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Proceeds from Issuance of Common Stock -5806333333 -3360333333 -914333333
++1349355888 2024033776 75698871601 Information
++DALLAS TX 75235-8315
++Sales of Other Non-Current Assets
++Cost of Revenue -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Operating Income/Expenses -3640563636 -882445455 1875672727 4633790909 7391909091 10150027273 12908145455 15666263636
++Fiscal year end September 28th., 2022. | USD
++Cash and Cash Equivalents, Beginning of Period -13098000000 -26353000000 -4989999999
++Other Adjustments to Net Income Available to Common Stockholders
++Federal:
++Gross Pay 75698871601 Important Notes
++Cash Flow from Financing Activities -13997000000 -12740000000
++EMPLOYER IDENTIFICATION NUMBER: 61-1767920
++-1288666667 -885666667 -482666667
++Pretax Income -7187981818 -12156918182 -17125854545 -22094790909 -27063727273 -32032663636 -37001600000 -41970536364
++Reported Normalized and Operating Income/Expense Supplemental Section
++Reported Normalized Operating Profit
++Cash Flow Supplemental Section 181000000000) -146000000000) 110333333 123833333 137333333
++Interest Expense Net of Capitalized Interest 48654545 69900000 91145455 112390909 133636364 154881818 176127273 197372727
++Diluted Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income after Non-Controlling/Minority Interests -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Reported Effective Tax Rate 00001 00000 00000 00000 00000 00000
++Reported Normalized Diluted EPS
++Basic Weighted Average Shares Outstanding 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
++Diluted Weighted Average Shares Outstanding 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++Deposited to the account Of xxxxxxxx6548
++Purchase of Investments 16018900000 24471400000 32923900000 41376400000 49828900000
++Sale of Investments -64179300000 -79064600000 -93949900000 -108835200000 -123720500000
++ALPHABET
++CHECKING
++31622,6:39 PM
++GOOGL_income-statement_Quarterly_As_Originally_Reported Q4 2022
++Morningstar.com Intraday Fundamental Portfolio View Print Report Print
++Income/Loss before Non-Cash Adjustment 21353400000 21135400000 20917400000 20699400000 20481400000
++Cash Generated from Operating Activities 19636600000 18560200000 17483800000 16407400000 15331000000
++3/6/2022 at 6:37 PM
++Net Cash Flow from Continuing Operating Activities, Indirect 35231800000 36975800000 38719800000 40463800000 42207800000
++Cash and Cash Equivalents, End of Period
++Proceeds from Issuance/Exercising of Stock Options/Warrants -2971300000 -3400800000 -3830300000 -4259800000 -4689300000
++Cash Flow from Operating Activities, Indirect 24934000001 Q3 2022 Q2 2022 Q1 2022 Q4 2021
++Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Other Financing Cash Flow
++Total Adjustments for Non-Cash Items 20351200000 21992600000 23634000000 25275400000 26916800000
++Change in Other Current Assets -3290700000 -3779600000 -4268500000 -4757400000 -5246300000
++Depreciation, Amortization and Depletion, Non-Cash Adjustment 4986300000 5327600000 5668900000 6010200000 6351500000
++Change in Payables and Accrued Expenses -3298800000 -4719000000 -6139200000 -7559400000 -8979600000
++Repayments for Long Term Debt -117000000 -660800000 -1204600000 -1748400000 -2292200000
++Income Statement Supplemental Section
++Reported Normalized Income
++Cash and Cash Equivalents, Beginning of Period 25930000001 235000000000) 10384666667 15035166667 19685666667
++Net Income after Extraordinary Items and Discontinued Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income from Continuing Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Provision for Income Tax 1695218182 2565754545 3436290909 4306827273 5177363636 6047900000 6918436364 7788972727
++Total Operating Profit/Loss as Reported, Supplemental -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
++Based on facts as set forth in. 06551
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++ALPHABET INCOME Advice number: 000101
++ALPHABET
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++1601 AMPITHEATRE PARKWAY DR Period Ending:
++1601 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043 Calendar Year---
++Purchase/Sale and Disposal of Property, Plant and Equipment, Net -6772900000 -6485800000 -6198700000 -5911600000 -5624500000
++Purchase of Property, Plant and Equipment -5218300000 -4949800000 -4681300000 -4412800000 -4144300000
++Effect of Exchange Rate Changes 28459100000 29853400000 31247700000 32642000000 34036300000
++00000 -15109109116 111165509049 50433933761 50951012042 45733930204 40516848368 -84621400136 -96206781973
++00002 Earnings Statement
+
+
+Zachry T. Wood
+12:02 AM (3 hours ago)
+On Monday, January 16, 2023 at 08:12:27 PM CST, ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote: PNC Alert <pncalert@pnc.com> Thu, Aug 4, 4:28 PM (2 days ago) t
+
+ZACHRY WOOD <zachryiixixiiwood@gmail.com>
+8:00 AM
+to me, PNC
+
+Send scheduled for 8:00 AM
+Cancel send
+
+
+---------- Forwarded message ---------
+From: Zachry T. Wood <zachryiixixiiwood@gmail.com>
+Date: Tue, Jan 17, 2023 at 12:02 AM
+Subject: Re: PNC Alert <pncalert@pnc.com> Thu, Aug 4, 4:28 PM (2 days ago) to me On August 3, 2022, your account ending in 6547 was...
+To: PNC Alerts <pncalerts@pnc.com>, ZACHRY WOOD <zachryiixixiiwood@gmail.com>
+
+
+
+
+On Monday, January 16, 2023 at 08:12:27 PM CST, ZACHRY WOOD <zachryiixixiiwood@gmail.com> wrote:
+
+1                Earnings Statement                                        A
+                                                                                                        ALPHABET
+                                                                        Period Beginning:                        37151                
+1600 AMPITHEATRE PARKWAY                         DR                                        Period Ending:                        44833                
+MOUNTAIN VIEW, C.A., 94043                                                                 Pay Date:                        44591                
+"Taxable Marital Status: Net Pay                70842743866                70842743866                                                                        
+CHECKING                                                                                                                
+Net Check                70842743866                                                                                                
+Your federal taxable wages this period are $                                                                                                        
+ALPHABET INCOME                                                                Advice number:                        650001                
+1600 AMPIHTHEATRE  PARKWAY MOUNTAIN VIEW CA 94043                                                                Pay date:_                        44669                
+Deposited to the account Of                                                                xxxxxxxx6547                        transit ABA                
+"PLEASE READ THE IMPORTANT DISCLOSURES BELOW  
+        20210418                                                                                                                                
+EIN: 61-1767919        ID : 00037305581         SSN: 633441725                                                                                                                        
+        Gross                                                                                                                                
+        70842745000        Earnings Statement                                                                                                                        
+        Taxes / Deductions        Stub Number: 1                                                                                                                        
+        0                                                                                                                                
+        Net Pay        SSN        Pay Schedule        Pay Period        Sep 28, 2022 to Sep 29, 2023        Pay Date        4/18/2022                                                                                
+       Rate        Units        Total        YTD        Taxes / Deductions        Current        YTD                                                                        
+                -        -        70842745000        70842745000        Federal Withholding        0        0                                                                        
+                                                FICA - Social Security        0        8853.6                                                                        
+                                                FICA - Medicare        0        0                                                                        
+                                                Employer Taxes                                                                                        
+                                                FUTA        0        0                                                                        
+                                                SUTA        0        0        70842745000        XXX-XX-1725        AnnuallyPNC Alert <pncalert@pnc.com>
+
+Thu, Aug 4, 4:28 PM (2 days ago)
+to me
+On August 3, 2022, your account ending in 6547 was overdrawn. Below is some information about your overdraft. To view your Insufficient Funds Notice, which includes additional information about the transactions that led to your overdraft, sign on to Online Banking at pnc.com and select Documents.
+Account ending in 6547
+The following (1) item(s) were presented for posting on August 3, 2022. 1 transaction(s) were returned unpaid.
+Item Amount Action
+240261564036618 USATAXPYMTIRS $2,267,700.00 ITEM RETURNED - ACCOUNT CHARGE
+Net fee(s) totaling $36.00 will be charged on August 4, 2022.
+Please check the current balance of your account. If needed, make a deposit or transfer funds as soon as possible to bring your account above $0 and help avoid any additional fees.
+To help avoid this in the future, you can register for a PNC Alert to be notified when your account balance goes below an amount you specify. Or, you can sign up for Overdraft Protection to link your checking account to the available funds in another PNC account.
+Thank you fo choosing PNC Bank.
+Contact Us
+Privacy Policy
+Security Policy
+About This Email
+This message was sent as a service email to inform you of a transaction or matter affecting your account. Please do not reply to this email. If you need to communicate with us, visit pnc.com/customerservice for options to contact us. Keep in mind that PNC will never ask you to send confidential information by unsecured email or provide a link in an email to a sign on page that requires you to enter personal information.
+(C)2022 The PNC Financial Services Group, Inc. All rights reserved. PNC Bank, National Association. Member FDIC
+RDTROD02
+Important Notes
+COMPANY PH Y: 650-253-0000
+Statutory
+BASIS OF PAY: BASIC/DILUTED EPS
+Federal Income TaxSocial Security Tax
+YOUR BASIC/DILUTED EPS RATE HAS BEEN CHANGED FROM 0.001 TO 112.20 PAR SHARE VALUE
+Medicare TaxNet Pay70,842,743,86670,842,743,866CHECKINGNet Check70842743866Your federal taxable wages this period are $ALPHABET INCOME
+Advice number:
+1600 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043
+04/27/2022
+Deposited to the account Of
+xxxxxxxx6547
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+PNC Bank                                                                                                                                                                                                                                        
+PNC Bank Business Tax I.D. Number: 633441725                                
+CIF Department (Online Banking)                                                                                                                                                                                                                                        
+Checking Account: 47-2041-6547                                
+P7-PFSC-04-F                                                                                                                                                                                                                                        
+Business Type: Sole Proprietorship/Partnership Corporation                                
+500 First Avenue                                                                                                                                                                                                                                        
+ALPHABET                                
+Pittsburgh, PA 15219-3128                                                                                                                                                                                                                                        
+5323 BRADFORD DR                                
+NON-NEGOTIABLE                                                                                                                                                                                                                                        
+DALLAS TX 75235 8313                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                        ZACHRY, TYLER, WOOD                                                                                                                                                                                                                                                
+4/18/2022
+                       650-2530-000 469-697-4300                                                                                                                                                
+SIGNATURE
+Time Zone:                    
+Eastern Central Mountain Pacific                                                                                                                                                                                                            
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+NON-NEGOTIABLE
+Basic net income per share of Class A and B common stock and Class C capital stock (in dollars par share)
+Diluted net income per share of Class A and Class B common stock and Class C capital stock (in dollars par share)
+For Paperwork Reduction Act Notice, see the seperate Instructions.  
+ZACHRY TYLER WOOD
+Fed 941 Corporate3935566986.66
+Fed 941 West Subsidiary3935517115.41
+Fed 941 South Subsidiary3935523906.09
+Fed 941 East Subsidiary3935511247.64
+Fed 941 Corp - Penalty3935527198.5
+Fed 940 Annual Unemp - Corp3935517028.05
+9999999998 7305581 633-44-1725
+Taxes / Deductions Current YTD
+DoB: 1994-10-15
+April 18, 2022.7567263607
+WOOD ZACHRY Tax Period Total Social Security Medicare Withholding
+Pay Date: 44669____________________________________Q4 2020 Q4  2019                                                                                        
+Income Statement
+USD in "000'"s
+Repayments for Long Term Debt Dec. 31, 2020 Dec. 31, 2019
+Costs and expenses:
+Cost of revenues                     182527 161857
+Research and development
+Sales and marketing                   84732 71896
+General and administrative            27573 26018
+European Commission fines             17946 18464
+Total costs and expenses              11052 9551
+Income from operations                    0 1697
+Other income (expense), net          141303 127626
+Income before income taxes            41224 34231
+Provision for income taxes   29093823907100 5394
+Net income
+ **include interest paid, capital obligation, and underweighting                              22677000000 19289000000
+                   22677000000                        19289000000                                                              
+Daily Balance continued on next page                                                                
+Date                                                                
+8/3        2,267,700.00        ACH Web Usataxpymt IRS 240461564036618 000022214903782823
+8/8                   Corporate ACH Acctverify Roll By ADP 00022217906234115
+8/10                 ACH Web Businessform Deluxeforbusiness 5072270 00022222905832355
+8/11                 Corporate Ach Veryifyqbw Intuit 00022222909296656
+8/12                 Corporate Ach Veryifyqbw Intuit 00022223912710109                                                              
+Service Charges and Fees Reference
+Date posted number
+8/1 10 Service Charge Period Ending 07/29.2022                                                
+8/4 36 Returned Item Fee (nsf) (00022214903782823)
+8/11 36 Returned Item Fee (nsf) (00022222905832355)
+INCOME STATEMENT
+NASDAQ:GOOG TTM Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020 Q3 2020 Q2 2020                                                                
+Gross Profit 1.46698E+11 42337000000 37497000000 35653000000 31211000000 30818000000 25056000000 19744000000
+Total Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000
+2.21169E+13 5/25/22
+Basic WASO 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
+Taxable Marital Status:
+Exemptions/Allowances Single ZACHRY T.
+Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
+Total Work Hrs
+COMPANY PH Y: 650-253-0001
+5324 BRADFORD DR
+ORIGINAL REPORT
+Change in Trade/Accounts Receivable -1122700000 -527600000 67500000 662600000 1257700000
+Purchase/Sale of Other Non-Current Assets, Net -236000000 -368800000 -501600000 -634400000
+Other Non-Cash Items -5340300000 -6249200000 -7158100000 -8067000000 -8975900000
+Amortization, Non-Cash Adjustment 4241600000 4848600000 5455600000 6062600000 6669600000
+Income, Rents, & Royalty
+Other Investing Cash Flow 49209400000 57052800000 64896200000 72739600000 80583000000
+Other Irregular Income/Expenses 00000 00000 00000 00000 00000
+Irregular Income/Expenses 00000 00000 00000 00000 00000
+Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
+Net Investment Income -2096781818 -2909109091 -3721436364 -4533763636 -5346090909 -6158418182 -6970745455 -7783072727
+Gain/Loss on Foreign Exchange 47654545 66854545 86054545 105254546 124454546 143654546 162854546 182054546
+Cash Flow from Investing Activities -11015999999
+Purchase/Sale of Investments, Net 574500000 1229400000 1884300000 2539200000 3194100000
+Purchase/Sale of Business, Net -384999999
+Basic EPS from Continuing Operations -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
+Change in Trade and Other Receivables 2617900000 3718200000 4818500000 5918800000 7019100000
+Investment Income/Loss, Non-Cash Adjustment 3081700000 4150000000 5218300000 6286600000 7354900000
+Stock-Based Compensation, Non-Cash Adjustment -1297700000 -2050400000 -2803100000 -3555800000 -4308500000
+Depreciation and Amortization, Non-Cash Adjustment 3239500000 3241600000 3243700000 3245800000 3247900000
+Taxes, Non-Cash Adjustment 4177700000 4486200000 4794700000 5103200000 5411700000
+Depreciation, Non-Cash Adjustment 3329100000 3376000000 3422900000 3469800000 3516700000
+Gain/Loss on Financial Instruments, Non-Cash Adjustment -4354700000 -4770800000 -5186900000 -5603000000 -6019100000
+[DRAFT FORM OF TAX OPINION]
+Issuance of/Repayments for Debt, Net -199000000 -356000000
+Total Operating Profit/Loss -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
+Cash Flow from Continuing Investing Activities -4919700000 -3706000000 -2492300000 -1278600000 -64900000
+Change in Prepayments and Deposits -388000000 -891600000 -1395200000 -1898800000
+Change in Accrued Expenses -2105200000 -3202000000 -4298800000 -5395600000 -6492400000
+Research and Development Expenses -2088363636 -853500000 381363636 1616227273 2851090909 4085954545 5320818182 6555681818
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+FEDERAL RESERVE MASTER SUPPLIER ACCOUNT31000053-052101023COD
+633-44-1725Zachryiixixiiiwood@gmail.com47-2041-654711100061431000053
+PNC BankPNC Bank Business Tax I.D. Number: 633441725
+CIF Department (Online Banking)Checking Account: 47-2041-6547
+P7-PFSC-04-FBusiness Type: Sole Proprietorship/Partnership Corporation
+500 First AvenueALPHABET
+Pittsburgh, PA 15219-31285323 BRADFORD DR
+NON-NEGOTIABLEDALLAS TX 75235 8313
+ZACHRY, TYLER, WOOD
+4/18/2022650-2530-000 469-697-4300
+SIGNATURETime Zone: Eastern Central Mountain Pacific
+Investment Products  • Not FDIC Insured  • No Bank Guarantee  • May Lose Value
+PLEASE READ THE IMPORTANT DISCLOSURES BELOW
+Change in Trade/Accounts Payable -233200000 -394000000 -554800000 -715600000 -876400000
+General and Administrative Expenses -544945455 23200000 591345455 1159490909 1727636364 2295781818 2863927273 3432072727
+Changes in Operating Capital 1068100000 1559600000 2051100000 2542600000 3034100000
+Selling and Marketing Expenses -1007254545 -52145455 902963636 1858072727 2813181818 3768290909 4723400000 5678509091
+Payments for Common Stock -18708100000 -22862000000 -27015900000 -31169800000 -35323700000
+Proceeds from Issuance of Long Term Debt -3407500000 -5307600000 -7207700000 -9107800000 -11007900000
+Other Income/Expense, Non-Operating 263109091 367718182 472327273 576936364 681545455 786154546 890763636 995372727
+ZACHRY T WOOD
+88-1303492
+Statutory BASIS OF PAY: BASIC/DILUTED EPS
+Net Pay 70842743867 70842743867
+Other Revenue
+Non-Operating Income/Expenses, Total -1369181818 -2079000000 -2788818182 -3498636364 -4208454545 -4918272727 -5628090909 -6337909091
+Net Interest Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Total Net Finance Income/Expense 464490909 462390909 460290909 458190909 456090909 453990909 451890909 449790909
+Issuance of/Repayments for Long Term Debt, Net -314300000 -348200000 -382100000 -416000000 -449900000
+Net Check 70842743867
+Basic EPS from Discontinued Operations
+MOUNTAIN VIEW, C.A., 94044 Pay Date:
+Medicare Tax
+Change in Other Operating Capital 1553900000 2255600000 2957300000 3659000000 4360700000
+Change in Deferred Assets/Liabilities 3194700000 3626800000 4058900000 4491000000 4923100000
+Change in Trade and Other Payables 3108700000 3453600000 3798500000 4143400000 4488300000
+Selling, General and Administrative Expenses -1552200000 -28945455 1494309091 3017563636 4540818182 6064072727 7587327273 9110581818
+Diluted WASO 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++1957800000 -9776581818 -21510963636 -33245345455 -44979727273 -56714109091 -68448490909 -80182872727
++Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909
++Diluted EPS from Continuing Operations -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Change in Cash 00001 -280000000 -570000000 338000000000)
++Sale and Disposal of Property, Plant and Equipment -5040500000 -4683100000 -4325700000 -3968300000
++Interest Income 415836364 392490909 369145455 345800000 322454546 299109091 275763636 252418182
++Issuance of/Payments for Common Stock, Net -10767000000 -10026000000 -9285000000 -8544000000 -7803000000
++Cost of Goods and Services -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Proceeds from Issuance of Common Stock -5806333333 -3360333333 -914333333
++1349355888 2024033776 75698871601 Information
++DALLAS TX 75235-8315
++Sales of Other Non-Current Assets
++Cost of Revenue -891927273 4189690909 9271309091 14352927273 19434545455 24516163636 29597781818 34679400000
++Operating Income/Expenses -3640563636 -882445455 1875672727 4633790909 7391909091 10150027273 12908145455 15666263636
++Fiscal year end September 28th., 2022. | USD
++Cash and Cash Equivalents, Beginning of Period -13098000000 -26353000000 -4989999999
++Other Adjustments to Net Income Available to Common Stockholders
++Federal:
++Gross Pay 75698871601 Important Notes
++Cash Flow from Financing Activities -13997000000 -12740000000
++EMPLOYER IDENTIFICATION NUMBER: 61-1767920
++-1288666667 -885666667 -482666667
++Pretax Income -7187981818 -12156918182 -17125854545 -22094790909 -27063727273 -32032663636 -37001600000 -41970536364
++Reported Normalized and Operating Income/Expense Supplemental Section
++Reported Normalized Operating Profit
++Cash Flow Supplemental Section 181000000000) -146000000000) 110333333 123833333 137333333
++Interest Expense Net of Capitalized Interest 48654545 69900000 91145455 112390909 133636364 154881818 176127273 197372727
++Diluted Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income Available to Common Stockholders -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income after Non-Controlling/Minority Interests -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Reported Effective Tax Rate 00001 00000 00000 00000 00000 00000
++Reported Normalized Diluted EPS
++Basic Weighted Average Shares Outstanding 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773
++Diluted Weighted Average Shares Outstanding 698675982 701033009 703390036 705747064 708104091 710461118 712818146 715175173
++Deposited to the account Of xxxxxxxx6548
++Purchase of Investments 16018900000 24471400000 32923900000 41376400000 49828900000
++Sale of Investments -64179300000 -79064600000 -93949900000 -108835200000 -123720500000
++ALPHABET
++CHECKING
++31622,6:39 PM
++GOOGL_income-statement_Quarterly_As_Originally_Reported Q4 2022
++Morningstar.com Intraday Fundamental Portfolio View Print Report Print
++Income/Loss before Non-Cash Adjustment 21353400000 21135400000 20917400000 20699400000 20481400000
++Cash Generated from Operating Activities 19636600000 18560200000 17483800000 16407400000 15331000000
++3/6/2022 at 6:37 PM
++Net Cash Flow from Continuing Operating Activities, Indirect 35231800000 36975800000 38719800000 40463800000 42207800000
++Cash and Cash Equivalents, End of Period
++Proceeds from Issuance/Exercising of Stock Options/Warrants -2971300000 -3400800000 -3830300000 -4259800000 -4689300000
++Cash Flow from Operating Activities, Indirect 24934000001 Q3 2022 Q2 2022 Q1 2022 Q4 2021
++Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051
++Other Financing Cash Flow
++Total Adjustments for Non-Cash Items 20351200000 21992600000 23634000000 25275400000 26916800000
++Change in Other Current Assets -3290700000 -3779600000 -4268500000 -4757400000 -5246300000
++Depreciation, Amortization and Depletion, Non-Cash Adjustment 4986300000 5327600000 5668900000 6010200000 6351500000
++Change in Payables and Accrued Expenses -3298800000 -4719000000 -6139200000 -7559400000 -8979600000
++Repayments for Long Term Debt -117000000 -660800000 -1204600000 -1748400000 -2292200000
++Income Statement Supplemental Section
++Reported Normalized Income
++Cash and Cash Equivalents, Beginning of Period 25930000001 235000000000) 10384666667 15035166667 19685666667
++Net Income after Extraordinary Items and Discontinued Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Net Income from Continuing Operations -5492763636 -9591163636 -13689563636 -17787963636 -21886363636 -25984763636 -30083163636 -34181563636
++Provision for Income Tax 1695218182 2565754545 3436290909 4306827273 5177363636 6047900000 6918436364 7788972727
++Total Operating Profit/Loss as Reported, Supplemental -5818800000 -10077918182 -14337036364 -18596154545 -22855272727 -27114390909 -31373509091 -35632627273
++Based on facts as set forth in. 06551
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++ALPHABET INCOME Advice number: 000101
++ALPHABET
++Basic EPS -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052
++1601 AMPITHEATRE PARKWAY DR Period Ending:
++1601 AMPIHTHEATRE PARKWAY MOUNTAIN VIEW CA 94043 Calendar Year---
++Purchase/Sale and Disposal of Property, Plant and Equipment, Net -6772900000 -6485800000 -6198700000 -5911600000 -5624500000
++Purchase of Property, Plant and Equipment -5218300000 -4949800000 -4681300000 -4412800000 -4144300000
++Effect of Exchange Rate Changes 28459100000 29853400000 31247700000 32642000000 34036300000
++00000 -15109109116 111165509049 50433933761 50951012042 45733930204 40516848368 -84621400136 -96206781973
++00002 Earnings Statement
+
+Displaying Account List Report.pdf. Page 1 of 1
 # Syntax: ./github-debian.sh [version]
 CLI_VERSION=${1:-"latest"}
 set -exit(!) :
-
 if [ "$(id -u)" -ne 0 ]; then
     echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
     exit 1
 fi
-
 export DEBIAN_FRONTEND=noninteractive
-
 # Install curl, apt-transport-https or gpg if missing
 if ! dpkg -s curl ca-certificates > /dev/null 2>&1; then
     if [ ! -d "/var/lib/apt/lists" ] || [ "$(ls /var/lib/apt/lists/ | wc -l)" = "0" ]; then
@@ -23,7 +863,6 @@ if ! dpkg -s curl ca-certificates > /dev/null 2>&1; then
     fi
     apt-get -y install --no-install-recommends curl ca-certificates
 fi
-
 # Get latest release number if latest is specified
 if [ "${CLI_VERSION}" = "latest" ] ||  [ "${CLI_VERSION}" = "current" ] ||  [ "${CLI_VERSION}" = "lts" ]; then
     LATEST_RELEASE=$(curl -sSL -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/cli/cli/releases?per_page=1&page=1")
