@@ -9,11 +9,11 @@ featuredLinks:
     - /code-security/getting-started/securing-your-repository
     - /code-security/getting-started/securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
-    - '{% ifversion ghes or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository{% endif%}'
+    - '{% ifversion ghes or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository{% endif%}'
   guideCards:
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates{% endif %}'
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates{% endif %}'
-    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository{% endif %}'
     - '{% ifversion ghes < 3.3 %}/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository{% endif %}'
     - '{% ifversion ghes < 3.3 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
     - '{% ifversion ghes < 3.3 or ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
@@ -59,4 +59,3 @@ children:
   - /security-overview
   - /guides
 ---
-
