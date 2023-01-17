@@ -10,49 +10,39 @@
 'getting..., :','' '"-'' 'started'' ':'-on','' '"BEGIN'"'' 
 '"'-' with' container'.ios"''
 'Name':' 'paradice''
-'"'#'"'' ':'' 'Controls when the workflows_call:-on: disoatch-will: R=::Run::/:Run::-Runs:runs:-on:run:
-'-on':''
+'3'.0'.7rc1''
+'-' with':''
+'A list of files, directories, and wildcard patterns to cache and restore
+'path:
+'An explicit key for restoring and saving the cache
+'key:
+'An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note cache-hit returns false in this case.
+'restore-keys: # optional
+'The chunk size used to split up large files during upload, in bytes
+'upload-chunk-size: # optional
+'Allows you to run this workflow manually from the Actions tab
+'workflow_dispatch:
+'A workflow run is made up of one or more jobs that can run sequentially or in parallel
+'jobs:
+'#'This workflow contains a single job called "build"
+'build_script':''
+'# The type of runner that the job will run on
+'runs-on: ubuntu-latest
+'#'Step' ':#'Represent 'a 'sequence 'of 'tasks'' that will be executed as part of the job
+'steps:
+  '# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  '- uses: actions/checkout@v3
 
-Triggers the workflow on push or pull request events but only for the "paradice" branch
-push: "[ "Batt" ]
-pull_request:
-branches: [ "bitore.sig" ]
+  '# Runs a single command using the runners shell
+  '- name: Run a one-line script
+    '- ''Run: echo Hello, world!
 
-name: Cache
-uses: actions/cache@v3.0.7
-with:
-A list of files, directories, and wildcard patterns to cache and restore
-path:
-An explicit key for restoring and saving the cache
-key:
-An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note cache-hit returns false in this case.
-restore-keys: # optional
-The chunk size used to split up large files during upload, in bytes
-upload-chunk-size: # optional
-Allows you to run this workflow manually from the Actions tab
-workflow_dispatch:
-A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-
-This workflow contains a single job called "build"
-build:
-# The type of runner that the job will run on
-runs-on: ubuntu-latest
-
-# Steps represent a sequence of tasks that will be executed as part of the job
-steps:
-  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  - uses: actions/checkout@v3
-
-  # Runs a single command using the runners shell
-  - name: Run a one-line script
-    run: echo Hello, world!
-
-  # Runs a set of commands using the runners shell
-  - name: Run a multi-line script
-    run: |
-      echo Add other actions to build,
-      echo test, and deploy your project. to content :<article id="content" data-locale="en-US" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; display: block; color: rgb(60, 66, 87); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Ubuntu, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><div class="Document" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px;"><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);"><a href="https://stripe.com/docs/api/errors" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px 20px 0px 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none; position: relative; display: inline-block;">HTTP response code</a>. To learn more ways to manage your API keys, see<span> </span><a href="https://stripe.com/docs/development/dashboard/manage-api-keys" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none;">Manage API keys</a>.</p><h2 class="Heading Heading--anchored" id="test-live-modes" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 32px 0px 0px; border: 0px; font-weight: 700; color: var(--sail-color-gray-900); cursor: pointer; position: relative; display: flex; flex-direction: row; align-items: center;">Test and live modes overview</h2><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);">All Stripe API requests occur in either test or live mode. API objects in one mode (for example, product objects) aren’t accessible to the other.</p><div class="Table Table--striped Table--fixed Box-root Padding-vertical--12" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--sail-spacing-12); padding-right: 0px; padding-bottom: var(--sail-spacing-12); padding-left: 0px; border: 0px; width: 770px; max-width: 100%; border-collapse: collapse; overflow-x: auto; position: relative;">
+  '#'Runs 'a set of commands using the runners shell
+  '- 'Name': 'Run a multi-line script
+   'run'-on':'' |
+   'Echo 'Add 'other 'actions 'to 'build','' :
+:  'Echo '#'Test'@ci ':''
+  : '#'Deployee 'your 'project. to content :<article id="content" data-locale="en-US" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; display: block; color: rgb(60, 66, 87); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Ubuntu, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><div class="Document" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px;"><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);"><a href="https://stripe.com/docs/api/errors" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px 20px 0px 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none; position: relative; display: inline-block;">HTTP response code</a>. To learn more ways to manage your API keys, see<span> </span><a href="https://stripe.com/docs/development/dashboard/manage-api-keys" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 0px; border: 0px; background-color: transparent; color: var(--sail-color-blue-500); font-weight: 500; text-decoration: none;">Manage API keys</a>.</p><h2 class="Heading Heading--anchored" id="test-live-modes" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding: 32px 0px 0px; border: 0px; font-weight: 700; color: var(--sail-color-gray-900); cursor: pointer; position: relative; display: flex; flex-direction: row; align-items: center;">Test and live modes overview</h2><p style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--default-vertical-spacing); padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border: 0px; line-height: 26px; font-size: 16px; color: var(--sail-color-text);">All Stripe API requests occur in either test or live mode. API objects in one mode (for example, product objects) aren’t accessible to the other.</p><div class="Table Table--striped Table--fixed Box-root Padding-vertical--12" style="box-sizing: border-box; overflow-wrap: break-word; margin: 0px; padding-top: var(--sail-spacing-12); padding-right: 0px; padding-bottom: var(--sail-spacing-12); padding-left: 0px; border: 0px; width: 770px; max-width: 100%; border-collapse: collapse; overflow-x: auto; position: relative;">
 TYPE	WHEN TO USE	OBJECTS	HOW TO USE	CONSIDERATIONS
 Test mode	Use this mode as you build your app. Payments are not processed by card networks or payment providers.	API calls return simulated account, payment, customer, charge, refund, transfer, balance, and subscription.	Use test credit cards and accounts. Don’t use actual payment authorizations, charges, or captures.	Identity doesn’t perform any verification checks. Connect account objects don’t return sensitive fields.
 Live mode	Use this mode when you’re ready to launch your app. Card networks or payment providers process payments.	API calls return actual account, payment, customer, charge, refund, transfer, balance, and subscription objects.	Use valid credit cards and accounts. Use actual payment authorizations, charges, and captures for credit cards and accounts.	Disputes have a more nuanced flow and a simpler testing process. Some Sources payment methods have a more nuanced flow and require more steps.
@@ -64,15 +54,12 @@ If you don’t have an administrator or developer role, you may not have access 
   Deployee::
   Publish::
 An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
-
 Open the API keys page.
 Click Reveal live key.
 In Notes, enter where your key lives in your own systems.
 Keys created prior to the introduction of this feature are not automatically hidden when they are revealed, but can be hidden manually.
-
 Revoke (“roll”) an API secret key
 If you’re in live mode and you lose your API secret key or API restricted key, you can’t recover it from the Dashboard. Similarly, if your secret key is compromised, you need to revoke (“roll”) the key to block any API requests that might use that key. Use these steps to revoke your API secret key and generate a new key.
-
 Open the API keys page.
 Click the three dots (…) next to your secret key, click Roll key.
 In Expiration, choose when to expire the existing key:
@@ -83,20 +70,13 @@ in 3 days
 in 7 days
 Click Roll API key.
 The expiration period you choose blocks and expires the existing key for the time period you specify. Regardless of the expiration period, you can use the new key immediately.
-
-
 Rolling an API key.
-
 Keeping your keys safe
 Your secret API key can be used to make any API call on behalf of your account, such as creating charges or performing refunds. Treat your secret API key as you would any other password. Grant access only to those who need it. Ensure it is kept out of any version control system you may be using. Control access to your key using a password manager or secrets management service.
-
 Limiting access with restricted API keys
 A restricted API key allows only the minimum level of access that you specify. Restricted keys cannot interact with many parts of Stripe’s API and are intended to reduce risk when using or building microservices. They should not be used as an alternative to your account’s API keys during development of your Stripe integration.
-
 Use restricted API keys if you’re working with microservices that interact with the Stripe API on your behalf. You can create restricted API keys that limit access to, and permissions to specific account data. For example, you can create a restricted key that grants read-only access to dispute data, then use it with a dispute monitoring service.
-
 To create a restricted API key, see Manage API keys.
-
 Was this page helpful?
 Yes
 No
@@ -106,33 +86,25 @@ Check out our product changelog.
 [HTTP response code](https://stripe.com/docs/api/errors). To learn more ways to manage your API keys, see [Manage API keys](https://stripe.com/docs/development/dashboard/manage-api-keys).
 Test and live modes overview
 All Stripe API requests occur in either test or live mode. API objects in one mode (for example, product objects) aren’t accessible to the other.
-
 TYPE WHEN TO USE OBJECTS HOW TO USE CONSIDERATIONS
 Test mode Use this mode as you build your app. Payments are not processed by card networks or payment providers. API calls return simulated account, payment, customer, charge, refund, transfer, balance, and subscription. Use test credit cards and accounts. Don’t use actual payment authorizations, charges, or captures. Identity doesn’t perform any verification checks. Connect account objects don’t return sensitive fields.
 Live mode Use this mode when you’re ready to launch your app. Card networks or payment providers process payments. API calls return actual account, payment, customer, charge, refund, transfer, balance, and subscription objects. Use valid credit cards and accounts. Use actual payment authorizations, charges, and captures for credit cards and accounts. Disputes have a more nuanced flow and a simpler testing process. Some Sources payment methods have a more nuanced flow and require more steps.
 API keys
 All accounts have a total of four keys: a publishable and secret key pair for test mode and live mode. Stripe APIs use your secret key to authenticate requests on your server. By default, your account’s secret keys can be used to perform any API request without restriction. You can find your keys on the API Keys page in the Developers Dashboard.
-
 Stripe automatically populates code examples in our documentation with your test API keys while you’re logged in—only you can see these values. For your convenience, your test API keys for Zachry T Wood III are:
-
 TYPE VALUE WHEN TO USE
 Publishable pk_test_51HGcX6KxqqA7JcPHGKhUYWGwyDAtLfKwLokfN7r5147gR7OvVobKLgKav910ex6i2R3GIY0dJme1X40MiXEr7KE300Jr0Vp8q5 On the client-side. Can be publicly-accessible in your web or mobile app’s client-side code (such as checkout.js) to tokenize payment information such as with Stripe Elements. By default, Stripe Checkout tokenizes payment information.
 Secret sk_test_51HGcX6KxqqA7JcPH8qFPAp6Nsobyz7QbHlGhO1bTYTJ5eiYPuWKT5UCjOcjNxO7acotmtcXBFFbotbesOWDYL1Bb00MoZWPU2r On the server-side. Must be secret and stored securely in your web or mobile app’s server-side code (such as in an environment variable or credential management system) to call Stripe APIs.
 Use only your test API keys for testing and development. This ensures that you don’t accidentally modify your live customers or charges.
-
 If you don’t have an administrator or developer role, you may not have access to view your API keys in the Dashboard. Ask your Stripe account’s owner to add you to their team as a developer.
-
 Reveal an API secret key for live mode (one time)
 An API secret key for live mode is only visible the first time you access it. After that, the Dashboard no longer shows the secret key. Use these steps to reveal a secret key and leave a note that describes where it lives in your own systems.
-
 Open the API keys page.
 Click Reveal live key.
 In Notes, enter where your key lives in your own systems.
 Keys created prior to the introduction of this feature are not automatically hidden when they are revealed, but can be hidden manually.
-
 Revoke (“roll”) an API secret key
 If you’re in live mode and you lose your API secret key or API restricted key, you can’t recover it from the Dashboard. Similarly, if your secret key is compromised, you need to revoke (“roll”) the key to block any API requests that might use that key. Use these steps to revoke your API secret key and generate a new key.
-
 Open the API keys page.
 Click the three dots (…) next to your secret key, click Roll key.
 In Expiration, choose when to expire the existing key:
@@ -151,15 +123,10 @@ Your secret API key can be used to make any API call on behalf of your account, 
 
 Limiting access with restricted API keys
 A restricted API key allows only the minimum level of access that you specify. Restricted keys cannot interact with many parts of Stripe’s API and are intended to reduce risk when using or building microservices. They should not be used as an alternative to your account’s API keys during development of your Stripe integration.
-
 Use restricted API keys if you’re working with microservices that interact with the Stripe API on your behalf. You can create restricted API keys that limit access to, and permissions to specific account data. For example, you can create a restricted key that grants read-only access to dispute data, then use it with a dispute monitoring service.
-
 To create a restricted API key, see Manage API keys.
-
 Was this page helpful?
-
 Yes
-
 No
 Questions? Contact us.
 View developer tutorials on YouTube.
@@ -172,8 +139,7 @@ Marketplace
 Your account has been flagged.
 Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
 We weren’t able to create the release for you. The release description is too large.
-zakwarlord7
-/
+zakwarlord7@zakwarlord7 :
 Terminal
 Private
 Code
