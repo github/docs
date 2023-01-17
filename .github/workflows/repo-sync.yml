@@ -1,11 +1,317 @@
 # The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
+# diff --git a/.github/labeler.yml b/.github/labeler.yml
+index a885e4a3ab76..60a2b67f294e 100644
+--- a/.github/labeler.yml
++++ b/.github/labeler.yml
+@@ -13,3 +13,304 @@ engineering:
+   - components/**/*
+   - pages/*
+   - pages/**/*
++diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
++index 0c8372313f2f..704745cffa76 100644
++--- a/CONTRIBUTING.md
+++++ b/CONTRIBUTING.md
++@@ -1,4 +1,224 @@
++-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+++__reactFiber$iyae7ohgtxm
+++: 
+++SC {tag: 5, key: null, elementType: 'div', type: 'div', stateNode: div.sc-bcXHqe, …}
+++__reactProps$iyae7ohgtxm
+++: 
+++children
+++: 
+++(2) [{…}, {…}]
+++className
+++: 
+++"sc-bcXHqe"
+++[[Prototype]]
+++: 
+++Object
+++_fs
+++: 
+++99
+++accessKey
+++: 
+++""
+++align
+++: 
+++""
+++attributeStyleMap
+++: 
+++StylePropertyMap {size: 0}
+++attributes
+++: 
+++NamedNodeMap {0: class, class: class, length: 1}
+++autocapitalize
+++: 
+++""
+++autofocus
+++: 
+++false
+++baseURI
+++: 
+++"https://fbinv.chilipiper.com/book/round-robin//booked?routeId=63c6b5f276724e54f9ef1f73&marketing=true&title=&titleStyle=&fromSnippet=true"
+++childElementCount
+++: 
+++2
+++childNodes
+++: 
+++NodeList(2) [div.sc-bcXHqe.sc-eDvSVe.eWtvZM, div.sc-bcXHqe.sc-gswNZR.fOHsqD.bbLVwL]
+++children
+++: 
+++HTMLCollection(2) [div.sc-bcXHqe.sc-eDvSVe.eWtvZM, div.sc-bcXHqe.sc-gswNZR.fOHsqD.bbLVwL]
+++classList
+++: 
+++DOMTokenList ['sc-bcXHqe', value: 'sc-bcXHqe']
+++className
+++: 
+++"sc-bcXHqe"
+++clientHeight
+++: 
+++48
+++clientLeft
+++: 
+++0
+++clientTop
+++: 
+++0
+++clientWidth
+++: 
+++560
+++contentEditable
+++: 
+++"inherit"
+++dataset
+++: 
+++DOMStringMap {}
+++dir
+++: 
+++""
+++draggable
+++: 
+++false
+++elementTiming
+++: 
+++""
+++enterKeyHint
+++: 
+++""
+++firstChild
+++: 
+++div.sc-bcXHqe.sc-eDvSVe.eWtvZM
+++firstElementChild
+++: 
+++div.sc-bcXHqe.sc-eDvSVe.eWtvZM
+++hidden
+++: 
+++false
+++id
+++: 
+++""
+++inert
+++: 
+++false
+++innerHTML
+++: 
+++"<div height=\"1px\" class=\"sc-bcXHqe sc-eDvSVe eWtvZM\"></div><div data-chili-css=\"footer\" data-test-id=\"BrandingFooter\" class=\"sc-bcXHqe sc-gswNZR fOHsqD bbLVwL\"><div data-chili-css=\"logo-footer\" color=\"icon/cp-logo\" class=\"sc-bcXHqe sc-gswNZR sc-jrcTuL iSzAUS bbLVwL ckpprO\"><svg viewBox=\"0 0 30 32\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path d=\"M21.588 6.502s1.355-.235 2.372 0c0 0 1.497-1.178 1.525-5.097L26.53 0s1.638 3.478-.226 7.141c0 0 1.356.923 1.553 1.483l-.194.62a20.712 20.712 0 0 0-6.234-2.103l.159-.639zM0 31.992a32.64 32.64 0 0 0 8.431-5.68 36.876 36.876 0 0 0 5.14 2.873C6.405 32.307.013 31.991 0 31.991zM23.571 21.56a31.153 31.153 0 0 1-7.704 6.173A32.65 32.65 0 0 1 10 24.561a30.835 30.835 0 0 0 4.617-6.783c.553.378 1.12.735 1.705 1.068-2.085 3.931-4.372 6.304-4.372 6.304 2.185-1.783 3.936-3.835 5.307-5.8a24.345 24.345 0 0 0 6.314 2.21zm-3.986-11.22a31.554 31.554 0 0 1-2.053 6.586 23.358 23.358 0 0 1-1.818-1.211 33.981 33.981 0 0 0 2.002-7.182A21.956 21.956 0 0 1 30 12.343a33.677 33.677 0 0 1-4.25 7.568 22.669 22.669 0 0 1-7.007-2.306c2.175-3.704 3.097-6.714 3.097-6.714l-2.255-.551z\"></path></svg></div><div class=\"sc-bcXHqe eAtnfZ\"></div><span data-chili-css=\"powered-by-footer\" color=\"text/body-moderate\" font-size=\"14\" font-weight=\"500\" class=\"sc-gKPRtg sc-iBYQkv cIZuEP\">Powered by</span><div class=\"sc-bcXHqe eAtnfZ\"></div><a color=\"text/action-brand\" data-chili-css=\"name-footer\" target=\"_blank\" href=\"https://www.chilipiper.com/page/powered-by-chili-piper?utm_medium=product&amp;utm_source=vir&amp;utm_campaign=conciergescreen-confirmation\" font-size=\"14\" font-weight=\"600\" class=\"sc-gKPRtg sc-iBYQkv cqdpyB\">Chili Piper</a></div>"
+++innerText
+++: 
+++"Powered by\nChili Piper"
+++inputMode
+++: 
+++""
+++isConnected
+++: 
+++true
+++isContentEditable
+++: 
+++false
+++lang
+++: 
+++""
+++lastChild
+++: 
+++div.sc-bcXHqe.sc-gswNZR.fOHsqD.bbLVwL
+++lastElementChild
+++: 
+++div.sc-bcXHqe.sc-gswNZR.fOHsqD.bbLVwL
+++localName
+++: 
+++"div"
+++namespaceURI
+++: 
+++"http://www.w3.org/1999/xhtml"
+++nextElementSibling
+++: 
+++button.sc-ipEyDJ.sc-csuSiG.cfBwgL.fUbVAC
+++nextSibling
+++: 
+++button.sc-ipEyDJ.sc-csuSiG.cfBwgL.fUbVAC
+++nodeName
+++: 
+++"DIV"
+++nodeType
+++: 
+++1
+++nonce
+++: 
+++""
+++offsetHeight
+++: 
+++48
+++offsetLeft
+++: 
+++0
+++offsetParent
+++: 
+++div#root.mount
+++offsetTop
+++: 
+++512
+++offsetWidth
+++: 
+++560
+++outerHTML
+++: 
+++"<div class=\"sc-bcXHqe\"><div height=\"1px\" class=\"sc-bcXHqe sc-eDvSVe eWtvZM\"></div><div data-chili-css=\"footer\" data-test-id=\"BrandingFooter\" class=\"sc-bcXHqe sc-gswNZR fOHsqD bbLVwL\"><div data-chili-css=\"logo-footer\" color=\"icon/cp-logo\" class=\"sc-bcXHqe sc-gswNZR sc-jrcTuL iSzAUS bbLVwL ckpprO\"><svg viewBox=\"0 0 30 32\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><path d=\"M21.588 6.502s1.355-.235 2.372 0c0 0 1.497-1.178 1.525-5.097L26.53 0s1.638 3.478-.226 7.141c0 0 1.356.923 1.553 1.483l-.194.62a20.712 20.712 0 0 0-6.234-2.103l.159-.639zM0 31.992a32.64 32.64 0 0 0 8.431-5.68 36.876 36.876 0 0 0 5.14 2.873C6.405 32.307.013 31.991 0 31.991zM23.571 21.56a31.153 31.153 0 0 1-7.704 6.173A32.65 32.65 0 0 1 10 24.561a30.835 30.835 0 0 0 4.617-6.783c.553.378 1.12.735 1.705 1.068-2.085 3.931-4.372 6.304-4.372 6.304 2.185-1.783 3.936-3.835 5.307-5.8a24.345 24.345 0 0 0 6.314 2.21zm-3.986-11.22a31.554 31.554 0 0 1-2.053 6.586 23.358 23.358 0 0 1-1.818-1.211 33.981 33.981 0 0 0 2.002-7.182A21.956 21.956 0 0 1 30 12.343a33.677 33.677 0 0 1-4.25 7.568 22.669 22.669 0 0 1-7.007-2.306c2.175-3.704 3.097-6.714 3.097-6.714l-2.255-.551z\"></path></svg></div><div class=\"sc-bcXHqe eAtnfZ\"></div><span data-chili-css=\"powered-by-footer\" color=\"text/body-moderate\" font-size=\"14\" font-weight=\"500\" class=\"sc-gKPRtg sc-iBYQkv cIZuEP\">Powered by</span><div class=\"sc-bcXHqe eAtnfZ\"></div><a color=\"text/action-brand\" data-chili-css=\"name-footer\" target=\"_blank\" href=\"https://www.chilipiper.com/page/powered-by-chili-piper?utm_medium=product&amp;utm_source=vir&amp;utm_campaign=conciergescreen-confirmation\" font-size=\"14\" font-weight=\"600\" class=\"sc-gKPRtg sc-iBYQkv cqdpyB\">Chili Piper</a></div></div>"
+++outerText
+++: 
+++"Powered by\nChili Piper"
+++ownerDocument
+++: 
+++document
+++parentElement
+++: 
+++div.layout-guest
+++parentNode
+++: 
+++div.layout-guest
+++part
+++: 
+++DOMTokenList [value: '']
+++previousElementSibling
+++: 
+++div.middle.middle-guest
+++previousSibling
+++: 
+++div.middle.middle-guest
+++scrollHeight
+++: 
+++48
+++scrollLeft
+++: 
+++0
+++scrollTop
+++: 
+++0
+++scrollWidth
+++: 
+++560
+++slot
+++: 
+++""
+++spellcheck
+++: 
+++true
+++style
+++: 
+++CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+++tabIndex
+++: 
+++-1
+++tagName
+++: 
+++"DIV"
+++textContent
+++: 
+++"Powered byChili Piper"
+++title
+++: 
+++""
+++translate
+++: 
+++true
+++virtualKeyboardPolicy
+++: 
+++""# Welcome to GitHub docs contributing guide <!-- omit in toc -->
++ 
++ Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
++ 
++@@ -93,3 +313,70 @@ This site can be developed on Windows, however a few potential gotchas need to b
++ 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
++     - Update Git configuration: `git config --system core.longpaths true`
++     - Consider using a different Git client on Windows
+++bitcoin'						
+++Expenses by Vendor Summary						
+++All Dates						
+++						
+++	Total					
+++Internal Revenue Service (irs)	3,010,280.97  					
+++TOTAL	$3,010,280.97  					
+++						
+++						
+++						
+++Note						
+++						
+++						
+++ZACHRY WOOD <zachryiixixiiwood@gmail.com>						
+++To:						
+++ZACHRY “Google.” WOOD						
+++						
+++Tue, Jan 17 at 8:15 AM						
+++						
+++Submitted Electronically Oct. 1, 2021 Ms. Vanessa Countryman, Secretary U.S. Securities and Exchange Commission 100 F 14 Get answers to your investing questions from the SEC's website dedicated to retail investors15 Get answers to your investing questions from the SEC's website dedicated to retail investors16 Get answers to your investing questions from the SEC's website dedicated to retail investors17 Get answers to your investing questions from the SEC's website dedicated to retail investors18 Get answers to your investing questions from the SEC's website dedicated to retail investors19 Get answers to your investing questions from the SEC's website dedicated to retail investors20 Get answers to your investing questions from the SEC's website dedicated to retail investors21						
+++Your federal taxable wages this period are $						
+++Purchase/Acquisition of Business -1010700000 -1148400000 -1286100000 -1423800000 -1561500000						
+++TX: NO State Incorne Tax						
+++Gain/Loss on Investments and Other Financial Instruments -2243490909 -3068572727 -3893654545 -4718736364 -5543818182 -6368900000 -7193981818 -8019063636						
+++Income from Associates, Joint Ventures and Other Participating Interests 99054545 92609091 86163636 79718182 73272727 66827273 60381818 53936364						
+++INCOME STATEMENT 61-1767920						
+++GOOGL_income-statement_Quarterly_As_Originally_Reported TTM Q4 2022 Q3 2022 Q2 2022 Q1 2022 Q4 2021 Q3 2021 Q2 2021						
+++Cash Flow from Continuing Financing Activities -9287400000 -7674400000 -6061400000 -4448400000 -2835400000						
+++Diluted EPS from Discontinued Operations						
+++The U.S. Internal Revenue Code of 1986, as amended, the Treasury Regulations promulgated thereunder, published pronouncements of the Internal Revenue Service, which may be cited or used as precedents, and case law, any of which may be changed at any time with retroactive effect. No opinion is expressed on any matters other than those specifically referred to above.						
+++Basic WASO 694313546 697258864 700204182 703149500 706094818 709040136 711985455 714930773						
+++Taxable Marital Status:						
+++Exemptions/Allowances Single ZACHRY T.						
+++Diluted EPS -00009 -00015 -00021 -00027 -00033 -00039 -00045 -00051						
+++Total Work Hrs						
+++COMPANY PH Y: 650-253-0001						
+++5324 BRADFORD DR						
+++ORIGINAL REPORT						
+++Change in Trade/Accounts Receivable -1122700000 -527600000 67500000 662600000 1257700000						
+++Purchase/Sale of Other Non-Current Assets, Net -236000000 -368800000 -501600000 -634400000						
+++Other Non-Cash Items -5340300000 -6249200000 -7158100000 -8067000000 -8975900000						
+++Amortization, Non-Cash Adjustment 4241600000 4848600000 5455600000 6062600000 6669600000						
+++Income, Rents, & Royalty						
+++Other Investing Cash Flow 49209400000 57052800000 64896200000 72739600000 80583000000						
+++Other Irregular Income/Expenses 00000 00000 00000 00000 00000						
+++Irregular Income/Expenses 00000 00000 00000 00000 00000						
+++Total Revenue as Reported, Supplemental -1286309091 -13385163636 -25484018182 -37582872727 -49681727273 -61780581818 -73879436364 -85978290909						
+++Net Investment Income -2096781818 -2909109091 -3721436364 -4533763636 -5346090909 -6158418182 -6970745455 -7783072727						
+++Gain/Loss on Foreign Exchange 47654545 66854545 86054545 105254546 124454546 143654546 162854546 182054546						
+++Cash Flow from Investing Activities -11015999999						
+++Purchase/Sale of Investments, Net 574500000 1229400000 1884300000 2539200000 3194100000						
+++Purchase/Sale of Business, Net -384999999						
+++Basic EPS from Continuing Operations -00009 -00015 -00021 -00027 -00034 -00040 -00046 -00052						
+++Change in Trade and Other Receivables 2617900000 3718200000 4818500000 5918800000 7019100000						
+++Investment Income/Loss, Non-Cash Adjustment 3081700000 4150000000 5218300000 6286600000 7354900000						
+++Stock-Based Compensation, Non-Cash Adjustment -1297700000 -2050400000 -2803100000 -3555800000 -4308500000						
+++Depreciation and Amortization, Non-Cash Adjustment 3239500000 3241600000 3243700000 3245800000 3247900000						
+++Taxes, Non-Cash Adjustment 4177700000 4486200000 4794700000 5103200000 5411700						
+++						
+++Tuesday, Jan 17, 2023 06:45:20 AM GMT-8 - Cash Basis						
+++						
+++						
+++						
+++						
+++						
+++						
+++						
 # This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
 #
 # For more details, see https://github.com/repo-sync/repo-sync#how-it-works
-
 name: Repo Sync
-
 # **What it does**:
 #  - close-invalid-repo-sync: Close repo sync pull requests not created by Octomerger or a Hubber.
 #  - repo-sync: Syncs docs and docs-internal.
@@ -14,16 +320,13 @@ name: Repo Sync
 #  - repo-sync: To keep the open-source repository up-to-date, while still having an internal
 #    repository for sensitive work.
 # **Who does it impact**: Open-source.
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '20,50 * * * *' # Run every hour at 20 and 50 minutes after
-
 permissions:
   contents: write
   pull-requests: write
-
 jobs:
   close-invalid-repo-sync:
     name: Close invalid Repo Sync PRs
@@ -37,8 +340,7 @@ jobs:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           branch: repo-sync
           base: main
-          state: open
-
+          state: open.yml
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
         uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
