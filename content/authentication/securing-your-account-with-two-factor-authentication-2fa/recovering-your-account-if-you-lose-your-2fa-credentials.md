@@ -25,6 +25,12 @@ shortTitle: Recover an account with 2FA
 
 {% endwarning %}
 
+{% note %}
+
+**Note:** {% data reusables.two_fa.unlink-email-address %}
+
+{% endnote %}
+
 {% endif %}
 
 ## Using a two-factor authentication recovery code
