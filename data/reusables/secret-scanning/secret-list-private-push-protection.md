@@ -93,6 +93,8 @@ PlanetScale | PlanetScale Database Password | planetscale_database_password
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
 PlanetScale | PlanetScale Service Token | planetscale_service_token
 Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Postman | Postman Collection Key | postman_collection_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Prefect | Prefect Server API Key | prefect_server_api_key
 Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
