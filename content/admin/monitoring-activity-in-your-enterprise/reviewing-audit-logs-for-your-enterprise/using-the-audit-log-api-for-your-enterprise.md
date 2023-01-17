@@ -117,11 +117,11 @@ For more information about the audit log REST API, see "[Enterprise administrati
 
 ### Example 1: All events in an enterprise, for a specific date, with pagination
 
-You can use page-based pagination or cursor based pagination. For more information, see "[Traversing with Pagination](/rest/guides/traversing-with-pagination)."
+You can use page-based pagination or cursor based pagination. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 #### Example with page-based pagination
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using pagination. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
@@ -131,7 +131,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 #### Example with cursor-based pagination
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination). The `--include` flag causes the headers to be returned along with the response.
+The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)." The `--include` flag causes the headers to be returned along with the response.
 
 ```
 curl --include -H "Authorization: Bearer TOKEN" \

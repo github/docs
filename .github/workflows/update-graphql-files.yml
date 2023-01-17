@@ -32,14 +32,8 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.17.0'
-          cache: npm
-      - name: Install Node.js dependencies
-        run: npm ci
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: ./.github/actions/node-npm-setup
       - name: Run updater scripts
         env:
           # need to use a token from a user with access to github/github for this step
@@ -48,7 +42,7 @@ jobs:
           script/graphql/update-files.js
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@bd72e1b7922d417764d27d30768117ad7da78a0e
+        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'

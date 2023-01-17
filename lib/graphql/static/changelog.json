@@ -4,6 +4,142 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>includeUnpublished: Boolean</code> added to field <code>SponsorsListing.tiers</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>OrganizationMigration</code> was added</p>",
+          "<p>Type <code>OrganizationMigrationState</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationConnection</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationEdge</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationField</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldIteration</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectField</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectFieldOption</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationInput</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationPayload</code> was added</p>",
+          "<p>Type <code>StripeConnectAccount</code> was added</p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>AddReactionPayload</code></p>",
+          "<p>Input field <code>headRepositoryId</code> was added to input object type <code>CreatePullRequestInput</code></p>",
+          "<p>Field <code>publishSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>retireSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>startOrganizationMigration</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>fieldConstraints</code> was added to object type <code>ProjectNext</code></p>",
+          "<p>Field <code>projectFieldConstraint</code> was added to object type <code>ProjectNextItemFieldValue</code></p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>RemoveReactionPayload</code></p>",
+          "<p>Field <code>hasVulnerabilityAlertsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to interface <code>Sponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>activeStripeConnectAccount</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>isActive</code> was added to object type <code>Sponsorship</code></p>",
+          "<p>Field <code>author</code> was added to object type <code>SponsorshipNewsletter</code></p>",
+          "<p>Input field <code>fieldConstraintId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Input field <code>fieldWithSettingId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsSponsor</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PackageType.RUBYGEMS</code>:<code>RUBYGEMS</code> will be removed. <strong>Effective 2022-12-28</strong>.</p>",
+          "<p>On member <code>PackageType.MAVEN</code>:<code>MAVEN</code> will be removed. <strong>Effective 2023-02-10</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-01-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>Claimable</code> was added</p>",
+          "<p>Type <code>CreateAttributionInvitationInput</code> was added</p>",
+          "<p>Type <code>CreateAttributionInvitationPayload</code> was added</p>",
+          "<p>Type <code>CreateSponsorsListingInput</code> was added</p>",
+          "<p>Type <code>CreateSponsorsListingPayload</code> was added</p>",
+          "<p>Type <code>MannequinConnection</code> was added</p>",
+          "<p>Type <code>MannequinEdge</code> was added</p>",
+          "<p>Type <code>MannequinOrder</code> was added</p>",
+          "<p>Type <code>MannequinOrderField</code> was added</p>",
+          "<p>Type <code>SponsorsCountryOrRegionCode</code> was added</p>",
+          "<p>Field <code>createAttributionInvitation</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>createSponsorsListing</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>mannequins</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>isDraft</code> was added to object type <code>SponsorsTierAdminInfo</code></p>",
+          "<p>Field <code>isPublished</code> was added to object type <code>SponsorsTierAdminInfo</code></p>",
+          "<p>Field <code>isRetired</code> was added to object type <code>SponsorsTierAdminInfo</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>RepositoryVulnerabilityAlert.fixReason</code>:<code>fixReason</code> will be removed. <strong>Effective 2023-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-12-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fiscalHost</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p><code>WorkflowRun</code> object implements <code>UniformResourceLocatable</code> interface</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PackageType.NPM</code>:<code>NPM</code> will be removed. <strong>Effective 2022-11-21</strong>.</p>",
+          "<p>On member <code>PackageType.NUGET</code>:<code>NUGET</code> will be removed. <strong>Effective 2022-11-21</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2022-12-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>SponsorsListingFeatureableItem</code> was added</p>",
           "<p>Field <code>featureable</code> was added to object type <code>SponsorsListingFeaturedItem</code></p>"
         ]

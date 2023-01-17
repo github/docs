@@ -8,5 +8,5 @@ topics:
   - Copilot
 children:
   - /about-github-copilot
+  - /about-github-copilot-for-business
 ---
-

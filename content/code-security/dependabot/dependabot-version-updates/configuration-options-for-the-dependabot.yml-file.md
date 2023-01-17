@@ -174,8 +174,8 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | Dependency types | Supported by package managers | Allow updates |
   |------------------|-------------------------------|--------|
   | `direct` | All | All explicitly defined dependencies. |
-  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
-  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
+  | `indirect` | `bundler`, `pip`, `composer`, `cargo`{% ifversion dependabot-updates-gomod-indirect %}, `gomod`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
+  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`,{% ifversion dependabot-updates-gomod-indirect %} `gomod`,{% endif %} also the dependencies of direct dependencies.|
   | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
   | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
 
@@ -493,7 +493,7 @@ When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_depe
 
 {% endnote %}
 
-When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests. 
+When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests.
 
 {% note %}
 
@@ -742,12 +742,31 @@ updates:
 ## Configuration options for private registries
 
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+{% ifversion ghes > 3.7 %}
+{% note %}
+
+**Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
+
+- Bundler
+- Docker
+- Gradle
+- Maven
+- npm
+- Nuget
+- Python
+- Yarn
+
+{% endnote %}
+
+{% else %}
 
 {% note %}
 
 **Note:** Private registries behind firewalls on private networks are not supported.
 
 {% endnote %}
+
+{% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following *dependabot.yml* file, configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
@@ -782,8 +801,7 @@ You use the following options to specify access settings. Registry settings must
 | `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
 | `key`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
 | `token`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base`            | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
-
+| `replaces-base`            | For registries{% ifversion dependabot-private-registries %}, if the boolean value is `true`, {% data variables.product.prodname_dependabot %} will resolve dependencies by using the specified URL rather than the base URL of that specific ecosystem. For example, for registries{% endif %} with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
 
 Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
@@ -807,7 +825,19 @@ registries:
 {% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password.
-
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  dockerhub:
+    type: docker-registry
+    url: https://registry.hub.docker.com
+    username: octocat
+    password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -818,9 +848,22 @@ registries:
     password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
 ```
 {% endraw %}
+{% endif %}
 
 The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
-
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -831,6 +874,7 @@ registries:
     password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
 ```
 {% endraw %}
+{% endif %}
 
 ### `git`
 
@@ -885,7 +929,19 @@ registries:
 ### `maven-repository`
 
 The `maven-repository` type supports username and password.
-
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  maven-artifactory:
+    type: maven-repository
+    url: https://artifactory.example.com
+    username: octocat
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -895,14 +951,38 @@ registries:
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
-{% endraw %}
+{% endraw %}{% endif %}
 
 ### `npm-registry`
 
 The `npm-registry` type supports username and password, or token.
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password. 
+When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    username: octocat
+    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
+    replaces-base: true
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -922,7 +1002,7 @@ registries:
     url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
-{% endraw %}
+{% endraw %} {% endif %}
 {% ifversion dependabot-yarn-v3-update %}
 For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
 
@@ -984,6 +1064,30 @@ registries:
 
 The `rubygems-server` type supports username and password, or token.
 
+{% ifversion dependabot-private-registries %}
+{% raw %}
+```yaml
+registries:
+  ruby-example:
+    type: rubygems-server
+    url: https://rubygems.example.com
+    username: octocat@example.com
+    password: ${{secrets.MY_RUBYGEMS_PASSWORD}}
+    replaces-base: true
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+registries:
+  ruby-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/octocat/github_api
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+   replaces-base: true
+```
+{% endraw %}
+{% else %}
 {% raw %}
 ```yaml
 registries:
@@ -1003,7 +1107,7 @@ registries:
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
-{% endraw %}
+{% endraw %}{% endif %}
 
 ### `terraform-registry`
 

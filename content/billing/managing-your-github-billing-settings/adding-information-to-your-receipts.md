@@ -36,6 +36,10 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.user-settings.payment-info-link %}
+1. At the bottom of the page, click **Add information**.
+
+ ![Screenshot of the billing extra info button](/assets/images/help/billing/settings_billing_personal_add_extra.png)
+ 
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Adding information to your organization's receipts
@@ -49,4 +53,8 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.user-settings.payment-info-link %}
+1. Under "Payment information", under "Extra information", click **Add information**.
+
+  ![Screenshot of the billing extra info button](/assets/images/help/billing/settings_billing_add_billing_extra.png)
+
 {% data reusables.dotcom_billing.extra_info_receipt %}
