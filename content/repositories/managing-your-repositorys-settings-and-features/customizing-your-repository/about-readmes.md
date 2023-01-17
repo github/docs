@@ -1,5 +1,47 @@
----
-title: About READMEs
+'' '
+arrow
+Enable businesses around the world to send invoices and collect payments from US companies
+
+Start with Sandbox
+Request for demo
+business payment dashboard
+Why Machnet
+We do the heavy lifting of compliance, regulatory requirements and banking, so you can focus to build, launch and scale your business. Our API platform enables you to onboard customers, collect funds and payout globally.
+
+time-icon
+Start offering international payment services - in 6 weeks
+Integrate in our sandbox - Push configurations to production - Go live.
+
+save-icon
+Save 95% in fixed and monthly costs
+No heavy up-front fees. Low monthly billables.
+
+scale-icon
+Scale your business with our flexible API
+Build your application to offer a wide range of international payment services to your customers. Build beyond remittance.
+
+Designed for Developers
+curl --location -g --request POST 'https://api.machpay.com/v4/users/{{userId}}/transactions' \
+--header 'X-Client-Id: xxxx-xxxx-xxxx' \
+--header 'X-Client-Secret: xxxx-xxxx-xxxx' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+     "from_amount":1,
+     "exchange_rate":6.11,
+     "to_amount":6.11,
+     "fee_amount": 0,
+     "to_currency":"GHS",
+     "from_currency":"USD",
+     "from_fund_id":"{{fromAccountId}}",
+     "funding_source_type": "CARD",
+     "to":{
+            "id": "{{receiveUserId}}",
+           "fund_id" : "{{recipientAccountId}}",
+            "payout_method":"BANK_DEPOSIT",
+          }
+}'''
+'
+: About READMEs
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
