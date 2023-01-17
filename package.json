@@ -147,7 +147,7 @@
     "lint-staged": "^13.0.1",
     "make-promises-safe": "^5.1.0",
     "minimatch": "^5.1.0",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^2.1.1",
     "mockdate": "^3.0.5",
     "nock": "^13.2.7",
     "nodemon": "2.0.20",
