@@ -59,11 +59,11 @@ jobs:
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: {% data reusables.actions.action-setup-java %}
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17'
+          distribution: 'temurin'
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 ```
@@ -71,7 +71,7 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
 3. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
@@ -93,8 +93,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
@@ -111,8 +111,8 @@ steps:
   - name: Set up JDK 11
     uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
       cache: maven
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
@@ -133,8 +133,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: {% data reusables.actions.action-upload-artifact %}
