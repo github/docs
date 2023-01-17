@@ -26,21 +26,27 @@ shortTitle: NuGet registry
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% ifversion packages-nuget-v2 %}
-You can choose to give access permissions to packages independently for {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_actions %}. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)" and "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
-{% endif %}
+### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
-### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+{% ifversion packages-nuget-v2 %}
+This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %} {% endif %}
 
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
+{% ifversion packages-nuget-v2 %}{% else %}{% data reusables.package_registry.authenticate-packages-github-token %}{% endif %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %}
+{% ifversion packages-nuget-v2 %}
+
+{% data reusables.package_registry.v2-actions-codespaces %}
+
+{% endif %}
 
 ### Authenticating with a {% data variables.product.pat_generic %}
+
+{% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.required-scopes %}
 
@@ -99,7 +105,7 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 
 The NuGet registry stores packages within your organization or personal account, and allows you to associate packages with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
-{% data reusables.package_registry.publishing-user-scoped-packages %}
+{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 If you specify a `RepositoryURL` in your `nuget.config` file, the published package will automatically be connected to the specified repository. For more information, see "[Publishing a package using a `nuget.config` file](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 

@@ -111,7 +111,7 @@ The default permissions can also be configured in the organization settings. If 
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` scope. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
 {% endif %}
 
@@ -133,7 +133,9 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
+{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

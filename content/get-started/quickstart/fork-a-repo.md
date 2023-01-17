@@ -64,8 +64,10 @@ You might fork a project to propose changes to the upstream repository. In this 
    ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
 5. Optionally, add a description of your fork.
    ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
+{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
    ![Option to copy only the default branch](/assets/images/help/repository/copy-default-branch-only.png)
+{%- endif %}
 7. Click **Create fork**.
    ![Emphasized create fork button](/assets/images/help/repository/fork-create-button.png)
 

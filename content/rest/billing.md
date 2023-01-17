@@ -1,6 +1,6 @@
 ---
 title: Billing
-intro: The Billing API lets you get billing information for an enterprise.
+intro: Use the REST API to get billing information for an enterprise.
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,6 +12,6 @@ redirect_from:
   - /rest/reference/billing
 ---
 
-## About the Billing API
+## About billing
 
-You can get billing information for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)" REST API.
+You can get billing information for an enterprise. For more information, see "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)."

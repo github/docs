@@ -28,7 +28,7 @@ At the time that you block a user from your organization:
 - The user's votes on discussions or comments in your organization's repositories are deleted
 - The user is removed as a collaborator on your organization's repositories
 - The user's contributions to your organization's repositories are no longer counted as contributions for them
-- Any pending repository or organization invitations to the blocked user are cancelled
+- Any pending repository or organization invitations to the blocked user are canceled
 
 After you've blocked a user from your organization, they cannot:
 - Cross-reference your organization's repositories in comments
