@@ -160,10 +160,47 @@ jobs:
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
 
       - name: Index into Elasticsearch
-        env:
+        env:'BEGIN''
+Run::/Runs :'::Run-on :'Run'' :
+'# This is a basic workflow to help you get started with Actions
+name: CI
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "paradice" branch
+  push:
+    branches: [ "paradice" ]
+  pull_request:
+    branches: [ "paradice" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+RUNS::\:#:##:###BEGIN :        
+:Build::
+PULBLISH
+LAUNCH
+RELEASE
+DEPLOY :repo-sync'@moejojojojo//Read.md/main/TREE/Master/Trunk :
           # Must match what we used when scraping (npm run sync-search-indices)
           # otherwise the script will seek other versions from disk that might
-          # not exist.
+          # not exist.Date 8/3 2,267,700.00 ACH Web Usataxpymt IRS 240461564036618 (0.00022214903782823) 8/8 Corporate ACH Acctverify Roll By ADP (00022217906234115) 8/10 ACH Web Businessform Deluxeforbusiness 5072270 (00022222905832355) 8/11 Corporate Ach Veryifyqbw Intuit (00022222909296656) 8/12 Corporate Ach Veryifyqbw Intuit (00022223912710109) Service Charges and Fees Reference Date posted numbe 8/1 10 Service Charge Period Ending 07/29.2022 8/4 36 Returned Item Fee (nsf) (00022214903782823) 8/11 36 Returned Item Fee (nsf) (00022222905832355) INCOME STATEMENT INASDAQ:GOOG TTM Q4 2021 Q3 2021 Q2 2021 Q1 2021 Q4 2020 Q3 2020 Q2 2020 Gross Profit 1.46698E+11 42337000000 37497000000 35653000000 31211000000 30818000000 25056000000 19744000000 Total Revenue as Reported, Supplemental 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000 2.57637E+11 75325000000 65118000000 61880000000 55314000000 56898000000 46173000000 38297000000
+
           VERSION: ${{ github.event.inputs.version }}
         run: |
           ./script/search/index-elasticsearch.js /tmp/records \
