@@ -85,14 +85,7 @@ jobs:
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           path: translations/ko-KR
 
-      - name: Setup node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Check for orphaned assets
         env:

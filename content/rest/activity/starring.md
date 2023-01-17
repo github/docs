@@ -1,6 +1,6 @@
 ---
 title: Starring
-intro: The Starring API lets you bookmark a repository.
+intro: Use the REST API to bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,11 +11,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Starring API
+## About starring
 
-The Starring API lets you bookmark a repository. Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed. For more information, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+You can use the REST API to star (bookmark) a repository. Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed. For more information, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
-### Starring vs. Watching
+### Starring vs. watching
 
 In August 2012, we [changed the way watching
 works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API
@@ -25,7 +25,7 @@ below). For more information, see the [Watcher API Change post](https://develope
 
 ### Custom media types for starring
 
-There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
+There is one supported custom media type for these endpoints. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
 
     application/vnd.github.star+json
 

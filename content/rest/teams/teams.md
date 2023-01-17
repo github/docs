@@ -1,6 +1,6 @@
 ---
 title: Teams
-intro: 'With the Teams API, you can create and manage teams in your GitHub organization.'
+intro: 'Use the REST API to create and manage teams in your {% data variables.product.product_name %} organization.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Teams API
+## About teams
 
 {% data reusables.organizations.team-api %}

@@ -1601,6 +1601,14 @@
           "description": "<p>The reaction object.</p>"
         },
         {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
+        },
+        {
           "name": "subject",
           "type": "Reactable",
           "id": "reactable",
@@ -4789,6 +4797,40 @@
       ]
     },
     {
+      "name": "publishSponsorsTier",
+      "kind": "mutations",
+      "id": "publishsponsorstier",
+      "href": "/graphql/reference/mutations#publishsponsorstier",
+      "description": "<p>Publish an existing sponsorship tier that is currently still a draft to a GitHub Sponsors profile.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PublishSponsorsTierInput!",
+          "id": "publishsponsorstierinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#publishsponsorstierinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier",
+          "description": "<p>The tier that was published.</p>"
+        }
+      ]
+    },
+    {
       "name": "regenerateEnterpriseIdentityProviderRecoveryCodes",
       "kind": "mutations",
       "id": "regenerateenterpriseidentityproviderrecoverycodes",
@@ -5201,6 +5243,14 @@
           "description": "<p>The reaction object.</p>"
         },
         {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
+        },
+        {
           "name": "subject",
           "type": "Reactable",
           "id": "reactable",
@@ -5465,6 +5515,40 @@
       ]
     },
     {
+      "name": "retireSponsorsTier",
+      "kind": "mutations",
+      "id": "retiresponsorstier",
+      "href": "/graphql/reference/mutations#retiresponsorstier",
+      "description": "<p>Retire a published payment tier from your GitHub Sponsors profile so it cannot be used to start new sponsorships.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RetireSponsorsTierInput!",
+          "id": "retiresponsorstierinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#retiresponsorstierinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsTier",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier",
+          "description": "<p>The tier that was retired.</p>"
+        }
+      ]
+    },
+    {
       "name": "revokeEnterpriseOrganizationsMigratorRole",
       "kind": "mutations",
       "id": "revokeenterpriseorganizationsmigratorrole",
@@ -5665,6 +5749,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#user",
           "description": "<p>The user that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
+      "name": "startOrganizationMigration",
+      "kind": "mutations",
+      "id": "startorganizationmigration",
+      "href": "/graphql/reference/mutations#startorganizationmigration",
+      "description": "<p>Starts a GitHub Enterprise Importer organization migration.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "StartOrganizationMigrationInput!",
+          "id": "startorganizationmigrationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#startorganizationmigrationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "orgMigration",
+          "type": "OrganizationMigration",
+          "id": "organizationmigration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationmigration",
+          "description": "<p>The new organization migration.</p>"
         }
       ]
     },
@@ -36228,7 +36346,7 @@
         },
         {
           "name": "isSponsoredBy",
-          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "description": "<p>Whether the given account is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -37779,19 +37897,45 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the viewer's sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipForViewerAsSponsorable",
-          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipNewsletters",
@@ -37855,12 +37999,23 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all\nsponsorships this maintainer has ever received.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -37926,12 +38081,23 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -38150,6 +38316,46 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "totalSponsorshipAmountAsSponsorInCents",
+          "description": "<p>The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has\nspent on GitHub to fund sponsorships. Only returns a value when viewed by the\nuser themselves or by a user who can manage sponsorships for the requested organization.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "arguments": [
+            {
+              "name": "since",
+              "description": "<p>Filter payments to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "sponsorableLogins",
+              "description": "<p>Filter payments to those made to the users or organizations with the specified usernames.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter payments to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            }
+          ]
         },
         {
           "name": "twitterUsername",
@@ -38832,6 +39038,94 @@
           "id": "organizationmemberrole",
           "kind": "enums",
           "href": "/graphql/reference/enums#organizationmemberrole"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationMigration",
+      "kind": "objects",
+      "id": "organizationmigration",
+      "href": "/graphql/reference/objects#organizationmigration",
+      "description": "<p>A GitHub Enterprise Importer (GEI) organization migration.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "failureReason",
+          "description": "<p>The reason the organization migration failed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "remainingRepositoriesCount",
+          "description": "<p>The remaining amount of repos to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sourceOrgName",
+          "description": "<p>The name of the source organization to be migrated.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the source organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>The migration state.</p>",
+          "type": "OrganizationMigrationState!",
+          "id": "organizationmigrationstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmigrationstate"
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "totalRepositoriesCount",
+          "description": "<p>The total amount of repositories to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -41424,6 +41718,58 @@
           "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
+          "name": "fieldConstraints",
+          "description": "<p>List of fields and their constraints in the project.</p>",
+          "type": "ProjectNextFieldConfigurationConnection!",
+          "id": "projectnextfieldconfigurationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfieldconfigurationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
           "name": "fields",
           "description": "<p>List of fields in the project.</p>",
           "type": "ProjectNextFieldConnection!",
@@ -41879,6 +42225,72 @@
       ]
     },
     {
+      "name": "ProjectNextFieldConfigurationConnection",
+      "kind": "objects",
+      "id": "projectnextfieldconfigurationconnection",
+      "href": "/graphql/reference/objects#projectnextfieldconfigurationconnection",
+      "description": "<p>The connection type for ProjectNextFieldConfiguration.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectNextFieldConfigurationEdge]",
+          "id": "projectnextfieldconfigurationedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextfieldconfigurationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectNextFieldConfiguration]",
+          "id": "projectnextfieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectnextfieldconfiguration"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextFieldConfigurationEdge",
+      "kind": "objects",
+      "id": "projectnextfieldconfigurationedge",
+      "href": "/graphql/reference/objects#projectnextfieldconfigurationedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectNextFieldConfiguration",
+          "id": "projectnextfieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectnextfieldconfiguration"
+        }
+      ]
+    },
+    {
       "name": "ProjectNextFieldConnection",
       "kind": "objects",
       "id": "projectnextfieldconnection",
@@ -42223,6 +42635,16 @@
           "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         },
         {
+          "name": "projectFieldConstraint",
+          "description": "<p>The project field that contains this value and it's constraint.</p>",
+          "type": "ProjectNextFieldConfiguration!",
+          "id": "projectnextfieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectnextfieldconfiguration",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
           "name": "projectItem",
           "description": "<p>The project item that contains this value.</p>",
           "type": "ProjectNextItem!",
@@ -42317,6 +42739,355 @@
           "id": "projectnextitemfieldvalue",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectnextitemfieldvalue"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextIterationField",
+      "kind": "objects",
+      "id": "projectnextiterationfield",
+      "href": "/graphql/reference/objects#projectnextiterationfield",
+      "description": "<p>An iteration field inside a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectNextFieldCommon",
+          "id": "projectnextfieldcommon",
+          "href": "/graphql/reference/interfaces#projectnextfieldcommon"
+        }
+      ],
+      "fields": [
+        {
+          "name": "configuration",
+          "description": "<p>Iteration configuration settings.</p>",
+          "type": "ProjectNextIterationFieldConfiguration!",
+          "id": "projectnextiterationfieldconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextiterationfieldconfiguration",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The field's type.</p>",
+          "type": "ProjectNextFieldType!",
+          "id": "projectnextfieldtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectnextfieldtype",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "name",
+          "description": "<p>The project field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this field.</p>",
+          "type": "ProjectNext!",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "settings",
+          "description": "<p>The field's settings.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextIterationFieldConfiguration",
+      "kind": "objects",
+      "id": "projectnextiterationfieldconfiguration",
+      "href": "/graphql/reference/objects#projectnextiterationfieldconfiguration",
+      "description": "<p>Iteration field configuration for a project.</p>",
+      "fields": [
+        {
+          "name": "completedIterations",
+          "description": "<p>The iteration's completed iterations.</p>",
+          "type": "[ProjectNextIterationFieldIteration!]!",
+          "id": "projectnextiterationfielditeration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextiterationfielditeration",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "duration",
+          "description": "<p>The iteration's duration in days.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "iterations",
+          "description": "<p>The iteration's iterations.</p>",
+          "type": "[ProjectNextIterationFieldIteration!]!",
+          "id": "projectnextiterationfielditeration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextiterationfielditeration",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "startDay",
+          "description": "<p>The iteration's start day of the week.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextIterationFieldIteration",
+      "kind": "objects",
+      "id": "projectnextiterationfielditeration",
+      "href": "/graphql/reference/objects#projectnextiterationfielditeration",
+      "description": "<p>Iteration field iteration settings for a project.</p>",
+      "fields": [
+        {
+          "name": "duration",
+          "description": "<p>The iteration's duration in days.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "id",
+          "description": "<p>The iteration's ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The iteration's start date.</p>",
+          "type": "Date!",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "title",
+          "description": "<p>The iteration's title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "titleHTML",
+          "description": "<p>The iteration's html title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextSingleSelectField",
+      "kind": "objects",
+      "id": "projectnextsingleselectfield",
+      "href": "/graphql/reference/objects#projectnextsingleselectfield",
+      "description": "<p>A single select field inside a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectNextFieldCommon",
+          "id": "projectnextfieldcommon",
+          "href": "/graphql/reference/interfaces#projectnextfieldcommon"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The field's type.</p>",
+          "type": "ProjectNextFieldType!",
+          "id": "projectnextfieldtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectnextfieldtype",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "name",
+          "description": "<p>The project field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "options",
+          "description": "<p>Options for the single select field.</p>",
+          "type": "[ProjectNextSingleSelectFieldOption!]!",
+          "id": "projectnextsingleselectfieldoption",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextsingleselectfieldoption",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this field.</p>",
+          "type": "ProjectNext!",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "settings",
+          "description": "<p>The field's settings.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectNextSingleSelectFieldOption",
+      "kind": "objects",
+      "id": "projectnextsingleselectfieldoption",
+      "href": "/graphql/reference/objects#projectnextsingleselectfieldoption",
+      "description": "<p>Single select field option for a configuration for a project.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The option's ID.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
+        },
+        {
+          "name": "nameHTML",
+          "description": "<p>The option's html name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement. Removal on 2023-01-01 UTC.</p>"
         }
       ]
     },
@@ -56803,6 +57574,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasVulnerabilityAlertsEnabled",
+          "description": "<p>Whether vulnerability alerts are enabled for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasWikiEnabled",
           "description": "<p>Indicates if the repository has wiki feature enabled.</p>",
           "type": "Boolean!",
@@ -62017,6 +62796,14 @@
           "href": "/graphql/reference/objects#sponsorsgoal"
         },
         {
+          "name": "activeStripeConnectAccount",
+          "description": "<p>The Stripe Connect account currently in use for payouts for this Sponsors\nlisting, if any. Will only return a value when queried by the maintainer\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "StripeConnectAccount",
+          "id": "stripeconnectaccount",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#stripeconnectaccount"
+        },
+        {
           "name": "billingCountryOrRegion",
           "description": "<p>The name of the country or region with the maintainer's bank account or fiscal\nhost. Will only return a value when queried by the maintainer themselves, or\nby an admin of the sponsorable organization.</p>",
           "type": "String",
@@ -62166,7 +62953,7 @@
         },
         {
           "name": "tiers",
-          "description": "<p>The published tiers for this GitHub Sponsors listing.</p>",
+          "description": "<p>The tiers for this GitHub Sponsors profile.</p>",
           "type": "SponsorsTierConnection",
           "id": "sponsorstierconnection",
           "kind": "objects",
@@ -62200,6 +62987,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeUnpublished",
+              "defaultValue": false,
+              "description": "<p>Whether to include tiers that aren't published. Only admins of the Sponsors\nlisting can see draft tiers. Only admins of the Sponsors listing and viewers\nwho are currently sponsoring on a retired tier can see those retired tiers.\nDefaults to including only published tiers, which are visible to anyone who\ncan see the GitHub Sponsors profile.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -62603,6 +63401,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "isActive",
+          "description": "<p>Whether the sponsorship is active. False implies the sponsor is a past sponsor\nof the maintainer, while true implies they are a current sponsor.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isOneTimePayment",
           "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
           "type": "Boolean!",
@@ -62612,7 +63418,7 @@
         },
         {
           "name": "isSponsorOptedIntoEmail",
-          "description": "<p>Check if the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
+          "description": "<p>Whether the sponsor has chosen to receive sponsorship update emails sent from\nthe sponsorable. Only returns a non-null value when the viewer has permission to know this.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -62776,6 +63582,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "author",
+          "description": "<p>The author of the newsletter.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
         {
           "name": "body",
           "description": "<p>The contents of the newsletter, the message the sponsorable wanted to give.</p>",
@@ -63552,6 +64366,63 @@
           "id": "statusstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#statusstate"
+        }
+      ]
+    },
+    {
+      "name": "StripeConnectAccount",
+      "kind": "objects",
+      "id": "stripeconnectaccount",
+      "href": "/graphql/reference/objects#stripeconnectaccount",
+      "description": "<p>A Stripe Connect account for receiving sponsorship funds from GitHub Sponsors.</p>",
+      "fields": [
+        {
+          "name": "accountId",
+          "description": "<p>The account number used to identify this Stripe Connect account.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "billingCountryOrRegion",
+          "description": "<p>The name of the country or region of an external account, such as a bank\naccount, tied to the Stripe Connect account. Will only return a value when\nqueried by the maintainer of the associated GitHub Sponsors profile\nthemselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "countryOrRegion",
+          "description": "<p>The name of the country or region of the Stripe Connect account. Will only\nreturn a value when queried by the maintainer of the associated GitHub\nSponsors profile themselves, or by an admin of the sponsorable organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isActive",
+          "description": "<p>Whether this Stripe Connect account is currently in use for the associated GitHub Sponsors profile.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorsListing",
+          "description": "<p>The GitHub Sponsors profile associated with this Stripe Connect account.</p>",
+          "type": "SponsorsListing!",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting"
+        },
+        {
+          "name": "stripeDashboardUrl",
+          "description": "<p>The URL to access this Stripe Connect account on Stripe's website.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         }
       ]
     },
@@ -68723,7 +69594,7 @@
         },
         {
           "name": "isSponsoredBy",
-          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "description": "<p>Whether the given account is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -70468,19 +71339,45 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the viewer's sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipForViewerAsSponsorable",
-          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipNewsletters",
@@ -70544,12 +71441,23 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all\nsponsorships this maintainer has ever received.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -70615,12 +71523,23 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -70822,6 +71741,46 @@
             {
               "name": "since",
               "description": "<p>How far back in time to fetch contributed repositories.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            }
+          ]
+        },
+        {
+          "name": "totalSponsorshipAmountAsSponsorInCents",
+          "description": "<p>The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has\nspent on GitHub to fund sponsorships. Only returns a value when viewed by the\nuser themselves or by a user who can manage sponsorships for the requested organization.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "arguments": [
+            {
+              "name": "since",
+              "description": "<p>Filter payments to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "sponsorableLogins",
+              "description": "<p>Filter payments to those made to the users or organizations with the specified usernames.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter payments to those that occurred before this time.</p>",
               "type": {
                 "name": "DateTime",
                 "id": "datetime",
@@ -74816,7 +75775,7 @@
         },
         {
           "name": "isSponsoredBy",
-          "description": "<p>Check if the given account is sponsoring this user/organization.</p>",
+          "description": "<p>Whether the given account is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -75102,19 +76061,45 @@
         },
         {
           "name": "sponsorshipForViewerAsSponsor",
-          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the\nsponsorship where you're the sponsor. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from the viewer to this user/organization; that is, the sponsorship where you're the sponsor.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the viewer's sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipForViewerAsSponsorable",
-          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the\nsponsorship you're receiving. Only returns a sponsorship if it is active.</p>",
+          "description": "<p>The sponsorship from this user/organization to the viewer; that is, the sponsorship you're receiving.</p>",
           "type": "Sponsorship",
           "id": "sponsorship",
           "kind": "objects",
-          "href": "/graphql/reference/objects#sponsorship"
+          "href": "/graphql/reference/objects#sponsorship",
+          "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to return the sponsorship only if it's still active. Pass false to\nget the sponsorship back even if it has been cancelled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
         },
         {
           "name": "sponsorshipNewsletters",
@@ -75178,12 +76163,23 @@
         },
         {
           "name": "sponsorshipsAsMaintainer",
-          "description": "<p>This object's sponsorships as the maintainer.</p>",
+          "description": "<p>The sponsorships where this user or organization is the maintainer receiving the funds.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all\nsponsorships this maintainer has ever received.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -75249,12 +76245,23 @@
         },
         {
           "name": "sponsorshipsAsSponsor",
-          "description": "<p>This object's sponsorships as the sponsor.</p>",
+          "description": "<p>The sponsorships where this user or organization is the funder.</p>",
           "type": "SponsorshipConnection!",
           "id": "sponsorshipconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorshipconnection",
           "arguments": [
+            {
+              "name": "activeOnly",
+              "defaultValue": true,
+              "description": "<p>Whether to include only sponsorships that are active right now, versus all sponsorships this sponsor has ever made.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
             {
               "name": "after",
               "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
@@ -75313,6 +76320,46 @@
                 "id": "sponsorshiporder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#sponsorshiporder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "totalSponsorshipAmountAsSponsorInCents",
+          "description": "<p>The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has\nspent on GitHub to fund sponsorships. Only returns a value when viewed by the\nuser themselves or by a user who can manage sponsorships for the requested organization.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int",
+          "arguments": [
+            {
+              "name": "since",
+              "description": "<p>Filter payments to those that occurred on or after this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
+              }
+            },
+            {
+              "name": "sponsorableLogins",
+              "description": "<p>Filter payments to those made to the users or organizations with the specified usernames.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "until",
+              "description": "<p>Filter payments to those that occurred before this time.</p>",
+              "type": {
+                "name": "DateTime",
+                "id": "datetime",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#datetime"
               }
             }
           ]
@@ -77801,6 +78848,47 @@
         {
           "name": "PRIVATE",
           "description": "<p>Members will be able to create only private repositories.</p>"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationMigrationState",
+      "kind": "enums",
+      "id": "organizationmigrationstate",
+      "href": "/graphql/reference/enums#organizationmigrationstate",
+      "description": "<p>The Octoshift Organization migration state.</p>",
+      "values": [
+        {
+          "name": "FAILED",
+          "description": "<p>The Octoshift migration has failed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The Octoshift migration is in progress.</p>"
+        },
+        {
+          "name": "NOT_STARTED",
+          "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "POST_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing post repository migrations.</p>"
+        },
+        {
+          "name": "PRE_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing pre repository migrations.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The Octoshift migration has been queued.</p>"
+        },
+        {
+          "name": "REPO_MIGRATION",
+          "description": "<p>The Octoshift org migration is performing repository migrations.</p>"
+        },
+        {
+          "name": "SUCCEEDED",
+          "description": "<p>The Octoshift migration has succeeded.</p>"
         }
       ]
     },
@@ -82339,6 +83427,30 @@
       ]
     },
     {
+      "name": "ProjectNextFieldConfiguration",
+      "kind": "unions",
+      "id": "projectnextfieldconfiguration",
+      "href": "/graphql/reference/unions#projectnextfieldconfiguration",
+      "description": "<p>Configurations for project next fields.</p>",
+      "possibleTypes": [
+        {
+          "name": "ProjectNextField",
+          "id": "projectnextfield",
+          "href": "/graphql/reference/objects#projectnextfield"
+        },
+        {
+          "name": "ProjectNextIterationField",
+          "id": "projectnextiterationfield",
+          "href": "/graphql/reference/objects#projectnextiterationfield"
+        },
+        {
+          "name": "ProjectNextSingleSelectField",
+          "id": "projectnextsingleselectfield",
+          "href": "/graphql/reference/objects#projectnextsingleselectfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectNextItemContent",
       "kind": "unions",
       "id": "projectnextitemcontent",
@@ -86504,6 +87616,15 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "headRepositoryId",
+          "description": "<p>The Node ID of the head repository.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "maintainerCanModify",
           "description": "<p>Indicates whether maintainers can modify the pull request.</p>",
           "type": "Boolean",
@@ -89597,6 +90718,32 @@
       ]
     },
     {
+      "name": "PublishSponsorsTierInput",
+      "kind": "inputObjects",
+      "id": "publishsponsorstierinput",
+      "href": "/graphql/reference/input-objects#publishsponsorstierinput",
+      "description": "<p>Autogenerated input type of PublishSponsorsTier.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of the draft tier to publish.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "PullRequestOrder",
       "kind": "inputObjects",
       "id": "pullrequestorder",
@@ -90433,6 +91580,32 @@
       ]
     },
     {
+      "name": "RetireSponsorsTierInput",
+      "kind": "inputObjects",
+      "id": "retiresponsorstierinput",
+      "href": "/graphql/reference/input-objects#retiresponsorstierinput",
+      "description": "<p>Autogenerated input type of RetireSponsorsTier.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "tierId",
+          "description": "<p>The ID of the published tier to retire.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "RevokeEnterpriseOrganizationsMigratorRoleInput",
       "kind": "inputObjects",
       "id": "revokeenterpriseorganizationsmigratorroleinput",
@@ -90972,6 +92145,56 @@
           "id": "starorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#starorderfield"
+        }
+      ]
+    },
+    {
+      "name": "StartOrganizationMigrationInput",
+      "kind": "inputObjects",
+      "id": "startorganizationmigrationinput",
+      "href": "/graphql/reference/input-objects#startorganizationmigrationinput",
+      "description": "<p>Autogenerated input type of StartOrganizationMigration.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceAccessToken",
+          "description": "<p>The migration source access token.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetEnterpriseId",
+          "description": "<p>The ID of the enterprise the target organization belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -93586,8 +94809,26 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "fieldConstraintId",
+          "description": "<p>The id of the field to be updated. Only supports custom fields and status for now.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>fieldConstraintId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "fieldId",
           "description": "<p>The id of the field to be updated.</p>\n<p><strong>Upcoming Change on 2023-01-01 UTC</strong>\n<strong>Description:</strong> <code>fieldId</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>,\nto find a suitable replacement.\n<strong>Reason:</strong> The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "fieldWithSettingId",
+          "description": "<p>The id of the field to be updated. Only supports custom fields and status for now.</p>\n<p><strong>Upcoming Change on 2022-10-01 UTC</strong>\n<strong>Description:</strong> <code>fieldWithSettingId</code> will be removed. Use <code>fieldConstraintId</code> instead\n<strong>Reason:</strong> Renamed to fieldConstraintId to improve naming consistency.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
