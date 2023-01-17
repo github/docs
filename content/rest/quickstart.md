@@ -95,7 +95,7 @@ jobs:
 
 ## Getting started using JavaScript
 
-You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 ### Using Octokit.js
 

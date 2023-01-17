@@ -1,6 +1,7 @@
 ---
 title: About Dependabot version updates
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+product: '{% data reusables.gated-features.dependabot-version-updates %}'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
   - /github/administering-a-repository/about-github-dependabot
@@ -65,6 +66,13 @@ You can configure version updates for repositories that contain a dependency man
 {% data reusables.dependabot.supported-package-managers %}
 
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."{% endif %}
+
+{% ifversion dependabot-updates-paused %}
+## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
+
+{% data reusables.dependabot.automatically-pause-dependabot-updates %}
+
+{% endif %}
 
 ## About notifications for {% data variables.product.prodname_dependabot %} version updates
 

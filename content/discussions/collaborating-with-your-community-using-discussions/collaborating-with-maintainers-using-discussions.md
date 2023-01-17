@@ -16,7 +16,9 @@ versions:
 
 Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
 
-{% data reusables.discussions.github-recognizes-members %} These members appear in a list of the most helpful contributors to the project's discussions. As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)"
+{% data reusables.discussions.github-recognizes-members %} {%- ifversion fpt %} These members appear in a list of the most helpful contributors to the project's discussions, if their privacy settings allow. For more information, see "[Setting your profile to private](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private)."{%- endif %}{%- ifversion ghes or ghec %} These members appear in a list of the most helpful contributors to the project's discussions.{%- endif %}
+
+As your project grows, you can grant higher access permissions to active members of your community. For more information, see "[Granting higher permissions to top contributors](/discussions/guides/granting-higher-permissions-to-top-contributors)."
 
 ![Most helpful contributors to discussions for a project](/assets/images/help/discussions/most-helpful.png)
 

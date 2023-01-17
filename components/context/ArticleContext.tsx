@@ -1,10 +1,13 @@
 import { createContext, useContext } from 'react'
 
 export type LearningTrack = {
-  trackName?: string
-  trackProduct?: string
+  trackTitle: string
+  trackName: string
+  trackProduct: string
   prevGuide?: { href: string; title: string }
   nextGuide?: { href: string; title: string }
+  numberOfGuides: number
+  currentGuideIndex: number
 }
 
 export type MiniTocItem = {
@@ -59,7 +62,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   }
 
   return {
-    title: page.titlePlainText,
+    title: page.title,
     intro: page.intro,
     effectiveDate: page.effectiveDate || '',
     renderedPage: req.context.renderedPage || '',

@@ -1,6 +1,6 @@
 ---
 title: Deployment statuses
-intro: ''
+intro: 'Use the REST API to manage deployment statuses.'
 versions:
   fpt: '*'
   ghes: '*'

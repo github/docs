@@ -10,14 +10,14 @@ featuredLinks:
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
   guideCards:
-    - /github/getting-started-with-github/signing-up-for-a-new-github-account
-    - /github/getting-started-with-github/git-and-github-learning-resources
-    - /education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom
+    - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
+    - /get-started/quickstart/git-and-github-learning-resources
+    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom
   popular:
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
     - /desktop
-    - /github/getting-started-with-github/github-cli
+    - /github-cli/github-cli/about-github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
   label: education
@@ -31,4 +31,3 @@ children:
   - /manage-coursework-with-github-classroom
   - /guides
 ---
-

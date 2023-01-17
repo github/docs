@@ -58,7 +58,7 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 
    **Note:**
 
-   - Push protection for custom patterns will only apply to repositories that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling secret scanning as a push protection for a repository](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-a-repository)."
+   - Push protection for custom patterns will only apply to repositories that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-a-repository)."
    - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
 
    {% endnote %}
@@ -126,7 +126,7 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
    {% note %}
 
    **Note:**
-   - Push protection for custom patterns will only apply to repositories in your organization that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling secret scanning as a push protection for an organization](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
+   - Push protection for custom patterns will only apply to repositories in your organization that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
    - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
 
    {% endnote %}
@@ -170,7 +170,19 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
-{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
+1. Optionally, to enable push protection for your custom pattern, click **Enable**.
+
+   {% note %}
+
+   **Note:**
+
+   - To enable push protection for custom patterns, {% data variables.product.prodname_secret_scanning %} as push protection needs to be enabled at the enterprise level. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-your-enterprise)."
+   - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
+
+   {% endnote %}
+
+   ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 

@@ -27,7 +27,13 @@ const scheduledWorkflows = workflows
   .flat()
   .map((schedule) => schedule.cron)
 
-const allUsedActions = chain(workflows).map(actionsUsedInWorkflow).flatten().uniq().sort().value()
+const allUsedActions = chain(workflows)
+  .map(actionsUsedInWorkflow)
+  .flatten()
+  .uniq()
+  .filter((use) => !use.startsWith('.'))
+  .sort()
+  .value()
 
 describe('GitHub Actions workflows', () => {
   test('all used actions are listed', () => {

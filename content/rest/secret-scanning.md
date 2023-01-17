@@ -1,6 +1,6 @@
 ---
 title: Secret scanning
-intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
+intro: Use the REST API to retrieve and update secret alerts from a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,9 +15,9 @@ redirect_from:
 
 {% data reusables.secret-scanning.api-beta %}
 
-## About the Secret scanning API
+## About secret scanning
 
-The {% data variables.product.prodname_secret_scanning %} API lets you:
+You can use the API to:
 
 - Enable or disable {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %} and push protection{% endif %} for a repository. For more information, see "[Repositories](/rest/repos/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 - Retrieve and update {% data variables.secret-scanning.alerts %} from a repository. For further details, see the sections below.
