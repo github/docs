@@ -47,6 +47,8 @@ If you publicize your private contributions, people without access to the privat
      1. Navigate to the Achievements section on the left sidebar of your profile and select the Achievements header. ![Achievements on profile sidebar](/assets/images/help/profile/achievements-on-profile.png)
      2. Open the detail view of the achievement you'd like to hide by clicking on the achievement.
      3. Once in the detail view, click the {% octicon "eye" aria-label="The eye icon" %} icon to hide the achievement. ![Achievement detail view](/assets/images/help/profile/achievements-detail-view.png) When hidden, badges will be marked by the {% octicon "eye-closed" aria-label="The eye closed icon" %} icon and are only visible to you. ![Hidden achievements](/assets/images/help/profile/achievements-hidden.png)
+2. If still Achivements is not shown on your profile then you can visit to your Achivements section and make your Achivements unhide:
+        1.try this link to unhide whichever achievements you want showing: https://github.com/yourusername?tab=achievements
 
 {% endif %}
 ## Further reading
