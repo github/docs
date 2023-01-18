@@ -49,8 +49,7 @@ describe('frame', () => {
     )
   })
 
-  // Docs Engineering issue: 2637
-  test.skip.each(langs)('loads the survey via site data in %s', async (lang) => {
+  test.each(langs)('loads the survey via site data in %s', async (lang) => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
     expect($('[data-testid="survey-form"] h2').text()).not.toEqual(
