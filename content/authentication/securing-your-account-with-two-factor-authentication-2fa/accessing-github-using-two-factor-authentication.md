@@ -102,6 +102,14 @@ When you access a repository via Subversion, you must provide a {% data variable
 
 If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** {% data reusables.two_fa.unlink-email-address %}
+
+{% endnote %}
+{% endif %}
+
 If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
 
 ## Further reading

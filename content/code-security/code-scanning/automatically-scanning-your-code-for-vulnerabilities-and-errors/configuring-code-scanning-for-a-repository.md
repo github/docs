@@ -1,9 +1,9 @@
 ---
-title: Setting up code scanning for a repository
-shortTitle: Set up code scanning
-intro: 'You can set up {% data variables.product.prodname_code_scanning %} for a repository to find security vulnerabilities in your code.'
+title: Configuring code scanning for a repository
+shortTitle: Configure code scanning
+intro: 'You can configure {% data variables.product.prodname_code_scanning %} for a repository to find security vulnerabilities in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -11,6 +11,8 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository
   - /code-security/secure-coding/setting-up-code-scanning-for-a-repository
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
+  - /code-security/secure-coding/configuring-code-scanning-for-a-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -27,9 +29,9 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## Options for setting up {% data variables.product.prodname_code_scanning %}
+## Options for configuring {% data variables.product.prodname_code_scanning %}
 
-You decide how to generate {% data variables.product.prodname_code_scanning %} alerts, and which tools to use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning#about-tools-for-code-scanning)."
+You decide how to generate {% data variables.product.prodname_code_scanning %} alerts, and which tools to use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see the following bullets and "[About {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-code-scanning#about-tools-for-code-scanning)."
 
 {% data reusables.code-scanning.enabling-options %}
 
@@ -40,7 +42,7 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** If you want to use the {% data variables.product.prodname_codeql %} analysis, note that this article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+**Note:** If you want to use the {% data variables.product.prodname_codeql %} analysis, note that this article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -48,18 +50,18 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 {% ifversion ghae %}
 ## Prerequisites
 
-Before setting up {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
+Before configuring {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
 
 Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 {% endif %}
 
 {% ifversion code-scanning-without-workflow %}
 
-## Setting up {% data variables.product.prodname_code_scanning %} automatically
+## Configuring {% data variables.product.prodname_code_scanning %} automatically
 
 The default setup for {% data variables.product.prodname_code_scanning %} will automatically configure {% data variables.product.prodname_code_scanning %} with the best settings for your repository. Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages: JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by CodeQL, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."
 
-Enabling default setup is the quickest way to set up {% data variables.product.prodname_code_scanning %} for your repository. Additionally, default setup requires none of the maintenance necessary with a {% data variables.product.prodname_codeql %} workflow file. Before you enable default setup, you'll see the languages it will analyze, the query suites it will run, and the events that will trigger a new scan.
+Enabling default setup is the quickest way to configure {% data variables.product.prodname_code_scanning %} for your repository. Additionally, default setup requires none of the maintenance necessary with a {% data variables.product.prodname_codeql %} workflow file. Before you enable default setup, you'll see the languages it will analyze, the query suites it will run, and the events that will trigger a new scan.
 
 Try default setup if you don't need to run extra queries, change the scan schedule, or scan a language that is currently unsupported by default setup.
 
@@ -76,9 +78,9 @@ Try default setup if you don't need to run extra queries, change the scan schedu
   {% note %}
 
   **Notes:**
-     - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which query suites will run, what events will trigger a new scan, or other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[Creating an advanced setup](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#creating-an-advanced-setup)."
+     - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which query suites will run, what events will trigger a new scan, or other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[Creating an advanced setup](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
      - If you are switching to the default setup from the advanced setup, you will see a warning informing you that the default setup will override existing configurations. Once you have enabled {% data variables.product.prodname_codeql %}, be sure to delete or disable your existing workflow file. Otherwise, the workflow will continue to run regularly without uploading any {% data variables.product.prodname_code_scanning %} results, using your {% data variables.product.prodname_actions %} minutes.
-     - If you would like to see your default {% data variables.product.prodname_codeql %} configuration after setup, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "gear" aria-label="The gear icon" %} **View {% data variables.product.prodname_codeql %} configuration**.
+     - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "gear" aria-label="The gear icon" %} **View {% data variables.product.prodname_codeql %} configuration**.
 
   {% endnote %}
 
@@ -90,14 +92,14 @@ Try default setup if you don't need to run extra queries, change the scan schedu
 The advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. By creating and editing a workflow file, you can choose which queries to run, change the scan schedule, scan any {% data variables.product.prodname_codeql %}-supported language, use a matrix build, and more.
 
 {% ifversion fpt or ghec %}
-### Setting up {% data variables.product.prodname_code_scanning %} using starter workflows
+### Configuring {% data variables.product.prodname_code_scanning %} using starter workflows
 
 {% data reusables.advanced-security.starter-workflows-beta %}
 
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -108,17 +110,17 @@ The advanced setup for {% data variables.product.prodname_code_scanning %} is he
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If the repository has already at least one workflow set up and running, click **New workflow** and go to step 5. If there are currently no workflows configured for the repository, go to the next step.
+1. If the repository has already at least one workflow configured and running, click **New workflow** and go to step 5. If there are currently no workflows configured for the repository, go to the next step.
    ![Screenshot of the New workflow button](/assets/images/help/security/actions-new-workflow-button.png)
-1. Scroll down to the "Security" category and click **Configure** under the workflow you want to configure, or click **View all** to see all available security workflows.
+2. Scroll down to the "Security" category and click **Configure** under the workflow you want to configure, or click **View all** to see all available security workflows.
    ![Screenshot of the Actions workflows security section](/assets/images/help/security/actions-workflows-security-section.png)
-1. On the right pane of the workflow page, click **Documentation** and follow the on-screen instructions to tailor the workflow to your needs.
+3. On the right pane of the workflow page, click **Documentation** and follow the on-screen instructions to tailor the workflow to your needs.
    ![Screenshot of the Documentation tab for starter workflows](/assets/images/help/security/actions-workflows-documentation.png)
-   For more information, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" and "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
+   For more information, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" and "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
 {% endif %}
 
-### Setting up {% data variables.product.prodname_code_scanning %} manually
+### Configuring {% data variables.product.prodname_code_scanning %} manually
 
 You can customize your {% data variables.product.prodname_code_scanning %} by creating and editing a workflow file. The advanced setup generates a basic workflow file for you to customize.
 
@@ -127,7 +129,7 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 {% ifversion fpt %}
   {% note %}
 
-  **Note:** You can set up {% data variables.product.prodname_code_scanning %} in any public repository where you have write access.
+  **Note:** You can configure {% data variables.product.prodname_code_scanning %} for any public repository where you have write access.
 
   {% endnote %}
 {% endif %}
@@ -149,8 +151,8 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 
    Generally, you can commit the {% data variables.code-scanning.codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
 
-   For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)."
-1. Use the **Start commit** drop-down, and type a commit message.
+   For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+2. Use the **Start commit** drop-down, and type a commit message.
  ![Start commit](/assets/images/help/repository/start-commit-commit-new-file.png)
 1. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request.
  ![Choose where to commit](/assets/images/help/repository/start-commit-choose-where-to-commit.png)
@@ -158,10 +160,10 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Scanning pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-pull-requests)" and "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#configuring-frequency)."
 
 {% else %}
-## Setting up {% data variables.product.prodname_code_scanning %} manually
+## Configuring {% data variables.product.prodname_code_scanning %} manually
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -173,8 +175,8 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
    Generally, you can commit the {% data variables.code-scanning.codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
 
-   For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)."
-1. Use the **Start commit** drop-down, and type a commit message.
+   For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+2. Use the **Start commit** drop-down, and type a commit message.
  ![Start commit](/assets/images/help/repository/start-commit-commit-new-file.png)
 1. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request.
  ![Choose where to commit](/assets/images/help/repository/start-commit-choose-where-to-commit.png)
@@ -182,17 +184,17 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Scanning pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-pull-requests)" and "[Scanning on push](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#scanning-on-push)."
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#configuring-frequency)."
 
 {% endif %}
 
-## Bulk set up of {% data variables.product.prodname_code_scanning %}
+## Bulk configuration of {% data variables.product.prodname_code_scanning %}
 
-You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. If you'd like to use a script to raise pull requests that add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
+You can configure {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. If you'd like to use a script to raise pull requests that add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
 
 ## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 
-After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
+After configuring {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
 
 {% data reusables.repositories.actions-tab %}
 
@@ -264,11 +266,11 @@ There are other situations where there may be no analysis for the latest commit 
 
 ## Next steps
 
-After setting up {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
+After configuring {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
 
 - View all of the {% data variables.product.prodname_code_scanning %} alerts generated for this repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
-- View any alerts generated for a pull request submitted after you set up {% data variables.product.prodname_code_scanning %}. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
-- Set up notifications for completed runs. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)."
+- View any alerts generated for a pull request submitted after you configure {% data variables.product.prodname_code_scanning %}. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+- Configure notifications for completed runs. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)."
 - View the logs generated by the {% data variables.product.prodname_code_scanning %} analysis. For more information, see "[Viewing {% data variables.product.prodname_code_scanning %} logs](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs)."
-- Investigate any problems that occur with the initial setup of {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
-- Customize how {% data variables.product.prodname_code_scanning %} scans the code in your repository. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)."
+- Investigate any problems that occur with the initial configuration of {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+- Customize how {% data variables.product.prodname_code_scanning %} scans the code in your repository. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
