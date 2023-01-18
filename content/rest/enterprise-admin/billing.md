@@ -2,7 +2,6 @@
 title: Billing
 intro: 'Use the REST API to retrieve the GitHub Advanced Security active committers for an enterprise per repository.'
 versions:
-  fpt: '*'
   ghes: '>=3.4'
   ghec: '*'
 topics:

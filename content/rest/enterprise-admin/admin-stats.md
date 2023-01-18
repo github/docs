@@ -5,7 +5,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

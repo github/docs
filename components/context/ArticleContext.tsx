@@ -62,7 +62,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   }
 
   return {
-    title: page.titlePlainText,
+    title: page.title,
     intro: page.intro,
     effectiveDate: page.effectiveDate || '',
     renderedPage: req.context.renderedPage || '',

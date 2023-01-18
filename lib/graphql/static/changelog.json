@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>includeUnpublished: Boolean</code> added to field <code>SponsorsListing.tiers</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>OrganizationMigration</code> was added</p>",
           "<p>Type <code>OrganizationMigrationState</code> was added</p>",
           "<p>Type <code>ProjectNextFieldConfiguration</code> was added</p>",

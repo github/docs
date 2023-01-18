@@ -26600,7 +26600,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
     """
@@ -26642,7 +26642,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
     """
@@ -46003,7 +46003,7 @@ interface Sponsorable {
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
     """
@@ -46045,7 +46045,7 @@ interface Sponsorable {
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
     """
@@ -47747,7 +47747,7 @@ type SponsorsListing implements Node {
   sponsorable: Sponsorable!
 
   """
-  The published tiers for this GitHub Sponsors listing.
+  The tiers for this GitHub Sponsors profile.
   """
   tiers(
     """
@@ -47764,6 +47764,15 @@ type SponsorsListing implements Node {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Whether to include tiers that aren't published. Only admins of the Sponsors
+    listing can see draft tiers. Only admins of the Sponsors listing and viewers
+    who are currently sponsoring on a retired tier can see those retired tiers.
+    Defaults to including only published tiers, which are visible to anyone who
+    can see the GitHub Sponsors profile.
+    """
+    includeUnpublished: Boolean = false
 
     """
     Returns the last _n_ elements from the list.
@@ -56419,7 +56428,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): SponsorshipNewsletterConnection!
 
   """
-  This object's sponsorships as the maintainer.
+  The sponsorships where this user or organization is the maintainer receiving the funds.
   """
   sponsorshipsAsMaintainer(
     """
@@ -56461,7 +56470,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectNextOwn
   ): SponsorshipConnection!
 
   """
-  This object's sponsorships as the sponsor.
+  The sponsorships where this user or organization is the funder.
   """
   sponsorshipsAsSponsor(
     """

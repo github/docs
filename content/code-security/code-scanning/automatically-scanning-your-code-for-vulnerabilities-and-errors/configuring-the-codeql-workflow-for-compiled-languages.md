@@ -37,16 +37,16 @@ topics:
 
 {% ifversion code-scanning-without-workflow %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. Currently, the default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. Currently, the default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% else %}
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 
 {% endif %}
 
 {% data reusables.code-scanning.edit-workflow %}
-For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
 ##  About autobuild for {% data variables.product.prodname_codeql %}
 
@@ -133,7 +133,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 
 ## Adding build steps for a compiled language
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)."
 
 After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process.
 
@@ -161,6 +161,6 @@ If your repository contains multiple compiled languages, you can specify languag
 
 For more information about the `if` conditional, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
 
-For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
