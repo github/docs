@@ -65,7 +65,7 @@ Only sign-on events through an SSO domain associated with your enterprise are co
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. To download your Dormant Users (beta) report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**.
+1. To download your Dormant Users report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**.
   ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
 
 {% endif %}
