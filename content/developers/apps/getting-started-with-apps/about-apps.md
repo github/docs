@@ -76,12 +76,12 @@ For more on {% data variables.product.prodname_oauth_apps %}, see "[Creating an 
 
 A [{% data variables.product.pat_generic %}](/articles/creating-a-personal-access-token-for-the-command-line/) is a string of characters that functions similarly to an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/) in that you can specify its permissions via [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A {% data variables.product.pat_generic %} is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
 
-As an example, you can enable a {% data variables.product.pat_generic %} to write to your repositories. If then you run a cURL command or write a script that [creates an issue](/rest/reference/issues#create-an-issue) in your repository, you would pass the {% data variables.product.pat_generic %} to authenticate. You can store the {% data variables.product.pat_generic %} as an environment variable to avoid typing it every time you use it.
+As an example, you can enable a {% data variables.product.pat_generic %} to write to your repositories. If then you run a `curl` command or write a script that [creates an issue](/rest/reference/issues#create-an-issue) in your repository, you would pass the {% data variables.product.pat_generic %} to authenticate. You can store the {% data variables.product.pat_generic %} as an environment variable to avoid typing it every time you use it.
 
 Keep these ideas in mind when using {% data variables.product.pat_generic %}s:
 
 * Remember to use this token to represent yourself only.
-* You can perform one-off cURL requests.
+* You can perform one-off `curl` requests.
 * You can run personal scripts.
 * Don't set up a script for your whole team or company to use.
 * Don't set up a shared personal account to act as a bot user.
@@ -99,7 +99,7 @@ Consider these questions about how your integration needs to behave and what it 
 * Will my integration act only as me, or will it act more like an application?
 * Do I want it to act independently of me as its own entity?
 * Will it access everything that I can access, or do I want to limit its access?
-* Is it simple or complex? For example, {% data variables.product.pat_generic %}s are good for simple scripts and cURLs, whereas an {% data variables.product.prodname_oauth_app %} can handle more complex scripting.
+* Is it simple or complex? For example, {% data variables.product.pat_generic %}s are good for simple scripts and `curl` commands, whereas an {% data variables.product.prodname_oauth_app %} can handle more complex scripting.
 
 ## Requesting support
 
