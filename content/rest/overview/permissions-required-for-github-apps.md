@@ -126,6 +126,9 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/keys`](/rest/reference/repos#create-a-deploy-key) (write)
 - [`GET /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#get-a-deploy-key) (read)
 - [`DELETE /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#delete-a-deploy-key) (write)
+- [`POST /repos/{owner}/{repo}/pages`](/rest/reference/pages#create-a-github-pages-site) (write)
+- [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site) (write)
+- [`DELETE /repos/{owner}/{repo}/pages`](/rest/reference/pages#delete-a-github-pages-site) (write)
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages) (write){% endif %}
 - [`GET /repos/{owner}/{repo}/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-a-repository) (read)
 - [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}`](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository) (read)
@@ -679,7 +682,9 @@ shortTitle: GitHub App permissions
 ## Pages
 
 - [`GET /repos/{owner}/{repo}/pages`](/rest/pages#get-a-github-pages-site) (read)
+- [`POST /repos/{owner}/{repo}/pages`](/rest/reference/pages#create-a-github-pages-site) (write)
 - [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site) (write)
+- [`DELETE /repos/{owner}/{repo}/pages`](/rest/reference/pages#delete-a-github-pages-site) (write)
 - [`GET /repos/{owner}/{repo}/pages/builds`](/rest/pages#list-github-pages-builds) (read)
 - [`POST /repos/{owner}/{repo}/pages/builds`](/rest/pages#request-a-github-pages-build) (write)
 - [`GET /repos/{owner}/{repo}/pages/builds/{build_id}`](/rest/pages#get-github-pages-build) (read)
