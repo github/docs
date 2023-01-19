@@ -28,7 +28,7 @@ redirect_from:
 
 {% ifversion ghec %}
 
-If your enterprise members manage their own user accounts on {% data variables.location.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %} 
+If your enterprise members manage their own user accounts on {% data variables.location.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. {% data reusables.saml.dotcom-saml-explanation %}
 
 {% data reusables.saml.saml-accounts %}
 
@@ -38,9 +38,9 @@ Alternatively, you can provision and manage the accounts of your enterprise memb
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
-After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. 
+After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features.
 
-If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %}
+If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 
 {% note %}
@@ -97,7 +97,7 @@ For more information about the configuration of SAML SSO on {% data variables.pr
 
 We test and officially support the following IdPs. For SAML SSO, we offer limited support for all identity providers that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-IdP | SAML | Team synchronization | 
+IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | |
 Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label="The check icon" %} |
