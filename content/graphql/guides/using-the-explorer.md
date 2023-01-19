@@ -88,7 +88,7 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
+This is the correct format to submit the call using a `POST` request in a `curl` command (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
 
