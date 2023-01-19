@@ -80,9 +80,9 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
   guideCards:
-    - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
-    - '{% ifversion ghes %}/admin/configuration/configuring-advanced-security-features{% endif %}'
+    - '{% ifversion ghes %}/admin/code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/configuration/configuring-your-enterprise/initializing-github-ae{% endif %}'
     - '{% ifversion ghae %}/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae{% endif %}'
