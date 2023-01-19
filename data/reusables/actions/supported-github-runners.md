@@ -65,18 +65,20 @@ Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more info
 macOS Monterey 12
 </td>
 <td>
-<code>macos-12</code>
-  </td>
+<code>macos-latest</code> or <code>macos-12</code>
+</td>
+<td>
+The <code>macos-latest</code> label currently uses the macOS 12 runner image.
+</td>
 </tr>
 <tr>
 <td>
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-11</code>
+<code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label is currently transitioning to the macOS Monterey 12 runner image. During the transition, the label might refer to the runner image for either macOS 11 or 12. For more information, see <a href="https://github.blog/changelog/2022-10-03-github-actions-jobs-running-on-macos-latest-are-now-running-on-macos-12/">this {% data variables.product.prodname_dotcom %} blog post</a>.
 </td>
 </tr>
 <tr>

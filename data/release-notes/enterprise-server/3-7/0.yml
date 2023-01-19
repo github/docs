@@ -348,6 +348,7 @@ sections:
         ```
       We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217

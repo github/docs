@@ -17,7 +17,7 @@ const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
   crossOriginEmbedderPolicy: false, // doesn't work with youtube
   referrerPolicy: {
-    policy: 'strict-origin-when-cross-origin',
+    policy: 'no-referrer-when-downgrade', // See docs-engineering #2426
   },
   // This module defines a Content Security Policy (CSP) to disallow
   // inline scripts and content from untrusted sources.

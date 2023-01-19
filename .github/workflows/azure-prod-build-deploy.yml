@@ -71,61 +71,9 @@ jobs:
       - name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
-      - name: Clone Simplified Chinese
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.zh-cn
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/zh-cn
-
-      - name: Clone Japanese
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ja-jp
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ja-jp
-
-      - name: Clone Spanish
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.es-es
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/es-es
-
-      - name: Clone Portuguese
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.pt-br
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/pt-br
-
-      - name: Clone German
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.de-de
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/de-de
-
-      - name: Clone French
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.fr-fr
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/fr-fr
-
-      - name: Clone Russian
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ru-ru
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ru-ru
-
-      - name: Clone Korean
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ko-kr
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: translations/ko-kr
 
       - name: 'Build and push image'
         uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
@@ -194,13 +142,8 @@ jobs:
         run: |
           az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
 
-  send-slack-notification-on-failure:
-    needs: [azure-prod-build-and-deploy]
-    runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    steps:
       - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

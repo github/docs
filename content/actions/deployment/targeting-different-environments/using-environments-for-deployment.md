@@ -65,6 +65,12 @@ Secrets stored in an environment are only available to workflow jobs that refere
 
 {% endnote %}
 
+{% ifversion actions-configuration-variables %}
+## Environment variables
+
+Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Variables](/actions/learn-github-actions/variables)."
+{% endif %}
+
 ## Creating an environment
 
 {% data reusables.actions.permissions-statement-environment %}
@@ -98,8 +104,15 @@ Secrets stored in an environment are only available to workflow jobs that refere
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
+{%- ifversion actions-configuration-variables %}
+5. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Variables](/actions/learn-github-actions/variables)."
+   1. Under **Environment variables**, click **Add Variable**.
+   1. Enter the variable name.
+   1. Enter the variable value.
+   1. Click **Add variable**.
+{%- endif %}
 
-You can also create and configure environments through the REST API. For more information, see "[Deployment environments](/rest/deployments/environments)," "[GitHub Actions Secrets](/rest/actions/secrets)," and "[Deployment branch policies](/rest/deployments/branch-policies)."
+You can also create and configure environments through the REST API. For more information, see "[Deployment environments](/rest/deployments/environments)," "[{% data variables.product.prodname_actions %} Secrets](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[{% data variables.product.prodname_actions %} Variables](/rest/actions/variables),"{% endif %} and "[Deployment branch policies](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 

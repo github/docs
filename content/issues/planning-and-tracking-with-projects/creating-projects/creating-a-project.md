@@ -14,6 +14,12 @@ allowTitleToDifferFromFilename: true
 
 {% data variables.product.prodname_projects_v2 %} are an adaptable collection of items that stay up-to-date with {% data variables.product.company_short %} data. Your projects can track issues, pull requests, and ideas that you note down. You can add custom fields and create views for specific purposes.
 
+{% ifversion projects-v2-copy-a-project %}
+
+You can also choose to use an existing project as a template and copy the views and custom fields to a new project. For more information, see "[Copying an existing project](/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project)."
+
+{% endif %}
+
 ## Creating a project
 
 ### Creating an organization project

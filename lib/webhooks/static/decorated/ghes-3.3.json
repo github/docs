@@ -9047,6 +9047,276 @@
       }
     }
   },
+  "repository_vulnerability_alert": {
+    "create": {
+      "descriptionHtml": "<p>A repository vulnerability alert was created.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a security vulnerability alert in a repository.</p>\n<p><strong>Note</strong>: This event is deprecated. Use the <code>dependabot_alert</code> event instead.</p>",
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "action",
+          "in": "body",
+          "description": "",
+          "isRequired": true,
+          "enum": [
+            "create"
+          ],
+          "childParamsGroups": []
+        },
+        {
+          "type": "",
+          "name": "alert",
+          "in": "body",
+          "description": "",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "enterprise",
+          "in": "body",
+          "description": "<p>An enterprise on GitHub.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "installation",
+          "in": "body",
+          "description": "<p>The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "organization",
+          "in": "body",
+          "description": "<p>A GitHub organization.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "repository",
+          "in": "body",
+          "description": "<p>A repository on GitHub.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "sender",
+          "in": "body",
+          "description": "<p>A GitHub user.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        }
+      ],
+      "availability": [
+        "Repository webhooks",
+        "Organization webhooks"
+      ],
+      "action": "create",
+      "category": "repository_vulnerability_alert"
+    },
+    "dismiss": {
+      "descriptionHtml": "<p>A repository vulnerability alert was dismissed.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a security vulnerability alert in a repository.</p>\n<p><strong>Note</strong>: This event is deprecated. Use the <code>dependabot_alert</code> event instead.</p>",
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "action",
+          "in": "body",
+          "description": "",
+          "isRequired": true,
+          "enum": [
+            "dismiss"
+          ],
+          "childParamsGroups": []
+        },
+        {
+          "type": "",
+          "name": "alert",
+          "in": "body",
+          "description": "",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "enterprise",
+          "in": "body",
+          "description": "<p>An enterprise on GitHub.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "installation",
+          "in": "body",
+          "description": "<p>The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "organization",
+          "in": "body",
+          "description": "<p>A GitHub organization.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "repository",
+          "in": "body",
+          "description": "<p>A repository on GitHub.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "sender",
+          "in": "body",
+          "description": "<p>A GitHub user.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        }
+      ],
+      "availability": [
+        "Repository webhooks",
+        "Organization webhooks"
+      ],
+      "action": "dismiss",
+      "category": "repository_vulnerability_alert"
+    },
+    "reopen": {
+      "descriptionHtml": "<p>A previously dismissed or resolved repository vulnerability alert was reopened.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a security vulnerability alert in a repository.</p>\n<p><strong>Note</strong>: This event is deprecated. Use the <code>dependabot_alert</code> event instead.</p>",
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "action",
+          "in": "body",
+          "description": "",
+          "isRequired": true,
+          "enum": [
+            "reopen"
+          ],
+          "childParamsGroups": []
+        },
+        {
+          "type": "",
+          "name": "alert",
+          "in": "body",
+          "description": "",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "enterprise",
+          "in": "body",
+          "description": "<p>An enterprise on GitHub.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "installation",
+          "in": "body",
+          "description": "<p>The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "organization",
+          "in": "body",
+          "description": "<p>A GitHub organization.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "repository",
+          "in": "body",
+          "description": "<p>A repository on GitHub.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "sender",
+          "in": "body",
+          "description": "<p>A GitHub user.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        }
+      ],
+      "availability": [
+        "Repository webhooks",
+        "Organization webhooks"
+      ],
+      "action": "reopen",
+      "category": "repository_vulnerability_alert"
+    },
+    "resolve": {
+      "descriptionHtml": "<p>A repository vulnerability alert was marked as resolved.</p>",
+      "summaryHtml": "<p>This event occurs when there is activity relating to a security vulnerability alert in a repository.</p>\n<p><strong>Note</strong>: This event is deprecated. Use the <code>dependabot_alert</code> event instead.</p>",
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "action",
+          "in": "body",
+          "description": "",
+          "isRequired": true,
+          "enum": [
+            "resolve"
+          ],
+          "childParamsGroups": []
+        },
+        {
+          "type": "",
+          "name": "alert",
+          "in": "body",
+          "description": "",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "enterprise",
+          "in": "body",
+          "description": "<p>An enterprise on GitHub.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "installation",
+          "in": "body",
+          "description": "<p>The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "organization",
+          "in": "body",
+          "description": "<p>A GitHub organization.</p>",
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "repository",
+          "in": "body",
+          "description": "<p>A repository on GitHub.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        },
+        {
+          "type": "object",
+          "name": "sender",
+          "in": "body",
+          "description": "<p>A GitHub user.</p>",
+          "isRequired": true,
+          "childParamsGroups": []
+        }
+      ],
+      "availability": [
+        "Repository webhooks",
+        "Organization webhooks"
+      ],
+      "action": "resolve",
+      "category": "repository_vulnerability_alert"
+    }
+  },
   "secret_scanning_alert": {
     "reopened": {
       "category": "secret_scanning_alert",

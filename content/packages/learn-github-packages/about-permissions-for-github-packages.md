@@ -78,6 +78,15 @@ For more information, see:{% ifversion fpt or ghec %}
 - "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token/)"
 - "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
 
+## About repository transfers
+
+You can transfer a repository to another user or organization account. For more information, see "[Transferring a repository](/repositories/creating-and-managing-repositories/transferring-a-repository)."
+
+When you transfer a repository, {% ifversion packages-registries-v2 %}{% data variables.product.prodname_dotcom %} may transfer the packages associated with the repository, depending on the registry the packages belong to.
+
+- For registries that support granular permissions, packages are scoped to a user or organization account, and the account associated with the package does not change when you transfer a repository. If you have linked a package to a repository, the link is removed when you transfer the repository to another user, and any codespaces or {% data variables.product.prodname_actions %} workflows associated with the repository will lose access to the package. For the list of these registries, see "[Granular permissions for user/organization-scoped packages](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+- For registries that only support repository-scoped permissions, packages are published directly to repositories, and {% endif %}{% data variables.product.prodname_dotcom %} transfers the packages associated with a repository as part of the repository transfer. All billable usage associated with the packages will subsequently be billed to the new owner. If the previous repository owner is removed as a collaborator on the repository, they may no longer be able to access the packages associated with the repository.{% ifversion packages-registries-v2 %} For the list of these registries, see "[Permissions for repository-scoped packages](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."{% endif %}
+
 ## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
 
 To ensure your workflows will maintain access to your packages, ensure that you're using the right access token in your workflow and that you've enabled {% data variables.product.prodname_actions %} access to your package.

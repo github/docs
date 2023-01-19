@@ -27,7 +27,7 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
-Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
+Using {% data variables.large_files.product_name_short %}, you can store files up to {% ifversion ghae %}200 MiB{% else %}5 GB{% endif %} in your repository.
 {% endif %} 
 
 {% data reusables.repositories.git-lfs %}

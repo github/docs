@@ -14,7 +14,7 @@ allowTitleToDifferFromFilename: true
 
 ## About commit comments
 
-You can create, edit, and view commit comments using the REST API. A commit comment is a comment made on a specfic commit. For more information, see "[Working with comments](/rest/guides/working-with-comments#commit-comments)."
+You can create, edit, and view commit comments using the REST API. A commit comment is a comment made on a specific commit. For more information, see "[Working with comments](/rest/guides/working-with-comments#commit-comments)."
 
 ### Custom media types for commit comments
 

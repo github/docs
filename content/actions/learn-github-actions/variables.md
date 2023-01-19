@@ -80,6 +80,12 @@ You can access `env` variable values using runner environment variables or using
 
 Because runner environment variable interpolation is done after a workflow job is sent to a runner machine, you must use the appropriate syntax for the shell that's used on the runner. In this example, the workflow specifies `ubuntu-latest`. By default, Linux runners use the bash shell, so you must use the syntax `$NAME`. If the workflow specified a Windows runner, you would use the syntax for PowerShell, `$env:NAME`. For more information about shells, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsshell)."
 
+### Naming conventions for environment variables
+
+When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
+
+Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default variables are exceptions to this convention.
+
 {% note %}
 
 **Note**: You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
@@ -102,13 +108,9 @@ When you define configuration variables, they are automatically available in the
 
 If a variable with the same name exists at multiple levels, the variable at the lowest level takes precedence. For example, if an organization-level variable has the same name as a repository-level variable, then the repository-level variable takes precedence. Similarly, if an organization, repository, and environment all have a variable with the same name, the environment-level variable takes precedence.
 
-If a repository contains reusable workflows, its configuration variables are automatically made available to the caller workflows with the `vars` context. However, if the same variable name is used in the caller and the called workflow repositories, the variable from the caller workflow repository is be used.
+For reusable workflows, the variables from the caller workflow's repository are used. Variables from the repository that contains the called workflow are not made available to the caller workflow.
 
 ### Naming conventions for configuration variables
-
-When you set a custom variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
-
-Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default variables are exceptions to this convention.
 
 The following rules apply to configuration variable names:
 
@@ -165,7 +167,7 @@ A workflow created in a repository can access the following number of variables:
 * If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
 * All 100 environment variables.
 
-Variables are limited to 64 KB in size.
+Variables are limited to 48 KB in size.
 
 {% endif %}
 
@@ -240,6 +242,9 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_ACTION_REPOSITORY` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
 | `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
 | `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
+{%- ifversion actions-oidc-custom-claims %}
+| `GITHUB_ACTOR_ID` | {% data reusables.actions.actor_id-description %} |
+{%- endif %}
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
 | `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
 | `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." |
@@ -256,7 +261,13 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
 {%- endif %}
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
+{%- ifversion actions-oidc-custom-claims %}
+| `GITHUB_REPOSITORY_ID` | {% data reusables.actions.repository_id-description %} |
+{%- endif %}
 | `GITHUB_REPOSITORY_OWNER` | The repository owner's name. For example, `octocat`. |
+{%- ifversion actions-oidc-custom-claims %}
+| `GITHUB_REPOSITORY_OWNER_ID` | {% data reusables.actions.repository_owner_id-description %} |
+{%- endif %}
 | `GITHUB_RETENTION_DAYS` | The number of days that workflow run logs and artifacts are kept. For example, `90`. |
 | `GITHUB_RUN_ATTEMPT` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. For example, `3`. |
 | `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
@@ -267,6 +278,10 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
+{%- ifversion actions-oidc-custom-claims %}
+| `GITHUB_WORKFLOW_REF` | {% data reusables.actions.workflow-ref-description %} |
+| `GITHUB_WORKFLOW_SHA` | {% data reusables.actions.workflow-sha-description %} |
+{%- endif %}
 | `GITHUB_WORKSPACE` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
 {%- ifversion actions-runner-arch-envvars %}
 | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} |
