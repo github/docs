@@ -182,6 +182,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "OrganizationOrder",
+          "id": "organizationorder",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationorder",
+          "description": "<p>Ordering options for the User's organizations.</p>"
         }
       ]
     },
@@ -33759,6 +33767,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
+              }
             }
           ]
         },
@@ -56799,6 +56817,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
               }
             }
           ]

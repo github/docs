@@ -27195,6 +27195,11 @@ type OrganizationsHovercardContext implements HovercardContext {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -53465,6 +53470,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
