@@ -23,9 +23,11 @@ topics:
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
 {% ifversion ghec %}
-When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant. 
+When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
 
 Only sign-on events through an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+
+Please note, these results will include both enterprise members and outside collaborators showing activity within your enterprise.
 {% endif %}
 
 {% ifversion ghes or ghae %}
