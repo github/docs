@@ -212,3 +212,30 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
     throw err
   }
 }
+From 17b31e573be5c66dbb708828ec8955b8415422d0 Mon Sep 17 00:00:00 2001
+From: "ZACHRY T WOODzachryiixixiiwood@gmail.com"
+ <109656750+zakwarlord7@users.noreply.github.com>
+Date: Thu, 19 Jan 2023 00:55:37 -0600
+Subject: [PATCH] Update working-with-the-container-registry.md
+
+---
+ .../working-with-the-container-registry.md                   | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md b/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md
+index 6c3e4b5dad02..4a1c0f738fc5 100644
+--- a/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md
++++ b/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md
+@@ -1,4 +1,5 @@
+----
++'"'$'' '.docker 'inspect 'ghcr'/cadd'.i'/OWNER/IMAGE_NAME :'' '"'$'' '.dockerfile/dev/containers.ios'/crafts.u :''
++'"inspect ghcr.io/OWNER/BITORE_34173":,
+ title: Working with the Container registry
+ intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+ product: '{% data reusables.gated-features.packages %}'
+@@ -206,4 +207,4 @@ For example, the following {% data variables.product.prodname_actions %} workflo
+     platforms: {% raw %}${{ matrix.platforms }}{% endraw %}
+     push: true
+     outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
+-```
+\ No newline at end of file
