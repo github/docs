@@ -347,6 +347,15 @@ updates:
         # For AWS SDK, ignore all patch updates
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
+  - package-ecosystem: "docker"
+    directory: "/tests"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: hashicorp/terraform
+        # Ignore terraform 1.3 docker containers in Dockerfiles
+        versions:
+          - "~> 1.3.0, < 1.4.0"
 ```
 
 {% note %}
