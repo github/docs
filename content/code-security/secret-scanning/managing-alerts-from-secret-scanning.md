@@ -21,7 +21,7 @@ shortTitle: Manage secret alerts
 ---
 
 {% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
+{% data reusables.secret-scanning.secret-scanning-alerts-beta %}
 
 ## Managing {% data variables.secret-scanning.alerts %}
 
@@ -35,41 +35,61 @@ shortTitle: Manage secret alerts
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. In the left sidebar, click **Secret scanning alerts**.
+1. In the left sidebar, click **{% data variables.product.prodname_secret_scanning_caps %} alerts**.
    {% ifversion fpt or ghes or ghec %}
-   !["Secret scanning alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %} alerts" tab](/assets/images/help/repository/sidebar-secrets.png)
    {% endif %}
    {% ifversion ghae %}
-   !["Secret scanning alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %} alerts" tab](/assets/images/enterprise/github-ae/repository/sidebar-secrets-ghae.png)
    {% endif %}
-1. Under "Secret scanning" click the alert you want to view.
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view.
    {% ifversion fpt %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-alerts-click-alert-fpt.png)
+   ![Screenshot of the list of alerts from {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/secret-scanning-alerts-click-alert-fpt.png)
    {% endif %}
    {% ifversion ghec %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghec.png)
+   ![Screenshot of the list of alerts from {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/secret-scanning-click-alert-ghec.png)
    {% endif %}
    {% ifversion ghes %}
-   ![List of alerts from secret scanning](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
+   ![Screenshot of the list of alerts from {% data variables.product.prodname_secret_scanning %}](/assets/images/help/repository/secret-scanning-click-alert-ghe.png)
    {% endif %}
    {% ifversion ghae %}
-   ![List of alerts from secret scanning](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
-   {% endif %}{% ifversion secret-scanning-partner-documentation-link-UI %}
-1. To dismiss an alert, select the "Dismiss alert" dropdown menu and click a reason for resolving an alert.
+   ![Screenshot of the list of alerts from {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
+   {% endif %}{% ifversion secret-scanning-validity-check %}
+1. Check the validity of the secret and follow the remediation steps.
 
-   ![Screenshot of the dropdown menu for dismissing an alert from secret scanning showing link to partner documentation](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
+   ![Screenshot of the validity check for a {% data variables.product.company_short %} token](/assets/images/help/repository/secret-scanning-validity-check.png)
+
+   {% note %}
+
+   **Note:** Validity check for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+
+   {% endnote %}
+
+   {% data variables.product.company_short %} provides information about the validity of the secret, for {% data variables.product.company_short %} tokens only.
+
+   | Validity                |     Result                                                                           |
+   |-------------------------|--------------------------------------------------------------------------------|
+   | Active secret           | {% data variables.product.company_short %} confirmed this secret is active                                         |
+   | Active secret           | {% data variables.product.company_short %} checked with this secret's provider and found that the secret is active |
+   | Possibly active secret  | {% data variables.product.company_short %} does not support validation checks for this token type yet               |
+   | Possibly active secret  | {% data variables.product.company_short %} could not verify this secret                                            |
+   | Secret appears inactive | You should make sure no unauthorized access has already occurred                 |
+{% endif %}{% ifversion secret-scanning-partner-documentation-link-UI %}
+1. To dismiss an alert, select the "Close as" dropdown menu and click a reason for resolving an alert.
+
+   ![Screenshot of the dropdown menu for dismissing an alert from {% data variables.product.prodname_secret_scanning %} showing link to partner documentation](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
 
    {% else %}
-1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
+2. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
 
-   ![Screenshot of the dropdown menu for resolving an alert from secret scanning](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
+   ![Screenshot of the dropdown menu for resolving an alert from {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
 
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
-1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
+3. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 
-  ![Screenshot showing how to dismiss an alert via the "Dismiss alert" dropdown, with the option to add a dismissal comment](/assets/images/help/repository/secret-scanning-dismissal-comment.png)
+   ![Screenshot showing how to dismiss an alert via the "Dismiss alert" dropdown, with the option to add a dismissal comment](/assets/images/help/repository/secret-scanning-dismissal-comment.png)
 
-1. Click **Dismiss alert**.
+4. Click **Close alert**.
 {% endif %}
 
 ## Securing compromised secrets

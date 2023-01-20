@@ -39,7 +39,7 @@ From the main page of your repository, click **{% octicon "gear" aria-label="The
 ## Managing the dependency graph
 
 {% ifversion fpt or ghec %}
-The dependency graph is automatically generated for all public repositories, and you can choose to enable it for private repositories. It interprets manifest and lock files in a repository to identify dependencies.
+{% data reusables.dependency-graph.feature-availability %} The dependency graph interprets manifest and lock files in a repository to identify dependencies.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
 1. Click **Security & analysis**.
