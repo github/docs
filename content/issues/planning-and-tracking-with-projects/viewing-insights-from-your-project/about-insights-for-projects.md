@@ -8,20 +8,13 @@ redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-insights-with-projects
 type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
+permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ---
 
-{% ifversion fpt %}
-
-{% note %}
-
-**Note:** Historical charts are currently available as a feature preview for organizations using {% data variables.product.prodname_team %} and are generally available for organizations using {% data variables.product.prodname_ghe_cloud %}.
-
-{% endnote %}
-
-{% endif %}
+{% data reusables.projects.insights-release-note %}
 
  You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
 

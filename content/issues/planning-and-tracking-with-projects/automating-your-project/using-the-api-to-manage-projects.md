@@ -15,13 +15,11 @@ allowTitleToDifferFromFilename: true
 
 This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[Reference](/graphql/reference)."
 
-{% data reusables.projects.graphql-deprecation %}
-
 ## Authentication
 
 {% curl %}
 
-In all of the following cURL examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
+In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
 
 {% endcurl %}
 

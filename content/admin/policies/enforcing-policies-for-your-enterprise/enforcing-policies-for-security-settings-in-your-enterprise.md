@@ -25,13 +25,13 @@ shortTitle: Policies for security settings
 
 ## About policies for security settings in your enterprise
 
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings. 
+You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings.
 
 {% ifversion ghec or ghes %}
 
 ## Requiring two-factor authentication for organizations in your enterprise
 
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
+{% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[Securing your account with two-factor authentication (2FA)](/articles/securing-your-account-with-two-factor-authentication-2fa/)."
 
@@ -84,9 +84,10 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
 
-{% ifversion ghec %}
-
+{% ifversion sso-redirect %}
 ## Managing SSO for unauthenticated users
+
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can choose what unauthenticated users see when they attempt to access your enterprise's resources. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
@@ -106,11 +107,14 @@ To prevent confusion from your developers, you can change this behavior so that 
 1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.
 
    ![Checkbox to automatically redirect users to sign in](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
+{% endif %}
 
 ## Further reading
 
-- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{%- endif %}
-- "[Keeping your organization secure](/organizations/keeping-your-organization-secure)"
+- "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
+{%- ifversion ghec %}
+- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+{%- endif %}
+{%- ifversion ghec or ghae %}
 - "[Restricting network traffic with an IP allow list with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
 {%- endif %}

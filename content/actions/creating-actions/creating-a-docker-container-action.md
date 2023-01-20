@@ -128,6 +128,7 @@ Next, the script gets the current time and sets it as an output variable that ac
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
   ```shell{:copy}
+  $ git add entrypoint.sh
   $ git update-index --chmod=+x entrypoint.sh
   ```
 
@@ -192,7 +193,11 @@ git push --follow-tags
 
 ## Testing out your action in a workflow
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+Now you're ready to test your action out in a workflow.
+
+{% ifversion private-actions %}- When an action is in a private repository, you can control who can access it. For more information, see "[Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)."{% else %}- When an action is in a private repository, the action can only be used in workflows in the same repository.{% endif %}
+{% ifversion ghes or ghec or ghae %}{% ifversion internal-actions %}- When an action is in an internal repository, you can control who can access it. For more information, see "[Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."{% else %}- When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}{% endif %}
+- Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
@@ -211,7 +216,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/hello-world-docker-action{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+        uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step

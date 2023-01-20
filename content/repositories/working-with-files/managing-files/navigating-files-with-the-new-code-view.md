@@ -62,11 +62,11 @@ The new code view also includes updates to the ways in which you work with files
 
   ![Screenshot of the file editor in the new code view with emphasis on the edit icon](/assets/images/help/repository/code-view-edit-icon.png)
 
-1. To edit a file on the github.dev {% data variables.codespaces.serverless %} or {% data variables.product.prodname_desktop %}, select {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} next to {% octicon "pencil" aria-label="The pencil icon" %}, then click either **github.dev** or **{% data variables.product.prodname_desktop %}**.
+1. To edit a file on the {% data variables.codespaces.serverless %} web-based editor or {% data variables.product.prodname_desktop %}, select {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} next to {% octicon "pencil" aria-label="The pencil icon" %}, then click either **github.dev** or **{% data variables.product.prodname_desktop %}**.
 
   {% note %}
 
-  **Note:** The github.dev {% data variables.codespaces.serverless %} is currently in beta preview. You can provide feedback [in our discussions](https://github.com/community/community/discussions/categories/general).
+  **Note:** The {% data variables.codespaces.serverless %} editor is currently in beta preview. You can provide feedback [in our discussions](https://github.com/community/community/discussions/categories/general).
 
   {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: SSH signing keys
-intro: ''
+intro: Use the REST API to manage SSH signing keys of authenticated users.
 versions:
   fpt: '*'
   ghes: '>=3.7'
@@ -11,6 +11,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the User SSH signing keys API
+## About SSH signing key administration
 
 {% data reusables.user-settings.user-api %}

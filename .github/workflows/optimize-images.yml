@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo on head ref
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           ref: ${{ github.head_ref }}
           # Need to specify a PAT here because otherwise GITHUB_TOKEN is used

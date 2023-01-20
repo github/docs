@@ -14,7 +14,7 @@ topics:
 ---
 Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-Creating a webhook is a two-step process. You'll first need to set up what events you webhook should listen to. After that, you'll set up your server to receive and manage the payload.
+Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}

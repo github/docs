@@ -130,7 +130,7 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
-Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
+Each header on a page must be unique. Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
@@ -232,6 +232,46 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 
     <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
 
+## Licensed content
+
+GitHub Docs is licensed under a [CC-BY license](https://github.com/github/docs/blob/main/LICENSE). If you reuse or modify licensed content in an article, you must make sure that the license is compatible and properly attributed.
+
+Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
+
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+
+### Attributing MIT-licensed content
+
+If we reuse or modify content under an MIT license, we must attribute the MIT license where the content appears.
+
+At the end of the article containing MIT-licensed content
+- Create a header titled `Legal notice`
+- Attribute where the content comes from and that it is licensed under the MIT license. Include a link to the project
+- Paste the full text of the MIT license from the project that you are attributing in a codeblock
+
+#### Example MIT license attribution
+
+This text is only an example. Always use the license text from the project you are attributing.
+
+`````
+## Legal notice
+
+Portions have been adapted from [PROJECT](link/to/project) under the MIT license:
+
+```
+MIT License
+
+Copyright <YEAR> <COPYRIGHT HOLDER>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+`````
+
 ## Linebreaks
 
 For plain text, use linebreaks to separate paragraphs in the source (two consecutive linebreaks), rather than to create visual space in the source. Avoid unneeded linebreaks, especially in lists.
@@ -239,11 +279,13 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 ## Links
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking.
-For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-For links to another section in the same article: `For more information, see "[Header text]()."`
-For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
-For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
+- For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+- For links to another section in the same article: `For more information, see "[Header text]()."`
+- For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+- For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
+- For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
 Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
@@ -446,6 +488,12 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### GitHub Advanced Security (GHAS)
+
+Use the terms `licenses` and `active committers` when you refer to GitHub Advanced Security billing.
+
+We used to use the term `seats` to describe the number of accounts that can use GitHub Advanced Security in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+
 ### Personal access tokens
 
 GitHub has two types of personal access tokens:
@@ -563,6 +611,12 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
+
+## Videos
+
+You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
+
+Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
 
 ## Voice and tone
 

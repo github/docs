@@ -64,35 +64,35 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-enterprise-accounts{% endif %}'
+  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
   guides:
-    - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise{% endif %}'
     - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
     - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list{% endif %}'
-    - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
-    - '{% ifversion ghes %}/admin/enterprise-management/creating-a-high-availability-replica{% endif %}'
+    - '{% ifversion ghes %}/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance{% endif %}'
+    - '{% ifversion ghes %}/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica{% endif %}'
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
   guideCards:
-    - '{% ifversion ghes > 2.22 %} /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server {% elsif ghes < 3.0 %} /admin/enterprise-management/upgrading-github-enterprise-server {% endif %}'
-    - '{% ifversion ghes > 2.22 %} /admin/packages/getting-started-with-github-packages-for-your-enterprise {% elsif ghes < 3.0 %} /admin/user-management/customizing-user-messages-for-your-enterprise {% endif %}'
-    - '{% ifversion ghes > 2.22 %} /admin/configuration/configuring-advanced-security-features {% elsif ghes < 3.0 %} /admin/installation/setting-up-a-staging-instance {% endif %}'
-    - '{% ifversion ghae %}/admin/configuration/initializing-github-ae{% endif %}'
-    - '{% ifversion ghae %}/admin/user-management/customizing-user-messages-for-your-enterprise{% endif %}'
-    - '{% ifversion ghae %}/admin/github-actions/getting-started-with-github-actions-for-github-ae{% endif %}'
-    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise{% endif %}'
+    - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
+    - '{% ifversion ghes %}/admin/code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/admin/configuration/configuring-your-enterprise/initializing-github-ae{% endif %}'
+    - '{% ifversion ghae %}/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae{% endif %}'
+    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
   popular:
     - /admin/overview/about-github-enterprise-server
     - '{% ifversion ghae %}/admin/release-notes{% endif %}'
-    - '{% ifversion ghes %}/github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/identity-and-access-management/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
     - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
@@ -104,7 +104,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks{% endif %}'
     - /billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise
-    - /admin/enterprise-support/about-github-enterprise-support
+    - /support/learning-about-github-support/about-github-support
 layout: product-landing
 versions:
   ghec: '*'
@@ -126,4 +126,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-

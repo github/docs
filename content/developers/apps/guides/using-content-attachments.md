@@ -106,7 +106,7 @@ mutation {
   }
 }
 ```
-Example cURL:
+Example `curl` command:
 
 ```shell
 curl -X "POST" "{% data variables.product.api_url_code %}/graphql" \

@@ -30,8 +30,8 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 The basic process behind using a codespace in your JetBrains IDE is as follows.
 
-* In the JetBrains Gateway application you select one of your active or stopped codespaces. 
-* You then choose which JetBrains IDE you want to use. 
+* In the JetBrains Gateway application you select one of your active or stopped codespaces.
+* You then choose which JetBrains IDE you want to use.
 * The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
 * The JetBrains thin client application is then downloaded to your local machine and started.
 * The client application connects to the full backend IDE.
@@ -43,7 +43,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 * A valid JetBrains license
 * The JetBrains Gateway application
-* {% data variables.product.prodname_cli %} version 2.18.0 or later 
+* {% data variables.product.prodname_cli %} version 2.18.0 or later
 * An existing codespace that's running an SSH server
 
 ### JetBrains license
@@ -78,7 +78,7 @@ You must have an existing codespace to connect to. {% data reusables.codespaces.
 
 {% data reusables.codespaces.ssh-server-installed %}
 
-For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 {% note %}
 
@@ -88,7 +88,7 @@ For more information about the `devcontainer.json` file and the default containe
 
 ## Setting up the JetBrains Gateway
 
-The first time you use JetBrains Gateway for {% data variables.product.prodname_github_codespaces %}, you must install the {% data variables.product.prodname_codespaces %} plugin. You must also allow the JetBrains Gateway to access {% data variables.product.prodname_dotcom_the_website %} using your {% data variables.product.prodname_dotcom %} account. 
+The first time you use JetBrains Gateway for {% data variables.product.prodname_github_codespaces %}, you must install the {% data variables.product.prodname_codespaces %} plugin. You must also allow the JetBrains Gateway to access {% data variables.product.prodname_dotcom_the_website %} using your {% data variables.product.prodname_dotcom %} account.
 
 1. Open the JetBrains Gateway application.
 1. Under **Install More Providers** click the **Install** link for {% data variables.product.prodname_github_codespaces %}.
@@ -107,7 +107,7 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
    ![Screenshot of the one-time login code](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)
 
-1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed. 
+1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed.
    * Enter your details and click **Sign in**.
    * Verify your authentication, for example by entering a two-factor authentication code.
 1. On the "Device activation" page, paste the copied code and click **Continue**.
@@ -119,10 +119,10 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
-   The first time you connect to a codespace, the backend IDE will be downloaded to the remote machine. This may take a few minutes. The next time you connect to the same codespace this step won't be necessary, making the connection process quicker. 
+   The first time you connect to a codespace, the backend IDE will be downloaded to the remote machine. This may take a few minutes. The next time you connect to the same codespace this step won't be necessary, making the connection process quicker.
 
-   The backend IDE is then started. Again, this step will not be required in future if you are reconnecting to a backend IDE that you have left running. 
-   
+   The backend IDE is then started. Again, this step will not be required in future if you are reconnecting to a backend IDE that you have left running.
+
    The client application is then launched.
 
 ## Further reading

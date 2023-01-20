@@ -14,7 +14,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About the {% data variables.product.prodname_dotcom %} REST API
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or `curl`. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
 
 When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
 
@@ -52,7 +52,7 @@ gh api /octocat --method GET
 
 {% endnote %}
 
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+To make a request using JavaScript, you can use Octokit.js. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
@@ -83,7 +83,7 @@ curl --request GET \
 
 {% note %}
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**Note**: If you get a message similar to "command not found: curl", you may need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 
 {% endnote %}
 
@@ -150,7 +150,7 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 **Warning**: Treat your access token like a password.
 
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of `curl` commands. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
@@ -158,7 +158,7 @@ If these options are not possible, consider using another service such as [the 1
 
 {% endwarning %}
 
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+In `curl` commands, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
 
 ```shell
 curl --request GET \
@@ -270,7 +270,7 @@ jobs:
 
 {% curl %}
 
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute `curl` commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
 {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
@@ -299,7 +299,7 @@ Most operations specify that you should pass an `Accept` header with a value of 
 To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /octocat
+gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
 ```
 
 {% endcli %}
@@ -311,7 +311,8 @@ The Octokit.js library automatically passes the `Accept: application/vnd.github+
 ```javascript
 await octokit.request("GET /octocat", {
   headers: {
-    "content-type": "text/plain",
+    "content-type": "text/plain",{% ifversion api-date-versioning %}
+    "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
   },
 });
 ```
@@ -320,13 +321,14 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+To send a header in a `curl` command, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
+--header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %}\
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
 {% endcurl %}
@@ -437,7 +439,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+For `curl` commands, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
 
 ```shell
 curl --request GET \
@@ -509,7 +511,7 @@ If you are using a {% data variables.product.pat_v2 %}, you must replace `octoca
 
 {% endif %}
 
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+For `curl` commands, use the `--data` flag to pass the body parameters in a JSON object.
 
 ```shell
 curl --request POST \

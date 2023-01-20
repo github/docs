@@ -23,17 +23,17 @@ If you're starting a new project, you can get started with development work quic
 
 {% endnote %}
 
-You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 As an example, if you create a codespace from {% data variables.product.company_short %}'s React template, you'll arrive in a workspace containing template files for a simple application, such as `index.js`, `app.js`, and `package.json`. Shortly after the codespace opens, a development server will start up automatically, and you will be able to view the running application in a simple browser tab within the {% data variables.product.prodname_vscode_shortname %} web client.
 
 ![Screenshot of the React template running in a codespace](/assets/images/help/codespaces/react-template.png)
 
-The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one. 
+The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one.
 
 {% tip %}
 
-**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces)."
+**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
 {% endtip %}
 
@@ -48,7 +48,7 @@ Templates maintained by {% data variables.product.company_short %}, including th
    ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
 
 1. Under the template you want to launch, click **Use this template**.
-   
+
    ![Screenshot of the quick start templates, with the "Use this template" button highlighted under the React template](/assets/images/help/codespaces/react-template-button.png)
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
@@ -58,7 +58,7 @@ Templates maintained by {% data variables.product.company_short %}, including th
 You can create a codespace from any template repository, then publish your work to a new repository when you are ready. For more information on template repositories, see "[Creating a repository from a template](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)."
 
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.codespaces.open-template-in-codespace-step %}
+{% data reusables.codespaces.use-this-template %}
 
    {% note %}
 
@@ -72,7 +72,7 @@ You can create a codespace from any template repository, then publish your work 
 
 {% data reusables.codespaces.about-publishing-templates %}
 
-### Publishing from {% data variables.product.prodname_vscode_shortname %} 
+### Publishing from {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.publishing-template-codespaces %}
 
@@ -82,7 +82,7 @@ When a codespace is published, you have access to a greater range of options to 
 - Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
 - Share encrypted secrets with your codespace (see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
 
-### Publishing from {% data variables.product.prodname_dotcom_the_website %} 
+### Publishing from {% data variables.product.prodname_dotcom_the_website %}
 
 You can publish an unpublished codespace from the "Your codespaces" page on {% data variables.product.prodname_dotcom_the_website %}. This is useful if you want to publish a codespace that you don't currently have open in your browser. If you do this, your work will be preserved in a repository, but there won't be a link between your existing codespace and the new repository. However, you can navigate to the new repository and create a codespace from there, and this codespace will be connected to the repository.
 
@@ -98,5 +98,5 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 ## Further reading
 
 - "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)"
-- "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle)"
+- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
 - "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"

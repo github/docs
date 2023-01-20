@@ -29,6 +29,8 @@ If you suspect or notice that any users are not provisioned or deprovisioned as 
 
 To check whether users have a SCIM identity (SCIM metadata) in their external identity, you can review SCIM metadata for one organization member at a time on {% data variables.product.prodname_dotcom %} or you can programatically check all organization members using the {% data variables.product.prodname_dotcom %} API.
 
+When the IdP sends a provisioning call to the {% data variables.product.prodname_dotcom %} SCIM API, the SCIM `userName` in that API call needs to match the stored SAML `nameID` in the user's linked SAML identity in the organization. If these two values do not match, the SCIM metadata will not get populated, and the SCIM identity will not get successfully linked. To check whether these values match, use the {% data variables.product.prodname_dotcom %} API.
+
 #### Auditing organization members on {% data variables.product.prodname_dotcom %}
 
 As an organization owner, to confirm that SCIM metadata exists for a single organization member, visit this URL, replacing `<organization>` and `<username>`: 

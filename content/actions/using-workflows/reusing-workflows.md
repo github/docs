@@ -16,7 +16,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -55,7 +55,9 @@ A reusable workflow can be used by another workflow if {% ifversion ghes or ghec
 
 * Both workflows are in the same repository.
 * The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
-* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
+* The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}{% ifversion private-actions %}
+* The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec or ghae %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[Sharing actions and workflows with your organization](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[Sharing actions and workflows from your private repository](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
+{% endif %}
 
 ## Using runners
 
@@ -77,12 +79,17 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 
 {% ifversion nested-reusable-workflow %}
 * You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
+* You can call a maximum of 20 reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+
+  For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 {% else %}
 * Reusable workflows can't call other reusable workflows.
+* You can call a maximum of 20 reusable workflows from a single workflow file.
 {% endif %}
-* Reusable workflows stored within a private repository can only be used by workflows within the same repository.
-* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information about the `env` context, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)."{% ifversion actions-reusable-workflow-matrix %}{% else %}
-* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
+{% ifversion private-actions %}{% else %}* Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
+{% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
+* Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see "[Variables](/actions/learn-github-actions/variables)" and "[Contexts](/actions/learn-github-actions/contexts#env-context)."
+* To reuse variables in multiple workflows, set them at the organization, repository, or environment levels and reference them using the `vars` context. For more information see "[Variables](/actions/learn-github-actions/variables)" and "[Contexts](/actions/learn-github-actions/contexts#vars-context)."
 
 ## Creating a reusable workflow
 

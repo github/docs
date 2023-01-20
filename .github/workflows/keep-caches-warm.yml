@@ -1,0 +1,35 @@
+name: Keep caches warm
+
+# **What it does**: Makes sure the caching of ./node_modules and ./.next
+#                   is kept warm for making pull requests more rapid.
+# **Why we have it**: A PR workflow that depends on caching can't reuse a
+#                     cached artifact acorss PRs unless it also runs on `main`.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  keep-caches-warm:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Cache nextjs build
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+
+      - name: Build
+        run: npm run build

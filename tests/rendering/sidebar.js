@@ -41,9 +41,10 @@ describe('sidebar', () => {
     ).toBe('Get started')
   })
 
-  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
-    expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
+  test('includes links to external products like Electron and CodeQL', async () => {
+    expect(
+      $homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs/latest"]')
+    ).toHaveLength(1)
     expect(
       $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
     ).toHaveLength(1)
@@ -139,11 +140,9 @@ describe('sidebar', () => {
         if (splitPath[splitPath.length - 2] === 'rest') {
           category = data.title
         } else if (splitPath[splitPath.length - 3] === 'rest') {
-          if (filename.includes('index.md')) {
-            category = data.shortTitle || data.title
-          } else {
-            subCategory = data.shortTitle || data.title
-          }
+          filename.includes('index.md')
+            ? (category = data.shortTitle || data.title)
+            : (subCategory = data.shortTitle || data.title)
         }
         for (const version of applicableVersions) {
           req.context.currentVersion = version

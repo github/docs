@@ -12,15 +12,23 @@ on:
         description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.7', 'ghae'"
         required: false
         default: ''
+      languages:
+        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        required: false
+        default: ''
   schedule:
-    - cron: '20 */4 * * *' # Run every 4 hours at 20 minutes after
+    - cron: '20 */24 * * *' # Run every 24 hours at 20 minutes past the hour
+  workflow_run:
+    workflows: ['Azure Production - Build and Deploy']
+    types:
+      - completed
 
 permissions:
   contents: read
 
 # This allows a subsequently queued workflow run to cancel previous runs
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.head_ref }}'
+  group: '${{ github.workflow }} @ ${{ github.head_ref }} ${{ github.event_name }}'
   cancel-in-progress: true
 
 env:
@@ -28,7 +36,51 @@ env:
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
 
 jobs:
+  figureOutMatrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.result }}
+    steps:
+      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        id: set-matrix
+        with:
+          script: |
+            // Edit this list for the definitive list of languages
+            // (other than English) we want to index in Elasticsearch.
+            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
+            const allPossible = ["en", ...allNonEnglish]
+
+            if (context.eventName === "workflow_run") {
+              if (context.payload.workflow_run.conclusion === "success") {
+                return ["en"]
+              }
+              throw new Error(`It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+            }
+
+            if (context.eventName === "workflow_dispatch") {
+              if (context.payload.inputs.languages) {
+                const clean = context.payload.inputs.languages.split(',').map(x => x.trim()).filter(Boolean)
+                const notRecognized = clean.find(x => !allPossible.includes(x))
+                if (notRecognized) {
+                  throw new Error(`'${notRecognized}' is not a recognized language code`)
+                }
+                return clean
+              }
+              return allPossible
+            }
+
+            if (context.eventName === "schedule") {
+              return allNonEnglish
+            }
+
+            console.log(context)
+            throw new Error(`Unable figure out what languages to run (${context.eventName})`)
+
+      - name: Debug output
+        run: echo "${{ steps.set-matrix.outputs.result }}"
+
   updateElasticsearchIndexes:
+    needs: figureOutMatrix
     name: Update indexes
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-20.04-xl
@@ -36,8 +88,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        # This needs to match the languages we support
-        language: [en, ja, es, pt, cn, ru, fr, ko, de]
+        language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - if: ${{ env.FREEZE == 'true' }}
         run: |
@@ -45,19 +96,18 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+      - name: Clone all translations
+        if: ${{ matrix.language != 'en' }}
+        uses: ./.github/actions/clone-translations
         with:
-          node-version: '16.17.0'
-          cache: npm
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -135,7 +185,7 @@ jobs:
         run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

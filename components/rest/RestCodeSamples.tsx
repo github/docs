@@ -74,8 +74,20 @@ export function RestCodeSamples({ operation, slug }: Props) {
   }
 
   // Menu options for the example selector
+
+  // We show the media type in the examples menu items for each example if
+  // there's more than one example and if the media types aren't all the same
+  // for the examples (e.g. if all examples have content type `application/json`,
+  // we won't show that information in the menu items).
+  const showExampleOptionMediaType =
+    languageExamples.length > 1 &&
+    !languageExamples.every(
+      (example) => example.response.contentType === languageExamples[0].response.contentType
+    )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
-    text: example.description,
+    text: showExampleOptionMediaType
+      ? `${example.description} (${example.response.contentType})`
+      : example.description,
     // maps to the index of the example in the languageExamples array
     languageIndex: index,
   }))

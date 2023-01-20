@@ -38,10 +38,6 @@ sections:
 
     - heading: GitHub Advanced Security
       notes:
-        # https://github.com/github/releases/issues/2256
-        - |
-          Enterprise owners on an instance with a GitHub Advanced Security license can see an overview of code scanning alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all code scanning, secret scanning, and Dependabot alerts. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
-
         # https://github.com/github/releases/issues/2373
         - |
            Users on an instance with a GitHub Advanced Security license can view and comment on code scanning alerts in their repository within a pull request's **Conversation** tab. If the **Require conversation resolution before merging** branch protection rule is enabled for the repository, all comments on these code scanning alerts must be resolved before a user merges the pull request. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-code-scanning)," "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)," and "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
@@ -56,7 +52,7 @@ sections:
 
         # https://github.com/github/releases/issues/2383
         - |
-           If a site administrator has enabled email notifications for an instance with a GitHub Advanced Security license, users who watch a repository's secret scanning alerts will receive an email notification when a contributor bypasses a secret blocked by push protection. Previously, notifications were not sent if the secret was marked as a false positive or used in tests. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)" and "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+          If a site administrator has enabled email notifications for an instance with a GitHub Advanced Security license, users who watch a repository's secret scanning alerts will receive an email notification when a contributor bypasses a secret blocked by push protection. Previously, notifications were not sent if the secret was marked as a false positive or used in tests. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)" and "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
 
         # https://github.com/github/releases/issues/2355
         - |
@@ -98,6 +94,10 @@ sections:
 
     - heading: Dependabot
       notes:
+        # https://github.com/github/releases/issues/2256
+        - |
+          The security overview for the instance includes information about Dependabot. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+
         # https://github.com/github/releases/issues/2308
         - |
           Users can see more information about the activity associated with a Dependabot alert. Within the details for a Dependabot alert, users can see a timeline of events, such as when the alert was opened, fixed, or reopened. Events will also show additional metadata when available, like relevant pull requests. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
@@ -132,7 +132,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2300
         - |
-          Enterprise and organization owners can see the security overview for the entire GitHub Enterprise Server instance or individual organizations on the instance. The security overview provides a centralized view of risk for application security teams, engineering leaders, and developers who work across many repositories. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Enterprise owners, organization owners, and security managers can access a centralized view of risk across the entire instance. The view also includes an alert-centric view of all code scanning, secret scanning, and Dependabot alerts. Enterprise owners can view alerts for organizations that they are owners of. Organization owners and security managers can view repositories and alerts for the organizations that they have full access to.  For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)." 
 
         # https://github.com/github/releases/issues/2415
         - |
@@ -295,6 +295,13 @@ sections:
           In Markdown, users can write LaTeX-style syntax to render math expressions inline using `$` delimiters, or in blocks using `$$` delimiters. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
   changes:
+    # https://github.com/github/releases/issues/2344
+    - |
+      To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced. 
+      
+    - |
+      If TLS and subdomain isolation are configured for your instance and your certificate is not a wildcard certificate, you must generate a new certificate that includes the additional subdomains for these services, `notebooks.HOSTNAME` and `viewscreen.HOSTNAME`. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)." [Updated: 2022-12-02]
+
     - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
   
     # https://github.com/github/releases/issues/2535
@@ -308,9 +315,6 @@ sections:
 
     # https://github.com/github/releases/issues/2534
     - The size of the search field for user, organization, and enterprise audit logs has increased.
-
-    # https://github.com/github/releases/issues/2344
-    - To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced.
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -340,9 +344,11 @@ sections:
         ```
         nomad stop github-gitauth
         nomad run /etc/nomad-jobs/github/gitauth.hcl
-        nomad status git
+        nomad status github-gitauth
         ```
-      We are currently investigating a permanent fix for a future hot patch.
+      We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217

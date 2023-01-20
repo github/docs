@@ -28,7 +28,7 @@ topics:
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/about-enterprise-managed-users)."
 
 - If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
-- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %}. For a list of these events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %} and actions they take within their user account. For a list of these user account events, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
 {% endif %}
 
 {%- ifversion fpt or ghec %}
@@ -39,7 +39,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `account.billing_plan_change` | An organization's billing cycle changed. For more information, see "[Changing the duration of your billing cycle](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
 | `account.plan_change` | An organization's subscription changed. For more information, see "[About billing for GitHub accounts](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."
 | `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid subscription. For more information, see "[How does upgrading or downgrading affect the billing process?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
-| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
+| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
@@ -105,10 +105,12 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
 | `business.create`                              | An enterprise was created.
 {%- ifversion ghec %}
+| `business.disable_oidc` | OIDC single sign-on was disabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 | `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
 {%- endif %}
 | `business.disable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was disabled.
 {%- ifversion ghec %}
+| `business.enable_oidc` | OIDC single sign-on was enabled for an enterprise. For more information, see "[Configuring OIDC for {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 | `business.enable_saml` | SAML single sign-on was enabled for an enterprise.
 {%- endif %}
 | `business.enable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.
@@ -190,9 +192,18 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 Action                        | Description
 ----------------------------- | -----------------------------------------------
-| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern is published for secret scanning. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
-| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern is removed from secret scanning.
-| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for secret scanning.
+| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern is published for {% data variables.product.prodname_secret_scanning %}. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
+| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern is removed from {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for {% data variables.product.prodname_secret_scanning %}.
+{%- endif %}
+
+{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+## `business_secret_scanning_custom_pattern_push_protection` category actions
+
+Action                        | Description
+----------------------------- | -----------------------------------------------
+| `business_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
+| `business_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your enterprise. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
 {%- endif %}
 
 {% ifversion code-security-audit-log-events %}
@@ -597,7 +608,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `members_can_delete_repos.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for deleting or transfering repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
+| `members_can_delete_repos.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for deleting or transferring repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
 | `members_can_delete_repos.disable` | The ability for enterprise members to delete repositories was disabled. Members cannot delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
 | `members_can_delete_repos.enable` |  The ability for enterprise members to delete repositories was enabled. Members can delete or transfer repositories in any organizations in an enterprise. For more information, see "[Enforcing a policy for repository deletion and transfer](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer)."
 
@@ -826,10 +837,20 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|---------------
-| `org_secret_scanning_custom_pattern.create` | A custom pattern is published for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 {%- endif %}
+
+{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+## `org_secret_scanning_custom_pattern_push_protection` category actions
+
+| Action | Description
+|--------|---------------
+| `org_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+{%- endif %}
+
 
 ## `organization_default_label` category actions
 
@@ -1163,8 +1184,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | Action | Description
 |--------|-------------
 | `repository_invitation.accept` | An invitation to join a repository was accepted.
+| `repository_invitation.cancel` | An invitation to join a repository was canceled.
 | `repository_invitation.create` | An invitation to join a repository was sent.
-| `repository_invitation.reject` | An invitation to join a repository was canceled.
+| `repository_invitation.reject` | An invitation to join a repository was declined.
 
 ## `repository_projects_change` category actions
 
@@ -1179,8 +1201,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_secret_scanning.disable` | A repository owner or administrator disabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `repository_secret_scanning.enable` | A repository owner or administrator enabled secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
+| `repository_secret_scanning.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)."
+| `repository_secret_scanning.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository.
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
@@ -1189,16 +1211,27 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_custom_pattern.create` | A custom pattern is published for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
-| `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `repository_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."{%- endif %}
 
+{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+
+## `repository_secret_scanning_custom_pattern_push_protection` category actions
+
+| Action | Description
+|------------------|-------------------
+| `repository_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{%- endif %}
+
+
+{%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `repository_secret_scanning_push_protection` category actions
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 ## `repository_visibility_change` category actions
 
@@ -1336,6 +1369,19 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `ssh_certificate_requirement.disable` | The requirement for members to use SSH certificates to access an organization resources was disabled. For more information, see "[Managing your organization's SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[Managing SSH certificate authorities for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 {%- endif %}
 
+{% ifversion sso-redirect %}
+## `sso_redirect` category actions
+
+{% data reusables.enterprise-managed.sso-redirect-release-phase %}
+
+| Action | Description |
+|--------|------------ |
+`sso_redirect.enable` | Automatic redirects for users to single sign-on (SSO) was enabled. |
+`sso_redirect.disable` | Automatic redirects for users to single sign-on (SSO) was disabled. |
+
+For more information, see "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
+{% endif %}
+
 ## `staff` category actions
 
 | Action | Description
@@ -1428,7 +1474,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `user.create`                     | A new user account was created.
 | `user.creation_rate_limit_exceeded` | The rate of creation of user accounts, applications, issues, pull requests or other resources exceeded the configured rate limits, or too many users were followed too quickly.
 | `user.delete`                     | A user account was destroyed by an asynchronous job.
-{%- ifversion ghes %} 
+{%- ifversion ghes %}
 | `user.demote`                     | A site administrator was demoted to an ordinary user account.
 {%- endif %}
 | `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.
@@ -1442,7 +1488,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `user.mandatory_message_viewed`   | A user viewed a mandatory message. For more information see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)" for details."
 {%- endif %}
 | `user.minimize_comment` | A comment made by a user was minimized.
-{%- ifversion ghes %} 
+{%- ifversion ghes %}
 | `user.promote`                    | An ordinary user account was promoted to a site administrator.
 {%- endif %}
 | `user.recreate` | A user's account was restored.

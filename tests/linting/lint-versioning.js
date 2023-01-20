@@ -8,9 +8,8 @@ import { getLiquidConditionals } from '../../script/helpers/get-liquid-condition
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import frontmatter from '../../lib/frontmatter.js'
-import loadSiteData from '../../lib/site-data.js'
 import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -22,8 +21,7 @@ import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
-const siteData = loadSiteData()
-const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
@@ -67,15 +65,8 @@ describe('lint Liquid versioning', () => {
 
     beforeAll(async () => {
       fileContents = await fs.readFile(file, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif']).concat(
-        getLiquidConditionals(bodyContent, ['ifversion', 'elsif'])
-      )
-
-      ifConditionals = getLiquidConditionals(data, 'if').concat(
-        getLiquidConditionals(bodyContent, 'if')
-      )
+      ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+      ifConditionals = getLiquidConditionals(fileContents, 'if')
     })
 
     // `ifversion` supports both standard and feature-based versioning.

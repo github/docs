@@ -1,6 +1,7 @@
 import { ActionList, ActionMenu, Flash } from '@primer/react'
-import { useState, KeyboardEvent } from 'react'
+import { useState, KeyboardEvent, useEffect } from 'react'
 import useSWR from 'swr'
+import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
@@ -48,6 +49,8 @@ export function Webhook({ webhook }: Props) {
   // Get version for requests to switch webhook action type
   const version = useVersion()
   const { t } = useTranslation('products')
+  const router = useRouter()
+  const { locale } = router
 
   const context = useMainContext()
   // Get more user friendly language for the different availability options in
@@ -60,18 +63,61 @@ export function Webhook({ webhook }: Props) {
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
   // The selected webhook action type the user selects via a dropdown
   const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
+  // The index of the selected action type so we can highlight which one is selected
+  // in the action type dropdown
+  const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
+
   const webhookSlug = slug(webhook.data.category)
   const webhookFetchUrl = `/api/webhooks/v1?${new URLSearchParams({
     category: webhook.data.category,
     version: version.currentVersion,
   })}`
 
-  // callback for the action type dropdown -- besides setting the action type
-  // state, we also want to clear the clicked body param so that no properties
-  // are expanded when we re-render the webhook
-  function handleActionTypeChange(type: string) {
+  // When you load the page we want to support linking to a specific webhook type
+  // so this effect sets the webhook type if it's provided in the URL e.g.:
+  //
+  // webhook-events-and-payloads?actionType=published#package
+  //
+  // where the webhook is set in the hash (which is equal to webhookSlug) and
+  // the webhook action type is passed in the actionType parameter.
+  useEffect(() => {
+    const url = new URL(location.href)
+    const actionType = url.searchParams.get('actionType')
+    const hash = url.hash?.slice(1)
+
+    if (actionType && hash && webhook.actionTypes.includes(actionType) && hash === webhookSlug) {
+      setSelectedWebhookActionType(actionType)
+      setSelectedActionTypeIndex(webhook.actionTypes.indexOf(actionType))
+    }
+  }, [])
+
+  // callback for the action type dropdown -- sets the action type to the given
+  // type, index is the index of the selected type so we can highlight it as
+  // selected.
+  //
+  // Besides setting the action type state, we also want to:
+  //
+  // * clear the clicked body param so that no properties are expanded when we
+  // re-render the webhook
+  // * update the URL so people can link to a specific webhook action type
+  function handleActionTypeChange(type: string, index: number) {
     setClickedBodyParameterName('')
     setSelectedWebhookActionType(type)
+    setSelectedActionTypeIndex(index)
+
+    const { asPath } = router
+    let [pathRoot, pathQuery = ''] = asPath.split('?')
+    const params = new URLSearchParams(pathQuery)
+
+    if (pathRoot.includes('#')) {
+      pathRoot = pathRoot.split('#')[0]
+    }
+
+    params.set('actionType', type)
+    router.push({ pathname: pathRoot, query: params.toString(), hash: webhookSlug }, undefined, {
+      shallow: true,
+      locale,
+    })
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked
@@ -142,17 +188,17 @@ export function Webhook({ webhook }: Props) {
             <h4 className="border-bottom pt-2 pb-2 mb-3">{t('webhooks.action_type')}</h4>
             <div className="mb-3">
               <ActionMenu>
-                <ActionMenu.Button className="text-bold">
+                <ActionMenu.Button aria-label="Select a webhook action type" className="text-bold">
                   {currentWebhookActionType}
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
-                  <ActionList>
-                    {webhook.actionTypes.map((type) => {
+                  <ActionList selectionVariant="single">
+                    {webhook.actionTypes.map((type, index) => {
                       return (
                         <ActionList.Item
-                          disabled={type === currentWebhookActionType}
+                          selected={index === selectedActionTypeIndex}
                           key={`${webhook.name}-${type}`}
-                          onSelect={() => handleActionTypeChange(type)}
+                          onSelect={() => handleActionTypeChange(type, index)}
                         >
                           {type}
                         </ActionList.Item>

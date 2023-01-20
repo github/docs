@@ -125,6 +125,12 @@ products:
       announced: Announced
       updates: Updates
   rest:
+    banner:
+      api_versioned: The REST API is now versioned.
+      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
+      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+    versioning:
+      about_versions: About REST API versions
     reference:
       in: In
       description: Description
@@ -250,8 +256,10 @@ product_guides:
     how_to: How-to guide
     reference: Reference
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prev_guide: Previous
+  next_guide: Next
+  more_guides: More guides →
+  current_progress: '{i} of {n} in learning path'
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide

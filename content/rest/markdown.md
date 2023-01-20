@@ -1,6 +1,6 @@
 ---
 title: Markdown
-intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
+intro: Use the REST API to render a markdown document as an HTML page or as raw text.
 versions:
   fpt: '*'
   ghes: '*'

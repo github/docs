@@ -1,5 +1,8 @@
 import { get } from '../helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import {
+  SURROGATE_ENUMS,
+  makeLanguageSurrogateKey,
+} from '../../middleware/set-fastly-surrogate-key.js'
 import { describe, expect } from '@jest/globals'
 
 describe('webhooks v1 middleware', () => {
@@ -23,7 +26,9 @@ describe('webhooks v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
   test('get non-fpt version webhook', async () => {
