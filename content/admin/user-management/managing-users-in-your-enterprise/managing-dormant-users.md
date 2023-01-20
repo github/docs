@@ -27,7 +27,7 @@ When assessing user dormancy, we only consider organizations, repositories, or s
 
 Only sign-on events through an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
 
-Please note, these results will include both enterprise members and outside collaborators showing activity within your enterprise.
+The report includes both enterprise members and outside collaborators.
 {% endif %}
 
 {% ifversion ghes or ghae %}
