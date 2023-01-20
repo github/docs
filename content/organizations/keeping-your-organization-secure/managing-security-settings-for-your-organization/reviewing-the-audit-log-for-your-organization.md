@@ -744,7 +744,18 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository.
 
-{% endif %}{% ifversion ghec or ghes or ghae %}
+{% endif %}
+
+### `repository_invitation` category actions
+
+| Action | Description
+|--------|-------------
+| `repository_invitation.accept` | An invitation to join a repository was accepted.
+| `repository_invitation.cancel` | An invitation to join a repository was canceled.
+| `repository_invitation.create` | An invitation to join a repository was sent.
+| `repository_invitation.reject` | An invitation to join a repository was declined.
+
+{% ifversion ghec or ghes or ghae %}
 ### `repository_secret_scanning` category actions
 
 | Action | Description

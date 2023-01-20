@@ -81,19 +81,23 @@ To discover how a member was added to an organization, you can filter the member
 {% data variables.enterprise.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.enterprise.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community. These visibility and access restrictions for users and content apply to all requests, including API requests.
 
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.enterprise.prodname_managed_users %} be invited to other enterprises.
-* Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
-* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
+* Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
+* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot interact with repositories outside of the enterprise in any of the following ways:
+  - Push code to the repository
+  - Create issues or pull requests within the repository
+  - Create or comment on discussions within the repository
+  - Comment on issues or pull requests, or add reactions to comments
+  - Star, watch, or fork the repository
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
-* Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
 * You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 * If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
+* Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
 * {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
 
 ## Getting started with {% data variables.product.prodname_emus %}

@@ -1184,8 +1184,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | Action | Description
 |--------|-------------
 | `repository_invitation.accept` | An invitation to join a repository was accepted.
+| `repository_invitation.cancel` | An invitation to join a repository was canceled.
 | `repository_invitation.create` | An invitation to join a repository was sent.
-| `repository_invitation.reject` | An invitation to join a repository was canceled.
+| `repository_invitation.reject` | An invitation to join a repository was declined.
 
 ## `repository_projects_change` category actions
 

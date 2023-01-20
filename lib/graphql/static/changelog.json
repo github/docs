@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>OrganizationsHovercardContext.relevantOrganizations</code></p>",
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>User.organizations</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddProjectDraftIssueInput</code> was removed</p>",
           "<p>Type <code>AddProjectDraftIssuePayload</code> was removed</p>",
           "<p>Type <code>AddProjectNextItemInput</code> was removed</p>",

@@ -43,6 +43,8 @@ Click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of th
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
+{% data reusables.codespaces.troubleshooting-simple-browser %}
+
 {% endwebui %}
 
 {% vscode %}
@@ -62,6 +64,8 @@ If you are using an Insiders build and notice broken behavior, we recommend swit
 To switch to {% data variables.product.prodname_vscode %} Stable, close the {% data variables.product.prodname_vscode %} Insiders application, open the {% data variables.product.prodname_vscode %} Stable application, and re-open your codespace.
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
+
+{% data reusables.codespaces.troubleshooting-simple-browser %}
 
 {% endvscode %}
 
