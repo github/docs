@@ -6406,7 +6406,7 @@
         "requestPath": "/orgs/{org}/failed_invitations"
       },
       {
-        "slug": "list-fine-grained-permissions-for-an-organization",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/fine_grained_permissions"

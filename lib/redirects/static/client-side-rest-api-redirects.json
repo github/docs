@@ -1051,7 +1051,7 @@
   "/rest/teams#external-idp-group-info-for-an-organization": "/rest/teams/external-groups#external-idp-group-info-for-an-organization",
   "/rest/teams#external-groups": "/rest/teams/external-groups",
   "/rest/teams#list-external-idp-groups-for-an-organization": "/rest/teams/external-groups#list-external-idp-groups-for-an-organization",
-  "/rest/orgs#list-fine-grained-permissions-for-an-organization": "/rest/orgs/custom-roles#list-fine-grained-permissions-for-an-organization",
+  "/rest/orgs#list-repository-fine-grained-permissions-for-an-organization": "/rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization",
   "/rest/teams#list-idp-groups-for-an-organization": "/rest/teams/team-sync#list-idp-groups-for-an-organization",
   "/rest/teams#team-sync": "/rest/teams/team-sync",
   "/rest/teams#list-external-idp-group-team-connection": "/rest/teams/external-groups#list-external-idp-group-team-connection",
