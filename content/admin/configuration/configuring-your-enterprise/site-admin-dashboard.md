@@ -64,7 +64,7 @@ Specifically, you can download CSV reports that list
 
 You can also access these reports programmatically via standard HTTP authentication with a site admin account. You must use a {% data variables.product.pat_v1 %} with the `site_admin` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-For example, here is how you would download the "all users" report using cURL:
+For example, here is how you would download the "all users" report in a `curl` command:
 
 ```shell
 curl -L -u USERNAME:TOKEN http(s)://HOSTNAME/stafftools/reports/all_users.csv

@@ -316,7 +316,7 @@ You will see this error if {% data variables.product.prodname_codeql %} is unabl
 - There is a typo in the workflow.
 - A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location.
+After verifying the location of the resource, you can update the workflow to specify the correct location. {% ifversion ghes < 3.6 or ghae < 3.6 %}If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.{% endif %}
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 

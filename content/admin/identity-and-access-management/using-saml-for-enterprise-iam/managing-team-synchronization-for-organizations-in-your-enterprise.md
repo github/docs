@@ -36,11 +36,10 @@ You can also configure and manage team synchronization for an individual organiz
 
 ## Prerequisites
 
-You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
- 
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-
-You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+- You must use an Azure AD commercial tenant, not Gov Cloud.
+- You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
+- You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+- You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
 
 ## Managing team synchronization for Azure AD
 
