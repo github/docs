@@ -15,8 +15,6 @@ allowTitleToDifferFromFilename: true
 
 This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[Reference](/graphql/reference)."
 
-{% data reusables.projects.graphql-deprecation %}
-
 ## Authentication
 
 {% curl %}
