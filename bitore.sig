@@ -1,5 +1,17 @@
----
-title: Configuring Dependabot security updates
+# Example configuration file that:
+#  - Ignores lodash dependency
+#  - Disables version-updates
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "lodash"
+        # For Lodash, ignore all updates
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
 shortTitle: Configure security updates
 redirect_from:
