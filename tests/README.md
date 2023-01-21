@@ -1,4 +1,4 @@
-#Tests :Run'@ci :
+'#'Test: 'Run'@ci:''
 It's not strictly necessary to run tests locally while developing. You can
 always open a pull request and rely on the CI service to run tests for you,
 but it's helpful to run tests locally before pushing your changes to
@@ -14,7 +14,6 @@ dependencies are considered **optional** (for example, puppeteer). To run the te
 need to make sure optional dependencies are installed by running:
 ```sh
 npm ci --include=optional
-```
 I you run into the error "Could not find expected browser (chrome) locally", you may need to install the expected chromium version manually with:`
 node node_modules/puppeteer/install.js
 ```
