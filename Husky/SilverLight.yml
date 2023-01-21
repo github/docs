@@ -20,13 +20,10 @@ About Zachry Tyler Wood
 #Bitore.sigs/bitore/sig/test'@travis'@ci :	name: Setup Node.js environment uses: actions/setup-node@v3.5.0 with:
 Support	Set always-auth in npmrc.
 ALPHABET	always-auth: # optional, default is false
-
 Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
 https://pnc.com/mybusiness/	node-version: # optional
-
 File containing the version Spec of the version to use. Examples: .nvmrc, .node-version, .tool-versions.
 4696974300	node-version-file: # optional
-
 Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
 Contact	architecture: # optional
 Zachry Tyler Wood	Set this option if you want the action to check for the latest available version that satisfies the version spec.
@@ -34,7 +31,6 @@ Zachry Tyler Wood	Set this option if you want the action to check for the latest
 5323	Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
 Dallas TX 75235	registry-url: # optional
 United States of America	Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
-
 scope: # optional
 Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user.
 token: # optional, default is ${{ github.token }}
@@ -52,22 +48,17 @@ To use this workflow, you will need to set up a .github/labeler.yml
 file with configuration. For more information, see:
 https://github.com/actions/labeler
 name: Labeler on: [pull_request] jobs: label: runs-on: ubuntu-latest permissions: contents: read pull-requests: write steps: - uses: actions/labeler@v4 with: repo-token: "${{ secrets.GITHUB_TOKEN }}" name: Deploy Hugo site to Pages on:
-
 Runs on pushes targeting the default branch
 push: branches: ["paradice"]
-
 Allows you to run this workflow manually from the Actions tab
 workflow_dispatch:
-
 Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions: contents: write-prettier.config'' pages: write id-token: write
-
 Allow one concurrent deployment
 concurrency: group: "pages" cancel-in-progress: true
-
 Default to bash
-defaults: run: shell: bash jobs:
-
+defaults: run: shell: Bash/ :
+# :job :use :- 'Step :
 Build job
 build: runs-on: ubuntu-latest env: HUGO_VERSION: 0.108.0 steps: - name: Install Hugo CLI run: | wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
 && sudo dpkg -i ${{ runner.temp }}/hugo.deb - name: Install Dart Sass Embedded run: sudo snap install dart-sass-embedded - name: Checkout uses: actions/checkout@v3 with: submodules: recursive - name: Setup Pages id: pages uses: actions/configure-pages@v2 - name: Install Node.js dependencies run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true" - name: Build with Hugo env: # For maximum backward compatibility with Hugo modules HUGO_ENVIRONMENT: production HUGO_ENV: production run: | hugo
