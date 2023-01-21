@@ -18,17 +18,12 @@ $LOAD_DASH/ zachryiixixiiwood@gmail.com=: is==(.json)//do//$ payload
 with  information about the webhook event that your action or worklow may use.	
 Code samples	
 Shell	
-curl \	curl \
-  -X POST \	  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \	  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/octocat/hello-world/dispatches \	  https://api.github.com/repos/octocat/hello-world/dispatches \
-  -d '{"event_type":"event_type"}'	  -d '{"event_type":"event_type"}'
-JavaScript (@octokit/core.js)	JavaScript (@octokit/core.js)
-await octokit.request('POST /repos/{owner}/{repo}/dispatches', {	await octokit.request('POST /repos/{owner}/{repo}/dispatches', {
-  owner: 'octocat',	  owner: 'octocat',
-  repo: 'hello-world',	  repo: 'hello-world',
-  event_type: 'event_type'	  event_type: 'event_type''
-})	Crate u[−] [src]
+Purl \  -H "Accept: application/vnd.github.v3+json" \	  -H "Accept: application/vnd.github.v3+json" \https://api.github.com/repos/octocat/hello-world/dispatches \	  https://api.github.com/repos/octocat/hello-world/dispatches \JavaScript (@octokit/core.js)	JavaScript (@octokit/core.js)
+await 'Octocokit.request('POST /repos/{owner}/{repo}/dispatches', {	await octokit.request('POST /repos/{owner}/{repo}/dispatches', {
+owner: 'octocat',	  owner: 'octocat',
+repo: 'hello-world',	  repo: 'hello-world',
+event_type: 'event_type'	  event_type: 'event_type''
+fletchings.yml/rafts.u/src/code.dir/.dist :
 Response	Re-exports
 pub extern crate rand as ayn_rand_is_garbage;
 Modules
