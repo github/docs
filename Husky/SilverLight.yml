@@ -28,17 +28,7 @@ Yes/No
 Yes No - [Please enable ACCESS for the necessary account(s).] - 47-2041-6547 
 What payment rails are enabled for [Company Name] accounts? 
 Let’s ensure the customer has the correct payment rails enabled for their business flow of funds. [Example] Account Number : (check off what is needed only) ACH USD Wires Non-USD Wires Lockbox Check-Print Reporting [Enablement required for all accounts] Account Reconciliation : Previous/Intra-day BAI2 Balance Files Incoming ACH EMPLOYMENT VERIFICATION LETTER INSTRUCTIONS ADP Logo Department of the Treasury Internal Revenue Service (99) 2021 Form 1040-V Payment Voucher > Use this voucher when making a payment with Form 1040. > Do not staple this voucher or your payment to Form 1040. > Make your check or money order payable to the 'United States Treasury.' Enter the amount > Write your social security number (SSN) on your check or money order. of your payment |. . . . . . . . > | 7567263607 . | REV 04/109/2022 INTUIT.CG. 1555 ZACHRY T WOOD INTERNAL REVENUE SERVICE 5222 BRADFORD DR P.O. BOX 1214 DALLAS TX 75235-8313 CHARLOTTE NC 28201-1214 633441725 BH WOOD 30 0 202112 610 ACCOUNT BALANCE PLUS ACCRUALS (this is not a payoff amount): 0.00 ** INFORMATION FROM THE RETURN OR AS ADJUSTED ** EXEMPTIONS: 00 FILING STATUS: Single ADJUSTED GROSS INCOME: TAXABLE INCOME: TAX PER RETURN: SE TAXABLE INCOME TAXPAYER: SE TAXABLE INCOME SPOUSE: TOTAL SELF EMPLOYMENT TAX: RETURN NOT PRESENT FOR THIS ACCOUNT TRANSACTIONS CODE EXPLANATION OF TRANSACTION CYCLE DATE AMOUNT No tax return filed 766 Tax relief credit 06-15-2020 -$1,200.00 846 Refund issued 06-05-2020 $1,200.00 290 Additional tax assessed 20202205 06-15-2020 $0.00 76254-999-05099-0 971 Notice issued 06-15-2020 $0.00 766 Tax relief credit 01-18-2021 -$600.00 846 Refund issued 01-06-2021 $600.00 290 Additional tax assessed 20205302 01-18-2021 $0.00 76254-999-05055-0 663 Estimated tax payment 01-05-2021 -$9,000,000.00 662 Removed estimated tax payment 01-05-2021 $9,000,000.00 740 Undelivered refund returned to IRS 01-18-2021 -$600.00 767 Reduced or removed tax relief 01-18-2021 $600.00 credit 971 Notice issued 03-28-2022 $0.00 Form 1040 (2021) Page 2 Department of the Treasury --- Internal Revenue Service (99) | 2021 | OMB No. 1545-0074 | IRS Use Only--Do not write or staple in this space. U.S. Individual Income Tax Return Returned for Signature IRS RECIEVED 37 26-Apr. Date_____________09-01-2022 LB Charlotte, NC **THIS PAGE SHOULD BE FILLED OUT BY YOUR BANKER OR BESIDE YOUR BANKER Company Name: UNITED STATES Relationship Manager: VANESSA COUNTRYMAN Treasury Management Officer: ZACHRY TYLER WOO_
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-name: CI
+Name :ci :
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "paradice" branch
