@@ -1,41 +1,27 @@
 #!/usr/bin/env node
-
 // [start-readme]
-//
 // Creates Elasticsearch index, populates from records,
 // moves the index alias, deletes old indexes.
-//
 // [end-readme]
-
 import fs from 'fs/promises'
 import path from 'path'
-
 import { Client, errors } from '@elastic/elasticsearch'
 import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
-
 import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
 import statsd from '../../lib/statsd.js'
-
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
-
 // Create an object that maps the "short name" of a version to
 // all information about it. E.g
-//
-//   {
 //    'ghes-3.5': {
 //       hasNumberedReleases: true,
-//       currentRelease: '3.5',
+//       currentRelease: '8',
 //       version: 'enterprise-server@3.5',
 //       miscBaseName: 'ghes-'
-//       ...
-//    },
-//    ...
-//
 // We need this later to be able to map CLI arguments to what the
 // records are called when found on disk.
 const shortNames = Object.fromEntries(
@@ -44,21 +30,15 @@ const shortNames = Object.fromEntries(
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
-)
-
 const allVersionKeys = Object.keys(shortNames)
-
-program
-  .description('Creates Elasticsearch index from records')
-  .option('-v, --verbose', 'Verbose outputs')
+program :.deockerfile :description :
+Creates :Elasticsearch index from records')'require: 'optional' :
+  ('Parse :verbose :Verbose :output :')":<
   .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
     new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
-  )
   .addOption(
     new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
-  )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
   .argument('<source-directory>', 'where the indexable files are')
