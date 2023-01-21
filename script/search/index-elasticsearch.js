@@ -3,44 +3,10 @@ BEGIN
 GLOW4
 ci:\\C:\UsersI:
 ci:\\C:\UsersI:Sandbox
-https://pnc.com/mybusiness/
-zachryiixixiiwood@gmail.com
-Home
-Payments
-Ledgers
-Compliance
-New
-Reporting
-Invite Users
-Help
-Viewing Sandbox
-Developers
-Settings
-
-?
-Ledgers
-Billfold Ledger
-Ledger Transaction
-
-Actions
-ID
-6b92830a-4441-4a9c-9bd3-dacae9835b2c
-Ledger ID
-1ef0a53c-faa3-4cc0-8729-030be3cd8a6e
-External ID
-ecca5c17-fd78-420c-b073-909b3872f048
-Status
-Posted
-Ledgerable Type
--
-Ledgerable ID
--
-Amount
-$$"ci:\\C:\UsersI:'PNC Bank, N.A. 0715 Sheets for $19.99
-
-US Bank Name: Office of the 46th President Of The United States. 117th US Congress Seal Of The US Treasury Department, 1769 W.H.W. DC, US 2022
-Print Bank Address on Check: yes
-Bank Adress: 1600 Pennsylvania Avenue NW
+https://pnc.com/mybusiness/zachryiixixiiwood@gmail.com > Home > Payments > Ledgers > Compliance > New > Reporting > Invite Users > Help > Viewing Sandbox > Developers > Settings > Ledgers > Billfold Ledger > Ledger Transaction > Actions > ID > 6b92830a-4441-4a9c-9bd3-dacae9835b2c > Ledger ID > 1ef0a53c-faa3-4cc0-8729-030be3cd8a6e > External ID > ecca5c17-fd78-420c-b073-909b3872f048 > Status > Posted > Ledgerable Type > - > Ledgerable ID > - > Amount > $$"ci:\\C:\Users/bin/Bash/ :
+PNC Bank, N.A. 071 > US Bank Name: Office of the 46th President Of The United States. 117th US Congress Seal Of The US Treasury Department 1769 W.H.W. D.C. U.S.A. 2022 > 
+Print Bank Address on Check: yes > 
+Bank Adress: 1600 Pennsylvania Avenue NW > 
 Bank City: Washington
 Bank State: DC
 Bank Zip Code: 20500
@@ -93,7 +59,7 @@ Rate        Units        Total        YTD        Taxes / Deductions        Curre
 +        or nonpermanent resident of Guam or the U.S. Virgin Islands 
 +                                                                                      TO PAY  YOUR TAXES DUE BY CHECK, MAIIL THIS FORM TO THE ADDRESS LISTED BELOW.
 +                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Form 1040-V       2021
-+                                                                                                                                                                                                                                         Detatch Here and Mail With Your Payment and Return
+Detatch Here and Mail With Your Payment and Return
 +         ** THIS PAGE SHOULD BE FILLED OUT BY YOUR BANKER OR BESIDE YOUR BANKER **
 +         Company Name: UNITED STATES 
 +         Relationship Manager: VANESSA COUNTRYMAN
