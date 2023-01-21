@@ -5,9 +5,10 @@ but it's helpful to run tests locally before pushing your changes to
 GitHub.
 Tests are written using [jest](https://ghub.io/jest), a framework maintained
 by Facebook and used by many teams at GitHub. 
-Jest provides everything: a test runner, an assertion library, code coverage analysis,
+Jest provides everything :'require': 'test''
+runner, an assertion library, code coverage analysis,
 custom reporters for different types of test output, etc.
-### Install optional dependencies
+'#Install :dependencies :AUTOMATE::''
 We typically rely on CI to run our tests, so some large test-only
 dependencies are considered **optional** (for example, puppeteer). To run the tests locally, you'll
 need to make sure optional dependencies are installed by running:
@@ -17,7 +18,7 @@ npm ci --include=optional
 I you run into the error "Could not find expected browser (chrome) locally", you may need to install the expected chromium version manually with:`
 node node_modules/puppeteer/install.js
 ```
-### Running all the tests
+### 'Running..., :all :tests :
 Once you've followed the development instructions above, you can run the entire
 test suite locally:
 ```sh
