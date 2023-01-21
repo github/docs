@@ -319,15 +319,16 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 
 ## Rate limiting
 
-Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. 
+The {% data variables.product.company_short %} API uses rate limiting to control API traffic. Different types of API requests have different rate limits. The response headers describe your current rate limit status.
 
-Additionally, the Search endpoints have dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+### Rate limits
+
+Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. Additionally, the Search endpoints have dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
 
-{% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from personal accounts
+#### Rate limits for requests from personal accounts
 
 Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
 
@@ -347,11 +348,11 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 {% endif %}
 
-### Requests from GitHub Apps
+#### Rate limits for requests from {% data variables.product.prodname_github_apps %}
 
 Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)." 
 
-### Requests from GitHub Actions
+#### Rate limits for requests from {% data variables.product.prodname_actions %}
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
@@ -359,20 +360,15 @@ When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per reposit
 
 ### Checking your rate limit status
 
-You can use the REST API to find the current number of API calls available to you or your app at any given time.
+The response headers describe your current rate limit status. You can also use the REST API to find the current number of API calls available to you or your app at any given time.
 
-#### API to manage rate limits
+#### Rate limit headers
 
-You can use the REST API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
-
-#### Rate limit HTTP headers
-
-You can view the returned headers of any API request to see your current rate limit status:
+The `x-ratelimit` response headers describe your current rate limit status following every request:
 
 ```shell
-$ curl -I {% data variables.product.api_url_pre %}/users/octocat
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/2 200
-> Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 60
 > x-ratelimit-remaining: 56
 > x-ratelimit-used: 4
@@ -386,14 +382,13 @@ Header Name | Description
 `x-ratelimit-used` | The number of requests you've made in the current rate limit window.
 `x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
+#### Checking your rate limit status with the REST API
 
-``` javascript
-new Date(1372700873 * 1000)
-// => Mon Jul 01 2013 13:47:53 GMT-0400 (EDT)
-```
+You can use the REST API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)." When possible, {% data variables.product.company_short %} recommends using the `x-ratelimit` response headers instead to decrease load on the API.
 
-If you exceed the rate limit, an error response returns:
+### Exceeding the rate limit
+
+If you exceed the rate limit, the response will have a `403` status and the `x-ratelimit-remaining` header will be `0`:
 
 ```shell
 > HTTP/2 403
@@ -408,6 +403,9 @@ If you exceed the rate limit, an error response returns:
 >    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
+
+If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
+
 
 ### Increasing the unauthenticated rate limit for OAuth Apps
 
@@ -435,11 +433,11 @@ If you exceed your rate limit using Basic Authentication or OAuth, you can likel
 
 ### Secondary rate limits
 
-In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+The rate limits described above apply to the entire REST API and are per-user or per-app. In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in additional rate limiting.
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
+These additional rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
 
-If your application triggers this rate limit, you'll receive an informative response:
+If your application triggers an additional rate limit, you'll receive an informative response:
 
 ```shell
 > HTTP/2 403
@@ -451,6 +449,8 @@ If your application triggers this rate limit, you'll receive an informative resp
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#secondary-rate-limits"
 > }
 ```
+
+You should wait and try your request again after a few minutes. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. Otherwise, you should not retry your request until the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header.
 
 {% ifversion fpt or ghec %}
 
@@ -466,7 +466,7 @@ Here's an example:
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
+curl sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via curl (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta

@@ -1,6 +1,6 @@
 ---
 title: Forks
-intro: ''
+intro: 'Use the REST API to manage repository forks.'
 versions:
   fpt: '*'
   ghes: '*'

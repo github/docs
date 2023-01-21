@@ -94,6 +94,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const enabledForApps = await getEnabledForApps(currentVersion, apiVersion)
 
+  // If getEnabledForApps came back as undefined, it means that nothing
+  // could be found for that `apiVersion`
+  if (!enabledForApps) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       mainContext,

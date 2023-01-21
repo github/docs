@@ -34,7 +34,7 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)."
 
 ## Adding scripts to your workflow
 

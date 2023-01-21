@@ -1,4 +1,5 @@
-**'Run":,' '"#": "ActionEventsListener":, :
+branches :-[travis]''
+'**'Run":,' '"#": "ActionEventsListener":, :
 Return: 'Run''
 Remmittnance Advice 0000001000 NON-NEGOTIABLE 5/4/2022 - 6/4/2022. | 000015
 Make Payable to. 'Zachry'' 'Tyler'' 'Wood'' '['Value']'.'('=':')'.'['V'O'L'U'M'E'.'[00']'.'('D'E'N'O'M'O'N'A'T'I'O'N')'.'['=']'.'('A'M'O'U'N'T''I'N''W'O'R'D'S')':'' : Description Amount Payment Amount (Total) $9,246,754,678,763 Display All Social Security (Employee + Employer) 26661.8 Medicare (Employee + Employer) 861193422444 Hourly Federal Income Tax 8385561229657 2.2663E+15 -*This report is generated based on the payroll data for your reference only. Please contact IRS office for special cases such as late payment, previous -overpayment, penalty and others. -**This report doesn't include the pay back amount of deferred Employee Social Security Tax." Commission -Employer Customized Report Federal 941 Deposit Report ADP Report Range 5/4/2022 - 6/4/2022
@@ -2425,6 +2426,59 @@ interface CmdlArguments {
   test?: boolean;
   vscode?: boolean;
   dumpMeta?: boolean;
+=======
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// -
+{
+	"name": "docs.github.com",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 12, 14, 16
+		"args": { "VARIANT": "16" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"cSpell.language": ",en"
+	},
+
+	// Install features. Type 'feature' in the VS Code command palette for a full list.
+	"features": {
+		"sshd": "latest"
+	 },
+
+	// Visual Studio Code extensions which help authoring for docs.github.com.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sissel.shopify-liquid",
+		"davidanson.vscode-markdownlint",
+		"bierner.markdown-preview-github-styles",
+		"streetsidesoftware.code-spell-checker",
+		"alistairchristie.open-reusables"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [4000],
+		
+	"portsAttributes": {
+		"4000": {
+        		"label": "Preview",
+        		"onAutoForward": "openPreview"
+      		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm ci",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+,
+	"hostRequirements": {
+		"memory": "8gb"
+	 }
+'branches :-[main]''
 }
 export const ParsedArgs: () => CmdlArguments = once(() => {
   const options = getopts(process.argv.slice(2), {
@@ -2460,22 +2514,6 @@ export const ParsedArgs: () => CmdlArguments = once(() => {
     vscode: !!options.vscode,
   };
 });
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Comparing devcontainers...main · dhhyi/devcontainer-creator :**
- #-'' '>'' '
 Wage and Income Transcript
 This Product Contains Sensitive Taxpayer Data
 Request Date: 07-29-2022
@@ -2766,9 +2804,9 @@ Note: The total charge for the following services will be posted to your account
 Description Volume Amount
 Account Maintenance Charge 70846743866 00000
 Total For Services Used This Peiiod 00000 00000
-Total Service (harge 00 00000
+Total Service Charge 00000 00000
 Reviewing Your Statement
-C'eck Deduction Descretio• Anount
+Check Deduction Descretion Amount
 (iv) (v) account or benefit, or in payment of the individual obligations of, any individual obligations of any such persons to the Bank without regard to the disposition or purpose of same as allowed by applicable law. D pNCBANK
 In addition but not by way of limitation, the Bank may take checks, drafts or other items payable to "cash", the Bank or the Customer, and pay the sums represented by such Items in cash to any person presenting such items or credit such Items to the account or obligations of any person presenting such items or any other person or entity as directed by any such person.
 Products and Services. Resolved that any of the persons listed in Section 3 above are authorized to enter into contracts and agreements, written or verbal, for any products or services now or in the future offered by the Bank, including but not limited to (i) cash management services, (ii) purchases or sales of foreign exchange, securities or other financial products, (iii) computer/internet-based products and services, (iv) wire transfer of funds from or to the accounts of the Customer at the Bank, and (v) ACH transactions, and the Bank may charge any accounts of the Customer at the Bank for such products or services.
@@ -2782,3 +2820,5 @@ or serVlCö n lent services, (ii) purchases or sales of foreig xlll) computerfin
 / Customer Copy, page 2 of 4
 00009 Withdrawals and Transfers. Resolved that the Bank is authorized to make payments from the account(s) of
 Customer according to any check, draft, bill of exchange, acceptance or other written instrument or direction signed by any one of the following individuals, officers or designated agents, and that such designated individuals may also otherwise transfer, or enter into agreements with Bank concerning the transfer, of funds from Customer's account(s), whether by telephone, telegraph, computer or any other manne:***' 
+branches :-[main]''
+'Return: 'Run '' '"''

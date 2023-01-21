@@ -1,6 +1,6 @@
 ---
 title: Deployments
-intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
+intro: 'Use the REST API to create and delete deploy keys, deployments, and deployment environments.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

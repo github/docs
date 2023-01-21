@@ -1,6 +1,6 @@
 ---
 title: Deployments
-intro: The Deployments API allows you to create and delete deployments and deployment environments.
+intro: Use the REST API to create and delete deployments and deployment environments.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the deployments API
+## About deployments
 
 Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
 

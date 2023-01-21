@@ -182,6 +182,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "OrganizationOrder",
+          "id": "organizationorder",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationorder",
+          "description": "<p>Ordering options for the User's organizations.</p>"
         }
       ]
     },
@@ -1100,6 +1108,14 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#reaction",
           "description": "<p>The reaction object.</p>"
+        },
+        {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
         },
         {
           "name": "subject",
@@ -3878,6 +3894,14 @@
           "description": "<p>The reaction object.</p>"
         },
         {
+          "name": "reactionGroups",
+          "type": "[ReactionGroup!]",
+          "id": "reactiongroup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reactiongroup",
+          "description": "<p>The reaction groups for the subject.</p>"
+        },
+        {
           "name": "subject",
           "type": "Reactable",
           "id": "reactable",
@@ -4206,6 +4230,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean",
           "description": "<p>Did the operation succeed?.</p>"
+        }
+      ]
+    },
+    {
+      "name": "startOrganizationMigration",
+      "kind": "mutations",
+      "id": "startorganizationmigration",
+      "href": "/graphql/reference/mutations#startorganizationmigration",
+      "description": "<p>Starts a GitHub Enterprise Importer organization migration.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "StartOrganizationMigrationInput!",
+          "id": "startorganizationmigrationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#startorganizationmigrationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "orgMigration",
+          "type": "OrganizationMigration",
+          "id": "organizationmigration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationmigration",
+          "description": "<p>The new organization migration.</p>"
         }
       ]
     },
@@ -33439,6 +33497,94 @@
       ]
     },
     {
+      "name": "OrganizationMigration",
+      "kind": "objects",
+      "id": "organizationmigration",
+      "href": "/graphql/reference/objects#organizationmigration",
+      "description": "<p>A GitHub Enterprise Importer (GEI) organization migration.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "failureReason",
+          "description": "<p>The reason the organization migration failed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "remainingRepositoriesCount",
+          "description": "<p>The remaining amount of repos to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sourceOrgName",
+          "description": "<p>The name of the source organization to be migrated.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the source organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "state",
+          "description": "<p>The migration state.</p>",
+          "type": "OrganizationMigrationState!",
+          "id": "organizationmigrationstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#organizationmigrationstate"
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "totalRepositoriesCount",
+          "description": "<p>The total amount of repositories to be migrated.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "OrganizationTeamsHovercardContext",
       "kind": "objects",
       "id": "organizationteamshovercardcontext",
@@ -33620,6 +33766,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
               }
             }
           ]
@@ -46296,6 +46452,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasVulnerabilityAlertsEnabled",
+          "description": "<p>Whether vulnerability alerts are enabled for the repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasWikiEnabled",
           "description": "<p>Indicates if the repository has wiki feature enabled.</p>",
           "type": "Boolean!",
@@ -56654,6 +56818,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
+              }
             }
           ]
         },
@@ -63167,6 +63341,47 @@
       ]
     },
     {
+      "name": "OrganizationMigrationState",
+      "kind": "enums",
+      "id": "organizationmigrationstate",
+      "href": "/graphql/reference/enums#organizationmigrationstate",
+      "description": "<p>The Octoshift Organization migration state.</p>",
+      "values": [
+        {
+          "name": "FAILED",
+          "description": "<p>The Octoshift migration has failed.</p>"
+        },
+        {
+          "name": "IN_PROGRESS",
+          "description": "<p>The Octoshift migration is in progress.</p>"
+        },
+        {
+          "name": "NOT_STARTED",
+          "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "POST_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing post repository migrations.</p>"
+        },
+        {
+          "name": "PRE_REPO_MIGRATION",
+          "description": "<p>The Octoshift migration is performing pre repository migrations.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The Octoshift migration has been queued.</p>"
+        },
+        {
+          "name": "REPO_MIGRATION",
+          "description": "<p>The Octoshift org migration is performing repository migrations.</p>"
+        },
+        {
+          "name": "SUCCEEDED",
+          "description": "<p>The Octoshift migration has succeeded.</p>"
+        }
+      ]
+    },
+    {
       "name": "OrganizationOrderField",
       "kind": "enums",
       "id": "organizationorderfield",
@@ -69302,6 +69517,15 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "headRepositoryId",
+          "description": "<p>The Node ID of the head repository.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "maintainerCanModify",
           "description": "<p>Indicates whether maintainers can modify the pull request.</p>",
           "type": "Boolean",
@@ -72334,6 +72558,56 @@
           "id": "starorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#starorderfield"
+        }
+      ]
+    },
+    {
+      "name": "StartOrganizationMigrationInput",
+      "kind": "inputObjects",
+      "id": "startorganizationmigrationinput",
+      "href": "/graphql/reference/input-objects#startorganizationmigrationinput",
+      "description": "<p>Autogenerated input type of StartOrganizationMigration.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceAccessToken",
+          "description": "<p>The migration source access token.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "sourceOrgUrl",
+          "description": "<p>The URL of the organization to migrate.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "targetEnterpriseId",
+          "description": "<p>The ID of the enterprise the target organization belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetOrgName",
+          "description": "<p>The name of the target organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

@@ -1,6 +1,6 @@
 ---
 title: Watching
-intro: The Watching API lets users subscribe to notifications for activity in a repository.
+intro: Use the REST API to subscribe to notifications for activity in a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Watching API
+## About watching
 
-The Watching API lets users subscribe to notifications for activity in a repository. To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."
+You can use the REST API to subscribe to notifications for activity in a repository.
+
+To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."
