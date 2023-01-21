@@ -7,9 +7,7 @@ method: a'-sync''
     clientSecret,
     {payment_method: ev.paymentMethod.id},
     {handleActions: true.}
-  );
-
-  if (confirmError) {
+'if (confirmError) {
     // Report to the browser that the payment failed, prompting it to
     // re-show the payment interface, or show an error message and close
     // the payment interface.
@@ -46,41 +44,24 @@ const paymentRequest = stripe.paymentRequest({
       Value: VOLUME,
 Authentication
 The Stripe API uses API keys to authenticate requests. You can view and manage your API keys in the Stripe Dashboard.
-
 Test mode secret keys have the prefix sk_test_ and live mode secret keys have the prefix sk_live_. Alternatively, you can use restricted API keys for granular permissions.
-
 Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, and so forth.
-
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password.
-
 If you need to authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc" instead of -u sk_test_4eC39HqLyjWDarjtT1zdp7dc.
-
 All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
-
 Related video: Authentication.
-
 Was this section helpful?YesNo
-
-
 Select library
-
 curl https://api.stripe.com/v1/charges \
   -u sk_test_4eC39HqLyjWDarjtT1zdp7dc:
 # The colon prevents curl from asking for a password.
 A sample test API key is included in all the examples here, so you can test any example right away. Do not submit any personally identifiable information in requests made with this key.
-
 To test requests using your account, replace the sample API key with your actual API key or sign in.
-
-Connected Accounts
+Connected Account
 Clients can make requests as connected accounts using the special header Stripe-Account which should contain a Stripe account ID (usually starting with the prefix acct_).
-
-See also Making API calls for connected accounts.
-
+See also Making API calls for connected accounts
 Was this section helpful?YesNo
-
-
 Select library
-
 curl https://api.stripe.com/v1/charges/ch_3MSbao2eZvKYlo2C0616qIlT \
   -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
   -H "Stripe-Account: acct_1032D82eZvKYlo2C" \
@@ -2468,13 +2449,6 @@ We will investigate your complaint and will correct any error promptly. If we ta
 for the amount you think is in error, so that you will have use of the money during the time it Cakes us to complete our investigation.
 EquaLHousing Lender"
 Member FDIC
-<<<<<<< Paradise
-
-
-
-
-
-=======
 branches :-[031000053]
 branches :-[071921891]
 >>>>>>> paradice
