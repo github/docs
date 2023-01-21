@@ -1,128 +1,53 @@
+paymentRequest.on('paymentmethod', async (ev) => {
+  // Confirm the PaymentIntent without handling potential next actions (yet).
+  const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
+    clientSecret,
+    {payment_method: ev.paymentMethod.id},
+    {handleActions: false}
+  );
 
-
-Find anything
-/
-Introduction
-Authentication
-Connected Accounts
-Errors
-Expanding Responses
-Idempotent Requests
-Metadata
-Pagination
-Request IDs
-Versioning
-CORE RESOURCES
-Balance
-Balance Transactions
-Charges
-Customers
-Disputes
-Events
-Files
-File Links
-Mandates
-PaymentIntents
-SetupIntents
-SetupAttempts
-Payouts
-Refunds
-Tokens
-PAYMENT METHODS
-PaymentMethods
-Bank Accounts
-Cash Balance
-Cards
-Sources
-PRODUCTS
-Products
-Prices
-Coupons
-Promotion Codes
-Discounts
-Tax Codes
-Tax Rates
-Shipping Rates
-CHECKOUT
-Checkout Sessions
-PAYMENT LINKS
-Payment Links
-BILLING
-Credit Notes
-Customer Balance Transactions
-Customer Portal
-Customer Tax IDs
-Invoices
-Invoice Items
-Plans
-Quotes
-Subscriptions
-Subscription Items
-Subscription Schedules
-Test Clocks
-Usage Records
-CONNECT
-Accounts
-Account Links
-Account Sessions
-Application Fees
-Application Fee Refunds
-Capabilities
-Country Specs
-External Accounts
-Persons
-Top-ups
-Transfers
-Transfer Reversals
-Secret Management
-FRAUD
-ISSUING
-TERMINAL
-TREASURY
-SIGMA
-REPORTING
-FINANCIAL CONNECTIONS
-Accounts
-Account Ownership
-Sessions
-Transactions
-IDENTITY
-VerificationSessions
-VerificationReports
-WEBHOOKS
-Webhook Endpoints
-Sign In →
-API reference
-Docs
-Support
-Sign in →
-API Reference
-The Stripe API is organized around REST. Our API has predictable resource-oriented URLs, accepts form-encoded request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
-
-You can use the Stripe API in test mode, which doesn't affect your live data or interact with the banking networks. The API key you use to authenticate the request determines whether the request is live mode or test mode.
-
-The Stripe API doesn't support bulk updates. You can work on only one object per request.
-
-The Stripe API differs for every account as we release new versions and tailor functionality. Log in to see docs customized to your version of the API, with your test key and data.
-
-Was this section helpful?YesNo
-
-JUST GETTING STARTED?
-Check out our development quickstart guide.
-
-NOT A DEVELOPER?
-Use Stripe’s no-code options or apps from our partners to get started with Stripe and to do more with your Stripe account—no code required.
-
-https://api.stripe.com
-Ruby
-Python
-PHP
-Java
-Node.js
-Go
-.NET
-By default, the Stripe API Docs demonstrate using curl to interact with the API over HTTP. Select one of our official client libraries to see examples in code.
-
+  if (confirmError) {
+    // Report to the browser that the payment failed, prompting it to
+    // re-show the payment interface, or show an error message and close
+    // the payment interface.
+    ev.complete('fail');
+  } else {
+    // Report to the browser that the confirmation was successful, prompting
+    // it to close the browser payment method collection interface.
+    ev.complete('success');
+    // Check if the PaymentIntent requires any actions and if so let Stripe.js
+    // handle the flow. If using an API version older than "2019-02-11"
+    // instead check for: `paymentIntent.status === "requires_source_action"`.
+    if (paymentIntent.status === "requires_action") {
+      // Let Stripe.js handle the rest of the payment flow.
+      const {error} = await stripe.confirmCardPayment(clientSecret);
+      if (error) {
+        // The payment failed -- ask your customer for a new payment method.
+      } else {
+        // The payment has succeeded.
+      }
+    } else {
+      // The payment has succeeded.
+paymentRequest.on('shippingaddresschange', async (ev) => {
+  if (ev.shippingAddress.country !== 'US') {
+    ev.updateWith({status: 'invalid_shipping_address'});
+  } else {
+    // Perform server-side request to fetch shipping options
+    const response = await fetch('/calculateShipping', {
+      data: JSON.stringify({
+        shippingAddress: ev.shippingAddress
+    '"const :result := :await :response :pkg.js/package.json'"('((c)(r))')'"'' '":, :
+    ev.updateWith({
+      status: 'success',
+      shippingOptions: result.supportedShippingOptions,
+const paymentRequest = stripe.paymentRequest({
+  country: 'US',
+  currency: 'usd',
+  total: {
+    label: 'Demo total',
+    [VOLUME]: [250000.[00],
+      label: 'Shipping cost',
+      Value: VOLUME,
 Authentication
 The Stripe API uses API keys to authenticate requests. You can view and manage your API keys in the Stripe Dashboard.
 
