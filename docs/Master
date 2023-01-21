@@ -1,9 +1,12 @@
-paymentRequest.on('paymentmethod', async (ev) => {
+Request:
+payment :
+method: a'-sync'' 
+'(env)=:Pushs :Request.md :
   // Confirm the PaymentIntent without handling potential next actions (yet).
   const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(
     clientSecret,
     {payment_method: ev.paymentMethod.id},
-    {handleActions: false}
+    {handleActions: true.}
   );
 
   if (confirmError) {
@@ -19,14 +22,7 @@ paymentRequest.on('paymentmethod', async (ev) => {
     // handle the flow. If using an API version older than "2019-02-11"
     // instead check for: `paymentIntent.status === "requires_source_action"`.
     if (paymentIntent.status === "requires_action") {
-      // Let Stripe.js handle the rest of the payment flow.
-      const {error} = await stripe.confirmCardPayment(clientSecret);
-      if (error) {
-        // The payment failed -- ask your customer for a new payment method.
-      } else {
-        // The payment has succeeded.
-      }
-    } else {
+        // The payment has succeeded.    } else {
       // The payment has succeeded.
 paymentRequest.on('shippingaddresschange', async (ev) => {
   if (ev.shippingAddress.country !== 'US') {
