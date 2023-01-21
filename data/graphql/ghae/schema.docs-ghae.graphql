@@ -6504,7 +6504,7 @@ input CreateMigrationSourceInput {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: String!
 }
@@ -16938,7 +16938,7 @@ interface Migration {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -16965,7 +16965,7 @@ type MigrationSource implements Node {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: URI!
 }
@@ -34717,7 +34717,7 @@ type RepositoryMigration implements Migration & Node {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
