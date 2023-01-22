@@ -126,6 +126,7 @@ Use the official Octokit library, or choose between any of the available third p
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
 |**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
+|**githubpy**|[michaelliao/githubpy](https://github.com/michaelliao/githubpy)|
 
 ### Ruby
 
