@@ -1,3 +1,52 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index d23e34d3098..243be5f510a 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -1,6 +1,43 @@
+-# Javascript Node CircleCI 2.0 configuration file
+-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+-version: 2.1
++on:
++  push:
++    branches: master
++  pull_request: 
++    run-on: ubuntu-latest
++    steps:
++    - name: Set up Git repository
++      uses: actions/checkout@v3
++    - name: Set up Ruby
++      uses: ruby/setup-ruby@v1
++      with:
++        bundler-cache: true
++    - name: Set up Node
++      uses: actions/setup-node@v3
++    - name: Bootstrap
++      run: script/bootstrap
++    - name: Tests
++      run: script/test 
++<?xml version="1.0" encoding="utf-8"?>
++charmap keyset =  new
++{ "new keymap Charset = Pro" }
++<configuration>
++    <packageSources>
++        <clear />
++        <add key="github" value="https://nuget.pkg.github.com/OWNER/index.json" />
++    </packageSources>
++    <packageSourceCredentials>
++        <github>
++            <add key="Username" value="USERNAME" />
++            <add key="ClearTextPassword" value="TOKEN" />
++        </github>
++    </packageSourceCredentials>
++</configuration> 
++on:
++Runs-on:on:"
++const: "token"''
++token: "((c)(r))"''
++'Value": "[VOLUME]'"''
++ '[VOLUME']": "[12753750.[00]m]BITORE_34173.1337_18893":,
+executors:
+main :4696974300 :
 import dotenv from 'dotenv'
 import './lib/check-node-version.js'
 import './lib/handle-exceptions.js'
