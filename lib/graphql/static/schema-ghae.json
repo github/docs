@@ -25750,7 +25750,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -48678,7 +48678,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -59726,7 +59726,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -69402,7 +69402,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
