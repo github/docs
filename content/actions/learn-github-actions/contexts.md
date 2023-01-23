@@ -916,7 +916,7 @@ on:
     inputs:
       build_id:
         required: true
-        type: string
+        type: number
       deploy_target:
         required: true
         type: string
