@@ -44,8 +44,8 @@ children:
   - /overview
   - /getting-started
   - /developing-in-codespaces
-  - /setting-up-your-project-for-codespaces
   - /customizing-your-codespace
+  - /setting-up-your-project-for-codespaces
   - /prebuilding-your-codespaces
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
