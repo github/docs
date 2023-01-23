@@ -4,6 +4,112 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>OrganizationsHovercardContext.relevantOrganizations</code></p>",
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>User.organizations</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddProjectDraftIssueInput</code> was removed</p>",
+          "<p>Type <code>AddProjectDraftIssuePayload</code> was removed</p>",
+          "<p>Type <code>AddProjectNextItemInput</code> was removed</p>",
+          "<p>Type <code>AddProjectNextItemPayload</code> was removed</p>",
+          "<p>Type <code>DeleteProjectNextItemInput</code> was removed</p>",
+          "<p>Type <code>DeleteProjectNextItemPayload</code> was removed</p>",
+          "<p>Type <code>ProjectItemType</code> was removed</p>",
+          "<p>Type <code>ProjectNext</code> was removed</p>",
+          "<p>Type <code>ProjectNextConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextField</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldCommon</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfiguration</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldType</code> was removed</p>",
+          "<p>Type <code>ProjectNextItem</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemContent</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValue</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValueConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValueEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationField</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationFieldConfiguration</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationFieldIteration</code> was removed</p>",
+          "<p>Type <code>ProjectNextOrderField</code> was removed</p>",
+          "<p>Type <code>ProjectNextOwner</code> was removed</p>",
+          "<p>Type <code>ProjectNextSingleSelectField</code> was removed</p>",
+          "<p>Type <code>ProjectNextSingleSelectFieldOption</code> was removed</p>",
+          "<p>Type <code>ProjectView</code> was removed</p>",
+          "<p>Type <code>ProjectViewConnection</code> was removed</p>",
+          "<p>Type <code>ProjectViewEdge</code> was removed</p>",
+          "<p>Type <code>ProjectViewLayout</code> was removed</p>",
+          "<p>Type <code>SortBy</code> was removed</p>",
+          "<p>Type <code>UpdateProjectDraftIssueInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectDraftIssuePayload</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextItemFieldInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextItemFieldPayload</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextPayload</code> was removed</p>",
+          "<p>Field <code>project</code> was removed from object type <code>DraftIssue</code></p>",
+          "<p>Field <code>projectItem</code> was removed from object type <code>DraftIssue</code></p>",
+          "<p><code>Issue</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>projectNextItems</code> was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>addProjectDraftIssue</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>addProjectNextItem</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteProjectNextItem</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectDraftIssue</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectNext</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectNextItemField</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p><code>Organization</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Organization</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Organization</code></p>",
+          "<p><code>PullRequest</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectNextItems</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Repository</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Repository</code></p>",
+          "<p><code>User</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>User</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>includeUnpublished: Boolean</code> added to field <code>SponsorsListing.tiers</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>OrganizationMigration</code> was added</p>",
           "<p>Type <code>OrganizationMigrationState</code> was added</p>",
           "<p>Type <code>ProjectNextFieldConfiguration</code> was added</p>",

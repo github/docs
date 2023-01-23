@@ -6504,7 +6504,7 @@ input CreateMigrationSourceInput {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: String!
 }
@@ -16938,7 +16938,7 @@ interface Migration {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -16965,7 +16965,7 @@ type MigrationSource implements Node {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: URI!
 }
@@ -23907,6 +23907,11 @@ type OrganizationsHovercardContext implements HovercardContext {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -28499,6 +28504,11 @@ type Query {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -34707,7 +34717,7 @@ type RepositoryMigration implements Migration & Node {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -43245,6 +43255,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """

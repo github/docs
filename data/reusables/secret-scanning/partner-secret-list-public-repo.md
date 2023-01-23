@@ -96,6 +96,7 @@ redirect.pizza | redirect.pizza API Token
 RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
+Segment | Segment Public API Token
 SendGrid | SendGrid API Key
 Sendinblue | Sendinblue API Key
 Sendinblue | Sendinblue SMTP Key

@@ -34,7 +34,7 @@ Organization-level secrets let you share secrets between multiple repositories, 
 
 You can store up to 100 secrets per organization and 100 secrets per repository.
 
-Secrets are limited to 64 KB in size.
+Secrets are limited to 48 KB in size.
 
 ## Adding secrets for a repository
 
