@@ -28,7 +28,6 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`includeGuides`](#includeguides)
   - [`type`](#type)
   - [`topics`](#topics)
-  - [`contributor`](#contributor)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -114,9 +113,9 @@ See [`contributing/redirects`](../contributing/redirects.md) for more info.
 - Purpose: An abbreviated variant of the page title for use in breadcrumbs and navigation elements.
 - Type: `String`
 - Optional. If omitted, `title` will be used.
-  
+
 |Article type   |Maximum character length |
----  |  ---  |        
+---  |  ---  |
 |articles	     |     31 |
 |categories	  |27 |
 |map topics	  |30 |
@@ -267,11 +266,6 @@ includeGuides:
 - Type: Array of `String`s
 - Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
-### `contributor`
-- Purpose: Indicate an article is contributed and maintained by a third-party organization, typically a GitHub Technology Partner.
-- Type: `Object`. Properties are `name` and `URL`.
-- Optional.
-
 ### `communityRedirect`
 - Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
 - Type: `Object`. Properties are `name` and `href`.
@@ -281,14 +275,6 @@ includeGuides:
 - **For GitHub staff only**: Set an effective date for Terms of Service articles so that engineering teams can automatically re-prompt users to confirm the terms
 - Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
 - Optional.
-
-Example:
-
-```yaml
-contributor:
-  name: ACME, inc.
-  URL: https://acme.example.com/
-```
 
 ### Escaping single quotes
 
@@ -318,7 +304,7 @@ A content file can have **two** types of versioning:
 * Liquid statements in content (**optional**)
     * Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs. 
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
 
 ## Filenames
 
