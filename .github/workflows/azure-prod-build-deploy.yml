@@ -142,13 +142,8 @@ jobs:
         run: |
           az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
 
-  send-slack-notification-on-failure:
-    needs: [azure-prod-build-and-deploy]
-    runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    steps:
       - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

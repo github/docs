@@ -64,9 +64,8 @@ This approach is useful if your tools only support Basic Authentication but you 
 To use Basic Authentication with the {% data variables.product.product_name %} API, simply send the username and
 password associated with the account.
 
-For example, if you're accessing the API via [cURL][curl], the following command
-would authenticate you if you replace `<username>` with your {% data variables.product.product_name %} username.
-(cURL will prompt you to enter the password.)
+For example, the following [`curl` command][curl] to the API would authenticate you if you replace `<username>` with your {% data variables.product.product_name %} username.
+(curl will prompt you to enter the password.)
 
 ```shell
 $ curl -u USERNAME {% data variables.product.api_url_pre %}/user

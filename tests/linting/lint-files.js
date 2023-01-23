@@ -392,7 +392,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = {}
+      const context = { currentLanguage: 'en' }
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
