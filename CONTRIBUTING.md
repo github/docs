@@ -93,3 +93,142 @@ This site can be developed on Windows, however a few potential gotchas need to b
 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
     - Update Git configuration: `git config --system core.longpaths true`
     - Consider using a different Git client on Windows
+GET /v1/docs/matrix_expand_keysmatrix_expand_keys
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@zakwarlord7 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+github
+/
+docs
+Public
+Fork your own copy of github/docs
+Code
+Issues
+101
+Pull requests
+332
+Discussions
+Actions
+Projects
+3
+Security
+Insights
+fix: update husky usage
+ main (#6625)
+@mikesurowiec
+mikesurowiec committed on May 20, 2021 
+1 parent c416620 commit e46422de6abdce5c7dba2e681da5de5df812195d
+Show file tree Hide file tree
+Showing 4 changed files with 10 additions and 7 deletions.
+ 1  
+.husky/.gitignore
+@@ -0,0 +1 @@
+_
+ 4  
+.husky/pre-commit
+@@ -0,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+node script/prevent-translation-commits.js
+ 4  
+.husky/pre-push
+@@ -0,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run prevent-pushes-to-main
+  8  
+package.json
+@@ -209,11 +209,5 @@
+  "engines": {	  "engines": {
+    "node": ">= 16.0.0"	    "node": ">= 16.0.0"
+  },	  },
+  "repository": "https://github.com/github/docs",	  "repository": "https://github.com/github/docs"
+  "husky": {	
+    "hooks": {	
+      "pre-commit": "node script/prevent-translation-commits.js",	
+      "pre-push": "npm run prevent-pushes-to-main"	
+    }	
+  }	
+}	}
+2 comments on commit e46422d
+@swornov
+This comment was marked as spam.
+Show comment
+@X0ft
+This comment was marked as spam.
+Show comment
+@zakwarlord7
+ 
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Styling with Markdown is supported
+ You’re not receiving notifications from this thread.
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+fix: update husky usage · github/docs@e46422d
+name: autosquash
+on:
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'autosquash')
+    steps:
+      - name: autosquash
+        uses: "pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a"
+        env:
+          GITHUB_TOKEN: "${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}"
+          MERGE_LABELS: "autosquash"
+          MERGE_REMOVE_LABELS: ""
+          MERGE_COMMIT_MESSAGE: "pull-request-title"
+          MERGE_METHOD: "squash"
+          MERGE_FORKS: "true"
+          MERGE_RETRIES: "50"
+          MERGE_RETRY_SLEEP: "10000"
+          UPDATE_LABELS: "automerge"
+          UPDATE_METHOD: "merge"matrix_expand_keys
