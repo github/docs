@@ -51,23 +51,49 @@ async function getCurrentProductTreeTitles(input, context) {
     (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context))
   )
 
+  let rawShortTitle = page.rawShortTitle // might change our minds about this
+  // A lot of translations have a short title that is identical to the
+  // English equivalent. E.g.
+  //
+  //   content/foo.md:
+  //
+  //      title: Something Something Bla
+  //      shortTitle: Something
+  //
+  //   translations/docs-internal.se-sv/content/foo.md:
+  //
+  //      title: Nånting Nånting Blä
+  //      shortTitle: Something
+  //
+  // I.e. the translations `shortTitle` hasn't been translated.
+  // If this is the case, use the long title instead.
+  if (page.languageCode !== 'en' && page.rawShortTitle) {
+    const enPath = input.href.replace(`/${page.languageCode}`, '/en')
+    const enPage = context.pages[enPath]
+    if (page.rawShortTitle === enPage.shortTitle) {
+      rawShortTitle = page.rawTitle
+    }
+  }
+
   const renderedFullTitle = page.rawTitle.includes('{')
     ? await liquid.parseAndRender(page.rawTitle, context)
     : page.rawTitle
   let renderedShortTitle = ''
-  if (page.rawShortTitle) {
-    renderedShortTitle = page.rawShortTitle.includes('{')
-      ? await liquid.parseAndRender(page.rawShortTitle, context)
-      : page.rawShortTitle
+  if (rawShortTitle) {
+    renderedShortTitle = rawShortTitle.includes('{')
+      ? await liquid.parseAndRender(rawShortTitle, context)
+      : rawShortTitle
   }
+
+  // If the short title was present but "useless" (same as the title),
+  // force it to be an empty string to not waste space.
+  const shortTitle =
+    renderedShortTitle && (renderedShortTitle || '') !== renderedFullTitle ? renderedShortTitle : ''
 
   const node = {
     href: input.href,
     title: renderedFullTitle,
-    shortTitle:
-      renderedShortTitle && (renderedShortTitle || '') !== renderedFullTitle
-        ? renderedShortTitle
-        : '',
+    shortTitle,
     documentType: page.documentType,
     childPages: childPages.filter(Boolean),
   }
