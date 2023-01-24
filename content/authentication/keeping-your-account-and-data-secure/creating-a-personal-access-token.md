@@ -70,7 +70,7 @@ Additionally, organization owners can restrict the access of {% data variables.p
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
-1. Optionally, under **Token name**, enter a name for the token.
+1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token.
 1. Optionally, under **Description**, add a note to describe the purpose of the token.
 1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec or ghae %} You may be required to perform SAML single sign-on (SSO) if the selected organization requires it and you do not already have an active SAML session.{% endif %}
