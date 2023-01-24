@@ -15,7 +15,7 @@ redirect_from:
 The GitHub Classroom integration with {% data variables.product.prodname_vscode_shortname %} provides students with an extension pack which contains:
 
 1. [GitHub Classroom Extension](https://aka.ms/classroom-vscode-ext) with custom abstractions that make it easy for students to navigate getting started.
-2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.
+2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.
 3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor. 
 
 ### How to launch the assignment in {% data variables.product.prodname_vscode_shortname %}
