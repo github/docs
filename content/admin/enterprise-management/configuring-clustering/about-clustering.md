@@ -7,6 +7,12 @@ redirect_from:
   - /enterprise/admin/clustering/clustering-overview
   - /enterprise/admin/enterprise-management/about-clustering
   - /admin/enterprise-management/about-clustering
+  - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
+  - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
+  - /admin/enterprise-management/configuring-clustering/configuring-high-availability-replication-for-a-cluster
+  - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
+  - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
+  - /admin/enterprise-management/configuring-clustering/initiating-a-failover-to-your-replica-cluster
 versions:
   ghes: '*'
 type: overview

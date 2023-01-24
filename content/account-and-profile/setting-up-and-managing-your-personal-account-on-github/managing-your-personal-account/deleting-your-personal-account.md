@@ -21,6 +21,8 @@ shortTitle: Delete your account
 
 Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted. Your resources and comments will become associated with the [ghost user](https://github.com/ghost).{% else %}Issues and pull requests you've created and comments you've made in repositories owned by other users will not be deleted.{% endif %}
 
+{% data reusables.package_registry.delete-account-namespace-retirement %}
+
 {% ifversion ghec %}
 
 {% note %}

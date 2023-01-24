@@ -56,7 +56,7 @@ For more information about using a codespace for working on GitHub documentation
 - Using the command line:
   - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
 
-2. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
+2. Install or update to **Node.js**, at the version specified in `.node-version`. For more information, see [the development guide](contributing/development.md).
 
 3. Create a working branch and start with your changes!
 

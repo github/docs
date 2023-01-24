@@ -3,7 +3,9 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
+# To update the sha, run `docker pull node:$VERSION-alpine`
+# look for something like: `Digest: sha256:0123456789abcdef`
+FROM node:18.13.0-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -24,7 +26,7 @@ COPY --chown=node:node package.json package-lock.json ./
 RUN npm ci --no-optional --registry https://registry.npmjs.org/
 
 # For Next.js v12+
-# This the appropriate necessary extra for node:16-alpine
+# This the appropriate necessary extra for node:VERSION-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
 RUN npm i @next/swc-linux-x64-musl --no-save
 
