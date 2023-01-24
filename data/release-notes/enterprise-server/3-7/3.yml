@@ -50,4 +50,5 @@ sections:
     - Diffing GeoJSON, PSD, and STL files is no longer possible.
 
     # https://github.com/github/releases/issues/2480
-    - Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well. GitHub recommends using the REST API to programmatically access information about GitHub Packages. For more information, see "[Packages](/rest/packages)" in the REST API documentation.
+    - |
+      Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well.
