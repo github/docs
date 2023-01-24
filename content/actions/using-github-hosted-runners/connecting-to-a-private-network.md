@@ -103,3 +103,13 @@ Its disadvantages are similar to WireGuard: The connection is one-to-one, so you
 However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
 
 For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+
+### Using ZeroTier to create a network overlay
+
+ZeroTier is commercial product that pre-dates WireGuard.
+It simulates a L2 switch, creating encrypted mesh networks with built-in NAT traversal over UDP.
+The ZeroTier {% data variables.product.prodname_actions %} automatically handles ephemeral access.
+
+It works on Linux, MacOS and Windows runner types.
+
+For more information, see the [ZeroTier GitHub Action](https://github.com/zerotier/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
