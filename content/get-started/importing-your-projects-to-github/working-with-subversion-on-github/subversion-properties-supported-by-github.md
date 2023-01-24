@@ -11,6 +11,8 @@ versions:
   ghec: '*'
 shortTitle: Properties supported by GitHub
 ---
+{% data reusables.subversion.sunset %}
+
 ## Executable files (`svn:executable`)
 
 We convert `svn:executable` properties by updating the file mode directly before adding it to the Git repository.
