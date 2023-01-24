@@ -62,7 +62,7 @@ If the action is written using a [composite](/actions/creating-actions/creating-
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
-For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUM-OCTOCATS` and `INPUT_OCTOCAT-EYE-COLOR` environment variables.
 
 ### `inputs.<input_id>`
 
