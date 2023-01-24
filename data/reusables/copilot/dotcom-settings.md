@@ -13,7 +13,7 @@ Once you have an active {% data variables.product.prodname_copilot %} {% ifversi
 1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
   ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
 {% data reusables.copilot.save-settings %}
-
+{% ifversion fpt %}
 ### Enabling or disabling telemetry
 
 {% data reusables.copilot.telemetry-setting-org %}
@@ -24,7 +24,7 @@ You can choose whether your code snippets are collected and retained by GitHub a
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**.
   ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
-{% data reusables.copilot.save-settings %}
+{% data reusables.copilot.save-settings %}{% endif %}
 
 ## Further reading
 
