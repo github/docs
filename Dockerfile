@@ -28,7 +28,7 @@ RUN npm ci --no-optional --registry https://registry.npmjs.org/
 # For Next.js v12+
 # This the appropriate necessary extra for node:VERSION-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
-RUN npm i @next/swc-linux-x64-musl --no-save
+RUN npm i @next/swc-linux-x64-musl --no-save || npm i @next/swc-linux-arm64-musl --no-save
 
 
 # ---------------
