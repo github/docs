@@ -110,11 +110,15 @@ Depending on the size of your codebase, and the memory needed to run your applic
 
 ### Client can't be opened in MacOS Ventura
 
-In MacOS Ventura, the first time you try to connect to a codespace from the JetBrains Gateway a message may be displayed telling you that the JetBrains client application "is damaged and can't be opened."
+In MacOS Ventura, using versions of the JetBrains Gateway prior to version 2022.3, the first time you try to connect to a codespace from the JetBrains Gateway a message was displayed telling you that the JetBrains client application "is damaged and can't be opened."
 
 <img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
 
-If this happens:
+This issue is fixed in the JetBrains Gateway, version 2022.3 and later.
+
+To avoid this issue, update the JetBrains Gateway.
+
+To work around this problem with older versions of the Gateway:
 
 1. Click **Cancel** to dismiss this message.
 1. Click the Apple icon, top left of the screen, and click **System Settings**.

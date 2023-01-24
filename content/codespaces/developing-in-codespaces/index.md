@@ -12,6 +12,7 @@ children:
   - /creating-a-codespace-from-a-template
   - /deleting-a-codespace
   - /opening-an-existing-codespace
+  - /working-collaboratively-in-a-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace
