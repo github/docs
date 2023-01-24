@@ -1,6 +1,6 @@
 ---
 title: Users
-intro: The Users API allows to get public and private information about the authenticated user.
+intro: Use the REST API to get public and private information about authenticated users.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,7 +10,3 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
-
-## About the Users API
-
-{% data reusables.user-settings.user-api %}

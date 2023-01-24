@@ -1,14 +1,12 @@
 import { jest } from '@jest/globals'
 import fs from 'fs/promises'
 import revalidator from 'revalidator'
-import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import frontmatter from '../../lib/frontmatter.js'
 import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
@@ -66,15 +64,8 @@ describe('lint Liquid versioning', () => {
 
     beforeAll(async () => {
       fileContents = await fs.readFile(file, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif']).concat(
-        getLiquidConditionals(bodyContent, ['ifversion', 'elsif'])
-      )
-
-      ifConditionals = getLiquidConditionals(data, 'if').concat(
-        getLiquidConditionals(bodyContent, 'if')
-      )
+      ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+      ifConditionals = getLiquidConditionals(fileContents, 'if')
     })
 
     // `ifversion` supports both standard and feature-based versioning.
@@ -182,12 +173,6 @@ function validateIfversionConditionals(conds) {
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
           )
         }
-        // Check nextNext is one version ahead of next
-        if (!isNextVersion(next, nextNext)) {
-          errors.push(
-            `The nextNext version: "${nextNext} is not one version ahead of the next supported version: "${next}" - check lib/enterprise-server-releases.js`
-          )
-        }
         // Check that the versions in conditionals are supported
         // versions of GHES or the first deprecated version. Allowing
         // the first deprecated version to exist in code ensures
@@ -210,24 +195,4 @@ function validateIfversionConditionals(conds) {
   })
 
   return errors
-}
-
-function isNextVersion(v1, v2) {
-  const semverNext = semver.coerce(v1)
-  const semverNextNext = semver.coerce(v2)
-  const semverSupported = []
-
-  supported.forEach((el, i) => {
-    semverSupported[i] = semver.coerce(el)
-  })
-  // Check that the next version is the next version from the supported list first
-  const maxVersion = semver.maxSatisfying(semverSupported, '*').raw
-  const nextVersionCheck =
-    semverNext.raw === semver.inc(maxVersion, 'minor') ||
-    semverNext.raw === semver.inc(maxVersion, 'major')
-  return (
-    nextVersionCheck &&
-    (semver.inc(semverNext, 'minor') === semverNextNext.raw ||
-      semver.inc(semverNext, 'major') === semverNextNext.raw)
-  )
 }

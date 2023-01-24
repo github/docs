@@ -18,11 +18,9 @@ With {% data variables.product.prodname_copilot_for_business %}, you can manage 
 
 ## Setting up {% data variables.product.prodname_copilot_for_business %}
 
-To use {% data variables.product.prodname_copilot_for_business %}, you need a subscription. For help with setting up your subscription for {% data variables.product.prodname_copilot_for_business %}, you can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://github.com/enterprise/contact?scid=&utm_campaign=2023q2-site-ww-CopilotForBusiness&utm_medium=referral&utm_source=github).
-
 ### Enabling {% data variables.product.prodname_copilot_for_business %} for your enterprise
 
-Once the subscription is set up, your enterprise owner can enable or disable {% data variables.product.prodname_copilot_for_business %} for the organizations in the enterprise by enforcing a policy. To enforce a policy to manage the use of {% data variables.product.prodname_copilot_for_business %}, follow the steps in "[Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_for_business %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-for-business-in-your-enterprise)."
+Your enterprise owner can enable {% data variables.product.prodname_copilot_for_business %} for the organizations in the enterprise by first establishing the policy and then assigning users. To enforce a policy to manage the use of {% data variables.product.prodname_copilot_for_business %}, follow the steps in "[Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_for_business %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-for-business-in-your-enterprise)." If you need additional help with policy configuration or user assignment for {% data variables.product.prodname_copilot_for_business %}, you can contact {% data variables.contact.contact_enterprise_sales %}.
 
 ![Screenshot of the {% data variables.product.prodname_copilot %} organization access settingsair](/assets/images/help/copilot/manage-org-access-enterprise.png)
 

@@ -1,4 +1,0 @@
-no_reply_address: >-
-  {% ifversion fpt or ghec %}`noreply@github.com`{% else %}o endereço de email sem resposta configurado pelo administrador do site{% endif %}
-cc_address: >-
-  {% if page.version == 'dotcom' %}`@noreply.github.com`{% else %}com base no endereço de email sem reposta configurado pelo administrador do seu site{% endif %}

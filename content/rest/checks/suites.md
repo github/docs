@@ -1,6 +1,6 @@
 ---
 title: Check Suites
-intro: ''
+intro: 'Use the REST API to manage check suites.'
 versions:
   fpt: '*'
   ghes: '*'
