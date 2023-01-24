@@ -41,3 +41,10 @@ apt-get install ./gh_${CLI_VERSION}_linux_amd64.deb
 echo "Removing github CLI deb file after installation..."
 rm -rf ./gh_${CLI_VERSION}_linux_amd64.deb
 echo "Done!"
+{
+Bumps node from 16.18.0-alpine to 19.1.0-alpine.
+
+---
+updated-dependencies:
+- dependency-name: node
+  dependency-type: direct:production
