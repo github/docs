@@ -22,7 +22,7 @@ There are three types of migrations you can perform:
 
 {% note %}
 
-**Note:** The use of the migration tool is **not recommended** for transferring a {% data variables.product.prodname_ghe_server %} instance between hypervisors. The supported method for transfering a {% data variables.product.prodname_ghe_server %} instance between hypervisors is either using "[GitHub Enterprise Server Backup Utilities](https://github.com/github/backup-utils#readme)" to backup and restore to the new location, or "[Creating a high availability replica](/enterprise/admin/guides/installation/creating-a-high-availability-replica/)" and "[Initiating a failover to your replica appliance](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)."
+**Note:** The use of the migration tool is **not recommended** for transferring a {% data variables.product.prodname_ghe_server %} instance between hypervisors. Instead, we suggest either backing up and restoring to the new location with {% data variables.product.prodname_enterprise_backup_utilities %}, or creating a replica in the new location and then failing over to the replica appliance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)", "[Creating a high availability replica](/enterprise/admin/guides/installation/creating-a-high-availability-replica/)" and "[Initiating a failover to your replica appliance](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)."
 
 {% endnote %}
 
