@@ -17,8 +17,8 @@ learningTracks:
   - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghes %}configure_github_actions{% endif %}'
+  - '{% ifversion ghes %}configure_github_advanced_security{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -148,4 +148,3 @@ includeGuides:
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ---
-

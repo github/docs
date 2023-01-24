@@ -32,8 +32,8 @@ When you block a user:
 - The user's contributions to your repositories are no longer counted as contributions for them
 - Your contributions to the blocked user's repositories are no longer counted as contributions for you
 - You are removed as a collaborator on their repositories
-- Their sponsorship of you is cancelled
-- Any pending repository or account successor invitations to or from the blocked user are cancelled
+- Their sponsorship of you is canceled
+- Any pending repository or account successor invitations to or from the blocked user are canceled
 - The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
 - You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
 

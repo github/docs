@@ -1,6 +1,6 @@
 ---
 title: Milestones
-intro: ''
+intro: 'Use the REST API to manage milestones.'
 versions:
   fpt: '*'
   ghes: '*'

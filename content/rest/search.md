@@ -122,7 +122,7 @@ Name | Description
 
 #### Example
 
-Using cURL, and the [example issue search](#search-issues-and-pull-requests) above, our API
+Using a `curl` command, and the [example issue search](#search-issues-and-pull-requests) above, our API
 request would look like this:
 
 ``` shell

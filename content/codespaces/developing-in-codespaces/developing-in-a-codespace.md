@@ -23,7 +23,7 @@ shortTitle: Develop in a codespace
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
-You can develop code in a codespace using your choice of tool: 
+You can develop code in a codespace using your choice of tool:
 
 * A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
 * One of the JetBrains IDEs, via the JetBrains Gateway.
@@ -61,7 +61,7 @@ The tabs in this article allow you to switch between information for each of the
 
 For more information on using {% data variables.product.prodname_vscode_shortname %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-{% data reusables.codespaces.connect-to-codespace-from-vscode %} 
+{% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
 For troubleshooting information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
 {% data reusables.codespaces.developing-in-vscode %}
@@ -102,7 +102,7 @@ For more information about the IntelliJ IDEA user interface, see the [JetBrains 
 
 ### Customizing the codespaces for a repository
 
-You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ### Personalizing your codespace
 

@@ -1,6 +1,6 @@
 ### Customizing the codespaces for a repository
 
-You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ### Personalizing your codespace
 
@@ -11,7 +11,7 @@ You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [
 
 ### Committing your changes
 
-{% data reusables.codespaces.committing-link-to-procedure %} 
+{% data reusables.codespaces.committing-link-to-procedure %}
 
 ### Using the {% data variables.product.prodname_vscode_command_palette %}
 

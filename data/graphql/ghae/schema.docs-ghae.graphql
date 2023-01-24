@@ -708,6 +708,11 @@ type AddReactionPayload {
   reaction: Reaction
 
   """
+  The reaction groups for the subject.
+  """
+  reactionGroups: [ReactionGroup!]
+
+  """
   The reactable subject.
   """
   subject: Reactable
@@ -6499,7 +6504,7 @@ input CreateMigrationSourceInput {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: String!
 }
@@ -6600,6 +6605,11 @@ input CreatePullRequestInput {
   in the same network, namespace `head_ref_name` with a user like this: `username:branch`.
   """
   headRefName: String!
+
+  """
+  The Node ID of the head repository.
+  """
+  headRepositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 
   """
   Indicates whether maintainers can modify the pull request.
@@ -16928,7 +16938,7 @@ interface Migration {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -16955,7 +16965,7 @@ type MigrationSource implements Node {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: URI!
 }
@@ -18528,6 +18538,16 @@ type Mutation {
     """
     input: RevokeMigratorRoleInput!
   ): RevokeMigratorRolePayload
+
+  """
+  Starts a GitHub Enterprise Importer organization migration.
+  """
+  startOrganizationMigration(
+    """
+    Parameters for StartOrganizationMigration
+    """
+    input: StartOrganizationMigrationInput!
+  ): StartOrganizationMigrationPayload
 
   """
   Starts a GitHub Enterprise Importer (GEI) repository migration.
@@ -23670,6 +23690,102 @@ enum OrganizationMembersCanCreateRepositoriesSettingValue {
 }
 
 """
+A GitHub Enterprise Importer (GEI) organization migration.
+"""
+type OrganizationMigration implements Node {
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: String
+
+  """
+  The reason the organization migration failed.
+  """
+  failureReason: String
+  id: ID!
+
+  """
+  The remaining amount of repos to be migrated.
+  """
+  remainingRepositoriesCount: Int
+
+  """
+  The name of the source organization to be migrated.
+  """
+  sourceOrgName: String!
+
+  """
+  The URL of the source organization to migrate.
+  """
+  sourceOrgUrl: URI!
+
+  """
+  The migration state.
+  """
+  state: OrganizationMigrationState!
+
+  """
+  The name of the target organization.
+  """
+  targetOrgName: String!
+
+  """
+  The total amount of repositories to be migrated.
+  """
+  totalRepositoriesCount: Int
+}
+
+"""
+The Octoshift Organization migration state.
+"""
+enum OrganizationMigrationState {
+  """
+  The Octoshift migration has failed.
+  """
+  FAILED
+
+  """
+  The Octoshift migration is in progress.
+  """
+  IN_PROGRESS
+
+  """
+  The Octoshift migration has not started.
+  """
+  NOT_STARTED
+
+  """
+  The Octoshift migration is performing post repository migrations.
+  """
+  POST_REPO_MIGRATION
+
+  """
+  The Octoshift migration is performing pre repository migrations.
+  """
+  PRE_REPO_MIGRATION
+
+  """
+  The Octoshift migration has been queued.
+  """
+  QUEUED
+
+  """
+  The Octoshift org migration is performing repository migrations.
+  """
+  REPO_MIGRATION
+
+  """
+  The Octoshift migration has succeeded.
+  """
+  SUCCEEDED
+}
+
+"""
 Ordering options for organization connections.
 """
 input OrganizationOrder {
@@ -23791,6 +23907,11 @@ type OrganizationsHovercardContext implements HovercardContext {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -28383,6 +28504,11 @@ type Query {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -29971,6 +30097,11 @@ type RemoveReactionPayload {
   The reaction object.
   """
   reaction: Reaction
+
+  """
+  The reaction groups for the subject.
+  """
+  reactionGroups: [ReactionGroup!]
 
   """
   The reactable subject.
@@ -32985,6 +33116,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   hasProjectsEnabled: Boolean!
 
   """
+  Whether vulnerability alerts are enabled for the repository.
+  """
+  hasVulnerabilityAlertsEnabled: Boolean!
+
+  """
   Indicates if the repository has wiki feature enabled.
   """
   hasWikiEnabled: Boolean!
@@ -34581,7 +34717,7 @@ type RepositoryMigration implements Migration & Node {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -36914,6 +37050,51 @@ type StarredRepositoryEdge {
   Identifies when the item was starred.
   """
   starredAt: DateTime!
+}
+
+"""
+Autogenerated input type of StartOrganizationMigration
+"""
+input StartOrganizationMigrationInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The migration source access token.
+  """
+  sourceAccessToken: String!
+
+  """
+  The URL of the organization to migrate.
+  """
+  sourceOrgUrl: URI!
+
+  """
+  The ID of the enterprise the target organization belongs to.
+  """
+  targetEnterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
+
+  """
+  The name of the target organization.
+  """
+  targetOrgName: String!
+}
+
+"""
+Autogenerated return type of StartOrganizationMigration
+"""
+type StartOrganizationMigrationPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The new organization migration.
+  """
+  orgMigration: OrganizationMigration
 }
 
 """
@@ -43074,6 +43255,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
