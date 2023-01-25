@@ -29,7 +29,7 @@ You can set your own custom variables or use the default environment variables t
 You can set a custom variable in two ways.
 
 - To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file.  For more information, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)".
-- To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see "[Defining configuration variables for multiple workflows](#defining-configuration-variables-for-a-multiple-workflows)".
+- To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see "[Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows)".
 
 {% warning %}
 
