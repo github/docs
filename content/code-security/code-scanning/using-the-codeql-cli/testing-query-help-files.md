@@ -1,6 +1,6 @@
 ---
 title: Testing query help files
-intro: You can use the {% data variables.product.prodname_codeql_cli %} to preview your query help files as Markdown and ensure they are valid.
+intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to preview your query help files as Markdown and ensure they are valid.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'

@@ -1,6 +1,6 @@
 ---
 title: Commit statuses
-intro: 'Use the REST API to interact with commit statuses.'
+intro: Use the REST API to interact with commit statuses.
 versions:
   fpt: '*'
   ghes: '*'

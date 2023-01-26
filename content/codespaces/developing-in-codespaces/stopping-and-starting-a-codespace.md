@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+intro: You can stop and start your codespace to save resources and to pause work.
 versions:
   fpt: '*'
   ghec: '*'
