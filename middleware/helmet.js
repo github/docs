@@ -40,7 +40,7 @@ const DEFAULT_OPTIONS = {
         isDev && 'http://localhost:3000',
         'https://www.youtube-nocookie.com',
       ].filter(Boolean),
-      frameAncestors: [...GITHUB_DOMAINS],
+      frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
       upgradeInsecureRequests: isDev ? null : [],

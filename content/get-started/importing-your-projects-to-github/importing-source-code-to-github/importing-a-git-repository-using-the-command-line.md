@@ -45,3 +45,5 @@ For purposes of demonstration, we'll use:
   $ cd ..
   $ rm -rf REPO.git
   ```
+
+If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see "[About large files on GitHub](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."

@@ -62,6 +62,8 @@ SVN is configured to assume that the history of a project never changes. Git all
 
 {% endtip %}
 
+{% data reusables.subversion.sunset %}
+
 ## Further reading
 
 - "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"

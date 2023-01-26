@@ -1,13 +1,11 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
-import { InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
@@ -32,7 +30,6 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
-    contributor,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
@@ -40,7 +37,6 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
-  const { t } = useTranslation('pages')
 
   const isLearningPath = !!currentLearningTrack?.trackName
 
@@ -54,17 +50,6 @@ export const ArticlePage = () => {
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              {contributor && (
-                <Callout variant="info" className="mb-3">
-                  <p>
-                    <span className="mr-2">
-                      <InfoIcon />
-                    </span>
-                    {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
-                  </p>
-                </Callout>
-              )}
-
               {intro && (
                 <Lead data-testid="lead" data-search="lead">
                   {intro}
