@@ -4,7 +4,6 @@ intro: 'Businesses can use {% data variables.product.prodname_dotcom %}''s enter
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Enterprise
@@ -29,12 +28,7 @@ Optionally, you can add extra code security features with {% data variables.prod
 
 For {% data variables.product.prodname_ghe_cloud %}, you can allow developers to create and manage their own personal accounts, or you can use {% data variables.product.prodname_emus %}, which enables you to create and manage the user accounts for your developers. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 
-{% data variables.product.prodname_ghe_managed %} is in limited availability for select customers with stringent security and compliance requirements. For more information, see "[About {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/overview/about-github-ae){% ifversion not ghae %}" in the {% data variables.product.prodname_ghe_managed %} documentation.{% else %}."{% endif %}
-
-You can benefit from the power of {% data variables.product.prodname_dotcom_the_website %} even while using {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} by enabling {% data variables.product.prodname_github_connect %}, which allows you to configure additional features and workflows such as {% data variables.product.prodname_dependabot_alerts %} for insecure dependencies.{% ifversion ghec %}
-
-- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-- "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation{% else %} For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."{% endif %}
+You can benefit from the power of {% data variables.product.prodname_dotcom_the_website %} even while using {% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %} by enabling {% data variables.product.prodname_github_connect %}, which allows you to configure additional features and workflows such as {% data variables.product.prodname_dependabot_alerts %} for insecure dependencies. For more information, see "[About {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghes or ghae %}."{% elsif ghec %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 ## Further reading
 

@@ -1,6 +1,6 @@
 ---
 title: Query reference files
-intro: 'You can use query reference files to define the location of a query you want to run in tests.'
+intro: You can use query reference files to define the location of a query you want to run in tests.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'

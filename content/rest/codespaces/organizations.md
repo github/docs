@@ -2,7 +2,7 @@
 title: Codespaces organizations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
-intro: 'Use the REST API to manage your organization members codespaces.'
+intro: Use the REST API to manage your organization members codespaces.
 versions:
   fpt: '*'
   ghec: '*'

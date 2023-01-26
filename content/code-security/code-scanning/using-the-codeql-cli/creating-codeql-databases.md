@@ -3,10 +3,10 @@ title: Creating CodeQL databases
 intro: 'You can build a {% data variables.product.prodname_codeql %} database containing the data needed to query your code.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-   fpt: '*'
-   ghec: '*'
-   ghes: '*'
-   ghae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning

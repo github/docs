@@ -1,6 +1,6 @@
 ---
 title: Issues
-intro: 'Use the REST API to manage issues and pull requests.'
+intro: Use the REST API to manage issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'

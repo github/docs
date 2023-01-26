@@ -1,7 +1,7 @@
 ---
 title: Adding features to a devcontainer.json file
 shortTitle: Adding features
-intro: With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.
+intro: 'With features, you can quickly add tools, runtimes, or libraries to your dev container configuration.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

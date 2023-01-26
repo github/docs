@@ -1,7 +1,7 @@
 ---
 title: Working collaboratively in a codespace
 shortTitle: Work collaboratively
-intro: You can work collaboratively with other people in a codespace by using {% data variables.product.prodname_vs %} Live Share.
+intro: 'You can work collaboratively with other people in a codespace by using {% data variables.product.prodname_vs %} Live Share.'
 versions:
   fpt: '*'
   ghec: '*'

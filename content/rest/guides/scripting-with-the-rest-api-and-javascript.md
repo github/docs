@@ -1,7 +1,7 @@
 ---
 title: Scripting with the REST API and JavaScript
 shortTitle: Script with JavaScript
-intro: 'Write a script using the Octokit.js SDK to interact with the REST API.'
+intro: Write a script using the Octokit.js SDK to interact with the REST API.
 versions:
   fpt: '*'
   ghes: '*'

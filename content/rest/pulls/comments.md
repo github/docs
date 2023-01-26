@@ -1,7 +1,7 @@
 ---
 title: Pull request review comments
 shortTitle: Review comments
-intro: 'Use the REST API to interact with pull request review comments.'
+intro: Use the REST API to interact with pull request review comments.
 versions:
   fpt: '*'
   ghes: '*'
