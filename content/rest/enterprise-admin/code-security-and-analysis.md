@@ -1,6 +1,6 @@
 ---
 title: Code security and analysis
-intro: 'You can use the REST API to manage code security and analysis features for your enterprise.'
+intro: Use the REST API to manage code security and analysis features for your enterprise.
 versions:
   ghes: '>=3.8'
   ghec: '*'

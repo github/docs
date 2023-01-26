@@ -1,6 +1,6 @@
 ---
 title: Issues
-intro: ''
+intro: Use the REST API to manage issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Issues API
+## About issues
 
 {% data reusables.pull_requests.issues-media-types %}

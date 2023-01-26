@@ -13,6 +13,8 @@ shortTitle: Support for Subversion clients
 ---
 GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion bridge to communicate svn commands to GitHub.
 
+{% data reusables.subversion.sunset %}
+
 ## Supported Subversion features on GitHub
 
 ### Checkout

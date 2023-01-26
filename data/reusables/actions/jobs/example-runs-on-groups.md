@@ -1,4 +1,4 @@
-In this example, Ubuntu 16-core runners have been added to a group called `ubuntu-runners`. The `runs-on` key sends the job to any available runner in the `ubuntu-runners` group:
+In this example, Ubuntu runners have been added to a group called `ubuntu-runners`. The `runs-on` key sends the job to any available runner in the `ubuntu-runners` group:
 
 ```yaml
 name: learn-github-actions

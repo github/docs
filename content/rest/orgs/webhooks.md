@@ -2,7 +2,7 @@
 title: Organization webhooks
 allowTitleToDifferFromFilename: true
 shortTitle: Webhooks
-intro: ''
+intro: Use the REST API to interact with webhooks in an organization.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,11 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Organization webhooks API
+## About organization webhooks
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
-
-For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. For more information, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)."
 
 ### Scopes and restrictions
 

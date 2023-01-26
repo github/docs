@@ -1,6 +1,6 @@
 ---
 title: Protected branches
-intro: ''
+intro: Use the REST API to manage protected branches.
 versions:
   fpt: '*'
   ghes: '*'

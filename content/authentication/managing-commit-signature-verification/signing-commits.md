@@ -53,4 +53,5 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 ## Further reading
 
 * "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Signing tags](/articles/signing-tags)"
+* "[Signing tags](/articles/signing-tags)"{% ifversion fpt or ghec %}
+* "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}

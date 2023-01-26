@@ -12,6 +12,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ## Testing apps
 
 You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."

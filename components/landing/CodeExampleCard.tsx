@@ -14,11 +14,8 @@ export const CodeExampleCard = ({ example }: Props) => {
       href={`https://github.com/${example.href}`}
     >
       <div className="p-4">
-        <h3 className="f4" dangerouslySetInnerHTML={{ __html: example.title }} />
-        <p
-          className="mt-2 mb-4 color-fg-muted"
-          dangerouslySetInnerHTML={{ __html: example.description }}
-        />
+        <h3 className="f4">{example.title}</h3>
+        <p className="mt-2 mb-4 color-fg-muted">{example.description}</p>
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
             return (

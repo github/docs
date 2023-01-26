@@ -28,6 +28,12 @@ shortTitle: Delete organization
 
 {% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
+{% note %}
+
+**Note:** {% data reusables.package_registry.delete-account-namespace-retirement %}
+
+{% endnote %}
+
 {% ifversion ghes %}
 {% note %}
 

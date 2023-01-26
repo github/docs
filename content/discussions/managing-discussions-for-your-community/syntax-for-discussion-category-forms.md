@@ -1,7 +1,7 @@
 ---
 title: Syntax for discussion category forms
 shortTitle: Syntax for discussion category forms
-intro: 'You can use YAML syntax to define the fields in your discussion category forms.'
+intro: You can use YAML syntax to define the fields in your discussion category forms.
 versions:
   feature: discussion-category-forms
 ---

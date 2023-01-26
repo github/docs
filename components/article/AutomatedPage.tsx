@@ -2,6 +2,7 @@ import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
+import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
@@ -13,7 +14,8 @@ type Props = {
 }
 
 export const AutomatedPage = ({ children }: Props) => {
-  const { title, intro, renderedPage, miniTocItems, product } = useAutomatedPageContext()
+  const { title, intro, renderedPage, miniTocItems, product, permissions } =
+    useAutomatedPageContext()
 
   return (
     <DefaultLayout>
@@ -29,6 +31,8 @@ export const AutomatedPage = ({ children }: Props) => {
                   {intro}
                 </Lead>
               )}
+
+              {permissions && <PermissionsStatement permissions={permissions} />}
 
               {product && (
                 <Callout

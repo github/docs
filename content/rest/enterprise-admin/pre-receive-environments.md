@@ -1,6 +1,6 @@
 ---
 title: Pre-receive Environments
-intro: 'The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks.'
+intro: 'Use the REST API to create, list, update and delete environments for pre-receive hooks.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,7 +9,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+## About pre-receive environments
+
+These endpoints are only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators. Normal users will receive a `404` response.
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 

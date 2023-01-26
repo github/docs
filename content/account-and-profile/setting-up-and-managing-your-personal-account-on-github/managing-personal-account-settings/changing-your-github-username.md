@@ -57,6 +57,8 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 {% endif %}
 
+{% data reusables.package_registry.rename-account-namespace-retirement %}
+
 ## Repository references
 
 After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.

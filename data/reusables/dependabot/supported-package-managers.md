@@ -24,7 +24,7 @@ pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
 pip-compile{% ifversion dependabot-PEP621-support %}<sup>[6]</sup>{% endif %}   | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
 pub <sup>[7]</sup>           | `pub`            | v2  | | | |{% endif %}
-Terraform      | `terraform`      | >= 0.13, <= 1.2.x  | **✓** | **✓** | |
+Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | **✓** | **✓** | |
 {% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[8]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
 {% endif %}
 

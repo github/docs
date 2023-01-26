@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+intro: You can stop and start your codespace to save resources and to pause work.
 versions:
   fpt: '*'
   ghec: '*'
@@ -29,7 +29,7 @@ Regardless of where you created or access your codespaces, you can view and mana
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. To the right of the codespace you want to stop, click the elipsis (**...**).
+ 1. To the right of the codespace you want to stop, click the ellipsis (**...**).
  1. Click **Stop codespace**.
    ![Screenshot of option to stop a codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
 
