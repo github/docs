@@ -1,11 +1,11 @@
 ---
 title: Adding items automatically
-intro: "You can configure your project to automatically add items from a repository that match a filter."
+intro: You can configure your project to automatically add items from a repository that match a filter.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-auto-add
 type: tutorial
-product: "The auto-add workflow is available as a beta release for projects owned by organizations using {% data variables.product.prodname_ghe_cloud %}."
+product: 'The auto-add workflow is available as a beta release for projects owned by organizations using {% data variables.product.prodname_ghe_cloud %}.'
 topics:
   - Projects
 ---

@@ -1,6 +1,6 @@
 ---
 title: Creating a codespace from a template
-intro: If you're starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.
+intro: 'If you''re starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.'
 versions:
   fpt: '*'
   ghec: '*'

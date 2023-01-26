@@ -1,6 +1,6 @@
 ---
 title: Commits
-intro: 'Use the REST API to interact with commits.'
+intro: Use the REST API to interact with commits.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

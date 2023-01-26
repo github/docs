@@ -2,7 +2,7 @@
 title: Codespaces machines
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
-intro: 'Use the REST API to manage availability of machine types for a codespace.'
+intro: Use the REST API to manage availability of machine types for a codespace.
 versions:
   fpt: '*'
   ghec: '*'

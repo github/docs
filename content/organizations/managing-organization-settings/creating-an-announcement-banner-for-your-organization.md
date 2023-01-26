@@ -1,7 +1,7 @@
 ---
 title: Creating an announcement banner for your organization
 shortTitle: Create an announcement banner
-intro: 'Organization owners can create announcement banners for the organization.'
+intro: Organization owners can create announcement banners for the organization.
 versions:
   feature: custom-banner-messages
 type: how_to
