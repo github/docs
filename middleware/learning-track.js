@@ -101,11 +101,10 @@ export default async function learningTrack(req, res, next) {
 // return -1 if not found.
 async function indexOfLearningTrackGuide(trackGuidePaths, guidePath, context) {
   let guideIndex = -1
-  const renderOpts = { textOnly: true, encodeEntities: true }
 
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, renderOpts)
+    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, { textOnly: true })
 
     if (!renderedGuidePath) continue
 
