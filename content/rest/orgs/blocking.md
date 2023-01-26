@@ -1,6 +1,6 @@
 ---
 title: Blocking users
-intro: 'Use the REST API to block and unblock users in an organization.'
+intro: Use the REST API to block and unblock users in an organization.
 versions:
   fpt: '*'
   ghec: '*'

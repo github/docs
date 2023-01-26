@@ -1,5 +1,5 @@
 ---
-title: About {% data variables.product.prodname_emus %}
+title: 'About {% data variables.product.prodname_emus %}'
 shortTitle: About managed users
 intro: 'You can centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider.'
 redirect_from:

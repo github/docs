@@ -1,6 +1,6 @@
 ---
 title: Opening an existing codespace
-intro: 'You can reopen a codespace that you have closed or stopped and return to your work.'
+intro: You can reopen a codespace that you have closed or stopped and return to your work.
 versions:
   fpt: '*'
   ghec: '*'
