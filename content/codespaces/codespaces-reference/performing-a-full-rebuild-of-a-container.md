@@ -38,7 +38,7 @@ Any files and folders contained in the `/workspaces` directory of your codespace
 
 If you want to preserve files outside the `/workspaces` directory over a full rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `/workspaces/.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
 
-```json  
+```json
 {
     "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
     "postCreateCommand": ".devcontainer/postCreate.sh"
@@ -53,4 +53,4 @@ ln -sf $PWD/.devcontainer/config $HOME/config && set +x
 ```
 
 ## Further reading
-- [Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)
+- [Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)

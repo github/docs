@@ -127,10 +127,10 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Headers
 
-Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
-Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
+Each header on a page must be unique. Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 

@@ -466,7 +466,7 @@ Here's an example:
 User-Agent: Awesome-Octocat-App
 ```
 
-cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
+curl sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via curl (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
 $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta

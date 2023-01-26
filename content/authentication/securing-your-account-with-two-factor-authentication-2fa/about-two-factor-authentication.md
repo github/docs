@@ -23,6 +23,14 @@ In addition to security keys, you can also use {% data variables.product.prodnam
 
 You can also configure additional recovery methods in case you lose access to your two-factor authentication credentials. For more information on setting up 2FA, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)" and "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** {% data reusables.two_fa.unlink-email-address %}
+
+{% endnote %}
+{% endif %}
+
 We **strongly** urge you to enable 2FA for the safety of your account, not only on {% data variables.product.product_name %}, but on other websites and apps that support 2FA. You can enable 2FA to access {% data variables.product.product_name %} and {% data variables.product.prodname_desktop %}.
 
 For more information, see "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)."

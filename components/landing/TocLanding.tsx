@@ -18,7 +18,7 @@ export const TocLanding = () => {
   const router = useRouter()
   const {
     title,
-    introPlainText,
+    intro,
     tocItems,
     productCallout,
     variant,
@@ -39,7 +39,7 @@ export const TocLanding = () => {
         <ArticleGridLayout>
           <ArticleTitle>{title}</ArticleTitle>
 
-          {introPlainText && <Lead data-search="lead">{introPlainText}</Lead>}
+          {intro && <Lead data-search="lead">{intro}</Lead>}
 
           {productCallout && (
             <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
