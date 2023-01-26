@@ -2,7 +2,7 @@
 title: Issue assignees
 allowTitleToDifferFromFilename: true
 shortTitle: Assignees
-intro: 'Use the REST API to manage assignees on issues and pull requests.'
+intro: Use the REST API to manage assignees on issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,6 +1,6 @@
 ---
 title: Pulls
-intro: 'Use the REST API to manage pull requests and pull request reviews.'
+intro: Use the REST API to manage pull requests and pull request reviews.
 redirect_from:
   - /v3/pulls
   - /rest/reference/pulls

@@ -1,6 +1,6 @@
 ---
 title: Performing a full rebuild of a container
-intro: If you are low on disk space, or want to ensure your dev container configuration will work in new codespaces, you can perform a full rebuild of a container.
+intro: 'If you are low on disk space, or want to ensure your dev container configuration will work in new codespaces, you can perform a full rebuild of a container.'
 versions:
   fpt: '*'
   ghec: '*'
