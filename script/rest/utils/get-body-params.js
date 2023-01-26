@@ -45,8 +45,26 @@ export async function getBodyParams(schema, topLevel = false) {
   const properties = schemaObject.properties || {}
   const required = schemaObject.required || []
 
+  // Most operation requestBody schemas are objects. When the type is an array,
+  // there will not be properties on the `schema` object.
+  if (topLevel && schema.type === 'array') {
+    const childParamsGroups = []
+    const arrayType = schema.items.type
+    const paramType = [schema.type]
+    if (arrayType === 'object') {
+      childParamsGroups.push(...(await getBodyParams(schema.items, false)))
+    } else {
+      paramType.splice(paramType.indexOf('array'), 1, `array of ${arrayType}s`)
+    }
+    const paramDecorated = await getTransformedParam(schema, paramType, {
+      required,
+      topLevel,
+      childParamsGroups,
+    })
+    return [paramDecorated]
+  }
+
   for (const [paramKey, param] of Object.entries(properties)) {
-    const paramDecorated = {}
     // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
     // will either be a single value or an array of values.
     // This makes type an array regardless of how many values the array
@@ -141,33 +159,43 @@ export async function getBodyParams(schema, topLevel = false) {
       }
     }
 
-    // Supports backwards compatibility for OpenAPI 3.0
-    // In 3.1 a nullable type is part of the param.type array and
-    // the property param.nullable does not exist.
-    if (param.nullable) paramType.push('null')
-    paramDecorated.type = paramType.filter(Boolean).join(' or ')
-    paramDecorated.name = paramKey
-    if (topLevel) {
-      paramDecorated.in = 'body'
-    }
-    paramDecorated.description = await renderContent(param.description)
-    if (required.includes(paramKey)) {
-      paramDecorated.isRequired = true
-    }
-    if (childParamsGroups.length > 0) {
-      paramDecorated.childParamsGroups = childParamsGroups
-    }
-    if (param.enum) {
-      paramDecorated.enum = param.enum
-    }
-
-    // we also want to catch default values of `false` for booleans
-    if (param.default !== undefined) {
-      paramDecorated.default = param.default
-    }
-
+    const paramDecorated = await getTransformedParam(param, paramType, {
+      paramKey,
+      required,
+      childParamsGroups,
+      topLevel,
+    })
     bodyParametersParsed.push(paramDecorated)
   }
-
   return bodyParametersParsed
+}
+
+async function getTransformedParam(param, paramType, props) {
+  const { paramKey, required, childParamsGroups, topLevel } = props
+  const paramDecorated = {}
+  // Supports backwards compatibility for OpenAPI 3.0
+  // In 3.1 a nullable type is part of the param.type array and
+  // the property param.nullable does not exist.
+  if (param.nullable) paramType.push('null')
+  paramDecorated.type = paramType.filter(Boolean).join(' or ')
+  paramDecorated.name = paramKey
+  if (topLevel) {
+    paramDecorated.in = 'body'
+  }
+  paramDecorated.description = await renderContent(param.description)
+  if (required && required.includes(paramKey)) {
+    paramDecorated.isRequired = true
+  }
+  if (childParamsGroups && childParamsGroups.length > 0) {
+    paramDecorated.childParamsGroups = childParamsGroups
+  }
+  if (param.enum) {
+    paramDecorated.enum = param.enum
+  }
+
+  // we also want to catch default values of `false` for booleans
+  if (param.default !== undefined) {
+    paramDecorated.default = param.default
+  }
+  return paramDecorated
 }

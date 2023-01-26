@@ -30,6 +30,12 @@ You can use custom fields to add metadata to your issues, pull requests, and dra
 - A text field to add a quick note.
 - An iteration field to plan work week-by-week, including support for breaks.
 
+### Automating your projects
+
+There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed{% ifversion projects-v2-auto-archive %}, and you can also configure your project to automatically archive items when they meet certain criteria{% ifversion projects-v2-auto-add %} and automatically add items from a repository when they match set criteria{% endif %}{% endif %}. For more information, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."
+
+You can also use the GraphQL API and {% data variables.product.prodname_actions %} to take even greater control of your project. For more information, see "[Using the API to manage Projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)" and "[Automating Projects using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
+
 {% ifversion projects-v2-tasklists %}
 
 ### Exploring the relationships between issues

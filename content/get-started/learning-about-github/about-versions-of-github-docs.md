@@ -41,7 +41,7 @@ If you don't know whether an organization uses {% data variables.product.prodnam
 
 ### {% data variables.product.prodname_ghe_server %}
 
-If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
+If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
@@ -53,7 +53,7 @@ You can view the version of {% data variables.product.prodname_ghe_server %} tha
 
 ### {% data variables.product.prodname_ghe_managed %}
 
-If you access {% data variables.product.prodname_dotcom %} at `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_managed %}.
+If you access {% data variables.product.prodname_dotcom %} at `https://*.ghe.com` or `https://*.github.us`, you're using {% data variables.product.prodname_ghe_managed %}.
 
 In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
 

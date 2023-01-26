@@ -27,8 +27,8 @@ After enabling {% data variables.product.prodname_github_connect %}, you will be
 
 After you configure the connection between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, you can enable individual features of {% data variables.product.prodname_github_connect %} for your enterprise.
 
-Feature | Description | More information |
-------- | ----------- | ---------------- |{% ifversion ghes %}
+| Feature | Description | More information |
+| ----------- | ----------- | ----------- |{% ifversion ghes %}
 Automatic user license sync | Manage license usage across your {% data variables.product.prodname_enterprise %} deployments by automatically syncing user licenses from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}. | "[Enabling automatic user license sync for your enterprise](/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise)"{% endif %}{% ifversion ghes or ghae %}
 {% data variables.product.prodname_dependabot %} | Allow users to find and fix vulnerabilities in code dependencies. | "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)"{% endif %}
 {% data variables.product.prodname_dotcom_the_website %} actions | Allow users to use actions from {% data variables.product.prodname_dotcom_the_website %} in workflow files. | "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"{% ifversion server-statistics %}
@@ -63,14 +63,14 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 - The number of dormant users for your enterprise
 - A count of license-consuming seats, which does not include suspended users
 
-{% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
+{% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, starting from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 
 ### Data transmitted by individual features of {% data variables.product.prodname_github_connect %}
 
 Additional data is transmitted if you enable individual features of {% data variables.product.prodname_github_connect %}.
 
-Feature | Data | Which way does the data flow? | Where is the data used? | 
-------- | ---- | --------- | ------ |{% ifversion ghes %}
+| Feature | Data | Which way does the data flow? | Where is the data used? | 
+| ------- | ---- | --------- | ------ |{% ifversion ghes %}
 Automatic user license sync | Each {% data variables.product.product_name %} user's user ID and email addresses | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |{% endif %}{% ifversion ghes or ghae %}
 {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |{% endif %}{% ifversion dependabot-updates-github-connect %}
 {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} {% endif %}

@@ -64,6 +64,6 @@ A README should contain only the necessary information for developers to get sta
 
 - "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
 - 18F's "[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"
-{%- ifversion fpt or ghec %} 
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
-{%- endif %}   
+{%- ifversion fpt or ghec %}
+- "[Adding an 'Open in {% data variables.product.prodname_github_codespaces %}' badge](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+{%- endif %}

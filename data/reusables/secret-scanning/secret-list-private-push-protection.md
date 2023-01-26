@@ -22,6 +22,8 @@ Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Azure | Azure Storage Account Key | azure_storage_account_key{% endif %}
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Chief Tools | Chief Tools Token | chief_tools_token{% endif %}
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
@@ -32,6 +34,8 @@ DigitalOcean | DigitalOcean {% data variables.product.pat_generic_title_case %} 
 DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
 DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
 DigitalOcean | DigitalOcean System Token | digitalocean_system_token
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Discord | Discord API Token V2 | discord_api_token_v2{% endif %}
 Discord | Discord Bot Token | discord_bot_token
 Doppler | Doppler Personal Token | doppler_personal_token
 Doppler | Doppler Service Token | doppler_service_token
@@ -54,11 +58,18 @@ Google | Google Cloud Storage Service Account Access Key ID with Google Cloud St
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret
 Grafana | Grafana API Key | grafana_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Grafana | Grafana Cloud API Key | grafana_cloud_api_key
+Grafana | Grafana Cloud API Token | grafana_cloud_api_token
+Grafana | Grafana Project API Key | grafana_project_api_key
+Grafana | Grafana Project Service Account Token | grafana_project_service_account_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 HashiCorp | HashiCorp Vault Batch Token (v1.10.0+) | hashicorp_vault_batch_token
 HashiCorp | HashiCorp Vault Root Service Token (v1.10.0+) | hashicorp_vault_root_service_token
 HashiCorp | HashiCorp Vault Service Token (v1.10.0+) | hashicorp_vault_service_token{% endif %}
 Hubspot | Hubspot API Key | hubspot_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Hubspot | Hubspot API Personal Access Key | hubspot_api_personal_access_key{% endif %}
 Intercom | Intercom Access Token | intercom_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 JFrog | JFrog Platform Access Token | jfrog_platform_access_token
@@ -82,6 +93,8 @@ PlanetScale | PlanetScale Database Password | planetscale_database_password
 PlanetScale | PlanetScale OAuth Token | planetscale_oauth_token
 PlanetScale | PlanetScale Service Token | planetscale_service_token
 Postman | Postman API Key | postman_api_key
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Postman | Postman Collection Key | postman_collection_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Prefect | Prefect Server API Key | prefect_server_api_key
 Prefect | Prefect User API Key | prefect_user_api_key{% endif %}
@@ -100,6 +113,8 @@ Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Slack | Slack API Token | slack_api_token
 Stripe | Stripe Live API Secret Key | stripe_api_key
+{%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+Telnyx | Telnyx API V2 Key | telnyx_api_v2_key{% endif %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}

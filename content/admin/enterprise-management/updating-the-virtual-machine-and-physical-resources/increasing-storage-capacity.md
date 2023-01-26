@@ -71,7 +71,7 @@ As more users join {% data variables.location.product_location %}, you may need 
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. If your appliance is configured for high-availability or geo-replication, to stop replication run the `ghe-repl-stop` command on each replica node:
 
    ```shell
    $ ghe-repl-stop

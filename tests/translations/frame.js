@@ -1,6 +1,7 @@
 import { languageKeys } from '../../lib/languages.js'
 import { blockIndex } from '../../middleware/block-robots.js'
-import { getDOM } from '../helpers/e2etest.js'
+import { get, getDOMCached as getDOM } from '../helpers/e2etest.js'
+import Page from '../../lib/page.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
@@ -48,11 +49,69 @@ describe('frame', () => {
     )
   })
 
-  test.each(langs)('loads the survey via site data in %s', async (lang) => {
+  // Docs Engineering issue: 2637
+  test.skip.each(langs)('loads the survey via site data in %s', async (lang) => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
     expect($('[data-testid="survey-form"] h2').text()).not.toEqual(
       $en('[data-testid="survey-form"] h2').text()
     )
   })
+})
+
+describe('homepage', () => {
+  test.each(langs)('homepage in non-default product in non-default language', async (lang) => {
+    const $ = await getDOM(`/${lang}/enterprise-cloud@latest`)
+    const products = $('[data-testid=product]')
+    expect(products.length).toBe(1)
+  })
+
+  test.each(langs)('homepage in non-default language has product links', async (lang) => {
+    const $ = await getDOM(`/${lang}`)
+    const products = $('[data-testid=product]')
+    expect(products.length).toBe(1)
+  })
+})
+
+const page = await Page.init({
+  basePath: 'content',
+  relativePath: 'admin/release-notes.md',
+  languageCode: 'en',
+})
+
+describe('release notes', () => {
+  // Return an array of tuples for each language and each first version
+  // per plan. E.g. ...
+  //   [
+  //      ['ja', 'enterprise-server@3.8'],
+  //      ['pt', 'enterprise-server@3.8'],
+  //      ...
+  //      ['ja', 'github-ae@latest'],
+  //      ['pt', 'github-ae@latest'],
+  //      ...
+  //
+  // This is useful because if we test every single individual version of
+  // every plan the test just takes way too long.
+  const getReleaseNotesVersionCombinations = (langs) => {
+    const combinations = []
+    const prefixes = []
+    for (const version of page.applicableVersions) {
+      const prefix = version.split('@')[0]
+      if (prefixes.includes(prefix)) {
+        continue
+      }
+      prefixes.push(prefix)
+      combinations.push(...langs.map((lang) => [lang, version]))
+    }
+    return combinations
+  }
+
+  test.each(getReleaseNotesVersionCombinations(langs))(
+    'latest release notes',
+    async (lang, version) => {
+      const url = `/${lang}/${version}/admin/release-notes`
+      const res = await get(url)
+      expect(res.statusCode).toBe(200)
+    }
+  )
 })

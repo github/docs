@@ -203,7 +203,7 @@ Once the package is restored, the package will use the same namespace it did bef
 
 ### Restoring a package in an organization
 
- You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organizaton{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
+ You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 

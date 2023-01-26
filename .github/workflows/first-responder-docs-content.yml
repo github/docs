@@ -33,6 +33,8 @@ jobs:
             const repoName = context.payload.repository.name
             const ownerName = context.payload.repository.owner.login
             const issueNumber = (context.eventName === "issues") ? context.payload.issue.number : context.payload.number
+            const labels = (context.eventName === "issues") ? context.payload.issue.labels : context.payload.pull_request.labels
+            const isOpenApiBotLabel = labels.filter(label => label.name === 'github-openapi-bot').length
             const updatedIssueInformation = await github.issues.get({
               owner: ownerName,
               repo: repoName,
@@ -43,7 +45,10 @@ jobs:
             )
             const logins = teamMembers.data.map(member => member.login)
             // ignore PRs opened by docs bot accounts
-            logins.push('Octomerger', 'octoglot', 'docubot')
+            logins.push('Octomerger', 'octoglot')
+            // For now, we do want the OpenAPI PRs to show up on the FR
+            // project board because they aren't yet automerged.
+            if (!isOpenApiBotLabel) logins.push('docubot') 
             if (logins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'

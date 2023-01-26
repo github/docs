@@ -12,11 +12,7 @@ For pull requests from a forked repository to the base repository, {% data varia
 When a first-time contributor submits a pull request to a public repository, a maintainer with write access may need to approve running workflows on the pull request. For more information, see "[Approving workflow runs from public forks](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)."
 {% endif %}
 
-{% note %}
-
-**Note:** Workflows do not run on private base repositories when you open a pull request from a forked repository.
-
-{% endnote %}
+For pull requests from a forked repository to a private repository, workflows only run when they are enabled, see "[Enabling workflows for forks of private repositories](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
 
 {% note %}
 

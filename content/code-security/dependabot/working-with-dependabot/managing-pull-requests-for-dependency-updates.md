@@ -32,6 +32,16 @@ When {% data variables.product.prodname_dependabot %} raises a pull request, you
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
+{% ifversion dependabot-updates-paused %}
+
+{% note %}
+
+**Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic deactivation-of-dependabot-updates)" and "[About {% data variables.product.prodname_dependabot_security_updates %}]((/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic deactivation-of-dependabot-updates)."
+
+{% endnote %}
+
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_dependabot %} pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
