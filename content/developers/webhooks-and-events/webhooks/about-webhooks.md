@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
@@ -32,4 +33,4 @@ For a complete list of available webhook events and their payloads, see "[Webhoo
 For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#hooks
+[repo-hooks]: /rest/reference/repos#webhooks

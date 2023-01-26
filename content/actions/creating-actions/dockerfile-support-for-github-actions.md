@@ -1,20 +1,19 @@
 ---
 title: Dockerfile support for GitHub Actions
-shortTitle: Docker
+shortTitle: Dockerfile support
 intro: 'When creating a `Dockerfile` for a Docker container action, you should be aware of how some Docker instructions interact with GitHub Actions and an action''s metadata file.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About Dockerfile instructions
 
@@ -26,7 +25,7 @@ Some Docker instructions interact with GitHub Actions, and an action's metadata 
 
 ### USER
 
-Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
+Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
 
 ### FROM
 
@@ -40,13 +39,15 @@ These are some best practices when setting the `FROM` argument:
 
 ### WORKDIR
 
-{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
 
 ### ENTRYPOINT
 
 If you define `entrypoint` in an action's metadata file, it will override the `ENTRYPOINT` defined in the `Dockerfile`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)."
 
 The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction. For more information about _exec_ and _shell_ form, see the [ENTRYPOINT reference](https://docs.docker.com/engine/reference/builder/#entrypoint) in the Docker documentation.
+
+You should not use `WORKDIR` to specify your entrypoint in your Dockerfile. Instead, you should use an absolute path. For more information, see [WORKDIR](#workdir).
 
 If you configure your container to use the _exec_ form of the `ENTRYPOINT` instruction, the `args` configured in the action's metadata file won't run in a command shell. If the action's `args` contain an environment variable, the variable will not be substituted. For example, using the following _exec_ format will not print the value stored in `$GITHUB_SHA`, but will instead print `"$GITHUB_SHA"`.
 
@@ -82,9 +83,10 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually
-# or splits `args` in a string separated by whitespace.
-sh -c "echo $*"
+# `$#` expands to the number of arguments and `$@` expands to the supplied `args`
+printf '%d args:' "$#"
+printf " '%s'" "$@"
+printf '\n'
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
@@ -104,7 +106,7 @@ If you define `args` in the action's metadata file, `args` will override the `CM
 
 If you use `CMD` in your `Dockerfile`, follow these guidelines:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## Supported Linux capabilities
 

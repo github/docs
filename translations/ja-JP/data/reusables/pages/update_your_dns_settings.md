@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}1. サイトで有効化されているカスタムドメインがあるなら、ドメインの乗っ取りを避けるためにDNSの設定を更新してください。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインの設定](/pages/configuring-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}

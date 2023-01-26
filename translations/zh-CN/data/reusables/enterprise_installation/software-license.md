@@ -1,1 +1,0 @@
-您必须拥有 {% data variables.product.prodname_enterprise %} 许可文件。 要下载现有的许可文件或申请试用许可，请访问 [enterprise.github.com](https://enterprise.github.com/download)。 更多信息请参阅“[管理您的 {% data variables.product.prodname_enterprise %} 许可](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license/)。”

@@ -1,7 +1,7 @@
 ## Author self-review
 
 - [ ] The changes in this PR meet the user experience and goals outlined in the content design plan.
-- [ ] I've compared my PR's source changes to staging and reviewed for versioning issues, redirects, the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md), [content model](https://github.com/github/docs-content-strategy/blob/main/content-design/models.md), or [localization checklist](https://github.com/github/docs/blob/main/contributing/localization-checklist.md) rendering problems, typos, and wonky screenshots.
+- [ ] I've compared my PR's source changes to staging and reviewed for versioning issues, redirects, the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md), [content model](https://github.com/github/docs/blob/main/contributing/content-model.md), or [translations guide for writers](https://github.com/github/docs/blob/main/contributing/translations/for-writers.md) rendering problems, typos, and wonky screenshots.
 - [ ] I've worked through build failures and tests are passing.
 - [ ] For REST API content, I've verified that endpoints, parameters, and responses are correct and work as expected and provided curl samples below.
   

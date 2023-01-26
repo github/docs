@@ -2,20 +2,21 @@
 title: Creating a GitHub App
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
-  - /early-access/integrations/creating-an-integration/
-  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
+  - /early-access/integrations/creating-an-integration
+  - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
   - /apps/building-github-apps/creating-a-github-app
   - /developers/apps/creating-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - GitHub Apps
 ---
-{% ifversion fpt %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
+{% ifversion fpt or ghec %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 {% note %}
 
   **Note:** {% data reusables.apps.maximum-github-apps-allowed %}
@@ -37,7 +38,7 @@ topics:
 ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
 1. In "Homepage URL", type the full URL to your app's website.
 ![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 %}
+{% ifversion fpt or ghes or ghec %}
 1. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. This URL is used if your app needs to identify and authorize user-to-server requests.
 
   You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.
@@ -51,7 +52,9 @@ topics:
 1. By default, to improve your app's security, your app will use expiring user authorization tokens. To opt-out of using expiring user tokens, you must deselect "Expire user authorization tokens". To learn more about setting up a refresh token flow and the benefits of expiring user tokens, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
   ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
 1. If your app authorizes users using the OAuth flow, you can select **Request user authorization (OAuth) during installation** to allow people to authorize the app when they install it, saving a step. If you select this option, the "Setup URL" becomes unavailable and users will be redirected to your "User authorization callback URL" after installing the app. See "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)" for more information.
-![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
+1. If your GitHub App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+  ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 1. If additional setup is required after installation, add a "Setup URL" to redirect users to after they install your app.
 ![Field for the setup URL of your GitHub App ](/assets/images/github-apps/github_apps_setup_url.png)
 

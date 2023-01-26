@@ -1,1 +1,0 @@
-2. Um optional die Ereignisse eines bestimmten Zeitraums anzusehen, klicke auf den nummerierten Kreis über diesem Zeitraum. ![Nummerierte Kreise zur Anzeige von Ereignissen](/assets/images/help/insights/event-circles.png)

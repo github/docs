@@ -1,8 +1,8 @@
 ---
 title: Git and GitHub learning resources
 redirect_from:
-  - /articles/good-resources-for-learning-git-and-github/
-  - /articles/what-are-other-good-resources-for-learning-git-and-github/
+  - /articles/good-resources-for-learning-git-and-github
+  - /articles/what-are-other-good-resources-for-learning-git-and-github
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
@@ -11,17 +11,18 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 authors:
   - GitHub
 shortTitle: Learning resources
 ---
 ## Using Git
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can review the [Git command list](https://git-scm.com/docs) or [Git command lookup reference](http://gitref.org) while using the [Try Git](https://try.github.com) simulator.
+Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
 
 ## Using {% data variables.product.product_name %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
@@ -33,7 +34,7 @@ Become better acquainted with {% data variables.product.product_name %} through 
 
 ### Branches, forks, and pull requests
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
 ### Tune in
 
@@ -43,7 +44,7 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ### Free courses
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 ### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
@@ -55,8 +56,8 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 ## Extras
 
-An interactive [online Git course](http://www.codeschool.com/courses/git-real) from [Code School](http://codeschool.com) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
+An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
 
-Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
+Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) text editor.
 
 Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).

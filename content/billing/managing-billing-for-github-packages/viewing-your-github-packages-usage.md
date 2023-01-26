@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/viewing-your-github-packages-usage
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Enterprise
@@ -15,12 +16,12 @@ topics:
   - User account
 shortTitle: View your usage
 ---
-## Viewing {% data variables.product.prodname_registry %} usage for your user account
+## Viewing {% data variables.product.prodname_registry %} usage for your personal account
 
-Anyone can view {% data variables.product.prodname_registry %} usage for their own user account.
+Anyone can view {% data variables.product.prodname_registry %} usage for their own personal account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -32,15 +33,16 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Viewing {% data variables.product.prodname_registry %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_registry %} usage for an enterprise account.
 
 {% note %}
 
-**Note:** Billing details for enterprise accounts only summarize the storage data usage per organization. {% data reusables.github-actions.enterprise-billing-details %}
+**Note:** Billing details for enterprise accounts only summarize the storage data usage per organization. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 
@@ -51,3 +53,4 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
   ![Details of usage of data transfer](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

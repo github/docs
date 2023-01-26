@@ -1,1 +1,0 @@
-For information on how to authenticate as a GitHub App, see "[Authentication Options for GitHub Apps](/apps/building-github-apps/authentication-options-for-github-apps#authenticating-as-a-github-app)."

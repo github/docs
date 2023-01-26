@@ -1,1 +1,0 @@
-1. Lee la información sobre la aprobación de dominios y luego haz clic en **Aprobar _DOMINIO_**. ![Botón "Aprobar DOMINIO" en el diálogo de confirmación](/assets/images/help/organizations/domains-approve-domain.png)

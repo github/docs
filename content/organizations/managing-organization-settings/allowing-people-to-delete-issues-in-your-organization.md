@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -16,7 +17,7 @@ shortTitle: Allow issue deletion
 
 By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.
 
-Once enabled, organization owners and people with admin permissions in an organization-owned repository can delete issues. People with admin permissions in a repository include organization members and outside collaborators with admin privileges. For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization/)" and "[Deleting an issue](/articles/deleting-an-issue)."
+Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -1,20 +1,21 @@
 ---
 title: Reviewing deployments
+shortTitle: Review deployments
 intro: You can approve or reject jobs awaiting review.
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 
-{% data reusables.actions.ae-beta %}
 
 ## About required reviews in workflows
 
-Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, the workflow run will be automatically canceled.
+Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, it will automatically fail.
 
-For more information about environments and required approvals, see "[Environments](/actions/reference/environments)."{% ifversion fpt or ghae-next or ghes > 3.1 %} For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."{% endif %}
+For more information about environments and required approvals, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." For information about how to review deployments with the REST API, see "[Workflow Runs](/rest/reference/actions#workflow-runs)."
 
 ## Approving or rejecting a job
 

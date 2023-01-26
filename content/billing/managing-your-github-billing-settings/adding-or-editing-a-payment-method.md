@@ -3,22 +3,23 @@ title: Adding or editing a payment method
 intro: You can add a payment method to your account or update your account's existing payment method at any time.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-or-editing-a-payment-method
-  - /articles/updating-your-personal-account-s-payment-method/
-  - /articles/how-do-i-update-my-credit-card/
-  - /articles/updating-your-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-credit-card/
-  - /articles/updating-your-personal-account-s-paypal-information/
-  - /articles/does-github-provide-invoicing/
-  - /articles/switching-payment-methods-for-your-personal-account/
-  - /articles/paying-for-your-github-organization-account/
-  - /articles/updating-your-organization-s-credit-card/
-  - /articles/updating-your-organization-s-paypal-information/
-  - /articles/updating-your-organization-s-payment-method/
-  - /articles/switching-payment-methods-for-your-organization/
+  - /articles/updating-your-personal-account-s-payment-method
+  - /articles/how-do-i-update-my-credit-card
+  - /articles/updating-your-account-s-credit-card
+  - /articles/updating-your-personal-account-s-credit-card
+  - /articles/updating-your-personal-account-s-paypal-information
+  - /articles/does-github-provide-invoicing
+  - /articles/switching-payment-methods-for-your-personal-account
+  - /articles/paying-for-your-github-organization-account
+  - /articles/updating-your-organization-s-credit-card
+  - /articles/updating-your-organization-s-paypal-information
+  - /articles/updating-your-organization-s-payment-method
+  - /articles/switching-payment-methods-for-your-organization
   - /articles/adding-or-editing-a-payment-method
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/adding-or-editing-a-payment-method
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Organizations
@@ -31,7 +32,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 
 ## Updating your personal account's payment method
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has existing billing information that you want to update, click **Edit**.
 ![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)

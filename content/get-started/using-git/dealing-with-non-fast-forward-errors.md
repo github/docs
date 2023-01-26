@@ -10,13 +10,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Non-fast-forward error
 ---
 If another person has pushed to the same branch as you, Git won't be able to push your changes:
 
 ```shell
 $ git push origin main
-> To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+> To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
 >  ! [rejected]        main -> main (non-fast-forward)
 > error: failed to push some refs to 'https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
 > To prevent you from losing history, non-fast-forward updates were rejected
@@ -29,13 +30,13 @@ You can fix this by [fetching and merging](/github/getting-started-with-github/g
 ```shell
 $ git fetch origin
 # Fetches updates made to an online repository
-$ git merge origin <em>YOUR_BRANCH_NAME</em>
+$ git merge origin YOUR_BRANCH_NAME
 # Merges updates made online with your local work
 ```
 
 Or, you can simply use `git pull` to perform both commands at once:
 
 ```shell
-$ git pull origin <em>YOUR_BRANCH_NAME</em>
+$ git pull origin YOUR_BRANCH_NAME
 # Grabs online updates and merges them with your local work
 ```

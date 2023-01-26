@@ -3,6 +3,7 @@ title: Quickstart for finding contributors to sponsor
 intro: Learn some best practices for finding open source contributors to sponsor.
 versions:
   fpt: '*'
+  ghec: '*'
 type: quick_start
 topics:
   - Open Source
@@ -45,7 +46,7 @@ You can check if contributors you've benefited from have {% data variables.produ
 
 ## Search for a specific project or contributor
 
-At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal user account or for organizations that you're a member of.
+At https://github.com/sponsors/community, you can search by ecosystem, most used, recently updated, and more. You can filter search results for your personal account or for organizations that you're a member of.
 
 ## Next steps
 

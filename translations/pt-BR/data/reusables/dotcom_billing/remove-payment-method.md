@@ -1,1 +1,0 @@
-3. Na seção "Payment method" (Forma de pagamento), na sua forma de pagamento, clique em **Remove** (Remover). ![Botão de alteração de plano na visão geral de cobrança](/assets/images/help/settings/remove_billing_info.png)

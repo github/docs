@@ -1,7 +1,7 @@
 import { uniq } from 'lodash-es'
 
 export default function earlyAccessContext(req, res, next) {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV !== 'development') {
     return next(404)
   }
 

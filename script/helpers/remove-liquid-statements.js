@@ -6,6 +6,8 @@ const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName
 const updateRangeKeepGhes = 'updateRangeKeepGhes'
 const updateRangeRemoveGhes = 'updateRangeRemoveGhes'
 const removeRangeAndContent = 'removeRangeAndContent'
+const removeConditionals = 'removeConditionals'
+
 const tokenize = (str) => {
   const tokenizer = new Tokenizer(str)
   return tokenizer.readTopLevelTokens()
@@ -32,6 +34,10 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
     versionBlock.andGhesRanges = versionBlock.condArgs.filter((arg) => arg.includes('and ghes'))
     const isSafeToRemoveContent =
       versionBlock.isGhesOnly && (versionBlock.hasSingleRange || versionBlock.andGhesRanges.length)
+
+    if (isConditionalNecessary(supportedShortVersions, versionBlock.condArgs)) {
+      actionMap[removeConditionals] = true
+    }
 
     for (const rangeArgs of versionBlock.ranges) {
       const rangeOperator = rangeArgs[1]
@@ -134,6 +140,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
       }
 
       // ----- UPDATE RANGE AND KEEP `GHES` -----
+      let containsAllSupportedVersions
       if (versionBlock.action.updateRangeKeepGhes) {
         const replacement = versionBlock.action.updateRangeKeepGhes.replace(/ghes.+$/, 'ghes')
 
@@ -145,8 +152,9 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        const containsAllSupportedVersions = supportedShortVersions.every((v) =>
-          newCondWithLiquid.includes(v)
+        containsAllSupportedVersions = isConditionalNecessary(
+          supportedShortVersions,
+          newCondWithLiquid
         )
 
         if (!containsAllSupportedVersions) {
@@ -155,62 +163,66 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
             newCondWithLiquid
           )
         }
+      }
 
-        if (containsAllSupportedVersions) {
-          versionBlock.newContent = versionBlock.content
+      // ----- REMOVE CONDITIONALS -----
+      // this happens if either:
+      // (a) the the conditional was updated in a previous step to contain all the currently supported versions, or
+      // (b) the conditional was not touched but its arguments already contained all supported versions, making it unnecessary
+      if (containsAllSupportedVersions || versionBlock.action.removeConditionals) {
+        versionBlock.newContent = versionBlock.content
 
-          // If this block does not contain else/elsifs, start by removing the final endif.
-          // (We'll handle the endif separately in those scenarios.)
-          if (!versionBlock.hasElse && !versionBlock.hasElsif) {
-            const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
+        // If this block does not contain else/elsifs, start by removing the final endif.
+        // (We'll handle the endif separately in those scenarios.)
+        if (!versionBlock.hasElse && !versionBlock.hasElsif) {
+          const indexOfLastEndif = lastIndexOfRegex(versionBlock.content, /{%-? endif -?%}/g)
 
-            versionBlock.newContent = versionBlock.newContent.slice(0, indexOfLastEndif)
+          versionBlock.newContent = versionBlock.newContent.slice(0, indexOfLastEndif)
 
-            if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
-              versionBlock.newContent = versionBlock.newContent.slice(0, -1)
-          }
+          if (versionBlock.endTagColumn1 && versionBlock.newContent.endsWith('\n'))
+            versionBlock.newContent = versionBlock.newContent.slice(0, -1)
+        }
 
-          // If start tag is on it's own line, remove line ending (\\n?)
-          // and remove white space (//s*) after line ending to
-          // preserve indentation of next line
-          const removeStartTagRegex = versionBlock.startTagColumn1
-            ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`)
-            : new RegExp(`${versionBlock.condWithLiquid}`)
+        // If start tag is on it's own line, remove line ending (\\n?)
+        // and remove white space (//s*) after line ending to
+        // preserve indentation of next line
+        const removeStartTagRegex = versionBlock.startTagColumn1
+          ? new RegExp(`${versionBlock.condWithLiquid}\\n?\\s*`)
+          : new RegExp(`${versionBlock.condWithLiquid}`)
 
-          // For ALL scenarios, remove the start tag.
-          versionBlock.newContent = versionBlock.newContent.replace(removeStartTagRegex, '')
+        // For ALL scenarios, remove the start tag.
+        versionBlock.newContent = versionBlock.newContent.replace(removeStartTagRegex, '')
 
-          // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif),
-          // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
-          if (versionBlock.hasElsif) {
-            versionBlock.newContent = versionBlock.newContent.replace(
-              /({%-) elsif/,
-              `$1 ${versionBlock.condKeyword}`
-            )
-          }
+        // If the block has an elsif, change the elsif to an if (or leave it an elsif this this block is itself an elsif),
+        // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
+        if (versionBlock.hasElsif) {
+          versionBlock.newContent = versionBlock.newContent.replace(
+            /({%-) elsif/,
+            `$1 ${versionBlock.condKeyword}`
+          )
+        }
 
-          // If the block has an else, remove the else, its content, and the endif.
-          if (versionBlock.hasElse) {
-            let elseStartIndex
-            let ifCondFlag = false
-            // tokenize the content including the nested conditionals to find
-            // the unmatched else tag. Remove content from the start of the
-            // else tag to the end of the content. The tokens return have different
-            // `kind`s and can be liquid tags, HTML, and a variety of things.
-            // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
-            tokenize(versionBlock.newContent)
-              .filter((elem) => elem.kind === 4)
-              .forEach((tag) => {
-                if (tag.name === 'ifversion' || tag.name === 'if') {
-                  ifCondFlag = true
-                } else if (tag.name === 'endif' && ifCondFlag === true) {
-                  ifCondFlag = false
-                } else if (tag.name === 'else' && ifCondFlag === false) {
-                  elseStartIndex = tag.begin
-                }
-              })
-            versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
-          }
+        // If the block has an else, remove the else, its content, and the endif.
+        if (versionBlock.hasElse) {
+          let elseStartIndex
+          let ifCondFlag = false
+          // tokenize the content including the nested conditionals to find
+          // the unmatched else tag. Remove content from the start of the
+          // else tag to the end of the content. The tokens return have different
+          // `kind`s and can be liquid tags, HTML, and a variety of things.
+          // A value of 4 is a liquid tag. See https://liquidjs.com/api/enums/parser_token_kind_.tokenkind.html.
+          tokenize(versionBlock.newContent)
+            .filter((elem) => elem.kind === 4)
+            .forEach((tag) => {
+              if (tag.name === 'ifversion' || tag.name === 'if') {
+                ifCondFlag = true
+              } else if (tag.name === 'endif' && ifCondFlag === true) {
+                ifCondFlag = false
+              } else if (tag.name === 'else' && ifCondFlag === false) {
+                elseStartIndex = tag.begin
+              }
+            })
+          versionBlock.newContent = versionBlock.newContent.slice(0, elseStartIndex)
         }
       }
     })
@@ -242,4 +254,15 @@ function lastIndexOfRegex(str, regex, fromIndex) {
   const match = myStr.match(regex)
 
   return match ? myStr.lastIndexOf(match[match.length - 1]) : -1
+}
+
+// Checks if a conditional is necessary given all the supported versions and the arguments in a conditional
+// If all supported versions show up in the arguments, it's not necessary! Additionally, builds in support
+// for when feature-based versioning is used, which looks like "issue" versions for upcoming GHAE releases
+function isConditionalNecessary(supportedVersions, conditionalArguments) {
+  return supportedVersions.every(
+    (arg) =>
+      (conditionalArguments.includes(arg) || conditionalArguments.includes('or ' + arg)) &&
+      !conditionalArguments.includes('issue')
+  )
 }

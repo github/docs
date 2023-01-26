@@ -1,6 +1,7 @@
 ---
 title: Assigning issues and pull requests to other GitHub users
 intro: Assignees clarify who is working on specific issues and pull requests.
+permissions: 'Anyone with write access to a repository can assign issues and pull requests. {% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/assigning-issues-and-pull-requests-to-other-github-users
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
@@ -10,15 +11,17 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Assign issues & PRs
 ---
-Anyone with write permissions to a repository can assign issues and pull requests.
 
 ## About issue and pull request assignees
 
-You can assign up to 10 people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+You can assign multiple people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+
+Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
 
 ## Assigning an individual issue or pull request
 

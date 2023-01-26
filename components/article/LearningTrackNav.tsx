@@ -1,3 +1,4 @@
+import { Link } from 'components/Link'
 import type { LearningTrack } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -6,36 +7,39 @@ type Props = {
 }
 export function LearningTrackNav({ track }: Props) {
   const { t } = useTranslation('learning_track_nav')
-  const { prevGuide, nextGuide, trackName } = track
+  const { prevGuide, nextGuide, trackName, trackProduct } = track
   return (
     <div
       data-testid="learning-track-nav"
-      className="py-3 px-4 rounded color-bg-primary border-gradient--purple-pink d-flex flex-justify-between"
+      className="py-3 px-4 rounded color-bg-default border d-flex flex-justify-between"
     >
-      <span className="d-flex flex-column">
+      <span className="f5 d-flex flex-column">
         {prevGuide && (
           <>
-            <span className="f6 color-text-secondary">{t('prevGuide')}</span>
-            <a
-              href={`${prevGuide.href}?learn=${trackName}`}
-              className="text-bold color-text-secondary"
+            <span className="color-fg-default">{t('prev_guide')}</span>
+            <Link
+              href={`${prevGuide.href}?learn=${trackName}&learnProduct=${trackProduct}`}
+              className="text-bold color-fg"
             >
               {prevGuide.title}
-            </a>
+            </Link>
           </>
         )}
       </span>
 
-      <span className="d-flex flex-column flex-items-end">
+      <span className="f5 d-flex flex-column flex-items-end">
         {nextGuide && (
           <>
-            <span className="f6 color-text-secondary">{t('nextGuide')}</span>
-            <a
-              href={`${nextGuide.href}?learn=${trackName}`}
-              className="text-bold color-text-secondary text-right f4"
+            <span className="color-fg-default">{t('next_guide')}</span>
+            <Link
+              href={`${nextGuide.href}?${new URLSearchParams({
+                learn: trackName,
+                learnProduct: trackProduct,
+              })}`}
+              className="text-bold color-fg text-right"
             >
               {nextGuide.title}
-            </a>
+            </Link>
           </>
         )}
       </span>

@@ -6,10 +6,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - API
 children:
   - /resources-in-the-rest-api
+  - /api-versions
   - /media-types
   - /other-authentication-methods
   - /troubleshooting
@@ -17,5 +19,8 @@ children:
   - /libraries
   - /openapi-description
   - /endpoints-available-for-github-apps
+  - /endpoints-available-for-fine-grained-personal-access-tokens
+  - /permissions-required-for-github-apps
+  - /breaking-changes
+  - /permissions-required-for-fine-grained-personal-access-tokens
 ---
-

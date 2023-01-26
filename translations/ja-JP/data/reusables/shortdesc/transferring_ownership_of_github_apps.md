@@ -1,1 +1,0 @@
-GitHub Appの所有権は、他のユーザもしくはOrganizationに移譲できます。

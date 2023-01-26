@@ -1,1 +1,0 @@
-Verwende das Protokoll „X-Forwarded-For“ **nur dann**, wenn das PROXY-Protokoll nicht verfügbar ist. Der Header `X-Forwarded-For` funktioniert nur mit HTTP und HTTPS. Die für Git-Verbindungen über SSH gemeldete IP-Adresse zeigt die Load-Balancer-IP.

@@ -1,1 +1,0 @@
-1. "Billing information（支払い情報）"の下で、支払いアカウントの切り替えのドロップダウンメニューを使い、アプリケーションをインストールしたいOrganizationを選択してください。 ![支払いアカウントの切り替えのドロップダウンメニュー、そして選択したOrganizationの名前とアバター](/assets/images/help/marketplace/marketplace-confirm-org.png)

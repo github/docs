@@ -5,13 +5,14 @@ redirect_from:
   - /v4/guides/using-global-node-ids
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - API
 ---
 
-You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.
+You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. You can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations. For more information, see "[Preview GraphQL API Node IDs in REST API resources](https://developer.github.com/changes/2017-12-19-graphql-node-id/)."
 
 {% note %}
 
@@ -34,7 +35,7 @@ Let's walk through an example.
 If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
-$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
+$ curl -i -u USERNAME:TOKEN {% data variables.product.api_url_pre %}/user
 ```
 
 you'll get a response that includes the `node_id` of the authenticated user:

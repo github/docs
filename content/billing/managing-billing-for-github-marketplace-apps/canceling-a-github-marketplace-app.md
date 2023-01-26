@@ -3,12 +3,13 @@ title: Canceling a GitHub Marketplace app
 intro: 'You can cancel and remove a {% data variables.product.prodname_marketplace %} app from your account at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/canceling-a-github-marketplace-app
-  - /articles/canceling-an-app-for-your-personal-account/
-  - /articles/canceling-an-app-for-your-organization/
+  - /articles/canceling-an-app-for-your-personal-account
+  - /articles/canceling-an-app-for-your-organization
   - /articles/canceling-a-github-marketplace-app
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
@@ -26,15 +27,15 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 
 ## Canceling an app for your personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
 ## Canceling a free trial for an app for your personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 

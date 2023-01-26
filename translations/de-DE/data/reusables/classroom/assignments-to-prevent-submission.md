@@ -1,1 +1,0 @@
-To prevent acceptance or submission of an assignment by students, deselect **Enable assignment invitation URL**. To edit the assignment, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit assignment**.

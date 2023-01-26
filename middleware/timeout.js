@@ -1,7 +1,9 @@
 import timeout from 'express-timeout-handler'
 
+import statsd from '../lib/statsd.js'
+
 // Heroku router requests timeout after 30 seconds. We should stop them earlier!
-const maxRequestTimeout = parseInt(process.env.REQUEST_TIMEOUT, 10) || 10000
+const maxRequestTimeout = parseInt(process.env.REQUEST_TIMEOUT || 10000, 10)
 
 export default timeout.handler({
   // Default timeout for all endpoints
@@ -14,6 +16,16 @@ export default timeout.handler({
   disable: [],
 
   onTimeout: function (req, res, next) {
+    // The `req.pagePath` can come later so it's not guaranteed to always
+    // be present. It's added by the `handle-next-data-path.js` middleware
+    // we translates those "cryptic" `/_next/data/...` URLs from
+    // client-side routing.
+    const incrementTags = [`path:${req.pagePath || req.path}`]
+    if (req.context?.currentCategory) {
+      incrementTags.push(`product:${req.context.currentCategory}`)
+    }
+    statsd.increment('middleware.timeout', 1, incrementTags)
+
     // Create a custom timeout error
     const timeoutError = new Error('Request timed out')
     timeoutError.statusCode = 503

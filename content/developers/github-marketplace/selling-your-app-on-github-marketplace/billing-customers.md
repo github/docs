@@ -2,12 +2,13 @@
 title: Billing customers
 intro: 'Apps on {% data variables.product.prodname_marketplace %} should adhere to GitHub''s billing guidelines and support recommended services. Following our guidelines helps customers navigate the billing process without any surprises.'
 redirect_from:
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
-  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
+  - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace
+  - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /marketplace/selling-your-app/billing-customers-in-github-marketplace
   - /developers/github-marketplace/billing-customers
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---

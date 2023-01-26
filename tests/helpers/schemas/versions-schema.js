@@ -1,5 +1,5 @@
 // match plan@release
-// e.g., free-pro-team@latest, enterprise-server@2.22
+// e.g., free-pro-team@latest, enterprise-server@3.0
 const planPattern = '^[a-z-]+'
 const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'
@@ -57,6 +57,12 @@ export default {
       type: 'string',
       pattern: releasePattern,
     },
+    internalLatestRelease: {
+      required: false,
+      description:
+        'the value of "latest" if a plan uses semantic versioning internally while displaying @latest externally',
+      type: 'string',
+    },
     hasNumberedReleases: {
       description:
         'boolean indicating whether the plan has numbered releases; if not, the release defalts to "latest"',
@@ -84,6 +90,16 @@ export default {
     miscVersionName: {
       required: true,
       description: 'final name used to map GraphQL and webhook schema names to the current version',
+      type: 'string',
+    },
+    apiVersions: {
+      required: true,
+      description: 'calendar date version for REST API versions',
+      type: 'array',
+    },
+    latestApiVersion: {
+      required: true,
+      description: 'latest calendar date version for REST API versions',
       type: 'string',
     },
   },

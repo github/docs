@@ -1,1 +1,0 @@
-Cuando configuras la autenticación bifactorial, descargarás y guardarás los códigos de recuperación de dos factores. Si pierdes acceso a tu teléfono, puedes autenticarte en {% data variables.product.product_name %} utilizando tus códigos de recuperación.

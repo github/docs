@@ -1,1 +1,0 @@
-When setting up SAML SSO in your organization, you can test your implementation without affecting your organization members by leaving  **Require SAML SSO authentication for all members of the _organization name_ organization** unchecked.

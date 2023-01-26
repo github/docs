@@ -2,11 +2,12 @@
 title: About GitHub Marketplace
 intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps and actions publicly with all {% data variables.product.product_name %} users.'
 redirect_from:
-  - /apps/marketplace/getting-started/
+  - /apps/marketplace/getting-started
   - /marketplace/getting-started
   - /developers/github-marketplace/about-github-marketplace
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -48,7 +49,7 @@ When you have finished creating your app, you can share it with other users by p
 
 1. Add a pricing plan. For more information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
 
-1. Read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)."
+1. Read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)."
 
 1. Submit your listing for publication in {% data variables.product.prodname_marketplace %}. For more information, see "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication)."
 

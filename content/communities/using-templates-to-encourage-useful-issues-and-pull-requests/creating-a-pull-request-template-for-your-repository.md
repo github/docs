@@ -8,6 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Create a PR template
@@ -15,11 +16,11 @@ shortTitle: Create a PR template
 
 For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
-You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+You can create a *PULL_REQUEST_TEMPLATE/* subdirectory in any of the supported folders to contain multiple pull request templates, and use the `template` query parameter to specify the template that will fill the pull request body. For more information, see "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)."
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
-You can create default pull request templates for your organization{% ifversion fpt or ghes %} or user account{% endif %}. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default pull request templates for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
@@ -34,7 +35,7 @@ You can create default pull request templates for your organization{% ifversion 
   ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
     - To store your file in a hidden directory, name the pull request template `.github/pull_request_template.md`.
   ![New pull request template in hidden directory](/assets/images/help/repository/pr-template-hidden-directory.png)
-    - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
+    - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[Using query parameters to create a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)."
   ![New multiple pull request template in hidden directory](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
 4. In the body of the new file, add your pull request template. This could include:
     - A [reference to a related issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in your repository.

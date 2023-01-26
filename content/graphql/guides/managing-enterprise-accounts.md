@@ -4,7 +4,7 @@ intro: You can manage your enterprise account and the organizations it owns with
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -41,28 +41,31 @@ For a list of the fields available with the Enterprise Accounts API, see "[Graph
 ## Getting started using GraphQL for enterprise accounts
 
 Follow these steps to get started using GraphQL to manage your enterprise accounts:
- - Authenticating with a personal access token
+ - Authenticating with a {% data variables.product.pat_generic %}
  - Choosing a GraphQL client or using the GraphQL Explorer
  - Setting up Insomnia to use the GraphQL API
 
 For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
-### 1. Authenticate with your personal access token
+### 1. Authenticate with your {% data variables.product.pat_generic %}
 
-1. To authenticate with GraphQL, you need to generate a personal access token (PAT) from developer settings. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+{% data reusables.user-settings.graphql-classic-pat-only %}
 
-2. Grant admin and full control permissions to your personal access token for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your personal access token:
+1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     - `repo`
     - `admin:org`
     - `user`
     - `admin:enterprise`
 
   The enterprise account specific scopes are:
-    - `admin:enterprise`: Gives full control of enterprises (includes `manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.
+    - `admin:enterprise`: Gives full control of enterprises (includes `manage_runners:enterprise`, `manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes or ghae %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
-    
-4. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
+
+3. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
 
 ### 2. Choose a GraphQL client
 
@@ -81,11 +84,11 @@ The next steps will use Insomnia.
     - For your enterprise instance: `https://<HOST>/api/graphql`
     - For GitHub Enterprise Cloud: `https://api.github.com/graphql`
 
-2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your personal access token that you copied earlier.
+2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your {% data variables.product.pat_generic %} that you copied earlier.
 
- ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
+ ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
 
- ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
+ ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
 
 3. Include header information.
    - Add `Content-Type` as the header and `application/json` as the value.
@@ -96,7 +99,7 @@ Now you are ready to start making queries.
 
 ## An example query using the Enterprise Accounts API
 
-This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 

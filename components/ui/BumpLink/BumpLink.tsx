@@ -3,26 +3,22 @@ import cx from 'classnames'
 
 import styles from './BumpLink.module.scss'
 
-type Props = {
+export type BumpLinkPropsT = {
   children?: ReactNode
   title: ReactElement<any> | string
   href: string
   as?: ElementType<{ className?: string; href: string }>
   className?: string
 }
-export const BumpLink = ({ as, children, href, title, className }: Props) => {
+
+export const BumpLink = ({ as, children, href, title, className }: BumpLinkPropsT) => {
   const Component = as || 'a'
 
-  const symbol = <span className={styles.symbol}>→</span>
   let extendedTitle: ReactNode
   if (typeof title === 'string') {
-    extendedTitle = (
-      <span className="h4">
-        {title} {symbol}
-      </span>
-    )
+    extendedTitle = <span className="h4">{title}</span>
   } else {
-    extendedTitle = cloneElement(title, title.props, title.props.children, symbol)
+    extendedTitle = cloneElement(title, title.props, title.props.children)
   }
 
   return (

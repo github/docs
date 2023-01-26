@@ -1,19 +1,13 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { eachOfLimit } from 'async'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 import readJsonFile from '../../lib/read-json-file.js'
-const restRedirectFixtures = readJsonFile('./tests/fixtures/rest-redirects.json')
-const graphqlRedirectFixtures = readJsonFile('./tests/fixtures/graphql-redirects.json')
-const developerRedirectFixtures = readJsonFile('./tests/fixtures/developer-redirects.json')
 
-const MAX_CONCURRENT_REQUESTS = 50
-
-jest.useFakeTimers()
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('developer redirects', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  jest.setTimeout(10 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -25,7 +19,7 @@ describe('developer redirects', () => {
   describe('redirects /v4 requests to /graphql', () => {
     test('graphql homepage', async () => {
       const res = await get('/v4')
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       const expectedFinalPath = '/en/graphql'
       expect(res.headers.location).toBe(expectedFinalPath)
     })
@@ -33,7 +27,7 @@ describe('developer redirects', () => {
     test('graphql enterprise homepage', async () => {
       const res = await get('/enterprise/v4', { followAllRedirects: true })
       expect(res.statusCode).toBe(200)
-      const finalPath = new URL(res.request.url).pathname
+      const finalPath = new URL(res.url).pathname
       const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
       expect(finalPath).toBe(expectedFinalPath)
     })
@@ -42,12 +36,12 @@ describe('developer redirects', () => {
       const oldPath = '/v4/breaking_changes'
       const newPath = '/graphql/overview/breaking-changes'
       const res = await get(oldPath)
-      expect(res.statusCode).toBe(301)
+      expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(`/en${newPath}`)
 
       const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
       expect(enterpriseRes.statusCode).toBe(200)
-      const finalPath = new URL(enterpriseRes.request.url).pathname
+      const finalPath = new URL(enterpriseRes.url).pathname
       const expectedFinalPath = path.join(
         '/',
         `enterprise-server@${enterpriseServerReleases.latest}`,
@@ -72,7 +66,7 @@ describe('developer redirects', () => {
   test('redirects /v3 requests to /rest', async () => {
     let expectedFinalPath
     let res = await get('/v3')
-    expect(res.statusCode).toBe(301)
+    expect(res.statusCode).toBe(302)
     expectedFinalPath = '/en/rest'
     expect(res.headers.location).toBe(expectedFinalPath)
 
@@ -80,14 +74,14 @@ describe('developer redirects', () => {
     // any more, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity')
     expect(res.statusCode).toBe(301)
-    expectedFinalPath = '/en/rest/reference/activity'
+    expectedFinalPath = '/en/rest/activity'
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // REST subresources like activity notifications don't have their own page
     // any more, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity/notifications')
     expect(res.statusCode).toBe(301)
-    expectedFinalPath = '/en/rest/reference/activity#notifications'
+    expectedFinalPath = '/en/rest/activity/notifications'
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // trailing slashes are handled separately by the `slashes` module;
@@ -104,22 +98,17 @@ describe('developer redirects', () => {
   })
 
   describe('fixtures', () => {
-    // this fixtures file includes paths like /apps and /webhooks, plus /enterprise paths
-    test('developer redirects', async () => {
-      await eachOfLimit(
-        developerRedirectFixtures,
-        MAX_CONCURRENT_REQUESTS,
-        async (newPath, oldPath) => {
-          const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location).toBe(newPath)
-        }
-      )
-    })
-
-    // this fixtures file includes /v3 and /enterprise/v3 paths
-    test('rest reference redirects', async () => {
-      await eachOfLimit(restRedirectFixtures, MAX_CONCURRENT_REQUESTS, async (newPath, oldPath) => {
+    test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
+      const FIXTURES = {
+        developer: './tests/fixtures/developer-redirects.json',
+        rest: './tests/fixtures/rest-redirects.json',
+        graphql: './tests/fixtures/graphql-redirects.json',
+      }
+      if (!(label in FIXTURES)) throw new Error('unrecognized label')
+      const fixtures = readJsonFile(FIXTURES[label])
+      // Don't use a `Promise.all()` because it's actually slower
+      // because of all the eventloop context switching.
+      for (let [oldPath, newPath] of Object.entries(fixtures)) {
         // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
         // We make an exception to always redirect versionless paths to the latest version.
         newPath = newPath.replace(
@@ -127,28 +116,12 @@ describe('developer redirects', () => {
           `/enterprise-server@${enterpriseServerReleases.latest}/`
         )
         const res = await get(oldPath)
-        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-        expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
-      })
-    })
-
-    // this fixtures file includes /v4 and /enterprise/v4 paths
-    test('graphql reference redirects', async () => {
-      await eachOfLimit(
-        graphqlRedirectFixtures,
-        MAX_CONCURRENT_REQUESTS,
-        async (newPath, oldPath) => {
-          // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-          // We make an exception to always redirect versionless paths to the latest version.
-          newPath = newPath.replace(
-            '/enterprise-server/',
-            `/enterprise-server@${enterpriseServerReleases.latest}/`
-          )
-          const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
-        }
-      )
+        const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+        expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
+          sameFirstPrefix ? 301 : 302
+        )
+        expect(res.headers.location).toBe(newPath)
+      }
     })
   })
 })

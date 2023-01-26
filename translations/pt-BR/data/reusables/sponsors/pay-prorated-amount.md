@@ -1,1 +1,0 @@
-1. Optionally, if you're sponsoring as an organization, to pay a prorated amount instead of making the full monthly payment, under "Total due now", click **Pay prorated $X.XX instead**. ![Link para valor proporcional de pagamento](/assets/images/help/sponsors/pay-prorated-amount-link.png)

@@ -4,6 +4,15 @@
 //
 // This script lists all local image files, sorted by their dimensions.
 //
+// NOTE: If you get this error:
+//
+//    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'image-size' ...
+//
+// it's because you haven't installed all the *optional* dependencies.
+// To do that, run:
+//
+//    npm install --include=optional
+//
 // [end-readme]
 
 import { fileURLToPath } from 'url'

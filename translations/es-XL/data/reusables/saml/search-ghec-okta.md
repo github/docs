@@ -1,1 +1,0 @@
-3. En el campo de búsqueda, teclea "GitHub Enterprise Cloud".![Campo "Buscar una aplicación" de Okta](/assets/images/help/saml/okta-search-for-an-application.png)

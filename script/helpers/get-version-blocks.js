@@ -33,7 +33,7 @@ export default function getVersionBlocks(rawBlocks) {
     innerText = innerText.slice(0, indexOfLastEndif)
 
     // Remove any nested conditional content so we can check the top-level only.
-    const topLevelContent = innerText.replace(/{%-? ifversion[\S\s]+?{%-? endif -?%}/g, '')
+    const topLevelContent = innerText.replace(/{%-? ifversion[\S\s]+{%-? endif -?%}/g, '')
 
     versionBlocks.push({
       condKeyword,

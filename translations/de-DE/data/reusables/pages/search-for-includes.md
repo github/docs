@@ -1,1 +1,0 @@
-Zur Fehlerbehebung durchsuche die Datei in der Fehlermeldung auf `include` um zu sehen, wo Du auf andere Dateien verwiesen hast, wie beispielsweise {% raw %}`{% include example_header.html %}`{% endraw %}.

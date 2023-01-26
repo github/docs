@@ -3,11 +3,11 @@ title: 'Installing {% data variables.product.prodname_enterprise %}'
 shortTitle: Installing
 intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
-  - /enterprise/admin-guide/
-  - /enterprise/admin/guides/installation/
-  - /enterprise/admin/categories/customization/
-  - /enterprise/admin/categories/general/
-  - /enterprise/admin/categories/logging-and-monitoring/
+  - /enterprise/admin-guide
+  - /enterprise/admin/guides/installation
+  - /enterprise/admin/categories/customization
+  - /enterprise/admin/categories/general
+  - /enterprise/admin/categories/logging-and-monitoring
   - /enterprise/admin/installation
 versions:
   ghes: '*'

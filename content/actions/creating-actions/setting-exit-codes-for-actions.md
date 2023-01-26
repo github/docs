@@ -1,20 +1,19 @@
 ---
 title: Setting exit codes for actions
-shortTitle: Setting exit codes
+shortTitle: Set exit codes
 intro: 'You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.'
-product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
 ## About exit codes
 
@@ -22,7 +21,7 @@ type: how_to
 
 Exit status | Check run status | Description
 ------------|------------------|------------
-`0` | `success` | The action completed successfully and other tasks that depends on it can begin.
+`0` | `success` | The action completed successfully and other tasks that depend on it can begin.
 Nonzero value (any integer but 0)| `failure` | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status.
 
 ## Setting a failure exit code in a JavaScript action

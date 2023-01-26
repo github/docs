@@ -21,7 +21,7 @@ Each node must have a root volume, as well as a separate data volume. These are 
 | :-: | :-: | :-: |
 | `job-server`,<br/>`memcache-server`,<br/>`web-server` | 14 GB | 1 GB |
 | `consul-server`,<br/>`mysql-server`,<br/>`redis-server` | 14 GB | 10 GB |
-| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 7 GB | 10 GB |
+| `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 14 GB | 10 GB |
 | `elasticsearch-server` | 14 GB | 10 GB |
 
 ## Services required for clustering
@@ -50,7 +50,7 @@ Clustering allows services that make up {% data variables.product.prodname_ghe_s
 - Establish tiers of nodes that make sense for your organization. An example configuration:
   - Front-end tier with two nodes and the following services:
     - `web-server`
-    - `jobs-server`
+    - `job-server`
     - `memcache-server`
   - Database tier with three nodes and the following services:
     - `consul-server`

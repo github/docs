@@ -2,13 +2,14 @@
 title: Security best practices for apps
 intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
-  - /apps/marketplace/getting-started/security-review-process/
+  - /apps/marketplace/getting-started/security-review-process
   - /marketplace/getting-started/security-review-process
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
 shortTitle: Security best practice
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Marketplace
 ---
@@ -24,7 +25,7 @@ We recommend creating a GitHub App rather than an OAuth App. {% data reusables.m
 - Apps should not share service accounts such as email or database services to manage your SaaS service.
 - All services used in your app should have unique login and password credentials.
 - Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use personal access tokens to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
+- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
   - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
   - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
@@ -59,4 +60,4 @@ For an example of an incident response workflow, see the "Data Breach Response P
 
 You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
 
-If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)."
+If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)."

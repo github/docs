@@ -5,6 +5,7 @@ redirect_from:
   - /v4/reference/enum
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -19,6 +20,6 @@ For example, the [`Issue`](/graphql/reference/objects#issue) object has a field 
 
 For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
 
-{% for item in graphql.schemaForCurrentVersion.enums %}
-  {% include graphql-enum %}
-{% endfor %}
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

@@ -1,1 +1,0 @@
-1. No nome da organização, clique em {% octicon "people" aria-label="The people icon" %} **Teams** (Equipes). ![Aba de equipes na página da organização](/assets/images/help/organizations/organization-teams-tab.png)

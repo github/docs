@@ -1,1 +1,0 @@
-1. Zuoberst auf der Teamseite klicke auf {% octicon "organization" aria-label="The members symbol" %} **Members** (Mitglieder). ![Registerkarte „Members" (Mitglieder)](/assets/images/help/teams/members-tab.png)

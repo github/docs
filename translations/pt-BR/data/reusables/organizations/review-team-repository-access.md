@@ -1,1 +1,0 @@
-1. Revise a lista de repositórios aos quais o novo membro da equipe terá acesso e clique em **Add _USERNAME_ to _TEAMNAME_** (Adicionar USERNAME para TEAMNAME). ![Caixa Modal com uma lista de repositórios que o novo membro da equipe terá acesso e botão de confirmação](/assets/images/help/teams/add-team-member-repo-perms.png)

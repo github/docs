@@ -1,1 +1,0 @@
-Weitere Informationen um loszulegen findest Du unter „[Hochladen einer SARIF-Datei nach {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)."

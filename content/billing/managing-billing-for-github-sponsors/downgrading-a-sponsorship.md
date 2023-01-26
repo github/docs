@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
@@ -29,8 +30,8 @@ When you downgrade or cancel a sponsorship, the change will become effective on 
 
 ## Canceling a sponsorship
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.sponsors.billing-switcher %}
 3. Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="The down triangle octicon" %} next to your sponsored amount, then click **Cancel sponsorship**.
   ![Cancel sponsorship button](/assets/images/help/billing/edit-sponsor-billing.png)

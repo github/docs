@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -30,10 +31,14 @@ Organization owners have full administrative access to the organization. {% data
 
 {% endnote %}
 
+{% ifversion enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, any enterprise owner can make themself an owner of your organization. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ## Appointing an organization owner
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Select the person or people you'd like to promote to owner.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)

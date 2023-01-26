@@ -1,55 +1,48 @@
 import { jest } from '@jest/globals'
-import { latest } from '../../lib/enterprise-server-releases.js'
-import languages from '../../lib/languages.js'
+import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
 
-jest.useFakeTimers()
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 /* global page, browser */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
   test('should be titled "GitHub Documentation"', async () => {
-    await page.goto('http://localhost:4001')
+    await page.goto('http://localhost:4000')
     await expect(page.title()).resolves.toMatch('GitHub Documentation')
   })
 })
 
+// Note, we can only test Elasticsearch searches on things we have indexed
+// in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
-  it('works on the homepage', async () => {
-    await page.goto('http://localhost:4001/en')
-    await page.click('[data-testid=site-search-input]')
-    await page.type('[data-testid=site-search-input]', 'actions')
-    await page.waitForSelector('[data-testid=search-results]')
-    const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
-  })
-
   it('works on mobile landing pages', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=mobile-menu-button]')
     await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
-    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'workflows')
+    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'foo')
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
+    expect(hits.length).toBeGreaterThan(3)
   })
 
   it('works on desktop landing pages', async () => {
     const initialViewport = page.viewport()
     await page.setViewport({ width: 1024, height: 768 })
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
-    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'workflows')
+    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'foo')
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(5)
+    expect(hits.length).toBeGreaterThan(3)
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  // Docs Engineering issue: 961
   it.skip('works on 404 error page', async () => {
-    await page.goto('http://localhost:4001/en/404')
+    await page.goto('http://localhost:4000/en/404')
     await page.click('[data-testid=search] input[type="search"]')
     await page.type('[data-testid=search] input[type="search"]', 'actions')
     await page.waitForSelector('[data-testid=search-results]')
@@ -57,18 +50,24 @@ describe('browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to search for Enterprise Server', async () => {
+  // Elasticsearch fixtures only work for dotco and GHAE
+  it.skip('sends the correct data to search for Enterprise Server', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
+    await newPage.goto(
+      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
+    )
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/legacy\?/i.test(interceptedRequest.url())
+      ) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('2.22')
-        expect(searchParams.get('language')).toBe('ja')
+        expect(searchParams.get('version')).toBe(oldestSupported)
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
@@ -82,15 +81,46 @@ describe('browser search', () => {
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
+  it('sends the correct data to search for dotcom', async () => {
+    expect.assertions(2)
+
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4000/en')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('dotcom')
+        expect(searchParams.get('language')).toBe('en')
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('[data-testid=mobile-menu-button]')
+    const searchInput = await newPage.$(
+      '[data-testid=mobile-header] [data-testid=site-search-input]'
+    )
+    await searchInput.click()
+    await searchInput.type('foo')
+    await newPage.waitForSelector('[data-testid=search-result]')
+  })
+
   it('sends the correct data to search for GHAE', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+    await newPage.goto('http://localhost:4000/en/github-ae@latest/admin/overview')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')
         expect(searchParams.get('language')).toBe('en')
@@ -103,7 +133,7 @@ describe('browser search', () => {
       '[data-testid=mobile-header] [data-testid=site-search-input]'
     )
     await searchInput.click()
-    await searchInput.type('test')
+    await searchInput.type('silly')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 })
@@ -114,7 +144,7 @@ describe('survey', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto(
-      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
+      'http://localhost:4000/en/actions/getting-started-with-github-actions/about-github-actions'
     )
 
     // Track network requests
@@ -146,16 +176,7 @@ describe('survey', () => {
   })
 })
 
-describe('csrf meta', () => {
-  it('should have a csrf-token meta tag on the page', async () => {
-    await page.goto(
-      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
-    )
-    await page.waitForSelector('meta[name="csrf-token"]')
-  })
-})
-
-describe('platform specific content', () => {
+describe('platform picker', () => {
   // from tests/javascripts/user-agent.js
   const userAgents = [
     {
@@ -175,27 +196,27 @@ describe('platform specific content', () => {
     },
   ]
   const linuxUserAgent = userAgents[2]
-  const pageWithSwitcher =
-    'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
-  const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
+  const pageWithPlatformPicker =
+    'http://localhost:4000/en/github/using-git/configuring-git-to-handle-line-endings'
+  const pageWithoutPlatformPicker = 'http://localhost:4000/en/github/using-git'
   const pageWithDefaultPlatform =
-    'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
+    'http://localhost:4000/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
-  it('should have a platform switcher', async () => {
-    await page.goto(pageWithSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should have a platform picker', async () => {
+    await page.goto(pageWithPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] div a')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] div a.PRC-selected')
     expect(nav).toHaveLength(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch).toHaveLength(1)
   })
 
-  it('should NOT have a platform switcher', async () => {
-    await page.goto(pageWithoutSwitcher)
-    const nav = await page.$$('nav.UnderlineNav')
-    const switches = await page.$$('a.platform-switcher')
-    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+  it('should NOT have a platform picker', async () => {
+    await page.goto(pageWithoutPlatformPicker)
+    const nav = await page.$$('[data-testid=platform-picker]')
+    const switches = await page.$$('[data-testid=platform-picker] div a')
+    const selectedSwitch = await page.$$('[data-testid=platform-picker] div a.PRC-selected')
     expect(nav).toHaveLength(0)
     expect(switches).toHaveLength(0)
     expect(selectedSwitch).toHaveLength(0)
@@ -204,10 +225,15 @@ describe('platform specific content', () => {
   it('should detect platform from user agent', async () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
-      await page.goto(pageWithSwitcher)
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
-      expect(selectedPlatform).toBe(agent.name)
+      await page.goto(pageWithPlatformPicker)
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] div a.PRC-selected'
+      )
+      const selectedPlatform = await page.evaluate(
+        (el) => el.dataset.platform,
+        selectedPlatformElement
+      )
+      expect(selectedPlatform).toBe(agent.name.toLowerCase())
     }
   })
 
@@ -219,7 +245,9 @@ describe('platform specific content', () => {
         '[data-default-platform]',
         (el) => el.dataset.defaultPlatform
       )
-      const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
+      const selectedPlatformElement = await page.waitForSelector(
+        '[data-testid=platform-picker] div a.PRC-selected'
+      )
       const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
       expect(defaultPlatform).toBe(linuxUserAgent.id)
       expect(selectedPlatform).toBe(linuxUserAgent.name)
@@ -227,17 +255,17 @@ describe('platform specific content', () => {
   })
 
   it('should show the content for the selected platform only', async () => {
-    await page.goto(pageWithSwitcher)
+    await page.goto(pageWithPlatformPicker)
 
     const platforms = ['mac', 'windows', 'linux']
     for (const platform of platforms) {
-      await page.click(`.platform-switcher[data-platform="${platform}"]`)
+      await page.click(`[data-testid=platform-picker] [data-platform=${platform}]`)
 
       // content for selected platform is expected to become visible
       await page.waitForSelector(`.extended-markdown.${platform}`, { visible: true, timeout: 3000 })
 
       // only a single tab should be selected
-      const selectedSwitch = await page.$$('a.platform-switcher.selected')
+      const selectedSwitch = await page.$$('[data-testid=platform-picker] .PRC-selected')
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected platforms is expected to become hidden
@@ -251,68 +279,66 @@ describe('platform specific content', () => {
 
 describe('tool specific content', () => {
   const pageWithSingleSwitcher =
-    'http://localhost:4001/en/actions/managing-workflow-runs/manually-running-a-workflow'
+    'http://localhost:4000/en/actions/managing-workflow-runs/manually-running-a-workflow'
   const pageWithoutSwitcher =
-    'http://localhost:4001/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
+    'http://localhost:4000/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
   const pageWithMultipleSwitcher =
-    'http://localhost:4001/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
+    'http://localhost:4000/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
 
   it('should have a tool switcher if a tool switcher is included', async () => {
     await page.goto(pageWithSingleSwitcher)
-    const nav = await page.$$('nav#tool-switcher')
-    const switches = await page.$$('a.tool-switcher')
-    const selectedSwitch = await page.$$('a.tool-switcher.selected')
+    const nav = await page.$$('[data-testid="tool-picker"]')
+    const switches = await page.$$('[data-testid="tool-picker"] div a')
+    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
     expect(nav).toHaveLength(1)
     expect(switches.length).toBeGreaterThan(1)
     expect(selectedSwitch).toHaveLength(1)
   })
 
-  it('should have multiple tool switchers if multiple tools switchers are included', async () => {
-    await page.goto(pageWithMultipleSwitcher)
-    const toolSelector = await page.$$('nav#tool-switcher')
-    const switches = await page.$$('a.tool-switcher')
-    const selectedSwitch = await page.$$('a.tool-switcher.selected')
-    expect(toolSelector.length).toBeGreaterThan(1)
-    expect(switches.length).toBeGreaterThan(1)
-    expect(selectedSwitch.length).toEqual(toolSelector.length)
-  })
-
   it('should NOT have a tool switcher if no tool switcher is included', async () => {
     await page.goto(pageWithoutSwitcher)
-    const toolSelector = await page.$$('nav#tool-switcher')
-    const switches = await page.$$('a.tool-switcher')
-    const selectedSwitch = await page.$$('a.tool-switcher.selected')
-    expect(toolSelector).toHaveLength(0)
+    const nav = await page.$$('[data-testid="tool-picker"]')
+    const switches = await page.$$('[data-testid="tool-picker"] div a')
+    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
+    expect(nav).toHaveLength(0)
     expect(switches).toHaveLength(0)
     expect(selectedSwitch).toHaveLength(0)
   })
 
   it('should use cli if no defaultTool is specified and if webui is not one of the tools', async () => {
     await page.goto(pageWithMultipleSwitcher)
-    const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    const selectedToolElement = await page.waitForSelector(
+      '[data-testid="tool-picker"] div a.PRC-selected'
+    )
     const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub CLI')
   })
 
   it('should use webui if no defaultTool is specified and if webui is one of the tools', async () => {
     await page.goto(pageWithSingleSwitcher)
-    const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    const selectedToolElement = await page.waitForSelector(
+      '[data-testid="tool-picker"] div a.PRC-selected'
+    )
     const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub.com')
+    expect(selectedTool).toBe('Web browser')
   })
 
   it('should use the recorded user selection', async () => {
     // With no user data, the selected tool is GitHub.com
     await page.goto(pageWithSingleSwitcher)
-    let selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    let selectedToolElement = await page.waitForSelector(
+      '[data-testid="tool-picker"] div a.PRC-selected'
+    )
     let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub.com')
+    expect(selectedTool).toBe('Web browser')
 
-    await page.click(`.tool-switcher[data-tool="cli"]`)
+    await page.click('[data-testid="tool-picker"] [data-tool="cli"]')
 
     // Revisiting the page after CLI is selected results in CLI as the selected tool
     await page.goto(pageWithSingleSwitcher)
-    selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
+    selectedToolElement = await page.waitForSelector(
+      '[data-testid="tool-picker"] div a.PRC-selected'
+    )
     selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
     expect(selectedTool).toBe('GitHub CLI')
   })
@@ -322,13 +348,13 @@ describe('tool specific content', () => {
 
     const tools = ['webui', 'cli']
     for (const tool of tools) {
-      await page.click(`.tool-switcher[data-tool="${tool}"]`)
+      await page.click(`[data-tool="${tool}"]`)
 
       // content for selected tool is expected to become visible
       await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
 
       // only a single tab should be selected
-      const selectedSwitch = await page.$$('a.tool-switcher.selected')
+      const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
       expect(selectedSwitch).toHaveLength(1)
 
       // content for NOT selected tools is expected to become hidden
@@ -338,32 +364,11 @@ describe('tool specific content', () => {
       }
     }
   })
-
-  it('selecting a tool in one switcher will control all tool switchers on the page', async () => {
-    await page.goto(pageWithMultipleSwitcher)
-
-    const tools = { cli: 'GitHub CLI', curl: 'cURL' }
-    for (const [tool, toolName] of Object.entries(tools)) {
-      await page.click(`.tool-switcher[data-tool="${tool}"]`)
-
-      // content for selected tool is expected to become visible
-      await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
-
-      // all tabs should be selected
-      const toolSelector = await page.$$('nav#tool-switcher')
-      const selectedSwitch = await page.$$('a.tool-switcher.selected')
-      expect(selectedSwitch).toHaveLength(toolSelector.length)
-
-      const selectedToolElement = await page.waitForSelector('a.tool-switcher.selected')
-      const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-      expect(selectedTool).toBe(toolName)
-    }
-  })
 })
 
 describe('code examples', () => {
   it('loads correctly', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/code-security')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
     expect(shownCards.length).toBeGreaterThan(0)
@@ -371,25 +376,27 @@ describe('code examples', () => {
   })
 
   it('filters cards', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/code-security')
     await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'issues')
+    await page.type('[data-testid=code-examples-input]', 'policy')
+    await page.click('[data-testid=code-examples-search-btn]')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBeGreaterThan(1)
   })
 
   it('shows more cards', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/code-security')
     const initialCards = await page.$$('[data-testid=code-example-card]')
     await page.click('[data-testid=code-examples-show-more]')
     const moreCards = await page.$$('[data-testid=code-example-card]')
-    expect(moreCards.length).toBe(initialCards.length * 2)
+    expect(moreCards.length).toBeGreaterThan(initialCards.length)
   })
 
   it('displays no result message', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4000/en/code-security')
     await page.click('[data-testid=code-examples-input]')
     await page.type('[data-testid=code-examples-input]', 'this should not work')
+    await page.click('[data-testid=code-examples-search-btn]')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBe(0)
     const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
@@ -399,8 +406,10 @@ describe('code examples', () => {
 
 describe('filter cards', () => {
   it('works with select input', async () => {
-    await page.goto('http://localhost:4001/en/actions/guides')
-    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    await page.goto('http://localhost:4000/en/code-security/guides')
+    // 2nd element is 'Overview'
+    await page.click('[data-testid=card-filter-types] button')
+    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
       cardTypes.map((cardType) => cardType.textContent)
@@ -410,8 +419,10 @@ describe('filter cards', () => {
   })
 
   it('works with select input on an Enterprise version', async () => {
-    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
-    await page.select('[data-testid=card-filter-dropdown][name="type"]', 'overview')
+    await page.goto(`http://localhost:4000/en/enterprise-server@${latest}/code-security/guides`)
+    // 2nd element is 'Overview'
+    await page.click('[data-testid=card-filter-types] button')
+    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
     const shownCards = await page.$$('[data-testid=article-card]')
     const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
       cardTypes.map((cardType) => cardType.textContent)
@@ -421,34 +432,19 @@ describe('filter cards', () => {
   })
 })
 
-describe('language banner', () => {
-  it('directs user to the English version of the article', async () => {
-    const wipLanguageKey = Object.keys(languages).find((key) => languages[key].wip)
-
-    // This kinda sucks, but if we don't have a WIP language, we currently can't
-    // run a reliable test. But hey, on the bright side, if we don't have a WIP
-    // language then this code will never run anyway!
-    if (wipLanguageKey) {
-      const res = await page.goto(`http://localhost:4001/${wipLanguageKey}/actions`)
-      expect(res.ok()).toBe(true)
-      const href = await page.$eval('a#to-english-doc', (el) => el.href)
-      expect(href.endsWith('/en/actions')).toBe(true)
-    }
-  })
-})
-
 // Skipping because next/links are disabled by default for now
+// Docs Engineering issue: 962
 describe.skip('next/link client-side navigation', () => {
   jest.setTimeout(60 * 1000)
 
   it('should have 200 response to /_next/data when link is clicked', async () => {
     const initialViewport = page.viewport()
     await page.setViewport({ width: 1024, height: 768 })
-    await page.goto('http://localhost:4001/en/actions/guides')
+    await page.goto('http://localhost:4000/en/actions/guides')
 
     const [response] = await Promise.all([
       page.waitForResponse((response) =>
-        response.url().startsWith('http://localhost:4001/_next/data')
+        response.url().startsWith('http://localhost:4000/_next/data')
       ),
       page.waitForNavigation({ waitUntil: 'networkidle2' }),
       page.click(
@@ -458,5 +454,36 @@ describe.skip('next/link client-side navigation', () => {
 
     expect(response.status()).toBe(200)
     await page.setViewport(initialViewport)
+  })
+})
+
+describe('iframe pages', () => {
+  it('can open YouTube embed iframes', async () => {
+    // Going to create a fresh page instance, so we can intercept the requests.
+    const newPage = await browser.newPage()
+
+    await newPage.setRequestInterception(true)
+    const interceptedURLs = []
+    newPage.on('request', (request) => {
+      interceptedURLs.push(request.url())
+      request.continue()
+    })
+    const failedURLs = []
+    newPage.on('requestfailed', (request) => {
+      failedURLs.push(request.url())
+      request.continue()
+    })
+
+    // Hardcoded path to a page where we know we have a YouTube embed
+    const res = await newPage.goto('http://localhost:4000/en/codespaces')
+
+    expect(res.ok()).toBeTruthy()
+    expect(failedURLs.length, `Following URLs ${failedURLs.join(', ')} failed`).toBeFalsy()
+
+    const iframeSrc = await newPage.$eval('iframe', (el) => el.src)
+    expect(iframeSrc.startsWith('https://www.youtube-nocookie.com/embed')).toBeTruthy()
+    expect(
+      interceptedURLs.filter((url) => url.startsWith('https://www.youtube-nocookie.com/')).length
+    ).toBeTruthy()
   })
 })

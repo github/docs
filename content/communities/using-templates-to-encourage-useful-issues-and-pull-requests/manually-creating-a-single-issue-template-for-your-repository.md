@@ -2,13 +2,14 @@
 title: Manually creating a single issue template for your repository
 intro: 'When you add a manually-created issue template to your repository, project contributors will automatically see the template''s contents in the issue body.'
 redirect_from:
-  - /articles/creating-an-issue-template-for-your-repository/
+  - /articles/creating-an-issue-template-for-your-repository
   - /articles/manually-creating-a-single-issue-template-for-your-repository
   - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Create an issue template
@@ -37,13 +38,13 @@ assignees: octocat
 
 {% endnote %}
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 
 {% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghes or ghec %}
 
 {% data reusables.repositories.default-issue-templates %}
 

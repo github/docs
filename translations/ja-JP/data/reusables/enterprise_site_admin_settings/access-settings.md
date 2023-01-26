@@ -1,1 +1,0 @@
-1. {% data variables.product.product_name %}の管理アカウントから、任意のページの右上にある{% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

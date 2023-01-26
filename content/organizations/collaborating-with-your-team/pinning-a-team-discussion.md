@@ -9,12 +9,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 5. Click {% octicon "pin" aria-label="The pin icon" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.

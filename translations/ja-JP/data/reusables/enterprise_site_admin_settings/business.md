@@ -1,1 +1,0 @@
-1. 左のサイドバーで、**Enterprise{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} overview（Enterpriseの概要）{% endif %}**をクリックしてください。 ![サイト管理設定のEnterprise{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}の概要{% endif %}タブ](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

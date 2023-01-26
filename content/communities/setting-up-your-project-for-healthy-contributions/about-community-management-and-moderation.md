@@ -3,6 +3,7 @@ title: About community management and moderation
 intro: '{% data variables.product.prodname_dotcom %} offers tools that help repository maintainers establish and enforce standards of behavior in their communities on {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   fpt: '*'
+  ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
@@ -15,6 +16,8 @@ shortTitle: Management & moderation
 {% data reusables.policies.github-community-guidelines-and-terms %}
 
 {% data variables.product.prodname_dotcom %} also offers tools for repository maintainers to define and enforce higher standards of behavior in their own communities on {% data variables.product.prodname_dotcom_the_website %}.
+
+Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
 
 After you establish standards of behavior for your community, you can encourage a pleasant and productive environment by responding to disruptive behavior in a fast, fair way. Effective moderation builds trust within your community and helps contributors feel safe and welcome.
 
@@ -33,5 +36,3 @@ Contributors can always report disruptive content to {% data variables.contact.g
 - "[Your Code of Conduct](https://opensource.guide/code-of-conduct/)" from the Open Source Guides
 - "[Building Welcoming Communities](https://opensource.guide/building-community/)" from the Open Source Guides
 - "[Leadership and Governance](https://opensource.guide/leadership-and-governance/)" from the Open Source Guides
-- "[Shaming and why it is inappropriate](https://github.community/t5/Studies-in-Community/Shaming-and-why-it-is-inappropriate/ba-p/12728)" from the GitHub Community Forum
-- "[Being toxic is not constructive criticism](https://github.community/t5/Studies-in-Community/Being-toxic-is-not-constructive-criticism/ba-p/8029)" from the GitHub Community Forum

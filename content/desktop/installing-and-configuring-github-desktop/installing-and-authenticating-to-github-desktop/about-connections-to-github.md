@@ -10,7 +10,7 @@ shortTitle: About connections
 ---
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[Authenticating to {% data variables.product.prodname_dotcom %}](/desktop/getting-started-with-github-desktop/authenticating-to-github)."
 
-After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or personal access token) and uses the credentials to authenticate for each connection to the remote repository.
+After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or {% data variables.product.pat_generic %}) and uses the credentials to authenticate for each connection to the remote repository.
 
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 

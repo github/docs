@@ -1,4 +1,0 @@
-É possível usar o repositório, organização e as APIs REST do webhook do aplicativo para criar, atualizar, excluir e fixar webhooks. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}You can also use the REST API to change the configuration of the webhook. Por exemplo, você pode modificar a URL da carga, tipo de conteúdo, verificação de SSL e segredo. {% endif %}Para obter mais informações, consulte:
-- [API REST para os webhooks dos repositórios](/rest/reference/repos#webhooks)
-- [Organization Webhooks REST API](/rest/reference/orgs#webhooks){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-- [API REST dos webbooks do aplicativo GitHubI](/rest/reference/apps#webhooks){% endif %}

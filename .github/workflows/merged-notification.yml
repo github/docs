@@ -9,6 +9,10 @@ on:
     types:
       - 'closed'
 
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   comment:
     if: github.repository == 'github/docs' && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch && github.event.pull_request.user.login != 'Octomerger'

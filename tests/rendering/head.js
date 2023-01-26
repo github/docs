@@ -1,20 +1,10 @@
-import { getDOM } from '../helpers/supertest.js'
-import languages from '../../lib/languages.js'
+import { getDOM } from '../helpers/e2etest.js'
 import { jest } from '@jest/globals'
 
-jest.useFakeTimers()
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('<head>', () => {
   jest.setTimeout(5 * 60 * 1000)
-
-  test('includes hreflangs (references to all language versions of the same page)', async () => {
-    const $ = await getDOM('/en')
-    const $hreflangs = $('link[rel="alternate"]')
-    expect($hreflangs.length).toEqual(Object.keys(languages).length)
-    expect($('link[href="https://docs.github.com/cn"]').length).toBe(1)
-    expect($('link[href="https://docs.github.com/ja"]').length).toBe(1)
-    expect($('link[hrefLang="en"]').length).toBe(1)
-  })
 
   test('includes page intro in `description` meta tag', async () => {
     const $ = await getDOM('/en/articles/about-ssh')
@@ -31,7 +21,7 @@ describe('<head>', () => {
     ).toBe(true)
     // HTML intro
     expect(
-      $('div.lead-mktg')
+      $('[data-testid="lead"]')
         .html()
         .startsWith('<p>You can <a href="/articles/merging-a-pull-request">merge pull requests</a>')
     )

@@ -2,7 +2,7 @@
 title: Moving a team in your organization’s hierarchy
 intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team''s parent.'
 redirect_from:
-  - /articles/changing-a-team-s-parent/
+  - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
   - /articles/moving-a-team-in-your-organizations-hierarchy
   - /github/setting-up-and-managing-organizations-and-teams/moving-a-team-in-your-organizations-hierarchy
@@ -10,6 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -29,7 +30,7 @@ Organization owners can change the parent of any team. Team maintainers can chan
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team whose parent you'd like to change.
   ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)

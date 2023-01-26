@@ -8,24 +8,37 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Webhooks
 ---
 Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}: what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## Exposing localhost to the internet
 
-For the purposes of this tutorial, we're going to use a local server to receive messages from {% data variables.product.prodname_dotcom %}. So, first of all, we need to expose our local development environment to the internet. We'll use ngrok to do this. ngrok is available, free of charge, for all major operating systems. For more information, see [the ngrok download page](https://ngrok.com/download).
+For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}. 
 
-After installing ngrok, you can expose your localhost by running `./ngrok http 4567` on the command line. 4567 is the port number on which our server will listen for messages. You should see a line that looks something like this:
+First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
+
+`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+
+After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.

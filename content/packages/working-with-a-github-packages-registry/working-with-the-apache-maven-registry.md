@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 shortTitle: Apache Maven registry
 ---
 
@@ -26,15 +27,15 @@ shortTitle: Apache Maven registry
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Authenticating with a personal access token
+### Authenticating with a {% data variables.product.pat_generic %}
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
+You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.m2/settings.xml* file if one doesn't exist.
 
-In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
+In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your {% data variables.product.pat_generic %}.
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, and{% endif %} *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
 
@@ -64,7 +65,7 @@ If your instance has subdomain isolation enabled:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://{% ifversion fpt %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*</url>
+          <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -106,7 +107,7 @@ If your instance has subdomain isolation disabled:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://maven.pkg.github.com/OWNER/*</url>
+          <url>HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -134,7 +135,7 @@ If you would like to publish multiple packages to the same repository, you can i
 
 For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
-1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
+1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
 
   If your instance has subdomain isolation enabled:{% endif %}
   ```xml
@@ -142,7 +143,7 @@ For more information on creating a package, see the [maven.apache.org documentat
      <repository>
        <id>github</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://{% ifversion fpt %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+       <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
   ```{% ifversion ghes %}
@@ -190,4 +191,4 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 ## Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "{% ifversion fpt or ghes > 3.0 %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"

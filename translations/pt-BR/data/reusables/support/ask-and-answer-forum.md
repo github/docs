@@ -1,1 +1,0 @@
-Você pode conectar-se com os desenvolvedores em todo o mundo em [{% data variables.product.prodname_gcf %}](https://github.community) para fazer e responder perguntas, aprender e interagir diretamente com a equipe de {% data variables.product.product_name %}.

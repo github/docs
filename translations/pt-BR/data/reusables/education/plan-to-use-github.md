@@ -1,1 +1,0 @@
-1. Descreva como você planeja usar o {% data variables.product.prodname_dotcom %}. ![Campo de descrição para como você planeja usar {% data variables.product.prodname_dotcom %}](/assets/images/help/education/purpose-for-github-education.png)

@@ -2,7 +2,7 @@
 title: Using the GraphQL API for Discussions
 intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  fpt: '*'
+  feature: discussions
 shortTitle: Use GraphQL for Discussions
 ---
 
@@ -67,7 +67,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 10 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
 _Signature:_
 
@@ -1080,4 +1080,4 @@ Return type fields:
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/search-github/searching-on-github/searching-discussions)."

@@ -38,12 +38,8 @@ export type ProductLandingContextT = {
   intro: string
   beta_product: boolean
   product: Product
-  introLinks: {
-    quickstart?: string
-    reference?: string
-    overview?: string
-  } | null
-  product_video?: string
+  introLinks: Record<string, string> | null
+  productVideo: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
@@ -51,13 +47,14 @@ export type ProductLandingContextT = {
   featuredArticles: Array<{
     label: string // Guides
     viewAllHref?: string // If provided, adds a "View All ->" to the header
+    viewAllTitleText?: string // Adds 'title' attribute text for the "View All" href
     articles: Array<FeaturedLink>
   }>
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
   hasGuidesPage: boolean
-  releases: Array<{
+  ghesReleases: Array<{
     version: string
     firstPreviousRelease: string
     secondPreviousRelease: string
@@ -87,38 +84,39 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
         ((entries as Array<any>) || []).map((entry: any) => ({
           href: entry.href,
           title: entry.title,
-          intro: entry.intro,
-          authors: entry.page.authors || [],
-          fullTitle: entry.fullTitle,
+          intro: entry.intro || null,
+          authors: entry.page?.authors || [],
+          fullTitle: entry.fullTitle || null,
         })),
       ]
     })
   )
 }
 
-export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
+export const getProductLandingContextFromRequest = async (
+  req: any
+): Promise<ProductLandingContextT> => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
   const hasGuidesPage = (page.children || []).includes('/guides')
+
+  const productVideo = page.product_video
+    ? await page.renderProp('product_video', req.context, { textOnly: true })
+    : ''
+
   return {
-    ...pick(page, [
-      'title',
-      'shortTitle',
-      'introPlainText',
-      'beta_product',
-      'intro',
-      'product_video',
-    ]),
+    ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
+    productVideo,
     hasGuidesPage,
     product: {
       href: productTree.href,
-      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+      title: productTree.page.shortTitle || productTree.page.title,
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
-    releases: req.context.releases || [],
+    ghesReleases: req.context.ghesReleases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -127,13 +125,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: page.introLinks
-      ? {
-          quickstart: page.introLinks.quickstart,
-          reference: page.introLinks.reference,
-          overview: page.introLinks.overview,
-        }
-      : null,
+    introLinks: page.introLinks || null,
 
     featuredLinks: getFeaturedLinksFromReq(req),
 
@@ -141,13 +133,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
-        return key === 'guides' || key === 'popular'
+        return key === 'guides' || key === 'popular' || key === 'videos'
       })
       .map(([key, links]: any) => {
         return {
           label:
-            key === 'popular'
-              ? req.context.page.featuredLinks.popularHeading || req.context.site.data.ui.toc[key]
+            key === 'popular' || key === 'videos'
+              ? req.context.page.featuredLinks[key + 'Heading'] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
             key === 'guides' && !req.context.currentCategory && hasGuidesPage
@@ -158,9 +150,9 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
               hideIntro: key === 'popular',
               href: link.href,
               title: link.title,
-              intro: link.intro,
-              authors: link.page.authors || [],
-              fullTitle: link.fullTitle,
+              intro: link.intro || null,
+              authors: link.page?.authors || [],
+              fullTitle: link.fullTitle || null,
             }
           }),
         }

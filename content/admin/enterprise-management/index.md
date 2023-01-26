@@ -12,6 +12,7 @@ children:
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability
-shortTitle: 'Monitor, manage & update'
+  - /caching-repositories
+shortTitle: 'Monitor, manage, and update your appliance'
 ---
 

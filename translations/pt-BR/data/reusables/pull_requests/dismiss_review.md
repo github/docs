@@ -1,1 +1,0 @@
-Se uma solicitação pull mudar desde sua revisão e a pessoa que solicitou as alterações não estiver disponível para realizar uma revisão de aprovação, os administradores do repositório ou as pessoas com acesso de gravação poderão ignorar uma revisão.

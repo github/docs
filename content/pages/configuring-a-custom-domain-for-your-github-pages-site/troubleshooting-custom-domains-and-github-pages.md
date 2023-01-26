@@ -2,14 +2,15 @@
 title: Troubleshooting custom domains and GitHub Pages
 intro: 'You can check for common errors to resolve issues with custom domains or HTTPS for your {% data variables.product.prodname_pages %} site.'
 redirect_from:
-  - /articles/my-custom-domain-isn-t-working/
-  - /articles/custom-domain-isn-t-working/
-  - /articles/troubleshooting-custom-domains/
+  - /articles/my-custom-domain-isn-t-working
+  - /articles/custom-domain-isn-t-working
+  - /articles/troubleshooting-custom-domains
   - /articles/troubleshooting-custom-domains-and-github-pages
   - /github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Troubleshoot a custom domain
@@ -17,7 +18,9 @@ shortTitle: Troubleshoot a custom domain
 
 ## _CNAME_ errors
 
-Custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+{% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
+
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
 For your site to render at the correct domain, make sure your _CNAME_ file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the _CNAME_ file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.product_name %}, make sure to pull the commit that added the _CNAME_ file to your local repository first, so the file will be included in the build.
 
@@ -54,7 +57,7 @@ For a list of supported custom domains, see "[About custom domains and {% data v
 
 ## HTTPS errors
 
-{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with _CNAME_, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 
 It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 
