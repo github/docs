@@ -128,7 +128,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new enterprise, `GITHUB_TOKEN` only has read access for the `contents` scope.
 {% endif %}
 
@@ -149,7 +149,9 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
+{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new enterprise, workflows are not allowed to create or approve pull requests.
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

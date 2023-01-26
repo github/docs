@@ -237,7 +237,7 @@ ghe-motd
 
 ### ghe-nwo
 
-This utility returns a repository's name and owner based on the repository ID.  
+This utility returns a repository's name and owner based on the repository ID.
 
 ```shell
 ghe-nwo REPOSITORY_ID
@@ -511,7 +511,7 @@ ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 
 ### ghe-ssl-certificate-setup
 
-This utility allows you to update an SSL certificate for {% data variables.location.product_location %}. 
+This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
 
 For more information about this command or for additional options, use the `-h` flag.
 
@@ -612,16 +612,6 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
-
-{% ifversion ghes %}
-### ghe-cluster-failover
-
-Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
-
-```shell
-ghe-cluster-failover
-```
-{% endif %}
 
 ### ghe-dpages
 

@@ -15,8 +15,6 @@ topics:
 
 {% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with security and access controls, workflow automation, and policy enforcement. 
 
-{% data reusables.enterprise.about-github-for-enterprises %}
-
 ## A highly available and planet-scale cloud
 
 {% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 

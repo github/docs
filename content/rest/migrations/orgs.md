@@ -2,7 +2,7 @@
 title: Organization migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
-intro: ''
+intro: 'Use the REST API to move a repository from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,8 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Organization migrations API
+## About organization migrations
 
-The Migrations API is only available to authenticated organization owners. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
+These endpoints are only available to authenticated organization owners. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
 
 {% data variables.migrations.organization_migrations_intro %}
