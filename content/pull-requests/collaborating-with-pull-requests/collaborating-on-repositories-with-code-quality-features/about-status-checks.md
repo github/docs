@@ -60,7 +60,7 @@ You can navigate between the checks summaries for various commits in a pull requ
 
 When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
-You can also skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message. For more information, see "[Skipping workflow runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)"
+You can also skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message. For more information, see "[Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs)"
 
 Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
