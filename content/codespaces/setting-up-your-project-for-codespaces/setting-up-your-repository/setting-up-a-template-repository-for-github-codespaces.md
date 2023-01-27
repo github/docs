@@ -47,7 +47,7 @@ For guidance on the kinds of files to include, you can look at the starter files
 
    ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
 
-## Configure the container image
+## Configure the dev container
 
 You can add dev container configuration files to your template repository to customize the development environment for people using your template with {% data variables.product.prodname_github_codespaces %}. You can choose from a list of predefined configuration settings in {% data variables.product.prodname_vscode %}, or you can create a custom configuration by writing your own `devcontainer.json` file. If you don't add configuration files, the default container image will be used. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)" and "[Adding a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
 
@@ -66,7 +66,7 @@ The following configuration settings for a React template will open the `app.js`
 ```JSON
 {
     "postAttachCommand": {
-      "server": "npm start",
+      "server": "npm start"
     },
 
     "portsAttributes": {
