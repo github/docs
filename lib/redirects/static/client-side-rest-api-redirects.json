@@ -320,8 +320,6 @@
   "/rest/codespaces#list-in-organization": "/rest/codespaces/organizations#list-in-organization",
   "/rest/codespaces#organizations": "/rest/codespaces/organizations",
   "/rest/codespaces#set-codespaces-billing": "/rest/codespaces/organizations#set-codespaces-billing",
-  "/rest/codespaces#set-codespaces-billing-users": "/rest/codespaces/organizations#set-codespaces-billing-users",
-  "/rest/codespaces#delete-codespaces-billing-users": "/rest/codespaces/organizations#delete-codespaces-billing-users",
   "/rest/codespaces#list-organization-secrets": "/rest/codespaces/organization-secrets#list-organization-secrets",
   "/rest/codespaces#organization-secrets": "/rest/codespaces/organization-secrets",
   "/rest/codespaces#get-an-organization-public-key": "/rest/codespaces/organization-secrets#get-an-organization-public-key",
