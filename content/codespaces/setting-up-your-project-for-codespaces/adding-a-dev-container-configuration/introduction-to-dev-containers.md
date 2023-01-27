@@ -136,16 +136,24 @@ Using a predefined configuration is a great idea if you need some additional ext
 
 You can add a predefined dev container configuration either while working in a codespace, or while working on a repository locally. To do this in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The following procedure describes the process when you are using a codespace. The steps in {% data variables.product.prodname_vscode_shortname %} when you are not connected to a codespace are very similar.
 
-{% data reusables.codespaces.command-palette-container %}
+1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Click **Codespaces: Configure Dev Container**.
+
+   ![Screenshot of the "Codespaces: Configure Dev Container" option](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+
+1. Click **Start from scratch**.
+
+   ![Screenshot of the "Start from scratch" option](/assets/images/help/codespaces/start-from-scratch.png)
+
+1. Click **Show All Definitions**.
+
+   ![Screenshot of the "Show All Definitions" option](/assets/images/help/codespaces/show-all-definitions.png)
+
 1. Click the definition you want to use.
 
    ![Screenshot of a list of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
-1. Follow the prompts to customize your definition. For more information on the options to customize your definition, see "[Adding additional features to your `devcontainer.json` file](#adding-additional-features-to-your-devcontainerjson-file)."
+1. Follow the prompts to customize your definition.
 1. Click **OK**.
-
-   ![Screenshot of the OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
-
 1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
    ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
