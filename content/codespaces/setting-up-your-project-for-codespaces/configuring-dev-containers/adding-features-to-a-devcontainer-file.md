@@ -26,6 +26,7 @@ redirect_from:
 1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
 
    ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
+
 3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
 
    ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
@@ -65,17 +66,21 @@ To add features in {% data variables.product.prodname_vscode_shortname %} while 
 
 {% endnote %}
 
-{% data reusables.codespaces.command-pallette %}
-2. Start typing "Configure" and select **Codespaces: Configure Dev Container Features**.
+{% data reusables.codespaces.command-palette %}
+2. Start typing "configure" and click **Codespaces: Configure Dev Container**.
 
-   ![The Configure Devcontainer Features command in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Screenshot of the 'Configure Dev Container' option in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+
+1. Click **Modify your active configuration**.
+
+   ![Screenshot of the 'Modify your active configuration' option in the Command Palette](/assets/images/help/codespaces/modify-active-configuration.png)
 
 3. Update your feature selections, then click **OK**.
 
-   ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
+   ![Screenshot of the additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
 
 4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
 
-   !["Codespaces: Rebuild Container" in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of the 'Codespaces: Rebuild Container' option in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}
