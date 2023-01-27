@@ -75,6 +75,8 @@ Your IdP does not communicate with {% data variables.product.product_name %} aut
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
+After you configure SAML, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API requests. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 {% endif %}

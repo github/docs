@@ -5,7 +5,7 @@
 1. Right-click the port you want to connect to and click **Copy Local Address**.
 
    ![Screenshot of 'Copy Local Address' in the right-click menu](/assets/images/help/codespaces/copy-local-address.png)
-   
+
 1. Paste the copied address somewhere for later use.
 
 ### Finding the GITHUB_TOKEN
@@ -16,4 +16,8 @@
 
 1. Copy the token.
 
-   Don't share this access token with anyone.
+   {% note %}
+
+   **Important**: Don't share this access token with anyone.
+
+   {% endnote %}

@@ -10,6 +10,7 @@ shortTitle: Merge PR with merge queue
 redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
+defaultTool: webui
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}
@@ -20,6 +21,14 @@ redirect_from:
 {% data reusables.pull_requests.merge-queue-references %}
 
 ## Adding a pull request to a merge queue
+
+{% webui %}
+
+{% tip %}
+
+**Tip:** You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
+
+{% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -38,7 +47,21 @@ redirect_from:
 
 1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
 
+{% endwebui %}
+
+{% cli %}
+
+With {% data variables.product.prodname_cli %}, you can use the `gh pr merge` command to add a pull request to a merge queue. If you are targeting a branch that requires a merge queue, this command automatically adds the pull request to the queue if required checks have passed. If required checks have not passed, this command enables auto-merge for the pull request. For more information, see [`gh pr merge`](https://cli.github.com/manual/gh_pr_merge) in the {% data variables.product.prodname_cli %} manual.
+
+{% endcli %}
+
 ## Removing a pull request from a merge queue
+
+{% cli %}
+
+To remove a pull request from a merge queue, you must navigate to the repository's page on {% data variables.location.product_location %}. You cannot use {% data variables.product.prodname_cli %} to remove a pull request from a merge queue.
+
+{% endcli %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -52,7 +75,17 @@ Alternatively, you can navigate to the merge queue page for the base branch, cli
 
 ## Viewing merge queues
 
+{% cli %}
+
+You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}. You cannot use {% data variables.product.prodname_cli %} to view a merge queue.
+
+{% endcli %}
+
+{% webui %}
+
 You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+
+{% endwebui %}
 
 - On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
 

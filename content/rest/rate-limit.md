@@ -1,6 +1,6 @@
 ---
 title: Rate limit
-intro: 'Use the REST API to check your current rate limit status.'
+intro: Use the REST API to check your current rate limit status.
 versions:
   fpt: '*'
   ghes: '*'

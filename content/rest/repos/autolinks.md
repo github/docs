@@ -2,7 +2,7 @@
 title: Repository autolinks
 allowTitleToDifferFromFilename: true
 shortTitle: Autolinks
-intro: 'Use the REST API to add autolinks to external resources.'
+intro: Use the REST API to add autolinks to external resources.
 versions:
   fpt: '*'
   ghes: '*'

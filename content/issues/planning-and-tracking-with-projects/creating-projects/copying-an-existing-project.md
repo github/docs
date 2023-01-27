@@ -1,6 +1,6 @@
 ---
 title: 'Copying an existing {% data variables.projects.project_v2 %}'
-shortTitle: 'Copying a project'
+shortTitle: Copying a project
 intro: You can use an existing project as a template by copying it.
 miniTocMaxHeadingLevel: 3
 versions:

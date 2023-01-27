@@ -7,7 +7,6 @@ redirect_from:
   - /v3/enterprise
   - /rest/reference/enterprise-admin
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

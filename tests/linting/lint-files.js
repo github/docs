@@ -983,7 +983,6 @@ describe('lint learning tracks', () => {
               typeof entry.featured_track === 'boolean' ||
               (await renderContent(entry.featured_track, context, {
                 textOnly: true,
-                encodeEntities: true,
               })) === 'true'
             featuredTracksPerVersion.push(isFeaturedLink)
           }

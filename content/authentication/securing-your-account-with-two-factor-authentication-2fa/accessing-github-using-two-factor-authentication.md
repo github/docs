@@ -96,6 +96,8 @@ Enabling 2FA doesn't change how you authenticate to {% data variables.product.pr
 
 ## Using two-factor authentication to access a repository using Subversion
 
+{% data reusables.subversion.sunset %}
+
 When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ## Troubleshooting

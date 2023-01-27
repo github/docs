@@ -8,6 +8,7 @@ import warmServer from '../lib/warm-server.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
+
 const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
@@ -90,5 +91,6 @@ export default async function contextualize(req, res, next) {
       return context.enPage
     }
   }
+
   return next()
 }

@@ -161,7 +161,11 @@ Copy the address and paste it somewhere for later use.
 
 1. Copy the token.
 
-   Don't share this access token with anyone.
+   {% note %}
+
+   **Important**: Don't share this access token with anyone.
+
+   {% endnote %}
 
 1. Exit the SSH session.
 

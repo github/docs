@@ -98,9 +98,47 @@ The file is successfully uploaded as both absolute URIs use the same URI scheme 
 
 <!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
-You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
+You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/). 
 
-{% data reusables.code-scanning.upload-sarif-alert-limit %}
+For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 10 MB. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries.
+
+{% data variables.product.prodname_code_scanning_capc %} supports uploading a maximum number of entries for the data objects in the following table. If any of these objects exceeds its maximum value the SARIF file is rejected. For some objects, there is an additional limit on the number of values that will be displayed. Whenever possible the most important values are shown. To get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration (for example, for the CodeQL tool, identify and disable the most noisy queries).
+
+{% ifversion fpt or ghec or ghes > 3.8 %}
+
+| **SARIF data**                   | **Maximum values** | **Additional limits**                                                            |
+|----------------------------------|:------------------:|----------------------------------------------------------------------------------|
+| Runs per file                    |         20         |                                                                                  |
+| Results per run                  |       25,000       | Only the top 5,000 results will be included, prioritized by severity.            |
+| Rules per run                    |       25,000       |                                                                                  |
+| Tool extensions per run          |        100         |                                                                                  |
+| Thread Flow Locations per result |       10,000       | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
+| Location per result	             |       1,000        | Only 100 locations will be included.                                           |
+| Tags per rule	                   |         20         | Only 10 tags will be included.                                                   |
+
+{% elsif ghes < 3.9 %}
+
+| **SARIF data**                   | **Maximum values** | **Additional limits**                                                            |
+|----------------------------------|:------------------:|----------------------------------------------------------------------------------|
+| Runs per file                    |         15         |                                                                                  |
+| Results per run                  |       25,000       | Only the top 5,000 results will be included, prioritized by severity.            |
+| Rules per run                    |       25,000       |                                                                                  |
+| Tool extensions per run          |        100         |                                                                                  |
+| Thread Flow Locations per result |       10,000       | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
+| Location per result	             |       1,000        | Only 100 locations will be included.                                           |
+| Tags per rule	                   |         20         | Only 10 tags will be included.                                                   |
+
+{% else %}
+
+| **SARIF data**                   | **Maximum values** | **Additional limits**                                                            |
+|----------------------------------|:------------------:|----------------------------------------------------------------------------------|
+| Runs per file                    |         15         |                                                                                  |
+| Results per run                  |       25,000       | Only the top 5,000 results will be included, prioritized by severity.            |
+| Rules per run                    |       25,000       |                                                                                  |
+| Thread Flow Locations per result |       10,000       | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
+| Location per result	             |       1,000        | Only 100 locations will be included.                                           |                                            |
+
+{% endif %}
 
 ## Supported SARIF output file properties
 

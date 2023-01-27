@@ -67,7 +67,7 @@ You can add multiple issues and pull requests from your project and use filters,
 1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
   ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
-  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
+  {% ifversion projects-v2-create-issue-modal %}![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png){% else %}![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item-draft-option.png){% endif %}
 {% data reusables.projects.bulk-add %}
 
 #### Adding multiple issues or pull requests from a repository
@@ -104,6 +104,16 @@ You can use the command palette when viewing your project to quickly add items.
 1. {% data reusables.projects.open-command-palette %}
 1. Start typing "Add items" and press <kbd>Return</kbd>.
 {% data reusables.projects.bulk-add %}
+
+{% ifversion projects-v2-create-issue-modal %}
+
+### Creating issues
+
+{% data reusables.projects.about-issue-modal %}
+
+{% data reusables.projects.create-issue-modal %}
+
+{% endif %}
 
 ### Creating draft issues
 

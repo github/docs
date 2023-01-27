@@ -1,6 +1,6 @@
 ---
 title: Review requests
-intro: 'Use the REST API to interact with review requests.'
+intro: Use the REST API to interact with review requests.
 versions:
   fpt: '*'
   ghes: '*'
