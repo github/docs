@@ -35,7 +35,7 @@ Extension logs are available if you are using {% data variables.product.prodname
 
 - Codespace logs
 - Creation logs
-- Extension logs (for the {% data variables.product.prodname_vscode_shortname %} desktop application) 
+- Extension logs (for the {% data variables.product.prodname_vscode_shortname %} desktop application)
 
 Browser logs are available if you are using {% data variables.product.prodname_github_codespaces %} in your browser. Click the "Web browser" tab above for details.
 
@@ -63,7 +63,7 @@ Other logs are available if you are using {% data variables.product.prodname_git
 {% data reusables.codespaces.codespace-logs %}
 
 1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, ensure that you are connected to the codespace you want to debug.
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `export logs`. Select **Codespaces: Export Logs** from the list to download the logs.
 1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
 1. If you are using {% data variables.product.prodname_github_codespaces %} in the browser, right-click on the zip archive of logs from the Explorer view and select **Download…** to download them to your local machine.
 
@@ -73,7 +73,7 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% data reusables.codespaces.codespace-logs %}
 
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Export logs**. Select **Codespaces: Export Logs** from the list to download the logs.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `export log`. Select **Codespaces: Export Logs** from the list to download the logs.
 1. Define where to save the zip archive of logs then click **Save** (desktop) or click **OK** (web).
 
 {% endvscode %}
@@ -93,7 +93,7 @@ These logs contain information about the container, dev container, and their con
 {% webui %}
 
 1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `creation log`. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
 
 If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
 
@@ -101,7 +101,7 @@ If you want to share the log with support, you can copy the text from the creati
 
 {% vscode %}
 
-Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type **Creation logs**. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `creation log`. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
 
 If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
 
@@ -134,7 +134,7 @@ gh codespace logs -c <CODESPACE-NAME> > /path/to/logs.txt
 These logs are available for {% data variables.product.prodname_vscode_shortname %} desktop users only. They are useful if it seems like the {% data variables.product.prodname_github_codespaces %} extension or {% data variables.product.prodname_vscode_shortname %} editor are having issues that prevent creation or connection.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette.
-1. Type **Logs** and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
+1. Type `logs` and select **Developer: Open Extension Logs Folder** from the list to open the extension log folder in your system's file explorer.
 
 From this view, you can access logs generated by the various extensions that you use in {% data variables.product.prodname_vscode_shortname %}. You will see logs for {% data variables.product.prodname_github_codespaces %}, {% data variables.product.prodname_dotcom %} Authentication, and Git, in addition to any other extensions you have enabled.
 
