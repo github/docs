@@ -345,6 +345,10 @@ jobs:
           
           REPO={% raw %}${{ github.repository }}{% endraw %}
           BRANCH={% raw %}${{ github.ref }}{% endraw %}
+            ## This is wrong!!
+            ## If invoked by a closing PR, BRANCH ends up to be the base branch, e.g. master.
+            ## This job will then remove exactly the wrong caches.
+            ## HARMFUL EXAMPLE, should be fixed immediately by some knowledgeable person.
 
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
