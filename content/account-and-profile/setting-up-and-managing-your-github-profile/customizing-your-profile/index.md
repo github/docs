@@ -18,5 +18,6 @@ children:
   - /managing-your-profile-readme
   - /pinning-items-to-your-profile
   - /setting-your-profile-to-private
+  - /add-links-to-your-profile
 ---
 
