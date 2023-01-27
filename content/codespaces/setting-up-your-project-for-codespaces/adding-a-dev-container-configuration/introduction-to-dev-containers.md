@@ -116,11 +116,17 @@ Various options are available to you if you want to use existing container orche
 
 ## Using the default dev container configuration
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace using a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
+If you don't add a dev container configuration to your repository, or if your configuration does not specify an image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
 
-For information about what's included in the default Linux image, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository.
+{% data reusables.codespaces.default-image-contents %}
 
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
+
+{% endnote %}
 
 ## Using a predefined dev container configuration
 
