@@ -10,14 +10,16 @@ versions:
 includeGuides:
   - /codespaces/getting-started/quickstart
   - /codespaces/getting-started/deep-dive
-  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces
-  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
-  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces
-  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces
-  - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
-  - /codespaces/setting-up-your-project-for-codespaces/automatically-opening-files-in-the-codespaces-for-a-repository
-  - /codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge
-  - /codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/setting-a-minimum-specification-for-codespace-machines
+  - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file
+  - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/automatically-opening-files-in-the-codespaces-for-a-repository
+  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge
+  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
   - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
@@ -26,6 +28,7 @@ includeGuides:
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
+  - /codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace
   - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
   - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
   - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli

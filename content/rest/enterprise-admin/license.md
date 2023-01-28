@@ -1,6 +1,6 @@
 ---
 title: License
-intro: The License API provides information on your Enterprise license.
+intro: Use the REST API to retrieve information about your Enterprise license.
 versions:
   ghes: '*'
   ghae: '*'
@@ -10,6 +10,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+These endpoints are only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators. Normal users will receive a `404` response.
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}

@@ -1,6 +1,6 @@
 ---
 title: Repository webhooks
-intro: 'Use the REST API to create and manage webhooks for your repositories.'
+intro: Use the REST API to create and manage webhooks for your repositories.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -52,10 +52,10 @@ The default format is what [existing post-receive hooks should expect](/post-rec
 
 #### Callback URLs
 
-Callback URLs can use the `http://` protocol.
+Callback URLs can use the HTTP protocol.
 
-    # Send updates to postbin.org
-    http://postbin.org/123
+    # Send updates to a PostBin bin
+    https://www.toptal.com/developers/postbin/123
 
 #### Subscribing
 
@@ -66,7 +66,7 @@ curl -u "user" -i \
   {% data variables.product.api_url_pre %}/hub \
   -F "hub.mode=subscribe" \
   -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
-  -F "hub.callback=http://postbin.org/123"
+  -F "hub.callback=https://www.toptal.com/developers/postbin/123"
 ```
 
 PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.

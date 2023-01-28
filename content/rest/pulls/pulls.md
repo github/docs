@@ -1,6 +1,6 @@
 ---
 title: Pulls
-intro: 'Use the REST API to interact with pull requests.'
+intro: Use the REST API to interact with pull requests.
 versions:
   fpt: '*'
   ghes: '*'

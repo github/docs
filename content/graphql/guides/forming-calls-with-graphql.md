@@ -31,7 +31,7 @@ If your token does not have the required scopes to access a resource, the API wi
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a {% data variables.product.prodname_github_app %}. To authenticate as a {% data variables.product.prodname_github_app %} , you must first generate a private key in PEM format. Then, you must use this key to sign a JSON Web Token (JWT). You can use the JSON Web Token to request an installation token from {% data variables.product.company_short %} that you can use to authenticate to the GrpahQL API. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a {% data variables.product.prodname_github_app %}. To authenticate as a {% data variables.product.prodname_github_app %} , you must first generate a private key in PEM format. Then, you must use this key to sign a JSON Web Token (JWT). You can use the JSON Web Token to request an installation token from {% data variables.product.company_short %} that you can use to authenticate to the GraphQL API. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
@@ -47,11 +47,11 @@ The endpoint remains constant no matter what operation you perform.
 
 ## Communicating with GraphQL
 
-Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use cURL or any other HTTP-speaking library.
+Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use `curl` or any other HTTP-speaking library.
 
 In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
 
-To query GraphQL using cURL, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
+To query GraphQL in a `curl` command, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
 ```shell
 curl -H "Authorization: bearer TOKEN" -X POST -d " \

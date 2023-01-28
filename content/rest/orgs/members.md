@@ -2,7 +2,7 @@
 title: Organization members
 allowTitleToDifferFromFilename: true
 shortTitle: Members
-intro: ''
+intro: Use the REST API to manage memberships in your organization.
 versions:
   fpt: '*'
   ghes: '*'

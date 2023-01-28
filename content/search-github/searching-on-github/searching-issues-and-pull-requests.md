@@ -23,6 +23,7 @@ You can search for issues and pull requests globally across all of {% data varia
   - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
   - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
+  - Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
@@ -102,6 +103,7 @@ The `author` qualifier finds issues and pull requests created by a certain user 
 | <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.
 | | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body.
 | <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."
+|  | [**-author:app/robot**](https://github.com/search?q=-author%3Aapp%2Frobot&type=Issues) matches issues created by any user other than the integration account named "robot." The minus sign, or dash character (<code>-</code>) before the qualifier signifies a logical NOT for the qualifier in the search query.
 
 ## Search by assignee
 

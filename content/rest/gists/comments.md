@@ -2,7 +2,7 @@
 title: Gist comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comments
-intro: The Gist comments API lets you view and modify comments on a gist.
+intro: Use the REST API to view and modify comments on a gist.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,9 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Gist comments API
+## About gist comments
 
-The Gist comments API lets you view and modify comments on a gist. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+You can use the REST API to view and modify comments on a gist. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
 
 ### Custom media types for Gist comments
 

@@ -1,7 +1,7 @@
 ---
 title: Creating discussion category forms
 shortTitle: Create discussion category forms
-intro: 'You can customize the templates that are available for community members to use when they open new discussions in your repository.'
+intro: You can customize the templates that are available for community members to use when they open new discussions in your repository.
 versions:
   feature: discussion-category-forms
 ---

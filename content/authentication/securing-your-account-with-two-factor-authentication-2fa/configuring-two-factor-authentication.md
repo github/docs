@@ -16,9 +16,20 @@ topics:
   - 2FA
 shortTitle: Configure 2FA
 ---
-You can configure two-factor authentication using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+
+{% ifversion 2fa-check-up-period %}
+
+After you configure 2FA, your account will enter a 28-day check up period. You can leave the check up period by successfully performing 2FA in those 28 days. Otherwise, you will be prompted to perform 2FA in an existing {% data variables.product.prodname_dotcom_the_website %} session on the 28th day. If you cannot perform 2FA to pass the checkup, you must use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}.
+
+{% ifversion fpt or ghec %}
+
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+
+{% endif %}
+{% endif %}
 
 {% warning %}
 
@@ -28,19 +39,13 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% endwarning %}
 
-{% ifversion fpt or ghec %}
-
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
-
-{% endif %}
-
 ## Configuring two-factor authentication using a TOTP mobile app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
+- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
 
 {% tip %}
 
@@ -57,7 +62,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
     ![Click enter this code](/assets/images/help/2fa/2fa_wizard_app_click_code.png)
-6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application". 
+6. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
 ![TOTP enter code field](/assets/images/help/2fa/2fa_wizard_app_enter_code.png)
 {%- else %}
 5. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
@@ -70,7 +75,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {%- endif %}
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+{% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -102,7 +107,6 @@ Before using this method, be sure that you can receive text messages. Carrier ra
   ![2FA SMS continue field](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}
 
@@ -127,7 +131,7 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 8. Activate your security key, following your security key's documentation.
   ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
 9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[Downloading your 2FA recovery codes](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
-{% data reusables.two_fa.test_2fa_immediately %}
+{% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}

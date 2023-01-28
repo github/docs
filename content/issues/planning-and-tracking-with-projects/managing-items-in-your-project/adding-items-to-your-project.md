@@ -21,11 +21,37 @@ Your project can track draft issues, issues, and pull requests.
 
 ### Adding issues and pull requests to a project
 
+You can add issues and pull requests to your project individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. You can also add draft issues which can later be transformed into issues. For more information, see "[Creating draft issues](#creating-draft-issues)."
+
+{% ifversion projects-v2-timeline-events %}
+
+{% note %} 
+
+**Note:** Timeline events for Projects is currently in beta and subject to change.
+
+{% endnote %}
+
+When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
+
+{% endif %}
+
+{% ifversion projects-v2-auto-add %}
+
+#### Automatically adding issues and pull requests
+
+You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."
+
+{% endif %}
+
 #### Pasting the URL of an issue or pull request
+
+You can copy the URL of an issue or pull request into your clipboard and paste that into your project.
 
 {% data reusables.projects.add-item-via-paste %}
 
 #### Searching for an issue or pull request
+
+If you know the issue or pull request number or if you know part of the title, you can search for an issue or pull request directly from your project.
 
 {% data reusables.projects.add-item-bottom-row %}
 2. Enter <kbd>#</kbd>.
@@ -36,13 +62,17 @@ Your project can track draft issues, issues, and pull requests.
 
 #### Bulk adding issues and pull requests
 
+You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
+
 1. In the bottom row of the project, click {% octicon "plus" aria-label="plus icon" %}.
   ![Screenshot showing + button at the bottom of the project](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
-  ![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png)
+  {% ifversion projects-v2-create-issue-modal %}![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item.png){% else %}![Screenshot showing "add item from repository" menu item](/assets/images/help/projects-v2/add-bulk-menu-item-draft-option.png){% endif %}
 {% data reusables.projects.bulk-add %}
 
 #### Adding multiple issues or pull requests from a repository
+
+You can also add issues and pull requests to your project from a repository's issue and pull request lists.
 
 1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -57,6 +87,8 @@ Your project can track draft issues, issues, and pull requests.
 
 #### Assigning a project from within an issue or pull request
 
+You can also add an issue or pull request to your project from within the issue or pull request itself.
+
 1. Navigate to the issue or pull request that you want to add to a project.
 2. In the side bar, click **Projects**.
   ![Screenshot showing "Projects" in the issue sidebar](/assets/images/help/projects-v2/issue-sidebar-projects.png)
@@ -67,9 +99,21 @@ Your project can track draft issues, issues, and pull requests.
 
 #### Using the command palette to add an issue or pull request
 
+You can use the command palette when viewing your project to quickly add items.
+
 1. {% data reusables.projects.open-command-palette %}
 1. Start typing "Add items" and press <kbd>Return</kbd>.
 {% data reusables.projects.bulk-add %}
+
+{% ifversion projects-v2-create-issue-modal %}
+
+### Creating issues
+
+{% data reusables.projects.about-issue-modal %}
+
+{% data reusables.projects.create-issue-modal %}
+
+{% endif %}
 
 ### Creating draft issues
 

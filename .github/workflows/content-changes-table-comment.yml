@@ -56,10 +56,10 @@ jobs:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.17.0'
+          node-version-file: '.node-version'
           cache: npm
 
       - name: Install temporary dependencies
@@ -75,7 +75,7 @@ jobs:
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@1769778a0c5bd330272d749d12c036d65e70d39d
+        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -83,6 +83,7 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
+        if: ${{ steps.changes.outputs.changesTable != '' }}
         uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
