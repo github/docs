@@ -39,7 +39,7 @@ The default development container, or "dev container," for {% data variables.pro
 
    ![Screenshot of the 'Node.js & JavaScript' option](/assets/images/help/codespaces/add-node-devcontainer-config.png)
 
-1. Click the latest version of Node.js.
+1. Choose the version of Node.js you want to use for your project. In this case, select the version marked "(default)."
 
    ![Screenshot of the Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
 

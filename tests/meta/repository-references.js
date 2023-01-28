@@ -84,6 +84,7 @@ const ALLOW_DOCS_PATHS = [
   'ownership.yaml',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
+  'script/i18n/clone-translations.sh',
 ]
 
 // This regexp will capture the last segment of a GitHub repo name.

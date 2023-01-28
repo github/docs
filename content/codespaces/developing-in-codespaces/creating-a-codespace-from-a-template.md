@@ -19,7 +19,7 @@ If you're starting a new project, you can get started with development work quic
 
 {% note %}
 
-**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% endnote %}
 

@@ -62,6 +62,14 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
+  - location: DependencyGraphDependency.packageLabel
+    description:
+      '`packageLabel` will be removed. Use normalized `packageName` field
+      instead.'
+    reason: '`packageLabel` will be removed.'
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/dependency_graph
   - location: RemovePullRequestFromMergeQueueInput.branch
     description: '`branch` will be removed.'
     reason:
