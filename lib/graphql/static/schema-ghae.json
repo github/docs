@@ -182,6 +182,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int",
           "description": "<p>Returns the last <em>n</em> elements from the list.</p>"
+        },
+        {
+          "name": "orderBy",
+          "type": "OrganizationOrder",
+          "id": "organizationorder",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationorder",
+          "description": "<p>Ordering options for the User's organizations.</p>"
         }
       ]
     },
@@ -13922,6 +13930,437 @@
       ]
     },
     {
+      "name": "DependencyGraphDependency",
+      "kind": "objects",
+      "id": "dependencygraphdependency",
+      "href": "/graphql/reference/objects#dependencygraphdependency",
+      "description": "<p>A dependency manifest entry.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "fields": [
+        {
+          "name": "hasDependencies",
+          "description": "<p>Does the dependency itself have dependencies?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "packageLabel",
+          "description": "<p>The original name of the package, as it appears in the manifest.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead. Removal on 2022-10-01 UTC.</p>"
+        },
+        {
+          "name": "packageManager",
+          "description": "<p>The dependency package manager.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "packageName",
+          "description": "<p>The name of the package in the canonical form used by the package manager.\nThis may differ from the original textual form (see packageLabel), for example\nin a package manager that uses case-insensitive comparisons.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository containing the package.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "requirements",
+          "description": "<p>The dependency version requirements.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraphDependencyConnection",
+      "kind": "objects",
+      "id": "dependencygraphdependencyconnection",
+      "href": "/graphql/reference/objects#dependencygraphdependencyconnection",
+      "description": "<p>The connection type for DependencyGraphDependency.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DependencyGraphDependencyEdge]",
+          "id": "dependencygraphdependencyedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphdependencyedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DependencyGraphDependency]",
+          "id": "dependencygraphdependency",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphdependency"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraphDependencyEdge",
+      "kind": "objects",
+      "id": "dependencygraphdependencyedge",
+      "href": "/graphql/reference/objects#dependencygraphdependencyedge",
+      "description": "<p>An edge in a connection.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DependencyGraphDependency",
+          "id": "dependencygraphdependency",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphdependency"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraphManifest",
+      "kind": "objects",
+      "id": "dependencygraphmanifest",
+      "href": "/graphql/reference/objects#dependencygraphmanifest",
+      "description": "<p>Dependency manifest for a repository.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "blobPath",
+          "description": "<p>Path to view the manifest file blob.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "dependencies",
+          "description": "<p>A list of manifest dependencies.</p>",
+          "type": "DependencyGraphDependencyConnection",
+          "id": "dependencygraphdependencyconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphdependencyconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "dependenciesCount",
+          "description": "<p>The number of dependencies listed in the manifest.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "exceedsMaxSize",
+          "description": "<p>Is the manifest too big to parse?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "filename",
+          "description": "<p>Fully qualified manifest filename.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "parseable",
+          "description": "<p>Were we able to parse the manifest?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository containing the manifest.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraphManifestConnection",
+      "kind": "objects",
+      "id": "dependencygraphmanifestconnection",
+      "href": "/graphql/reference/objects#dependencygraphmanifestconnection",
+      "description": "<p>The connection type for DependencyGraphManifest.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[DependencyGraphManifestEdge]",
+          "id": "dependencygraphmanifestedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphmanifestedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[DependencyGraphManifest]",
+          "id": "dependencygraphmanifest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphmanifest"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "DependencyGraphManifestEdge",
+      "kind": "objects",
+      "id": "dependencygraphmanifestedge",
+      "href": "/graphql/reference/objects#dependencygraphmanifestedge",
+      "description": "<p>An edge in a connection.</p>",
+      "isDeprecated": false,
+      "preview": {
+        "title": "Access to a repository s dependency graph preview",
+        "description": "This preview adds support for reading a dependency graph for a repository.",
+        "toggled_by": "hawkgirl-preview",
+        "toggled_on": [
+          "DependencyGraphManifest",
+          "Repository.dependencyGraphManifests",
+          "DependencyGraphManifestEdge",
+          "DependencyGraphManifestConnection",
+          "DependencyGraphDependency",
+          "DependencyGraphDependencyEdge",
+          "DependencyGraphDependencyConnection",
+          "DependencyGraphPackageRelease.dependencies"
+        ],
+        "owning_teams": [
+          "@github/dependency-graph"
+        ],
+        "accept_header": "application/vnd.github.hawkgirl-preview+json",
+        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+      },
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "DependencyGraphManifest",
+          "id": "dependencygraphmanifest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphmanifest"
+        }
+      ]
+    },
+    {
       "name": "DeployKey",
       "kind": "objects",
       "id": "deploykey",
@@ -25742,7 +26181,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -33758,6 +34197,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
               }
             }
           ]
@@ -45901,6 +46350,107 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "dependencyGraphManifests",
+          "description": "<p>A list of dependency manifests contained in the repository.</p>",
+          "type": "DependencyGraphManifestConnection",
+          "id": "dependencygraphmanifestconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#dependencygraphmanifestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "dependenciesAfter",
+              "description": "<p>Cursor to paginate dependencies.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "dependenciesFirst",
+              "description": "<p>Number of dependencies to fetch.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "withDependencies",
+              "description": "<p>Flag to scope to only manifests with dependencies.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ],
+          "isDeprecated": false,
+          "preview": {
+            "title": "Access to a repository s dependency graph preview",
+            "description": "This preview adds support for reading a dependency graph for a repository.",
+            "toggled_by": "hawkgirl-preview",
+            "toggled_on": [
+              "DependencyGraphManifest",
+              "Repository.dependencyGraphManifests",
+              "DependencyGraphManifestEdge",
+              "DependencyGraphManifestConnection",
+              "DependencyGraphDependency",
+              "DependencyGraphDependencyEdge",
+              "DependencyGraphDependencyConnection",
+              "DependencyGraphPackageRelease.dependencies"
+            ],
+            "owning_teams": [
+              "@github/dependency-graph"
+            ],
+            "accept_header": "application/vnd.github.hawkgirl-preview+json",
+            "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+          }
+        },
+        {
           "name": "deployKeys",
           "description": "<p>A list of deploy keys that are on this repository.</p>",
           "type": "DeployKeyConnection!",
@@ -48660,7 +49210,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -56800,6 +57350,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's organizations.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
+              }
             }
           ]
         },
@@ -59698,7 +60258,7 @@
         },
         {
           "name": "sourceUrl",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
@@ -69374,7 +69934,7 @@
         },
         {
           "name": "url",
-          "description": "<p>The migration source URL.</p>",
+          "description": "<p>The migration source URL, for example <code>https://github.com</code> or <code>https://monalisa.ghe.com</code>.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",

@@ -286,7 +286,7 @@ United States
 
 [Privacy contact form](https://support.github.com/contact/privacy)
 
-**Github Data Protection Officer**
+**GitHub Data Protection Officer**
 
 c/o DP Dock DPO Services GmbH, <br/>
 Attn: GitHub BV, Gut Projensdorf, <br/>
@@ -348,7 +348,7 @@ If you are a U.S. resident, we process your personal data in accordance with app
 
 Please see [Your choices regarding our processing of your personal data](#your-choices-regarding-our-processing-of-your-personal-data) section of the GitHub Privacy Statement for additional information on how to exercise these rights. You can use GitHub’s User Migration API to access and download your data. Learn more [here](/get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data).
 
-If you have a Github account, you must exercise your rights through the tools provided, which requires you to log in to your GitHub account. If you have an additional request or questions after logging in, you may contact GitHub at the address in the [How to contact us](#how-to-contact-us) section, including through our web form.
+If you have a GitHub account, you must exercise your rights through the tools provided, which requires you to log in to your GitHub account. If you have an additional request or questions after logging in, you may contact GitHub at the address in the [How to contact us](#how-to-contact-us) section, including through our web form.
 
 If you do not have an account, you may exercise your rights by contacting us as described above. We may ask for additional information to validate your request before honoring the request. To submit a request based on these rights, you can also contact us via our [contact form](https://support.github.com/request?tags=docs-policy).
 

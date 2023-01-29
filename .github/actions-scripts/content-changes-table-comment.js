@@ -62,7 +62,9 @@ async function main(owner, repo, baseSHA, headSHA) {
   let markdownTable = ''
 
   const pathPrefix = 'content/'
-  const articleFiles = files.filter(({ filename }) => filename.startsWith(pathPrefix))
+  const articleFiles = files.filter(
+    ({ filename }) => filename.startsWith(pathPrefix) && filename.toLowerCase() !== 'readme.md'
+  )
 
   const lines = await Promise.all(
     articleFiles.map(async (file) => {

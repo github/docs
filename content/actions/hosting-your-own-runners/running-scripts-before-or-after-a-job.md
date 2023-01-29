@@ -32,6 +32,8 @@ Your custom scripts can use the following features:
 - **Variables**:  Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)."
 - **Workflow commands**: Scripts can use workflow commands. For more information, see ["Workflow commands for {% data variables.product.prodname_actions %}"](/actions/using-workflows/workflow-commands-for-github-actions){% ifversion actions-save-state-set-output-envs %}{% else %}, with the exception of `save-state` and `set-output`, which are not supported by these scripts{% endif %}. Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
+Your script files must use a file extension for the relevant language, such as `.sh` or `.ps1`, in order to run successfully.
+
 {% note %}
 
 **Note**: Avoid using your scripts to output sensitive information to the console, as anyone with read access to the repository might be able to see the output in the UI logs.

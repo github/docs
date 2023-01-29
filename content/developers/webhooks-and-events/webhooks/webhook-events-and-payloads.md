@@ -1,6 +1,6 @@
 ---
 title: Webhook events and payloads
-intro: 'Learn about when each webhook event occurs and what the payload contains.'
+intro: Learn about when each webhook event occurs and what the payload contains.
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks

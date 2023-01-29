@@ -21,7 +21,7 @@ topics:
 ---
 ## About forks
 
-{% data reusables.repositories.fork-definition-long %}  For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
+{% data reusables.repositories.fork-definition-long %}  For more information, see "[Working with forks](/pull-requests/collaborating-with-pull-requests/working-with-forks)."
 
 ### Propose changes to someone else's project
 
@@ -47,7 +47,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 ## Prerequisites
 
-If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see "[Set up Git](/articles/set-up-git)."
+If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see "[Set up Git](/get-started/quickstart/set-up-git)."
 
 ## Forking a repository
 
@@ -209,13 +209,13 @@ gh repo fork REPOSITORY --remote-name "main-remote-repo"
 
 You can make any changes to a fork, including:
 
-- **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
+- **Creating branches:** [*Branches*](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) allow you to build new features or test out ideas without putting your main project at risk.
 - **Opening pull requests:** If you want to contribute back to the upstream repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Find another repository to fork
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
-{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
@@ -223,7 +223,7 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/get-started/quickstart/set-up-git)."
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
