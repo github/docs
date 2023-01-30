@@ -44,7 +44,7 @@ In the examples below, replace `:enabled` with `:not-enabled` to see repositorie
 
 | Qualifier | Description |
 | -------- | -------- |
-| `code-scanning:enabled` | Display repositories that have set up {% data variables.product.prodname_code_scanning %}. |
+| `code-scanning:enabled` | Display repositories that have configured {% data variables.product.prodname_code_scanning %}. |
 | `dependabot:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}. |
 | `secret-scanning:enabled` | Display repositories that have enabled {% data variables.secret-scanning.alerts %}. {% ifversion security-overview-org-risk-coverage %} |
 | `any-feature:enabled` | Display repositories where at least one security feature is enabled. |{% else %}
@@ -59,7 +59,7 @@ The organization-level Security Coverage view includes extra filters.
 | -------- | -------- |
 | `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
 | `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
-| `secret-scanning-push-protection:enabled` | Display repositories that have set up push protection for {% data variables.product.prodname_secret_scanning %}. |
+| `secret-scanning-push-protection:enabled` | Display repositories that have enabled push protection for {% data variables.product.prodname_secret_scanning %}. |
 {% endif %}
 
 ## Filter by repository type

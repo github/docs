@@ -140,78 +140,6 @@
         "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
       },
       {
-        "slug": "list-self-hosted-runner-groups-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
-      },
-      {
-        "slug": "create-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
-      },
-      {
-        "slug": "get-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "update-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "delete-a-self-hosted-runner-group-from-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
-      },
-      {
-        "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
-      },
-      {
-        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
-      },
-      {
-        "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
-      },
-      {
-        "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
-      },
-      {
         "slug": "list-self-hosted-runners-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "get",
@@ -1789,7 +1717,6 @@
         "requestPath": "/emojis"
       }
     ],
-    "enterprise-admin": [],
     "gists": [],
     "git": [
       {
@@ -4018,7 +3945,7 @@
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-an-organization",
+        "slug": "set-allowed-actions-for-an-organization",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
@@ -4462,7 +4389,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-a-repository",
+        "slug": "set-allowed-actions-for-a-repository",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
@@ -6406,7 +6333,7 @@
         "requestPath": "/orgs/{org}/failed_invitations"
       },
       {
-        "slug": "list-fine-grained-permissions-for-an-organization",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/fine_grained_permissions"

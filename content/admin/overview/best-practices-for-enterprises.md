@@ -1,7 +1,7 @@
 ---
 title: Best practices for enterprises
 shortTitle: Best practices
-intro: Learn {% data variables.product.company_short %}-recommended practices for your enterprise.
+intro: 'Learn {% data variables.product.company_short %}-recommended practices for your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'

@@ -1,6 +1,6 @@
 ---
 title: Dependency submission
-intro: 'Use the REST API to submit dependencies.'
+intro: Use the REST API to submit dependencies.
 versions:
   feature: dependency-submission-api
 miniTocMaxHeadingLevel: 3

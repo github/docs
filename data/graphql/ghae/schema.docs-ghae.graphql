@@ -6504,7 +6504,7 @@ input CreateMigrationSourceInput {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: String!
 }
@@ -7926,6 +7926,187 @@ type DependabotUpdateError {
   The title of the error
   """
   title: String!
+}
+
+"""
+A dependency manifest entry
+"""
+type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
+  """
+  Does the dependency itself have dependencies?
+  """
+  hasDependencies: Boolean!
+
+  """
+  The original name of the package, as it appears in the manifest.
+  """
+  packageLabel: String!
+    @deprecated(
+      reason: "`packageLabel` will be removed. Use normalized `packageName` field instead. Removal on 2022-10-01 UTC."
+    )
+
+  """
+  The dependency package manager
+  """
+  packageManager: String
+
+  """
+  The name of the package in the canonical form used by the package manager.
+  This may differ from the original textual form (see packageLabel), for example
+  in a package manager that uses case-insensitive comparisons.
+  """
+  packageName: String!
+
+  """
+  The repository containing the package
+  """
+  repository: Repository
+
+  """
+  The dependency version requirements
+  """
+  requirements: String!
+}
+
+"""
+The connection type for DependencyGraphDependency.
+"""
+type DependencyGraphDependencyConnection @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphDependencyEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphDependency]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphDependencyEdge @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphDependency
+}
+
+"""
+Dependency manifest for a repository
+"""
+type DependencyGraphManifest implements Node @preview(toggledBy: "hawkgirl-preview") {
+  """
+  Path to view the manifest file blob
+  """
+  blobPath: String!
+
+  """
+  A list of manifest dependencies
+  """
+  dependencies(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): DependencyGraphDependencyConnection
+
+  """
+  The number of dependencies listed in the manifest
+  """
+  dependenciesCount: Int
+
+  """
+  Is the manifest too big to parse?
+  """
+  exceedsMaxSize: Boolean!
+
+  """
+  Fully qualified manifest filename
+  """
+  filename: String!
+  id: ID!
+
+  """
+  Were we able to parse the manifest?
+  """
+  parseable: Boolean!
+
+  """
+  The repository containing the manifest
+  """
+  repository: Repository!
+}
+
+"""
+The connection type for DependencyGraphManifest.
+"""
+type DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphManifestEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphManifest]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphManifestEdge @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphManifest
 }
 
 """
@@ -16938,7 +17119,7 @@ interface Migration {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -16965,7 +17146,7 @@ type MigrationSource implements Node {
   type: MigrationSourceType!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   url: URI!
 }
@@ -23907,6 +24088,11 @@ type OrganizationsHovercardContext implements HovercardContext {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -28499,6 +28685,11 @@ type Query {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """
@@ -32827,6 +33018,46 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   deleteBranchOnMerge: Boolean!
 
   """
+  A list of dependency manifests contained in the repository
+  """
+  dependencyGraphManifests(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Cursor to paginate dependencies
+    """
+    dependenciesAfter: String
+
+    """
+    Number of dependencies to fetch
+    """
+    dependenciesFirst: Int
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Flag to scope to only manifests with dependencies
+    """
+    withDependencies: Boolean
+  ): DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview")
+
+  """
   A list of deploy keys that are on this repository.
   """
   deployKeys(
@@ -34707,7 +34938,7 @@ type RepositoryMigration implements Migration & Node {
   repositoryName: String!
 
   """
-  The migration source URL.
+  The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
   sourceUrl: URI!
 
@@ -43245,6 +43476,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the User's organizations.
+    """
+    orderBy: OrganizationOrder = null
   ): OrganizationConnection!
 
   """

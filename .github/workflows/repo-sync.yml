@@ -101,13 +101,13 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       # Set up npm and run npm ci to get custom husky githooks error
-      # messages if they exist. We could also remove these two steps
+      # messages if they exist. We could also remove these steps
       # because currently we have no hooks with customer error messages.
       # See pull #32064 where they were removed.
-      - name: Setup node
+      - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.17.0'
+          node-version-file: '.node-version'
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -256,7 +256,7 @@ jobs:
           gh pr merge $PR_NUMBER --admin --merge
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
