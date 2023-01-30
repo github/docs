@@ -1,7 +1,7 @@
 ---
 title: Migrating your enterprise to a new identity provider or tenant
 shortTitle: Migrate to new IdP or tenant
-intro: 'You can migrate your enterprise to a different identity provider (IdP) or Azure AD tenant.'
+intro: You can migrate your enterprise to a different identity provider (IdP) or Azure AD tenant.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: idp-tenant-migration

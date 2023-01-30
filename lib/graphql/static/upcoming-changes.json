@@ -1362,6 +1362,14 @@
         "date": "2022-10-01",
         "criticality": "breaking",
         "owner": "jhunschejones"
+      },
+      {
+        "location": "DependencyGraphDependency.packageLabel",
+        "description": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead.</p>",
+        "reason": "<p><code>packageLabel</code> will be removed.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "github/dependency_graph"
       }
     ],
     "2022-07-01": [

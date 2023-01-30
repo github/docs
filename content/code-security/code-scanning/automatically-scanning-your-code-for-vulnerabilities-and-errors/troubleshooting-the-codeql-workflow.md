@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting {% ifversion code-scanning-without-workflow %}your advanced setup for CodeQL{% else %}the CodeQL workflow{% endif %}
-shortTitle: Troubleshoot {% ifversion code-scanning-without-workflow %}advanced setup{% else %}CodeQL workflow{% endif %}
+title: 'Troubleshooting {% ifversion code-scanning-without-workflow %}your advanced setup for CodeQL{% else %}the CodeQL workflow{% endif %}'
+shortTitle: 'Troubleshoot {% ifversion code-scanning-without-workflow %}advanced setup{% else %}CodeQL workflow{% endif %}'
 intro: 'If you''re having problems with {% ifversion code-scanning-without-workflow %}advanced setup for {% data variables.product.prodname_code_scanning %}{% else %}{% data variables.product.prodname_code_scanning %} setup{% endif %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3

@@ -1,6 +1,6 @@
 ---
 title: Repository Webhooks
-intro: 'Use the REST API to manage repository webhooks.'
+intro: Use the REST API to manage repository webhooks.
 versions:
   fpt: '*'
   ghes: '*'

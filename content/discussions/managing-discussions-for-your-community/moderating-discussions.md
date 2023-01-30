@@ -17,15 +17,22 @@ versions:
 
 ## Locking discussions
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion. {% ifversion discussions-lock-allow-reactions %}You can also allow emoji reactions to a locked discussion.{% endif %}
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. In the list of discussions, click the discussion you want to lock.
-  ![Lock discussion](/assets/images/help/discussions/unanswered-discussion.png)
+
+   ![Screenshot of the discussion to be locked](/assets/images/help/discussions/unanswered-discussion.png)
+
 1. In the right margin of a discussion, click **Lock conversation**.
-1. Read the information about locking conversations and click **Lock conversation on this discussion**.
-1. When you're ready to unlock the conversation, click **Unlock conversation**, then click **Unlock conversation on this discussion**.
+1. Read the information about locking conversations.{% ifversion discussions-lock-allow-reactions %}
+1. Optionally, to allow emoji reactions while the discussion is locked, select **Allow reactions**.
+
+   ![Screenshot of the lock discussion modal with the allow reactions option emphasized](/assets/images/help/discussions/allow-reactions-locked-discussion.png){% endif %}
+
+1. To lock the conversation, click **Lock conversation**.
+1. When you're ready to unlock the conversation, click **Unlock conversation** in the right margin of a discussion, then click **Unlock conversation**.
 
 ## Converting an issue to a discussion
 

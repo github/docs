@@ -1,7 +1,7 @@
 ---
 title: Best practices for organizations
 shortTitle: Best practices
-intro: Learn {% data variables.product.prodname_dotcom %}-recommended practices for your organization.
+intro: 'Learn {% data variables.product.prodname_dotcom %}-recommended practices for your organization.'
 versions:
   fpt: '*'
   ghes: '*'
