@@ -68,7 +68,7 @@ Additionally, {% data variables.product.prodname_actions %} and the GraphQL API 
 
 - For more information about the built-in workflows, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% ifversion projects-v2-auto-archive %}
 - For more information about automatically archiving items, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}{% ifversion projects-v2-auto-add %}
-- For more information about automatically archiving items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}
+- For more information about automatically adding items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}
 - For an example workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 - For more information about the API, see "[Using the API to manage {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 - For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."
