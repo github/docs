@@ -39,6 +39,9 @@ You can set a spending limit for {% data variables.product.prodname_github_codes
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
+
+   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-user.png)
+
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your organization account
@@ -54,6 +57,9 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
+
+   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-org.png)
+
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
@@ -69,6 +75,9 @@ Enterprise owners and billing managers can manage the spending limit for {% data
    ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
+
+   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-enterprise.png)
+
 {% data reusables.dotcom_billing.update-spending-limit %}
 {% endif %}
 
