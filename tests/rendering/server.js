@@ -514,7 +514,7 @@ describe('server', () => {
       )
       expect(
         $(
-          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+          'a[href="/en/site-policy/github-terms/github-terms-for-additional-products-and-features#connect"]'
         ).length
       ).toBe(1)
     })
