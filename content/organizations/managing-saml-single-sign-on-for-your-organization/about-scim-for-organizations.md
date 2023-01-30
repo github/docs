@@ -30,6 +30,7 @@ These identity providers (IdPs) are compatible with the {% data variables.produc
 - Azure AD
 - Okta
 - OneLogin
+- JumpCloud
 
 ## About SCIM configuration for organizations
 
