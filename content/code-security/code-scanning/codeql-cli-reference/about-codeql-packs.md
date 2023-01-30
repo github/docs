@@ -181,9 +181,11 @@ The following properties are supported in `qlpack.yml` files.
 #### `dbscheme`
 - Required by core language packs only.
 - Defines the path to the [database schema](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database-schema) for all libraries and queries written for this {% data variables.product.prodname_codeql %} language (see example below). For example:
-  ```yaml
+
+```yaml
   dbscheme: semmlecode.python.dbscheme
-  ```
+```
+
 #### `upgrades`
 - Required by core language packs only.
 - Defines the path to a directory within the pack that contains database upgrade scripts, defined relative to the pack directory. Database upgrades are used internally to ensure that a database created with a different version of the {% data variables.product.prodname_codeql_cli %} is compatible with the current version of the CLI. For example:
