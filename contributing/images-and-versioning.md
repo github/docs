@@ -40,7 +40,7 @@ To be inclusive of all users, screenshots must:
 
 - **Be accompanied by complete instructions** on the webpage, with no information conveyed entirely in visual form.
 - **Be full contrast** as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-- **Have alt text** that describes the meaning of the image and the appearance of its highlighting, if any. [See alt text guidelines in our style guide.](../assets/contributing/content-style-guide.md#alt-text)
+- **Have alt text** that describes the meaning of the image and the appearance of its highlighting, if any. [See alt text guidelines in our style guide.](./content-style-guide.md#alt-text)
 - **Be clear and crisp**, with text and UI elements as legible as possible.
 
 ### Visual style
@@ -52,17 +52,17 @@ To be inclusive of all users, screenshots must:
   - For VSCode, select "GitHub Light Default" in the free [GitHub Theme extension](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
 - Replace your username and avatar, if they appear, with **[Octocat's](https://github.com/octocat) username and avatar**. You can do this using the developer tools in your browser to edit the rendered page.
 
- ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is highlighted with an orange outline.](../images/issue-comment-close-button.png)
+ ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is highlighted with an orange outline.](./images/issue-comment-close-button.png)
 
 ## Adding highlighting in Snagit
 
 Use [Snagit](https://www.techsmith.com/screen-capture.html) to apply a contrasting stroke around the UI element being discussed.
 
-![Screenshot of four options menus on a GitHub repository. The menu labeled "Fork" shows a fork count of 58.5k and is highlighted with an orange outline.](../images/repository-fork-button.png)
+![Screenshot of four options menus on a GitHub repository. The menu labeled "Fork" shows a fork count of 58.5k and is highlighted with an orange outline.](./images/repository-fork-button.png)
 
 ### Importing the GitHub Docs theme into Snagit
 
-1. Download [`snagit-theme-github-docs.snagtheme`](../images/snagit-theme-github-docs.snagtheme) to your computer.
+1. Download [`snagit-theme-github-docs.snagtheme`](./images/snagit-theme-github-docs.snagtheme) to your computer.
 2. Open Snagit and select the Shape tool.
 3. Under "Quick Styles," select "Import...".
 4. Select the Snagit theme from your computer's files. This will install the shape preset.
