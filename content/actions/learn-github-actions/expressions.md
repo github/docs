@@ -29,7 +29,7 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+### Example expression in an `if` conditional
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+### Example setting an environment variable
 
 {% raw %}
 ```yaml
@@ -57,7 +57,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
-#### Example
+### Example
 
 {% raw %}
 
@@ -406,4 +406,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Since objects don't preserve order, the order of the output cannot be guaranteed.

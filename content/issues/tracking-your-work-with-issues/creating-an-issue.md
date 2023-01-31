@@ -169,7 +169,7 @@ Query parameter | Example
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
 {% ifversion fpt or ghec %}
-To use query parameters to fill text fields by `id`, you can use issue forms. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}

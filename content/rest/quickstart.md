@@ -26,6 +26,14 @@ This article describes how to quickly get started with the {% data variables.pro
 
 {% data variables.product.prodname_cli %} is the easiest way to use the {% data variables.product.prodname_dotcom %} REST API from the command line.
 
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** The following example is intended for {% data variables.product.prodname_dotcom_the_website %}. If you'd prefer to try the example using {% data variables.product.product_name %}, you must replace `octocat/Spoon-Knife` with a repository on {% ifversion ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. Alternatively, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% ifversion ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+
+{% endnote %}
+{% endif %}
+
 1. Install {% data variables.product.prodname_cli %} if you haven't installed it yet. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
 1. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
 
@@ -44,6 +52,14 @@ This article describes how to quickly get started with the {% data variables.pro
 You can also use {% data variables.product.prodname_cli %} in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Using GitHub CLI in workflows](/actions/using-workflows/using-github-cli-in-workflows)."
 
 Instead of using the `gh auth login` command, pass an access token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** The following example workflows are intended for {% data variables.product.prodname_dotcom_the_website %}. If you'd prefer to try the examples using {% data variables.product.product_name %}, you must replace `octocat/Spoon-Knife` with a repository on {% data variables.product.product_name %}.
+
+{% endnote %}
+{% endif %}
 
 ```yaml
 on:
@@ -66,28 +82,28 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
-```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-
-on:
-  workflow_dispatch:
-jobs:
-  track_pr:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
-        with:
-          app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
-          private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
-      - name: Use API
-        env:
-          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
-        run: |
-          gh api repos/octocat/Spoon-Knife/issues
-```
+   ```yaml
+  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   
+   on:
+     workflow_dispatch:
+   jobs:
+     track_pr:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Generate token
+           id: generate_token
+           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           with:
+             app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
+             private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+   
+         - name: Use API
+           env:
+             GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+           run: |
+             gh api repos/octocat/Spoon-Knife/issues
+   ```
 
 {% endcli %}
 
@@ -98,6 +114,8 @@ jobs:
 You can use Octokit.js to interact with the {% data variables.product.prodname_dotcom %} REST API in your JavaScript scripts. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 ### Using Octokit.js
+
+{% data reusables.rest-api.quickstart-location-javascript-admonition %}
 
 1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
@@ -139,6 +157,8 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 You can also execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
 {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
+{% data reusables.rest-api.quickstart-location-javascript-admonition %}
 
 The following example workflow:
 
@@ -207,40 +227,40 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
-```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-
-on:
-  workflow_dispatch:
-jobs:
-  use_api_via_script:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo content
-        uses: {% data reusables.actions.action-checkout %}
-
-      - name: Setup Node
-        uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install octokit
-
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
-        with:
-          app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
-          private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
-      - name: Run script
-        run: |
-          node .github/actions-scripts/use-the-api.mjs
-        env:
-          TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
-```
+   ```yaml
+  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   
+   on:
+     workflow_dispatch:
+   jobs:
+     use_api_via_script:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Check out repo content
+           uses: {% data reusables.actions.action-checkout %}
+   
+         - name: Setup Node
+           uses: {% data reusables.actions.action-setup-node %}
+           with:
+             node-version: '16.17.0'
+             cache: npm
+   
+         - name: Install dependencies
+           run: npm install octokit
+   
+         - name: Generate token
+           id: generate_token
+           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           with:
+             app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
+             private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+   
+         - name: Run script
+           run: |
+             node .github/actions-scripts/use-the-api.mjs
+           env:
+             TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+   ```
 
 {% endjavascript %}
 
@@ -252,7 +272,10 @@ jobs:
 
 {% note %}
 
-**Note:** If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
+**Notes:**
+
+- The following example is intended for {% data variables.product.prodname_dotcom_the_website %}. If you'd prefer to try the example using {% data variables.product.product_name %}, you must replace `https://api.github.com` with `{% data variables.product.api_url_code %}`, and replace `HOSTNAME` with the hostname for {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. You must also replace `octocat/Spoon-Knife` with a repository on {% data variables.product.product_name %}.
+- If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
 
 {% endnote %}
 
@@ -294,6 +317,17 @@ You can also use `curl` commands in your {% data variables.product.prodname_acti
 
 {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** The following example workflows are intended for {% data variables.product.prodname_dotcom_the_website %}. If you'd prefer to try the examples using {% data variables.product.product_name %}, note the following differences.
+
+- You must replace `https://api.github.com` with `{% data variables.product.api_url_code %}`, and replace `HOSTNAME` with the hostname for {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+- You must replace `octocat/Spoon-Knife` with a repository on {% data variables.product.product_name %}.
+
+{% endnote %}
+{% endif %}
+
 ```yaml
 on:
   workflow_dispatch:
@@ -318,31 +352,31 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
-```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-
-on:
-  workflow_dispatch:
-jobs:
-  use_api:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
-        with:
-          app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
-          private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
-      - name: Use API
-        env:
-          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
-        run: |
-          curl --request GET \
-          --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github+json" \
-          --header "Authorization: Bearer $GH_TOKEN"
-```
+   ```yaml
+  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   
+   on:
+     workflow_dispatch:
+   jobs:
+     use_api:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Generate token
+           id: generate_token
+           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           with:
+             app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
+             private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+   
+         - name: Use API
+           env:
+             GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+           run: |
+             curl --request GET \
+             --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
+             --header "Accept: application/vnd.github+json" \
+             --header "Authorization: Bearer $GH_TOKEN"
+   ```
 
 {% endcurl %}
 
