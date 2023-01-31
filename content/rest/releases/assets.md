@@ -1,6 +1,6 @@
 ---
 title: Release Assets
-intro: 'Use the REST API to manage release assets.'
+intro: Use the REST API to manage release assets.
 versions:
   fpt: '*'
   ghes: '*'

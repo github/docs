@@ -2,7 +2,7 @@
 title: Codespaces user secrets
 allowTitleToDifferFromFilename: true
 shortTitle: User secrets
-intro: 'Use the REST API manage secrets that the user has access to in a codespace.'
+intro: Use the REST API manage secrets that the user has access to in a codespace.
 versions:
   fpt: '*'
   ghec: '*'

@@ -4,6 +4,222 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>RemoveEnterpriseMemberInput</code> was added</p>",
+          "<p>Type <code>RemoveEnterpriseMemberPayload</code> was added</p>",
+          "<p>Field <code>removeEnterpriseMember</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>RevertPullRequestInput</code> was added</p>",
+          "<p>Type <code>RevertPullRequestPayload</code> was added</p>",
+          "<p>Field <code>revertPullRequest</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>MergeQueue.headOid</code>:<code>headOid</code> will be removed. Use <code>entry.headOid</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.mergeMethod</code>:<code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.mergingEntries</code>:<code>mergingEntries</code> will be removed. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.pendingRemovalEntries</code>:<code>pendingRemovalEntries</code> will be removed. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.blockedByMergeConflicts</code>:<code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.checkStatus</code>:<code>checkStatus</code> will be removed. Use <code>state</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.hasJumpedQueue</code>:<code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.isSolo</code>:<code>isSolo</code> will be removed. Use <code>solo</code> instead. <strong>Effective 2023-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-01-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>OrganizationsHovercardContext.relevantOrganizations</code></p>",
+          "<p>Argument <code>orderBy: OrganizationOrder</code> added to field <code>User.organizations</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddProjectDraftIssueInput</code> was removed</p>",
+          "<p>Type <code>AddProjectDraftIssuePayload</code> was removed</p>",
+          "<p>Type <code>AddProjectNextItemInput</code> was removed</p>",
+          "<p>Type <code>AddProjectNextItemPayload</code> was removed</p>",
+          "<p>Type <code>DeleteProjectNextItemInput</code> was removed</p>",
+          "<p>Type <code>DeleteProjectNextItemPayload</code> was removed</p>",
+          "<p>Type <code>ProjectItemType</code> was removed</p>",
+          "<p>Type <code>ProjectNext</code> was removed</p>",
+          "<p>Type <code>ProjectNextConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextField</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldCommon</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfiguration</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextFieldType</code> was removed</p>",
+          "<p>Type <code>ProjectNextItem</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemContent</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValue</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValueConnection</code> was removed</p>",
+          "<p>Type <code>ProjectNextItemFieldValueEdge</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationField</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationFieldConfiguration</code> was removed</p>",
+          "<p>Type <code>ProjectNextIterationFieldIteration</code> was removed</p>",
+          "<p>Type <code>ProjectNextOrderField</code> was removed</p>",
+          "<p>Type <code>ProjectNextOwner</code> was removed</p>",
+          "<p>Type <code>ProjectNextSingleSelectField</code> was removed</p>",
+          "<p>Type <code>ProjectNextSingleSelectFieldOption</code> was removed</p>",
+          "<p>Type <code>ProjectView</code> was removed</p>",
+          "<p>Type <code>ProjectViewConnection</code> was removed</p>",
+          "<p>Type <code>ProjectViewEdge</code> was removed</p>",
+          "<p>Type <code>ProjectViewLayout</code> was removed</p>",
+          "<p>Type <code>SortBy</code> was removed</p>",
+          "<p>Type <code>UpdateProjectDraftIssueInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectDraftIssuePayload</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextItemFieldInput</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextItemFieldPayload</code> was removed</p>",
+          "<p>Type <code>UpdateProjectNextPayload</code> was removed</p>",
+          "<p>Field <code>project</code> was removed from object type <code>DraftIssue</code></p>",
+          "<p>Field <code>projectItem</code> was removed from object type <code>DraftIssue</code></p>",
+          "<p><code>Issue</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>projectNextItems</code> was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Issue</code></p>",
+          "<p>Field <code>addProjectDraftIssue</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>addProjectNextItem</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteProjectNextItem</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectDraftIssue</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectNext</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateProjectNextItemField</code> (deprecated) was removed from object type <code>Mutation</code></p>",
+          "<p><code>Organization</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Organization</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Organization</code></p>",
+          "<p><code>PullRequest</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectNextItems</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>PullRequest</code></p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>Repository</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>Repository</code></p>",
+          "<p><code>User</code> object type no longer implements <code>ProjectNextOwner</code> interface</p>",
+          "<p>Field <code>projectNext</code> (deprecated) was removed from object type <code>User</code></p>",
+          "<p>Field <code>projectsNext</code> (deprecated) was removed from object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>includeUnpublished: Boolean</code> added to field <code>SponsorsListing.tiers</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>OrganizationMigration</code> was added</p>",
+          "<p>Type <code>OrganizationMigrationState</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationConnection</code> was added</p>",
+          "<p>Type <code>ProjectNextFieldConfigurationEdge</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationField</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldConfiguration</code> was added</p>",
+          "<p>Type <code>ProjectNextIterationFieldIteration</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectField</code> was added</p>",
+          "<p>Type <code>ProjectNextSingleSelectFieldOption</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>PublishSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierInput</code> was added</p>",
+          "<p>Type <code>RetireSponsorsTierPayload</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationInput</code> was added</p>",
+          "<p>Type <code>StartOrganizationMigrationPayload</code> was added</p>",
+          "<p>Type <code>StripeConnectAccount</code> was added</p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>AddReactionPayload</code></p>",
+          "<p>Input field <code>headRepositoryId</code> was added to input object type <code>CreatePullRequestInput</code></p>",
+          "<p>Field <code>publishSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>retireSponsorsTier</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>startOrganizationMigration</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Organization.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>fieldConstraints</code> was added to object type <code>ProjectNext</code></p>",
+          "<p>Field <code>projectFieldConstraint</code> was added to object type <code>ProjectNextItemFieldValue</code></p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>RemoveReactionPayload</code></p>",
+          "<p>Field <code>hasVulnerabilityAlertsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to interface <code>Sponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>Sponsorable.sponsorshipsAsSponsor</code></p>",
+          "<p>Field <code>activeStripeConnectAccount</code> was added to object type <code>SponsorsListing</code></p>",
+          "<p>Field <code>isActive</code> was added to object type <code>Sponsorship</code></p>",
+          "<p>Field <code>author</code> was added to object type <code>SponsorshipNewsletter</code></p>",
+          "<p>Input field <code>fieldConstraintId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Input field <code>fieldWithSettingId</code> was added to input object type <code>UpdateProjectNextItemFieldInput</code></p>",
+          "<p>Field <code>totalSponsorshipAmountAsSponsorInCents</code> was added to object type <code>User</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsor</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipForViewerAsSponsorable</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsMaintainer</code></p>",
+          "<p>Argument <code>activeOnly: Boolean</code> added to field <code>User.sponsorshipsAsSponsor</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PackageType.RUBYGEMS</code>:<code>RUBYGEMS</code> will be removed. <strong>Effective 2022-12-28</strong>.</p>",
+          "<p>On member <code>PackageType.MAVEN</code>:<code>MAVEN</code> will be removed. <strong>Effective 2023-02-10</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-01-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>Claimable</code> was added</p>",
           "<p>Type <code>CreateAttributionInvitationInput</code> was added</p>",
           "<p>Type <code>CreateAttributionInvitationPayload</code> was added</p>",

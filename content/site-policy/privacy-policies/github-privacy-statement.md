@@ -270,7 +270,7 @@ GitHub will provide notice regarding private repository access where not prohibi
 ### Cross-border data transfers
 GitHub may store and process your personal data in your region, in the United States, and in any other country where GitHub or its affiliates, subsidiaries, or service providers operate facilities. 
 
-We transfer personal data from the European Union, the United Kingdom, and Switzerland to other countries, some of which have not yet been determined by the European Commission to have an adequate level of data protection. For example, their laws may not guarantee you the same rights, or there may not be a privacy supervisory authority there that is capable of addressing your complaints. When we engage in such transfers, we use a variety of legal mechanisms, including contracts, such as the standard contractual clauses published by the European Commission under Commission Implementing Decision 2021/914, to help protect your rights and enable these protections to travel with your data. To learn more about the European Commission’s decisions on the adequacy of the protection of personal data in the countries where Microsoft processes personal data, see this article on [the European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/data-transfers-outside-eu/adequacy-protection-personal-data-non-eu-countries_en). You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below.
+We transfer personal data from the European Union, the United Kingdom, and Switzerland to other countries, some of which have not yet been determined by the European Commission to have an adequate level of data protection. For example, their laws may not guarantee you the same rights, or there may not be a privacy supervisory authority there that is capable of addressing your complaints. When we engage in such transfers, we use a variety of legal mechanisms, including contracts, such as the standard contractual clauses published by the European Commission under Commission Implementing Decision 2021/914, to help protect your rights and enable these protections to travel with your data. You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below.
 
 ### How to Contact Us
 If you have a privacy inquiry or concerns about the way GitHub is handling your personal data, please let us know immediately. We want to help. You may contact us by filling out the [Privacy contact form](https://support.github.com/contact/privacy). We will respond promptly.
@@ -286,7 +286,7 @@ United States
 
 [Privacy contact form](https://support.github.com/contact/privacy)
 
-**Github Data Protection Officer**
+**GitHub Data Protection Officer**
 
 c/o DP Dock DPO Services GmbH, <br/>
 Attn: GitHub BV, Gut Projensdorf, <br/>
@@ -348,7 +348,7 @@ If you are a U.S. resident, we process your personal data in accordance with app
 
 Please see [Your choices regarding our processing of your personal data](#your-choices-regarding-our-processing-of-your-personal-data) section of the GitHub Privacy Statement for additional information on how to exercise these rights. You can use GitHub’s User Migration API to access and download your data. Learn more [here](/get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data).
 
-If you have a Github account, you must exercise your rights through the tools provided, which requires you to log in to your GitHub account. If you have an additional request or questions after logging in, you may contact GitHub at the address in the [How to contact us](#how-to-contact-us) section, including through our web form.
+If you have a GitHub account, you must exercise your rights through the tools provided, which requires you to log in to your GitHub account. If you have an additional request or questions after logging in, you may contact GitHub at the address in the [How to contact us](#how-to-contact-us) section, including through our web form.
 
 If you do not have an account, you may exercise your rights by contacting us as described above. We may ask for additional information to validate your request before honoring the request. To submit a request based on these rights, you can also contact us via our [contact form](https://support.github.com/request?tags=docs-policy).
 

@@ -17,7 +17,9 @@ children:
   - /cache
   - /oidc
   - /permissions
+  - /required-workflows
   - /secrets
+  - /variables
   - /self-hosted-runner-groups
   - /self-hosted-runners
   - /workflow-jobs

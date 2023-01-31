@@ -1,6 +1,6 @@
 ---
 title: Followers
-intro: ''
+intro: Use the REST API to get information about followers of authenticated users.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Followers API
+## About follower administration
 
 {% data reusables.user-settings.user-api %}

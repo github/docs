@@ -81,7 +81,7 @@ export default async function renderPage(req, res) {
   if (isConnectionDropped(req, res)) return
 
   // Create string for <title> tag
-  page.fullTitle = page.titlePlainText
+  page.fullTitle = page.title
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(path)) {

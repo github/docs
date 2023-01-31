@@ -194,7 +194,7 @@ The list of {% data variables.product.prodname_actions %} IP addresses returned 
 | `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
 | `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
-For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
+For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)."
 
 ### Docker container filesystem
 

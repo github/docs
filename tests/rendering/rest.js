@@ -1,13 +1,49 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
+import { readdirSync, readFileSync } from 'fs'
+import { join } from 'path'
 
-import { getDOM } from '../helpers/e2etest.js'
+import { get, getDOM } from '../helpers/e2etest.js'
 import getRest, { getEnabledForApps, categoriesWithoutSubcategories } from '../../lib/rest/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../script/rest/test-open-api-schema.js'
 
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
+
+  test('all category and subcategory REST pages render for free-pro-team', async () => {
+    const DECORATED_DIR = 'lib/rest/static/decorated'
+    // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
+    // get a list of all categories across all versions.
+    const freeProTeamFile = readdirSync(DECORATED_DIR)
+      .filter((file) => file.startsWith('api.github.com'))
+      .shift()
+    const freeProTeamSchema = JSON.parse(readFileSync(join(DECORATED_DIR, freeProTeamFile), 'utf8'))
+    // One off edge case for secret-scanning Docs-content issue 6637
+    if ('secret-scanning' in freeProTeamSchema) delete freeProTeamSchema['secret-scanning']
+    const restCategories = Object.entries(freeProTeamSchema)
+      .map(([key, subCategory]) => {
+        const subCategoryKeys = Object.keys(subCategory)
+        if (subCategoryKeys.length === 1) {
+          return key
+        } else {
+          return subCategoryKeys.map((elem) => `${key}/${elem}`)
+        }
+      })
+      .flat()
+
+    const statusCodes = await Promise.all(
+      restCategories.map(async (page) => {
+        const url = `/en/rest/${page}`
+        const res = await get(url)
+        return [url, res.statusCode]
+      })
+    )
+    for (const [url, status] of statusCodes) {
+      expect(status, url).toBe(200)
+    }
+    expect.assertions(restCategories.length)
+  })
 
   // Checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
@@ -59,6 +95,15 @@ describe('REST references docs', () => {
         .get()
       expect(schemaSlugs.every((slug) => domH3Ids.includes(slug))).toBe(true)
     }
+  })
+
+  test('404 if unrecognized apiVersion', async () => {
+    const res = await get(
+      `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
+        apiVersion: 'junk',
+      })}`
+    )
+    expect(res.statusCode).toBe(404)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {

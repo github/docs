@@ -16,7 +16,7 @@ redirect_from:
 
 ## Overview of codespace security
 
-{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace. 
+{% data variables.product.prodname_github_codespaces %} is designed to be security hardened by default. Consequently, you will need to ensure that your software development practices do not risk reducing the security posture of your codespace.
 
 This guide describes the way {% data variables.product.prodname_github_codespaces %} keeps your development environment secure and provides some of the good practices that will help maintain your security as you work. As with any development tool, remember that you should only open and work within repositories you know and trust.
 
@@ -26,7 +26,7 @@ This guide describes the way {% data variables.product.prodname_github_codespace
 
 #### Isolated virtual machines
 
-Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM. 
+Each codespace is hosted on its own newly-built virtual machine (VM). Two codespaces are never co-located on the same VM.
 
 Every time you restart a codespace, it's deployed to a new VM with the latest available security updates.
 
@@ -36,7 +36,7 @@ Each codespace has its own isolated virtual network. We use firewalls to block i
 
 ### Authentication
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}. 
+You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
 
 Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
 
@@ -54,7 +54,7 @@ If you need to allow external access to services running on a codespace, you can
 
 ### Port forwarding
 
-If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
+If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet.
 
 Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 
@@ -72,12 +72,12 @@ You can use the "Ports" panel to configure a port for public or private access, 
 
 ## Good security practices for your codespaces
 
-Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures: 
+Codespaces are designed to be security hardened by default. To help maintain this posture, we recommend that you follow good security practices during your development procedures:
 
 - As with any development tool, remember that you should only open and work within repositories you know and trust.
 - Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
 
-### Using secrets to access sensitive information 
+### Using secrets to access sensitive information
 
 Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
 
@@ -99,18 +99,22 @@ We also further protect you in these scenarios by not injecting any of your [cod
 
 ### Additional good practices
 
-There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}. 
+There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}.
 
 #### Understanding a repository's devcontainer.json file
 
 When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 #### Granting access through features
 
-Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible. 
+Certain development features can potentially add risk to your environment. For example, commit signing, secrets injected into environment variables, authenticated registry access, and packages access can all present potential security issues. We recommend that you only grant access to those who need it and adopt a policy of being as restrictive as possible.
 
 #### Using extensions
 
 Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+
+#### Using Settings Sync
+
+{% data variables.product.prodname_vscode_shortname %}'s Settings Sync can allow potentially malicious content to transfer across devices. If you're creating a codespace for a repository whose contents you do not trust, you should open the codespace in the browser and leave Settings Sync disabled.

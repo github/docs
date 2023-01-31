@@ -2,24 +2,6 @@
   "api.github.com.2022-11-28": {
     "actions": [
       {
-        "slug": "get-github-actions-cache-usage-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-      },
-      {
-        "slug": "get-default-workflow-permissions-for-an-enterprise",
-        "subcategory": "permissions",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-      },
-      {
-        "slug": "set-default-workflow-permissions-for-an-enterprise",
-        "subcategory": "permissions",
-        "verb": "put",
-        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-      },
-      {
         "slug": "get-github-actions-cache-usage-for-an-organization",
         "subcategory": "cache",
         "verb": "get",
@@ -104,76 +86,58 @@
         "requestPath": "/orgs/{org}/actions/permissions/workflow"
       },
       {
-        "slug": "list-self-hosted-runner-groups-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "list-required-workflows",
+        "subcategory": "required-workflows",
         "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
+        "requestPath": "/orgs/{org}/actions/required_workflows"
       },
       {
-        "slug": "create-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "create-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "post",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
+        "requestPath": "/orgs/{org}/actions/required_workflows"
       },
       {
-        "slug": "get-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "get-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
       },
       {
-        "slug": "update-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "update-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
       },
       {
-        "slug": "delete-a-self-hosted-runner-group-from-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "delete-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
       },
       {
-        "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "list-selected-repositories-for-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
       },
       {
-        "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "sets-repositories-for-a-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
       },
       {
-        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
+        "slug": "add-a-repository-to-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
+      },
+      {
+        "slug": "remove-a-selected-repository-from-required-workflow",
+        "subcategory": "required-workflows",
         "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
-      },
-      {
-        "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
-      },
-      {
-        "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
       },
       {
         "slug": "list-self-hosted-runners-for-an-organization",
@@ -294,6 +258,72 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-organization-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables"
+      },
+      {
+        "slug": "create-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/variables"
+      },
+      {
+        "slug": "get-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "update-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "delete-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "list-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
+      },
+      {
+        "slug": "set-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
+      },
+      {
+        "slug": "add-selected-repository-to-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-repository-required-workflows",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
+      },
+      {
+        "slug": "get-a-required-workflow-entity-for-a-repository",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
       },
       {
         "slug": "list-artifacts-for-a-repository",
@@ -420,6 +450,12 @@
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+      },
+      {
+        "slug": "list-workflow-runs-for-a-required-workflow",
+        "subcategory": "workflow-runs",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
       },
       {
         "slug": "list-self-hosted-runners-for-a-repository",
@@ -608,6 +644,36 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}"
       },
       {
+        "slug": "list-repository-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables"
+      },
+      {
+        "slug": "create-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables"
+      },
+      {
+        "slug": "get-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
+        "slug": "update-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
+        "slug": "delete-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
         "slug": "list-repository-workflows",
         "subcategory": "workflows",
         "verb": "get",
@@ -672,6 +738,36 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      },
+      {
+        "slug": "list-environment-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      },
+      {
+        "slug": "create-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      },
+      {
+        "slug": "get-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      },
+      {
+        "slug": "update-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      },
+      {
+        "slug": "delete-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
       }
     ],
     "activity": [
@@ -798,14 +894,7 @@
         "requestPath": "/installation/token"
       }
     ],
-    "billing": [
-      {
-        "slug": "get-github-advanced-security-active-committers-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/advanced-security"
-      }
-    ],
+    "billing": [],
     "branches": [
       {
         "slug": "list-branches",
@@ -1628,7 +1717,6 @@
         "requestPath": "/emojis"
       }
     ],
-    "enterprise-admin": [],
     "gists": [],
     "git": [
       {
@@ -1846,6 +1934,12 @@
         "subcategory": "assignees",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
+      },
+      {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
       },
       {
         "slug": "list-issue-comments",
@@ -2166,12 +2260,6 @@
         "requestPath": "/organizations"
       },
       {
-        "slug": "list-custom-repository-roles-in-an-organization",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/organizations/{organization_id}/custom_roles"
-      },
-      {
         "slug": "get-an-organization",
         "subcategory": "orgs",
         "verb": "get",
@@ -2208,40 +2296,10 @@
         "requestPath": "/orgs/{org}/blocks/{username}"
       },
       {
-        "slug": "create-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/custom_roles"
-      },
-      {
-        "slug": "get-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
-        "slug": "update-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
-        "slug": "delete-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
         "slug": "list-failed-organization-invitations",
         "subcategory": "members",
         "verb": "get",
         "requestPath": "/orgs/{org}/failed_invitations"
-      },
-      {
-        "slug": "list-fine-grained-permissions-for-an-organization",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/fine_grained_permissions"
       },
       {
         "slug": "list-organization-webhooks",
@@ -2445,9 +2503,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -3875,7 +3945,7 @@
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-an-organization",
+        "slug": "set-allowed-actions-for-an-organization",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
@@ -3891,6 +3961,60 @@
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/workflow"
+      },
+      {
+        "slug": "list-required-workflows",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/required_workflows"
+      },
+      {
+        "slug": "create-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/required_workflows"
+      },
+      {
+        "slug": "get-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
+      },
+      {
+        "slug": "update-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
+      },
+      {
+        "slug": "delete-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
+      },
+      {
+        "slug": "list-selected-repositories-for-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
+      },
+      {
+        "slug": "sets-repositories-for-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
+      },
+      {
+        "slug": "add-a-repository-to-a-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
+      },
+      {
+        "slug": "remove-a-selected-repository-from-required-workflow",
+        "subcategory": "required-workflows",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
       },
       {
         "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -4091,6 +4215,72 @@
         "requestPath": "/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}"
       },
       {
+        "slug": "list-organization-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables"
+      },
+      {
+        "slug": "create-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/variables"
+      },
+      {
+        "slug": "get-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "update-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "delete-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}"
+      },
+      {
+        "slug": "list-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
+      },
+      {
+        "slug": "set-selected-repositories-for-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories"
+      },
+      {
+        "slug": "add-selected-repository-to-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+      },
+      {
+        "slug": "list-repository-required-workflows",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
+      },
+      {
+        "slug": "get-a-required-workflow-entity-for-a-repository",
+        "subcategory": "required-workflows",
+        "verb": "get",
+        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
+      },
+      {
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -4199,7 +4389,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-a-repository",
+        "slug": "set-allowed-actions-for-a-repository",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
@@ -4215,6 +4405,12 @@
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+      },
+      {
+        "slug": "list-workflow-runs-for-a-required-workflow",
+        "subcategory": "workflow-runs",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
       },
       {
         "slug": "list-self-hosted-runners-for-a-repository",
@@ -4403,6 +4599,36 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}"
       },
       {
+        "slug": "list-repository-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables"
+      },
+      {
+        "slug": "create-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables"
+      },
+      {
+        "slug": "get-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
+        "slug": "update-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
+        "slug": "delete-a-repository-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}"
+      },
+      {
         "slug": "list-repository-workflows",
         "subcategory": "workflows",
         "verb": "get",
@@ -4467,6 +4693,36 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      },
+      {
+        "slug": "list-environment-variables",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      },
+      {
+        "slug": "create-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "post",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      },
+      {
+        "slug": "get-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "get",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      },
+      {
+        "slug": "update-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "patch",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      },
+      {
+        "slug": "delete-an-environment-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
       }
     ],
     "activity": [
@@ -5663,6 +5919,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -6071,7 +6333,7 @@
         "requestPath": "/orgs/{org}/failed_invitations"
       },
       {
-        "slug": "list-fine-grained-permissions-for-an-organization",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/fine_grained_permissions"
@@ -6278,9 +6540,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-cloud-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-cloud-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-cloud-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -9151,6 +9425,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -9554,9 +9834,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -12441,6 +12733,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -12851,9 +13149,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -15852,6 +16162,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -16262,9 +16578,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -19378,6 +19706,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -19788,9 +20122,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -22971,6 +23317,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -23405,9 +23757,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -26041,6 +26405,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -26432,9 +26802,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-ae-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-ae-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-ae-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {

@@ -45,6 +45,12 @@ On {% data variables.product.prodname_dotcom %}, you can also restore an entire 
 
 You can use the REST API to manage your packages. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
 
+{% data reusables.package_registry.delete-with-github-token-using-api-beta %}
+
+{% ifversion packages-delete-with-github-token-api %}
+With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+{% endif %}
+
 {% endif %}
 
 {% data reusables.package_registry.about-graphql-support %}
@@ -203,7 +209,7 @@ Once the package is restored, the package will use the same namespace it did bef
 
 ### Restoring a package in an organization
 
- You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organizaton{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
+ You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 

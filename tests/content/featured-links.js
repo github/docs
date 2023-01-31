@@ -34,7 +34,7 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks.length > 0).toBeTruthy()
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/learning-about-github/githubs-products`
       )
       expect($featuredLinks.eq(0).children('h3').text().startsWith('GitHub’s products')).toBe(true)
       expect(
