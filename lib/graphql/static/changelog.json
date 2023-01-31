@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>RemoveEnterpriseMemberInput</code> was added</p>",
+          "<p>Type <code>RemoveEnterpriseMemberPayload</code> was added</p>",
+          "<p>Field <code>removeEnterpriseMember</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>RevertPullRequestInput</code> was added</p>",
           "<p>Type <code>RevertPullRequestPayload</code> was added</p>",
           "<p>Field <code>revertPullRequest</code> was added to object type <code>Mutation</code></p>"
