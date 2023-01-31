@@ -587,13 +587,7 @@ Where table data is not truly binary (every value is either "Yes" or "No", for e
 ### Use footnotes sparingly
 Avoid using footnotes where possible. Consider instead whether you could place a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) before or after the table, or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
 
-If you must use footnotes:
-
-* Use numbers. Do not use typographical symbols or special characters.
-* Link the footnote number to the explanation. The explanation should receive focus (with a focus indicator) when clicking on the footnote number.
-* Ideally, include a back link in the footnote explanation so users can return to the original context - this may be difficult if the footnote is used in multiple places.
-
-Markdown on GitHub does not have built-in support for linking footnotes in this way, so you would need to find another solution.
+If you must use footnotes, use numbers in square brackets [1]. Do not use typographical symbols or special characters.
 
 ## Titles
 
