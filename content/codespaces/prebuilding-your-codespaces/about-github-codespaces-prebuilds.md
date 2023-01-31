@@ -25,6 +25,12 @@ When prebuilds are available for a particular branch of a repository, a particul
 
 When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
+{% note %}
+
+**Note**: Each prebuild that's created consumes storage space that will either incur a billable charge or, for repositories owned by your personal {% data variables.product.prodname_dotcom %} account, will use some of your monthly included storage. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+
+{% endnote %}
+
 ## The prebuild process
 
 To create a prebuild you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."

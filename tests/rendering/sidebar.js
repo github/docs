@@ -128,7 +128,7 @@ describe('sidebar', () => {
 
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
-      const renderOpts = { textOnly: true, encodeEntities: true }
+      const renderOpts = { textOnly: true }
 
       for (const filename of contentFiles) {
         const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))

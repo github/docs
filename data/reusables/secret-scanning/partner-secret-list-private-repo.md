@@ -233,6 +233,10 @@ Twilio | Twilio API Key | twilio_api_key
 Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+WakaTime | WakaTime App Secret | wakatime_pp_secret
+WakaTime | WakaTime OAuth Access Token | wakatime_oauth_access_token
+WakaTime | WakaTime OAuth Refresh Token | wakatime_oauth_refresh_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}

@@ -1,6 +1,6 @@
 ---
 title: Performing a full rebuild of a container
-intro: If you are low on disk space, or want to ensure your dev container configuration will work in new codespaces, you can perform a full rebuild of a container.
+intro: 'If you are low on disk space, or want to ensure your dev container configuration will work in new codespaces, you can perform a full rebuild of a container.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,7 +27,7 @@ Occasionally, you may want to perform a full rebuild of your container. With a f
 
 You can perform a full rebuild in {% data variables.product.prodname_vscode %}.
 
-{% data reusables.codespaces.command-pallette %}
+{% data reusables.codespaces.command-palette %}
 1. Start typing "Rebuild" and select **Codespaces: Full Rebuild Container**.
 
    ![Screenshot of Full Rebuild Container command in the Command Pallette](/assets/images/help/codespaces/codespaces-rebuild-full.png)

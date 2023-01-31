@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting {% ifversion code-scanning-without-workflow %}your advanced setup for CodeQL{% else %}the CodeQL workflow{% endif %}
-shortTitle: Troubleshoot {% ifversion code-scanning-without-workflow %}advanced setup{% else %}CodeQL workflow{% endif %}
+title: 'Troubleshooting {% ifversion code-scanning-without-workflow %}your advanced setup for CodeQL{% else %}the CodeQL workflow{% endif %}'
+shortTitle: 'Troubleshoot {% ifversion code-scanning-without-workflow %}advanced setup{% else %}CodeQL workflow{% endif %}'
 intro: 'If you''re having problems with {% ifversion code-scanning-without-workflow %}advanced setup for {% data variables.product.prodname_code_scanning %}{% else %}{% data variables.product.prodname_code_scanning %} setup{% endif %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
@@ -37,7 +37,7 @@ allowTitleToDifferFromFilename: true
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-advanced-setup-for-codeql) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-advanced-setup-for-codeql) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -88,7 +88,7 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
 
 If your {% data variables.product.prodname_code_scanning %} results are different than you expected, your repository may have both default and advanced {% data variables.product.prodname_code_scanning %} setups. When you enable default setup, this blocks any {% data variables.product.prodname_codeql %} workflow files in the repository from uploading results.
 
-To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-label="The gear icon" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-label="The {% data variables.product.prodname_code_scanning %} icon" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_capc %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. If there is a {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced** option, you are currently using the default setup. To switch to the advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-label="The stop icon" %} **Disable {% data variables.product.prodname_codeql %}**. This option will only disable default setup, and your pre-existing workflow will start uploading results again. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#creating-an-advanced-setup)."
+To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-label="The gear icon" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-label="The {% data variables.product.prodname_code_scanning %} icon" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_capc %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. If there is a {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced** option, you are currently using the default setup. To switch to the advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-label="The stop icon" %} **Disable {% data variables.product.prodname_codeql %}**. This option will only disable default setup, and your pre-existing workflow will start uploading results again. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% endif %}
 
@@ -96,7 +96,7 @@ To check if default setup is enabled, navigate to the main page of the repositor
 
 If an automatic build of code for a compiled language within your project fails, try the following troubleshooting steps.
 
-- Remove the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and add specific build steps. For information about editing the workflow, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)." For more information about replacing the `autobuild` step, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+- Remove the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and add specific build steps. For information about editing the workflow, see  "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)." For more information about replacing the `autobuild` step, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
 - If your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default {% data variables.product.prodname_codeql %} analysis workflow uses such a matrix.
 
@@ -122,7 +122,7 @@ If an automatic build of code for a compiled language within your project fails,
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
-  For more information about editing the workflow, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)."
+  For more information about editing the workflow, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
 ## No code found during the build
 
@@ -242,7 +242,7 @@ If your analysis is still too slow to be run during `push` or `pull_request` eve
 
 By default, there are three main query suites available for each language. If you have optimized the {% data variables.product.prodname_codeql %} database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results.
 
-You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-queries-in-ql-packs)."
 
 {% ifversion codeql-ml-queries %}
 {% note %}
@@ -257,7 +257,7 @@ You may be running extra queries or query suites in addition to the default quer
 
 If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.code-scanning.codeql_workflow %} on Linux, macOS, or Windows.
 
-On GitHub-hosted runners that use Linux, the {% data variables.code-scanning.codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/code-security/secure-coding/configuring-code-scanning#analyzing-python-dependencies)."
+On GitHub-hosted runners that use Linux, the {% data variables.code-scanning.codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
 {% endif %}
 
@@ -316,7 +316,7 @@ You will see this error if {% data variables.product.prodname_codeql %} is unabl
 - There is a typo in the workflow.
 - A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
 
-After verifying the location of the resource, you can update the workflow to specify the correct location.
+After verifying the location of the resource, you can update the workflow to specify the correct location. {% ifversion ghes < 3.6 or ghae < 3.6 %}If you run additional queries in Go analysis, you may have been affected by the relocation of the source files. For more information, see [Relocation announcement: `github/codeql-go` moving into `github/codeql`](https://github.com/github/codeql-go/issues/741) in the github/codeql-go repository.{% endif %}
 
 ## Warning: "git checkout HEAD^2 is no longer necessary"
 
@@ -356,4 +356,4 @@ The revised `steps` section of the workflow will look like this:
       ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)."
