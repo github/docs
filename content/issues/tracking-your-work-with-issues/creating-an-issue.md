@@ -175,7 +175,7 @@ Query parameter | Example
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-To use query parameters to fill text fields by `id`, you can use issue forms. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
