@@ -35,5 +35,5 @@ topics:
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example, `{% data variables.product.graphql_url_code %}`. |
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example, `https://{% data variables.product.product_url %}`. |
-| `GITHUB_TOKEN` | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see "[Authentication](/codespaces/codespaces-reference/security-in-codespaces#authentication)."  |
+| `GITHUB_TOKEN` | A signed auth token representing the user in the codespace. You can use this to make authenticated calls to the GitHub API. For more information, see "[Authentication](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."  |
 | `GITHUB_USER` | The name of the user that initiated the codespace. For example, `octocat`. |

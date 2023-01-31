@@ -29,7 +29,7 @@ You must also ensure that your organization does not have an IP address allow li
 
 To allow people to create codespaces for which your organization will be billed, you must:
 
-- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)
 - [Choose who can create codespaces that are billed to your organization](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
 
 {% ifversion fpt %}
@@ -58,7 +58,7 @@ By default, a codespace can only access the repository from which it was created
 
    {% note %}
 
-   **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. For more information on managing outside collaborators, see "[About outside collaborators](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
+   **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. For more information on managing outside collaborators, see "[About outside collaborators](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
 
    {% endnote %}
 
@@ -82,4 +82,4 @@ You can prevent the creation and use of codespaces billable to your organization
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %} 
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
