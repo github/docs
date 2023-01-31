@@ -1,3 +1,7 @@
+Name :Build and Deploy :
+title :'Run'' 
+'-'' #'Test'@'.'Travis::
+:ci :
 BEGIN'
 GLOW4'
 checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
@@ -13,52 +17,4 @@ Step 4: Fix the conflicts and commit the result.
 See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
 Step 5: Push the changes.
 git push -u origin Master
-{
-	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version
-		"args": { "VARIANT": "18" }
-	},
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
-	},
-
-	// Install features. Type 'feature' in the VS Code command palette for a full list.
-	"features": {
-		"sshd": "latest"
-	 },
-
-	// Visual Studio Code extensions which help authoring for docs.github.com.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"sissel.shopify-liquid",
-		"davidanson.vscode-markdownlint",
-		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker",
-		"alistairchristie.open-reusables"
-	],
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
-		
-	"portsAttributes": {
-		"4000": {
-        		"label": "Preview",
-        		"onAutoForward": "openPreview"
-      		}
-	},
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm ci",
-
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
-,
-	"hostRequirements": {
-		"memory": "8gb"
-	 }
-}
+"dockerfile"::':Build::Publish ::
