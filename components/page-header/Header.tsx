@@ -124,19 +124,20 @@ export const Header = () => {
                   className={cx(
                     isSearchOpen
                       ? styles.searchContainerWithOpenSearch
-                      : styles.searchContainerWithClosedSearch
+                      : styles.searchContainerWithClosedSearch,
+                    'mr-3'
                   )}
                 >
                   <Search />
                 </div>
               )}
 
-              <div className="d-none d-lg-flex flex-items-center ml-3">
+              <div className={cx('d-none d-lg-flex flex-items-center', signupCTAVisible && 'mr-3')}>
                 <LanguagePicker />
               </div>
 
               {signupCTAVisible && (
-                <div data-testid="header-signup" className="border-left ml-3">
+                <div data-testid="header-signup" className="border-left">
                   <a
                     href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
                     target="_blank"
