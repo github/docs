@@ -138,7 +138,51 @@ For more information, see the [content model](/contributing/content-model.md#tit
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
+Every image must include alt text providing a textual equivalent of the visual information.
+
+- Express the core idea or meaning of the image, rather than describing it literally.
+- Use 40–150 characters.
+- End with a period.
+- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Follow standard language used to describe UI elements in article text.
+- Put multi-word titles, e.g. names of menu items, in quotes.
+- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.  
+
+#### Alt text for screenshots
+
+Follow this format:
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, along with its `keyboard shortcut XYZ`, are highlighted with `visual highlight mechanism`.
+
+- For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Describe UI elements consistently with written documentation.
+- Be flexible with word order when needed for clarity.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+
+##### Example
+
+> Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.
+
+![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](../images/repository-code-button.png)
+
+#### Alt text for diagrams and graphs
+
+Explain the information conveyed in the diagram or graph in text on the page. 
+
+Use alt text to express the core idea of the image, without duplicating the webpage text.
+
+##### Example
+
+> Diagram showing a five-step process by which a GitHub Actions runner can be automatically added to named classes of runners and then requested by specific jobs.
+
+[See accompanying explanation of this diagram in the Actions documentation.](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners) 
+
+#### Alt text for images of command-line interfaces
+
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+
+When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
 ### Filenames
 
