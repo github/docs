@@ -178,7 +178,7 @@
   "private": true,
   "repository": "https://github.com/github/docs",
   "scripts": {
-    "browser-test": "cross-env BROWSER=1 NODE_OPTIONS=--experimental-vm-modules JEST_PUPPETEER_CONFIG=jest-puppeteer.config.cjs jest tests/browser/browser.js",
+    "browser-test": "cross-env BROWSER=1 ENABLED_LANGUAGES=en,ja NODE_OPTIONS=--experimental-vm-modules JEST_PUPPETEER_CONFIG=jest-puppeteer.config.cjs jest tests/browser/browser.js",
     "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect server.js",
     "dev": "cross-env npm start",
