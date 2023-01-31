@@ -85,7 +85,7 @@ You can also add a header that includes the name of the language and a button to
 
 ## Octicons
 
-Octicons are icons used across GitHub’s interface. We reference Octicons when documenting the user interface. Find the name of the Octicon on the [Octicons site](https://primer.style/octicons). For accessibility purposes, use [the `aria-label` option](https://primer.style/octicons/packages/javascript#aria-label) to describe the Octicon.
+Octicons are icons used across GitHub’s interface. We reference Octicons when documenting the user interface. Find the name of the Octicon on the [Octicons site](https://primer.style/octicons). For accessibility purposes, use [the `aria-label` option](https://primer.style/octicons/packages/javascript#aria-label) to describe the meaning of the Octicon, not its visual characteristics. For example "Required", not "Check mark."
 
 ### Usage
 
