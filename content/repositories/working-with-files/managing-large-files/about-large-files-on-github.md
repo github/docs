@@ -23,6 +23,24 @@ versions:
   ghec: '*'
 shortTitle: Large files
 ---
+To install Git LFS (Large File Storage), you need to follow these steps:
+
+Install Git LFS on your computer: You can install Git LFS using a package manager (e.g., apt-get, Homebrew, etc.) or by downloading the binary from the Git LFS website.
+
+Initialize Git LFS in your repository: Run the following command in the root directory of your Git repository:
+$ git lfs install
+
+Track files with Git LFS: Use the following command to track files that you want to store in Git LFS:
+$ git lfs track "*.extension"
+
+Replace ".extension" with the file type or extension you want to track. For example, to track all .zip files, you would use ".zip".
+
+Commit and push your changes: Once you have tracked the files, you need to commit and push your changes to the remote repository:
+$ git add .gitattributes
+$ git commit -m "Start tracking large files with Git LFS"
+$ git push origin master
+
+Note: Git LFS requires Git version 1.8.2 or later.
 
 ## About size limits on {% data variables.product.product_name %}
 
