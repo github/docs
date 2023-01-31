@@ -174,8 +174,8 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | Dependency types | Supported by package managers | Allow updates |
   |------------------|-------------------------------|--------|
   | `direct` | All | All explicitly defined dependencies. |
-  | `indirect` | `bundler`, `pip`, `composer`, `cargo` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
-  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, also the dependencies of direct dependencies.|
+  | `indirect` | `bundler`, `pip`, `composer`, `cargo`{% ifversion dependabot-updates-gomod-indirect %}, `gomod`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
+  | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`,{% ifversion dependabot-updates-gomod-indirect %} `gomod`,{% endif %} also the dependencies of direct dependencies.|
   | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
   | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
 
@@ -249,6 +249,9 @@ Supported options
 {% endnote %}
 
 - `prefix` specifies a prefix for all commit messages.
+   When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.
+   The code snippet below provides examples of both in the same configuration file.
+
 - `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 - `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
 
@@ -264,15 +267,23 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      # Prefix all commit messages with "npm"
+      # Prefix all commit messages with "npm: "
       prefix: "npm"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      # Prefix all commit messages with "[docker] " (no colon, but a trailing whitespace)
+      prefix: "[docker] "
 
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
-    # Prefix all commit messages with "Composer"
-    # include a list of updated dependencies
+    # Prefix all commit messages with "Composer" plus its scope, that is, a
+    # list of updated dependencies
     commit-message:
       prefix: "Composer"
       include: "scope"

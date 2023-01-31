@@ -72,13 +72,7 @@ jobs:
           gitref=$(cd ${{ matrix.language_dir }} && git rev-parse --short HEAD)
           echo "gitref=$gitref" >> $GITHUB_ENV
 
-      - name: 'Setup node'
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-
-      - name: npm ci
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Create translation health report
         run: |
@@ -129,7 +123,7 @@ jobs:
 
       # Emit a notification for the first responder to triage if the workflow failed.
       - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

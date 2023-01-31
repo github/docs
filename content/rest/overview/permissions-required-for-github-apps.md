@@ -58,6 +58,29 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches`](/rest/reference/actions#create-a-workflow-dispatch-event) (write)
 - [`PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable`](/rest/reference/actions#enable-a-workflow) (write)
 {% ifversion fpt or ghec or ghae %}- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/reference/actions#get-workflow-usage) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs`](/rest/actions/workflow-runs#list-workflow-runs-for-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions/required-workflows#get-required-workflow-usage) (read){% endif %}
+{%- ifversion fpt or ghec or ghes > 3.8 %}
+- [`GET /repos/{owner}/{repo}/actions/variables`](/rest/reference/actions#list-repository-variables) (read)
+- [`GET /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#get-a-repository-variable) (read)
+- [`POST /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#create-a-repository-variable) (write)
+- [`PATCH /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#update-a-repository-variable) (write)
+- [`DELETE /repos/{owner}/{repo}/actions/variables/{variable_name}`](/rest/reference/actions#delete-a-repository-variable) (write)
+- [`GET /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/reference/actions#list-environment-variables) (read)
+- [`GET /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#get-an-environment-variable) (read)
+- [`POST /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#create-an-environment-variable) (write)
+- [`PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#update-an-environment-variable) (write)
+- [`DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{variable_name}`](/rest/reference/actions#delete-an-environment-variable) (write)
+- [`GET /orgs/{org}/actions/variables`](/rest/reference/actions#list-organization-variables) (read)
+- [`GET /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#get-an-organization-variable) (read)
+- [`POST /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#create-an-organization-variable) (write)
+- [`PATCH /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#update-an-organization-variable) (write)
+- [`DELETE /orgs/{org}/actions/variables/{variable_name}`](/rest/reference/actions#delete-an-organization-variable) (write)
+- [`GET /orgs/{org}/actions/variables/{variable_name}/repositories`](/rest/reference/actions#list-selected-repositories-for-an-organization-variable) (read)
+- [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories`](/rest/reference/actions#set-selected-repositories-for-an-organization-variable) (write)
+- [`PUT /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#add-selected-repository-to-an-organization-variable) (write)
+- [`DELETE /orgs/{org}/actions/variables/{variable_name}/repositories/{repository_id}`](/rest/reference/actions#remove-selected-repository-from-an-organization-variable) (write)
+{%- endif %}
 
 ## Administration
 
@@ -103,6 +126,9 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/keys`](/rest/reference/repos#create-a-deploy-key) (write)
 - [`GET /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#get-a-deploy-key) (read)
 - [`DELETE /repos/{owner}/{repo}/keys/{key_id}`](/rest/reference/repos#delete-a-deploy-key) (write)
+- [`POST /repos/{owner}/{repo}/pages`](/rest/reference/pages#create-a-github-pages-site) (write)
+- [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site) (write)
+- [`DELETE /repos/{owner}/{repo}/pages`](/rest/reference/pages#delete-a-github-pages-site) (write)
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages) (write){% endif %}
 - [`GET /repos/{owner}/{repo}/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-a-repository) (read)
 - [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}`](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository) (read)
@@ -166,6 +192,7 @@ shortTitle: GitHub App permissions
 - [`GET /user/codespaces/{codespace_name}`](/rest/reference/codespaces#get-a-codespace-for-the-authenticated-user) (read)
 - [`PATCH /user/codespaces/{codespace_name}`](/rest/reference/codespaces#update-a-codespace-for-the-authenticated-user) (write)
 - [`DELETE /user/codespaces/{codespace_name}`](/rest/reference/codespaces#delete-a-codespace-for-the-authenticated-user) (write)
+- [`POST /user/codespaces/{codespace_name}/publish`](/rest/codespaces/codespaces#create-a-repository-from-an-unpublished-codespace) (write)
 
 ## Codespaces lifecycle admin
 
@@ -477,6 +504,10 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day) (read)
 - [`GET /search/labels`](/rest/reference/search#search-labels) (read)
 - [`GET /repos/{owner}/{repo}/topics`](/rest/reference/repos#get-all-repository-topics) (read)
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#list-selected-repositories-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id`}](/rest/reference/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow') (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/reference/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#set-selected-repositories-for-a-required-workflow) (read){% endif %}
 
 ## Notifications
 
@@ -508,6 +539,15 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/reference/orgs#remove-a-security-manager-team) (write){% endif %}
 - [`PATCH /orgs/{org}`](/rest/reference/orgs/#update-an-organization) (write)
 - [`GET /orgs/{org}/installations`](/rest/reference/orgs#list-app-installations-for-an-organization) (read)
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /orgs/{org}/actions/required_workflows`](/rest/reference/actions#list-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#get-a-required-workflow) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`GET orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#list-selected-repositories-required-workflows) (read){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`POST /orgs/{org}/actions/required_workflows`](/rest/reference/actions#create-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#delete-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/reference/actions#update-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id`}](/rest/reference/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow') (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/reference/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (write){% endif %}
+{% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/reference/actions#set-selected-repositories-for-a-required-workflow) (write){% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -642,7 +682,9 @@ shortTitle: GitHub App permissions
 ## Pages
 
 - [`GET /repos/{owner}/{repo}/pages`](/rest/pages#get-a-github-pages-site) (read)
+- [`POST /repos/{owner}/{repo}/pages`](/rest/reference/pages#create-a-github-pages-site) (write)
 - [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site) (write)
+- [`DELETE /repos/{owner}/{repo}/pages`](/rest/reference/pages#delete-a-github-pages-site) (write)
 - [`GET /repos/{owner}/{repo}/pages/builds`](/rest/pages#list-github-pages-builds) (read)
 - [`POST /repos/{owner}/{repo}/pages/builds`](/rest/pages#request-a-github-pages-build) (write)
 - [`GET /repos/{owner}/{repo}/pages/builds/{build_id}`](/rest/pages#get-github-pages-build) (read)

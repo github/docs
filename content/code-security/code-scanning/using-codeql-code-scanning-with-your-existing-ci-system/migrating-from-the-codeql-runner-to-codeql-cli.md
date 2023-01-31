@@ -14,8 +14,6 @@ topics:
   - CodeQL
 ---
 
-# Migrating from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
-
 The {% data variables.code-scanning.codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
 This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 

@@ -1,7 +1,7 @@
 ---
 title: Approving workflow runs from private forks
 intro: 'When someone without write access submits a pull request to a private repository, a maintainer may need to approve any workflow runs.'
-permissions: 'Maintainers with write access to a repository can approve workflow runs.'
+permissions: Maintainers with write access to a repository can approve workflow runs.
 versions:
   feature: actions-private-fork-workflow-approvals
 shortTitle: Approve private fork runs

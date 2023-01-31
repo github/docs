@@ -1,6 +1,7 @@
 ---
 title: Reporting abuse or spam
 intro: You can report behavior and content that violates community guidelines and terms.
+permissions: 'Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /articles/reporting-abuse-or-spam
   - /github/building-a-strong-community/reporting-abuse-or-spam
@@ -10,8 +11,6 @@ versions:
 topics:
   - Community
 ---
-
-Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.
 
 ## About reporting abuse or spam
 

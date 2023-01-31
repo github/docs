@@ -20,8 +20,25 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 ## Prerequisites
 
 {% data reusables.copilot.subscription-prerequisite %}
+- To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs.
+  - IntelliJ IDEA (Ultimate, Community, Educational)
+  - Android Studio
+  - AppCode
+  - CLion
+  - Code With Me Guest
+  - DataGrip
+  - DataSpell
+  - GoLand
+  - JetBrains Client
+  - MPS
+  - PhpStorm
+  - PyCharm (Professional, Community, Educational)
+  - Rider
+  - RubyMine
+  - WebStorm
 
-{% data reusables.copilot.jetbrains-ides %}
+  For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
+
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
 
@@ -32,7 +49,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 3. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
    ![Screenshot of Marketplace search](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
+1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
     ![Screenshot of JetBrains tools menu](/assets/images/help/copilot/jetbrains-tools-menu.png)
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
     ![Screenshot of device code copy and open](/assets/images/help/copilot/device-code-copy-and-open.png)
@@ -43,7 +60,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
    ![Screenshot of JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
-   
+
 
 ## Seeing your first suggestion
 

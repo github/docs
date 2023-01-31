@@ -17,11 +17,11 @@ export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
       className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8"
     >
       <Link className="no-underline d-flex flex-column py-3 border-bottom" href={card.href}>
-        <h3 className="h4 color-fg-default mb-1" dangerouslySetInnerHTML={{ __html: card.title }} />
+        <h3 className="h4 color-fg-default mb-1">{card.title}</h3>
         <div className="h6 text-uppercase" data-testid="article-card-type">
           {typeLabel}
         </div>
-        <p className="color-fg-muted my-3" dangerouslySetInnerHTML={{ __html: card.intro }} />
+        <p className="color-fg-muted my-3">{card.intro}</p>
         {card.topics.length > 0 && (
           <ul style={{ listStyleType: 'none' }}>
             {card.topics.map((topic) => {

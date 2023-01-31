@@ -110,13 +110,16 @@ export default function (app) {
     app.use(datadog)
   }
 
+  // Put this early to make it as fast as possible because it's used,
+  // and used very often, by the Azure load balancer to check the
+  // health of each node.
+  app.use('/healthz', instrument(healthz, './healthz'))
+
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // It can come before `rateLimit` because if it's a
-  // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
@@ -232,7 +235,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))

@@ -413,7 +413,7 @@
   "/v3/code-scanning": "/en/rest/code-scanning",
   "/v3/codes_of_conduct": "/en/rest/codes-of-conduct",
   "/v3/emojis": "/en/rest/emojis",
-  "/v3/enterprise-admin": "/en/rest/enterprise-admin",
+  "/v3/enterprise-admin": "/en/enterprise-cloud@latest/rest/enterprise-admin",
   "/v3/enterprise-admin/admin_stats": "/en/enterprise-server/rest/enterprise-admin/admin-stats",
   "/v3/enterprise-admin/global_webhooks": "/en/enterprise-server/rest/enterprise-admin/global-webhooks",
   "/v3/enterprise-admin/ldap": "/en/enterprise-server/rest/enterprise-admin/ldap",

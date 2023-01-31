@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription
 versions:
-  feature: copilot
+  fpt: '*'
 type: how_to
 topics:
   - Copilot
@@ -29,7 +29,7 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
    - If you are on a yearly billing cycle, select **Change to monthly billing**.
 
    ![Screenshot of {% data variables.product.prodname_copilot %} section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
-   
+
 
 ## Canceling your {% data variables.product.prodname_copilot %} subscription
 
@@ -39,11 +39,11 @@ You can cancel your {% data variables.product.prodname_copilot %} subscription a
 {% data reusables.user-settings.billing_plans %}
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown.
    - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
-   
+
    ![Screenshot of {% data variables.product.prodname_copilot %} section on billing page with cancel {% data variables.product.prodname_copilot %} option emphasized](/assets/images/help/copilot/copilot-billing-edit-dropdown.png)
 
    - If you are within your 60-day trial period, click **Cancel trial**.
-   
+
    ![Screenshot of {% data variables.product.prodname_copilot %} section on billing page with cancel trial option emphasized](/assets/images/help/copilot/copilot-cancel-trial.png)
 
 2. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**

@@ -117,9 +117,24 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% endif %}
 
-## Creating an issue from a project board note
+{% ifversion projects-v2-create-issue-modal %}
 
-If you're using a project board to track and prioritize your work, you can convert project board notes to issues. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a project board](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
+## Creating an issue from a project
+
+{% data reusables.projects.about-issue-modal %} For more information about Projects, see "[About Projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+
+1. Navigate to your project.
+{% data reusables.projects.create-issue-modal %}
+
+{% endif %}
+
+{% ifversion projects-v1 %}
+
+## Creating an issue from a {% data variables.projects.projects_v1_board %} note
+
+If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see "[About {% data variables.product.prodname_projects_v1 %}](/github/managing-your-work-on-github/about-project-boards)" and "[Adding notes to a {% data variables.projects.projects_v1_board %}](/github/managing-your-work-on-github/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -154,7 +169,7 @@ Query parameter | Example
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
 {% ifversion fpt or ghec %}
-To use query parameters to fill text fields by `id`, you can use issue forms. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[Syntax for {% data variables.product.company_short %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}

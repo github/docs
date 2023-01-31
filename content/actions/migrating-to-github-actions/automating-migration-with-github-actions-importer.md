@@ -12,7 +12,7 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Automate migration with {% data variables.product.prodname_actions_importer %}
+shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
 ---
 
 {% data reusables.actions.enterprise-beta %}

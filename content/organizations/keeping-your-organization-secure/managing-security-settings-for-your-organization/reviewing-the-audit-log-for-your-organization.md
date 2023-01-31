@@ -499,6 +499,11 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[Removing a runner from an organization](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)." {% ifversion ghec %}
 | `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
 | `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)." {% endif %}
+{%- ifversion required-workflows %}
+| `required_workflow_create` | Triggered when a required workflow is created. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+| `required_workflow_update` | Triggered when a required workflow is updated. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+| `required_workflow_delete` | Triggered when a required workflow is deleted. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+{%- endif %}
 | `runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[Creating a self-hosted runner group for an organization](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
 | `runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[Removing a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
 | `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
@@ -739,7 +744,18 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository.
 
-{% endif %}{% ifversion ghec or ghes or ghae %}
+{% endif %}
+
+### `repository_invitation` category actions
+
+| Action | Description
+|--------|-------------
+| `repository_invitation.accept` | An invitation to join a repository was accepted.
+| `repository_invitation.cancel` | An invitation to join a repository was canceled.
+| `repository_invitation.create` | An invitation to join a repository was sent.
+| `repository_invitation.reject` | An invitation to join a repository was declined.
+
+{% ifversion ghec or ghes or ghae %}
 ### `repository_secret_scanning` category actions
 
 | Action | Description
