@@ -154,6 +154,7 @@
   "/rest/enterprise-admin#set-self-hosted-runners-in-a-group-for-an-enterprise": "/rest/actions/self-hosted-runner-groups#set-self-hosted-runners-in-a-group-for-an-enterprise",
   "/rest/enterprise-admin#update-a-self-hosted-runner-group-for-an-enterprise": "/rest/actions/self-hosted-runner-groups#update-a-self-hosted-runner-group-for-an-enterprise",
   "/rest/orgs#list-custom-repository-roles-in-an-organization": "/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization",
+  "/rest/apps/oauth-applications#create-a-scoped-access-token": "/rest/apps/apps#create-a-scoped-access-token",
   "/rest/repos#deploy-keys": "/rest/deploy-keys",
   "/rest/deployments#deploy-keys": "/rest/deploy-keys",
   "/rest/repos#statuses": "/rest/commits/statuses",
