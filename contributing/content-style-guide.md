@@ -562,9 +562,38 @@ Use reusable strings for individual nouns (e.g. product names) or for complete s
 
 ## Tables
 
+### Use tables only for presenting tabular information
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document. 
+
+### Avoid describing tables
 A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
 - **Use:** Nothing or a clear header.
 - **Avoid:** “The table below shows what kind of migration data is exported:”
+
+### Include a value for every cell
+Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+### Use clear, consistent symbols and labels
+
+For tables that use symbols:
+
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji. 
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase". 
+
+### Use footnotes sparingly
+Avoid using footnotes where possible. Consider instead whether you could place a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) before or after the table, or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes:
+
+* Use numbers. Do not use typographical symbols or special characters.
+* Link the footnote number to the explanation. The explanation should receive focus (with a focus indicator) when clicking on the footnote number.
+* Ideally, include a back link in the footnote explanation so users can return to the original context - this may be difficult if the footnote is used in multiple places.
+
+Markdown on GitHub does not have built-in support for linking footnotes in this way, so you would need to find another solution.
 
 ## Titles
 
