@@ -23,7 +23,7 @@ export function SearchResults({ results, query }: Props) {
       <Text>
         {results.meta.found.value === 1
           ? t('one_result_found')
-          : t('results_found').replace('{n}', results.meta.found.value.toLocaleString())}
+          : t('found_results').replace('{n}', results.meta.found.value.toLocaleString())}
       </Text>
       <br />
       <SearchResultHits hits={results.hits} query={query} />
@@ -57,7 +57,7 @@ function NoSearchResults() {
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('results_found').replace('{n}', 0)}</Text>
+        <Text className="f2 mt-3">{t('found_results').replace('{n}', 0)}</Text>
       </div>
     </div>
   )
