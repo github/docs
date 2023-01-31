@@ -1,6 +1,6 @@
 ---
 title: Deleting an organization account
-intro: 'When you delete an organization, all repositories, forks of private repositories, wikis, issues, pull requests, and Project or Organization Pages are deleted as well. {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+intro: 'You can delete your organization account on {% data variables.location.product_location %} at any time.'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -15,6 +15,7 @@ topics:
 shortTitle: Delete organization
 ---
 
+## About deletion of your organization account
 {% ifversion fpt or ghec %}
 {% tip %}
 
@@ -23,16 +24,19 @@ shortTitle: Delete organization
 {% endtip %}
 
 {% endif %}
+Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.{% endif %}
 
-## 1. Back up your organization content
+{% ifversion fpt or ghec %}
+
+{% data reusables.accounts.delete-account-repo-namespace-retirement %}
+
+{% endif %}
+
+{% data reusables.package_registry.delete-account-namespace-retirement %}
+
+## Backing up your organization content
 
 {% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
-
-{% note %}
-
-**Note:** {% data reusables.package_registry.delete-account-namespace-retirement %}
-
-{% endnote %}
 
 {% ifversion ghes %}
 {% note %}
@@ -42,7 +46,7 @@ shortTitle: Delete organization
 {% endnote %}
 {% endif %}
 
-## 2. Delete the organization
+## Deleting your organization account
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

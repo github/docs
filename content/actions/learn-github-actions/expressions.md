@@ -406,4 +406,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Since objects don't preserve order, the order of the output cannot be guaranteed.
