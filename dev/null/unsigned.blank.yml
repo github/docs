@@ -1,7 +1,8 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
 
 # [Choice] Node.js version
-ARG VARIANT="18-buster"
+'A'G'S'"'' ':;'' ':'' '"'P3'T3'R'X'@niezt'@V8/natz :
+  '-'' 'with:'' 'Bowser.yml'@'Buster"12x, 14x,16x":, :
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
