@@ -23,7 +23,7 @@ This type of permanent link will render as a code snippet only in the repository
 
 {% tip %}
 
-**Tip:** To create a permalink for an entire file, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
+**Tip:** To create a permalink for an entire file, see "[Getting permanent links to files](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
 
 {% endtip %}
 
@@ -46,6 +46,5 @@ You can link to a specific line in the Markdown file the same way you can in cod
 
 ## Further reading
 
-- "[Creating an issue](/articles/creating-an-issue/)"
-- "[Opening an issue from code](/articles/opening-an-issue-from-code/)"
-- "[Reviewing changes in pull requests](/articles/reviewing-changes-in-pull-requests/)"
+- "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)"
+- "[Reviewing changes in pull requests](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)"
