@@ -407,7 +407,7 @@ function getHighlightConfiguration(query, highlights) {
     // preview if there was no highlight match at all within the content.
     fields.content = {
       fragment_size: 150,
-      number_of_fragments: 3,
+      number_of_fragments: 1,
       no_match_size: 150,
 
       highlight_query: {
