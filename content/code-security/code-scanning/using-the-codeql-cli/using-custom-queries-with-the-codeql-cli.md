@@ -49,19 +49,23 @@ For more information about these metadata properties, see “[Metadata for {% da
 
 {% endnote %}
 
+{% ifversion codeql-packs %}
+
 ## Packaging custom QL queries
 
 {% data reusables.codeql-cli.beta-note-package-management %}
 
 <!-- using reusable re-created by Felicity -->
 
-When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/about-codeql-packs/#about-codeql-packs).”
+When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs).”
 
 <!-- tweaked to "For more information, see X" to match our style guide -->
 
 {% data variables.product.prodname_codeql %} packs organize the files used in {% data variables.product.prodname_codeql %} analysis and can store queries, library files, query suites, and important metadata. Their root directory must contain a file named `qlpack.yml`. Your custom queries should be saved in the {% data variables.product.prodname_codeql %} pack root, or its subdirectories.
 
-For each {% data variables.product.prodname_codeql %} pack, the `qlpack.yml` file includes information that tells the {% data variables.product.prodname_codeql_cli %} how to compile the queries, which other {% data variables.product.prodname_codeql %} packs and libraries the pack depends on, and where to find query suite definitions. For more information about what to include in this file, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/about-codeql-packs/#codeqlpack-yml-properties).”
+For each {% data variables.product.prodname_codeql %} pack, the `qlpack.yml` file includes information that tells the {% data variables.product.prodname_codeql_cli %} how to compile the queries, which other {% data variables.product.prodname_codeql %} packs and libraries the pack depends on, and where to find query suite definitions. For more information about what to include in this file, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs/#codeqlpack-yml-properties).”
+
+{% endif %}
 
 ## Contributing to the {% data variables.product.prodname_codeql %} repository
 
