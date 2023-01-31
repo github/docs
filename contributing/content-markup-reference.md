@@ -92,7 +92,7 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 ```
 {% octicon "<name of octicon>" %}
 {% octicon "plus" %}
-{% octicon "plus" aria-label="The plus icon" %}
+{% octicon "plus" aria-label="Add file" %}
 ```
 
 ## Operating system tags
