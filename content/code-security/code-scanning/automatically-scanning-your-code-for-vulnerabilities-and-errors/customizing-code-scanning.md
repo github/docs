@@ -338,7 +338,7 @@ be used efficiently by the default
 {% data variables.product.prodname_codeql %} action.
 To ensure optimal performance, if you need to specify exact query pack versions, you should consider reviewing periodically whether the pinned version of the query pack needs to be moved forward.
 
-For more information about pack compatibility, see "[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
+For more information about pack compatibility, see "[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
 {% endnote %}
 {% endif %}
@@ -525,7 +525,7 @@ To find the id of a query, you can click the alert in the list of alerts in the 
 
 You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
 
-For more information about using `exclude` and `include` filters in your custom configuration file, see "[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+For more information about using `exclude` and `include` filters in your custom configuration file, see "[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
 
 {% endif %}
 

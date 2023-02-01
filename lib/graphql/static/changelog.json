@@ -3,6 +3,51 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ProjectV2ItemFieldGroup.field</code>:<code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative. <strong>Effective 2023-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AnnouncementBanner</code> was added</p>",
+          "<p>Type <code>EnterpriseFailedInvitationConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseFailedInvitationEdge</code> was added</p>",
+          "<p>Type <code>OrganizationInvitationSource</code> was added</p>",
+          "<p><code>Enterprise</code> object implements <code>AnnouncementBanner</code> interface</p>",
+          "<p>Field <code>announcement</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>announcementExpiresAt</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>announcementUserDismissible</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>failedInvitations</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Argument <code>invitationSource: OrganizationInvitationSource</code> added to field <code>EnterpriseOwnerInfo.pendingMemberInvitations</code></p>",
+          "<p><code>Organization</code> object implements <code>AnnouncementBanner</code> interface</p>",
+          "<p>Field <code>announcement</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>announcementExpiresAt</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>announcementUserDismissible</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>invitationSource</code> was added to object type <code>OrganizationInvitation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-01-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": [
           "<p>Type <code>RemoveEnterpriseMemberInput</code> was added</p>",
           "<p>Type <code>RemoveEnterpriseMemberPayload</code> was added</p>",

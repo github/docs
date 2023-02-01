@@ -1,5 +1,15 @@
 {
   "dotcom": {
+    "2023-07-01": [
+      {
+        "location": "ProjectV2ItemFieldGroup.field",
+        "description": "<p><code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2ItemFieldGroup#field</code> API is deprecated in favour of the more capable <code>ProjectV2ItemFieldGroup#groupByField</code> API.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "stevepopovich"
+      }
+    ],
     "2023-04-01": [
       {
         "location": "RepositoryVulnerabilityAlert.fixReason",
@@ -230,6 +240,16 @@
     ]
   },
   "ghec": {
+    "2023-07-01": [
+      {
+        "location": "ProjectV2ItemFieldGroup.field",
+        "description": "<p><code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2ItemFieldGroup#field</code> API is deprecated in favour of the more capable <code>ProjectV2ItemFieldGroup#groupByField</code> API.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "stevepopovich"
+      }
+    ],
     "2023-04-01": [
       {
         "location": "RepositoryVulnerabilityAlert.fixReason",
@@ -1256,6 +1276,16 @@
     ]
   },
   "ghae": {
+    "2023-07-01": [
+      {
+        "location": "ProjectV2ItemFieldGroup.field",
+        "description": "<p><code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative.</p>",
+        "reason": "<p>The <code>ProjectV2ItemFieldGroup#field</code> API is deprecated in favour of the more capable <code>ProjectV2ItemFieldGroup#groupByField</code> API.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "stevepopovich"
+      }
+    ],
     "2023-04-01": [
       {
         "location": "RepositoryVulnerabilityAlert.fixReason",

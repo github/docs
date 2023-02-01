@@ -23,18 +23,6 @@ export default function parsePageSectionsIntoRecords(page) {
   $('[data-search=hide]').remove()
 
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
-  const metaKeywords = $('meta[name="keywords"]').attr('content')
-  const topics = (metaKeywords ? metaKeywords.split(',') : [])
-    .filter(Boolean)
-    .map((keyword) => keyword.trim())
-
-  const productName = breadcrumbsArray[0] || ''
-  if (productName) topics.push(productName)
-  // Remove "github" to make filter queries shorter
-  if (productName.includes('GitHub ')) {
-    const productNameShort = productName.replace('GitHub ', '').trim()
-    if (productNameShort) topics.push(productNameShort)
-  }
 
   const objectID = href
 
@@ -88,6 +76,5 @@ export default function parsePageSectionsIntoRecords(page) {
     title,
     headings,
     content,
-    topics,
   }
 }
