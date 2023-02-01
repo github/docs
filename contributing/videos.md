@@ -70,13 +70,53 @@ Do not use videos for features that change quickly and may make videos out of da
 These are the minimum accessibility requirements for a video to be included in the GitHub docs. If a video violates any of these requirements, it cannot be added to the docs. Videos must meet the MAS-C standards for accessibility.
 
 - No flashing or strobe effects
-- Must have closed captions
+- Must have [closed captions](https://webaim.org/techniques/captions/#captions). See "[Creating video captions](#creating-video-captions)" below for more information
 - No graphics overlap with where captions appear
 - Typography must be legible
 - Any overlays must meet [WCAG contrast standards](https://webaim.org/articles/contrast/)
 - Any text must be on the screen long enough to be read (the text should appear onscreen for longer than it takes to read it out loud twice)
-- Must have proofread [audio and visual transcripts](https://webaim.org/techniques/captions/) for what happens scene-by-scene
+- Must have proofread [descriptive transcripts](https://www.w3.org/WAI/media/av/transcripts/) for what happens scene-by-scene. See "[Creating video transcripts](#creating-video-transcripts)" below for more information
 - Videos do not autoplay
+
+### Creating video captions
+
+Videos must have human-generated captions before being added to the Docs site. You can use auto caption technology to help create the captions, but they must be proofread and edited for accuracy by a person. If the video hosting service has a native caption tool, like YouTube, you can use that tool to prepare captions or create a properly formatted `SRT` or `VTT` transcript file to upload with the video.
+
+Creating captions is part of the process of producing accessible videos, so the owner of a video being added to GitHub Docs should provide captions.
+
+#### Guidelines for captions
+
+Where possible, captions should exactly match the words spoken in the video. Do not paraphrase or truncate captions, unless serious time constraints mean it would be difficult for someone to read the captions in the time given.
+
+Captions must be synchronized to appear at approximately the same time as the audio. Captions should always be timed to appear on screen at the moment the speaker begins talking. For fast speech, where it would be difficult to read captions timed precisely to the audio, you can extend the captions to stay on screen after the speech has finished.
+
+If a video has multiple speakers, identify the speakers in the captions. Do this by adding the speaker's name, or a descriptive name such as `Developer`, before the start of the sentence. For example: `Jimmy: Hello.`. You only need to do this when the speaker changes, not for every line of dialogue. If it's obvious from the visuals who is speaking, you do not need to identify the speaker.
+
+Captions must be one or two lines, and no more than 32 characters per line. Put each new sentence on a new line. If you need to break a line mid-sentence, do so at a logical point, for example after commas or before conjunctions like `and` or `but`.
+
+#### Adding and editing captions on YouTube
+
+For videos hosted on YouTube, see "[Add subtitles and captions](https://support.google.com/youtube/answer/2734796?hl=en&ref_topic=7296214)" and "[Edit or remove captions](https://support.google.com/youtube/answer/2734705?hl=en&ref_topic=7296214)" in the YouTube docs.
+
+### Creating video transcripts
+
+A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
+
+Creating transcripts is part of the process of producing accessible videos, so the owner of a video being added to the docs site should provide the transcript.
+
+If you have captions, you can use them to create the transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. Create an article in [`content/video-transcripts`](https://github.com/github/docs/tree/main/content/video-transcripts) with the transcript. Title the article `Transcript - VIDEO NAME`.
+
+- If a video has multiple speakers, identify the speakers in the transcript
+- Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video
+- Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`
+- Link to the YouTube URL of the video in the article's `intro`
+- At the end of the transcript, link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`
+
+See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.
+
+#### Linking to transcripts from externally hosted videos
+
+Add a link to the article with a video's transcript in the description of the video on the platform where it is hosted. For more information, see "[Edit video settings](https://support.google.com/youtube/answer/57404?)" in the YouTube documentation.
 
 ## Titles for videos
 
@@ -88,7 +128,7 @@ If a video is only relevant for specific GitHub products (Free, Pro and Team; Gi
 
 ## Video hosting
 
-Videos must be hosted somewhere that GitHub owns and can grant the Docs team access to. Videos should not track users or use cookies.
+Videos must be hosted somewhere that GitHub owns and can grant the Docs team access to. Videos should not track users or use cookies. Currently, GitHub's videos are hosted on YouTube and added to the docs using the [Privacy Enhanced Mode](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode) by changing the domain for the embedded URL from `https://www.youtube.com/VIDEO` to `https://www.youtube-nocookie.com/VIDEO`.
 
 ## Resources
 - https://webaim.org
