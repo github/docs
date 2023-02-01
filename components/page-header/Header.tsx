@@ -63,13 +63,10 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // For the UI in smaller browswer widths, focus the search input when the
-  // search input is opened and focus the picker menu button when the search
+  // For the UI in smaller browswer widths, and focus the picker menu button when the search
   // input is closed.
   useEffect(() => {
-    if (isSearchOpen) {
-      document.querySelector<HTMLInputElement>('input[type="search"]')?.focus()
-    } else if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
+    if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
       menuButtonRef.current.focus()
     }
 
@@ -175,7 +172,6 @@ export const Header = () => {
               {/* The ... navigation menu at medium and smaller widths */}
               <nav>
                 <AnchoredOverlay
-                  anchorRef={menuButtonRef}
                   renderAnchor={(anchorProps) => (
                     <IconButton
                       data-testid="mobile-menu"

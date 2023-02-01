@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
@@ -6,14 +6,15 @@ import { SearchIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'components/hooks/useQuery'
+import { useBreakpoint } from './hooks/useBreakpoint'
 
 export function Search() {
   const router = useRouter()
   const { query, debug } = useQuery()
   const [localQuery, setLocalQuery] = useState(query)
-  const inputRef = useRef<HTMLInputElement>(null)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
+  const upToMediumViewport = useBreakpoint('medium')
 
   function redirectSearch() {
     let asPath = `/${router.locale}`
@@ -41,6 +42,8 @@ export function Search() {
             redirectSearch()
           }}
         >
+          {/* This prevents zooming in on iOS when you touch the search input text area */}
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
           <label className="text-normal width-full">
             <span
               className="visually-hidden"
@@ -54,7 +57,8 @@ export function Search() {
               }
               onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
               data-testid="site-search-input"
-              ref={inputRef}
+              // This adds focus in particular for iOS to focus and bring up the keyboard when you touch the search input text area
+              ref={(inputRef) => upToMediumViewport && inputRef && inputRef.focus()}
               type="search"
               placeholder={t`placeholder`}
               autoComplete={localQuery ? 'on' : 'off'}
