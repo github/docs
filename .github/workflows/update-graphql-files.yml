@@ -82,7 +82,7 @@ jobs:
           branches: graphql-schema-update
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        uses: juliangruber/approve-pull-request-action@6b8b2f82d50cea1e4329bcdfe940a6ceccbe528e
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
