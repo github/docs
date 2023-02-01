@@ -3,9 +3,9 @@ title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
-    - /github/authenticating-to-github/connecting-to-github-with-ssh
+    - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
-    - /github/writing-on-github/basic-writing-and-formatting-syntax
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
@@ -17,6 +17,31 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
 versions: '*'
 children:
   - search
@@ -109,15 +134,10 @@ childGroups:
       - education
       - support
 externalProducts:
-  atom:
-    id: atom
-    name: Atom
-    href: 'https://atom.io/docs'
-    external: true
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql

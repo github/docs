@@ -1,6 +1,6 @@
 ---
 title: Events
-intro: 'The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events.'
+intro: 'Use the REST API to interact with {% data variables.product.prodname_dotcom %} events.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-These events power the various activity streams on the site.
+## About {% data variables.product.prodname_dotcom %} events
 
-The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." An events API for repository issues is also available. For more information, see the "[Issue Events API](/rest/reference/issues#events)."
+{% data variables.product.prodname_dotcom %} events power the various activity streams on the site.
+
+You can use the REST API to return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." Endpoints for repository issues are also available. For more information, see "[Issue Events](/rest/reference/issues#events)."
 
 Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
 

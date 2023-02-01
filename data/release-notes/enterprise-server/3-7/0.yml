@@ -38,10 +38,6 @@ sections:
 
     - heading: GitHub Advanced Security
       notes:
-        # https://github.com/github/releases/issues/2256
-        - |
-          Enterprise owners on an instance with a GitHub Advanced Security license can see an overview of code scanning alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all code scanning, secret scanning, and Dependabot alerts. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
-
         # https://github.com/github/releases/issues/2373
         - |
            Users on an instance with a GitHub Advanced Security license can view and comment on code scanning alerts in their repository within a pull request's **Conversation** tab. If the **Require conversation resolution before merging** branch protection rule is enabled for the repository, all comments on these code scanning alerts must be resolved before a user merges the pull request. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-code-scanning)," "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)," and "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-conversation-resolution-before-merging)."
@@ -56,7 +52,7 @@ sections:
 
         # https://github.com/github/releases/issues/2383
         - |
-           If a site administrator has enabled email notifications for an instance with a GitHub Advanced Security license, users who watch a repository's secret scanning alerts will receive an email notification when a contributor bypasses a secret blocked by push protection. Previously, notifications were not sent if the secret was marked as a false positive or used in tests. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)" and "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+          If a site administrator has enabled email notifications for an instance with a GitHub Advanced Security license, users who watch a repository's secret scanning alerts will receive an email notification when a contributor bypasses a secret blocked by push protection. Previously, notifications were not sent if the secret was marked as a false positive or used in tests. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)" and "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
 
         # https://github.com/github/releases/issues/2355
         - |
@@ -98,6 +94,10 @@ sections:
 
     - heading: Dependabot
       notes:
+        # https://github.com/github/releases/issues/2256
+        - |
+          The security overview for the instance includes information about Dependabot. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+
         # https://github.com/github/releases/issues/2308
         - |
           Users can see more information about the activity associated with a Dependabot alert. Within the details for a Dependabot alert, users can see a timeline of events, such as when the alert was opened, fixed, or reopened. Events will also show additional metadata when available, like relevant pull requests. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
@@ -132,7 +132,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2300
         - |
-          Enterprise and organization owners can see the security overview for the entire GitHub Enterprise Server instance or individual organizations on the instance. The security overview provides a centralized view of risk for application security teams, engineering leaders, and developers who work across many repositories. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+          Enterprise owners, organization owners, and security managers can access a centralized view of risk across the entire instance. The view also includes an alert-centric view of all code scanning, secret scanning, and Dependabot alerts. Enterprise owners can view alerts for organizations that they are owners of. Organization owners and security managers can view repositories and alerts for the organizations that they have full access to.  For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 
         # https://github.com/github/releases/issues/2415
         - |
@@ -143,7 +143,7 @@ sections:
         # https://github.com/github/releases/issues/2307
         - |
           Users can take advantage of the following improvements to the [GitHub Advisory Database](https://github.com/advisories).
-          
+
           - The database displays advisories for for Elixir, Erlang's Hex package manager, and more.
           - Users can find malware advisories by searching for `type:malware`.
           - The database displays advisories for GitHub Actions vulnerabilities.
@@ -180,9 +180,9 @@ sections:
         # https://github.com/github/releases/issues/2325
         - |
           To support secure cloud deployments at scale, organization owners and repository administrators can complete the following tasks with the OpenID Connect REST API. For more information, see "[GitHub Actions OIDC](/rest/actions/oidc)" in the REST API documentation
-          
+
           - Enable a standard OpenID Connect configuration across cloud deployment workflows by customizing the `subject` claim format.
-          - Ensure additional compliance and security for OpenID Connect deployments by appending the `issuer` URL with the enterprise's slug. 
+          - Ensure additional compliance and security for OpenID Connect deployments by appending the `issuer` URL with the enterprise's slug.
           - Configure advanced OpenID Connect policies by using additional OpenID Connect token claims like `repository_id` and `repo_visibility`.
 
           For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
@@ -192,7 +192,7 @@ sections:
           GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub Actions Cache REST API to accomplish the following tasks.
 
           - List all caches within a repository and sort by metadata.
-          - Delete a corrupt or stale cache entry. 
+          - Delete a corrupt or stale cache entry.
           For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches)" and "[GitHub Actions Cache](/rest/actions/cache)" in the REST API documentation.
 
         # https://github.com/github/docs-content/issues/7689
@@ -238,7 +238,7 @@ sections:
         # https://github.com/github/releases/issues/2406
         - |
           Improvements have been made to the creation and management of forks.
-          
+
           - When forking a repository, users can choose to only include the repository's default branch in the fork.
           - Users can use a repository's' **Fork** button to see existing forks of the repository.
           - The **Fetch upstream** button has been renamed to **Sync fork** to better describe the button's behavior. If the sync causes a conflict, the web UI prompts the user to contribute changes to the parent repository, discard changes, or resolve the conflict.
@@ -285,6 +285,7 @@ sections:
         - |
           Users can write mathematical expressions using fenced code blocks with the `math` syntax in addition to the existing delimiters. `$$` is not required with this method. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
+          - **Note**: This feature is unavailable in GitHub Enterprise Server 3.7. The feature will be available in an upcoming release. [Updated: 2022-11-16]
         # https://github.com/github/releases/issues/2105
         - |
           Users can render maps directly in Markdown using fenced code blocks with the `geojson` or `topojson` syntax, and embed STL 3D renders using `stl` syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
@@ -294,8 +295,15 @@ sections:
           In Markdown, users can write LaTeX-style syntax to render math expressions inline using `$` delimiters, or in blocks using `$$` delimiters. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
 
   changes:
+    # https://github.com/github/releases/issues/2344
+    - |
+      To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced.
+
+    - |
+      If TLS and subdomain isolation are configured for your instance and your certificate is not a wildcard certificate, you must generate a new certificate that includes the additional subdomains for these services, `notebooks.HOSTNAME` and `viewscreen.HOSTNAME`. For more information, see "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)." [Updated: 2022-12-02]
+
     - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
-  
+
     # https://github.com/github/releases/issues/2535
     - When creating a new release, users can now submit the form using <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in macOS, or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in Windows or Linux.
 
@@ -307,9 +315,6 @@ sections:
 
     # https://github.com/github/releases/issues/2534
     - The size of the search field for user, organization, and enterprise audit logs has increased.
-
-    # https://github.com/github/releases/issues/2344
-    - To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced.
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -323,8 +328,33 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      In some cases after upgrading to GitHub Enterprise Server 3.7.0, users may encounter `Internal Server Error` or `500` errors when initiating `git` operations over SSH or HTTPS. Example:
+
+        ```
+        git push origin master
+        Total 0 (delta 0), reused 0 (delta 0)
+        remote: Internal Server Error
+        To ghes.hostname.com:User/repo.git
+        ! [remote rejected]       master -> master (Internal Server Error)
+        ```
+
+      If these are encountered, please [contact GitHub Enterprise Support](/support/contacting-github-support/creating-a-support-ticket) with a support bundle. The known temporary workaround at this time is to restart the `github-gitauth` service with the commands below:
+
+        ```
+        nomad stop github-gitauth
+        nomad run /etc/nomad-jobs/github/gitauth.hcl
+        nomad status github-gitauth
+        ```
+      We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
 
   deprecations:
+    # https://github.com/github/enterprise-releases/issues/3217
+    - |
+      **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
     # https://github.com/github/releases/issues/2395
     - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
@@ -332,4 +362,5 @@ sections:
     - Diffing GeoJSON, PSD, and STL files is no longer possible.
 
     # https://github.com/github/releases/issues/2480
-    - Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well. GitHub recommends using the REST API to programmatically access information about GitHub Packages. For more information, see "[Packages](/rest/packages)" in the REST API documentation.
+    - |
+      Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well.

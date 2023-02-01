@@ -58,6 +58,16 @@ export function post(route, opts) {
   return get(route, Object.assign({}, opts, { method: 'post' }))
 }
 
+const getDOMCache = new Map()
+
+export async function getDOMCached(route, options) {
+  const cacheKey = `${route}:${options ? JSON.stringify(options) : ''}`
+  if (!getDOMCache.has(cacheKey)) {
+    getDOMCache.set(cacheKey, getDOM(route, options))
+  }
+  return getDOMCache.get(cacheKey)
+}
+
 export async function getDOM(
   route,
   { headers, allow500s, allow404 } = {

@@ -23,6 +23,12 @@ topics:
 
 You can use {% data variables.product.prodname_emus %} with Okta as your identity provider to provision new accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. For more information about provisioning for {% data variables.product.prodname_emus %}, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
 
+{% note %}
+
+**Note:** SCIM is required for {% data variables.product.prodname_emus %}, so you must use a version of Okta that includes SCIM.
+
+{% endnote %}
+
 Before you can configure provisioning with Okta, you must configure SAML single-sign on. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 To configure provisioning with Okta, you must set your enterprise's name in the {% data variables.product.prodname_emu_idp_application %} application and enter your setup user's {% data variables.product.pat_generic %}. You can then start provisioning users in Okta.
@@ -80,7 +86,7 @@ To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin*
 
 ## Assigning users and groups
 
-After you have configured SAML SSO and provisioning, you will be able to provision new users on {% data variables.product.prodname_dotcom_the_website %} by assigning users or groups to the {% data variables.product.prodname_emu_idp_application %} application. 
+After you have configured SAML SSO and provisioning, you will be able to provision new users on {% data variables.product.prodname_dotcom_the_website %} by assigning users or groups to the {% data variables.product.prodname_emu_idp_application %} application.
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
@@ -93,5 +99,3 @@ When assigning users, you can use the "Roles" attribute in the {% data variables
 ## Deprovisioning users and groups
 
 To remove a user or group from {% data variables.product.product_name %}, remove the user or group from both the "Assignments" tab and the "Push groups" tab in Okta. For users, make sure the user is removed from all groups in the "Push Groups" tab.
-
-

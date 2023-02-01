@@ -19,10 +19,9 @@ topics:
 
 Use the official Octokit library, or choose between any of the available third party libraries.
 
-- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
-- **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
-- **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
-- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
+- .NET: [octokit.net](https://github.com/octokit/octokit.net)
+- JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 ## Third-party libraries
 
@@ -30,7 +29,7 @@ Use the official Octokit library, or choose between any of the available third p
 
 | Library name | Repository |
 |---|---|
-|**Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)|
+|**Tentacles**| [Raynes/tentacles](https://github.com/clj-commons/tentacles)|
 
 ### Dart
 
@@ -126,6 +125,7 @@ Use the official Octokit library, or choose between any of the available third p
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

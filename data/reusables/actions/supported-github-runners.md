@@ -33,9 +33,10 @@ Windows Server 2019
 Ubuntu 22.04
 </td>
 <td>
-<code>ubuntu-22.04</code>
+<code>ubuntu-latest</code> or <code>ubuntu-22.04</code>
 </td>
 <td>
+The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
 </td>
 </tr>
 <tr>
@@ -43,8 +44,10 @@ Ubuntu 22.04
 Ubuntu 20.04
 </td>
 <td>
-<code>ubuntu-latest</code> or <code>ubuntu-20.04</code>
+<code>ubuntu-20.04</code>
 </td>
+<td>
+</rd>
 </tr>
 <tr>
 <td>
@@ -62,18 +65,20 @@ Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more info
 macOS Monterey 12
 </td>
 <td>
-<code>macos-12</code>
-  </td>
+<code>macos-latest</code> or <code>macos-12</code>
+</td>
+<td>
+The <code>macos-latest</code> label currently uses the macOS 12 runner image.
+</td>
 </tr>
 <tr>
 <td>
 macOS Big Sur 11
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-11</code>
+<code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 11 runner image.
 </td>
 </tr>
 <tr>
@@ -98,6 +103,6 @@ Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information,
 
 {% warning %}
 
-<b>Note:</b> Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
 
 {% endwarning %}

@@ -17,7 +17,7 @@ topics:
 ---
 ## About READMEs
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license, citation file{% ifversion fpt or ghec %}, contribution guidelines, and a code of conduct{% elsif ghes %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+{% data reusables.repositories.about-READMEs %}
 
 For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
@@ -64,6 +64,6 @@ A README should contain only the necessary information for developers to get sta
 
 - "[Adding a file to a repository](/articles/adding-a-file-to-a-repository)"
 - 18F's "[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"
-{%- ifversion fpt or ghec %} 
-- "[Adding an 'Open in GitHub Codespaces' badge](/codespaces/setting-up-your-project-for-codespaces/adding-a-codespaces-badge)"
-{%- endif %}   
+{%- ifversion fpt or ghec %}
+- "[Adding an 'Open in {% data variables.product.prodname_github_codespaces %}' badge](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+{%- endif %}

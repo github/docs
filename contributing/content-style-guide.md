@@ -127,18 +127,62 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Headers
 
-Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
+Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique. 
+
+Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
-Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
-
-To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
+For more information, see the [content model](/contributing/content-model.md#titles).
 
 ## Images
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
+Every image must include alt text providing a textual equivalent of the visual information.
+
+- Express the core idea or meaning of the image, rather than describing it literally.
+- Use 40–150 characters.
+- End with a period.
+- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Follow standard language used to describe UI elements in article text.
+- Put multi-word titles, e.g. names of menu items, in quotes.
+- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.  
+
+#### Alt text for screenshots
+
+Follow this format:
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, along with its `keyboard shortcut XYZ`, are highlighted with `visual highlight mechanism`.
+
+- For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Describe UI elements consistently with written documentation.
+- Be flexible with word order when needed for clarity.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+
+##### Example
+
+> Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.
+
+![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](../images/repository-code-button.png)
+
+#### Alt text for diagrams and graphs
+
+Explain the information conveyed in the diagram or graph in text on the page. 
+
+Use alt text to express the core idea of the image, without duplicating the webpage text.
+
+##### Example
+
+> Diagram showing a five-step process by which a GitHub Actions runner can be automatically added to named classes of runners and then requested by specific jobs.
+
+[See accompanying explanation of this diagram in the Actions documentation.](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners) 
+
+#### Alt text for images of command-line interfaces
+
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+
+When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
 ### Filenames
 
@@ -232,6 +276,46 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 
     <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
 
+## Licensed content
+
+GitHub Docs is licensed under a [CC-BY license](https://github.com/github/docs/blob/main/LICENSE). If you reuse or modify licensed content in an article, you must make sure that the license is compatible and properly attributed.
+
+Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
+
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+
+### Attributing MIT-licensed content
+
+If we reuse or modify content under an MIT license, we must attribute the MIT license where the content appears.
+
+At the end of the article containing MIT-licensed content
+- Create a header titled `Legal notice`
+- Attribute where the content comes from and that it is licensed under the MIT license. Include a link to the project
+- Paste the full text of the MIT license from the project that you are attributing in a codeblock
+
+#### Example MIT license attribution
+
+This text is only an example. Always use the license text from the project you are attributing.
+
+`````
+## Legal notice
+
+Portions have been adapted from [PROJECT](link/to/project) under the MIT license:
+
+```
+MIT License
+
+Copyright <YEAR> <COPYRIGHT HOLDER>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+`````
+
 ## Linebreaks
 
 For plain text, use linebreaks to separate paragraphs in the source (two consecutive linebreaks), rather than to create visual space in the source. Avoid unneeded linebreaks, especially in lists.
@@ -239,11 +323,13 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 ## Links
 
 Introduce links consistently using a standard format that clearly indicates where we’re linking.
-For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-For links to another section in the same article: `For more information, see "[Header text]()."`
-For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
-For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
+- For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+- For links to another section in the same article: `For more information, see "[Header text]()."`
+- For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
+- For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
+- For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+
 Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
@@ -446,6 +532,12 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### GitHub Advanced Security (GHAS)
+
+Use the terms `licenses` and `active committers` when you refer to GitHub Advanced Security billing.
+
+We used to use the term `seats` to describe the number of accounts that can use GitHub Advanced Security in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+
 ### Personal access tokens
 
 GitHub has two types of personal access tokens:
@@ -470,9 +562,32 @@ Use reusable strings for individual nouns (e.g. product names) or for complete s
 
 ## Tables
 
+### Use tables only for presenting tabular information
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document. 
+
+### Avoid describing tables
 A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
 - **Use:** Nothing or a clear header.
 - **Avoid:** “The table below shows what kind of migration data is exported:”
+
+### Include a value for every cell
+Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+### Use clear, consistent symbols and labels
+
+For tables that use symbols:
+
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji. 
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase". 
+
+### Use footnotes sparingly
+Avoid using footnotes where possible. Consider instead whether you could place a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) before or after the table, or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes, use numbers in square brackets [1]. Do not use typographical symbols or special characters.
 
 ## Titles
 
@@ -563,6 +678,12 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
+
+## Videos
+
+You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
+
+Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
 
 ## Voice and tone
 

@@ -29,7 +29,7 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+### Example expression in an `if` conditional
 
 ```yaml
 steps:
@@ -37,7 +37,7 @@ steps:
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+### Example setting an environment variable
 
 {% raw %}
 ```yaml
@@ -57,7 +57,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
-#### Example
+### Example
 
 {% raw %}
 
@@ -137,9 +137,9 @@ For more information, see "[Object filters](#object-filters)."
 
 #### Example matching an array of strings
 
-Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJson()` to check if an array of strings contains an `item`.
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJSON()` to check if an array of strings contains an `item`.
 
-For example, `contains(fromJson('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
+For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -169,7 +169,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 #### Example
 
-`format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
+{% raw %}
+```js
+format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+```
+{% endraw %}
 
 Returns 'Hello Mona the Octocat'.
 
@@ -402,4 +406,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Since objects don't preserve order, the order of the output cannot be guaranteed.

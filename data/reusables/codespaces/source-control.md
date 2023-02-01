@@ -37,7 +37,7 @@ If the fetch operation detects new changes on the remote repository, you'll see 
 
 1. Click the **Manage** button at the bottom of the Activity Bar.
 ![Manage button](/assets/images/help/codespaces/manage-button.png)
-1. In the menu, slick **Settings**.
+1. In the menu, click **Settings**.
 1. On the Settings page, search for: `autofetch`.
 ![Search for autofetch](/assets/images/help/codespaces/autofetch-search.png)
 1. To fetch details of updates for all remotes registered for the current repository, set **Git: Autofetch** to `all`.

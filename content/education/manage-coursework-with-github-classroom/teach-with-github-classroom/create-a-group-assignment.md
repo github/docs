@@ -74,6 +74,8 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 ### Choosing a visibility for assignment repositories
 
+{% data reusables.classroom.assignments-repository-visibility-and-permissions %}
+
 {% data reusables.classroom.assignments-guide-choose-visibility %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-basics %}

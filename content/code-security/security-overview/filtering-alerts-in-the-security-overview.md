@@ -44,9 +44,9 @@ In the examples below, replace `:enabled` with `:not-enabled` to see repositorie
 
 | Qualifier | Description |
 | -------- | -------- |
-| `code-scanning:enabled` | Display repositories that have set up {% data variables.product.prodname_code_scanning %}. | 
+| `code-scanning:enabled` | Display repositories that have configured {% data variables.product.prodname_code_scanning %}. |
 | `dependabot:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}. |
-| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.product.prodname_secret_scanning %} alerts. {% ifversion security-overview-org-risk-coverage %} |
+| `secret-scanning:enabled` | Display repositories that have enabled {% data variables.secret-scanning.alerts %}. {% ifversion security-overview-org-risk-coverage %} |
 | `any-feature:enabled` | Display repositories where at least one security feature is enabled. |{% else %}
 | `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |{% endif %}
 
@@ -59,7 +59,7 @@ The organization-level Security Coverage view includes extra filters.
 | -------- | -------- |
 | `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
 | `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
-| `secret-scanning-push-protection:enabled` | Display repositories that have set up push protection for {% data variables.product.prodname_secret_scanning %}. |
+| `secret-scanning-push-protection:enabled` | Display repositories that have enabled push protection for {% data variables.product.prodname_secret_scanning %}. |
 {% endif %}
 
 ## Filter by repository type
@@ -79,7 +79,7 @@ These qualifiers are available in the main summary views.
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 ## Filter by level of risk for repositories
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk. 
+The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
 
 {% ifversion security-overview-org-risk-coverage %}
 These qualifiers are available in the enterprise-level view.
@@ -100,9 +100,9 @@ These qualifiers are available in the enterprise-level view.
 
 | Qualifier | Description |
 | -------- | -------- |
-| <code>code-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>secret-scanning:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_secret_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| <code>dependabot:<em>n</em></code> | Display repositories that have *n* {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `code-scanning:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `secret-scanning:NUMBER` | Display repositories that have NUMBER {% data variables.secret-scanning.alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `dependabot:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 
 
 ## Filter by team
@@ -111,7 +111,7 @@ These qualifiers are available in the main summary views.
 
 | Qualifier | Description |
 | -------- | -------- |
-| <code>team:<em>TEAM-NAME</em></code> | Displays repositories that *TEAM-NAME* has admin privileges for. |
+| `team:TEAM-NAME` | Displays repositories that TEAM-NAME has {% ifversion security-overview-team-write-access -%} write access or {% endif -%} admin access to. |
 
 ## Filter by topic
 
@@ -119,7 +119,7 @@ These qualifiers are available in the main summary views.
 
 | Qualifier | Description |
 | -------- | -------- |
-| <code>topic:<em>TOPIC-NAME</em></code> | Displays repositories that are classified with *TOPIC-NAME*. |
+| `topic:TOPIC-NAME` | Displays repositories that are classified with TOPIC-NAME. |
 
 {% ifversion security-overview-alert-views %}
 
@@ -159,4 +159,3 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
 
 For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
-

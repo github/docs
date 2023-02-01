@@ -38,6 +38,12 @@ The benefits of streaming audit data include:
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
+{% note %}
+
+**Note:** All audit logs are streamed in JSON format.
+
+{% endnote %}
+
 ## Setting up audit log streaming
 
 You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
@@ -57,6 +63,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 - [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
 - [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
 - [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+- [Integrating with AWS CloudTrail Lake](#integrating-with-aws-cloudtrail-lake)
 
 #### Setting up streaming to S3 with access keys
 {% endif %}
@@ -141,6 +148,9 @@ If you want to disable streaming to S3 with OIDC for any reason, such as the dis
 Then, set up streaming with access keys until the vulnerability is resolved. For more information, see "[Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)."
 
 {% endif %}
+
+#### Integrating with AWS CloudTrail Lake
+You can consolidate your audit logs from {% data variables.product.product_name %} with AWS activity logs by integrating audit log streaming to S3 with AWS CloudTrail Lake. For additional information, see the [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/) or the [GitHub Audit Log to CloudTrail Open Audit](https://github.com/aws-samples/aws-cloudtrail-lake-github-audit-log) in the `aws-samples/aws-cloudtrail-lake-github-audit-log` repository.
 
 ### Setting up streaming to Azure Blob Storage
 

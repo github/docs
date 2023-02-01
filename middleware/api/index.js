@@ -3,10 +3,12 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 
 import events from './events.js'
 import search from './search.js'
+import webhooks from './webhooks.js'
 
 const router = express.Router()
 
 router.use('/events', events)
+router.use('/webhooks', webhooks)
 
 // The purpose of this is for convenience to everyone who runs this code
 // base locally but don't have an Elasticsearch server locally.

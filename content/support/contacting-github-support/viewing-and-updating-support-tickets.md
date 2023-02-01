@@ -16,7 +16,14 @@ topics:
 
 You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
-{% ifversion ghes or ghec %}
+Your capabilities in the {% data variables.contact.support_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
+
+{% note %}
+
+**Note**: Urgent priority and Premium Support SLAs apply only to tickets associated with an enterprise account.
+
+{% endnote %}
+
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
 
@@ -24,7 +31,12 @@ You can use the [GitHub Support Portal](https://support.github.com/) to view cur
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top.
-![Screenshot of support ticket comment history, with the most recent response at the top.](/assets/images/help/support/support-recent-response.png)
+
+   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
+
+1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+
+   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
@@ -33,7 +45,7 @@ You can use the [GitHub Support Portal](https://support.github.com/) to view cur
 You can only view archived tickets for an enterprise account.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account. 
+1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 

@@ -10,14 +10,24 @@ const startVisitTime = Date.now()
 let initialized = false
 let cookieValue: string | undefined
 let pageEventId: string | undefined
-let maxScrollY = 0
-let pauseScrolling = false
+
 let sentExit = false
+let pauseScrolling = false
+let scrollPosition = 0
+let scrollDirection = 1
+let scrollFlipCount = 0
+let maxScrollY = 0
+
+let hoveredUrls = new Set()
 
 function resetPageParams() {
-  maxScrollY = 0
-  pauseScrolling = false
   sentExit = false
+  pauseScrolling = false
+  scrollPosition = 0
+  scrollDirection = 1
+  scrollFlipCount = 0
+  maxScrollY = 0
+  hoveredUrls = new Set()
 }
 
 export function getUserEventsId() {
@@ -37,6 +47,7 @@ export enum EventType {
   page = 'page',
   exit = 'exit',
   link = 'link',
+  hover = 'hover',
   search = 'search',
   searchResult = 'searchResult',
   navigate = 'navigate',
@@ -56,8 +67,11 @@ type SendEventProps = {
   exit_dom_complete?: number
   exit_visit_duration?: number
   exit_scroll_length?: number
+  exit_scroll_flip?: number
   link_url?: string
   link_samesite?: boolean
+  hover_url?: string
+  hover_samesite?: boolean
   search_query?: string
   search_context?: string
   search_result_query?: string
@@ -181,10 +195,20 @@ function trackScroll() {
     pauseScrolling = false
   }, 200)
 
-  // Update maximum scroll position reached
+  // Calculate where we are on the page
   const scrollPixels = window.scrollY + window.innerHeight
-  const scrollPosition = scrollPixels / document.documentElement.scrollHeight
-  if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
+  const newScrollPosition = scrollPixels / document.documentElement.scrollHeight
+
+  // Count scroll flips
+  const newScrollDirection = Math.sign(newScrollPosition - scrollPosition)
+  if (newScrollDirection !== scrollDirection) scrollFlipCount++
+
+  // Update maximum scroll position reached
+  if (newScrollPosition > maxScrollY) maxScrollY = newScrollPosition
+
+  // Update before the next event
+  scrollDirection = newScrollDirection
+  scrollPosition = newScrollPosition
 }
 
 function sendPage() {
@@ -196,6 +220,7 @@ function sendExit() {
   if (sentExit) return
   sentExit = true
   const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
+
   return sendEvent({
     type: EventType.exit,
     exit_render_duration: render,
@@ -204,6 +229,7 @@ function sendExit() {
     exit_dom_complete: domComplete,
     exit_visit_duration: (Date.now() - startVisitTime) / 1000,
     exit_scroll_length: maxScrollY,
+    exit_scroll_flip: scrollFlipCount,
   })
 }
 
@@ -267,6 +293,22 @@ function initLinkEvent() {
   })
 }
 
+function initHoverEvent() {
+  document.documentElement.addEventListener('mouseover', (evt) => {
+    const target = evt.target as HTMLElement
+    const link = target.closest('a[href]') as HTMLAnchorElement
+    if (!link) return
+    if (hoveredUrls.has(link.href)) return // Otherwise this is a flood of events
+    const sameSite = link.origin === location.origin
+    hoveredUrls.add(link.href)
+    sendEvent({
+      type: EventType.hover,
+      hover_url: link.href,
+      hover_samesite: sameSite,
+    })
+  })
+}
+
 function initPrintEvent() {
   window.addEventListener('beforeprint', () => {
     sendEvent({ type: EventType.print })
@@ -278,6 +320,7 @@ export function initializeEvents() {
   initialized = true
   initPageAndExitEvent() // must come first
   initLinkEvent()
+  initHoverEvent()
   initClipboardEvent()
   initCopyButtonEvent()
   initPrintEvent()

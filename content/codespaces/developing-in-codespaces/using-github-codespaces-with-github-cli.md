@@ -15,7 +15,7 @@ redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
 ---
 
-## About {% data variables.product.prodname_cli %} 
+## About {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.about-cli %} For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
@@ -37,29 +37,29 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
 ## Installing {% data variables.product.prodname_cli %}
 
 {% data reusables.cli.cli-installation %}
- 
+
 ## Using {% data variables.product.prodname_cli %}
 
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account. 
+If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account.
 
-To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace <COMMAND>` or its alias `gh cs <COMMAND>`.
+To use `gh` to work with {% data variables.product.prodname_github_codespaces %}, type `gh codespace SUBCOMMAND` or its alias `gh cs SUBCOMMAND`.
 
-As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could: 
+As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
 
 * List your current codespaces, to check whether you have a codespace for a particular repository:<br>
   `gh codespace list`
 * Create a new codespace for the required repository branch:<br>
   `gh codespace create -r github/docs -b main`
 * SSH into the new codespace:<br>
-  `gh codespace ssh -c mona-github-docs-v4qxrv7rfwv9w`
+  `gh codespace ssh -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 * Forward a port to your local machine:<br>
-  `gh codespace ports forward 8000:8000 -c mona-github-docs-v4qxrv7rfwv9w`
+  `gh codespace ports forward 8000:8000 -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
 
 The sections below give example commands for each of the available operations.
 
-For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, use `gh codespace [<SUBCOMMAND>...] --help` on the command line.
+For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, on the command line, use `gh codespace --help` for general help or `gh codespace SUBCOMMAND --help` for help with a specific subcommand.
 
 {% note %}
 
@@ -121,13 +121,11 @@ gh codespace ssh -c CODESPACE-NAME
 
 **Note**: {% data reusables.codespaces.ssh-server-installed %}
 
-<br>For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+<br>For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 {% endnote %}
 
-{% data variables.product.prodname_github_codespaces %} copies your GitHub SSH keys into the codespace on creation for a seamless authentication experience. You may be asked to enter the passphrase for your SSH key, after which you will get a command prompt from the remote codespace machine.
-
-If you don't have any SSH keys, follow the instructions in "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+{% data variables.product.prodname_github_codespaces %} creates a local SSH key automatically to provide a seamless authentication experience. For more information on connecting with SSH, see [`gh codespace ssh`](https://cli.github.com/manual/gh_codespace_ssh).
 
 ### Open a codespace in {% data variables.product.prodname_vscode %}
 
@@ -163,7 +161,7 @@ The location of files and directories on the codespace is relative to the home d
 
 * Copy a file to the directory in which a repository is checked out in a codespace:
 
-   `gh codespace cp myfile.txt remote:/workspaces/<REPOSITORY-NAME>`
+   `gh codespace cp myfile.txt remote:/workspaces/REPOSITORY-NAME`
 
 * Copy a file from a codespace to the current directory on the local machine:
 
@@ -221,19 +219,19 @@ gh codespace logs -c CODESPACE-NAME
 
 For more information about the creation log, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
 
-### Access remote resources 
+### Access remote resources
 You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
 
 {% endnote %}
 
 ### Change the machine type of a codespace
 
 ```shell
-gh codespace edit -m <em>machine-type-name</em>
+gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
 For more information, see the "{% data variables.product.prodname_cli %}" tab of "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."

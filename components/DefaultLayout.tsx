@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
@@ -9,7 +10,9 @@ import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { RestBanner } from 'components/page-header/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useRouter } from 'next/router'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+
+const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
@@ -28,8 +31,30 @@ export const DefaultLayout = (props: Props) => {
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
+  // This is only true when we do search indexing which renders every page
+  // just to be able to `cheerio` load the main body (and the meta
+  // keywords tag).
+  if (MINIMAL_RENDER) {
+    return (
+      <div>
+        <Head>
+          <title>{page.fullTitle}</title>
+        </Head>
+
+        {/* For local site search indexing */}
+        <div data-search="breadcrumbs">
+          <Breadcrumbs />
+        </div>
+
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+          {props.children}
+        </main>
+      </div>
+    )
+  }
+
   return (
-    <div className="d-lg-flex">
+    <>
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
@@ -86,26 +111,28 @@ export const DefaultLayout = (props: Props) => {
       <a href="#main-content" className="sr-only">
         Skip to main content
       </a>
-      <SidebarNav />
-      {/* Need to set an explicit height for sticky elements since we also
+      <Header />
+      <div className="d-lg-flex">
+        <SidebarNav />
+        {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
-      <div className="flex-column flex-1">
-        <Header />
-        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
-          <DeprecationBanner />
-          <RestBanner />
+        <div className="flex-column flex-1">
+          <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+            <DeprecationBanner />
+            <RestBanner />
 
-          {props.children}
-        </main>
-        <footer>
-          <SupportSection />
-          <SmallFooter />
-          <ScrollButton
-            className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
-            ariaLabel={t('scroll_to_top')}
-          />
-        </footer>
+            {props.children}
+          </main>
+          <footer>
+            <SupportSection />
+            <SmallFooter />
+            <ScrollButton
+              className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
+              ariaLabel={t('scroll_to_top')}
+            />
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

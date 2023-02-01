@@ -63,6 +63,14 @@ The `commenter` qualifier finds discussions that contain a comment from a certai
 | :- | :- |
 | <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) matches discussions in repositories owned by GitHub, that contain the word "github," and have a comment by @becca.
 
+## Search by user who has answered a discussion
+
+The `answered-by` qualifier finds discussions where a certain user's comment was marked as an answer.
+
+| Qualifier | Example |
+| :- | :- |
+| <code>answered-by:<em>USERNAME</em></code> | [**cool answered-by:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) matches discussions with the word "cool" that were answered by @octocat. |
+
 ## Search by a user that's involved in a discussion
 
 You can use the `involves` qualifier to find discussions that involve a certain user. The qualifier returns discussions that were either created by a certain user, mention the user, or contain comments by the user. The `involves` qualifier is a logical OR between the `author`, `mentions`, and `commenter` qualifiers for a single user.

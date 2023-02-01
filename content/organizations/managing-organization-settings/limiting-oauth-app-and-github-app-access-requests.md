@@ -17,7 +17,7 @@ When integration access requests are enabled, outside collaborators can request 
 
 By default, integration access requests are enabled. If your organization has a large number of outside collaborators, you may want to disable integration access requests, to reduce the number of requests you have to review. 
 
-## Enabling or disabling intergration access requests
+## Enabling or disabling integration access requests
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

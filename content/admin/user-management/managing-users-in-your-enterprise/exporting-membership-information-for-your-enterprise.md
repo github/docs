@@ -9,12 +9,6 @@ shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
 ---
 
-{% note %}
-
-**Note:** Exporting membership information for an enterpirise is currently in beta and subject to change.
-
-{% endnote %}
-
 To perform an audit of people with access to your enterprise's resources, you can download a CSV report of membership information for your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}

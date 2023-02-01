@@ -42,8 +42,11 @@ After you configure {% data variables.location.product_location %} to use {% dat
 
 Any VM that you use for {% data variables.product.prodname_dependabot %} runners must meet the requirements for self-hosted runners. In addition, they must meet the following requirements.
 
-- Linux operating system{% ifversion ghes < 3.5 %}
-- Git installed{% endif %}
+- Linux operating system
+- x64 architecture
+{%- ifversion ghes < 3.5 %}
+- Git installed
+{%- endif %}
 - Docker installed with access for the runner users:
   - We recommend installing Docker in rootless mode and configuring the runners to access Docker without `root` privileges.
   - Alternatively, install Docker and give the runner users raised privileges to run Docker.

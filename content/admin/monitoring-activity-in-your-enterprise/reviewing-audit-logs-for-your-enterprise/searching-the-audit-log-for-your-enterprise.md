@@ -111,6 +111,7 @@ Each category has a set of associated actions that you can filter on. For exampl
 Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### Search based on time of action
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred.

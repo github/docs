@@ -139,7 +139,7 @@ These keystrokes are available when the command palette is in navigation and sea
 |<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
 |<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
 |<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
-|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
+|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new browser tab.|
 |<kbd>?</kbd>| Display help within the command palette.|
 
 ### Global commands
@@ -175,7 +175,7 @@ Most of these commands are available only on the home page of the repository. If
 |`New file`|Create a new file from any page in the repository. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
 |`New issue`|Open a new issue from any page in the repository. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."|
 |`Open in new codespace`|Create and open a codespace for this repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."|
-|`Open in github.dev editor`|Open the current repository in the github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see "[The {% data variables.codespaces.serverless %} web-based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
 
 ### File commands
 
@@ -184,7 +184,7 @@ These commands are available only when you open the command palette from a file 
 | Command | Behavior|
 | :- | :- |
 |`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see "[Getting permanent links to files](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)."
-|`Open in github.dev editor`|Open the currently displayed file in github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see "[The {% data variables.codespaces.serverless %} web-based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
 
 ### Discussion commands
 

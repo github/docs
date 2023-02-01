@@ -17,6 +17,22 @@ topics:
 If you're encountering some oddities in the API, here's a list of resolutions to
 some of the problems you may be experiencing.
 
+{% ifversion api-date-versioning %}
+
+## `400` error for an unsupported API version
+
+You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
+
+```shell
+$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+```
+
+If you specify a version that does not exist, you will receive a `400` error.
+
+For more information, see "[API Versions](/rest/overview/api-versions)."
+
+{% endif %}
+
 ## `404` error for an existing repository
 
 Typically, we send a `404` error when your client isn't properly authenticated.
@@ -35,7 +51,7 @@ in order to get more results.
 
 It's important to *not* try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
-[the Link Header](/rest#pagination), which is sent with every request.
+the link header, which is returned with every request. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

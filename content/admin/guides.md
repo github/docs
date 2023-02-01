@@ -17,8 +17,8 @@ learningTracks:
   - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghes %}configure_github_actions{% endif %}'
+  - '{% ifversion ghes %}configure_github_advanced_security{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -63,7 +63,7 @@ includeGuides:
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
   - /admin/configuration/network-ports
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+  - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer

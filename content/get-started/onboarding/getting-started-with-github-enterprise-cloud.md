@@ -19,7 +19,7 @@ This guide will walk you through setting up, configuring and managing your {% da
 
 The main difference between the products is that {% data variables.product.prodname_ghe_cloud %} is hosted by {% data variables.product.prodname_dotcom %}, while {% data variables.product.prodname_ghe_server %} is self-hosted.
 
-{% data reusables.enterprise.about-github-for-enterprises %}
+For more information about {% data variables.product.prodname_ghe_cloud %}, see "[About {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
 
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
@@ -61,7 +61,7 @@ Only organization members with the *owner* or *billing manager* role can access 
 
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
-#### 2. Creating an enterpise account
+#### 2. Creating an enterprise account
 
  {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
  
@@ -203,7 +203,10 @@ Members of your organization or enterprise can use tools from the {% data variab
 Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
 
 ### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
+
+{% data reusables.docs.ghec-docs %}
+
+{% data reusables.enterprise.best-practices %}
 
 ### 2. Learning with {% data variables.product.prodname_learning %}
 Members of your organization or enterprise can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.

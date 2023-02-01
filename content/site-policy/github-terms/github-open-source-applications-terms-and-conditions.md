@@ -14,7 +14,7 @@ These GitHub Open Source Applications Terms and Conditions ("Application Terms")
 
 ## Connecting to GitHub
 
-If you configure the Software to work with one or more accounts on the GitHub.com website or with an instance of GitHub Enterprise, your use of the Software will also be governed by your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your instance of GitHub Enterprise ("GitHub Terms").
+If you configure the Software to work with one or more accounts on the GitHub.com website or with a deployment of GitHub Enterprise Server or GitHub AE, your use of the Software will also be governed by your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your deployment of GitHub Enterprise Server or GitHub AE ("GitHub Terms").
 
 Any use of the Software that violates your applicable GitHub Terms will also be a violation of these Application Terms.
 
@@ -30,7 +30,7 @@ Unless otherwise agreed to in writing with GitHub, your agreement with GitHub wi
 
 The license grant included with the Software is not for GitHub's trademarks, which include the Software logo designs. GitHub reserves all trademark and copyright rights in and to all GitHub trademarks. GitHub's logos include, for instance, the stylized designs that include "logo" in the file title in the "logos" folder.
 
-The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, the Octocat, and related GitHub logos and/or stylized names are trademarks of GitHub. You agree not to display or use these trademarks in any manner without GitHub's prior, written permission, except as allowed by GitHub's Logos and Usage Policy: https://github.com/logos.
+The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, the Octocat, and related GitHub logos and/or stylized names are trademarks of GitHub. You agree not to display or use these trademarks in any manner without GitHub's prior, written permission, except as allowed by GitHub's Logos and Usage Policy: https://github.com/logos.
 
 ## Privacy
 

@@ -15,7 +15,6 @@ import { jest, test, expect } from '@jest/globals'
 
 import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
 import { get } from '../helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -57,8 +56,11 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(hit.url).toBe('/en/foo')
     expect(hit.title).toBe('Foo')
     expect(hit.breadcrumbs).toBe('fooing')
+    // By default, 'title' and 'content' is included in highlights,
+    // but not 'headings'
     expect(hit.highlights.title[0]).toBe('<mark>Foo</mark>')
     expect(hit.highlights.content[0]).toMatch('<mark>foo</mark>')
+    expect(hit.highlights.headings).toBeUndefined()
 
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -66,7 +68,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+    expect(res.headers['surrogate-key']).toBe('api-search:en')
   })
 
   test('debug search', async () => {
@@ -83,6 +85,36 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(hit.es_url).toBeTruthy()
   })
 
+  test('search with and without autocomplete on', async () => {
+    // *Without* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      // Fixtures contains no word called 'sill'. It does contain the term
+      // 'silly' which, in English, becomes 'silli` when stemmed.
+      // Because we don't use `&autocomplete=true` this time, we expect
+      // to find nothing.
+      expect(results.meta.found.value).toBe(0)
+    }
+
+    // *With* autocomplete=true
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'sill')
+      sp.set('autocomplete', 'true')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(200)
+      const results = JSON.parse(res.text)
+      expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+      const hit = results.hits[0]
+      const contentHighlights = hit.highlights.content
+      expect(contentHighlights[0]).toMatch('<mark>silly</mark>')
+    }
+  })
+
   test('find nothing', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'xojixjoiwejhfoiuwehjfioweufhj')
@@ -91,6 +123,38 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const results = JSON.parse(res.text)
     expect(results.hits.length).toBe(0)
     expect(results.meta.found.value).toBe(0)
+  })
+
+  test('configurable highlights', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'introduction heading')
+    sp.append('highlights', 'headings')
+    sp.append('highlights', 'content')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    for (const hit of results.hits) {
+      expect(hit.highlights.title).toBeFalsy()
+      expect(hit.highlights.headings).toBeTruthy()
+      expect(hit.highlights.content).toBeTruthy()
+    }
+  })
+
+  test('highlights keys matches highlights configuration', async () => {
+    const sp = new URLSearchParams()
+    // This will match because it's in the 'content' but not in 'headings'
+    sp.set('query', 'Fact of life')
+    sp.set('highlights', 'headings')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
+    for (const hit of results.hits) {
+      expect(hit.highlights.headings).toBeTruthy()
+      expect(hit.highlights.title).toBeFalsy()
+      expect(hit.highlights.content).toBeFalsy()
+    }
   })
 
   test('version can be aliased', async () => {
@@ -169,6 +233,15 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       expect(res.statusCode).toBe(400)
       expect(JSON.parse(res.text).error).toMatch('sort')
     }
+    // unrecognized highlights
+    {
+      const sp = new URLSearchParams()
+      sp.set('query', 'test')
+      sp.set('highlights', 'neverheardof')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(400)
+      expect(JSON.parse(res.text).error).toMatch('neverheardof')
+    }
   })
 
   test('breadcrumbless records should always return a string', async () => {
@@ -197,42 +270,6 @@ describeIfElasticsearchURL('search legacy middleware', () => {
     expect(Array.isArray(results)).toBeTruthy()
     const foundURLS = results.map((result) => result.url)
     expect(foundURLS.includes('/en/foo')).toBeTruthy()
-  })
-
-  test('basic legacy search with single filter', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Fixture')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/foo')).toBeTruthy()
-    expect(foundURLS.includes('/en/bar')).toBeTruthy()
-    const foundTopics = results.map((result) => result.topics)
-    expect(foundTopics.every((topics) => topics.includes('Fixture'))).toBeTruthy()
-  })
-
-  test('basic legacy search with multiple filters', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Fixture')
-    sp.append('filters', 'Get started')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/bar')).toBeTruthy()
-    const foundTopics = results.map((result) => result.topics)
-    expect(
-      foundTopics.every((topics) => topics.includes('Fixture') && topics.includes('Get started'))
-    ).toBeTruthy()
   })
 
   test('basic legacy search with unknown filters', async () => {

@@ -37,15 +37,9 @@ The icons at the top of the {% data variables.product.prodname_github_codespaces
 
 * **Refresh active codespace**
 
-  ![Screenshot of the refresh button](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh-BAK.png)
+  ![Screenshot of the refresh button](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Refresh the details in the {% data variables.product.prodname_github_codespaces %} tool window. For example, if you used {% data variables.product.prodname_cli %} to change the display name, you could click this button to show the new name.
-
-* **Disconnect and stop**
-
-  ![Screenshot of the stop button](/assets/images/help/codespaces/jetbrains-plugin-icon-stop.png)
-
-  Stop the codespace, stop the backend IDE on the remote machine, and close the local JetBrains client.
 
 * **Manage your codespaces from the web**
 
@@ -58,10 +52,3 @@ The icons at the top of the {% data variables.product.prodname_github_codespaces
   ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Open the codespace creation log in the editor window. For more information, see "[{% data variables.product.prodname_github_codespaces %} logs](/codespaces/troubleshooting/github-codespaces-logs)."
-
-* **Rebuild the dev container**
-
-  ![Screenshot of the rebuild button](/assets/images/help/codespaces/jetbrains-plugin-icon-rebuild.png)
-
-  Rebuild your codespace to apply changes you've made to the dev container configuration. The JetBrains client will close and you must reopen the codespace. For more information, see "[The codespace lifecycle](/codespaces/developing-in-codespaces/the-codespace-lifecycle#rebuilding-a-codespace)."
-

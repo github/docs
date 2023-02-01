@@ -237,7 +237,7 @@ ghe-motd
 
 ### ghe-nwo
 
-This utility returns a repository's name and owner based on the repository ID.  
+This utility returns a repository's name and owner based on the repository ID.
 
 ```shell
 ghe-nwo REPOSITORY_ID
@@ -511,7 +511,7 @@ ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 
 ### ghe-ssl-certificate-setup
 
-This utility allows you to update an SSL certificate for {% data variables.location.product_location %}. 
+This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
 
 For more information about this command or for additional options, use the `-h` flag.
 
@@ -612,16 +612,6 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
-
-{% ifversion ghes %}
-### ghe-cluster-failover
-
-Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
-
-```shell
-ghe-cluster-failover
-```
-{% endif %}
 
 ### ghe-dpages
 
@@ -894,6 +884,8 @@ ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ### ghe-upgrade-scheduler
 
 This utility manages scheduled installation of upgrade packages. You can show, create new, or remove scheduled installations. You must create schedules using cron expressions. For more information, see the [Cron Wikipedia entry](https://en.wikipedia.org/wiki/Cron#Overview).
+
+The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[Upgrading {% data variables.product.product_name %}](/admin/enterprise-management/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)"
 
 To schedule a new installation for a package:
 ```shell

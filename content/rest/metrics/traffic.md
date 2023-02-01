@@ -2,7 +2,7 @@
 title: Repository traffic
 shortTitle: Traffic
 allowTitleToDifferFromFilename: true
-intro: The Repository traffic API provides access to the information provided in your repository graph.
+intro: Use the REST API to retrieve information provided in your repository graph.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Repository traffic API
+## About repository traffic
 
-For repositories that you have push access to, the Repository traffic API provides access to the information provided in your repository graph. 
-For more information, see "[Viewing traffic to a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository)."
+You can use these endpoints to retrieve information provided in your repository graph, for repositories that you have write access to. For more information, see "[Viewing traffic to a repository](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository)".

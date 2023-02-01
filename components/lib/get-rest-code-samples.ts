@@ -2,8 +2,20 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from '../rest/types'
+import { useVersion } from 'components/hooks/useVersion'
+import { useMainContext } from 'components/context/MainContext'
 
 type CodeExamples = Record<string, any>
+
+// If the content type is application/x-www-form-urlencoded the format of
+// the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
+// For example, this operation:
+// https://docs.github.com/en/enterprise/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode
+const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
+  'application/x-www-form-urlencoded': '--data-urlencode',
+  'multipart/form-data': '--form',
+  'application/octet-stream': '--data-binary',
+}
 /*
   Generates a curl example
 
@@ -15,10 +27,16 @@ type CodeExamples = Record<string, any>
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
 export function getShellExample(operation: Operation, codeSample: CodeSample) {
-  // This allows us to display custom media types like application/sarif+json
-  const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
-    ? codeSample.response.contentType
-    : 'application/vnd.github+json'
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+  const defaultAcceptHeader = getAcceptHeader(codeSample)
+
+  // For operations that upload data using octet-stream, you need
+  // to explicitly set the content-type header.
+  const contentTypeHeader =
+    codeSample?.request?.contentType === 'application/octet-stream'
+      ? '-H "Content-Type: application/octet-stream"'
+      : ''
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -34,16 +52,21 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
       "'\\''"
     )}'`
 
-    // If the content type is application/x-www-form-urlencoded the format of
-    // the shell example is --data-urlencode param1=value1 --data-urlencode param2=value2
-    // For example, this operation:
-    // https://docs.github.com/en/enterprise/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode
-    if (codeSample.request.contentType === 'application/x-www-form-urlencoded') {
+    const contentType = codeSample.request.contentType
+    if (contentType in CURL_CONTENT_TYPE_MAPPING) {
       requestBodyParams = ''
-      const paramNames = Object.keys(codeSample.request.bodyParameters)
-      paramNames.forEach((elem) => {
-        requestBodyParams = `${requestBodyParams} --data-urlencode ${elem}=${codeSample.request.bodyParameters[elem]}`
-      })
+      // Most of the time the example body parameters have a name and value
+      // and are included in an object. But, some cases are a single value
+      // and the type is a string.
+      const { bodyParameters } = codeSample.request
+      if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
+        const paramNames = Object.keys(bodyParameters)
+        paramNames.forEach((elem) => {
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${bodyParameters[elem]}"`
+        })
+      } else {
+        requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${bodyParameters}"`
+      }
     }
   }
 
@@ -52,9 +75,16 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     authHeader = '-u "api_key:your-password"'
   }
 
+  const apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
+    contentTypeHeader,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
@@ -72,9 +102,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     -fref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
 */
 export function getGHExample(operation: Operation, codeSample: CodeSample) {
-  const defaultAcceptHeader = codeSample?.response?.contentType?.includes('+json')
-    ? codeSample.response.contentType
-    : 'application/vnd.github+json'
+  const defaultAcceptHeader = getAcceptHeader(codeSample)
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
   let requestPath = codeSample?.request?.parameters
@@ -85,25 +113,33 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
 
   let requestBodyParams = ''
-  if (codeSample?.request?.bodyParameters) {
-    const bodyParamValues = Object.values(codeSample.request.bodyParameters)
-    // GitHub CLI does not support sending Objects and arrays using the -F or
-    // -f flags. That support may be added in the future. It is possible to
-    // use gh api --input to take a JSON object from standard input
-    // constructed by jq and piped to gh api. However, we'll hold off on adding
-    // that complexity for now.
-    if (bodyParamValues.some((elem) => typeof elem === 'object')) {
-      return undefined
+  // Most of the time the example body parameters have a name and value
+  // and are included in an object. But, some cases are a single value
+  // and the type is a string.
+  const { bodyParameters } = codeSample.request
+  if (bodyParameters) {
+    if (typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
+      const bodyParamValues = Object.values(codeSample.request.bodyParameters)
+      // GitHub CLI does not support sending Objects and arrays using the -F or
+      // -f flags. That support may be added in the future. It is possible to
+      // use gh api --input to take a JSON object from standard input
+      // constructed by jq and piped to gh api. However, we'll hold off on adding
+      // that complexity for now.
+      if (bodyParamValues.some((elem) => typeof elem === 'object')) {
+        return undefined
+      }
+      requestBodyParams = Object.keys(codeSample.request.bodyParameters)
+        .map((key) => {
+          if (typeof codeSample.request.bodyParameters[key] === 'string') {
+            return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
+          } else {
+            return `-F ${key}=${codeSample.request.bodyParameters[key]} `
+          }
+        })
+        .join('\\\n ')
+    } else {
+      requestBodyParams = `-f '${codeSample.request.bodyParameters}'`
     }
-    requestBodyParams = Object.keys(codeSample.request.bodyParameters)
-      .map((key) => {
-        if (typeof codeSample.request.bodyParameters[key] === 'string') {
-          return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
-        } else {
-          return `-F ${key}=${codeSample.request.bodyParameters[key]} `
-        }
-      })
-      .join('\\\n ')
   }
   const args = [
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
@@ -131,9 +167,21 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
 
 */
 export function getJSExample(operation: Operation, codeSample: CodeSample) {
-  const parameters = codeSample.request
-    ? { ...codeSample.request.parameters, ...codeSample.request.bodyParameters }
-    : {}
+  const parameters: { [key: string]: string } = {}
+  if (codeSample.request) {
+    Object.assign(parameters, codeSample.request.parameters)
+    // Most of the time the example body parameters have a name and value
+    // and are included in an object. But, some cases are a single value
+    // and the type is a string.
+    if (
+      codeSample.request.bodyParameters &&
+      typeof codeSample.request.bodyParameters !== 'object'
+    ) {
+      parameters.data = codeSample.request.bodyParameters
+    } else {
+      Object.assign(parameters, codeSample.request.bodyParameters)
+    }
+  }
 
   let queryParameters = ''
 
@@ -213,4 +261,11 @@ function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample
   }
 
   return requiredQueryParams.toString()
+}
+
+function getAcceptHeader(codeSample: CodeSample) {
+  // This allows us to display custom media types like application/sarif+json
+  return codeSample?.response?.contentType?.includes('+json')
+    ? codeSample.response.contentType
+    : 'application/vnd.github+json'
 }

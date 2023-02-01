@@ -1,8 +1,8 @@
 ---
 title: About Tasklists
-intro: 'You can use Tasklists to divide your issues into smaller subtasks.'
+intro: You can use Tasklists to divide your issues into smaller subtasks.
 versions:
-  feature: 'projects-v2-tasklists'
+  feature: projects-v2-tasklists
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
@@ -22,21 +22,11 @@ The issues you add to your Tasklists will be automatically populated to show the
 
 ### About integration with {% data variables.projects.projects_v2 %}
 
- Your project's side-panel displays an issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your Tasklists. You can also add the Tracks and Tracked-by fields to your project views to quickly see the relationships between your issues. For information, see "[About tracks and tracked-by fields](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
+ Your project's side-panel displays an issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your Tasklists. You can also add the Tracks and Tracked by fields to your project views to quickly see the relationships between your issues. For information, see "[About tracks and tracked by fields](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
 
 ## Creating Tasklists
 
-To create a Tasklist, you can either use the "Add Tasklist" button or edit the issue Markdown.
-
-### Creating a Tasklist using the "Add Tasklist" button
-
-Click the **{% octicon "checklist" aria-label="The checklist icon" %} Add Tasklist** button at the bottom of any issue description that you can edit to create a task list.
-
-![Screenshot showing the 'Add Tasklist' button](/assets/images/help/issues/tasklist-add-tasklist-button.png)
-
-### Creating a Tasklist using Markdown
-
-You can use Markdown in an issue description to create a Tasklist. Create a fenced code block and include `[tasklist]` next to the opening backticks. Preface each item with `- [ ]` and include links to other issues or text. You can optionally include a title as a Markdown header at the top of your list. 
+You can create a Tasklist using Markdown in an issue description. Create a fenced code block and include `[tasklist]` next to the opening backticks. You can then preface each item with `- [ ]` and include links to other issues or text. You can optionally include a title as a Markdown header at the top of your list. 
 
 ````
 ```[tasklist]
@@ -45,10 +35,11 @@ You can use Markdown in an issue description to create a Tasklist. Create a fenc
 - [ ] Draft issue title
 ```
 ````
-
 Your Markdown will be rendered by {% data variables.product.product_name %} as a Tasklist. You can then make changes and add issues and draft issues using the UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the Tasklist in other issues.
 
+You can also click {% octicon "checklist" aria-label="The checklist icon" %} in the formatting toolbar to insert a Tasklist when creating a new issue or editing an issue description.
 
+![Screenshot showing the 'Add Tasklist' button](/assets/images/help/issues/tasklist-formatting-toolbar.png)
 
 ## Adding issues to a Tasklist
 

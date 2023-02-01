@@ -20,6 +20,8 @@ As a discussions maintainer, you can create community resources to encourage dis
 
 When a discussion yields an idea or bug that is ready to be worked on, you can create a new issue from a discussion. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-discussion)."
 
+You can pin a discussion to the top of the list of discussions for the repository or organization. {% ifversion discussions-category-specific-pins %}You can also pin a discussion to a specific category.{% endif %} For more information, see "[Pinning a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
+
 For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
 {% data reusables.discussions.you-can-label-discussions %}
@@ -40,23 +42,63 @@ You can also move a discussion to a different category. It's not possible to mov
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, to the right of "Category", click {% octicon "gear" aria-label="The gear icon" %}.
-  !["Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+
+   ![Screenshot of the "Category" with gear icon](/assets/images/help/discussions/category-in-sidebar.png)
+
 1. Click a category.
-  !["Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
+
+   ![Screenshot of the "Change category" drop-down menu](/assets/images/help/discussions/change-category-drop-down.png)
 
 ## Pinning a discussion
 
-You can pin up to four important discussions above the list of discussions for the repository or organization.
+{% ifversion discussions-category-specific-pins %}
+You can pin a discussion above the list of discussions for the repository or organization. You can also pin a discussion to a specific category. The globally pinned discussions will be shown in addition to the discussions pinned to a specific category.
+
+This is what it looks like when you have a globally pinned discussion and a discussion pinned to the Ideas category.
+
+![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category](/assets/images/help/discussions/overview-pinned-discussions.png)
+
+### Pinning a discussion globally
+{% endif %}
+
+You can pin up to four important discussions above the list of discussions for the repository or organization. 
+
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion**.
-  !["Pin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion.png)
+{% ifversion discussions-category-specific-pins %}
+
+   ![Screenshot of the "Pin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion-with-category-pins.png){% else %}
+
+   ![Screenshot of the "Pin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-pin-discussion.png){% endif %}
+
 1. Optionally, customize the look of the pinned discussion.
-  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+
+   ![Screenshot of customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+
 1. Click **Pin discussion**.
-  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+
+   ![Screenshot of the "Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+
+{% ifversion discussions-category-specific-pins %}
+### Pinning a discussion to a category
+
+You can pin up to four important discussions above the list of discussions in a specific category. 
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion to CATEGORY**.
+   
+   ![Screenshot of the "Pin discussion to CATEGORY" option in right sidebar for discussion](/assets/images/help/discussions/pin-discussion-to-category.png)
+
+2. To confirm, click **Pin to CATEGORY**.
+
+   ![Screenshot of the "Pin discussion to CATEGORY" modal](/assets/images/help/discussions/pin-discussion-to-category-modal.png)
+
+{% endif %}
 
 ## Editing a pinned discussion
 
@@ -66,21 +108,60 @@ Editing a pinned discussion will not change the discussion's category. For more 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**.
-  !["Edit pinned discussion" in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png)
+  {% ifversion discussions-category-specific-pins %}
+
+   ![Screenshot of the "Edit pinned discussion" option in right sidebar for discussion](/assets/images/help/discussions/edit-pinned-discussion-with-category-pins.png) {% else %}
+
+
+   ![Screenshot of the "Edit pinned discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-edit-pinned-discussion.png){% endif %}
+
 1. Customize the look of the pinned discussion.
-  ![Customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+
+  ![Screenshot of customization options for a pinned discussion](/assets/images/help/discussions/customize-pinned-discussion.png)
+
 1. Click **Pin discussion**.
-  !["Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
+
+  ![Screenshot of the "Pin discussion" button under customization options for pinned discussion](/assets/images/help/discussions/click-pin-discussion-button.png)
 
 ## Unpinning a discussion
+
+{% ifversion discussions-category-specific-pins %}
+
+You can unpin a discussion from the list of discussions for the repository or organization, or from the list of discussions in a specific category.
+
+### Unpinning a globally pinned discussion
+
+You can unpin a globally pinned discussion. This will not delete the discussion, but the discussion will no longer be displayed above the list of discussions.
+{% endif %}
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion**.
-  !["Unpin discussion" in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+
+  ![Screenshot of the "Unpin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+
 1. Read the warning, then click **Unpin discussion**.
-  !["Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+
+  ![Screenshot of the "Unpin discussion" button beneath warning in modal](/assets/images/help/discussions/click-unpin-discussion-button.png)
+
+{% ifversion discussions-category-specific-pins %}
+### Unpinning a discussion from a category
+
+You can unpin a discussion pinned to a specific category. This will not delete the discussion, but the discussion will no longer be displayed at the top of the category.
+
+{% data reusables.discussions.navigate-to-repo-or-org %}
+{% data reusables.discussions.discussions-tab %}
+{% data reusables.discussions.click-discussion-in-list %}
+1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion from this category**.
+
+   ![Screenshot of the "Unpin discussion from this category" option in right sidebar for discussion](/assets/images/help/discussions/unpin-discussion-from-category.png)
+
+1. Read the warning, then click **Unpin from this category**.
+
+   ![Screenshot of the "Unpin from this category" button in the "Unpin this discussion from this category" modal](/assets/images/help/discussions/unpin-discussion-from-category-modal.png)
+
+{% endif %}
 
 ## Transferring a discussion
 
@@ -89,12 +170,21 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transfer discussion**.
-  !["Transfer discussion" in right sidebar for discussion](/assets/images/help/discussions/click-transfer-discussion.png)
+1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} {% ifversion discussions-category-specific-pins %}**Transfer this discussion**{% else %}**Transfer discussion**{% endif %}.
+{% ifversion discussions-category-specific-pins %}
+
+   ![Screenshot of the "Transfer discussion" option in right sidebar for discussion](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
+
+  
+   ![Screenshot of the "Transfer discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-transfer-discussion.png){% endif %}
+
 1. Select the **Choose a repository** drop-down, and click the repository you want to transfer the discussion to. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions.
-  !["Choose a repository" drop-down, "Find a repository" search field, and repository in list](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+
+   ![Screenshot of the "Choose a repository" drop-down, "Find a repository" search field, and repository in list](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+
 1. Click **Transfer discussion**.
-  !["Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
+
+   ![Screenshot of the "Transfer discussion" button](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
 ## Deleting a discussion
 
@@ -102,9 +192,16 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion**.
-  !["Delete discussion" in right sidebar for discussion](/assets/images/help/discussions/click-delete-discussion.png)
+{% ifversion discussions-category-specific-pins %}
+
+   ![Screenshot of the "Delete discussion" option in right sidebar for discussion](/assets/images/help/discussions/delete-discussion-with-category-pins.png){% else %}
+
+
+   ![Screenshot of the "Delete discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-delete-discussion.png){% endif %}
+
 1. Read the warning, then click **Delete this discussion**.
-  !["Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
+
+   ![Screenshot of the "Delete this discussion" button beneath warning in modal](/assets/images/help/discussions/click-delete-this-discussion-button.png)
 
 ## Converting issues based on labels
 

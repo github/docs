@@ -1,13 +1,12 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { loadPages, correctTranslationOrphans } from '../../lib/page-data.js'
+import { loadPages } from '../../lib/page-data.js'
 import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
-import checkIfNextVersionOnly from '../../lib/check-if-next-version-only.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
@@ -18,7 +17,7 @@ describe('pages module', () => {
   let pages
 
   beforeAll(async () => {
-    pages = await correctTranslationOrphans(await loadPages())
+    pages = await loadPages()
   })
 
   describe('loadPages', () => {
@@ -32,16 +31,9 @@ describe('pages module', () => {
     })
 
     test('every page has a non-empty `permalinks` array', async () => {
-      const brokenPages = pages
-        .filter((page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0)
-        // Ignore pages that only have "next" versions specified and therefore no permalinks;
-        // These pages are not broken, they just won't render in the currently supported versions.
-        .filter(
-          (page) =>
-            !Object.values(page.versions).every((pageVersion) =>
-              checkIfNextVersionOnly(pageVersion)
-            )
-        )
+      const brokenPages = pages.filter(
+        (page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0
+      )
 
       const expectation = JSON.stringify(
         brokenPages.map((page) => page.fullPath),

@@ -25,7 +25,7 @@ Some Docker instructions interact with GitHub Actions, and an action's metadata 
 
 ### USER
 
-Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
+Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE`. For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)" and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
 
 ### FROM
 
@@ -39,7 +39,7 @@ These are some best practices when setting the `FROM` argument:
 
 ### WORKDIR
 
-{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)" and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
 
 ### ENTRYPOINT
 
@@ -83,9 +83,10 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually
-# or splits `args` in a string separated by whitespace.
-sh -c "echo $*"
+# `$#` expands to the number of arguments and `$@` expands to the supplied `args`
+printf '%d args:' "$#"
+printf " '%s'" "$@"
+printf '\n'
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:

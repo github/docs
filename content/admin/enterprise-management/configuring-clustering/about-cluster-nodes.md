@@ -50,7 +50,7 @@ Clustering allows services that make up {% data variables.product.prodname_ghe_s
 - Establish tiers of nodes that make sense for your organization. An example configuration:
   - Front-end tier with two nodes and the following services:
     - `web-server`
-    - `jobs-server`
+    - `job-server`
     - `memcache-server`
   - Database tier with three nodes and the following services:
     - `consul-server`

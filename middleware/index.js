@@ -11,7 +11,10 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
+import {
+  setDefaultFastlySurrogateKey,
+  setLanguageFastlySurrogateKey,
+} from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
 import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
@@ -38,7 +41,6 @@ import triggerError from './trigger-error.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
@@ -57,7 +59,6 @@ import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
-import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 
@@ -109,13 +110,16 @@ export default function (app) {
     app.use(datadog)
   }
 
+  // Put this early to make it as fast as possible because it's used,
+  // and used very often, by the Azure load balancer to check the
+  // health of each node.
+  app.use('/healthz', instrument(healthz, './healthz'))
+
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // It can come before `rateLimit` because if it's a
-  // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
@@ -190,7 +194,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
@@ -232,10 +235,13 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
+
+  // Things like `/api` sets their own Fastly surrogate keys.
+  // Now that the `req.language` is known, set it for the remaining endpoints
+  app.use(setLanguageFastlySurrogateKey)
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -261,13 +267,12 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
-  app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
+  app.use(instrument(features, './contextualizers/features')) // needs to come before product tree
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
-  app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
   app.use(instrument(glossaries, './contextualizers/glossaries'))

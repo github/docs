@@ -72,7 +72,7 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 
@@ -148,6 +148,12 @@ A map of the secrets that can be used in the called workflow.
 
 Within the called workflow, you can use the `secrets` context to refer to a secret.
 
+{% note %}
+
+**Note:** If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
+
+{% endnote %}
+
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
 #### Example
@@ -162,14 +168,21 @@ on:
         required: false
 
 jobs:
+
   pass-secret-to-action:
     runs-on: ubuntu-latest
-
     steps:
+    # passing the secret to an action
       - name: Pass the received secret to an action
         uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
+
+  # passing the secret to a nested reusable workflow
+  pass-secret-to-workflow:
+    uses: ./.github/workflows/my-workflow
+    secrets:
+       token: ${{ secrets.access-token }}
 ```
 {% endraw %}
 
@@ -196,7 +209,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+A `map` of variables that are available to the steps of all jobs in the workflow. You can also set variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 Variables in the `env` map cannot be defined in terms of other variables in the map.
 
@@ -263,7 +276,7 @@ env:
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+A `map` of variables that are available to all steps in the job. You can set variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -320,7 +333,7 @@ A unique identifier for the step. You can use the `id` to reference the step in 
 
 ### `jobs.<job_id>.steps[*].if`
 
-You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
+You can use the `if` conditional to prevent a step from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
 {% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -672,7 +685,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
+A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter. A single argument that includes spaces should be surrounded by double quotes `""`.
 
 #### Example
 
@@ -711,11 +724,11 @@ The `entrypoint` keyword is meant to be used with Docker container actions, but 
 
 ### `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+Sets variables for steps to use in the runner environment. You can also set variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 #### Example
 
@@ -945,7 +958,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
-{% data reusables.actions.reusable-workflows-ghes-beta %}
+{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
 

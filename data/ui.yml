@@ -19,6 +19,7 @@ header:
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
+  menu: Menu
 picker:
   language_picker_default_text: Choose a language
   product_picker_default_text: All products
@@ -28,17 +29,16 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search GitHub Docs
-  loading: Loading
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
+  matches_found: Results found
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
-  results_found: Found {n} results in {s}ms
-  results_page: This is page {page} of {pages}.
-  nothing_found: Nothing found 😿
+  found_results: Found {n} results
+  one_result_found: Found 1 result
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -53,7 +53,6 @@ toc:
 pages:
   article_version: 'Article version'
   miniToc: In this article
-  contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_statement: Who can use this feature
@@ -100,6 +99,7 @@ parameter_table:
   see_preview_notice: See preview notice
   see_preview_notices: See preview notices
   type: Type
+  single_enum_description: Value
 products:
   graphql:
     reference:
@@ -123,6 +123,12 @@ products:
       announced: Announced
       updates: Updates
   rest:
+    banner:
+      api_versioned: The REST API is now versioned.
+      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
+      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+    versioning:
+      about_versions: About REST API versions
     reference:
       in: In
       description: Description
@@ -140,6 +146,25 @@ products:
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
       api_reference: REST API reference
+      enum_description_title: Can be one of
+      required: Required
+      headers: Headers
+      query: Query parameters
+      path: Path parameters
+      body: Body parameters
+  webhooks:
+    action_type_switch_error: There was an error switching webhook action types.
+    action_type: Action type
+    availability: Availability
+    webhook_payload_object: Webhook payload object
+    webhook_payload_example: Webhook payload example
+    rephrase_availability:
+      repository: Repositories
+      organization: Organizations
+      app: GitHub Apps
+      business: Enterprises
+      marketplace: GitHub Marketplace
+      sponsors_listing: Sponsored accounts
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms
@@ -229,8 +254,10 @@ product_guides:
     how_to: How-to guide
     reference: Reference
 learning_track_nav:
-  prevGuide: Previous guide
-  nextGuide: Next guide
+  prev_guide: Previous
+  next_guide: Next
+  more_guides: More guides →
+  current_progress: '{i} of {n} in learning path'
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide

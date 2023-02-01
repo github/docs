@@ -16,9 +16,10 @@ topics:
   - Access management
 shortTitle: Tell Git your signing key
 ---
-{% mac %}
 
 ## Telling Git about your GPG key
+
+{% mac %}
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
@@ -57,8 +58,6 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 {% windows %}
 
-## Telling Git about your GPG key
-
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
 {% note %}
@@ -79,8 +78,6 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% endwindows %}
 
 {% linux %}
-
-## Telling Git about your GPG key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, then you can begin signing commits and signing tags.
 
@@ -113,7 +110,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.configure-ssh-signing %}
-{% data reusables.gpg.copy-ssh-public-key %}
 {% data reusables.gpg.paste-ssh-public-key %}
 
 {% endif %}
