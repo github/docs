@@ -105,7 +105,6 @@ export const Header = () => {
               <Link
                 href={`/${router.locale}`}
                 className="d-flex flex-items-center color-fg-default no-underline mr-3"
-                aria-hidden="true"
               >
                 <MarkGithubIcon size={32} />
                 <span className="h4 text-semibold ml-2">{t('github_docs')}</span>
