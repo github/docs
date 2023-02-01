@@ -59,5 +59,5 @@ AngularJS/DeadAngularJSEventListener.ql
 ```
 
 {% ifversion codeql-packs %}
-For another example, see [Testing custom queries](/code-security/code-scanning/using-the-codeql-cli/testing-custom-queries).
+For another example, see [Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries).
 {% endif %}

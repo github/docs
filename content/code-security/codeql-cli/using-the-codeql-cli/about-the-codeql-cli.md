@@ -30,7 +30,7 @@ source community
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 For information about using the {% data variables.product.prodname_codeql_cli %}, see
-“[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
+“[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
 
 ## About the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} license
 
