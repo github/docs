@@ -68,7 +68,7 @@ There are six commands available while rebasing:
 
 ## An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
 ```
 pick 1fc6c95 Patch A
@@ -104,8 +104,8 @@ Breaking this information, from top to bottom, we see that:
 
 ## Further reading
 
-- "[Using Git rebase](/articles/using-git-rebase)"
+- "[Using Git rebase](/get-started/using-git/using-git-rebase-on-the-command-line)"
 - [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
