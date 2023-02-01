@@ -43,7 +43,7 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 
 ## Formatting content within your table
 
-You can use [formatting](/articles/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
+You can use [formatting](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) such as links, inline code blocks, and text styling within your table:
 
 ```markdown
 | Command | Description |
@@ -79,4 +79,4 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 ## Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
