@@ -28,7 +28,7 @@ For information about writing queries to run with `database analyze`, see “[Us
 
 **Other query-running commands**
 
-Queries run with `database analyze` have strict [metadata requirements](/code-security/code-scanning/using-custom-queries-with-the-codeql-cli/#including-query-metadata). You can also execute queries using the following
+Queries run with `database analyze` have strict [metadata requirements](/code-security/code-scanning/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
 plumbing-level subcommands:
 
 * [`database run-queries`](https://codeql.github.com/docs/codeql-cli/manual/database-run-queries/), which
@@ -207,7 +207,7 @@ pack names:
 codeql database analyze <database> microsoft/coding-standards@1.0.0 github/security-queries --format=sarifv2.1.0 --output=query-results.sarif --download
 ```
 
-This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-databases/publishing-and-using-codeql-packs/#publishing-and-using-codeql-packs)”.
+This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs/)”.
 
 The `--download` flag is optional. Using it will ensure the query pack is downloaded if it isn’t yet available locally.
 {% endif %}
@@ -353,7 +353,7 @@ or "[Code scanning API](/rest/reference/code-scanning)".
 based on certain metadata properties. The standard {% data variables.product.prodname_codeql %} packs have metadata that specify
 the location of the query suites used by code scanning, so the {% data variables.product.prodname_codeql_cli %} knows where to find these
 suite files automatically, and you don’t have to specify the full path on the command line.
-For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-databases/creating-codeql-query-suites/#creating-codeql-query-suites)".
+For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites)".
 
 For information about creating custom query suites, see "[Creating
 {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites)."

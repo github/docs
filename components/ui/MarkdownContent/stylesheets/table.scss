@@ -32,8 +32,8 @@
       text-align: left;
       position: sticky;
       vertical-align: top;
-      z-index: 1;
-      top: 0;
+      z-index: 0;
+      top: 64px;
       background: var(--color-canvas-default);
       box-shadow: 0 3px 0 0 var(--color-canvas-subtle);
       padding: 0.75rem 0.5rem;
@@ -57,6 +57,10 @@
       padding: 0.75rem 0.5rem;
       border: 0;
       vertical-align: top;
+
+      sup {
+        z-index: -1;
+      }
     }
 
     // markdown that has been converted to HTML is often wrapped in <p> tags

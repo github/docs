@@ -1016,6 +1016,26 @@ type AddedToProjectEvent implements Node {
 }
 
 """
+Represents an announcement banner.
+"""
+interface AnnouncementBanner {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+}
+
+"""
 A GitHub App.
 """
 type App implements Node {
@@ -11138,7 +11158,22 @@ type EnablePullRequestAutoMergePayload {
 """
 An account to manage multiple organizations with consolidated policy and billing.
 """
-type Enterprise implements Node {
+type Enterprise implements AnnouncementBanner & Node {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+
   """
   A URL pointing to the enterprise's public avatar.
   """
@@ -11646,6 +11681,51 @@ enum EnterpriseEnabledSettingValue {
   There is no policy set for organizations in the enterprise.
   """
   NO_POLICY
+}
+
+"""
+The connection type for OrganizationInvitation.
+"""
+type EnterpriseFailedInvitationConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseFailedInvitationEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [OrganizationInvitation]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+
+  """
+  Identifies the total count of unique users in the connection.
+  """
+  totalUniqueUserCount: Int!
+}
+
+"""
+A failed invitation to be a member in an enterprise organization.
+"""
+type EnterpriseFailedInvitationEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: OrganizationInvitation
 }
 
 """
@@ -12209,6 +12289,36 @@ type EnterpriseOwnerInfo {
   ): EnterpriseServerInstallationConnection!
 
   """
+  A list of failed invitations in the enterprise.
+  """
+  failedInvitations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): EnterpriseFailedInvitationConnection!
+
+  """
   The setting value for whether the enterprise has an IP allow list enabled.
   """
   ipAllowListEnabledSetting: IpAllowListEnabledSettingValue!
@@ -12757,6 +12867,11 @@ type EnterpriseOwnerInfo {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Only return invitations matching this invitation source
+    """
+    invitationSource: OrganizationInvitationSource
 
     """
     Returns the last _n_ elements from the list.
@@ -25208,7 +25323,22 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type Organization implements Actor & AnnouncementBanner & MemberStatusable & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -26797,6 +26927,11 @@ type OrganizationInvitation implements Node {
   id: ID!
 
   """
+  The source of the invitation.
+  """
+  invitationSource: OrganizationInvitationSource!
+
+  """
   The type of invitation that was sent (e.g. email, user).
   """
   invitationType: OrganizationInvitationType!
@@ -26885,6 +27020,26 @@ enum OrganizationInvitationRole {
   The user's previous role will be reinstated.
   """
   REINSTATE
+}
+
+"""
+The possible organization invitation sources.
+"""
+enum OrganizationInvitationSource {
+  """
+  The invitation was created from the web interface or from API
+  """
+  MEMBER
+
+  """
+  The invitation was created from SCIM
+  """
+  SCIM
+
+  """
+  The invitation was sent before this feature was added
+  """
+  UNKNOWN
 }
 
 """
