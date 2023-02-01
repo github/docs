@@ -107,7 +107,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 The recommended way to experiment with changes to a pack is to clone the repository containing its source code.
 
-If no source respository is available and you need to base modifications on a pack downloaded from the {% data variables.product.prodname_container_registry %}, be aware that these packs are not intended to be modified or customized after downloading, and their format may change in the future without much notice.  We recommend taking the following steps after downloading a pack if you need to modify the content:
+If no source repository is available and you need to base modifications on a pack downloaded from the {% data variables.product.prodname_container_registry %}, be aware that these packs are not intended to be modified or customized after downloading, and their format may change in the future without much notice.  We recommend taking the following steps after downloading a pack if you need to modify the content:
 
 - Change the pack _name_ in `qlpack.yml` so you avoid confusion with results from the unmodified pack.
 
