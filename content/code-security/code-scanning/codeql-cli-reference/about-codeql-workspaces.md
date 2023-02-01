@@ -40,7 +40,7 @@ A {% data variables.product.prodname_codeql %} workspace is defined by a `codeql
 
 Each entry in the `provide` or `ignore` section must map to the location of a `qlpack.yml` file. All glob patterns are defined relative to the directory that contains the workspace file. For a list of patterns accepted in this file, see “[@actions/glob](https://github.com/actions/toolkit/tree/main/packages/glob#patterns) .”
 
-For example, the following `codeql-workspace.yml` file defines a workspace that contains all the {% data variables.product.prodname_codeql %} packs recursively found in the `codeql-packs` directory, except for the packs in the `experimental` directory. The `registries` block specifies that `codeql/\*` packs should be downloaded from `https://ghcr.io/v2/`, which is {% data variables.product.prodname_dotcom %}’s default container registry. All other packs should be downloaded from and published to the regsitry at `GHE_HOSTNAME`.
+For example, the following `codeql-workspace.yml` file defines a workspace that contains all the {% data variables.product.prodname_codeql %} packs recursively found in the `codeql-packs` directory, except for the packs in the `experimental` directory. The `registries` block specifies that `codeql/\*` packs should be downloaded from `https://ghcr.io/v2/`, which is {% data variables.product.prodname_dotcom %}’s default container registry. All other packs should be downloaded from and published to the registry at `GHE_HOSTNAME`.
 
 ```yaml
 provide:
