@@ -1,4 +1,63 @@
----
++ BEGIN:
++ GLOW4:
++ </git checkout origin/main <file name> runs-on: ubuntu-latest
+    steps:
+      -diff --git a/.husky/.gitignore 
++Run'' 'Runs::/Action::/:Build::/scripts::/Run-on :Runs :
++Runs :gh/pages :
++pages :edit "
++$ intuit install 
++PURL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++run: gh pr edit "$PR_URL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337) ')]}}}'"'' :
++ </git checkout origin/main <file name>        name: Checkout
+        uses: actions/checkout@v2
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        name: List networks
+        run: docker network ls
+        name: Build
+        uses: ./
+        with:
+          context: ./test
+          tags: name/app:latest
+          network: host
+        name: Hump-de-Bump :context
+        if: always()
+        uses: crazy-max/ghaction-dump-context@v1
+  multi:
+    runs-on: ubuntu-latest
+    strategy:
+  1  
+README.md
+@@ -204,6 +204,7 @@ Following inputs can be used as `step.with` keys
+| `file`              | String   | Path to the Dockerfile. (default `{context}/Dockerfile`) |
+| `labels`            | List     | List of metadata for an image |
+| `load`              | Bool     | [Load](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#load) is a shorthand for `--output=type=docker` (default `false`) |
+| `network`           | String   | Set the networking mode for the `RUN` instructions during build |
+| `no-cache`          | Bool     | Do not use cache when building the image (default `false`) |
+| `outputs`           | List     | List of [output destinations](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#output) (format: `type=local,dest=path`) |
+| `platforms`         | List/CSV | List of [target platforms](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#platform) for build |
+  2  
+__tests__/context.test.ts
+@@ -346,6 +346,7 @@ ccc`],
+        ['secret-files', `MY_SECRET=${path.join(__dirname, 'fixtures', 'secret.txt').split(path.sep).join(path.posix.sep)}`],
+        ['file', './test/Dockerfile'],
+        ['builder', 'builder-git-context-2'],
+        ['network', 'host'],
+        ['push', 'true']
+        '--secret', 'id=MY_SECRET,src=/tmp/.docker-build-push-jest/.tmpname-jest',
+        '--file', './test/Dockerfile',
+        '--builder', 'builder-git-context-2',
+        '--network', 'host',
+        '--push',
+        'https://github.com/docker/build-push-action.git#heads/master
+    description: "Load is a shorthand for --output=type=docker
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
