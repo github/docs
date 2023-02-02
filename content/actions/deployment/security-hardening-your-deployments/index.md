@@ -1,6 +1,6 @@
 ---
 title: Security hardening your deployments
-shortTitle: Security harden deployments
+shortTitle: Security hardening deployments
 intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
 versions:
   fpt: '*'
