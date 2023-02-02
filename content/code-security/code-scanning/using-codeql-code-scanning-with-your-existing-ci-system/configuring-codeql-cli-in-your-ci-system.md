@@ -24,13 +24,7 @@ topics:
 ---
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** This article describes features present in the version of {% data variables.product.prodname_codeql_cli %} available at the time of the release of {% data variables.product.product_name %}. If your enterprise uses a more recent version of {% data variables.product.prodname_codeql_cli %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system) instead.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 ## About generating code scanning results with {% data variables.product.prodname_codeql_cli %}
 

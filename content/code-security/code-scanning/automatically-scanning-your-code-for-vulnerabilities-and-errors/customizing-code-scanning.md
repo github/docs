@@ -30,13 +30,7 @@ shortTitle: Customize code scanning
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-action-version-ghes %}
 
 ## About {% data variables.product.prodname_code_scanning %} configuration
 
