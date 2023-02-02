@@ -1,5 +1,6 @@
 ---
 title: Unions
+intro: A union  is a type of object representing many objects.
 redirect_from:
   - /v4/union
   - /v4/reference/union

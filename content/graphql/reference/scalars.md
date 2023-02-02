@@ -1,5 +1,6 @@
 ---
 title: Scalars
+intro: Scalars are primitive values Int, Float, String, Boolean, or ID.
 redirect_from:
   - /v4/scalar
   - /v4/reference/scalar
