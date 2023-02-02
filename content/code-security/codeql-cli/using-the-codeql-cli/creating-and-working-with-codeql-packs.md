@@ -16,13 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_codeql %} packs and the {% data variables.product.prodname_codeql_cli %}
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[Creating and working with {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/code-scanning/using-the-codeql-cli/creating-and-working-with-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 With {% data variables.product.prodname_codeql %} packs and the package management commands in the {% data variables.product.prodname_codeql_cli %}, you can publish your custom queries and integrate them into your codebase analysis.
 
@@ -32,10 +26,10 @@ There are two types of {% data variables.product.prodname_codeql %} packs: query
   
   - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.
 
-You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs).”
+You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs).”
 
 {% ifversion query-pack-compatibility %}
-For more information about compatibility between published query packs and different {% data variables.product.prodname_codeql %} releases, see “[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility).”
+For more information about compatibility between published query packs and different {% data variables.product.prodname_codeql %} releases, see “[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility).”
 {% endif %}
 
 
@@ -70,7 +64,7 @@ If you already have a `qlpack.yml` file, you can edit it manually to convert it 
 
 3. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
 
-For more information about the properties, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs#about-codeql-packs).”
+For more information about the properties, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-packs).”
 
 ## Adding and installing dependencies to a {% data variables.product.prodname_codeql %} pack
 
@@ -96,9 +90,9 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 **Notes:** 
 
-- Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see “[About codeql-pack.lock.yml files](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs#about-codeql-pack-lock).”
+- Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see “[About codeql-pack.lock.yml files](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-pack-lock).”
 
-- By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs).”
+- By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs).”
 
 {% endnote %}
 
@@ -107,7 +101,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 The recommended way to experiment with changes to a pack is to clone the repository containing its source code.
 
-If no source respository is available and you need to base modifications on a pack downloaded from the {% data variables.product.prodname_container_registry %}, be aware that these packs are not intended to be modified or customized after downloading, and their format may change in the future without much notice.  We recommend taking the following steps after downloading a pack if you need to modify the content:
+If no source repository is available and you need to base modifications on a pack downloaded from the {% data variables.product.prodname_container_registry %}, be aware that these packs are not intended to be modified or customized after downloading, and their format may change in the future without much notice.  We recommend taking the following steps after downloading a pack if you need to modify the content:
 
 - Change the pack _name_ in `qlpack.yml` so you avoid confusion with results from the unmodified pack.
 

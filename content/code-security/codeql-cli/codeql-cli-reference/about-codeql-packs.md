@@ -16,13 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_codeql %} packs
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[About {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/code-scanning/codeql-cli-reference/about-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 {% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. You can publish your own {% data variables.product.prodname_codeql %} packs and download packs created by others. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata.
 
@@ -32,7 +26,7 @@ There are two types of {% data variables.product.prodname_codeql %} packs: query
 
 - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.
 
-You can use the package management commands in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. For more information, see “[Creating and working with {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/creating-and-working-with-codeql-packs#creating-and-working-with-codeql-packs).” You can also publish and download {% data variables.product.prodname_codeql %} packs using the {% data variables.product.prodname_codeql_cli %}. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs).”
+You can use the package management commands in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. For more information, see “[Creating and working with {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs#creating-and-working-with-codeql-packs).” You can also publish and download {% data variables.product.prodname_codeql %} packs using the {% data variables.product.prodname_codeql_cli %}. For more information, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs).”
 
 The standard {% data variables.product.prodname_codeql %} packages for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages).
 The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains source files for the standard {% data variables.product.prodname_codeql %} packs for all supported languages.
@@ -131,7 +125,7 @@ The following properties are supported in `qlpack.yml` files.
 #### `suites`
 
 - Optional for packs that define query suites.
-- Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run “well-known” suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites/).” For example:
+- Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run “well-known” suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites/).” For example:
   ```yaml
   suites: octo-org-query-suites
   ```
@@ -145,7 +139,7 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `extractor`
 - Required by all packs containing {% data variables.product.prodname_codeql %} tests.
-- Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see “[Testing custom queries](/code-security/code-scanning/using-the-codeql-cli/testing-custom-queries/).” For example:
+- Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see “[Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries/).” For example:
   ```yaml
   extractor: javascript
   ```
@@ -216,7 +210,7 @@ dependencies:
     version: 1.2.4
 ```
 
-The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.4. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see “[About {% data variables.product.prodname_codeql %} Workspaces](/code-security/code-scanning/codeql-cli-reference/about-codeql-workspaces).”
+The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.4. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see “[About {% data variables.product.prodname_codeql %} Workspaces](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces).”
 
 In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs since library packs are non-executable and usually do not need their transitive dependencies to be fixed. The exception to this is for library packs that contain tests. In this case, the `codeql-pack.lock.yml` file is used to ensure that the tests are always run with the same versions of dependencies to avoid spurious failures when there are mismatched dependencies.
 
@@ -255,7 +249,7 @@ suites: my-custom-suites
 
 where `codeql/cpp-all` is the name of the {% data variables.product.prodname_codeql %} pack for C/C++ analysis included in the {% data variables.product.prodname_codeql %} repository. The version range `^0.1.2` indicates that this pack is compatible with all versions of `codeql/cpp-all` that are greater than or equal to `0.1.2` and less than `0.2.0`. `my-github-user/my-custom-libraries` is the name of a {% data variables.product.prodname_codeql %} pack containing custom {% data variables.product.prodname_codeql %} libraries for C++. Any {% data variables.product.prodname_codeql %} library file (a file with a `.qll` extension) defined in this pack will be available to queries in the `my-github-user/my-custom-queries` pack.
 
-The `suites` property indicates a directory where “well-known” query suites can be found. These suites can be used on the command line by referring to their name only, rather than their full path. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites).”
+The `suites` property indicates a directory where “well-known” query suites can be found. These suites can be used on the command line by referring to their name only, rather than their full path. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites).”
 
 ### {% data variables.product.prodname_codeql %} packs for custom tests
 
@@ -265,7 +259,7 @@ databases. You may also wish to specify the `tests` property.
 
 {% data reusables.codeql-cli.test-qlpack %}
 
-For more information about running tests, see “[Testing custom queries](/code-security/code-scanning/using-the-codeql-cli/testing-custom-queries).”
+For more information about running tests, see “[Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries).”
 
 ## Examples of {% data variables.product.prodname_codeql %} packs in the {% data variables.product.prodname_codeql %} repository
 
@@ -317,7 +311,7 @@ defaultSuiteFile: codeql-suites/cpp-code-scanning.qls
 
 Some extra notes on the following properties:
 
-* `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see “[Source Dependencies](/code-security/code-scanning/codeql-cli-reference/about-codeql-workspaces#source-dependencies).”
+* `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see “[Source Dependencies](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces#source-dependencies).”
 
 * `suites`: Indicates the directory containing “well-known” query suites.
 

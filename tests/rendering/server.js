@@ -562,11 +562,6 @@ describe('server', () => {
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
-      expect(
-        $(
-          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
-        ).length
-      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length

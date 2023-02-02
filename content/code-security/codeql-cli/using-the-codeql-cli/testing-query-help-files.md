@@ -25,7 +25,7 @@ Query help is documentation that accompanies a query to explain how the query wo
 
 The {% data variables.product.prodname_codeql_cli %} includes a command to test query help and render the content as markdown, so that you can easily preview the content in your IDE. Use the command to validate query help files before uploading them to the {% data variables.product.prodname_codeql %} repository or sharing them with other users. From {% data variables.product.prodname_codeql_cli %} 2.7.1 onwards, you can also include the markdown-rendered query help in SARIF files
 generated during {% data variables.product.prodname_codeql %} analyses so that the query help can be displayed in the code scanning UI. For more information, see
-“[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli).”
+“[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli).”
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ where `<qhelp|query|dir|suite>` is one of:
 - the path to a `.qhelp` file.
 - the path to a `.ql` file.
 - the path to a directory containing queries and query help files.
-- the path to a query suite, or the name of a well-known query suite for a {% data variables.product.prodname_codeql %} pack. For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites).”
+- the path to a query suite, or the name of a well-known query suite for a {% data variables.product.prodname_codeql %} pack. For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites).”
 
 You must specify a `--format` option, which defines how the query help is rendered. Currently, you must specify `markdown` to render the query help as markdown.
 

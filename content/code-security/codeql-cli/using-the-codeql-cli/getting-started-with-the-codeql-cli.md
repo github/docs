@@ -18,6 +18,8 @@ topics:
 
 ## Getting started with the {% data variables.product.prodname_codeql_cli %}
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 To run {% data variables.product.prodname_codeql %} commands, you need to set up the CLI so that it can access
 the tools, queries, and libraries required to create and analyze databases.
 
@@ -111,7 +113,7 @@ At this point, you can execute {% data variables.product.prodname_codeql %} comm
 {% data variables.product.prodname_codeql_cli %} has subcommands you can execute to verify that you are correctly set up to create and analyze databases:
 
 - Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.{% ifversion codeql-packs %}
-- (Optional) You can download some “[{% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs)” containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
+- (Optional) You can download some “[{% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)” containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
  
   - `codeql/cpp-queries`
   - `codeql/csharp-queries`
@@ -171,7 +173,7 @@ For more information, see the [Relocation announcement](https://github.com/githu
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
-see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs).”
+see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
 {% endif %}
 
 {% note %}
