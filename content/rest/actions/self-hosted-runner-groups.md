@@ -4,7 +4,6 @@ intro: 'Use the REST API to interact with self-hosted runner groups for {% data 
 topics:
   - API
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

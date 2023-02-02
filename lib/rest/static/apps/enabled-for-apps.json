@@ -2,24 +2,6 @@
   "api.github.com.2022-11-28": {
     "actions": [
       {
-        "slug": "get-github-actions-cache-usage-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-      },
-      {
-        "slug": "get-default-workflow-permissions-for-an-enterprise",
-        "subcategory": "permissions",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-      },
-      {
-        "slug": "set-default-workflow-permissions-for-an-enterprise",
-        "subcategory": "permissions",
-        "verb": "put",
-        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-      },
-      {
         "slug": "get-github-actions-cache-usage-for-an-organization",
         "subcategory": "cache",
         "verb": "get",
@@ -156,78 +138,6 @@
         "subcategory": "required-workflows",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-      },
-      {
-        "slug": "list-self-hosted-runner-groups-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
-      },
-      {
-        "slug": "create-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/runner-groups"
-      },
-      {
-        "slug": "get-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "update-a-self-hosted-runner-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "delete-a-self-hosted-runner-group-from-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
-      },
-      {
-        "slug": "list-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
-      },
-      {
-        "slug": "set-repository-access-for-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories"
-      },
-      {
-        "slug": "remove-repository-access-to-a-self-hosted-runner-group-in-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}"
-      },
-      {
-        "slug": "list-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "set-self-hosted-runners-in-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners"
-      },
-      {
-        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
-      },
-      {
-        "slug": "remove-a-self-hosted-runner-from-a-group-for-an-organization",
-        "subcategory": "self-hosted-runner-groups",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
       },
       {
         "slug": "list-self-hosted-runners-for-an-organization",
@@ -984,14 +894,7 @@
         "requestPath": "/installation/token"
       }
     ],
-    "billing": [
-      {
-        "slug": "get-github-advanced-security-active-committers-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/advanced-security"
-      }
-    ],
+    "billing": [],
     "branches": [
       {
         "slug": "list-branches",
@@ -1814,7 +1717,6 @@
         "requestPath": "/emojis"
       }
     ],
-    "enterprise-admin": [],
     "gists": [],
     "git": [
       {
@@ -2032,6 +1934,12 @@
         "subcategory": "assignees",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
+      },
+      {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
       },
       {
         "slug": "list-issue-comments",
@@ -2352,12 +2260,6 @@
         "requestPath": "/organizations"
       },
       {
-        "slug": "list-custom-repository-roles-in-an-organization",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/organizations/{organization_id}/custom_roles"
-      },
-      {
         "slug": "get-an-organization",
         "subcategory": "orgs",
         "verb": "get",
@@ -2394,40 +2296,10 @@
         "requestPath": "/orgs/{org}/blocks/{username}"
       },
       {
-        "slug": "create-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/custom_roles"
-      },
-      {
-        "slug": "get-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
-        "slug": "update-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
-        "slug": "delete-a-custom-role",
-        "subcategory": "custom-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/custom_roles/{role_id}"
-      },
-      {
         "slug": "list-failed-organization-invitations",
         "subcategory": "members",
         "verb": "get",
         "requestPath": "/orgs/{org}/failed_invitations"
-      },
-      {
-        "slug": "list-fine-grained-permissions-for-an-organization",
-        "subcategory": "custom-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/fine_grained_permissions"
       },
       {
         "slug": "list-organization-webhooks",
@@ -2631,9 +2503,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -4061,7 +3945,7 @@
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-an-organization",
+        "slug": "set-allowed-actions-for-an-organization",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
@@ -4505,7 +4389,7 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-reusable-workflows-for-a-repository",
+        "slug": "set-allowed-actions-for-a-repository",
         "subcategory": "permissions",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
@@ -6035,6 +5919,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -6443,7 +6333,7 @@
         "requestPath": "/orgs/{org}/failed_invitations"
       },
       {
-        "slug": "list-fine-grained-permissions-for-an-organization",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/fine_grained_permissions"
@@ -6650,9 +6540,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-cloud-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-cloud-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-cloud-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -9523,6 +9425,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -9926,9 +9834,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -12813,6 +12733,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -13223,9 +13149,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -16224,6 +16162,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -16634,9 +16578,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -19750,6 +19706,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -20160,9 +20122,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -23343,6 +23317,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -23777,9 +23757,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-enterprise-server-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-enterprise-server-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
@@ -26413,6 +26405,12 @@
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees"
       },
       {
+        "slug": "check-if-a-user-can-be-assigned-to-a-issue",
+        "subcategory": "assignees",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/assignees/{assignee}"
+      },
+      {
         "slug": "list-issue-comments",
         "subcategory": "comments",
         "verb": "get",
@@ -26804,9 +26802,21 @@
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {
+        "slug": "create-a-github-ae-pages-site",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
         "slug": "update-information-about-a-github-ae-pages-site",
         "subcategory": "pages",
         "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/pages"
+      },
+      {
+        "slug": "delete-a-github-ae-pages-site",
+        "subcategory": "pages",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pages"
       },
       {

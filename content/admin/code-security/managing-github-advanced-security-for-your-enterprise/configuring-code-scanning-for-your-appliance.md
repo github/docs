@@ -24,7 +24,7 @@ topics:
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The table below summarizes all the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The bullets below summarize the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
 
 {% data reusables.code-scanning.enabling-options %}
 
@@ -41,6 +41,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 - A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
 
 ## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
+
+<!-- Note that the CodeQL CLI manual pages link to this heading: https://aka.ms/code-scanning-docs-configuring-ghes.
+If you edit this heading, update the short link too.-->
 
 ### Setting up a self-hosted runner
 
@@ -68,7 +71,7 @@ You can also make third-party actions available to users for {% data variables.p
 ### Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, and you want to allow users to enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for their repositories, you must use the {% data variables.product.prodname_codeql %} action sync tool to copy the {% data variables.product.prodname_codeql %} analysis bundle from {% data variables.product.prodname_dotcom_the_website %} to your server. The tool, and details of how to use it, are available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
 
-If you set up the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
+If you configure the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
 
@@ -80,7 +83,7 @@ If you set up the {% data variables.product.prodname_codeql %} action sync tool,
 
 ## Running code scanning using the {% data variables.product.prodname_codeql_cli %}
 
-If you don't want to use {% data variables.product.prodname_actions %}, you should run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_cli %}. 
+If you don't want to use {% data variables.product.prodname_actions %}, you should run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_cli %}.
 
 The {% data variables.product.prodname_codeql_cli %} is a command-line tool that you use to analyze codebases on any machine, including a third-party CI/CD system. For more information, see "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
@@ -90,7 +93,7 @@ The {% data variables.product.prodname_codeql_cli %} is a command-line tool that
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}. 
+If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}.
 
 The {% data variables.code-scanning.codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 

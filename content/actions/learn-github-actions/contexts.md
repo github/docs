@@ -186,7 +186,7 @@ The `github` context contains information about the workflow run and the event t
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. This object contains all the properties listed below. |
 | `github.action` | `string` | The name of the action currently running, or the [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. {% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
+| `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action, for example by changing directories to the path: {% raw %} `cd ${{ github.action_path }}` {% endraw %}. |
 | `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
 | `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
 | `github.action_status` | `string` | For a composite action, the current result of the composite action. |
@@ -206,13 +206,13 @@ The `github` context contains information about the workflow run and the event t
 {%- ifversion actions-oidc-custom-claims %}
 | `github.job_workflow_sha` | `string` | {% data reusables.actions.job-workflow-sha-description %} |
 {%- endif %}
+| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
 {%- endif %}
-| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `github.repository` | `string` | The owner and repository name. For example, `octocat/Hello-World`. |
 {%- ifversion actions-oidc-custom-claims %}
 | `github.repository_id` | `string` | {% data reusables.actions.repository_id-description %} |
@@ -853,14 +853,14 @@ jobs:
 
 The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
 
-There are no standard properties in the `inputs` context, only those which are defined in the workflow file.
+The properties in the `inputs` context are defined in the workflow file. They are only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `inputs` | `object` | This context is only available in a [reusable workflow](/actions/learn-github-actions/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/learn-github-actions/events-that-trigger-workflows#workflow_dispatch){% endif %}. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
-| `inputs.<name>` | `string` or `number` or `boolean` | Each input value passed from an external workflow. |
+| `inputs.<name>` | `string` or `number` or `boolean` or `choice` | Each input value passed from an external workflow. |
 
 ### Example contents of the `inputs` context
 
@@ -916,7 +916,7 @@ on:
     inputs:
       build_id:
         required: true
-        type: string
+        type: number
       deploy_target:
         required: true
         type: string

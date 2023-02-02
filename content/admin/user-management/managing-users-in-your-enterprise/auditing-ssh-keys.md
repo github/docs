@@ -43,7 +43,7 @@ fatal: The remote end hung up unexpectedly
 
 When they follow the link, they're asked to approve the keys on their account:
 
-![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
+![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.png)
 
 After they approve or reject their keys, they'll be able interact with repositories as usual.
 

@@ -1,5 +1,6 @@
 ---
 title: Objects
+intro: Objects in GraphQL represent the resources you can access.
 redirect_from:
   - /v4/object
   - /v4/reference/object

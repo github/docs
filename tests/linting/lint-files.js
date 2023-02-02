@@ -392,7 +392,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = {}
+      const context = { currentLanguage: 'en' }
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
@@ -983,7 +983,6 @@ describe('lint learning tracks', () => {
               typeof entry.featured_track === 'boolean' ||
               (await renderContent(entry.featured_track, context, {
                 textOnly: true,
-                encodeEntities: true,
               })) === 'true'
             featuredTracksPerVersion.push(isFeaturedLink)
           }

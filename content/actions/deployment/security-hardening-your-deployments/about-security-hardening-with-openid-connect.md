@@ -72,7 +72,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "repository": "octo-org/octo-repo",
   "repository_owner": "octo-org",
   "actor_id": "12",
-  "repository_visibility": private,
+  "repository_visibility": "private",
   "repository_id": "74",
   "repository_owner_id": "65",
   "run_id": "example-run-id",

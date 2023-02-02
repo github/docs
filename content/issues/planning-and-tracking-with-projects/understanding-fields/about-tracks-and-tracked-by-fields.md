@@ -24,28 +24,27 @@ tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"
 
 To use the filter, replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
-### Enabling the Tracked by field
+## Enabling the Tracked by field
 
 You can enable the Tracked by field to see which issues are tracking an item in your project.
 
 1. In table view, in the rightmost field header, click {% octicon "plus" aria-label="the plus icon" %}.
-   
-   ![Screenshot showing new field button](/assets/images/help/projects-v2/new-field-button.png)
-   
-1. Under "Hidden fields", click **Tracked by**.
-   
-   ![Screenshot showing the field menu](/assets/images/help/projects-v2/select-tracked-by-field.png)
-   
 
-### Enabling the Tracks field
+   ![Screenshot showing new field button](/assets/images/help/projects-v2/new-field-button.png)
+
+1. Under "Hidden fields", click **Tracked by**.
+
+   ![Screenshot showing the field menu](/assets/images/help/projects-v2/select-tracked-by-field.png)
+
+
+## Enabling the Tracks field
 
 You can enable the Tracks field to see what other issues an item in your project is tracking.
 
 1. In table view, in the rightmost field header, click {% octicon "plus" aria-label="the plus icon" %}.
-   
+
    ![Screenshot showing new field button](/assets/images/help/projects-v2/new-field-button.png)
-   
+
 1. Under "Hidden fields", click **Tracks**.
-   
+
    ![Screenshot showing the field menu](/assets/images/help/projects-v2/select-tracks-field.png)
-   

@@ -1,6 +1,6 @@
 ---
 title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the REST or GraphQL API.'
+intro: You can programmatically retrieve enterprise events with the REST or GraphQL API.
 shortTitle: Audit log API
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3

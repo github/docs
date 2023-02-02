@@ -1,10 +1,10 @@
-If a configuration variable has not been set, the return value of an context referencing the variable will be an empty string.
+If a configuration variable has not been set, the return value of a context referencing the variable will be an empty string.
 
-The following examples shows using configuration variables with the `vars` context across a workflow. Each of the following configuration variables have been defined at the repository, organization, or environment levels.
+The following example shows using configuration variables with the `vars` context across a workflow. Each of the following configuration variables have been defined at the repository, organization, or environment levels.
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on:
   workflow_dispatch:
 env:

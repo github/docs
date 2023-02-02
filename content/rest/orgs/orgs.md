@@ -1,6 +1,6 @@
 ---
 title: Organizations
-intro: 'Use the REST API to interact with organizations.'
+intro: Use the REST API to interact with organizations.
 versions:
   fpt: '*'
   ghes: '*'

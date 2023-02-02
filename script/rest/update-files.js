@@ -15,6 +15,7 @@ import rimraf from 'rimraf'
 
 import { decorate } from './utils/decorator.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 const TEMP_DOCS_DIR = path.join(process.cwd(), 'openapiTmp')
 const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'lib/rest/static/dereferenced')
@@ -37,6 +38,7 @@ program
     'Keeps the dereferenced files after the script runs. You will need to delete them manually.'
   )
   .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
+  .option('-s --open-source', 'Generate the OpenAPI schema from github/rest-api-description')
   .parse(process.argv)
 
 const {
@@ -46,6 +48,7 @@ const {
   includeDeprecated,
   keepDereferencedFiles,
   next,
+  openSource,
 } = program.opts()
 
 main()
@@ -55,6 +58,20 @@ async function main() {
   // Generate the dereferenced OpenAPI schema files
   if (!decorateOnly) {
     await getBundledFiles()
+  }
+
+  // When we get the dereferenced OpenAPI files from the open-source
+  // github/rest-api-description repo, we need to remove any versions
+  // that are deprecated.
+  if (openSource) {
+    const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
+    const allSchemas = await readdir(DOCS_DEREF_OPENAPI_DIR)
+    allSchemas.forEach((schema) => {
+      // if the schema does not start with a current version name, delete it
+      if (!currentOpenApiVersions.some((version) => schema.startsWith(version))) {
+        rimraf.sync(path.join(DOCS_DEREF_OPENAPI_DIR, schema))
+      }
+    })
   }
 
   const schemas = await readdir(DOCS_DEREF_OPENAPI_DIR)

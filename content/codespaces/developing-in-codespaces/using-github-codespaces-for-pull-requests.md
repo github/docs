@@ -36,7 +36,7 @@ redirect_from:
 
 ## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
 
-1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)" above.
+1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)" above.
 2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
   ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
 3. To review a specific file, click the **Open File** icon in the sidebar.
@@ -46,7 +46,7 @@ redirect_from:
 5. When you are finished adding review comments, from the sidebar you can choose to either submit the comments, approve the changes, or request changes.
   ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing a pull request, see "[Reviewing proposed changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+For more information on reviewing a pull request, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 ## View comments from a review in {% data variables.product.prodname_codespaces %}
 

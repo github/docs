@@ -1,6 +1,6 @@
 ---
 title: About GitHub Enterprise Cloud
-intro: "{% data reusables.enterprise.about-ghec %}"
+intro: '{% data reusables.enterprise.about-ghec %}'
 versions:
   ghec: '*'
 type: overview

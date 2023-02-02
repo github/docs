@@ -61,7 +61,7 @@ Only organization members with the *owner* or *billing manager* role can access 
 
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
-#### 2. Creating an enterpise account
+#### 2. Creating an enterprise account
 
  {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
  

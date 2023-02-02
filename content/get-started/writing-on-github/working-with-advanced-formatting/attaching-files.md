@@ -22,7 +22,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 ![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
 
-When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
+When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)".{% endif %}
 
 {% tip %}
 
@@ -41,7 +41,7 @@ We support these files:
 
 * PNG (*.png*)
 * GIF (*.gif*)
-* JPEG (*.jpg*)
+* JPEG (*.jpg*, *.jpeg*)
 {%- ifversion svg-support %}
 * SVG (*.svg*)
 {%- endif %}
