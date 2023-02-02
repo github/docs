@@ -14,13 +14,7 @@ topics:
 
 ## About {% data variables.product.prodname_codeql %} workspaces
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[About {% data variables.product.prodname_codeql %} workspaces](/enterprise-cloud@latest/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-action-version-ghes %}
 
 You use a {% data variables.product.prodname_codeql %} workspace when you want to group multiple {% data variables.product.prodname_codeql %} packs together. A typical use case for a {% data variables.product.prodname_codeql %} workspace is to develop a set of {% data variables.product.prodname_codeql %} library and query packs that are mutually dependent. For more information on {% data variables.product.prodname_codeql %} packs, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
 

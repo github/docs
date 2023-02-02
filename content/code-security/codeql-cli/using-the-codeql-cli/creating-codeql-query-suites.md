@@ -17,6 +17,8 @@ topics:
 
 ## About creating {% data variables.product.prodname_codeql %} query suites
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 {% data variables.product.prodname_codeql %} query suites provide a way of selecting queries, based on their
 filename, location on disk{% ifversion codeql-packs %} or in a {% data variables.product.prodname_codeql %} pack{% endif %}, or metadata properties.
 Create query suites for the queries that you want to frequently use in

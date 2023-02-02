@@ -16,13 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_codeql %} packs and the {% data variables.product.prodname_codeql_cli %}
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[Creating and working with {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 With {% data variables.product.prodname_codeql %} packs and the package management commands in the {% data variables.product.prodname_codeql_cli %}, you can publish your custom queries and integrate them into your codebase analysis.
 

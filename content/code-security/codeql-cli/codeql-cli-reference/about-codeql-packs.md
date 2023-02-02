@@ -16,13 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_codeql %} packs
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[About {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 {% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. You can publish your own {% data variables.product.prodname_codeql %} packs and download packs created by others. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata.
 
