@@ -48,13 +48,13 @@ The {% data variables.code-scanning.codeql_runner %} is a command-line tool that
 
 **Note:**
 {% ifversion fpt or ghec %}
-* The {% data variables.code-scanning.codeql_runner %} uses the {% data variables.product.prodname_codeql %} CLI to analyze code and therefore has the same license conditions. It's free to use on public repositories that are maintained on {% data variables.product.prodname_dotcom_the_website %}, and available to use on private repositories that are owned by customers with an {% data variables.product.prodname_advanced_security %} license. For information, see "[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} Terms and Conditions](https://securitylab.github.com/tools/codeql/license)" and "[{% data variables.product.prodname_codeql %} CLI](/code-security/code-scanning/using-the-codeql-cli/)."
+* The {% data variables.code-scanning.codeql_runner %} uses the {% data variables.product.prodname_codeql %} CLI to analyze code and therefore has the same license conditions. It's free to use on public repositories that are maintained on {% data variables.product.prodname_dotcom_the_website %}, and available to use on private repositories that are owned by customers with an {% data variables.product.prodname_advanced_security %} license. For information, see "[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} Terms and Conditions](https://securitylab.github.com/tools/codeql/license)" and "[{% data variables.product.prodname_codeql %} CLI](/code-security/codeql-cli/using-the-codeql-cli/)."
 {% else %}
 * The {% data variables.code-scanning.codeql_runner %} is available to customers with an {% data variables.product.prodname_advanced_security %} license.
 {% endif %}
 {% ifversion ghae %}
 * The {% data variables.code-scanning.codeql_runner %} shouldn't be confused with the {% data variables.product.prodname_codeql %} CLI. The {% data variables.product.prodname_codeql %} CLI is a command-line interface that lets you create {% data variables.product.prodname_codeql %} databases for security research and run {% data variables.product.prodname_codeql %} queries.
-For more information, see "[{% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/)."
+For more information, see "[{% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/)."
 {% endif %}
 {% endnote %}
 
@@ -89,7 +89,7 @@ chmod +x codeql-runner-linux
 In addition to this, each CI server also needs:
 
 - A {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} for the {% data variables.code-scanning.codeql_runner %} to use. You must use an access token with the `repo` scope, or a {% data variables.product.prodname_github_app %} with the `security_events` write permission, and `metadata` and `contents` read permissions. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-- Access to the {% data variables.product.prodname_codeql %} bundle associated with this release of the {% data variables.code-scanning.codeql_runner %}. This package contains queries and libraries needed for {% data variables.product.prodname_codeql %} analysis, plus the {% data variables.product.prodname_codeql %} CLI, which is used internally by the runner. For information, see "[{% data variables.product.prodname_codeql %} CLI](/code-security/code-scanning/using-the-codeql-cli/)."
+- Access to the {% data variables.product.prodname_codeql %} bundle associated with this release of the {% data variables.code-scanning.codeql_runner %}. This package contains queries and libraries needed for {% data variables.product.prodname_codeql %} analysis, plus the {% data variables.product.prodname_codeql %} CLI, which is used internally by the runner. For information, see "[{% data variables.product.prodname_codeql %} CLI](/code-security/codeql-cli/using-the-codeql-cli/)."
 
 The options for providing access to the {% data variables.product.prodname_codeql %} bundle are:
 

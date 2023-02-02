@@ -69,7 +69,7 @@ export function Search() {
 
   let pageTitle = documentPage.fullTitle
   if (hasQuery) {
-    pageTitle = `${t('search_results_for')} '${query}'`
+    pageTitle = `${t('search_results_for')} "${query.trim()}"`
     if (currentVersion !== DEFAULT_VERSION) {
       pageTitle += ` (${searchVersion})`
     }
@@ -84,8 +84,8 @@ export function Search() {
         <title>{pageTitle}</title>
       </Head>
       {hasQuery && (
-        <Heading as="h1">
-          {t('search_results_for')} <i>{query}</i>
+        <Heading as="h1" className="mb-2">
+          {t('search_results_for')} "{query.trim()}"
         </Heading>
       )}
 

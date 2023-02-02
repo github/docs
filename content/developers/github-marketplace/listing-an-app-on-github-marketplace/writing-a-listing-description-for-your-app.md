@@ -24,7 +24,7 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 ### Listing name
 
-Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name. 
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name.
 
 ### Very short description
 
@@ -110,7 +110,7 @@ A feature card consists of your app's logo, name, and a custom background image 
 
 As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
-#### Guidelines for logos
+### Guidelines for logos
 
 You must upload a custom image for the logo. For the badge, choose a background color.
 
@@ -120,7 +120,7 @@ You must upload a custom image for the logo. For the badge, choose a background 
 - To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
 - Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
 
-#### Guidelines for feature cards
+### Guidelines for feature cards
 
 You must upload a custom background image for the feature card. For the app's name, choose a text color.
 

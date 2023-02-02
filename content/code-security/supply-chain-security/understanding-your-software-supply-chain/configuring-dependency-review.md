@@ -129,7 +129,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # Possible values: "critical", "high", "moderate", "low" 
            fail-on-severity: critical
   {% ifversion dependency-review-action-licenses %}
-           # You can only include one of these two options: `allow-licenses` and `deny-licences`
+           # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
            # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
            allow-licenses: GPL-3.0, BSD-3-Clause, MIT
@@ -185,7 +185,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
      # Possible values: "critical", "high", "moderate", "low" 
      fail-on-severity: critical
    {% ifversion dependency-review-action-licenses %}
-     # You can only include one of these two options: `allow-licenses` and `deny-licences`
+     # You can only include one of these two options: `allow-licenses` and `deny-licenses`
      # ([String]). Only allow these licenses (optional)
      # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses 
      allow-licenses: 
