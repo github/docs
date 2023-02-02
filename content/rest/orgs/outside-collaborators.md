@@ -1,6 +1,6 @@
 ---
 title: Outside Collaborators
-intro: 'Use the REST API to manage outside collaborators.'
+intro: Use the REST API to manage outside collaborators.
 versions:
   fpt: '*'
   ghes: '*'

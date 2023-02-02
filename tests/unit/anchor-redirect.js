@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 import { describe, expect } from '@jest/globals'
 
 import { get } from '../helpers/e2etest.js'
@@ -5,9 +7,12 @@ import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
 } from '../../middleware/set-fastly-surrogate-key.js'
-import clientSideRedirects from '../../lib/redirects/static/client-side-rest-api-redirects.json'
 
 describe('anchor-redirect middleware', () => {
+  const clientSideRedirects = JSON.parse(
+    fs.readFileSync('./lib/redirects/static/client-side-rest-api-redirects.json', 'utf-8')
+  )
+
   test('returns correct redirect to url', async () => {
     // test the first entry
     const [key, value] = Object.entries(clientSideRedirects)[0]

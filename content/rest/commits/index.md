@@ -1,6 +1,6 @@
 ---
 title: Commits
-intro: 'Use the REST API to interact with commits.'
+intro: Use the REST API to interact with commits.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

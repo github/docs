@@ -1,6 +1,6 @@
 ---
 title: Managing organization members in your enterprise
-intro: 'You can add or remove members from an organization in bulk.'
+intro: You can add or remove members from an organization in bulk.
 permissions: Enterprise owners can add or remove organization members in bulk.
 versions:
   feature: enterprise-manage-organization-members

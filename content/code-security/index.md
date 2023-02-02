@@ -53,9 +53,11 @@ children:
   - /adopting-github-advanced-security-at-scale
   - /secret-scanning
   - /code-scanning
+  - /codeql-cli
   - /security-advisories
   - /supply-chain-security
   - /dependabot
   - /security-overview
   - /guides
 ---
+

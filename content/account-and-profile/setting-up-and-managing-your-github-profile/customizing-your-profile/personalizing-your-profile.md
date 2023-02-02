@@ -130,6 +130,28 @@ When others view your profile, they will see your location, local time, and the 
 
 {% endif %}
 
+{% ifversion profile-social-links %}
+
+## Adding links to your social accounts
+
+You can add up to four links to social accounts on your profile. These are visible to anyone who can view your profile.
+
+![Screenshot showing the @octocat profile using social links](/assets/images/help/profile/social-link-example.png)
+
+{% data reusables.user-settings.access_settings %}
+1. In the "Social accounts" section, select the dropdown menu next to one of the four links, and click the type of social account you want to add, or click **Other**.
+
+  ![Screenshot showing the social account type dropdown field](/assets/images/help/profile/social-link-platform.png)
+
+1. Next to the dropdown menu, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
+
+  ![Screenshot showing the social account URL field](/assets/images/help/profile/social-link-url.png)
+
+{% data reusables.profile.update-profile %}
+
+
+{% endif %}
+
 ## Setting a status
 
 You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:

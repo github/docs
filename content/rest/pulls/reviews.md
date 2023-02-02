@@ -2,7 +2,7 @@
 title: Pull request reviews
 shortTitle: Reviews
 allowTitleToDifferFromFilename: true
-intro: 'Use the REST API to interact with pull request reviews.'
+intro: Use the REST API to interact with pull request reviews.
 versions:
   fpt: '*'
   ghes: '*'

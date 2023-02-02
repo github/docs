@@ -7,6 +7,7 @@ versions:
   ghae: '>=3.9'
 miniTocMaxHeadingLevel: 3
 children:
-- /enterprises
-- /organizations
+  - /enterprises
+  - /organizations
 ---
+

@@ -319,7 +319,7 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 
 ## Rate limiting
 
-The {% data variables.product.company_short %} API uses rate limiting to control API traffic. Different types of API requests have different rate limits. The response headers describe your current rate limit status.
+The {% data variables.product.product_name %} REST API uses rate limiting to control API traffic. Different types of API requests have different rate limits. The response headers describe your current rate limit status.
 
 ### Rate limits
 

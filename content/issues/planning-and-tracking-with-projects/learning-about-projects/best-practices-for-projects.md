@@ -20,7 +20,7 @@ You can use {% data variables.product.prodname_projects_v2 %} to manage your wor
 
 Breaking a large issue into smaller issues makes the work more manageable and enables team members to work in parallel. It also leads to smaller pull requests, which are easier to review.
 
-To track how smaller issues fit into the larger goal, use task lists, milestones, or labels. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)", "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)", and "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+To track how smaller issues fit into the larger goal, use task lists, milestones, or labels. For more information, see {% ifversion projects-v2-tasklists %}"[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)"{% else %}"[About task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)"{% endif %}, "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)", and "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
 
 ## Communicate
 
@@ -68,7 +68,7 @@ Additionally, {% data variables.product.prodname_actions %} and the GraphQL API 
 
 - For more information about the built-in workflows, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% ifversion projects-v2-auto-archive %}
 - For more information about automatically archiving items, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}{% ifversion projects-v2-auto-add %}
-- For more information about automatically archiving items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}
+- For more information about automatically adding items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}
 - For an example workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 - For more information about the API, see "[Using the API to manage {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 - For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."

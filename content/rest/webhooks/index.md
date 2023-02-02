@@ -1,6 +1,6 @@
 ---
 title: Repository webhooks
-intro: 'Use the REST API to create and manage webhooks for your repositories.'
+intro: Use the REST API to create and manage webhooks for your repositories.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

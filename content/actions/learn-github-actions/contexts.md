@@ -206,13 +206,13 @@ The `github` context contains information about the workflow run and the event t
 {%- ifversion actions-oidc-custom-claims %}
 | `github.job_workflow_sha` | `string` | {% data reusables.actions.job-workflow-sha-description %} |
 {%- endif %}
+| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
 {%- endif %}
-| `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `github.repository` | `string` | The owner and repository name. For example, `octocat/Hello-World`. |
 {%- ifversion actions-oidc-custom-claims %}
 | `github.repository_id` | `string` | {% data reusables.actions.repository_id-description %} |
