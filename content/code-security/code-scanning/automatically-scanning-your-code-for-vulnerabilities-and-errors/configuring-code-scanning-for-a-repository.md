@@ -39,13 +39,7 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 {% data reusables.code-scanning.about-analysis-origins-link %}
 {% endif %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** If you want to use the {% data variables.product.prodname_codeql %} analysis, note that this article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-action-version-ghes %}
 
 {% ifversion ghae %}
 ## Prerequisites
@@ -95,14 +89,6 @@ The advanced setup for {% data variables.product.prodname_code_scanning %} is he
 ### Configuring {% data variables.product.prodname_code_scanning %} using starter workflows
 
 {% data reusables.advanced-security.starter-workflows-beta %}
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
-
-{% endnote %}
-{% endif %}
 
 {% data reusables.advanced-security.starter-workflow-overview %} {% data variables.product.prodname_code_scanning_capc %} starter workflows are only available for your repository if {% data variables.product.prodname_code_scanning %} is enabled.
 

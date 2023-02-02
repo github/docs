@@ -18,6 +18,8 @@ topics:
 
 ## Getting started with the {% data variables.product.prodname_codeql_cli %}
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 To run {% data variables.product.prodname_codeql %} commands, you need to set up the CLI so that it can access
 the tools, queries, and libraries required to create and analyze databases.
 

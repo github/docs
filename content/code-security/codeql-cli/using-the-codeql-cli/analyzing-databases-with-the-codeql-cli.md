@@ -18,6 +18,8 @@ topics:
 
 ## About analyzing databases with the {% data variables.product.prodname_codeql_cli %}
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 To analyze a codebase, you run queries against a CodeQL
 database extracted from the code.
 
