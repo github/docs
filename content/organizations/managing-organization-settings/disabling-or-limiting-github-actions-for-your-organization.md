@@ -89,25 +89,25 @@ You can configure this behavior for an organization using the procedure below. M
 
 You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
 
-#### Prerequisites
+### Prerequisites
 
 Before configuring a required workflow, note the following prerequisites:
 
 {% data reusables.actions.workflows.required-workflow-prerequisites %}
 
-#### Restrictions and behaviors for the source repository
+### Restrictions and behaviors for the source repository
 
 Note the following restrictions and behaviors for the source repository and workflow:
 
 {% data reusables.actions.workflows.required-workflow-source-notes %}
 
-#### Restrictions and behaviors for the target repository
+### Restrictions and behaviors for the target repository
 
 Note the following restrictions and behaviors for the target repositories:
 
 {% data reusables.actions.workflows.required-workflow-target-notes %}
 
-#### Configuring a required workflow for your organization
+### Configuring a required workflow for your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

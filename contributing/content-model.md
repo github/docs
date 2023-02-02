@@ -109,15 +109,23 @@ We organize content predictably within categories, map topics, and articles, fro
 
 ### Titles
 
-Titles are challenging! Use these general guidelines to help create clear, helpful, descriptive titles, and see below for specific guidelines for each content type.
+Titles fully describe what a page is about, and what a user will know by reading it. 
+
+Titles are challenging! Use these general guidelines to help create clear, helpful, and descriptive titles. See below for specific guidelines for each content type.
 
 #### Titles for all content types
-- Titles are clear, descriptive, and specific, but not wordy
+- Titles clearly describe what a page is about. They are descriptive and specific.
   - Use: Browsing actions in the workflow editor
+  - Use: Example of configuring a codespace
   - Avoid: Using the workflow editor sidebar
+  - Avoid: Example
+  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
+     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
+     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
+     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 - Titles are consistent across a content type
   - See specific guidelines for each content type
-  - Titles aren’t overly repetitive––vary the verbs used for procedure or map topic titles when possible
+  - Titles aren’t repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
   - Use: "GitHub's billing plans"
   - Avoid: "Billing plans for user and organization accounts"
@@ -131,10 +139,6 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
 - Think about how the title will appear in search results for multiple products
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production
-- Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
-  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
-  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 
 ### Topics
 

@@ -50,7 +50,6 @@ describe('search parsePageSectionsIntoRecords module', () => {
         'Table heading\nPeter\nHuman\n' +
         'Bullet\nPoint\nNumbered\nList\n' +
         "Further reading\nThis won't be ignored.",
-      topics: ['topic1', 'topic2', 'GitHub Actions', 'Actions'],
     }
 
     expect(record).toEqual(expected)
@@ -67,7 +66,6 @@ describe('search parsePageSectionsIntoRecords module', () => {
       title: 'A page without sections',
       headings: '',
       content: 'This is an introduction to the article.\nFirst paragraph.\nSecond paragraph.',
-      topics: ['key1', 'key2', 'key3', 'Education'],
     }
 
     expect(record).toEqual(expected)
@@ -84,7 +82,6 @@ describe('search parsePageSectionsIntoRecords module', () => {
       title: 'A page without body',
       headings: '',
       content: 'This is an introduction to the article.',
-      topics: ['key1', 'key2', 'key3', 'Education'],
     }
 
     expect(record).toEqual(expected)
