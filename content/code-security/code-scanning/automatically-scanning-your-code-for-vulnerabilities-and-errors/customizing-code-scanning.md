@@ -551,6 +551,9 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 
 ### Example configuration files
 
+<!-- Note that the CodeQL CLI manual pages link to this heading: https://aka.ms/docs-config-file.
+If you edit this heading, update the short link too.-->
+
 {% data reusables.code-scanning.example-configuration-files %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
