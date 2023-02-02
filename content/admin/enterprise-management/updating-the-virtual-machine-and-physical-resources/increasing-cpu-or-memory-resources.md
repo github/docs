@@ -30,7 +30,7 @@ shortTitle: Increase CPU or memory
 
 {% endnote %}
 
-### Resizing considerations
+### Resizing considerations for AWS
 
 Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
 
@@ -68,7 +68,7 @@ It's not possible to add CPU or memory resources to an existing AWS/EC2 instance
 
 {% endnote %}
 
-### Resizing considerations
+### Resizing considerations for Microsoft Azure
 
 Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
 
@@ -85,7 +85,7 @@ You need to determine the instance size you would like to upgrade to based on CP
 
 ### Resizing for Microsoft Azure
 
-You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM. 
+You can scale the VM up by changing the VM size. Changing its size will cause it to be restarted. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
 
 1. Refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm) for the required steps.
 {% data reusables.enterprise_installation.configuration-recognized %}

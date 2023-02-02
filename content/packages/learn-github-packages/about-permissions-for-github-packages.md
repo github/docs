@@ -70,7 +70,9 @@ For example:
 | `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
-When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
+{% data reusables.package_registry.delete-with-github-token-using-api-beta %}
+
+When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish{% ifversion packages-delete-with-github-token-api %}, install, delete, and restore{% else %} and install{% endif %} packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
 
 For more information, see:{% ifversion fpt or ghec %}
 - "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
@@ -93,9 +95,11 @@ To ensure your workflows will maintain access to your packages, ensure that you'
 
 For more conceptual background on {% data variables.product.prodname_actions %} or examples of using packages in workflows, see "[Managing GitHub Packages using GitHub Actions workflows](/packages/managing-github-packages-using-github-actions-workflows)."
 
-### Access tokens  
+### Access tokens
 
-- To publish packages associated with the workflow repository, use `GITHUB_TOKEN`.
+{% data reusables.package_registry.delete-with-github-token-using-api-beta %}
+
+- To publish{% ifversion packages-delete-with-github-token-api %}, install, delete, and restore{% else %} and install{% endif %} packages associated with the workflow repository, use `GITHUB_TOKEN`.
 - To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."

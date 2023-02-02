@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import cx from 'classnames'
 
 import { Callout } from 'components/ui/Callout'
 
@@ -17,6 +18,7 @@ import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -37,7 +39,6 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
-
   const isLearningPath = !!currentLearningTrack?.trackName
 
   return (
@@ -46,6 +47,9 @@ export const ArticlePage = () => {
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('my-3 mr-auto width-full')} data-search="breadcrumbs">
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={

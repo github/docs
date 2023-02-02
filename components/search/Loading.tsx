@@ -1,6 +1,4 @@
 import { Spinner } from '@primer/react'
-
-import { useTranslation } from 'components/hooks/useTranslation'
 import { useEffect, useState } from 'react'
 
 export function Loading() {
@@ -21,11 +19,9 @@ export function Loading() {
 }
 
 function ShowSpinner() {
-  const { t } = useTranslation(['search'])
   return (
-    <div className="my-12">
-      <Spinner size="large" />
-      <h2>{t('loading')}</h2>
+    <div className="my-12 d-flex flex-justify-center">
+      <Spinner size="medium" />
     </div>
   )
 }
