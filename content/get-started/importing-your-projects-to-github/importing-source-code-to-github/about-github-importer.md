@@ -18,13 +18,13 @@ During an import, depending on the version control system you're importing from,
 | Import action | Subversion | Mercurial | TFVC | Git |
 |:--------------|:----------:|:---------:|:----------------------:|:---:|
 | Authenticate with remote repository | **X** | **X** | **X** | **X** |
-| [Update commit author attribution](/articles/updating-commit-author-attribution-with-github-importer) | **X** | **X** | **X** | |
-| Move large files to [Git Large File Storage](/articles/about-git-large-file-storage) | **X** | **X** | **X** | |
+| [Update commit author attribution](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer) | **X** | **X** | **X** | |
+| Move large files to [Git Large File Storage](/repositories/working-with-files/managing-large-files/about-git-large-file-storage) | **X** | **X** | **X** | |
 | Remove large files from your repository | **X** | **X** | **X** | |
 
 ## Further reading
 
-- "[Importing a repository with GitHub Importer](/articles/importing-a-repository-with-github-importer)"
-- "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"
-- "[Importing a Git repository using the command line](/articles/importing-a-git-repository-using-the-command-line)"
-- "[Source code migration tools](/articles/source-code-migration-tools)"
+- "[Importing a repository with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)"
+- "[Updating commit author attribution with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"
+- "[Importing a Git repository using the command line](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line)"
+- "[Source code migration tools](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"
