@@ -19,7 +19,7 @@ topics:
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
+**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
 
 {% endnote %}
 {% endif %}
@@ -154,7 +154,7 @@ registries:
 The {% data variables.product.prodname_codeql_cli %} will determine which registry to use for a given package name by finding the first item in the `registries` list with a `packages` property that matches that package name.
 This means that you’ll generally want to define the most specific package name patterns first. The `packages` property may be a single package name, a glob pattern, or a YAML list of package names and glob patterns.
 
-The `registries` list can also be placed inside of a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in the `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see [About {% data variables.product.prodname_codeql %} workspaces](/code-security/code-scanning/codeql-cli-reference/about-codeql-workspaces#about-codeql-workspaces).
+The `registries` list can also be placed inside of a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in the `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see [About {% data variables.product.prodname_codeql %} workspaces](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces#about-codeql-workspaces).
 
 You can now use `codeql pack publish`, `codeql pack download`, and `codeql database analyze` to manage packs on {% data variables.product.prodname_ghe_server %}.
 

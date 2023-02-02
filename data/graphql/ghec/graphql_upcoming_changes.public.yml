@@ -192,3 +192,13 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
+  - location: ProjectV2ItemFieldGroup.field
+    description:
+      '`field` will be removed. Check out the `ProjectV2ItemFieldGroup#groupByField`
+      API as an example for the more capable alternative.'
+    reason:
+      The `ProjectV2ItemFieldGroup#field` API is deprecated in favour of the more
+      capable `ProjectV2ItemFieldGroup#groupByField` API.
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: stevepopovich

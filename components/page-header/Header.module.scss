@@ -9,14 +9,118 @@
   z-index: 3 !important;
 }
 
-// Make the top-level window the scroll window by using the entire screen height to display
-.fullVerticalScroll {
-  max-height: 100vh;
-  overflow-y: scroll;
+// Contains the search input, language picker, and sign-up button.  When the
+// search input is open and up to sm (where the language picker and sign-up
+// button are hidden) we need to take up almost all the header width but then at
+// md and above we don't want the search input to take up the header width.
+.widgetsContainer {
+  width: 100%;
 
-  // When nav dropdown shifts to large layout, use overflow defaults
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+// Contains the search input and used when the smaller width search input UI is
+// closed to hide the full width input, but as the width increases to md and
+// above we show the search input along the other UI widgets (the menu button,
+// the language picker, etc.)
+.searchContainerWithClosedSearch {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+}
+
+// Contains the search input and used when the smaller width search input UI is
+// open and we set it full width but as the browser width increases to md and
+// above we don't take up the whole width anymore since we now show other UI
+// widgets.
+.searchContainerWithOpenSearch {
+  width: 100%;
+  margin-right: -1px;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+// Contains the logo and version picker and used when the smaller width search
+// input UI is closed.
+.logoWithClosedSearch {
+  display: flex;
+  align-items: center;
+  color: var(--color-bg-default);
+}
+
+// Contains the logo and version picker and used when the smaller width search
+// input UI is open (where we don't show the logo or version picker).  As the
+// width increases to md and above and search no longer takes up the whole header
+// width, we show the logo and version picker.
+.logoWithOpenSearch {
+  display: none;
+
+  @include breakpoint(md) {
+    display: flex;
+    align-items: center;
+    color: var(--color-bg-default);
+  }
+}
+
+// The ... menu button when the smaller width search UI is open.  Since the search
+// UI is open, we don't show the button at smaller widths but we do show it as
+// the browser width increases to md, and then at lg and above widths we hide
+// the button again since the pickers and sign-up button are shown in the header.
+.menuButtonWithOpenSearch {
+  margin-left: 8px;
+  display: none;
+
+  @include breakpoint(md) {
+    display: inline-block;
+    margin-left: 4px;
+  }
+
   @include breakpoint(lg) {
-    max-height: inherit;
-    overflow-y: inherit;
+    display: none;
+  }
+}
+
+// Prevent the ... menu from still showing if someone opens it and then widens
+// their browser to lg.
+.menuOverlay {
+  min-width: 20rem;
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+}
+
+// The ... menu button when the smaller width search UI is closed, the button is
+// shown up to md.  At lg and above we don't show the button since the pickers
+// and sign-up button are shown in the header.
+.menuButtonWithClosedSearch {
+  margin-left: 16px;
+
+  @include breakpoint(md) {
+    margin-left: 0;
+  }
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+}
+
+// The x button to close the small width search UI, not visible if search is closed.
+.closeSearchButtonWithClosedSearch {
+  display: none;
+}
+
+// The x button to close the small width search UI when search is open, as the
+// browser width increases to md and above we no longer show that search UI so
+// the close search button is hidden as well.
+.closeSearchButtonWithOpenSearch {
+  @include breakpoint(md) {
+    display: none;
   }
 }

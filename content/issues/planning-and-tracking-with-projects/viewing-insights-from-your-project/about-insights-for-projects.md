@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
 
- Insights does track items you have archived or deleted.
+ Insights does not track items you have archived or deleted.
 
 ## About current charts
 
