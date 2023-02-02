@@ -4,6 +4,8 @@ Videos are used in conjunction with written text to help users understand conten
 
 Use these guidelines to determine if a video is appropriate to include in an article or on a landing page in the GitHub docs. If you have questions about whether or not a video would be a good addition to the docs, contact the Docs Content Strategy team.
 
+If you add a link to a video or embed a video in the GitHub Docs, add the video's metadata to the "[Videos in GitHub Docs](#videos-in-github-docs)" section below.
+
 The Docs team does not create or maintain video content. Videos are purely supplemental to help communicate significant or complex topics, and should be used sparingly because they aren't a content type owned by the Docs team.
 
 ## Video checklist
@@ -133,3 +135,205 @@ Videos must be hosted somewhere that GitHub owns and can grant the Docs team acc
 ## Resources
 - https://webaim.org
 - https://www.w3.org/TR/WCAG22/#time-based-media
+
+## Videos in GitHub Docs
+
+Add the following metadata for each video added to the GitHub Docs.
+
+```markdown{:copy}
+Title: Video title
+URL: YouTube.com/
+Description: One sentence
+Product: e.x. Projects
+Versions: e.x. fpt, GHES > 3.2
+Date added: YYYY-MM-DD
+Location: /where/in/docs
+Transcript: ./content/video-transcripts/filename
+```
+
+```
+Title: GitHub Actions - Supercharge your GitHub Flow
+URL: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+Description: A 3 minute overview of how GitHub Actions fits in the GitHub flow.
+Product: Actions
+Versions: All
+Date added: 2020-12-03
+Location: content/actions/index.md
+Transcript: TBD
+```
+
+```
+Title: Codespaces - Your instant dev box in the cloud
+URL: https://www.youtube-nocookie.com/embed/_W9B7qc9lVc
+Description: A 1.5 minute overview of GitHub Codespaces.
+Product: Codespaces
+Versions: fpt, ghec
+Date added: 2021-05-11
+Location: /content/codespaces/index.md
+Transcript: TBD
+```
+
+```
+Title: GitHub Discussions in 60 seconds
+URL: https://www.youtube-nocookie.com/embed/IpBw2SJkFyk
+Description: A 1 minute overview of GitHub Discussions.
+Product: Discussions
+Versions: fpt, ghec, ghes > 3.5
+Date added: 2021-01-20
+Location: /content/discussions/index.md
+Transcript: TBD
+```
+
+```
+Title: GitHub Classroom Getting Started Guide
+URL: https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u
+Description: A 9 video series introducing GitHub Classroom.
+Product: Classroom
+Versions: fpt
+Date added: ?
+Location: content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom.md
+Transcript: TBD
+```
+
+```
+Title: Pull Requests • GitHub & Git Foundations
+URL: https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19
+Description: A 4.5 minute video introducing pull requests.
+Product: Pull requests, getting started
+Versions: All
+Date added: ?
+Location: content/get-started/quickstart/git-and-github-learning-resources.md
+Transcript: TBD
+```
+
+```
+Title: Rebase • GitHub & Git Foundations
+URL: https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22
+Description: A 4.5 minute introduction to using Git Rebase.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/quickstart/git-and-github-learning-resources.md
+Transcript: TBD
+```
+
+```
+Title: Reset• GitHub & Git Foundations
+URL: https://www.youtube.com/watch?v=BKPjPMVB81g
+Description: A 4 minute introduction to using Git Reset.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/quickstart/git-and-github-learning-resources.md
+Transcript: TBD
+```
+
+```
+Title: Forking • GitHub & Git Foundations
+URL: https://www.youtube.com/watch?v=5oJHRbqEofs
+Description: A 2 minute introduction to forking projects on GitHub.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/quickstart/git-and-github-learning-resources.md
+Transcript: TBD
+```
+
+```
+Title: Git & GitHub: Working Locally
+URL: https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
+Description: A 1.5 minute overview of working locally in the command line.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/using-git/about-git.md
+Transcript: TBD
+```
+
+```
+Title: Git & GitHub: Git Status
+URL: https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3
+Description: A 1 minute overview of the git status command.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/using-git/about-git.md
+Transcript: TBD
+```
+
+```
+Title: Git & GitHub: Git Pull and Git Push
+URL: https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
+Description: A 1 minute introduction to using Git Push and Git Pull.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/using-git/about-git.md
+Transcript: TBD
+```
+
+```
+Title: Git & GiHub: Saved Changes
+URL: https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
+Description: A 1.5 minute introduction to saving work and pushing commits.
+Product: Getting started
+Versions: All
+Date added: ?
+Location: content/get-started/using-git/about-git.md
+Transcript: TBD
+```
+
+```
+Title: Planning at scale with Issues – GitHub Universe 2021
+URL: https://www.youtube-nocookie.com/embed/ha1KHcPMAEk
+Description: A 20 minute presentation by Mario Rodriguez.Nbobigogc
+Product: Issues
+Versions: All
+Date added: YYYY-MM-DD
+Location: /content/issues/index.md
+Transcript: TBD
+```
+
+```
+Title: Planning at GitHub (Projects + Issues) - GitHub Universe 2021
+URL: https://www.youtube-nocookie.com/embed/HwpVvDURHKw
+Description: A 20 minute presentation by Matt Butler.
+Product: Issues
+Versions: All
+Date added: 2022-01-19
+Location: /content/issues/index.md
+Transcript: TBD
+```
+
+```
+Title: Issue Forms for open source - GitHub Universe 2021
+URL: https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY
+Description: A 20 minute presentation by Luke Hefson.
+Product: Issues
+Versions: All
+Date added: 2022-01-19
+Location: /content/issues/index.md
+Transcript: TBD
+```
+
+```
+Title: GitHub Issues
+URL: https://www.youtube-nocookie.com/embed/uiaLWluYJsA
+Description: A 2.5 minute overview of Issues for planning and tracking work.
+Product: Issues
+Versions: All
+Date added: 2022-02-02
+Location: /content/issues/index.md
+Transcript: TBD
+```
+
+```
+Title: Using Projects for feature planning
+URL: https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1
+Description: A 3 minute introduction to Projects for developers.
+Product: Issues, Projects
+Versions: All
+Date added: 2022-08-01
+Location: /content/issues/index.md
+Transcript: TBD
+```
