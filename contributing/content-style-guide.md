@@ -164,7 +164,7 @@ Follow this format:
 
 > Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.
 
-![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](../images/repository-code-button.png)
+![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 
