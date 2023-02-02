@@ -19,6 +19,7 @@ header:
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
+  menu: Menu
 picker:
   language_picker_default_text: Choose a language
   product_picker_default_text: All products
@@ -28,7 +29,6 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search GitHub Docs
-  loading: Loading
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
@@ -37,9 +37,8 @@ search:
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
-  results_found: Found {n} results in {s}ms
-  results_page: This is page {page} of {pages}.
-  nothing_found: Nothing found 😿
+  found_results: Found {n} results
+  one_result_found: Found 1 result
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

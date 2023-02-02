@@ -32,12 +32,12 @@ The {% data variables.codespaces.serverless %} editor runs entirely in your br
 
 You must be signed in to {% data variables.product.prodname_dotcom_the_website %} to use the {% data variables.codespaces.serverless %} editor.
 
-## Opening the {% data variables.codespaces.serverless %} editor 
+## Opening the {% data variables.codespaces.serverless %} editor
 
 You can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} in either of the following ways:
 
 - To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
- 
+
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
 - Change the URL from "github.com" to "github.dev".
@@ -51,7 +51,7 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
+| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
 | **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
 | **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
@@ -79,7 +79,7 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 
 ### Commit your changes
 
-{% data reusables.codespaces.source-control-commit-changes %} 
+{% data reusables.codespaces.source-control-commit-changes %}
 5. Once you have committed your changes, they will automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
 ### Create a pull request
 

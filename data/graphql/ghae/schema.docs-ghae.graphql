@@ -815,6 +815,26 @@ type AddedToProjectEvent implements Node {
 }
 
 """
+Represents an announcement banner.
+"""
+interface AnnouncementBanner {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+}
+
+"""
 A GitHub App.
 """
 type App implements Node {
@@ -7929,6 +7949,187 @@ type DependabotUpdateError {
 }
 
 """
+A dependency manifest entry
+"""
+type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
+  """
+  Does the dependency itself have dependencies?
+  """
+  hasDependencies: Boolean!
+
+  """
+  The original name of the package, as it appears in the manifest.
+  """
+  packageLabel: String!
+    @deprecated(
+      reason: "`packageLabel` will be removed. Use normalized `packageName` field instead. Removal on 2022-10-01 UTC."
+    )
+
+  """
+  The dependency package manager
+  """
+  packageManager: String
+
+  """
+  The name of the package in the canonical form used by the package manager.
+  This may differ from the original textual form (see packageLabel), for example
+  in a package manager that uses case-insensitive comparisons.
+  """
+  packageName: String!
+
+  """
+  The repository containing the package
+  """
+  repository: Repository
+
+  """
+  The dependency version requirements
+  """
+  requirements: String!
+}
+
+"""
+The connection type for DependencyGraphDependency.
+"""
+type DependencyGraphDependencyConnection @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphDependencyEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphDependency]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphDependencyEdge @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphDependency
+}
+
+"""
+Dependency manifest for a repository
+"""
+type DependencyGraphManifest implements Node @preview(toggledBy: "hawkgirl-preview") {
+  """
+  Path to view the manifest file blob
+  """
+  blobPath: String!
+
+  """
+  A list of manifest dependencies
+  """
+  dependencies(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): DependencyGraphDependencyConnection
+
+  """
+  The number of dependencies listed in the manifest
+  """
+  dependenciesCount: Int
+
+  """
+  Is the manifest too big to parse?
+  """
+  exceedsMaxSize: Boolean!
+
+  """
+  Fully qualified manifest filename
+  """
+  filename: String!
+  id: ID!
+
+  """
+  Were we able to parse the manifest?
+  """
+  parseable: Boolean!
+
+  """
+  The repository containing the manifest
+  """
+  repository: Repository!
+}
+
+"""
+The connection type for DependencyGraphManifest.
+"""
+type DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A list of edges.
+  """
+  edges: [DependencyGraphManifestEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [DependencyGraphManifest]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type DependencyGraphManifestEdge @preview(toggledBy: "hawkgirl-preview") {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: DependencyGraphManifest
+}
+
+"""
 A repository deploy key.
 """
 type DeployKey implements Node {
@@ -9818,7 +10019,22 @@ type EnablePullRequestAutoMergePayload {
 """
 An account to manage multiple organizations with consolidated policy and billing.
 """
-type Enterprise implements Node {
+type Enterprise implements AnnouncementBanner & Node {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+
   """
   A URL pointing to the enterprise's public avatar.
   """
@@ -10329,6 +10545,51 @@ enum EnterpriseEnabledSettingValue {
 }
 
 """
+The connection type for OrganizationInvitation.
+"""
+type EnterpriseFailedInvitationConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseFailedInvitationEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [OrganizationInvitation]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+
+  """
+  Identifies the total count of unique users in the connection.
+  """
+  totalUniqueUserCount: Int!
+}
+
+"""
+A failed invitation to be a member in an enterprise organization.
+"""
+type EnterpriseFailedInvitationEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: OrganizationInvitation
+}
+
+"""
 An identity provider configured to provision identities for an enterprise.
 """
 type EnterpriseIdentityProvider implements Node {
@@ -10812,6 +11073,36 @@ type EnterpriseOwnerInfo {
     """
     value: DefaultRepositoryPermissionField!
   ): OrganizationConnection!
+
+  """
+  A list of failed invitations in the enterprise.
+  """
+  failedInvitations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The search string to look for.
+    """
+    query: String
+  ): EnterpriseFailedInvitationConnection!
 
   """
   The setting value for whether the enterprise has an IP allow list enabled.
@@ -11352,6 +11643,11 @@ type EnterpriseOwnerInfo {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Only return invitations matching this invitation source
+    """
+    invitationSource: OrganizationInvitationSource
 
     """
     Returns the last _n_ elements from the list.
@@ -22404,7 +22700,22 @@ type OrgUpdateMemberRepositoryInvitationPermissionAuditEntry implements AuditEnt
 """
 An account on GitHub, with one or more owners, that has repositories, members and teams.
 """
-type Organization implements Actor & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
+type Organization implements Actor & AnnouncementBanner & MemberStatusable & Node & ProfileOwner & ProjectOwner & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & UniformResourceLocatable {
+  """
+  The text of the announcement
+  """
+  announcement: String
+
+  """
+  The expiration date of the announcement, if any
+  """
+  announcementExpiresAt: DateTime
+
+  """
+  Whether the announcement can be dismissed by the user
+  """
+  announcementUserDismissible: Boolean
+
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -23494,6 +23805,11 @@ type OrganizationInvitation implements Node {
   id: ID!
 
   """
+  The source of the invitation.
+  """
+  invitationSource: OrganizationInvitationSource!
+
+  """
   The type of invitation that was sent (e.g. email, user).
   """
   invitationType: OrganizationInvitationType!
@@ -23582,6 +23898,26 @@ enum OrganizationInvitationRole {
   The user's previous role will be reinstated.
   """
   REINSTATE
+}
+
+"""
+The possible organization invitation sources.
+"""
+enum OrganizationInvitationSource {
+  """
+  The invitation was created from the web interface or from API
+  """
+  MEMBER
+
+  """
+  The invitation was created from SCIM
+  """
+  SCIM
+
+  """
+  The invitation was sent before this feature was added
+  """
+  UNKNOWN
 }
 
 """
@@ -32835,6 +33171,46 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Whether or not branches are automatically deleted when merged in this repository.
   """
   deleteBranchOnMerge: Boolean!
+
+  """
+  A list of dependency manifests contained in the repository
+  """
+  dependencyGraphManifests(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Cursor to paginate dependencies
+    """
+    dependenciesAfter: String
+
+    """
+    Number of dependencies to fetch
+    """
+    dependenciesFirst: Int
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Flag to scope to only manifests with dependencies
+    """
+    withDependencies: Boolean
+  ): DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview")
 
   """
   A list of deploy keys that are on this repository.

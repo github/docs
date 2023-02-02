@@ -109,7 +109,7 @@ export const SidebarProduct = () => {
     )
     return (
       <>
-        <ApiVersionPicker width={sidebarWidth} variant="header" />
+        <ApiVersionPicker width={sidebarWidth} />
         <li className="my-3">
           <ul className="list-style-none">
             {conceptualPages.map((childPage, i) => {
