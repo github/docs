@@ -12,6 +12,38 @@ export default async function dynamicAssets(req, res, next) {
     return res.status(405).type('text/plain').send('Method Not Allowed')
   }
 
+  // To protect from possible denial of service, we never allow what
+  // we're going to do (the image file operation), if the whole thing
+  // won't be aggressively cached.
+  // If we didn't do this, someone making 2 requests, ...
+  //
+  //    > GET /assets/images/site/logo.web?random=10476583
+  //    > GET /assets/images/site/logo.web?random=20196996
+  //
+  // ...would be treated as 2 distinct backend requests. Sure, each one
+  // would be cached in the CDN, but that's not helping if someone does...
+  //
+  //    while (true) {
+  //       startFetchThread(`/assets/images/site/logo.web?whatever=${rand()}`)
+  //    }
+  //
+  // So we "force" any deviation of the URL to a redirect to the canonical
+  // URL (which, again, is heavily cached).
+  if (Object.keys(req.query).length > 0) {
+    // Cache the 404 so it won't be re-attempted over and over
+    defaultCacheControl(res)
+
+    // This redirects to the same URL we're currently on, but with the
+    // query string part omitted.
+    // For example:
+    //
+    //    > GET /assets/images/site/logo.web?foo=bar
+    //    < 302
+    //    < location: /assets/images/site/logo.web
+    //
+    return res.redirect(302, req.path)
+  }
+
   if (req.path.endsWith('.webp')) {
     // From PNG (if it exists) to WEBP
     try {
