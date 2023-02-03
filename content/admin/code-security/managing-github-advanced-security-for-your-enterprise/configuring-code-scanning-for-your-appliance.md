@@ -87,14 +87,4 @@ If you don't want to use {% data variables.product.prodname_actions %}, you shou
 
 The {% data variables.product.prodname_codeql_cli %} is a command-line tool that you use to analyze codebases on any machine, including a third-party CI/CD system. For more information, see "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
-{% ifversion codeql-runner-supported %}
 
-## Running {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-If you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.code-scanning.codeql_runner %}.
-
-The {% data variables.code-scanning.codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
-
-{% endif %}

@@ -32,9 +32,8 @@ The first step to securing a repository is to establish who can see and modify y
 
 From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**, then scroll down to the "Danger Zone."
 
-- To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+- To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 - To change who can access your repository and adjust permissions, click **Manage access**. For more information, see"[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
-
 
 ## Managing the dependency graph
 

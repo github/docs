@@ -39,7 +39,7 @@ If your organization requires two-factor authentication, all outside collaborato
 
 ## Adding outside collaborators to a repository
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 You can give outside collaborators access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}

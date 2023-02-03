@@ -189,7 +189,7 @@ When using a screenshot of a command-line interface to show user interface eleme
 Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
-- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
+- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
