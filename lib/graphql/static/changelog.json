@@ -3,6 +3,21 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p><code>Discussion</code> object implements <code>Closable</code> interface</p>",
+          "<p>Field <code>closed</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>closedAt</code> was added to object type <code>Discussion</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],
