@@ -65,7 +65,7 @@ This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment 
 name: Publish Package to npmjs
 on:
   release:
-    types: ['published']
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -125,7 +125,7 @@ This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environme
 name: Publish package to GitHub Packages
 on:
   release:
-    types: ['published']
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -163,7 +163,7 @@ If you use the Yarn package manager, you can install and publish packages using 
 name: Publish Package to npmjs
 on:
   release:
-    types: ['published']
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
