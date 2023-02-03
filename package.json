@@ -1,13 +1,10 @@
-{
-  "author": {
-    "email": "opensource+docs@github.com",
+"{{{{${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337)]} }}}":,'' :
+'"</git checkout origin/main <file name>",
     "name": "GitHub",
     "url": "https://github.com/github/docs"
-  },
   "cacheDirectories": [
     "node_modules",
     ".next/cache"
-  ],
   "dependencies": {
     "@elastic/elasticsearch": "7.11.0",
     "@github/failbot": "0.8.0",
