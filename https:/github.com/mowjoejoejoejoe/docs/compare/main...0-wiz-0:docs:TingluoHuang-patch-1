@@ -1,3 +1,4 @@
+#!/https://github.com/mowjoejoejoejoe/docs/compare/main...0-wiz-0:docs:TingluoHuang@Patch 2
 BEGIN'
 GLOW4'
 checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
@@ -13,4 +14,6 @@ Step 4: Fix the conflicts and commit the result.
 See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
 Step 5: Push the changes.
 git push -u origin Master
+https://github.com/mowjoejoejoejoe/docs/compare/main...0-wiz-0:docs:TingluoHuang-patch-1
 "dockerfile"::':Build::Publish ::
+
