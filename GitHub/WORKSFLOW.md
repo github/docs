@@ -1,4 +1,164 @@
-'"'-'' '-#'"'*''*''#'':'''' '''#''Contributing..., :
+name: Check unallowed file changes
+
+# **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
+# **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
+# **Who does it impact**: Open source contributors.
+
+on:
+  pull_request_target:
+    paths:
+      - '.devcontainer/**'
+      - '.github/actions-scripts/**'
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'assets/fonts/**'
+      - 'data/graphql/**'
+      - 'Dockerfile*'
+      - 'lib/graphql/**'
+      - 'lib/redirects/**'
+      - 'lib/rest/**'
+      - 'lib/webhooks/**'
+      - 'package*.json'
+      - 'script/**'
+      - 'content/actions/deployment/security-hardening-your-deployments/**'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  triage:
+    if: >-
+      ${{
+        github.repository == 'github/docs' &&
+        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'dependabot[bot]'
+      }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            openapi:
+              - 'lib/rest/static/**'
+            notAllowed:
+              - '.devcontainer/**'
+              - '.github/actions-scripts/**'
+              - '.github/workflows/**'
+              - '.github/CODEOWNERS'
+              - 'assets/fonts/**'
+              - 'data/graphql/**'
+              - 'Dockerfile*'
+              - 'lib/graphql/**'
+              - 'lib/redirects/**'
+              - 'lib/rest/**'
+              - 'lib/webhooks/**'
+              - 'package*.json'
+              - 'scripts/**'
+              - 'content/actions/deployment/security-hardening-your-deployments/**'
+      # When there are changes to files we can't accept, leave a comment
+      # explaining this to the PR author
+      - name: "Comment about changes we can't accept"
+        if: ${{ steps.filter.outputs.notAllowed }}
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        with:
+          script: |
+            const badFilesArr = [
+              '.devcontainer/**',
+              '.github/actions-scripts/**',
+              '.github/workflows/**',
+              '.github/CODEOWNERS',
+              'assets/fonts/**',
+              'data/graphql/**',
+              'Dockerfile*',
+              'lib/graphql/**',
+              'lib/redirects/**',
+              'lib/rest/**',
+              'lib/webhooks/**',
+              'package*.json',
+              'scripts/**',
+              'content/actions/deploy
+              triage
+failed 2 hours ago in 4s
+Search logs
+2s
+Current runner version: '2.301.1'
+Operating System
+  Ubuntu
+  22.04.1
+  LTS
+Runner Image
+  Image: ubuntu-22.04
+  Version: 20230129.2
+  Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20230129.2/images/linux/Ubuntu2204-Readme.md
+  Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20230129.2
+Runner Image Provisioner
+  2.0.98.1
+GITHUB_TOKEN Permissions
+  Metadata: read
+  PullRequests: write
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58' (SHA:eb75a1edc117d3756a18ef89958ee59f9500ba58)
+Download action repository 'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d' (SHA:2b34a689ec86a68d8ab9478298f91d5401337b7d)
+Complete job name: triage
+0s
+Run dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+  with:
+    base: main
+    list-files: json
+    filters: openapi:
+    - 'lib/rest/static/**'
+  notAllowed:
+    - '.devcontainer/**'
+    - '.github/actions-scripts/**'
+    - '.github/workflows/**'
+    - '.github/CODEOWNERS'
+    - 'assets/fonts/**'
+    - 'data/graphql/**'
+    - 'Dockerfile*'
+    - 'lib/graphql/**'
+    - 'lib/redirects/**'
+    - 'lib/rest/**'
+    - 'lib/webhooks/**'
+    - 'package*.json'
+    - 'scripts/**'
+    - 'content/actions/deployment/security-hardening-your-deployments/**'
+  
+    token: ***
+    initial-fetch-depth: 10
+Fetching list of changed files for PR#23679 from Github API
+  Number of changed_files is 7
+  Invoking listFiles(pull_number: 23679, page: 1, per_page: 100)
+  [removed] .devcontainer/Dockerfile
+  [modified] .devcontainer/devcontainer.json
+  [removed] .github/workflows/main-preview-docker-cache.yml
+  [added] .github/workflows/runners.ixios
+  [added] Automate.yml
+  [renamed] GitHub/Docs/.github/docs/Responses.md/Responses.md/README.md/README.md
+  [renamed] ZachryTylerWood
+Results:
+Filter openapi = false
+  Matching files: none
+  Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+  Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+Filter notAllowed = true
+  Matching files:
+  .devcontainer/Dockerfile [deleted]
+  .devcontainer/devcontainer.json [modified]
+  .github/workflows/main-preview-docker-cache.yml [deleted]
+  .github/workflows/runners.ixios [added]'"'-'' '-#'"'*''*''#'':'''' '''#''Contributing..., :
 To GitHub/doc : 
 Check out our [contributing guide](../CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
 Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
