@@ -48,6 +48,22 @@ In the board layout, you can can choose which columns to display. The available 
 
 {% endif %}
 
+{% ifversion projects-v2-consistent-sorting %}
+
+## Sorting by field values
+
+You can sort items by a field value.
+
+{% note %}
+
+**Note:** When a board is sorted, you cannot manually reorder items within a column. You can continue to move items from column to column.
+
+{% endnote %}
+
+{% data reusables.projects.customize.sort %}
+
+{% endif %}
+
 {% ifversion projects-v2-numeric-summary %}
 
 ## Showing the sum of a number field
