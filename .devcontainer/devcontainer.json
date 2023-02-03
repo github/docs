@@ -1,7 +1,3 @@
-Name :Build and Deploy :
-title :'Run'' 
-'-'' #'Test'@'.'Travis::
-:ci :
 BEGIN'
 GLOW4'
 checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
