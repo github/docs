@@ -13,7 +13,7 @@ shortTitle: Use GitHub Importer
 ---
 {% tip %}
 
-**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/articles/importing-a-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/articles/source-code-migration-tools) for projects imported from other version control systems.
+**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools) for projects imported from other version control systems.
 
 {% endtip %}
 
@@ -27,7 +27,7 @@ If you'd like to match the commits in your repository to the authors' GitHub per
 ![Text field for URL of imported repository](/assets/images/help/importer/import-url.png)
 3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub.
 ![Repository owner menu and repository name field](/assets/images/help/importer/import-repo-owner-name.png)
-4. Specify whether the new repository should be *public* or *private*. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+4. Specify whether the new repository should be *public* or *private*. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 ![Public or private repository radio buttons](/assets/images/help/importer/import-public-or-private.png)
 5. Review the information you entered, then click **Begin import**.
 ![Begin import button](/assets/images/help/importer/begin-import-button.png)
@@ -36,11 +36,11 @@ If SAML SSO or 2FA are enabled for your user account on the old project, enter a
 ![Password form and Submit button for password-protected project](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. If there are multiple projects hosted at your old project's clone URL, choose the project you'd like to import, then click **Submit**.
 ![List of projects to import and Submit button](/assets/images/help/importer/choose-project-importer.png)
-8. If your project contains files larger than 100 MB, choose whether to import the large files using [Git Large File Storage](/articles/versioning-large-files), then click **Continue**.
+8. If your project contains files larger than 100 MB, choose whether to import the large files using [Git Large File Storage](/repositories/working-with-files/managing-large-files), then click **Continue**.
 ![Git Large File Storage menu and Continue button](/assets/images/help/importer/select-gitlfs-importer.png)
 
 You'll receive an email when the repository has been completely imported.
 
 ## Further reading
 
-- "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"
+- "[Updating commit author attribution with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"

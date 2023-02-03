@@ -18,9 +18,8 @@ children:
   - /configuring-two-factor-authentication-recovery-methods
   - /accessing-github-using-two-factor-authentication
   - /recovering-your-account-if-you-lose-your-2fa-credentials
-  - /changing-two-factor-authentication-delivery-methods-for-your-mobile-device
+  - /changing-your-preferred-two-factor-authentication-method
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
 ---
-
