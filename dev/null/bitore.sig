@@ -1,22 +1,26 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
-
 # [Choice] Node.js version
-'A'G'S'"'' ':;'' ':'' '"'P3'T3'R'X'@niezt'@V8/natz :
-  '-'' 'with:'' 'Bowser.yml'@'Buster"12x, 14x,16x":, :
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
-
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
-
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
-
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g <your-package-list-here>"
-
-# Install the GitHub CLI see:
-# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
-COPY library-scripts/github-debian.sh /tmp/library-scripts/
-RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+# Install the GitHub ci/CI.yml :
++ BEGIN:
++ GLOW4:
++ </git checkout origin/main <file name>
++Run'' 'Runs::/Action::/:Build::/scripts::/Run-on :Runs :
++Runs :gh/pages :
++pages :edit "
++$ intuit install 
++PURL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++run: gh pr edit "$PR_URL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337) ')]}}}'"'' :
++ </git checkout origin/main <file name>
