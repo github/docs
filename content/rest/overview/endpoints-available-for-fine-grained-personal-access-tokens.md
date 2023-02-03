@@ -11,8 +11,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /enterprises/{enterprise}/actions/permissions`](/rest/actions#get-github-actions-permissions-for-an-enterprise){% endif %}{% ifversion ghec %}
 - [`PUT /enterprises/{enterprise}/actions/permissions`](/rest/actions#set-github-actions-permissions-for-an-enterprise){% endif %}{% ifversion ghec %}
 - [`GET /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#list-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#enable-a-selected-organization-for-github-actions-in-an-enterprise){% ifversion ghec %}
+- [`PUT /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
+- [`PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#enable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
 - [`DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#disable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
 - [`GET /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#get-allowed-actions-for-an-enterprise){% endif %}{% ifversion ghec %}
 - [`PUT /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-enterprise){% endif %}
@@ -23,20 +23,20 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PUT /orgs/{org}/actions/permissions/repositories/{repository_id}`](/rest/actions#enable-a-selected-repository-for-github-actions-in-an-organization)
 - [`DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}`](/rest/actions#disable-a-selected-repository-for-github-actions-in-an-organization)
 - [`GET /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#get-allowed-actions-for-an-organization)
-- [`PUT /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-organization)
-- [`GET /orgs/{org}/actions/runner-groups`](/rest/actions#list-self-hosted-runner-groups-for-an-organization)
-- [`POST /orgs/{org}/actions/runner-groups`](/rest/actions#create-a-self-hosted-runner-group-for-an-organization)
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#get-a-self-hosted-runner-group-for-an-organization)
-- [`PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#update-a-self-hosted-runner-group-for-an-organization)
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#delete-a-self-hosted-runner-group-from-an-organization)
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#list-repository-access-to-a-self-hosted-runner-group-in-an-organization)
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#set-repository-access-to-a-self-hosted-runner-group-in-an-organization){% ifversion ghec %}
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization){% endif %}
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#remove-repository-access-to-a-self-hosted-runner-group-in-an-organization)
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#list-self-hosted-runners-in-a-group-for-an-organization)
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization)
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#add-a-self-hosted-runner-to-a-group-for-an-organization)
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)
+- [`PUT /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-organization){% ifversion ghec %}
+- [`GET /orgs/{org}/actions/runner-groups`](/rest/actions#list-self-hosted-runner-groups-for-an-organization){% endif %}{% ifversion ghec %}
+- [`POST /orgs/{org}/actions/runner-groups`](/rest/actions#create-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#get-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#update-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#delete-a-self-hosted-runner-group-from-an-organization){% endif %}{% ifversion ghec %}
+- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#list-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
+- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#set-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
+- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
+- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#remove-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
+- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#list-self-hosted-runners-in-a-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#add-a-self-hosted-runner-to-a-group-for-an-organization){% endif %}{% ifversion ghec %}
+- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization){% endif %}
 - [`GET /orgs/{org}/actions/runners`](/rest/actions#list-self-hosted-runners-for-an-organization)
 - [`GET /orgs/{org}/actions/runners/downloads`](/rest/actions#list-runner-applications-for-an-organization)
 - [`POST /orgs/{org}/actions/runners/registration-token`](/rest/actions#create-a-registration-token-for-an-organization)
@@ -130,8 +130,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /repos/{owner}/{repo}/actions/caches/{cache_id}`](/rest/actions/cache#delete-a-github-actions-cache-for-a-repository-using-a-cache-id)
 - [`GET /repos/{owner}/{repo}/actions/oidc/customization/sub`](/rest/actions/oidc#get-the-customization-template-for-an-oidc-subject-claim-for-a-repository)
 - [`PUT /repos/{owner}/{repo}/actions/oidc/customization/sub`](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)
-- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing`](/rest/actions#get-workflow-run-usage)
-- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/actions#get-workflow-usage)
 - [`GET /orgs/{org}/actions/required_workflows`](/rest/actions#list-required-workflows)
 - [`POST /orgs/{org}/actions/required_workflows`](/rest/actions#create-a-required-workflow)
 - [`GET /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#get-a-required-workflow)
@@ -150,9 +148,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id}`](/rest/actions/variables#add-selected-repository-to-an-organization-variable)
 - [`GET /repos/{org}/{repo}/actions/required_workflows`](/rest/actions#list-repository-required-workflows)
 - [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}`](/rest/actions#get-repository-required-workflow)
-- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions#get-repository-required-workflow-usage)
 - [`GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs`](/rest/actions#list-required-workflow-runs)
-- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve`](/rest/actions#approve-a-workflow-run-for-a-fork-pull-request)
 - [`GET /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#list-repository-variables)
 - [`POST /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#create-a-repository-variable)
 - [`GET /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#get-a-repository-variable)
@@ -163,6 +159,10 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#get-an-environment-variable)
 - [`PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#update-an-environment-variable)
 - [`DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#delete-an-environment-variable)
+- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing`](/rest/actions#get-workflow-run-usage)
+- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/actions#get-workflow-usage)
+- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions#get-repository-required-workflow-usage)
+- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve`](/rest/actions#approve-a-workflow-run-for-a-fork-pull-request)
 
 ## activity
 
@@ -185,6 +185,16 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /users/{username}/received_events/public`](/rest/activity#list-public-events-received-by-a-user)
 - [`GET /users/{username}/starred`](/rest/activity#list-repositories-starred-by-a-user)
 - [`GET /users/{username}/subscriptions`](/rest/activity#list-repositories-watched-by-a-user)
+
+{% ifversion ghec %}
+
+## announcement-banners
+{% ifversion ghec %}
+- [`GET /orgs/{org}/announcement`](/rest/announcement-banners#get-enterprise-announcement-banner-for-org){% endif %}{% ifversion ghec %}
+- [`PATCH /orgs/{org}/announcement`](/rest/announcement-banners/organizations#set-announcement-banner-for-organization){% endif %}{% ifversion ghec %}
+- [`DELETE /orgs/{org}/announcement`](/rest/announcement-banners/organizations#remove-announcement-banner-from-organization){% endif %}
+
+{% endif %}
 
 ## apps
 
@@ -268,6 +278,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 
 - [`GET /orgs/{org}/codespaces`](/rest/codespaces#list-in-organization)
 - [`PUT /orgs/{org}/codespaces/billing`](/rest/codespaces#set-codespaces-billing)
+- [`POST /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#set-codespaces-billing-users)
+- [`DELETE /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#delete-codespaces-billing-users)
 - [`GET /orgs/{org}/codespaces/secrets`](/rest/codespaces#list-organization-secrets)
 - [`GET /orgs/{org}/codespaces/secrets/public-key`](/rest/codespaces#get-an-organization-public-key)
 - [`GET /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#get-an-organization-secret)
@@ -402,9 +414,9 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 {% ifversion ghec %}
 
 ## enterprise-admin
-
-- [`GET /enterprises/{enterprise}/audit-log`](/rest/enterprise-admin#get-the-audit-log-for-an-enterprise)
-- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise)
+{% ifversion ghec %}
+- [`GET /enterprises/{enterprise}/audit-log`](/rest/enterprise-admin#get-the-audit-log-for-an-enterprise){% endif %}{% ifversion ghec %}
+- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise){% endif %}
 
 {% endif %}
 
@@ -590,7 +602,12 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /orgs/{org}/security-managers`](/rest/orgs#list-security-manager-teams)
 - [`PUT /orgs/{org}/security-managers/teams/{team_slug}`](/rest/orgs#add-a-security-manager-team)
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/orgs#remove-a-security-manager-team)
-- [`POST /orgs/{org}/{security_product}/{enablement}`](/rest/orgs#enable-or-disable-security-product-on-all-org-repos)
+- [`POST /orgs/{org}/{security_product}/{enablement}`](/rest/orgs#enable-or-disable-security-product-on-all-org-repos){% ifversion ghec %}
+- [`POST /orgs/{org}/custom_roles`](/rest/orgs#create-a-custom-role){% endif %}{% ifversion ghec %}
+- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs/#get-a-custom-role){% endif %}{% ifversion ghec %}
+- [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#update-a-custom-role){% endif %}{% ifversion ghec %}
+- [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#delete-a-custom-role){% endif %}{% ifversion ghec %}
+- [`GET /orgs/{org}/fine_grained_permissions`](/rest/orgs#list-repository-fine-grained-permissions-for-an-organization){% endif %}
 - [`GET /orgs/{org}/blocks`](/rest/orgs#list-users-blocked-by-an-organization)
 - [`GET /orgs/{org}/blocks/{username}`](/rest/orgs#check-if-a-user-is-blocked-by-an-organization)
 - [`PUT /orgs/{org}/blocks/{username}`](/rest/orgs#block-a-user-from-an-organization)
@@ -724,7 +741,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/forks`](/rest/repos#create-a-fork)
 - [`GET /repos/{owner}/{repo}/languages`](/rest/repos#list-repository-languages)
 - [`GET /repos/{owner}/{repo}/releases`](/rest/repos#list-releases)
-- [`POST /repos/{owner}/{repo}/releases`](/rest/repos#create-a-release)
+- [`POST /repos/{owner}/{repo}/releases`](/rest/releases/releases#create-a-release)
 - [`GET /repos/{owner}/{repo}/releases/assets/{asset_id}`](/rest/repos#get-a-release-asset)
 - [`PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}`](/rest/repos#update-a-release-asset)
 - [`DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}`](/rest/repos#delete-a-release-asset)
@@ -753,11 +770,11 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/tags/protection`](/rest/repos#list-tag-protection-state-of-a-repository)
 - [`POST /repos/{owner}/{repo}/tags/protection`](/rest/repos#create-tag-protection-state-for-a-repository)
 - [`DELETE /repos/{owner}/{repo}/tags/protection/{tag_protection_id}`](/rest/repos#delete-tag-protection-state-for-a-repository)
-- [`PUT /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#enable-automated-security-fixes)
-- [`DELETE /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#disable-automated-security-fixes)
 - [`GET /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository)
 - [`PUT /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#enable-vulnerability-alerts)
 - [`DELETE /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#disable-vulnerability-alerts)
+- [`PUT /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#enable-automated-security-fixes)
+- [`DELETE /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#disable-automated-security-fixes)
 
 ## search
 
