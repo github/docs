@@ -28,12 +28,12 @@ To keep your account secure, don't share or distribute your recovery codes. We r
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
+If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.{% ifversion 2fa-reconfiguration-inline-update %} Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.{% endif %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
-4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
+1. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
     - To save your recovery codes on your device, click **Download**.
     - To save a hard copy of your recovery codes, click **Print**.
     - To copy your recovery codes for storage in a password manager, click **Copy**.
@@ -57,7 +57,7 @@ You can set up a security key as a secondary two-factor authentication method, a
 
 ## Setting a fallback authentication number
 
-You can provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+You can provide a second number for a fallback device. If you lose access to both your preferred device and your recovery codes, a backup SMS number can get you back in to your account.
 
 You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
 
@@ -71,11 +71,11 @@ You can use a fallback number regardless of whether you've configured authentica
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-3. Next to "Fallback SMS number", click **Add**.
+1. Next to "Fallback SMS number", click **Add**.
 ![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-4. Under "Fallback SMS number", click **Add fallback SMS number**.
+1. Under "Fallback SMS number", click **Add fallback SMS number**.
 ![Add fallback SMS number text](/assets/images/help/2fa/add_fallback_sms_number_text.png)
-5. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
+1. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
 	![Set fallback SMS number](/assets/images/help/2fa/2fa-fallback-number.png)
 
 After setup, the backup device will receive a confirmation SMS.

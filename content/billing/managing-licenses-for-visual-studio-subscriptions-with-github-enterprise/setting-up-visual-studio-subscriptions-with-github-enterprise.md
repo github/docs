@@ -16,9 +16,6 @@ shortTitle: Set up
 
 This guide shows you how your team can get {% data variables.product.prodname_vs %} subscribers licensed and started with {% data variables.product.prodname_enterprise %}.
 
-If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on 
-Microsoft Visual Studio's YouTube channel.
-
 ## Roles for {% data variables.visual_studio.prodname_vss_ghe %}
 
 Before setting up {% data variables.visual_studio.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
@@ -35,7 +32,7 @@ Before setting up {% data variables.visual_studio.prodname_vss_ghe %}, it's impo
 
 - Your team's {% data variables.product.prodname_vs %} subscription must include {% data variables.product.prodname_enterprise %}. For more information, see [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website and
  [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
- 
+
  - Your team must have an enterprise on {% data variables.location.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 ## Setting up {% data variables.visual_studio.prodname_vss_ghe %}

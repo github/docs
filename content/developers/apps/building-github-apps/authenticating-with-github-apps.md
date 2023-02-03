@@ -23,7 +23,7 @@ Authenticating as a {% data variables.product.prodname_github_app %} is required
 * Retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
 * Request access tokens for an installation of the app, allowing you to make API calls without a signed-in user.
 
-To authenticate as a {% data variables.product.prodname_github_app %}, [generate a private key](#generating-a-private-key) in PEM format and download it to your local machine. You'll use this key to [sign a JSON Web Token (JWT)](#jwt-payload) and encode it using the `RS256` algorithm. {% data variables.product.product_name %} validates your app's identity by verifying the token with the app's stored public key. You'll exchange this JWT for an installation token, used to authenticate your app as a specific installation. 
+To authenticate as a {% data variables.product.prodname_github_app %}, [generate a private key](#generating-a-private-key) in PEM format and download it to your local machine. You'll use this key to [sign a JSON Web Token (JWT)](#jwt-payload) and encode it using the `RS256` algorithm. {% data variables.product.product_name %} validates your app's identity by verifying the token with the app's stored public key. You'll exchange this JWT for an installation token, used to authenticate your app as a specific installation.
 
 ### Listing the installations for an app
 
@@ -42,7 +42,7 @@ The response will include a list of installations where each installation's `id`
 
 Authenticating as an installation lets your app access that organization or user via the API, as well as public resources on {% data variables.product.product_name %}. To authenticate as an installation, you must use an installation access token, which you get by sending a [JWT](#jwt-payload) to {% data variables.product.product_name %} to prove your app's identity. Ensure that you have already installed your GitHub App to at least one organization or user account; it is impossible to create an installation token without an installation. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
 
-By default, installation access tokens are scoped to all the repositories that an installation was granted access to. You can further limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %}, and like repository access, can also be scoped down using the `permissions` parameter. For more information, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint documentation. All installation tokens expire after 1 hour. 
+By default, installation access tokens are scoped to all the repositories that an installation was granted access to. You can further limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %}, and like repository access, can also be scoped down using the `permissions` parameter. For more information, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint documentation. All installation tokens expire after 1 hour.
 
 To create an installation access token, include the JWT in the Authorization header in the API request, replacing `:installation_id` with the installation's `id`. For more information about generating a JWT, see "[JWT payload](#jwt-payload)."
 
@@ -88,15 +88,15 @@ git clone https://x-access-token:&lt;token&gt;@github.com/owner/repo.git
 
 The [JWT](https://jwt.io/) that's used to authenticate your application is made up of several claims, as well as a signature that's used to validate its authenticity. Those claims are:
 
-|Claim | Meaning | Details | 
+|Claim | Meaning | Details |
 |---|---|---|
 |`iat`| Issued At | The time the JWT was created. To protect against clock drift, we recommend you set this 60 seconds in the past. |
 |`exp`| Expires At | The expiration time of the JWT, after which it can't be used to request an installation token. The `exp` must be no more than 10 minutes into the future. |
 |`iss`| Issuer | Your application ID, used to find the right public key to verify the signature of the JWT. |
 
-Tokens must be signed using the `RS256` algorithm, with a matching `alg` claim of `RS256`. 
+Tokens must be signed using the `RS256` algorithm, with a matching `alg` claim of `RS256`.
 
-#### Using Ruby
+### Using Ruby
 
 Here's a Ruby script you can use to generate a JWT. Note you'll have to run `gem install jwt` before using it. `YOUR_PATH_TO_PEM` and `YOUR_APP_ID` are the values you must replace. Make sure to enclose the values in double quotes.
 
@@ -130,7 +130,7 @@ Here is a similar script for generating a JWT in Python. Note you will have to u
 ```python{:copy}
 #!/usr/bin/env python3
 import jwt
-import time 
+import time
 import sys
 
 
@@ -138,31 +138,31 @@ import sys
 if len(sys.argv) > 1:
     pem = sys.argv[1]
 else:
-    pem = input("Enter path of private PEM file: ")    
+    pem = input("Enter path of private PEM file: ")
 
 # Get the App ID
 if len(sys.argv) > 2:
     app_id = sys.argv[2]
 else:
-    app_id = input("Enter your APP ID: ") 
+    app_id = input("Enter your APP ID: ")
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
     signing_key = jwt.jwk_from_pem(pem_file.read())
-    
+
 payload = {
     # Issued at time
     'iat': int(time.time()),
     # JWT expiration time (10 minutes maximum)
-    'exp': int(time.time()) + 600, 
+    'exp': int(time.time()) + 600,
     # GitHub App's identifier
-    'iss': app_id 
+    'iss': app_id
 }
-    
+
 # Create JWT
 jwt_instance = jwt.JWT()
 encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
-     
+
 print(f"JWT:  ", encoded_jwt)
 ```
 
@@ -193,7 +193,7 @@ For a list of REST API endpoints you can use to get high-level information about
 
 ## Generating a private key
 
-After you create a {% data variables.product.prodname_github_app %}, you'll need to generate one or more private keys in order to make requests to the {% data variables.product.product_name %} API as the application itself. You'll use the private key to sign the [JWTs used to request an installation access token](#jwt-payload). 
+After you create a {% data variables.product.prodname_github_app %}, you'll need to generate one or more private keys in order to make requests to the {% data variables.product.product_name %} API as the application itself. You'll use the private key to sign the [JWTs used to request an installation access token](#jwt-payload).
 
 You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see [Verifying private keys](#verifying-private-keys).
 
