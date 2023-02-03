@@ -15624,6 +15624,11 @@
       "description": "<p>A discussion in a repository.</p>",
       "implements": [
         {
+          "name": "Closable",
+          "id": "closable",
+          "href": "/graphql/reference/interfaces#closable"
+        },
+        {
           "name": "Comment",
           "id": "comment",
           "href": "/graphql/reference/interfaces#comment"
@@ -15754,6 +15759,22 @@
           "id": "discussioncategory",
           "kind": "objects",
           "href": "/graphql/reference/objects#discussioncategory"
+        },
+        {
+          "name": "closed",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "closedAt",
+          "description": "<p>Identifies the date and time when the object was closed.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "comments",
@@ -22951,7 +22972,7 @@
         },
         {
           "name": "closed",
-          "description": "<p><code>true</code> if the object is closed (definition of closed may depend on type).</p>",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -26388,7 +26409,7 @@
       "fields": [
         {
           "name": "closed",
-          "description": "<p><code>true</code> if the object is closed (definition of closed may depend on type).</p>",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -35449,7 +35470,7 @@
         },
         {
           "name": "closed",
-          "description": "<p><code>true</code> if the object is closed (definition of closed may depend on type).</p>",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -59856,7 +59877,7 @@
       "fields": [
         {
           "name": "closed",
-          "description": "<p><code>true</code> if the object is closed (definition of closed may depend on type).</p>",
+          "description": "<p>Indicates if the object is closed (definition of closed may depend on type).</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
