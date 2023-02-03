@@ -20,7 +20,7 @@ You can configure read access to other {% data variables.product.prodname_dotcom
 
 {% note %}
 
-**Note**: You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocat` repository, then you'll be able to grant read permissions for other `octo-org/*` repositories if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
+**Note**: You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocat` repository, then you'll be able to grant read permissions for other repositories, such as `octo-org/octodemo`, if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
 
 {% endnote %}
 
