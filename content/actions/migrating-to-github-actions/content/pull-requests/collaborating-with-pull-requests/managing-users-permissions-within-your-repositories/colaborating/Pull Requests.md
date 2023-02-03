@@ -1,8 +1,6 @@
-content/pull-requests/collaborating-with-pull-requests/managing-users-permissions-within-your-repositories/colaborating/Pull Requests.md
-title: Migrating from Travis CI to GitHub Actions
-intro: '{% data variables.product.prodname_actions %} and Travis CI share multiple similarities, which helps make it relatively straightforward to migrate to {% data variables.product.prodname_actions %}.'
-redirect_from:
-  - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
+#  - 'bitore.sig/Actions.js :
+//Learning..., :github/pages'@actions=: # :
+# migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
