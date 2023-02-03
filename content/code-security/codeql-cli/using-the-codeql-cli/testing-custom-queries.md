@@ -38,7 +38,7 @@ extractor: <language-of-code-to-test>
 
 The `dependencies` value specifies the {% data variables.product.prodname_codeql %} packs containing queries to test.
 Typically, these packs will be resolved from source, and so it is not necessary
-to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs).”
+to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
 
 You may find it useful to look at the way query tests are organized in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql). Each language has a `src` directory, `ql/<language>/ql/src`, that contains libraries and queries for analyzing codebases. Alongside the `src` directory, there is a `test` directory with tests for
 these libraries and queries.
@@ -53,7 +53,7 @@ Each `test` directory is configured as a test {% data variables.product.prodname
 For each query you want to test, you should create a sub-directory in the test {% data variables.product.prodname_codeql %} pack.
 Then add the following files to the subdirectory before you run the test command:
 
-- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see “[Query reference files](/code-security/code-scanning/codeql-cli-reference/query-reference-files).”
+- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see “[Query reference files](/code-security/codeql-cli/codeql-cli-reference/query-reference-files).”
 
    You do not need to add a query reference file if the query you want to test is stored in the test directory, but it is generally good practice to store queries separately from tests. The only exception is unit tests for QL libraries, which tend to be stored in test packs, separate from queries that generate alerts or paths.
 
@@ -129,7 +129,7 @@ other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
      codeql/java-queries: "*"
    ```
 
-   For more information about {% data variables.product.prodname_codeql %} packs, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs).”
+   For more information about {% data variables.product.prodname_codeql %} packs, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
 
 4. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
 
@@ -180,7 +180,7 @@ When the test runs, it:
 
    `codeql test run --search-path=java java/tests/EmptyThen`
 
-   For information about saving the search path as part of your configuration, see "[Specifying command options in a {% data variables.product.prodname_codeql %} configuration file](/code-security/code-scanning/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file)."
+   For information about saving the search path as part of your configuration, see "[Specifying command options in a {% data variables.product.prodname_codeql %} configuration file](/code-security/codeql-cli/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file)."
 
 4. Executes the test by running the query and generating an `EmptyThen.actual` results file.
 

@@ -29,7 +29,7 @@ Consider these in your decision-making.
 ### Technical specs
 
 - PNG file format
-- 144 ppi ("retina" or 2x on Mac)
+- 144 dpi (equivalent to 2x on a Mac)
 - 750–1000 pixels wide for full-column images
 - 250KB or less in file size
 - Descriptive file names: `gist-embed-link.png` instead of `right_side_page_03.png`
@@ -47,9 +47,10 @@ To be inclusive of all users, screenshots must:
 
 - Show a UI element with **just enough surrounding context** to help people know where to find it on their screen.
 - **Reduce negative space**, for example in input fields, by resizing your browser window until optimal.
-- Show interfaces in **light theme** to ensure contrast between the interface and the orange highlight.
-  - For GitHub, select "Light default" in your account's [appearance settings](https://github.com/settings/appearance).
-  - For VSCode, select "GitHub Light Default" in the free [GitHub Theme extension](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
+- Show interfaces in **light theme** wherever possible.
+  - For GitHub, select **Light default** in your account's [appearance settings](https://github.com/settings/appearance).
+  - For VSCode, select **GitHub light default** in the free [GitHub Theme extension](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
+  - If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
 - Replace your username and avatar, if they appear, with **[Octocat's](https://github.com/octocat) username and avatar**. You can do this using the developer tools in your browser to edit the rendered page.
 
  ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is highlighted with an orange outline.](./images/issue-comment-close-button.png)
@@ -58,25 +59,28 @@ To be inclusive of all users, screenshots must:
 
 Use [Snagit](https://www.techsmith.com/screen-capture.html) to apply a contrasting stroke around the UI element being discussed.
 
+The stroke is GitHub Primer color `fg.severe` (HEX #BC4C00 or RGB 188, 76, 0). This dark orange has good color contrast on both white and black. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
+
 ![Screenshot of four options menus on a GitHub repository. The menu labeled "Fork" shows a fork count of 58.5k and is highlighted with an orange outline.](./images/repository-fork-button.png)
 
 ### Importing the GitHub Docs theme into Snagit
 
-1. Download [`snagit-theme-github-docs.snagtheme`](./images/snagit-theme-github-docs.snagtheme) to your computer.
-2. Open Snagit and select the Shape tool.
-3. Under "Quick Styles," select "Import...".
+1. Download [`snagit-theme-github-docs.snagtheme`](./images/snagit-theme-github-docs.snagtheme) to your computer. Select the **Raw** tab, right-click the page, select "**Save as**," and save the file.
+2. Open Snagit and select the **Shape** tool.
+3. Under "**Quick styles**," select **Import**.
 4. Select the Snagit theme from your computer's files. This will install the shape preset.
 5. Optionally, star the orange rectangle to add it to your favorites.
 
 ### Adding a highlight to a screenshot
 
-1. Open a screenshot you'd like to highlight.
-2. If the image is larger than 1000 pixels, resize it to 1000 pixels so that the stroke will be clearly visible.
+1. Open a screenshot in Snagit.
+2. Open the "**Resize image**" dialog below the image canvas to set pixel depth (resolution) and pixel width. On Windows, you may need to select **Advanced** to change the resolution.
+   - pixel depth: 144dpi on Windows, 2x on Mac
+   - pixel width: 1000 pixels maximum
 3. With the GitHub Docs theme open in the Shapes sidebar, select the orange rectangle.
 4. Drag and drop across the image to create a rectangle. Adjust height and width by dragging edges.
 5. Adjust the space between the UI element and the stroke so it's about the width of the stroke itself.
 6. Export image to PNG.
-7. Keep the editable Snagit file with the extension `.snagx` on your computer in case you need to change the file later.
 
 ## Replacing screenshots
 

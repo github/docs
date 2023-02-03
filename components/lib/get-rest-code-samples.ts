@@ -185,13 +185,16 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
 
   let queryParameters = ''
 
-  // Add query parameters to the request path for POST, PUT, DELETE, GET, operations in
-  // URL template format e.g. 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
+  // Query parameters are set automatically for GET and HEAD requests, we
+  // otherwise have to handle it ourselves for other request methods by adding
+  // the parameters to the request path in URL template format e.g.:
+  //
+  // 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
   if (
-    operation.verb === 'post' ||
-    operation.verb === 'put' ||
     operation.verb === 'delete' ||
-    operation.verb === 'get'
+    operation.verb === 'patch' ||
+    operation.verb === 'post' ||
+    operation.verb === 'put'
   ) {
     const queryParams = operation.parameters
       .filter((param) => {

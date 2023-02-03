@@ -18,17 +18,19 @@ topics:
 
 ## About analyzing databases with the {% data variables.product.prodname_codeql_cli %}
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 To analyze a codebase, you run queries against a CodeQL
 database extracted from the code.
 
 {% data variables.product.prodname_codeql %} analyses produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results) that can be displayed as alerts or paths in source code.
-For information about writing queries to run with `database analyze`, see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
+For information about writing queries to run with `database analyze`, see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
 
 {% note %}
 
 **Other query-running commands**
 
-Queries run with `database analyze` have strict [metadata requirements](/code-security/code-scanning/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
+Queries run with `database analyze` have strict [metadata requirements](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
 plumbing-level subcommands:
 
 * [`database run-queries`](https://codeql.github.com/docs/codeql-cli/manual/database-run-queries/), which
@@ -48,8 +50,8 @@ analyze` to directly generate interpreted results.
 
 Before starting an analysis you must:
 
-* [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli//getting-started-with-the-codeql-cli) to run commands locally.
-* [Create a {% data variables.product.prodname_codeql %} database](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-databases) for the source code you want to analyze.
+* [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli//getting-started-with-the-codeql-cli) to run commands locally.
+* [Create a {% data variables.product.prodname_codeql %} database](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases) for the source code you want to analyze.
 
 The simplest way to run `codeql database analyze` is using {% data variables.product.prodname_codeql %} packs. You can also
 run the command using queries from a local checkout of the {% data variables.product.prodname_codeql %} repository,
@@ -207,7 +209,7 @@ pack names:
 codeql database analyze <database> microsoft/coding-standards@1.0.0 github/security-queries --format=sarifv2.1.0 --output=query-results.sarif --download
 ```
 
-This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/using-the-codeql-cli/publishing-and-using-codeql-packs/)”.
+This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs/)”.
 
 The `--download` flag is optional. Using it will ensure the query pack is downloaded if it isn’t yet available locally.
 {% endif %}
@@ -236,7 +238,7 @@ codeql database analyze <javascript-database> ../ql/javascript/ql/src/Declaratio
 
 You can also run your own custom queries with the `database analyze` command.
 For more information about preparing your queries to use with the {% data variables.product.prodname_codeql_cli %},
-see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
+see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
 
 ### Running all queries in a directory
 
@@ -333,7 +335,7 @@ codeql database analyze --format=sarif-latest --output=results <db> \
     path:C:/Users/ci/workspace@2/security/query.ql
 ```
 
-For more information about {% data variables.product.prodname_codeql %} packs, see [About {% data variables.product.prodname_codeql %} Packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs).
+For more information about {% data variables.product.prodname_codeql %} packs, see [About {% data variables.product.prodname_codeql %} Packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).
 {% endif %}
 
 ### Running query suites
@@ -353,10 +355,10 @@ or "[Code scanning API](/rest/reference/code-scanning)".
 based on certain metadata properties. The standard {% data variables.product.prodname_codeql %} packs have metadata that specify
 the location of the query suites used by code scanning, so the {% data variables.product.prodname_codeql_cli %} knows where to find these
 suite files automatically, and you don’t have to specify the full path on the command line.
-For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites)".
+For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)".
 
 For information about creating custom query suites, see "[Creating
-{% data variables.product.prodname_codeql %} query suites](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-query-suites)."
+{% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)."
 
 #### Diagnostic and summary information
 
@@ -387,7 +389,7 @@ you can write query help in the `.qhelp` format. Query help written in `.qhelp`
 files can’t be included in SARIF files, and they can’t be processed by code
 scanning so must be converted to markdown before running
 the analysis. For more information, see [“Query help files”](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)
-and “[Testing query help files](/code-security/code-scanning/using-the-codeql-cli/testing-query-help-files).”
+and “[Testing query help files](/code-security/codeql-cli/using-the-codeql-cli/testing-query-help-files).”
 
 ## Results
 
@@ -395,7 +397,7 @@ You can save analysis results in a number of different formats, including SARIF
 and CSV.
 
 The SARIF format is designed to represent the output of a broad range of static
-analysis tools. For more information, see [SARIF output](/code-security/code-scanning/codeql-cli-reference/sarif-output).
+analysis tools. For more information, see [SARIF output](/code-security/codeql-cli/codeql-cli-reference/sarif-output).
 
 If you choose to generate results in CSV format, then each line in the output file
 corresponds to an alert. Each line is a comma-separated list with the following information:

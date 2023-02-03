@@ -28,7 +28,7 @@ For purposes of demonstration, we'll use:
 
 {% endtip %}
 
-1. [Create a new repository on {% data variables.product.product_name %}](/articles/creating-a-new-repository). You'll import your external Git repository to this new repository.
+1. [Create a new repository on {% data variables.product.product_name %}](/repositories/creating-and-managing-repositories/creating-a-new-repository). You'll import your external Git repository to this new repository.
 2. On the command line, make a "bare" clone of the repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
   ```shell
   $ git clone --bare https://external-host.com/EXTUSER/REPO.git

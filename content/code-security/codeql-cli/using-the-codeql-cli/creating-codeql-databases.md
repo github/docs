@@ -17,13 +17,15 @@ topics:
 
 ## About creating {% data variables.product.prodname_codeql %} databases
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 Before you analyze your code using {% data variables.product.prodname_codeql %}, you need to create a {% data variables.product.prodname_codeql %} database containing all the data required to run queries on your code. You can create {% data variables.product.prodname_codeql %} databases yourself using the {% data variables.product.prodname_codeql_cli %}, or download them from {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data variables.product.prodname_codeql %} analysis relies on extracting relational data from your code, and using it to build a [{% data variables.product.prodname_codeql %} database](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database). {% data variables.product.prodname_codeql %} databases contain all of the important information about a codebase, which can be analyzed by executing {% data variables.product.prodname_codeql %} queries against it. {% data variables.product.prodname_dotcom %} creates and stores {% data variables.product.prodname_codeql %} databases for a large number of open-source projects. For more information, see “[Downloading {% data variables.product.prodname_codeql %} databases from {% data variables.product.prodname_dotcom_the_website %}](/code-security/code-scanning/using-the-codeql-cli/creating-codeql-databases#downloading-databases-from-githubcom).”
+{% data variables.product.prodname_codeql %} analysis relies on extracting relational data from your code, and using it to build a [{% data variables.product.prodname_codeql %} database](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database). {% data variables.product.prodname_codeql %} databases contain all of the important information about a codebase, which can be analyzed by executing {% data variables.product.prodname_codeql %} queries against it. {% data variables.product.prodname_dotcom %} creates and stores {% data variables.product.prodname_codeql %} databases for a large number of open-source projects. For more information, see “[Downloading {% data variables.product.prodname_codeql %} databases from {% data variables.product.prodname_dotcom_the_website %}](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#downloading-databases-from-githubcom).”
 
 You can also create {% data variables.product.prodname_codeql %} databases yourself using the {% data variables.product.prodname_codeql_cli %}. Before you generate a {% data variables.product.prodname_codeql %} database, you need to:
 
-- Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see “[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
+- Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see “[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
 - Check out the version of your codebase you want to analyze. The directory should be ready to build, with all dependencies already installed.
 
 For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see [Setting up code scanning for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository).
@@ -62,7 +64,7 @@ You can specify additional options depending on the location of your source file
 - `--no-run-unnecessary-builds`: used with `--db-cluster` to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript).
 
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
-“[Extractor options](/code-security/code-scanning/using-the-codeql-cli/extractor-options).”
+“[Extractor options](/code-security/codeql-cli/using-the-codeql-cli/extractor-options).”
 
 For full details of all the options you can use when creating databases, see the [database create reference documentation](https://codeql.github.com/docs/codeql-cli/manual/database-create/).
 

@@ -17,6 +17,8 @@ topics:
 
 ## About creating {% data variables.product.prodname_codeql %} query suites
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 {% data variables.product.prodname_codeql %} query suites provide a way of selecting queries, based on their
 filename, location on disk{% ifversion codeql-packs %} or in a {% data variables.product.prodname_codeql %} pack{% endif %}, or metadata properties.
 Create query suites for the queries that you want to frequently use in
@@ -30,7 +32,7 @@ suite definition have been executed, the result is a set of selected queries.
 {% ifversion codeql-packs %}
 {% note %}
 
-**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs) and contain the correct query metadata. For more information, see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
+**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs) and contain the correct query metadata. For more information, see “[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli).”
 
 {% endnote %}
 {% endif %}
@@ -378,7 +380,7 @@ directory. For more information, see “[Specifying well-known query suites](#sp
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a CodeQL
-pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs#custom-codeql-packs).”
+pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#custom-codeql-packs).”
 
 ## Specifying well-known query suites
 
@@ -389,7 +391,7 @@ without providing their full path. This gives you a simple way of specifying a
 set of queries, without needing to search inside {% data variables.product.prodname_codeql %} packs and distributions.
 To declare a directory that contains “well-known” query suites, add the directory
 to the `suites` property in the `qlpack.yml` file at the root of your {% data variables.product.prodname_codeql %} pack.
-For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/code-scanning/codeql-cli-reference/about-codeql-packs#codeqlpack-yml-properties).”
+For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#codeqlpack-yml-properties).”
 {% endif %}
 
 ## Using query suites with CodeQL
@@ -398,7 +400,7 @@ You can specify query suites on the command line for any command that accepts
 `.qls` files. For example, you can compile the queries selected by a suite
 definition using `query compile`, or use the queries in an analysis using
 `database analyze`. For more information about analyzing {% data variables.product.prodname_codeql %} databases, see
-“[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli).”
+“[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli).”
 
 ## Further reading
 
