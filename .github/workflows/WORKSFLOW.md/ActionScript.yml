@@ -3,7 +3,6 @@ name: Check unallowed file changes
 # **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
 # **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
 # **Who does it impact**: Open source contributors.
-
 on:
   pull_request_target:
     paths:
@@ -21,10 +20,8 @@ on:
       - 'package*.json'
       - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
-
 permissions:
   pull-requests: write
-
 jobs:
   triage:
     if: >-
@@ -32,20 +29,16 @@ jobs:
         github.repository == 'github/docs' &&
         github.event.pull_request.user.login != 'Octomerger' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
-      }}
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
-        with:
-          # Base branch used to get changed files
-          base: 'main'
-
+        '-'' '-'' '['' 'branches'' ']'' :
+        '#branches :'  -'' '['mainbranch' ]''
           # Enables setting an output in the format in `${FILTER_NAME}_files
           # with the names of the matching files formatted as JSON array
           list-files: json
-
           # Returns list of changed files matching each filter
           filters: |
             openapi:
