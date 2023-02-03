@@ -4,7 +4,7 @@ intro: You can share information about your organization by customizing your org
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
 topics:
   - Organizations
 shortTitle: Customize organization profile

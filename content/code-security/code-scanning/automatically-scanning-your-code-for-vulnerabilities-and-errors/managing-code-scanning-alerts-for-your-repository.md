@@ -85,7 +85,7 @@ If you enter multiple filters, the view will show alerts matching _all_ these fi
 {% data reusables.code-scanning.filter-non-default-branches %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% ifversion codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
 

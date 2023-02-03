@@ -71,7 +71,6 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
   For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% endif %}
-{% ifversion ghec or ghes > 3.3 %}
 
 ## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
 
@@ -126,5 +125,3 @@ For organization-level data, use the `/orgs/{org}/settings/billing/advanced-secu
 {% endif %}
 
 For enterprise-level data, use the `/enterprises/{enterprise}/settings/billing/advanced-security` endpoint. For more information, see "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#get-github-advanced-security-active-committers-for-an-enterprise)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
-
-{% endif %}

@@ -224,7 +224,7 @@ You can check which access policies are being applied to a secret in your organi
 
 * {% data reusables.actions.forked-secrets %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 
 * Secrets are not automatically passed to reusable workflows. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
 

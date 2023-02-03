@@ -2,7 +2,7 @@
 title: Getting the most out of your included usage
 shortTitle: Included usage
 allowTitleToDifferFromFilename: true
-intro: Find out about the free use of {% data variables.product.prodname_github_codespaces %} that's included with personal accounts.
+intro: 'Find out about the free use of {% data variables.product.prodname_github_codespaces %} that''s included with personal accounts.'
 versions:
   fpt: '*'
   ghec: '*'
