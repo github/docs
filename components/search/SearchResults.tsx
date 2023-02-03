@@ -131,7 +131,7 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
     } else {
       params.set('page', `${page}`)
     }
-    return `/${router.locale}${asPathRoot}?${params.toString()}`
+    return `/${router.locale}${asPathRoot}?${params}`
   }
 
   return (
@@ -152,9 +152,9 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
           }
           let asPath = `/${router.locale}${asPathRoot}`
           if (params.toString()) {
-            asPath += `?${params.toString()}`
+            asPath += `?${params}`
           }
-          router.push(asPath, undefined, { shallow: true })
+          router.push(asPath)
         }}
       />
     </Box>
