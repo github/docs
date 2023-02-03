@@ -44,4 +44,18 @@ describe('dynamic assets', () => {
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch(/text\/plain/)
   })
+
+  test('recognized extensions but no equivalent .png get a 404', async () => {
+    const res = await get('/assets/images/site/neverheardof.webp')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch(/text\/plain/)
+  })
+
+  test.each(['key', 'key=value'])('any query string (%p) triggers a redirect', async (qs) => {
+    const res = await get('/assets/images/site/logo.webp?' + qs)
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/assets/images/site/logo.webp')
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
 })
