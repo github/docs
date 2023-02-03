@@ -69,7 +69,7 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -955,7 +955,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}

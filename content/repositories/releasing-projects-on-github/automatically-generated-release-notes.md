@@ -5,7 +5,7 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
   ghae: '>= 3.4'
 topics:
   - Repositories

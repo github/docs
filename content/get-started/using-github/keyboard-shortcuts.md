@@ -55,10 +55,10 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>></kbd> | Opens a repository or pull request in the {% data variables.codespaces.serverless %} editor, in a new browser tab. You must be signed in to use the editor. For more information, see "[The {% data variables.codespaces.serverless %} web-based editor](/codespaces/the-githubdev-web-based-editor)."{% endif %}
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote{% endif %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (Windows/Linux) | Inserts Markdown formatting for a quote
 |<kbd>E</kbd> | Open source code file in the **Edit file** tab
 |<kbd>Command</kbd>+<kbd>F</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>F</kbd> (Windows/Linux) | Start searching in file editor
 |<kbd>Command</kbd>+<kbd>G</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>G</kbd> (Windows/Linux) | Find next
@@ -94,8 +94,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae > 3.3 or ghes or ghec %}
 |<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
 |<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs{% ifversion fpt or ghae or ghes > 3.4 or ghec %}
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text{% endif %}
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> (Windows/Linux) | Inserts Markdown formatting for an ordered list
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> (Windows/Linux) | Inserts Markdown formatting for an unordered list

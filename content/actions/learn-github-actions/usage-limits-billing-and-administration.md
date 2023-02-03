@@ -26,7 +26,6 @@ shortTitle: Workflow billing & limits
 GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
-
 {% ifversion fpt or ghec %}
 
 ## Availability
@@ -85,7 +84,7 @@ Usage limits apply to self-hosted runners. For more information, see "[About sel
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Billing for reusable workflows
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
