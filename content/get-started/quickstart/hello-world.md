@@ -1,18 +1,90 @@
----
-title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+diff --git a/.husky/.gitignore b/.husky/.gitignore
+deleted file mode 100644
+index 31354ec1389..00000000000
+--- a/.husky/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
+-_
+diff --git a/.husly/.sh/bitore.sig b/.husly/.sh/bitore.sig
+new file mode 100644
+index 00000000000..e67f834feea
+--- /dev/null
++++ b/.husly/.sh/bitore.sig
+@@ -0,0 +1,16 @@
++ BEGIN:
++ GLOW4:
++ </git checkout origin/main <file name>
++Run'' 'Runs::/Action::/:Build::/scripts::/Run-on :Runs :
++Runs :gh/pages :
++pages :edit "
++$ intuit install 
++PURL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++run: gh pr edit "$PR_URL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337) ')]}}}'"'' :
++ </git checkout origin/main <file name>title: Hello World
 type: quick_start
-topics:
-  - Pull requests
+topics :- Pull requests
   - Fundamentals
 miniTocMaxHeadingLevel: 3
----
-
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@mowjoejoejoejoe 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+github
+/
+docs
+Public
+Fork your own copy of github/docs
+Code
+Issues
+93
+Pull requests
+44
+Discussions
+Actions
+Projects
+4
+Security
+Insights
+Repo Sync
+Repo Sync #70477
+Jobs
+Run details
+Close invalid Repo Sync PRs
+succeeded 22 minutes ago in 8s
+Search logs
+2s
+Current runner version: '2.301.1'
+Operating System
+Runner Image
+Runner Image Provisioner
+GITHUB_TOKEN Permissions
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51' (SHA:db875662766249c049b2dcd85293892d61cb0b51)
+Download action repository 'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d' (SHA:2b34a689ec86a68d8ab9478298f91d5401337b7d)
+Complete job name: Close invalid Repo Sync PRs
+5s
+Run juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+0s
+0s
+Cleaning up orphan processes
 ## Introduction
 
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
