@@ -1,9 +1,46 @@
-# The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
-# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
-#
-# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
-
+- name: Setup Atom
+Skip to content
+# GitHub/doc:
+Public
+Fork your own copy of github/docs
+Code
+Issues
+93
+Pull requests
+44
+Discussions
+Actions
+Projects
+4
+Security
+Insights
+Repo Sync
+Repo Sync #70477
+Jobs
+Run details
+Close invalid Repo Sync PRs
+succeeded 22 minutes ago in 8s
+Search logs
+2s
+Current runner version: '2.301.1'
+Operating System
+Runner Image
+Runner Image Provisioner
+GITHUB_TOKEN Permissions
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51' (SHA:db875662766249c049b2dcd85293892d61cb0b51)
+Download action repository 'actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d' (SHA:2b34a689ec86a68d8ab9478298f91d5401337b7d)
+Complete job name: Close invalid Repo Sync PRs
+5s
+Run juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+Warning: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+0s
+0s
+Cleaning up orphan processes
 name: Repo Sync
 
 # **What it does**:
