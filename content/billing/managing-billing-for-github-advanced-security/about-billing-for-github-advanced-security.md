@@ -55,7 +55,9 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 You can determine how many licenses you'll need for {% data variables.product.prodname_GH_advanced_security %} by generating a count of your instance's active committers in the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-committers)."
 {% endif %}
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
+{% ifversion ghec %}
+Enterprise account customers on GitHub Enterprise Cloud who pay with a credit card can purchase a GitHub Advanced Security license from their enterprise account settings. For more information, see "[Signing up for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)." For customers who pay by invoice, contact {% data variables.contact.contact_enterprise_sales %} to discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.
+{% endif %}
 
 ## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
 
@@ -86,9 +88,11 @@ As soon as you free up some {% ifversion ghas-billing-UI-update %}licenses{% els
 You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest/{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
+For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)." 
+{% endif %}
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
-
+{% ifversion ghec %}
+For more information on managing the number of committers, see "[Managing your {% data variables.product.prodname_GH_advanced_security %} licensing](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 {% endif %}
 
 ## Understanding active committer usage

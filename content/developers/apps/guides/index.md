@@ -12,7 +12,6 @@ topics:
   - GitHub Apps
 children:
   - /using-the-github-api-in-your-app
-  - /using-content-attachments
   - /creating-ci-tests-with-the-checks-api
 ---
 

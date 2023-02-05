@@ -773,7 +773,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update` | Triggered when changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 | `delete` | Triggered when a custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
 
-
 {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
 
 ### `repository_secret_scanning_custom_pattern_push_protection` category actions
@@ -905,7 +904,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {%- ifversion fpt or ghec %}
 - "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
 {%- endif %}

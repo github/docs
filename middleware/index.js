@@ -61,6 +61,7 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
+import dynamicAssets from './dynamic-assets.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -155,12 +156,11 @@ export default function (app) {
       // URLs with a cache busting prefix.
       maxAge: '7 days',
       immutable: process.env.NODE_ENV !== 'development',
-      // This means, that if you request a file that starts with /assets/
-      // any file doesn't exist, don't bother (NextJS) rendering a
-      // pretty HTML error page.
-      fallthrough: false,
+      // The next middleware will try its luck and send the 404 if must.
+      fallthrough: true,
     })
   )
+  app.use(asyncMiddleware(instrument(dynamicAssets, './dynamic-assets')))
   app.use(
     '/public/',
     express.static('data/graphql', {

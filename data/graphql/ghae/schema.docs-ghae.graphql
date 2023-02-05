@@ -3403,7 +3403,7 @@ An object that can be closed
 """
 interface Closable {
   """
-  `true` if the object is closed (definition of closed may depend on type)
+  Indicates if the object is closed (definition of closed may depend on type)
   """
   closed: Boolean!
 
@@ -9054,7 +9054,7 @@ type DisconnectedEvent implements Node {
 """
 A discussion in a repository.
 """
-type Discussion implements Comment & Deletable & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable & Votable {
+type Discussion implements Closable & Comment & Deletable & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & Updatable & Votable {
   """
   Reason that the conversation was locked.
   """
@@ -9104,6 +9104,16 @@ type Discussion implements Comment & Deletable & Labelable & Lockable & Node & R
   The category for this discussion.
   """
   category: DiscussionCategory!
+
+  """
+  Indicates if the object is closed (definition of closed may depend on type)
+  """
+  closed: Boolean!
+
+  """
+  Identifies the date and time when the object was closed.
+  """
+  closedAt: DateTime
 
   """
   The replies to the discussion.
@@ -14360,7 +14370,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   bodyUrl: URI!
 
   """
-  `true` if the object is closed (definition of closed may depend on type)
+  Indicates if the object is closed (definition of closed may depend on type)
   """
   closed: Boolean!
 
@@ -17331,7 +17341,7 @@ Represents a Milestone object on a given repository.
 """
 type Milestone implements Closable & Node & UniformResourceLocatable {
   """
-  `true` if the object is closed (definition of closed may depend on type)
+  Indicates if the object is closed (definition of closed may depend on type)
   """
   closed: Boolean!
 
@@ -25131,7 +25141,7 @@ type Project implements Closable & Node & Updatable {
   bodyHTML: HTML!
 
   """
-  `true` if the object is closed (definition of closed may depend on type)
+  Indicates if the object is closed (definition of closed may depend on type)
   """
   closed: Boolean!
 

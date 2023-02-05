@@ -42,7 +42,6 @@ After you enable SAML SSO, depending on the IdP you use, you may be able to enab
 
 If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
-
 {% note %}
 
 **Note:** You cannot configure SCIM for your enterprise account unless your account was created to use {% data variables.product.prodname_emus %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
@@ -112,7 +111,7 @@ Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
 
 {% data reusables.saml.saml-supported-idps %}
 
-{% ifversion ghes > 3.3 %}
+{% ifversion ghes %}
 
 If your IdP supports encrypted assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
 
