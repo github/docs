@@ -23,7 +23,7 @@ defaultPlatform: linux
 
 {% note %}
 
-**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. 
+**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
 For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
 
 {% endnote %}
@@ -176,7 +176,6 @@ Stop-Service "{{ service_win_name }}"
     ./svc.sh uninstall
     ```
     {% endmac %}
-
 
 {% linux %}
 

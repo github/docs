@@ -37,7 +37,7 @@ These commands also include configuration arguments, explained below in more det
 
 ### `prepare_job`
 
-The `prepare_job` command is called when a job is started. {% data variables.product.prodname_actions %} passes in any job or service containers the job has. This command will be called if you have any service or job containers in the job. 
+The `prepare_job` command is called when a job is started. {% data variables.product.prodname_actions %} passes in any job or service containers the job has. This command will be called if you have any service or job containers in the job.
 
 {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `prepare_job` command:
 
@@ -47,11 +47,11 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 - Start the job container.
 - Start the service containers.
 - Write to the response file any information that {% data variables.product.prodname_actions %} will need:
-  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean). 
+  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
   - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[`job` context](/actions/learn-github-actions/contexts#job-context)."
 - Return `0` when the health checks have succeeded and the job/service containers are started.
 
-#### Arguments
+#### Arguments for `prepare_job`
 
 - `jobContainer`: **Optional**. An object containing information about the specified job container.
   - `image`: **Required**. A string containing the Docker image.
@@ -86,7 +86,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
     - `serverUrl`: **Optional**. The registry URL.
   - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
 
-#### Example input
+#### Example input for `prepare_job`
 
 ```json{:copy}
 {
@@ -171,7 +171,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 }
 ```
 
-#### Example output
+#### Example output for `prepare_job`
 
 This example output is the contents of the `responseFile` defined in the input above.
 
@@ -213,11 +213,11 @@ The `cleanup_job` command is called at the end of a job. {% data variables.produ
 - Delete the network (if one exists).
 - Cleanup anything else that was created for the job.
 
-#### Arguments
+#### Arguments for `cleanup_job`
 
 No arguments are provided for `cleanup_job`.
 
-#### Example input
+#### Example input for `cleanup_job`
 
 ```json{:copy}
 {
@@ -234,7 +234,7 @@ No arguments are provided for `cleanup_job`.
 }
 ```
 
-#### Example output
+#### Example output for `cleanup_job`
 
 No output is expected for `cleanup_job`.
 
@@ -247,7 +247,7 @@ The `run_container_step` command is called once for each container action in you
 - Stream any step logs output to stdout and stderr.
 - Cleanup the container after it executes.
 
-#### Arguments
+#### Arguments for `run_container_step`
 
 - `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
 - `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
@@ -423,7 +423,7 @@ If your container is defined by a Dockerfile, this example demonstrates how to s
 }
 ```
 
-#### Example output
+#### Example output for `run_container_step`
 
 No output is expected for `run_container_step`.
 
@@ -434,7 +434,7 @@ No output is expected for `run_container_step`.
 - Invoke the provided script inside the job container and return the exit code.
 - Stream any step log output to stdout and stderr.
 
-#### Arguments
+#### Arguments for `run_script_step`
 
 - `entryPointArgs`: **Optional**. A list containing the entry point arguments.
 - `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
@@ -442,7 +442,7 @@ No output is expected for `run_container_step`.
 - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
 - `environmentVariables`: **Optional**. Sets a map of key environment variables.
 
-#### Example input
+#### Example input for `run_script_step`
 
 ```json{:copy}
 {
@@ -467,13 +467,13 @@ No output is expected for `run_container_step`.
 }
 ```
 
-#### Example output
+#### Example output for `run_script_step`
 
 No output is expected for `run_script_step`.
 
 ## Generating the customization script
 
-{% data variables.product.prodname_dotcom %} has created an example repository that demonstrates how to generate customization scripts for Docker and Kubernetes. 
+{% data variables.product.prodname_dotcom %} has created an example repository that demonstrates how to generate customization scripts for Docker and Kubernetes.
 
 {% note %}
 
