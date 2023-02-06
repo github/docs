@@ -67,6 +67,8 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `public` | `boolean` | Set to `true` when your GitHub App is available to the public or `false` when it is only accessible to the owner of the app.
 `default_events` | `array` | The list of [events](/webhooks/event-payloads) the GitHub App subscribes to.
 `default_permissions` | `object` | The set of [permissions](/rest/reference/permissions-required-for-github-apps) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`).
+`request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the GitHub App, after the GitHub App is installed.
+`setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your GitHub App installation.
 
 The `hook_attributes` object has the following key:
 
