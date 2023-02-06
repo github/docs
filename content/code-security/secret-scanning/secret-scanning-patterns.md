@@ -31,6 +31,8 @@ redirect_from:
 Owners of public repositories, as well as organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %}, can enable {% data variables.secret-scanning.user_alerts %} on their repositories. For details of these patterns, see the "[Supported secrets for user alerts](#supported-secrets-for-user-alerts) section below.
 {% endif %}
 
+If you believe that {% data variables.product.prodname_secret_scanning %} should have detected a secret committed to your repository, and it has not, you first need to check that {% data variables.product.prodname_dotcom %} supports your secret. For more information, refer to the sections below. For more advanced troubleshooting information, see "[Troubleshooting {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/troubleshooting-secret-scanning)."
+
 ## Supported secrets for partner alerts
 
 {% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[About {% data variables.secret-scanning.partner_alerts %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)."
@@ -66,6 +68,8 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
+
+{% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[Troubleshooting {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
