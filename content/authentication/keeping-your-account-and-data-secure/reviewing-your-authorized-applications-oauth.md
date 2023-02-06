@@ -22,5 +22,5 @@ shortTitle: Review OAuth apps
 
 ## Further reading
 {% ifversion fpt or ghec %}
-- "[About integrations](/articles/about-integrations)"{% endif %}
-- "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)"
+- "[About integrations](/get-started/customizing-your-github-workflow/exploring-integrations/about-integrations)"{% endif %}
+- "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)"

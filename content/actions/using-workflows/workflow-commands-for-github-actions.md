@@ -27,7 +27,7 @@ Actions can communicate with the runner machine to set environment variables, ou
 
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
 
-### Example
+### Example of a workflow command
 
 {% bash %}
 
@@ -540,7 +540,7 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
- 
+
 {% endif %}
 
 ## Sending values to the pre and post actions
@@ -643,7 +643,7 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
 
-### Example
+### Example of writing an environment variable to `GITHUB_ENV`
 
 {% bash %}
 
@@ -697,7 +697,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% endwarning %}
 
-#### Example
+#### Example of a multiline string
 
 This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
@@ -750,7 +750,7 @@ echo "{name}={value}" >> $GITHUB_OUTPUT
 
 {% endpowershell %}
 
-### Example
+### Example of setting an output parameter
 
 {% bash %}
 
@@ -812,7 +812,7 @@ Job summaries support [{% data variables.product.prodname_dotcom %} flavored Mar
 
 When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
-### Example
+### Example of adding a job summary
 
 {% bash %}
 
@@ -836,7 +836,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
 
-#### Example
+#### Example of multiline Markdown content
 
 {% bash %}
 
@@ -870,7 +870,7 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 
 To clear all content for the current step, you can use `>` to overwrite any previously added content.
 
-#### Example
+#### Example of overwriting job summaries
 
 {% bash %}
 
@@ -898,7 +898,7 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 
 To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
 
-#### Example
+#### Example of removing job summaries
 
 {% bash %}
 
@@ -949,7 +949,7 @@ echo "{path}" >> $GITHUB_PATH
 
 {% endpowershell %}
 
-### Example
+### Example of adding a system path
 
 {% bash %}
 
