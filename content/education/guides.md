@@ -46,5 +46,6 @@ Participate in the community, get training from {% data variables.product.compan
 
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
-- [About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
+- [About {% data variables.product.prodname_student_leader_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-experts)
+- [Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)
 - [Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)

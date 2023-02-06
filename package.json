@@ -185,6 +185,7 @@
     "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect server.js",
     "dev": "cross-env npm start",
+    "fixture-dev": "cross-env ROOT=tests/fixtures npm start",
     "index-test-fixtures": "node script/search/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- tests/content/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest tests/linting/lint-files.js",
