@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'CopyProjectV2Input' was added</p>",
+          "<p>Type 'CopyProjectV2Payload' was added</p>",
+          "<p>Field 'copyProjectV2<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p><code>Discussion</code> object implements <code>Closable</code> interface</p>",
           "<p>Field <code>closed</code> was added to object type <code>Discussion</code></p>",
           "<p>Field <code>closedAt</code> was added to object type <code>Discussion</code></p>"
