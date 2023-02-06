@@ -47,6 +47,8 @@ prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 prodname_global_campus: 'GitHub Global Campus'
 prodname_community_exchange: 'GitHub Community Exchange'
+prodname_student_leader_program: 'GitHub Campus Experts'
+prodname_student_leader_program_singular: 'GitHub Campus Expert'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
