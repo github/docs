@@ -1,7 +1,7 @@
 ---
 title: Deleting an organization account
 intro: 'You can delete your organization account on {% data variables.location.product_location %} at any time.'
-permissions: Enterprise owners can manage their role in an organization owned by the enterprise.
+permissions: Organization owners can delete an organization.
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
