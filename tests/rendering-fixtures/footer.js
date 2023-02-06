@@ -8,7 +8,9 @@ describe('footer', () => {
 
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
-      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/issues`)
+      const $ = await getDOM(
+        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`
+      )
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
 
@@ -20,37 +22,23 @@ describe('footer', () => {
 
   describe('"contact us" link with nextjs', () => {
     test('leads to support from articles', async () => {
-      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/issues?nextjs=`)
+      const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/get-started?nextjs=`)
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
   })
 
   describe('test redirects for product landing community links pages', () => {
-    test('codespaces product landing page leads to codespaces discussions page', async () => {
-      const $ = await getDOM(`/en/codespaces`)
+    test('codespaces product landing page leads to discussions page', async () => {
+      const $ = await getDOM('/en/get-started')
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/community/community/discussions/categories/codespaces'
-      )
-    })
-
-    test('sponsors product landing page leads to sponsors discussions page', async () => {
-      const $ = await getDOM(`/en/sponsors`)
-      expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/community/community/discussions/categories/sponsors'
-      )
-    })
-
-    test('codespaces product landing page leads to discussions discussions page', async () => {
-      const $ = await getDOM(`/en/discussions`)
-      expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/community/community/discussions/categories/discussions'
+        'https://hubgit.com/orgs/community/discussions/categories/get-started'
       )
     })
   })
 
   describe('test redirects for non-product landing community links pages', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
-      const $ = await getDOM(`/en/github/authenticating-to-github`)
+      const $ = await getDOM(`/en/get-started/quickstart/hello-world`)
       expect($('a#ask-community').attr('href')).toBe(
         'https://github.com/orgs/community/discussions'
       )
