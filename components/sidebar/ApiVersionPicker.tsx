@@ -14,7 +14,7 @@ import styles from './SidebarProduct.module.scss'
 const API_VERSION_SUFFIX = ' (latest)'
 
 type Props = {
-  variant: 'inline' | 'header'
+  mediumOrLower?: boolean
   width?: number
 }
 
@@ -37,7 +37,7 @@ function rememberApiVersion(apiVersion: string) {
   }
 }
 
-export const ApiVersionPicker = ({ variant, width }: Props) => {
+export const ApiVersionPicker = ({ mediumOrLower, width }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
@@ -91,8 +91,8 @@ export const ApiVersionPicker = ({ variant, width }: Props) => {
   return allVersions[currentVersion].apiVersions.length > 0 ? (
     <div
       className={
-        variant === 'inline'
-          ? 'border-top my-2 pt-2'
+        mediumOrLower
+          ? 'mx-2 mb-3'
           : cx(
               'pt-4 px-4 d-flex flex-justify-center pb-4 border-bottom',
               styles.apiVersionPicker,
@@ -103,11 +103,10 @@ export const ApiVersionPicker = ({ variant, width }: Props) => {
     >
       <div data-testid="api-version-picker" className="width-full">
         <Picker
-          variant={variant}
           defaultText={currentDateDisplayText}
           items={apiVersionLinks}
-          pickerLabel="Version"
-          alignment="center"
+          pickerLabel="API Version"
+          alignment="start"
           buttonBorder={true}
           dataTestId="version"
           ariaLabel="Select API Version"

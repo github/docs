@@ -4,12 +4,11 @@
 - Go
 - Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %}
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes > 3.3 or ghec or ghae > 3.3 %}
+- Python{% ifversion fpt or ghes or ghec or ghae > 3.3 %}
 - Ruby{% endif %}
 
 {% note %}
 
-{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
 **Notes**:
 
 {% ifversion ghes < 3.8 or ghae < 3.8 %}
@@ -18,9 +17,6 @@
 - Use `java` to analyze code written in Java, Kotlin or both.{% endif %}
 - Use `javascript` to analyze code written in JavaScript, TypeScript or both.
 
-{% else %}
-**Note**: Use `javascript` to analyze code written in JavaScript, TypeScript or both.
-{% endif %}
 
 {% endnote %}
 

@@ -1,27 +1,7 @@
 import { describe, jest } from '@jest/globals'
 
-import { getDOM, getJSON } from '../helpers/e2etest.js'
+import { getJSON } from '../helpers/e2etest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-
-describe('mobile-only products nav', () => {
-  const cases = [
-    // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    ['/repositories', 'Repositories'],
-    // Enterprise server
-    ['/en/enterprise/admin', 'Enterprise administrators'],
-    [
-      '/en/enterprise/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
-      'Get started',
-    ],
-
-    ['/desktop', 'GitHub Desktop'],
-    ['/actions', 'GitHub Actions'],
-  ]
-
-  test.each(cases)('on %p, renders current product %p', async (url, name) => {
-    expect((await getDOM(url))('[data-testid=product-picker] summary').text().trim()).toBe(name)
-  })
-})
 
 describe('products middleware', () => {
   jest.setTimeout(5 * 60 * 1000)

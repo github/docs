@@ -1,5 +1,6 @@
 ---
 title: Interfaces
+intro: Interfaces serve as parent objects from which other objects can inherit.
 redirect_from:
   - /v4/interface
   - /v4/reference/interface

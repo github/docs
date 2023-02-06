@@ -15,7 +15,7 @@ versions:
 {% data reusables.user-settings.saved_replies %}
 3. Under "Add a saved reply", add your saved reply title.
 ![Saved reply title](/assets/images/help/settings/saved-replies-title.png)
-4. In the "Write" field, add the content you'd like to use for the saved reply. For more information on writing on {% data variables.product.product_name %}, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)."
+4. In the "Write" field, add the content you'd like to use for the saved reply. For more information on writing on {% data variables.product.product_name %}, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
 ![Writing a saved reply](/assets/images/help/settings/saved-replies-settings-adding.png)
 5. To review your reply, click **Preview**.
 ![Add a saved reply](/assets/images/help/settings/saved-replies-preview.png)
@@ -24,6 +24,6 @@ versions:
 
 ## Further reading
 
-- "[Using saved replies](/articles/using-saved-replies)"
-- "[Editing a saved reply](/articles/editing-a-saved-reply)"
-- "[Deleting a saved reply](/articles/deleting-a-saved-reply)"
+- "[Using saved replies](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
+- "[Editing a saved reply](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
+- "[Deleting a saved reply](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"

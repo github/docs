@@ -1,5 +1,6 @@
 ---
 title: Queries
+intro: The query type defines GraphQL operations that retrieve data from the server.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /v4/query
