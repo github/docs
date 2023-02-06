@@ -31,6 +31,6 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. To the right of "GitHub Advanced Security", click **Manage**, then click **Cancel Supscription**. 
+1. To the right of "GitHub Advanced Security", click **Manage**, then click **Cancel Subscription**. 
    ![Manage drop down in the GitHub Advanced Security licensing screen](/assets/images/help/enterprises/ghas-cancel-subscription.png)
 2. To confirm your cancellation, click **I understand, cancel Advanced Security**. 
