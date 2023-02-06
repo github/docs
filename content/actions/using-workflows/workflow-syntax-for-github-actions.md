@@ -250,6 +250,10 @@ env:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
 
+#### Example: Setting permissions for a specific job
+
+{% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
+
 ## `jobs.<job_id>.needs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-needs %}
@@ -296,6 +300,10 @@ jobs:
 ### `jobs.<job_id>.defaults.run`
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}
+
+#### Example: Setting default `run` step options for a job
+
+{% data reusables.actions.jobs.setting-default-run-value-for-job-example %}
 
 ## `jobs.<job_id>.steps`
 
