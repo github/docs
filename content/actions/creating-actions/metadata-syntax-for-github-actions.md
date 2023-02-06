@@ -157,7 +157,7 @@ runs:
   main: 'main.js'
 ```
 
-### `runs.using`
+### `runs.using` for JavaScript actions
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
@@ -225,7 +225,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 **Required** Configures the path to the composite action.
 
-### `runs.using`
+### `runs.using` for composite actions
 
 **Required** You must set this value to `'composite'`.
 
@@ -387,7 +387,7 @@ runs:
   image: 'docker://debian:stretch-slim'
 ```
 
-### `runs.using`
+### `runs.using` for Docker container actions
 
 **Required** You must set this value to `'docker'`.
 
