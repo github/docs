@@ -24,7 +24,9 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 - Open, stop, or delete your codespaces.
 - See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+- See the machine type, size, and status of your codespaces.
 - Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- Prevent automatic deletion of a codespace. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 ## Opening an existing codespace
 
@@ -32,9 +34,9 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-   
+
    To open the codespace in an editor other than your default:
-   
+
    1. Click the ellipsis (**...**) to the right of the codespace you want to open.
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
@@ -66,7 +68,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    - To open a codespace in a new window of {% data variables.product.prodname_vscode_shortname %}, select **Codespaces: Open Codespace in New Window**
    - To open a codespace in the web editor, select **Codespaces: Open in Browser**
 1. Click the codespace that you want to open.
-   
+
    ![Screenshot of a list of codespaces in Visual Studio Code](/assets/images/help/codespaces/open-codespace-from-vscode.png)
 
 You can also access the commands listed above by navigating to the Remote Explorer view in {% data variables.product.prodname_vscode_shortname %} and right-clicking the codespace that you want to open.
@@ -84,31 +86,31 @@ You can also access the commands listed above by navigating to the Remote Explor
      ```shell{:copy}
      gh codespace code
      ```
-     
+
      {% note %}
 
      **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
      {% endnote %}
-     
+
    - To open a codespace in the browser, enter:
-  
+
      ```shell{:copy}
      gh codespace code --web
      ```
 
    - To open a codespace in JupyterLab, enter:
-  
+
      ```shell{:copy}
      gh codespace code --jupyter
      ```
-     
+
      {% note %}
 
      **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
      {% endnote %}
-     
+
 1. Using the arrow keys, navigate to the codespace that you want to open.
 1. To open the codespace, press <kbd>Enter</kbd>.
 

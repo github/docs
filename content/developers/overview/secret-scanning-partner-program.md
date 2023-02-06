@@ -24,8 +24,6 @@ This article describes how you can partner with {% data variables.product.prodna
 
 ## The {% data variables.product.prodname_secret_scanning %} process
 
-#### How {% data variables.product.prodname_secret_scanning %} works in a public repository
-
 The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
 
 ![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")

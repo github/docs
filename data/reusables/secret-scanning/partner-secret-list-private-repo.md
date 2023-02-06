@@ -6,7 +6,7 @@ Adobe | Adobe Service Token | adobe_service_token
 Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token
 Adobe | Adobe JSON Web Token | adobe_jwt
 Alibaba Cloud | Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret| alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Amazon | Amazon OAuth Client ID with Amazon OAuth Client Secret | amazon_oauth_client_id </br>amazon_oauth_client_secret{% endif %}
 Amazon Web Services (AWS) | Amazon AWS Access Key ID with Amazon AWS Secret Access Key | aws_access_key_id </br>aws_secret_access_key
 Amazon Web Services (AWS) | Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key | aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key
@@ -14,11 +14,11 @@ Asana | Asana {% data variables.product.pat_generic_title_case %} | asana_person
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
 Atlassian | Bitbucket Server {% data variables.product.pat_generic_title_case %} | bitbucket_server_personal_access_token
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Azure | Azure Active Directory Application Secret | azure_active_directory_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure Batch Key Identifiable | azure_batch_key_identifiable{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Azure | Azure Cache for Redis Access Key | azure_cache_for_redis_access_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 Azure | Azure CosmosDB Key Identifiable | azure_cosmosdb_key_identifiable{% endif %}
@@ -30,7 +30,7 @@ Azure | Azure SAS Token | azure_sas_token
 Azure | Azure Search Admin Key | azure_search_admin_key
 Azure | Azure Search Query Key | azure_search_query_key{% endif %}
 Azure | Azure Service Management Certificate | azure_management_certificate
-{%- ifversion ghes < 3.4 or ghae < 3.4 %}
+{%- ifversion ghae < 3.4 %}
 Azure | Azure SQL Connection String | azure_sql_connection_string{% endif %}
 Azure | Azure Storage Account Key | azure_storage_account_key
 Beamer | Beamer API Key | beamer_api_key
@@ -84,7 +84,7 @@ GitHub | GitHub OAuth Access Token | github_oauth_access_token
 GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
 GitHub | GitHub SSH Private Key | github_ssh_private_key
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 GitLab | GitLab Access Token | gitlab_access_token{% endif %}
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
@@ -94,11 +94,11 @@ Google | Google API Key | google_api_key
 Google | Google Cloud Private Key ID | google_cloud_private_key_id{% endif %}
 Google | Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret
 Google | Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret | google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Google | Google OAuth Access Token | google_oauth_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Google | Google OAuth Client ID with Google OAuth Client Secret | google_oauth_client_id </br>google_oauth_client_secret{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Google | Google OAuth Refresh Token | google_oauth_refresh_token{% endif %}
 Grafana | Grafana API Key | grafana_api_key
 {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
@@ -131,25 +131,25 @@ LogicMonitor | LogicMonitor Bearer Token | logicmonitor_bearer_token
 LogicMonitor | LogicMonitor LMV1 Access Key | logicmonitor_lmv1_access_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Mapbox | Mapbox Secret Access Token | mapbox_secret_access_token{% endif %}
 MessageBird | MessageBird API Key | messagebird_api_key
 Meta | Facebook Access Token | facebook_access_token
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Midtrans | Midtrans Production Server Key | midtrans_production_server_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Midtrans | Midtrans Sandbox Server Key | midtrans_sandbox_server_key{% endif %}
 New Relic | New Relic Personal API Key | new_relic_personal_api_key
 New Relic | New Relic REST API Key | new_relic_rest_api_key
 New Relic | New Relic Insights Query Key | new_relic_insights_query_key
 New Relic | New Relic License Key | new_relic_license_key
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Notion | Notion Integration Token | notion_integration_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 Onfido | Onfido Live API Token | onfido_live_api_token
 Onfido | Onfido Sandbox API Token | onfido_sandbox_api_token
@@ -202,11 +202,11 @@ Shopify | Shopify Private App Password | shopify_private_app_password
 Slack | Slack API Token | slack_api_token
 Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url
 Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Square | Square Access Token | square_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Square | Square Production Application Secret | square_production_application_secret{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Square | Square Sandbox Application Secret | square_sandbox_application_secret{% endif %}
 SSLMate | SSLMate API Key | sslmate_api_key
 SSLMate | SSLMate Cluster Secret | sslmate_cluster_secret
@@ -216,7 +216,7 @@ Stripe | Stripe Test API Secret Key | stripe_test_secret_key
 Stripe | Stripe Live API Restricted Key | stripe_live_restricted_key
 Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Supabase | Supabase Service Key | supabase_service_key{% endif %}
 Tableau | Tableau {% data variables.product.pat_generic_title_case %} | tableau_personal_access_token
 Telegram | Telegram Bot Token | telegram_bot_token
@@ -225,11 +225,11 @@ Telnyx | Telnyx API V2 Key | telnyx_api_v2_key{% endif %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Tencent WeChat | Tencent WeChat API App ID | tencent_wechat_api_app_id{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Twilio | Twilio Access Token | twilio_access_token{% endif %}
 Twilio | Twilio Account String Identifier | twilio_account_sid
 Twilio | Twilio API Key | twilio_api_key
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
@@ -241,19 +241,19 @@ WakaTime | WakaTime OAuth Refresh Token | wakatime_oauth_refresh_token{% endif %
 WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 Yandex | Yandex.Cloud Access Secret | yandex_iam_access_secret{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Yandex | Yandex.Translate API Key | yandex_translate_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}

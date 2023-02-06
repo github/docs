@@ -53,4 +53,4 @@ This means that, in order for ExampleApp to create an issue on Alice's behalf, i
 
 * ExampleApp's {% data variables.product.prodname_github_app %} requests write access to issues.
 * A user having admin access for Repo A must have installed ExampleApp's {% data variables.product.prodname_github_app %} on Repo A.
-* Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+* Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[Repository roles for an organization](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."

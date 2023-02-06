@@ -9,7 +9,7 @@ export const AllProductsLink = () => {
   const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
 
   return (
-    <li>
+    <li className="mt-3">
       <Link
         href={`/${router.locale}${currentVersionPathSegment}`}
         className="f6 pl-4 pr-5 ml-n1 pb-1 color-fg-default"

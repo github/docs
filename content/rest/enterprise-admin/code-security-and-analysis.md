@@ -4,7 +4,6 @@ intro: Use the REST API to manage code security and analysis features for your e
 versions:
   ghes: '>=3.8'
   ghec: '*'
-  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
