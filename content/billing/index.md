@@ -8,7 +8,7 @@ redirect_from:
 introLinks:
   overview: '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/about-billing-on-github{% elsif ghes%}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
 featuredLinks:
-  guides:
+  startHere:
     - '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method{% endif %}'
     - '{% ifversion fpt %}/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription{% endif %}'
     - '{% ifversion ghec %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
