@@ -180,7 +180,7 @@ Example:
 featuredLinks:
   gettingStarted:
     - /path/to/page
-  guides:
+  startHere:
     - /guides/example
   popular:
     - /path/to/popular/article1

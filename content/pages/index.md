@@ -6,7 +6,7 @@ introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
 featuredLinks:
-  guides:
+  startHere:
     - /pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
     - /pages/getting-started-with-github-pages/creating-a-github-pages-site
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'

@@ -6,7 +6,7 @@ introLinks:
   quickstart: /rest/quickstart
   overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
-  guides:
+  startHere:
     - /rest/guides/getting-started-with-the-rest-api
     - /rest/guides/basics-of-authentication
     - /rest/guides/best-practices-for-integrators
