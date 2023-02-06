@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_education %} helps you teach or learn
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution

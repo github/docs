@@ -5,7 +5,7 @@ shortTitle: GraphQL API
 introLinks:
   overview: /graphql/overview/about-the-graphql-api
 featuredLinks:
-  guides:
+  startHere:
     - /graphql/guides/forming-calls-with-graphql
     - /graphql/guides/introduction-to-graphql
     - /graphql/guides/using-the-explorer
