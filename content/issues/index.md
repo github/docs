@@ -6,7 +6,7 @@ introLinks:
   overview: /issues/tracking-your-work-with-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /issues/tracking-your-work-with-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects

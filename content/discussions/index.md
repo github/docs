@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_discussions %} is a collaborative com
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions
     - /discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion
     - /discussions/managing-discussions-for-your-community/moderating-discussions
