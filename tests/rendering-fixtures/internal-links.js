@@ -5,8 +5,14 @@ import { allVersions } from '../../lib/all-versions.js'
 describe('autotitle', () => {
   test('internal links with AUTOTITLE resolves', async () => {
     const $ = await getDOM('/get-started/foo/autotitling')
-    const firstLink = $('#article-contents a[href]')
-    expect(firstLink.text()).toBe('Hello World')
+    const links = $('#article-contents a[href]')
+    links.each((i, element) => {
+      if ($(element).attr('href').includes('/get-started/quickstart/hello-world')) {
+        expect($(element).text()).toBe('Hello World')
+      }
+    })
+    // There are 4 links on the `autotitling.md` content.
+    expect.assertions(4)
   })
 })
 
