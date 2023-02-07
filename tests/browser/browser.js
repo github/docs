@@ -18,25 +18,28 @@ describe('homepage', () => {
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
-  it('works on mobile landing pages', async () => {
+  it('works on small and x-small viewport landing pages', async () => {
+    await page.setViewport({ width: 500, height: 700 })
     await page.goto('http://localhost:4000/en/actions')
-    await page.click('[data-testid=mobile-menu-button]')
-    await page.click('[data-testid=mobile-header] [data-testid=site-search-input]')
-    await page.type('[data-testid=mobile-header] [data-testid=site-search-input]', 'foo')
-    await page.waitForSelector('[data-testid=search-results]')
+    await page.click('[data-testid=mobile-search-button]')
+    await page.click('[data-testid=site-search-input]')
+    await page.type('[data-testid=site-search-input]', 'foo')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=search-result]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(3)
+    expect(hits.length).toBeGreaterThan(1)
   })
 
-  it('works on desktop landing pages', async () => {
+  it('works on medium -> x-large viewport landing pages', async () => {
     const initialViewport = page.viewport()
-    await page.setViewport({ width: 1024, height: 768 })
+    await page.setViewport({ width: 1000, height: 768 })
     await page.goto('http://localhost:4000/en/actions')
     await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
     await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'foo')
-    await page.waitForSelector('[data-testid=search-results]')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=search-result]')
     const hits = await page.$$('[data-testid=search-result]')
-    expect(hits.length).toBeGreaterThan(3)
+    expect(hits.length).toBeGreaterThan(1)
     await page.setViewport(initialViewport)
   })
   // 404 page is statically generated with next, so search is not available, but may possibly be brought back
@@ -45,6 +48,7 @@ describe('browser search', () => {
     await page.goto('http://localhost:4000/en/404')
     await page.click('[data-testid=search] input[type="search"]')
     await page.type('[data-testid=search] input[type="search"]', 'actions')
+    await page.keyboard.press('Enter')
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
@@ -72,12 +76,10 @@ describe('browser search', () => {
       interceptedRequest.continue()
     })
 
-    await newPage.click('[data-testid=mobile-menu-button]')
-    const searchInput = await newPage.$(
-      '[data-testid=mobile-header] [data-testid=site-search-input]'
-    )
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
     await searchInput.click()
     await searchInput.type('code')
+    await page.keyboard.press('Enter')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
@@ -94,18 +96,16 @@ describe('browser search', () => {
         /api\/search\/v1\?/i.test(interceptedRequest.url())
       ) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('dotcom')
+        expect(searchParams.get('version')).toBe('free-pro-team@latest')
         expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
 
-    await newPage.click('[data-testid=mobile-menu-button]')
-    const searchInput = await newPage.$(
-      '[data-testid=mobile-header] [data-testid=site-search-input]'
-    )
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
     await searchInput.click()
     await searchInput.type('foo')
+    await newPage.keyboard.press('Enter')
     await newPage.waitForSelector('[data-testid=search-result]')
   })
 
@@ -122,19 +122,116 @@ describe('browser search', () => {
         /api\/search\/v1\?/i.test(interceptedRequest.url())
       ) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('ghae')
+        expect(searchParams.get('version')).toBe('github-ae@latest')
         expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
 
-    await newPage.click('[data-testid=mobile-menu-button]')
-    const searchInput = await newPage.$(
-      '[data-testid=mobile-header] [data-testid=site-search-input]'
-    )
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
     await searchInput.click()
     await searchInput.type('silly')
-    await newPage.waitForSelector('[data-testid=search-result]')
+    await newPage.keyboard.press('Enter')
+    await newPage.waitForSelector('[data-testid=search-results]')
+  })
+})
+
+describe('large -> x-large viewports - 1012+', () => {
+  jest.setTimeout(60 * 1000)
+  it('version picker is visible', async () => {
+    await page.setViewport({ width: 1013, height: 700 })
+    await page.goto('http://localhost:4000/en/actions')
+    await page.click('[data-testid=version-picker]')
+    const versionItems = await page.$$('[data-testid=version-picker-item]')
+    expect(versionItems.length).toBeGreaterThan(0)
+  })
+
+  it('language picker is visible', async () => {
+    await page.goto('http://localhost:4000/en/actions')
+    const languagePickerElement = await page.$$('[data-testid=language-picker]')
+    expect(languagePickerElement.length).toBe(1)
+  })
+
+  it('sign up button is visible', async () => {
+    const signUpElement = await page.$('[data-testid=header-signup]')
+    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
+    expect(signUpValue).toBe('Sign up')
+  })
+})
+
+describe('medium viewports - 768-1011', () => {
+  jest.setTimeout(60 * 1000)
+  it('version picker is visible', async () => {
+    await page.setViewport({ width: 1000, height: 700 })
+    await page.goto('http://localhost:4000/ja/actions')
+    await page.click('[data-testid=version-picker]')
+    const versionItems = await page.$$('[data-testid=version-picker-item]')
+    expect(versionItems.length).toBeGreaterThan(0)
+  })
+
+  it('language picker icon is in mobile menu', async () => {
+    await page.goto('http://localhost:4000/en/actions')
+    await page.click('[data-testid=mobile-menu]')
+    await page.click('[data-testid=open-mobile-menu] [data-testid=language-picker]')
+    const defaultLanguageElement = await page.$('[data-testid=default-language]')
+    const languageValue = await defaultLanguageElement.evaluate((el) => el.textContent)
+    expect(languageValue).toBe('English')
+  })
+
+  it('sign up button is in mobile menu', async () => {
+    const signUpElement = await page.$('[data-testid=mobile-signup]')
+    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
+    expect(signUpValue).toBe('Sign up')
+  })
+})
+
+describe('small -> x-small viewports - under 544 -> 767', () => {
+  jest.setTimeout(60 * 1000)
+  it('sign up button is not visible', async () => {
+    await page.setViewport({ width: 500, height: 700 })
+    await page.goto('http://localhost:4000/en/actions')
+    const signUpElement = await page.$('[data-testid=header-signup] a')
+    const classes = Object.values(await signUpElement.evaluate((el) => el.classList))
+    expect(classes).toEqual(expect.arrayContaining(['d-none', 'd-lg-flex']))
+  })
+
+  it('language picker is not visible', async () => {
+    const languagePickerElement = await page.$('[data-testid=language-picker]')
+    const parentNode = await languagePickerElement.getProperty('parentNode')
+    const classes = Object.values(await parentNode.evaluate((el) => el.classList))
+    expect(classes).toEqual(expect.arrayContaining(['d-none', 'd-lg-flex']))
+  })
+
+  it('version picker is not visible', async () => {
+    const hiddenElements = await page.evaluate(() => {
+      const data = []
+      const elements = document.getElementsByClassName('hide-sm')
+      for (const element of elements)
+        data.push(element.firstElementChild.getAttribute('data-testid'))
+
+      return data
+    })
+    expect(hiddenElements).toEqual(['version-picker'])
+  })
+
+  it('version picker icon is in mobile menu', async () => {
+    await page.click('[data-testid=mobile-menu]')
+    await page.click('[data-testid=open-mobile-menu] [data-testid=version-picker]')
+    const versionItems = await page.$$('[data-testid=version-picker-item]')
+    expect(versionItems.length).toBeGreaterThan(0)
+  })
+
+  it('language picker icon is in mobile menu', async () => {
+    await page.click('[data-testid=open-mobile-menu] [data-testid=language-picker]')
+    const defaultLanguageElement = await page.$('[data-testid=default-language]')
+    const languageValue = await defaultLanguageElement.evaluate((el) => el.textContent)
+    expect(languageValue).toBe('English')
+  })
+
+  it('sign up button is in mobile menu', async () => {
+    const signUpElement = await page.$('[data-testid=mobile-signup]')
+    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
+    expect(signUpValue).toBe('Sign up')
   })
 })
 

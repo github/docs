@@ -1,5 +1,3 @@
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
-
 The triggered workflow receives the inputs in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[Contexts]({% ifversion actions-unified-inputs %}/actions/learn-github-actions/contexts#inputs-context{% else %}/actions/learn-github-actions/contexts#github-context{% endif %})."
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
@@ -11,7 +9,7 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        default: 'warning' {% ifversion fpt or ghec or ghes or ghae > 3.3 %}
         type: choice
         options:
         - info
@@ -19,11 +17,11 @@ on:
         - debug {% endif %}
       print_tags:
         description: 'True to print to STDOUT'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        required: true {% ifversion fpt or ghec or ghes or ghae > 3.3 %}
         type: boolean {% endif %}
       tags:
         description: 'Test scenario tags'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        required: true {% ifversion fpt or ghec or ghes or ghae > 3.3 %}
         type: string
       environment:
         description: 'Environment to run tests against'

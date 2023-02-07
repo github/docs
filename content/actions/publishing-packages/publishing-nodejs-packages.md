@@ -51,7 +51,7 @@ If you add steps in your workflow to configure the `publishConfig` fields in you
 
 ## Publishing packages to the npm registry
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the npm registry if CI tests pass.
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to the npm registry. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
 
 To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
@@ -65,7 +65,7 @@ This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment 
 name: Publish Package to npmjs
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -94,7 +94,7 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
-Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs anytime the `release` event with type `created` occurs. The workflow publishes the package to {% data variables.product.prodname_registry %} if CI tests pass.
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to {% data variables.product.prodname_registry %}. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
 
 ### Configuring the destination repository
 
@@ -125,7 +125,7 @@ This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environme
 name: Publish package to GitHub Packages
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -163,7 +163,7 @@ If you use the Yarn package manager, you can install and publish packages using 
 name: Publish Package to npmjs
 on:
   release:
-    types: [created]
+    types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest

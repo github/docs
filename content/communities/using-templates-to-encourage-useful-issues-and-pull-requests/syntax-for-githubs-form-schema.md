@@ -4,6 +4,7 @@ intro: 'You can use {% data variables.product.company_short %}''s form schema to
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.7'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
@@ -38,8 +39,8 @@ For example, the following form definition includes four form elements: a text a
     description: What version of our software are you running?
     multiple: false
     options:
-      - label: 1.0.2 (Default)
-      - label: 1.0.3 (Edge)
+      - 1.0.2 (Default)
+      - 1.0.3 (Edge)
   validations:
     required: true
 - type: checkboxes

@@ -19,7 +19,7 @@ topics:
 shortTitle: GitHub's IP addresses
 ---
 
-You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/rest/reference/meta)."
+You can retrieve a list of {% data variables.product.prodname_dotcom %}'s IP addresses from the [meta](https://api.github.com/meta) API endpoint. For more information, see "[Meta](/rest/meta)."
 
 {% note %}
 
@@ -37,4 +37,4 @@ For applications to function, you must allow TCP ports 22, 80, 443, and 9418 via
 
 ## Further reading
 
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
+- "[Troubleshooting connectivity problems](/get-started/using-github/troubleshooting-connectivity-problems)"

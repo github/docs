@@ -1,6 +1,6 @@
 ---
 title: Adding organizations to your enterprise
-intro: You can add organizations to manage within your enterprise by creating a new organization, inviting an existing organization, or transferring an organization from a different enterprise account.
+intro: 'You can add organizations to manage within your enterprise by creating a new organization, inviting an existing organization, or transferring an organization from a different enterprise account.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account

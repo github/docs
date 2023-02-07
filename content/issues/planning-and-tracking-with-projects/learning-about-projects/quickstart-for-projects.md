@@ -14,7 +14,7 @@ topics:
 
 ## Introduction
 
-This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll also learn how to create saved views that help you communicate priorities and progress with your collaborators.
+This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll learn how to create saved views that help you communicate priorities and progress with your collaborators. You'll also set up built-in workflows to manage the items in your project.
 
 ## Prerequisites
 
@@ -144,7 +144,36 @@ To indicate the purpose of the view, give it a descriptive name.
 
 ![Example priorities](/assets/images/help/projects/project-view-switch.gif)
 
+{% ifversion projects-v2-workflows %}
+
 ## Configure built-in automation
+
+{% ifversion projects-v2-auto-add %}
+
+Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project. 
+
+{% data reusables.projects.access-workflows %}
+1. In the "Default workflows" list, click **Auto-add to project**.
+   
+   ![Screenshot showing auto-add workflow](/assets/images/help/projects-v2/workflow-autoadd.png)
+   
+1. To start editing the workflow, in the top right, click **Edit**.
+   
+   ![Screenshot showing edit button](/assets/images/help/projects-v2/workflow-start-editing.png)
+   
+1. Under "Filters", select the repository you want to add items from.
+   
+   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-repo.png)
+   
+1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
+   
+   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-filter.png)
+   
+1. To enable the new workflow, click **Save and turn on workflow**.
+   
+   ![Screenshot showing autoadd workflows](/assets/images/help/projects-v2/workflow-save-and-turn-on.png)
+
+{% endif %}
 
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
 
@@ -160,6 +189,8 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
 1. Click the **Disabled** toggle to enable the workflow.
   ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+
+{% endif %}
 
 ## Further reading
 

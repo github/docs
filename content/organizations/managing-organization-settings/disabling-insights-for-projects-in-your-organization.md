@@ -2,7 +2,7 @@
 title: 'Disabling insights for {% data variables.projects.projects_v2 %} in your organization'
 intro: 'Organization owners can turn off insights for {% data variables.product.prodname_projects_v2 %} in their organization.'
 versions:
-  feature: projects-v2
+  feature: projects-v2-insights
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 topics:
   - Projects

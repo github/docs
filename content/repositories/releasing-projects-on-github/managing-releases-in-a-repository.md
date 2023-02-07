@@ -55,10 +55,10 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 {%- data reusables.releases.previous-release-tag %}
 1. Type a title and description for your release.
-   {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+   {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
+   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
 
    ![Screenshot of the releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
 
@@ -114,7 +114,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
 {% endif %}
 
@@ -133,7 +133,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 3. On the right side of the page, next to the release you want to edit, click **Edit release**.
   ![Edit a release](/assets/images/help/releases/edit-release.png)
 {% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
+4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
   ![Update a release](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}

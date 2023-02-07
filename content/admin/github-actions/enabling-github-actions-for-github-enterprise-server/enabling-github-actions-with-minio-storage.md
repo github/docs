@@ -35,13 +35,24 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
 {% data reusables.actions.enterprise-enable-checkbox %}
+{%- ifversion ghes-actions-storage-oidc %}
+{% data reusables.actions.enterprise-s3-storage-setup %}
+1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
+
+   {% note %}
+
+   **Note:** For MinIO, you cannot use OpenID Connect (OIDC) authentication. You must use credentials-based authentication.
+
+   {% endnote %}
+
+{% indented_data_reference reusables.actions.enterprise-minio-storage-credential-fields spaces=3 %}
+{%- else %}
 1. Under "Artifact & Log Storage", select **Amazon S3**, and enter your storage bucket's details:
 
-   * **AWS Service URL**: The URL to your MinIO service. For example, `https://my-minio.example:9000`.
-   * **AWS S3 Bucket**: The name of your S3 bucket.
-   * **AWS S3 Access Key** and **AWS S3 Secret Key**: The `MINIO_ACCESS_KEY` and `MINIO_SECRET_KEY` used for your MinIO instance.
+{% indented_data_reference reusables.actions.enterprise-minio-storage-credential-fields spaces=3 %}
 
    ![Radio button for selecting Amazon S3 Storage and fields for MinIO configuration](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
+{% endif %}
 1. Under "Artifact & Log Storage", select **Force path style**.
 
    ![Checkbox to Force path style](/assets/images/enterprise/management-console/actions-minio-force-path-style.png)

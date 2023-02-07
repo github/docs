@@ -1,5 +1,6 @@
 ---
 title: Mutations
+intro: The mutation type defines GraphQL operations that change data on the server.
 redirect_from:
   - /v4/mutation
   - /v4/reference/mutation

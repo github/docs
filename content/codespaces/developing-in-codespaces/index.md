@@ -1,6 +1,6 @@
 ---
 title: Developing in a codespace
-intro: 'Create a codespace to get started with developing your project inside a dedicated cloud environment. You can use your codespace in the browser or in a choice of code editors.'
+intro: Create a codespace to get started with developing your project inside a dedicated cloud environment. You can use your codespace in the browser or in a choice of code editors.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,7 @@ children:
   - /creating-a-codespace-from-a-template
   - /deleting-a-codespace
   - /opening-an-existing-codespace
+  - /working-collaboratively-in-a-codespace
   - /using-source-control-in-your-codespace
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace
@@ -23,3 +24,4 @@ children:
   - /using-github-codespaces-in-your-jetbrains-ide
   - /using-github-codespaces-with-github-cli
 ---
+

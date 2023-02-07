@@ -63,7 +63,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 ## Updating known hosts
 
-The first time you interact with GitHub after switching to port 443, you may get a warning message
+The first time you interact with {% data variables.product.prodname_dotcom %} after switching to port 443, you may get a warning message
 that the host wasn't found in `known_hosts`, or that it was found by another name.
 
 ```ShellSession
@@ -75,4 +75,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of GitHub's published fingerprints. For the list of fingerprints, see "[Github's SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[{% data variables.product.prodname_dotcom %}'s SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."

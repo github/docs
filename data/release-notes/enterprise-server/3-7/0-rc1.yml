@@ -29,7 +29,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2344
         - |
-          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Administering your instance from the Management Console](/admin/configuration/administering-your-instance-from-the-management-console)."
 
     - heading: Authentication
       notes:
@@ -148,7 +148,7 @@ sections:
         # https://github.com/github/releases/issues/2307
         - |
           Users can take advantage of the following improvements to the [GitHub Advisory Database](https://github.com/advisories).
-          
+
           - The database displays advisories for for Elixir, Erlang's Hex package manager, and more.
           - Users can find malware advisories by searching for `type:malware`.
           - The database displays advisories for GitHub Actions vulnerabilities.
@@ -185,9 +185,9 @@ sections:
         # https://github.com/github/releases/issues/2325
         - |
           To support secure cloud deployments at scale, organization owners and repository administrators can complete the following tasks with the OpenID Connect REST API. For more information, see "[GitHub Actions OIDC](/rest/actions/oidc)" in the REST API documentation
-          
+
           - Enable a standard OpenID Connect configuration across cloud deployment workflows by customizing the `subject` claim format.
-          - Ensure additional compliance and security for OpenID Connect deployments by appending the `issuer` URL with the enterprise's slug. 
+          - Ensure additional compliance and security for OpenID Connect deployments by appending the `issuer` URL with the enterprise's slug.
           - Configure advanced OpenID Connect policies by using additional OpenID Connect token claims like `repository_id` and `repo_visibility`.
 
           For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
@@ -197,7 +197,7 @@ sections:
           GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub Actions Cache REST API to accomplish the following tasks.
 
           - List all caches within a repository and sort by metadata.
-          - Delete a corrupt or stale cache entry. 
+          - Delete a corrupt or stale cache entry.
           For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches)" and "[GitHub Actions Cache](/rest/actions/cache)" in the REST API documentation.
 
         # https://github.com/github/docs-content/issues/7689
@@ -243,7 +243,7 @@ sections:
         # https://github.com/github/releases/issues/2406
         - |
           Improvements have been made to the creation and management of forks.
-          
+
           - When forking a repository, users can choose to only include the repository's default branch in the fork.
           - Users can use a repository's' **Fork** button to see existing forks of the repository.
           - The **Fetch upstream** button has been renamed to **Sync fork** to better describe the button's behavior. If the sync causes a conflict, the web UI prompts the user to contribute changes to the parent repository, discard changes, or resolve the conflict.
@@ -300,7 +300,7 @@ sections:
 
   changes:
     - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
-  
+
     # https://github.com/github/releases/issues/2535
     - When creating a new release, users can now submit the form using <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in macOS, or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in Windows or Linux.
 

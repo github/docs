@@ -6,7 +6,7 @@ introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /actions/learn-github-actions
     - /actions/examples
     - /actions/automating-builds-and-tests/about-continuous-integration
@@ -63,3 +63,4 @@ children:
   - /creating-actions
   - /guides
 ---
+

@@ -46,8 +46,9 @@ The following storage and core hours of usage are included, free of charge, for 
 
 {% note %}
 
-**Notes**:
-- The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[Billing for storage usage](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)" below.
+**Notes**
+
+- The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[Billing for storage usage](#billing-for-storage-usage)" below.
 - A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table below. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
 
 {% endnote %}
@@ -65,6 +66,8 @@ If you are blocked from resuming a codespace and you want to continue to work on
 - Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
 
 If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method and a spending limit, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota.
+
+{% data reusables.codespaces.tips-included-usage %}
 
 {% endif %}
 
@@ -107,10 +110,13 @@ For {% data variables.product.prodname_github_codespaces %} billing purposes, st
 
 {% note %}
 
-**Notes**:
+**Note**
 
-- When you use the default dev container configuration (see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)"), we do not count the default container as used storage. When you create a custom container using a dev container configuration with a different base image we do count the container as used storage.
-- When you rebuild your container from the default image we do not count the base container as used storage. For other base images all of the storage consumed by the codespace, including the base container, is counted as used storage.
+When you use the default dev container configuration, your dev container will be built from the default Linux image for codespaces. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)." Containers based on the default image are not counted as used storage, irrespective of whether you have added features in your dev container configuration. For more information, see "[Adding features to a devcontainer.json file](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
+
+If you use the default image, the storage usage for your codespace will be based on the files in your repository, and any files you subsequently add to the codespace. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage.
+
+{% data reusables.codespaces.check-for-default-image %}
 
 {% endnote %}
 

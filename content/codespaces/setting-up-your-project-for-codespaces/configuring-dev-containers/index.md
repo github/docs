@@ -1,7 +1,7 @@
 ---
 title: Configuring dev containers
 allowTitleToDifferFromFilename: true
-intro: 'You can customize the dev container configuration for your repository.'
+intro: You can customize the dev container configuration for your repository.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,3 +10,4 @@ children:
   - /adding-features-to-a-devcontainer-file
   - /automatically-opening-files-in-the-codespaces-for-a-repository
 ---
+

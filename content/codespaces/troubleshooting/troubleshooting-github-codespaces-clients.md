@@ -43,6 +43,8 @@ Click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of th
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
+{% data reusables.codespaces.troubleshooting-simple-browser %}
+
 {% endwebui %}
 
 {% vscode %}
@@ -62,6 +64,8 @@ If you are using an Insiders build and notice broken behavior, we recommend swit
 To switch to {% data variables.product.prodname_vscode %} Stable, close the {% data variables.product.prodname_vscode %} Insiders application, open the {% data variables.product.prodname_vscode %} Stable application, and re-open your codespace.
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
+
+{% data reusables.codespaces.troubleshooting-simple-browser %}
 
 {% endvscode %}
 
@@ -106,11 +110,15 @@ Depending on the size of your codebase, and the memory needed to run your applic
 
 ### Client can't be opened in MacOS Ventura
 
-In MacOS Ventura, the first time you try to connect to a codespace from the JetBrains Gateway a message may be displayed telling you that the JetBrains client application "is damaged and can't be opened."
+In MacOS Ventura, using versions of the JetBrains Gateway prior to version 2022.3, the first time you try to connect to a codespace from the JetBrains Gateway a message was displayed telling you that the JetBrains client application "is damaged and can't be opened."
 
 <img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
 
-If this happens:
+This issue is fixed in the JetBrains Gateway, version 2022.3 and later.
+
+To avoid this issue, update the JetBrains Gateway.
+
+To work around this problem with older versions of the Gateway:
 
 1. Click **Cancel** to dismiss this message.
 1. Click the Apple icon, top left of the screen, and click **System Settings**.

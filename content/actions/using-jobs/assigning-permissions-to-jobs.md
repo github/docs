@@ -20,3 +20,7 @@ miniTocMaxHeadingLevel: 4
 ## Assigning permissions to a specific job
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
+
+### Example: Setting permissions for a specific job
+
+{% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}

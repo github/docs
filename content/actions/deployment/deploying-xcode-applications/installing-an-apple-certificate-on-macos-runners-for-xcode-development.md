@@ -49,7 +49,7 @@ Create secrets in your repository or organization for the following items:
   - Use the following command to convert your certificate to Base64 and copy it to your clipboard:
 
     ```shell
-    base64 BUILD_CERTIFICATE.p12 | pbcopy
+    base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
 * The password for your Apple signing certificate.
   - In this example, the secret is named `P12_PASSWORD`.
@@ -63,7 +63,7 @@ Create secrets in your repository or organization for the following items:
   - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
   
     ```shell
-    base64 PROVISIONING_PROFILE.mobileprovision | pbcopy
+    base64 -i PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
 * A keychain password.
@@ -98,8 +98,8 @@ jobs:
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
 
           # import certificate and provisioning profile from secrets
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
-          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
 
           # create temporary keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH

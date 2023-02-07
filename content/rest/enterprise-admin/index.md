@@ -7,7 +7,6 @@ redirect_from:
   - /v3/enterprise
   - /rest/reference/enterprise-admin
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -46,7 +45,7 @@ children:
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-### Endpoint URLs
+## Endpoint URLs
 
 These endpoints{% ifversion ghes %}—except [Management Console](#management-console) endpoints—{% endif %} are prefixed with the following URL:
 
@@ -66,7 +65,7 @@ http(s)://HOSTNAME/
 ```
 {% endif %}
 {% ifversion ghae or ghes %}
-### Authentication
+## Authentication
 
 Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the {% data variables.product.prodname_dotcom %} API. You can authenticate yourself with [OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/) {% ifversion ghes %}(, which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization, )) {% endif %}or [basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication). {% ifversion ghes %}
 OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
@@ -76,10 +75,12 @@ These endpoints are only accessible to authenticated {% data variables.product.p
 {% endif %}
 
 {% ifversion ghae or ghes %}
-### Version information
+## Version information
 
 The current version of your enterprise is returned in the REST API response header:
 `X-GitHub-Enterprise-Version: {{currentVersion}}.0`
 You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
 
 {% endif %}
+
+## Endpoints
