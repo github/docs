@@ -29,7 +29,6 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search GitHub Docs
-  no_results: No results found
   search_results_for: Search results for
   no_content: No content
   matches_found: Results found
@@ -37,8 +36,8 @@ search:
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
-  found_results: Found {n} results
-  one_result_found: Found 1 result
+  n_results: '{n} results'
+  one_result: 1 result
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
