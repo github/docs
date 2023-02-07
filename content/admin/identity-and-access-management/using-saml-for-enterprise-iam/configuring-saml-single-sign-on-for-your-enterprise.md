@@ -29,7 +29,7 @@ redirect_from:
 
 {% ifversion ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} 
+{% data reusables.saml.dotcom-saml-explanation %}
 
 {% data reusables.saml.saml-accounts %}
 
@@ -101,7 +101,7 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 
 ## Configuring SAML SSO
 
-You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the management console. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. For more information, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)."
 
 {% note %}
 
@@ -113,7 +113,7 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
 1. Select **SAML**.
-   
+
    ![Screenshot of option to enable SAML authentication in management console](/assets/images/enterprise/management-console/auth-select-saml.png)
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 
@@ -177,7 +177,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 
 **Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
 
-{% endnote %} 
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

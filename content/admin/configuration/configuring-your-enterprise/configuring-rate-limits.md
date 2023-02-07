@@ -21,7 +21,7 @@ To prevent excessive use of resources on {% data variables.location.product_loca
 
 Implement rate limits carefully and communicate frequently with your users as you tune the limits. To avoid interrupting your users' work, {% data variables.product.company_short %} recommends that you start with permissive rate limits, and gradually tune the limits to suit your environment.
 
-You can also configure rate limits for authentication attempts to the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."
+You can also configure rate limits for authentication attempts to the {% data variables.enterprise.management_console %}. For more information, see "[Managing access to the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."
 
 ## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
 
@@ -94,7 +94,7 @@ To avoid this performance degradation, you can configure a rate limit for {% dat
 
 An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}.
 
 ### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
 

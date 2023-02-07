@@ -12,9 +12,11 @@ topics:
   - Projects
 ---
 
+{% data reusables.projects.projects-beta %}
+
 ## About {% data variables.product.prodname_projects_v2 %}
 
-A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, adding custom fields to track metadata specific to your team, and visualize work with configurable charts. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+A project is an adaptable spreadsheet that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests,{% ifversion projects-v2-insights %} visualize work with configurable charts,{% endif %} and add custom fields to track metadata specific to your team. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
 
 ### Staying up-to-date
 
@@ -32,9 +34,9 @@ You can use custom fields to add metadata to your issues, pull requests, and dra
 
 ### Automating your projects
 
-There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed{% ifversion projects-v2-auto-archive %}, and you can also configure your project to automatically archive items when they meet certain criteria{% ifversion projects-v2-auto-add %} and automatically add items from a repository when they match set criteria{% endif %}{% endif %}. For more information, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."
+{% ifversion projects-v2-workflows %}There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed{% ifversion projects-v2-auto-archive %}, and you can also configure your project to automatically archive items when they meet certain criteria{% ifversion projects-v2-auto-add %} and automatically add items from a repository when they match set criteria{% endif %}{% endif %}. For more information, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% endif %}
 
-You can also use the GraphQL API and {% data variables.product.prodname_actions %} to take even greater control of your project. For more information, see "[Using the API to manage Projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)" and "[Automating Projects using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
+You can {% ifversion projects-v2-workflows %}also{% endif %} use the GraphQL API and {% data variables.product.prodname_actions %} to take {% ifversion projects-v2-workflows %}even greater{% endif %} control of your project. For more information, see "[Using the API to manage Projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)" and "[Automating Projects using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 
 {% ifversion projects-v2-tasklists %}
 
