@@ -45,7 +45,7 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/USER/REPO.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+For more information on which URL to use, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ### Troubleshooting: Remote origin already exists
 
@@ -67,7 +67,7 @@ The `git remote set-url` command changes an existing remote repository URL.
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
 
 {% endtip %}
 
@@ -108,7 +108,7 @@ git@{% data variables.command_line.codeblock %}:USERNAME/REPOSITORY.git
 
 The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and {% data variables.product.pat_generic %} every time it talks to GitHub.
+You can [use a credential helper](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and {% data variables.product.pat_generic %} every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 
@@ -153,7 +153,7 @@ The `git remote rename` command takes two arguments:
 
 ## Example
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
 
 ```shell
 $ git remote -v
@@ -198,7 +198,7 @@ Removing the remote URL from your repository only unlinks the local and remote r
 
 ## Example
 
-These examples assume you're [cloning using HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), which is recommended.
+These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
 
 ```shell
 $ git remote -v

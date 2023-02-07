@@ -33,5 +33,5 @@ shortTitle: Authorized integrations
 
 ## Further reading
 {% ifversion fpt or ghec %}
-- "[About integrations](/articles/about-integrations)"{% endif %}
-- "[Reviewing your authorized applications (OAuth)](/articles/reviewing-your-authorized-applications-oauth)"
+- "[About integrations](/get-started/customizing-your-github-workflow/exploring-integrations/about-integrations)"{% endif %}
+- "[Reviewing your authorized applications (OAuth)](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth)"

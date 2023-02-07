@@ -18,7 +18,7 @@ GitHub's REST API considers every pull request to be an issue, but not every iss
 
 ## Issue event object common properties
 
-Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event to for details about any properties that differ from this object format.
+Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event for details about any properties that differ from this object format.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -26,13 +26,13 @@ Issue events all have the same object structure, except events that are only ava
 
 The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull request</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for added_to_project
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -44,13 +44,13 @@ The issue or pull request was added to a project board. {% data reusables.projec
 
 The issue or pull request was assigned to a user.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X**  |
 
-### Event object properties
+### Properties for assigned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.assignee-properties %}
@@ -59,13 +59,13 @@ The issue or pull request was assigned to a user.
 
 GitHub unsuccessfully attempted to automatically change the base branch of the pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** |  |
 
-### Event object properties
+### Properties for automatic_base_change_failed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -73,13 +73,13 @@ GitHub unsuccessfully attempted to automatically change the base branch of the p
 
 GitHub successfully attempted to automatically change the base branch of the pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | |
 
-### Event object properties
+### Properties for automatic_base_change_succeeded
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -87,13 +87,13 @@ GitHub successfully attempted to automatically change the base branch of the pul
 
 The base reference branch of the pull request changed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | |
 
-### Event object properties
+### Properties for base_ref_changed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -101,13 +101,13 @@ The base reference branch of the pull request changed.
 
 The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for closed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -115,13 +115,13 @@ The issue or pull request was closed. When the `commit_id` is present, it identi
 
 A comment was added to the issue or pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### Event object properties
+### Properties for commented
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
@@ -144,13 +144,13 @@ Name | Type | Description
 
 A commit was added to the pull request's `HEAD` branch.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> |  | **X** |
 
-### Event object properties
+### Properties for committed
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
@@ -172,13 +172,13 @@ Name | Type | Description
 
 The issue or pull request was linked to another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for connected
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -186,13 +186,13 @@ The issue or pull request was linked to another issue or pull request. For more 
 
 The pull request was converted to draft mode.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for convert_to_draft
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -200,13 +200,13 @@ The pull request was converted to draft mode.
 
 The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for converted_note_to_issue
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -218,13 +218,13 @@ The issue was created by converting a note in a project board to an issue. {% da
 
 The issue was closed and converted to a discussion.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |-----|-----|-----|
 | <ul><li>Issues</li></ul> | **X** | |
 
-### Event Object Properties
+### Properties for converted_to_discussion
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -232,13 +232,13 @@ The issue was closed and converted to a discussion.
 
 The issue or pull request was referenced from another issue or pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### Event object properties
+### Properties for cross-referenced
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
@@ -256,13 +256,13 @@ Name | Type | Description
 
 The issue or pull request was removed from a milestone.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for demilestoned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `milestone` | `object` | The milestone object.
@@ -272,13 +272,13 @@ The issue or pull request was removed from a milestone.
 
 The pull request was deployed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for deployed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -286,13 +286,13 @@ The pull request was deployed.
 
 The pull request deployment environment was changed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** |  |
 
-### Event object properties
+### Properties for deployment_environment_changed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -300,13 +300,13 @@ The pull request deployment environment was changed.
 
 The issue or pull request was unlinked from another issue or pull request. For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)".
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for disconnected
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -314,13 +314,13 @@ The issue or pull request was unlinked from another issue or pull request. For m
 
 The pull request's `HEAD` branch was deleted.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for head_ref_deleted
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -328,7 +328,7 @@ The pull request's `HEAD` branch was deleted.
 
 The pull request's `HEAD` branch was restored to the last known commit.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
@@ -338,13 +338,13 @@ The pull request's `HEAD` branch was restored to the last known commit.
 
 The pull request's HEAD branch was force pushed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for head_ref_force_pushed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -352,13 +352,13 @@ The pull request's HEAD branch was force pushed.
 
 A label was added to the issue or pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for labeled
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.label-properties %}
@@ -367,13 +367,13 @@ A label was added to the issue or pull request.
 
 The issue or pull request was locked.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for locked
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
@@ -382,13 +382,13 @@ The issue or pull request was locked.
 
 The `actor` was `@mentioned` in an issue or pull request body.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for mentioned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -396,13 +396,13 @@ The `actor` was `@mentioned` in an issue or pull request body.
 
 A user with write permissions marked an issue as a duplicate of another issue, or a pull request as a duplicate of another pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for marked_as_duplicate
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -410,13 +410,13 @@ A user with write permissions marked an issue as a duplicate of another issue, o
 
 The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD` commit that was merged. The `commit_repository` is always the same as the main repository.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for merged
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -424,13 +424,13 @@ The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD`
 
 The issue or pull request was added to a milestone.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for milestoned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `milestone` | `object` | The milestone object.
@@ -440,13 +440,13 @@ The issue or pull request was added to a milestone.
 
 The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for moved_columns_in_project
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -459,13 +459,13 @@ The issue or pull request was moved between columns in a project board. {% data 
 
 The issue was pinned.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for pinned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -473,13 +473,13 @@ The issue was pinned.
 
 A draft pull request was marked as ready for review.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for ready_for_review
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -487,13 +487,13 @@ A draft pull request was marked as ready for review.
 
 The issue was referenced from a commit message. The `commit_id` attribute is the commit SHA1 of where that happened and the commit_repository is where that commit was pushed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for referenced
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -501,13 +501,13 @@ The issue was referenced from a commit message. The `commit_id` attribute is the
 
 The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for removed_from_project
 
 {% data reusables.pre-release-program.starfox-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -519,13 +519,13 @@ The issue or pull request was removed from a project board. {% data reusables.pr
 
 The issue or pull request title was changed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for renamed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `rename` | `object` | The name details.
@@ -536,13 +536,13 @@ The issue or pull request title was changed.
 
 The issue or pull request was reopened.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for reopened
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -550,13 +550,13 @@ The issue or pull request was reopened.
 
 The pull request review was dismissed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for review_dismissed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.review-dismissed-properties %}
@@ -565,13 +565,13 @@ The pull request review was dismissed.
 
 A pull request review was requested.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for review_requested
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.review-request-properties %}
@@ -580,13 +580,13 @@ A pull request review was requested.
 
 A pull request review request was removed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for review_request_removed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.review-request-properties %}
@@ -595,13 +595,13 @@ A pull request review request was removed.
 
 The pull request was reviewed.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> |  | **X** |
 
-### Event object properties
+### Properties for reviewed
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
@@ -624,13 +624,13 @@ Name | Type | Description
 
 Someone subscribed to receive notifications for an issue or pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for subscribed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -638,13 +638,13 @@ Someone subscribed to receive notifications for an issue or pull request.
 
 The issue was transferred to another repository.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for transferred
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -652,13 +652,13 @@ The issue was transferred to another repository.
 
 A user was unassigned from the issue.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for unassigned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.assignee-properties %}
@@ -667,13 +667,13 @@ A user was unassigned from the issue.
 
 A label was removed from the issue.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for unlabeled
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.label-properties %}
@@ -682,13 +682,13 @@ A label was removed from the issue.
 
 The issue was unlocked.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for unlocked
 
 {% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | The reason an issue or pull request conversation was locked, if one was provided.
@@ -697,13 +697,13 @@ The issue was unlocked.
 
 An issue that a user had previously marked as a duplicate of another issue is no longer considered a duplicate, or a pull request that a user had previously marked as a duplicate of another pull request is no longer considered a duplicate.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for unmarked_as_duplicate
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -711,13 +711,13 @@ An issue that a user had previously marked as a duplicate of another issue is no
 
 The issue was unpinned.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for unpinned
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -725,13 +725,13 @@ The issue was unpinned.
 
 Someone unsubscribed from receiving notifications for an issue or pull request.
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
 
-### Event object properties
+### Properties for unsubscribed
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -740,13 +740,13 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
-### Availability
+This event is available for the following issue types:
 
 |Issue type | Issue events API | Timeline events API|
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
 
-### Event object properties
+### Properties for user_blocked
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

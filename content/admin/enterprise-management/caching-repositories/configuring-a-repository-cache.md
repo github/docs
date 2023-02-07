@@ -33,14 +33,6 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 
 ## Configuring a repository cache
 
-{% ifversion ghes = 3.3 %}
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. To enable repository caching, run the following command.
-   
-   ```
-   $ ghe-config cluster.cache-enabled true
-   ```
-{%- endif %}
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your desired platform. This instance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the repository cache's IP address using SSH.
@@ -48,13 +40,7 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
    ```shell
    $ ssh -p 122 admin@REPLICA-IP
    ```
-{%- ifversion ghes = 3.3 %}
-1. On your cache replica, enable the feature flag for repository caching.
-   
-   ```
-   $ ghe-config cluster.cache-enabled true
-   ```
-{%- endif %}
+
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.

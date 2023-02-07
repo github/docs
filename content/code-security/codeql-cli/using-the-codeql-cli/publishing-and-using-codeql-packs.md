@@ -16,13 +16,7 @@ topics:
 
 ## Configuring the `qlpack.yml` file before publishing
 
-{% ifversion ghes %}
-{% note %}
-
-**Note:** If you have manually updated your {% data variables.product.prodname_codeql_cli %} version to a newer version than what is covered in this article, please see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/enterprise-cloud@latest/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)”, the Enterprise Cloud version, for the most up-to-date documentation.
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 You can check and modify the configuration details of your {% data variables.product.prodname_codeql %} pack prior to publishing. Open the `qlpack.yml` file in your preferred text editor.
 

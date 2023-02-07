@@ -30,13 +30,7 @@ shortTitle: Customize code scanning
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-action-version-ghes %}
 
 ## About {% data variables.product.prodname_code_scanning %} configuration
 
@@ -531,7 +525,7 @@ For more information about using `exclude` and `include` filters in your custom 
 
 ### Specifying directories to scan
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
 ``` yaml
 paths:
@@ -556,6 +550,9 @@ For compiled languages, if you want to limit {% data variables.product.prodname_
 You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) in your workflow.
 
 ### Example configuration files
+
+<!-- Note that the CodeQL CLI manual pages link to this heading: https://aka.ms/docs-config-file.
+If you edit this heading, update the short link too.-->
 
 {% data reusables.code-scanning.example-configuration-files %}
 

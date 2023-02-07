@@ -2,7 +2,7 @@
 title: Getting the most out of your included usage
 shortTitle: Included usage
 allowTitleToDifferFromFilename: true
-intro: Find out about the free use of {% data variables.product.prodname_github_codespaces %} that's included with personal accounts.
+intro: 'Find out about the free use of {% data variables.product.prodname_github_codespaces %} that''s included with personal accounts.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -47,7 +47,7 @@ For billing purposes, {% data variables.product.prodname_codespaces %} storage i
 
 ## Understanding your {% data variables.product.prodname_codespaces %} usage
 
-You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](http://127.0.0.1:4000/en/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 

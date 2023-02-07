@@ -117,7 +117,7 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### Configuring the steps for the container job
 
 {% data reusables.actions.service-template-steps %}
 
@@ -235,7 +235,7 @@ jobs:
           - 6379:6379
 ```
 
-### Configuring the steps
+### Configuring the steps for the runner job
 
 {% data reusables.actions.service-template-steps %}
 
@@ -283,7 +283,7 @@ const redis = require("redis");
 // If REDIS_PORT is not set, the default port is 6379
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT  
+  port: process.env.REDIS_PORT
 });
 
 redisClient.on("error", function(err) {
@@ -319,7 +319,7 @@ When you run this workflow, you should see the following output in the "Connect 
 Reply: OK
 Reply: 1
 Reply: 1
-Reply: 1  
+Reply: 1
 3 replies:
     0: octocat
     1: dinotocat

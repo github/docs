@@ -34,19 +34,13 @@ allowTitleToDifferFromFilename: true
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** This article describes the features available with the version of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql_cli %} bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the {% data variables.product.prodname_codeql %} action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-advanced-setup-for-codeql) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
-
-{% endnote %}
-{% endif %}
+{% data reusables.code-scanning.codeql-action-version-ghes %}
 
 ## Producing detailed logs for debugging
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
@@ -67,7 +61,7 @@ You need to ensure that you select **Enable debug logging** . This option enable
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 
@@ -165,8 +159,6 @@ If your workflow fails with an error `No source code was seen during the build` 
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-{% ifversion fpt or ghes > 3.1  or ghae or ghec %}
-
 ## Lines of code scanned are lower than expected
 
 For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
@@ -207,12 +199,6 @@ The extraction diagnostics information gives an indication of overall database h
 
 However, if you see extractor errors in the overwhelming majority of files that were compiled during database creation, you should look into the errors in more detail to try to understand why some source files weren't extracted properly.
 
-{% else %}
-
-## Portions of my repository were not analyzed using `autobuild`
-
-The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
-{% endif %}
 
 ## The build takes too long
 

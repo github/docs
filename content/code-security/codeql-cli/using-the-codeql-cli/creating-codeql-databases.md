@@ -17,6 +17,8 @@ topics:
 
 ## About creating {% data variables.product.prodname_codeql %} databases
 
+{% data reusables.code-scanning.codeql-cli-version-ghes %}
+
 Before you analyze your code using {% data variables.product.prodname_codeql %}, you need to create a {% data variables.product.prodname_codeql %} database containing all the data required to run queries on your code. You can create {% data variables.product.prodname_codeql %} databases yourself using the {% data variables.product.prodname_codeql_cli %}, or download them from {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data variables.product.prodname_codeql %} analysis relies on extracting relational data from your code, and using it to build a [{% data variables.product.prodname_codeql %} database](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database). {% data variables.product.prodname_codeql %} databases contain all of the important information about a codebase, which can be analyzed by executing {% data variables.product.prodname_codeql %} queries against it. {% data variables.product.prodname_dotcom %} creates and stores {% data variables.product.prodname_codeql %} databases for a large number of open-source projects. For more information, see “[Downloading {% data variables.product.prodname_codeql %} databases from {% data variables.product.prodname_dotcom_the_website %}](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#downloading-databases-from-githubcom).”

@@ -54,11 +54,11 @@ For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Gi
 
 ## Preserving history
 
-SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
+SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/get-started/using-git/about-git-rebase).
 
 {% tip %}
 
-[GitHub supports Subversion clients](/articles/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/articles/removing-sensitive-data-from-a-repository).
+[GitHub supports Subversion clients](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
 {% endtip %}
 
@@ -66,7 +66,7 @@ SVN is configured to assume that the history of a project never changes. Git all
 
 ## Further reading
 
-- "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
+- "[Subversion properties supported by GitHub](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github)"
 - ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[Importing source code to GitHub](/articles/importing-source-code-to-github)"
-- "[Source code migration tools](/articles/source-code-migration-tools)"
+- "[Importing source code to GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github)"
+- "[Source code migration tools](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"

@@ -19,7 +19,6 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`childGroups`](#childgroups)
   - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
-  - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
   - [`changelog`](#changelog)
   - [`defaultPlatform`](#defaultplatform)
@@ -35,9 +34,12 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
 - [Versioning](#versioning)
 - [Filenames](#filenames)
 - [Whitespace control](#whitespace-control)
-- [Links and image paths](#links-and-image-paths)
+- [Links](#links)
+  - [Linking to the current article in a different version of the docs](#linking-to-the-current-article-in-a-different-version-of-the-docs)
   - [Preventing transformations](#preventing-transformations)
+  - [Legacy filepaths and redirects for links](#legacy-filepaths-and-redirects-for-links)
   - [Index pages](#index-pages)
+  - [Home page](#homepage)
   - [Creating new product guides pages](#creating-new-product-guides-pages)
 
 ## Frontmatter
@@ -178,7 +180,7 @@ Example:
 featuredLinks:
   gettingStarted:
     - /path/to/page
-  guides:
+  startHere:
     - /guides/example
   popular:
     - /path/to/popular/article1
@@ -353,6 +355,19 @@ When viewed on GitHub.com docs, the link gets rendered with the language code:
 and when viewed on GitHub Enterprise Server docs, the version is included as well:
 ```
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
+```
+
+### Linking to the current article in a different version of the docs
+
+Sometimes you may want to link from an article to the same article in a different product version. For example:
+
+- You mention some functionality that is not available for free, pro, or team plans and you want to link to the GitHub Enterprise Cloud version of the same page.
+- The GitHub Enterprise Server version of an article describes a feature that shipped with that version, but site administrators can upgrade to the latest version of the feature that's in use on GitHub Enterprise Cloud.
+
+You can link directly to a different version of the page using the `currentArticle` property. This means that the link will continue to work directly even if the article URL changes.
+
+```markdown
+{% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/{{ currentArticle }}).{% endif %}
 ```
 
 ### Preventing transformations
