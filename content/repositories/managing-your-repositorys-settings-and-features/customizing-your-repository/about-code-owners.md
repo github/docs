@@ -117,10 +117,9 @@ apps/ @octocat
 # will require approval from @doctocat or @octocat.
 /scripts/ @doctocat @octocat
 
-# In this example, @octocat owns any file inside a `/logs` directory like
-# `/build/logs`
-# `/scripts/logs`
-# both will require approval from @octocat.
+# In this example, @octocat owns any file in a `/logs` directory such as
+# `/build/logs`, `/scripts/logs`, and `/deeply/nested/logs`. Any changes
+# in a `/logs` directory will require approval from @octocat.
 **/logs @octocat
 
 # In this example, @octocat owns any file in the `/apps`
