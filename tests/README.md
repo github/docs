@@ -116,3 +116,7 @@ error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
 export DEBUG_MIDDLEWARE_TESTS=true
 jest tests/rendering/ -b
 ```
+
+### Fixture based testing
+
+See [Fixture content](./fixtures/README.md).
