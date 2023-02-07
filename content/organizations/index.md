@@ -9,7 +9,7 @@ redirect_from:
 introLinks:
   overview: /organizations/collaborating-with-groups-in-organizations/about-organizations
 featuredLinks:
-  guides:
+  startHere:
     - /get-started/learning-about-github/types-of-github-accounts
     - /organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization
     - /organizations/organizing-members-into-teams/about-teams

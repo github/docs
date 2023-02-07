@@ -44,11 +44,8 @@ $ ghe-announce -u
 ```
 {% endif %}
 
-{% ifversion ghes %}
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
-{% endif %}
 
-{% ifversion ghes %}
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -76,7 +73,6 @@ $ ghe-aqueduct pause --queue QUEUE
 $ ghe-aqueduct resume --queue QUEUE
 # resumes the specified queue
 ```
-{% endif %}
 
 ### ghe-check-disk-usage
 
@@ -125,14 +121,12 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config HOSTNAME.uuid
 ```
 
-{% ifversion ghes %}
 Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
 # Exempts the users hubot and github-actions from rate limits
 ```
-{% endif %}
 
 ### ghe-config-apply
 
@@ -287,7 +281,6 @@ Use this command to immediately unlock the {% data variables.enterprise.manageme
 ```shell
 $ ghe-reactivate-admin-login
 ```
-
 
 ### ghe-saml-mapping-csv
 
@@ -554,28 +547,17 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% ifversion ghes %}
+
 ```shell
 ghe-webhook-logs -f -a YYYY-MM-DD
 ```
 
 The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
-{% else %}
-```shell
-ghe-webhook-logs -f -a YYYYMMDD
-```
-{% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% ifversion ghes %}
 ```shell
 ghe-webhook-logs -g DELIVERY_GUID
 ```
-{% else %}
-```shell
-ghe-webhook-logs -g DELIVERY_GUID -v
-```
-{% endif %}
 
 ## Clustering
 
@@ -793,7 +775,7 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
-{% ifversion ghes > 3.3 %}
+
 
 ## Security
 
@@ -805,7 +787,7 @@ This utility searches your instance's logs and identifies Git operations over SS
 ghe-find-insecure-git-operations
 ```
 
-{% endif %}
+
 
 ## Support
 

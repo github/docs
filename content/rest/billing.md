@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.4'
+  ghes: '*'
 redirect_from:
   - /rest/reference/billing
 ---

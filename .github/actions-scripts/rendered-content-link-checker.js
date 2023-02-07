@@ -819,6 +819,16 @@ async function checkHrefLink(
     // But, if that link was a redirect, that would have been left
     // untouched.
     if (pathname.endsWith('/')) {
+      const whatifPathname = pathname.slice(0, -1)
+      if (getRedirect(whatifPathname, { redirects, pages: pageMap })) {
+        return {
+          WARNING: `Redirect to ${getRedirect(whatifPathname, { redirects, pages: pageMap })}`,
+        }
+      } else if (!pageMap[whatifPathname]) {
+        if (!deprecatedVersionPrefixesRegex.test(whatifPathname)) {
+          return { CRITICAL: 'Broken link' }
+        }
+      }
       return { WARNING: 'Links with a trailing / will always redirect' }
     } else {
       if (pathname.split('/')[1] in STATIC_PREFIXES) {

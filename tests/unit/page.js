@@ -351,20 +351,6 @@ describe('Page class', () => {
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
-    test('permalinks for dotcom-only pages', async () => {
-      const page = await Page.init({
-        relativePath: 'authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en',
-      })
-      const expectedPath = '/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port'
-      expect(
-        page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
-      ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(2)
-    })
-
     test('permalinks for enterprise-only pages', async () => {
       const page = await Page.init({
         relativePath: 'products/admin/some-category/some-article.md',

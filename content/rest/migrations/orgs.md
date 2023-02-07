@@ -6,7 +6,7 @@ intro: 'Use the REST API to move a repository from {% data variables.product.pro
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
   ghae: '*'
 topics:
   - API

@@ -54,7 +54,7 @@ To set a custom environment variable{% ifversion actions-configuration-variables
 * A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Greeting on variable day
 
 on:
@@ -184,7 +184,7 @@ In addition to runner environment variables, {% data variables.product.prodname_
 Runner environment variables are always interpolated on the runner machine. However, parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You cannot use environment variables in these parts of a workflow file. Instead, you can use contexts. For example, an `if` conditional, which determines whether a job or step is sent to the runner, is always processed by {% data variables.product.prodname_actions %}. You can use a context in an `if` conditional statement to access the value of an variable.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 env:
   DAY_OF_WEEK: Monday
 
@@ -211,7 +211,6 @@ In this modification of the earlier example, we've introduced an `if` conditiona
 {% endnote %}
 
 You will commonly use either the `env` or `github` context to access variable values in parts of the workflow that are processed before jobs are sent to runners.
-
 
 | Context | Use case | Example |
 | --- | --- | --- |
@@ -255,7 +254,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
@@ -308,7 +307,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 You can write a single workflow file that can be used for different operating systems by using the `RUNNER_OS` default environment variable and the corresponding context property <span style="white-space: nowrap;">{% raw %}`${{ runner.os }}`{% endraw %}</span>. For example, the following workflow could be run successfully if you changed the operating system from `macos-latest` to `windows-latest` without having to alter the syntax of the environment variables, which differs depending on the shell being used by the runner.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 jobs:
   if-Windows-else:
     runs-on: macos-latest

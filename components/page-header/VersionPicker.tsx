@@ -1,20 +1,24 @@
 import { useRouter } from 'next/router'
 import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
+import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Picker } from 'components/ui/Picker'
 
+import styles from './VersionPicker.module.scss'
+
 type Props = {
-  variant: 'inline' | 'header'
+  mediumOrLower?: boolean
 }
 
-export const VersionPicker = ({ variant }: Props) => {
+export const VersionPicker = ({ mediumOrLower }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
   const { t } = useTranslation(['pages', 'picker'])
+  const isSearchResultsPage = router.route === '/search' || router.route === '/[versionId]/search'
 
   if (page.permalinks && page.permalinks.length < 1) {
     return null
@@ -23,16 +27,31 @@ export const VersionPicker = ({ variant }: Props) => {
   const allLinks = (page.permalinks || []).map((permalink) => ({
     text: allVersions[permalink.pageVersion].versionTitle,
     selected: currentVersion === permalink.pageVersion,
-    href: permalink.href,
+    href:
+      isSearchResultsPage && typeof router.query.query === 'string'
+        ? permalink.href + `?${new URLSearchParams({ query: router.query.query })}`
+        : permalink.href,
     extra: {
       arrow: false,
       info: false,
     },
+    divider: false,
   }))
 
   const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
     permalink.pageVersion.startsWith('enterprise-server')
   )
+
+  allLinks.push({
+    text: '',
+    selected: false,
+    href: ``,
+    extra: {
+      arrow: false,
+      info: false,
+    },
+    divider: true,
+  })
 
   if (hasEnterpriseVersions) {
     allLinks.push({
@@ -43,6 +62,7 @@ export const VersionPicker = ({ variant }: Props) => {
         arrow: true,
         info: false,
       },
+      divider: false,
     })
   }
 
@@ -57,21 +77,23 @@ export const VersionPicker = ({ variant }: Props) => {
         arrow: false,
         info: true,
       },
+      divider: false,
     })
   }
 
   return (
     <div data-testid="version-picker">
       <Picker
-        variant={variant}
         defaultText={t('version_picker_default_text')}
         items={allLinks}
-        alignment="end"
+        alignment="start"
+        pickerLabel="Version"
         dataTestId="field"
-        ariaLabel="Select field type"
+        buttonBorder={mediumOrLower}
+        ariaLabel="Select GitHub product version"
         renderItem={(item) => {
           return (
-            <div className={item.extra?.arrow || item.extra?.info ? 'f6' : undefined}>
+            <div data-testid="version-picker-item" className={cx(styles.itemsWidth)}>
               {item.text}
               {item.extra?.arrow && (
                 <ArrowRightIcon verticalAlign="middle" size={15} className="ml-1" />

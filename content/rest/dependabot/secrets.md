@@ -6,7 +6,7 @@ topics:
   - API
 versions:
   fpt: '*'
-  ghes: '>=3.4'
+  ghes: '*'
   ghec: '*'
 allowTitleToDifferFromFilename: true
 ---

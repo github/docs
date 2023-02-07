@@ -2,7 +2,7 @@
 title: Getting the most out of your included usage
 shortTitle: Included usage
 allowTitleToDifferFromFilename: true
-intro: Find out about the free use of {% data variables.product.prodname_github_codespaces %} that's included with personal accounts.
+intro: 'Find out about the free use of {% data variables.product.prodname_github_codespaces %} that''s included with personal accounts.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -38,7 +38,7 @@ You can see the storage usage for each of your codespaces on the "Your codespace
 {% note %}
 
 **Notes**
-- The figure shows the total size of the codespace. If the dev container for a codespace was built from the default image, storage of the base container is not counted as part of your included storage.
+- If the dev container for a codespace was built from the default image, the size of the codespace shown on this page does not include the size of the base dev container. Storage for the base dev container is provided free of charge. For more information, see "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)" below.
 - The "Your codespaces" page does not list any prebuilds you may have set up. Prebuilds consume storage for a repository, even if you do not currently have any codespaces for that repository. For more information, see "[About {% data variables.product.prodname_github_codespaces %} prebuilds](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."
 
 {% endnote %}
@@ -47,7 +47,7 @@ For billing purposes, {% data variables.product.prodname_codespaces %} storage i
 
 ## Understanding your {% data variables.product.prodname_codespaces %} usage
 
-You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](http://127.0.0.1:4000/en/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. For more information, see "[Viewing your {% data variables.product.prodname_github_codespaces %} usage](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
@@ -59,11 +59,9 @@ To see your {% data variables.product.prodname_codespaces %} usage, filter the r
 
 ### Storage usage for your base dev container
 
-If you don't add a dev container configuration to your repository, or if your configuration does not specify an image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. Storage of base dev containers built from the default Linux image is free of charge and does not consume your included storage. Your storage usage will be based only on the files in your repository, and any files you subsequently add to the codespace, including {% data variables.product.prodname_vscode_shortname %} extensions. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage.
+If you don't add a dev container configuration to your repository, or if your configuration does not specify an image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. Storage of base dev containers built from the default Linux image is free of charge and does not consume your included storage. Your storage usage will be based only on the files in your repository, and any files you subsequently add to the codespace, including {% data variables.product.prodname_vscode_shortname %} extensions. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage. {% data reusables.codespaces.default-image-contents %}
 
-You can check which image was used to create a codespace's dev container.
-
-In the Terminal of your codespace, run this command.
+You can check which image was used to create a codespace's dev container. In the Terminal of your codespace, run this command.
 
 ```shell{:copy}
 devcontainer-info
@@ -104,5 +102,3 @@ If the dev container for the current codespace was built from the default image,
 
   Alternatively, you can check which repositories have prebuilds by reviewing a usage report. For more information, see "[Understanding your {% data variables.product.prodname_codespaces %} usage](#understanding-your-codespaces-usage)" above.
 - Storage of containers built from the default Linux image for codespaces is free of charge and does not reduce your included storage. You can therefore avoid your storage allowance being consumed by your dev container by using the default image in your dev container configuration, rather than specifying a more specialized image. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)" above.
-
-  {% data reusables.codespaces.default-image-contents %}

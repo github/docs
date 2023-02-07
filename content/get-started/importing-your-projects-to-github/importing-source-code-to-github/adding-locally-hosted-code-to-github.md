@@ -23,7 +23,7 @@ If you have existing source code or repositories stored locally on your computer
 
 {% tip %}
 
-**Tip:** If you're most comfortable with a point-and-click user interface, try adding your project with {% data variables.product.prodname_desktop %}. For more information, see "[Adding a repository from your local computer to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop)" in the *{% data variables.product.prodname_desktop %} Help*.
+**Tip:** If you're most comfortable with a point-and-click user interface, try adding your project with {% data variables.product.prodname_desktop %}. For more information, see "[Adding a repository from your local computer to GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)" in the *{% data variables.product.prodname_desktop %} Help*.
 
 {% endtip %}
 
@@ -84,14 +84,14 @@ If you have existing source code or repositories stored locally on your computer
   ```
 7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
+8. In Terminal, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
   ```shell
   $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.location.product_location %}.
+9. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
   ```shell
   $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -101,7 +101,7 @@ If you have existing source code or repositories stored locally on your computer
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.location.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.location.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
@@ -130,14 +130,14 @@ If you have existing source code or repositories stored locally on your computer
   ```
 7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In the Command prompt, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
+8. In the Command prompt, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
   ```shell
   $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.location.product_location %}.
+9. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
   ```shell
   $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -147,7 +147,7 @@ If you have existing source code or repositories stored locally on your computer
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.location.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.location.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
 	![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
@@ -176,14 +176,14 @@ If you have existing source code or repositories stored locally on your computer
   ```
 7. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
+8. In Terminal, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
   ```shell
   $ git remote add origin &lt;REMOTE_URL>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.location.product_location %}.
+9. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
   ```shell
   $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
