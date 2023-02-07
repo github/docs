@@ -5,7 +5,7 @@ intro: 'Build security into your {% data variables.product.prodname_dotcom %} wo
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
-  guides:
+  startHere:
     - /code-security/getting-started/securing-your-repository
     - /code-security/getting-started/securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory{% endif %}'

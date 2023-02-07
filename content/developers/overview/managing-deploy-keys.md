@@ -23,18 +23,18 @@ You can manage SSH keys on your servers when automating deployment scripts using
 
 In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use. Agent forwarding uses the same SSH keys that your local development computer uses.
 
-### Pros
+### Pros of SSH agent forwarding
 
 * You do not have to generate or keep track of any new keys.
 * There is no key management; users have the same permissions on the server that they do locally.
 * No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
 
-### Cons
+### Cons of SSH agent forwarding
 
 * Users **must** SSH in to deploy; automated deploy processes can't be used.
 * SSH agent forwarding can be troublesome to run for Windows users.
 
-### Setup
+### Set up SSH agent forwarding
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
 2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
@@ -44,7 +44,7 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 
 If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
-### Pros
+### Pros of HTTPS cloning with OAuth tokens
 
 * Anyone with access to the server can deploy the repository.
 * Users don't have to change their local SSH settings.
@@ -54,12 +54,12 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 * Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
-### Cons
+### Cons of HTTPS cloning with OAuth tokens
 
 * You must make sure that you configure your token with the correct access scopes.
 * Tokens are essentially passwords, and must be protected the same way.
 
-### Setup
+### Set up HTTPS cloning with OAuth tokens
 
 See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
@@ -69,18 +69,18 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-### Pros
+### Pros of deploy keys
 
 * Anyone with access to the repository and server has the ability to deploy the project.
 * Users don't have to change their local SSH settings.
 * Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
 
-### Cons
+### Cons of deploy keys
 
 * Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
 * Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
 
-### Setup
+### Set up deploy keys
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 {% data reusables.profile.navigating-to-profile %}
@@ -125,19 +125,19 @@ If your server needs to access repositories across one or more organizations, yo
 
 Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
-### Pros
+### Pros of server-to-server tokens
 
 - Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
 - Dedicated rate limits that grow with your organization.
 - Decoupled from GitHub user identities, so they do not consume any licensed seats.
 - Never granted a password, so cannot be directly signed in to.
 
-### Cons
+### Cons of server-to-server tokens
 
 - Additional setup is needed to create the GitHub App.
 - Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
 
-### Setup
+### Set up server-to-server tokens
 
 1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
 1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
@@ -167,18 +167,18 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 {% endif %}
 
-### Pros
+### Pros of machine users
 
 * Anyone with access to the repository and server has the ability to deploy the project.
 * No (human) users need to change their local SSH settings.
 * Multiple keys are not needed; one per server is adequate.
 
-### Cons
+### Cons of machine users
 
 * Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
 * Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
-### Setup
+### Set up machine users
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
 2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.

@@ -17,7 +17,7 @@ shortTitle: Delete a codespace
 
 ## Overview
 
-{% data reusables.codespaces.automatic-deletion %} For more information, see "[Configuring automatic deletion of your codespaces](http://127.0.0.1:4000/en/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
+{% data reusables.codespaces.automatic-deletion %} For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
 
 You can manually delete a codespace in a variety of ways:
 - In the terminal by using {% data variables.product.prodname_cli %}

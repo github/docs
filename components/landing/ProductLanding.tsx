@@ -34,7 +34,7 @@ export const ProductLanding = () => {
       <div data-search="article-body">
         {router.query.productId === 'rest' && <RestRedirect />}
         <LandingSection className="pt-3">
-          <div className={cx('my-3 mr-auto width-full')} data-search="breadcrumbs">
+          <div className={cx('my-3 mr-auto width-full')}>
             <Breadcrumbs />
           </div>
           <LandingHero />

@@ -49,6 +49,7 @@ jobs:
               'routing',
               'unit',
               'linting',
+              'rendering-fixtures',
             ];
             if (context.payload.repository.full_name === 'github/docs-internal') {
               all.push('translations');
@@ -109,6 +110,10 @@ jobs:
         run: |
           .github/actions-scripts/merge-early-access.sh
           rm -fr docs-early-access
+
+      - name: Check the test fixture data (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        run: ./script/copy-fixture-data.js --check
 
       - name: Clone all translations
         if: ${{ matrix.test-group == 'translations' }}
@@ -172,4 +177,5 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.test-group == 'translations' && 'all' || '' }}
+          ROOT: ${{ matrix.test-group == 'rendering-fixtures' && 'tests/fixtures' || ''}}
         run: npm test -- tests/${{ matrix.test-group }}/

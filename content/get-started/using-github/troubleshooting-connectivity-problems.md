@@ -14,7 +14,7 @@ Most often, connection problems occur because a firewall, proxy server, corporat
 
 ## Allowing {% data variables.product.prodname_dotcom %}'s IP addresses
 
-Make sure your network is configured to allow {% data variables.product.prodname_dotcom %}'s IP addresses. For more information, see "[About {% data variables.product.prodname_dotcom %}'s IP addresses](/articles/about-github-s-ip-addresses)."
+Make sure your network is configured to allow {% data variables.product.prodname_dotcom %}'s IP addresses. For more information, see "[About {% data variables.product.prodname_dotcom %}'s IP addresses](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
 
 ## Using a company or organization's network
 
@@ -24,7 +24,7 @@ If you're having connectivity problems on your company or organization's network
 
 If you're unable to verify with the captcha:
 - Ensure JavaScript is enabled on your browser.
-- Ensure your browser is supported. If your browser isn't supported, upgrade your browser or install a supported browser. For a list of supported browsers, see "[Supported browsers](/articles/supported-browsers)."
+- Ensure your browser is supported. If your browser isn't supported, upgrade your browser or install a supported browser. For a list of supported browsers, see "[Supported browsers](/get-started/using-github/supported-browsers)."
 - Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed, then visit https://client-demo.arkoselabs.com/github and ensure you are able to load the captcha.
 - Ensure your browser does not have plug-ins or extensions that may be interfering with GitHub. If so, temporarily disable the plug-ins or extensions during captcha verification.
 
@@ -34,7 +34,7 @@ Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve c
 
 If you prefer to use SSH but the port is blocked, you can use an alternative port. For more information, see "[Using SSH over the HTTPS port](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)".
 
-If you're encountering timeouts with SSH, see "[Error: Bad file number](/articles/error-bad-file-number)."
+If you're encountering timeouts with SSH, see "[Error: Bad file number](/authentication/troubleshooting-ssh/error-bad-file-number)."
 
 ## Troubleshooting slow downloads and intermittent slow connections
 

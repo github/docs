@@ -21,7 +21,7 @@ versions:
 introLinks:
   overview: /authentication/keeping-your-account-and-data-secure/about-authentication-to-github
 featuredLinks:
-  guides:
+  startHere:
     - /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
     - /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
     - /authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication

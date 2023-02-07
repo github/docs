@@ -37,7 +37,7 @@ Every person who uses {% data variables.location.product_location %} signs into 
 
 Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.location.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
 
-{% ifversion fpt or ghec %}Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." {% else %}You can create an unlimited number of repositories owned by your personal account, with an unlimited number of collaborators on those repositories.{% endif %}
+{% ifversion fpt or ghec %}Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)." {% else %}You can create an unlimited number of repositories owned by your personal account, with an unlimited number of collaborators on those repositories.{% endif %}
 
 {% tip %}
 
@@ -46,7 +46,7 @@ Your personal account can own resources such as repositories, packages, and proj
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)."
+Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple personal accounts](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts)."
 {% endif %}
 
 ## Organization accounts
@@ -62,7 +62,7 @@ The personal accounts within an organization can be given different roles in the
 {% ifversion fpt or ghec %} 
 Even if you're a member of an organization that uses SAML single sign-on, you will still sign into your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
 
-However, if you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, instead of using a personal account that you created, a new account will be provisioned for you by the enterprise's IdP. To access any organizations owned by that enterprise, you must authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+However, if you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, instead of using a personal account that you created, a new account will be provisioned for you by the enterprise's IdP. To access any organizations owned by that enterprise, you must authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 {% endif %}
 
 You can also create nested sub-groups of organization members called teams, to reflect your group's structure and simplify access management. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
@@ -84,6 +84,6 @@ Your enterprise account is a collection of all the organizations {% ifversion gh
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
-- "[Creating a new organization account](/articles/creating-a-new-organization-account)"
+- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)"{% endif %}
+- "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
 - [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
