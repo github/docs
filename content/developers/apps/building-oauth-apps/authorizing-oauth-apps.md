@@ -46,7 +46,7 @@ The web application flow to authorize users for your app is:
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
-#### Parameters
+#### Input parameters for `GET {% data variables.product.oauth_host_code %}/login/oauth/authorize`
 
 Name | Type | Description
 -----|------|--------------
@@ -65,7 +65,7 @@ Exchange this `code` for an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### Input parameters for `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 Name | Type | Description
 -----|------|--------------
@@ -74,7 +74,7 @@ Name | Type | Description
 `code` | `string` | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users are sent after authorization.
 
-#### Response
+#### Response from `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 By default, the response takes the following form:
 
@@ -143,14 +143,14 @@ Before you can use the device flow to authorize and identify users, you must fir
 
 Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
-#### Input Parameters
+#### Input parameters for `POST {% data variables.product.oauth_host_code %}/login/device/code`
 
 Name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
 `scope` | `string` | The scope that your app is requesting access to.
 
-#### Response
+#### Response from `POST {% data variables.product.oauth_host_code %}/login/device/code`
 
 By default, the response takes the following form:
 
@@ -182,7 +182,7 @@ Accept: application/xml
 </OAuth>
 ```
 
-#### Response parameters
+#### Response parameters for `POST {% data variables.product.oauth_host_code %}/login/device/code`
 
 Name | Type | Description
 -----|------|--------------
@@ -208,7 +208,7 @@ The user must enter a valid code within 15 minutes (or 900 seconds). After 15 mi
 
 Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
-#### Input parameters
+#### Input parameters for `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 Name | Type | Description
 -----|------|--------------
@@ -216,7 +216,7 @@ Name | Type | Description
 `device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
 
-#### Response
+#### Response from `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 By default, the response takes the following form:
 

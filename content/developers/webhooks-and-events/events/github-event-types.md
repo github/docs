@@ -94,7 +94,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for CommitCommentEvent
 
 {% data reusables.webhooks.commit_comment_properties %}
 
@@ -104,7 +104,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for CreateEvent
 
 {% data reusables.webhooks.create_properties %}
 
@@ -114,7 +114,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for DeleteEvent
 
 {% data reusables.webhooks.delete_properties %}
 
@@ -124,7 +124,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for ForkEvent
 
 {% data reusables.webhooks.fork_properties %}
 
@@ -134,7 +134,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for GollumEvent
 
 {% data reusables.webhooks.gollum_properties %}
 
@@ -144,7 +144,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for IssueCommentEvent
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -155,7 +155,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for IssuesEvent
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -166,7 +166,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for MemberEvent
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -175,7 +175,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-### Event `payload` object
+### Event `payload` object for PublicEvent
 
 This event returns an empty `payload` object.
 {% endif %}
@@ -185,7 +185,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestEvent
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -196,7 +196,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestReviewEvent
 
 Key | Type | Description
 ----|------|-------------
@@ -210,7 +210,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
@@ -221,7 +221,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestReviewThreadEvent
 
 {% data reusables.webhooks.pull_request_thread_properties %}
 
@@ -231,7 +231,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PushEvent
 
 Key | Type | Description
 ----|------|-------------
@@ -256,7 +256,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for ReleaseEvent
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -266,7 +266,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-### Event `payload` object
+### Event `payload` object for SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
@@ -278,6 +278,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for WatchEvent
 
 {% data reusables.webhooks.watch_properties %}
