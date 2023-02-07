@@ -30,6 +30,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-timeout-handler": "^2.2.2",
+    "fastest-levenshtein": "1.0.16",
     "file-type": "18.2.0",
     "flat": "^5.0.2",
     "github-slugger": "^2.0.0",
