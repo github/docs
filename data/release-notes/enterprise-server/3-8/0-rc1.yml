@@ -18,14 +18,6 @@ sections:
         - |
           Projects, the flexible tool for planning and tracking work on GitHub Enterprise Server, is now available as a beta. A project is an adaptable spreadsheet that integrates issues and pull requests to help users plan and track work effectively. Users can create and customize multiple views, and each view can filter, sort, and group issues and pull requests. Users can also define custom fields to track the unique metadata for a team or project, allowing customization for any needs or processes. This feature is subject to change. For more information, see "[About Projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
-    - heading: REST API versioning
-      notes:
-        # https://github.com/github/releases/issues/2022
-        - |
-          To provide API integrators a smooth migration path and time to update integrations after GitHub makes occasional breaking changes, the REST API now uses calendar-based versioning. GitHub Enterprise Server 3.8 provides version 2022-11-28 of the REST API. For more information, see "[API Versions](/rest/overview/api-versions?apiVersion=2022-11-28)" in the REST API documentation.
-
-          If you currently use the REST API, requests that do not specify a version will default to the calendar version included with this release of GitHub Enterprise Server. No action is required at this time. GitHub will provide advance notice before removing support for old versions.
-
     - heading: Instance administration
       notes:
         # https://github.com/github/releases/issues/2701
