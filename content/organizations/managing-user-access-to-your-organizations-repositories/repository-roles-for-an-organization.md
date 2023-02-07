@@ -153,9 +153,9 @@ Some of the features listed below are limited to organizations using {% data var
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
-|:---|:---:|:---:|:---:|:---:|:---:| 
-| Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **✔️** |
-| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies) in a repository | | | {% ifversion dependabot-alerts-permissions-write-maintain %}**✔️**{% endif %} | {% ifversion dependabot-alerts-permissions-write-maintain %}**✔️**{% endif %} | **✔️** |
+| [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | {% ifversion dependabot-alerts-permissions-write-maintain %}**✔️**{% endif %} | {% ifversion dependabot-alerts-permissions-write-maintain %}**✔️**{% endif %} | **✔️** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
 | [Designate additional people or teams to receive security alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) | | | | | **✔️** |{% endif %}{% ifversion fpt or ghec %}
 | Create [security advisories](/code-security/security-advisories/about-github-security-advisories) | | | | | **✔️** |{% endif %}{% ifversion ghes or ghae or ghec %} <!--Not available for FPT-->
 | Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)") | | | | | **✔️** |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES and GHAE-->
