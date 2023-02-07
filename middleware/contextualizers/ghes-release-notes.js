@@ -1,5 +1,6 @@
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
 import { all } from '../../lib/enterprise-server-releases.js'
+import { executeWithFallback } from '../../lib/render-with-fallback.js'
 import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghesReleaseNotesContext(req, res, next) {
@@ -28,7 +29,21 @@ export default async function ghesReleaseNotesContext(req, res, next) {
 
   // Run the current release notes through the markdown rendering pipeline.
   // Returns the current release's patches array: [{version, patchVersion, intro, date, sections}]
-  req.context.ghesReleaseNotes = await renderPatchNotes(currentReleaseNotes, req.context)
+  req.context.ghesReleaseNotes = await executeWithFallback(
+    req.context,
+    () => renderPatchNotes(currentReleaseNotes, req.context),
+    (enContext) => {
+      // Something in the release notes ultimately caused a Liquid
+      // rendering error. Let's start over and gather the English release
+      // notes instead.
+      const ghesReleaseNotes = getReleaseNotes('enterprise-server', 'en')
+      enContext.ghesReleases = formatReleases(ghesReleaseNotes)
+      const currentReleaseNotes = enContext.ghesReleases.find(
+        (r) => r.version === requestedRelease
+      ).patches
+      return renderPatchNotes(currentReleaseNotes, enContext)
+    }
+  )
 
   // GHES release notes on docs started with 2.20 but older release notes exist on enterprise.github.com.
   // So we want to use _all_ GHES versions when calculating next and previous releases.
