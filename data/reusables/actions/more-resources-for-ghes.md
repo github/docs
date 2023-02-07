@@ -1,11 +1,6 @@
 If you plan to enable {% data variables.product.prodname_actions %} for the users of your instance, more resources are required.
 
 
-{%- ifversion ghes = 3.3 %}
-
-{% data reusables.actions.hardware-requirements-3.3 %}
-
-{%- endif %}
 
 {%- ifversion ghes = 3.4 %}
 

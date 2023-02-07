@@ -78,7 +78,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   ```
   For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
-2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/articles/cloning-a-repository/) to your local computer.
+2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/repositories/creating-and-managing-repositories/cloning-a-repository) to your local computer.
   ```shell
   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
   > Initialized empty Git repository in /Users/YOUR-FILE-PATH/YOUR-REPOSITORY/.git/
@@ -139,7 +139,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME.YOUR-REPOSITORY.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. In order to remove the sensitive file from [your tagged releases](/articles/about-releases), you'll also need to force-push against your Git tags:
+8. In order to remove the sensitive file from [your tagged releases](/repositories/releasing-projects-on-github/about-releases), you'll also need to force-push against your Git tags:
   ```shell
   $ git push origin --force --tags
   > Counting objects: 321, done.
@@ -189,4 +189,4 @@ There are a few simple tricks to avoid committing things you don't want committe
 
 - [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
 - [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
-- "[About Secret scanning](/code-security/secret-security/about-secret-scanning)"
+- "[About Secret scanning](/code-security/secret-scanning/about-secret-scanning)"

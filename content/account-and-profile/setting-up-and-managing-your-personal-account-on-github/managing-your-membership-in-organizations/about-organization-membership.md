@@ -29,7 +29,7 @@ When you accept an invitation to join an organization, the organization owners m
 - Country of request origin
 - Your IP address
 
-For more information, see the <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Privacy Statement</a>.
+For more information, see the [{% data variables.product.prodname_dotcom %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement).
 
   {% note %}
 

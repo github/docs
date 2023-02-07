@@ -46,6 +46,21 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
   ![Screenshot showing the zoom level options](/assets/images/help/projects-v2/roadmap-zoom-menu.png)
 
+{% ifversion projects-v2-consistent-sorting %}
+
+## Sorting by field values
+
+You can sort items by a field value.
+
+{% note %}
+
+**Note:** When a roadmap is sorted, you cannot manually reorder rows.
+
+{% endnote %}
+
+{% data reusables.projects.customize.sort %}
+
+{% endif %}
 
 ## Showing and hiding fields
 

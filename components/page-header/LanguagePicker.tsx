@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
+import { GlobeIcon } from '@primer/octicons-react'
 
 import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Picker } from 'components/ui/Picker'
+
 import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 function rememberPreferredLanguage(value: string) {
@@ -31,10 +33,10 @@ function rememberPreferredLanguage(value: string) {
 }
 
 type Props = {
-  variant: 'inline' | 'header'
+  mediumOrLower?: boolean
 }
 
-export const LanguagePicker = ({ variant }: Props) => {
+export const LanguagePicker = ({ mediumOrLower }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
 
@@ -63,7 +65,6 @@ export const LanguagePicker = ({ variant }: Props) => {
   return (
     <div data-testid="language-picker">
       <Picker
-        variant={variant}
         defaultText={t('language_picker_default_text')}
         items={langs.map((lang) => ({
           text: lang.nativeName || lang.name,
@@ -73,12 +74,15 @@ export const LanguagePicker = ({ variant }: Props) => {
             locale: lang.code,
           },
         }))}
+        pickerLabel={mediumOrLower ? 'Language' : ''}
+        iconButton={mediumOrLower ? undefined : GlobeIcon}
         onSelect={(item) => {
           if (item.extra?.locale) rememberPreferredLanguage(item.extra.locale)
         }}
-        dataTestId="field"
-        ariaLabel="Select field type"
-        alignment="center"
+        buttonBorder={mediumOrLower}
+        dataTestId="default-language"
+        ariaLabel="Select language"
+        alignment={mediumOrLower ? 'start' : 'end'}
       />
     </div>
   )

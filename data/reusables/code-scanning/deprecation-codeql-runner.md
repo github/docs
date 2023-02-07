@@ -4,13 +4,9 @@
 
 **Note:** The {% data variables.code-scanning.codeql_runner %} is deprecated. On {% data variables.product.product_name %}, the {% data variables.code-scanning.codeql_runner %} was supported until March 2022. You should upgrade to the latest version of [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
 
-{% elsif ghes > 3.3 %}
+{% elsif ghes %}
 
 **Note:** The {% data variables.code-scanning.codeql_runner %} has been deprecated and is not included in {% data variables.product.prodname_ghe_server %} 3.4. You should migrate to [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.7.6. 
-
-{% elsif ghes < 3.4 %}
-
-**Note:** The {% data variables.code-scanning.codeql_runner %} is being deprecated. On {% data variables.product.prodname_ghe_server %} 3.0 and greater, you can install [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases) version 2.6.3 to replace {% data variables.code-scanning.codeql_runner %}. 
 
 {% elsif ghae %}
 

@@ -51,7 +51,7 @@ After adding a new SSH authentication key to your account on {% ifversion ghae %
 {% ifversion ssh-commit-verification %}
 6. Select the type of key, either authentication or signing. For more information about commit signing, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 {% endif %}
-7. Paste your key into the "Key" field.
+7. Paste your public key into the "Key" field.
 {% ifversion ssh-commit-verification %}
   ![The key field](/assets/images/help/settings/ssh-key-paste-with-type.png)
 {% else %}

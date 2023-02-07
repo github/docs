@@ -50,7 +50,7 @@ These third party solutions include:
 
 While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
 
-For more information about the Meta API, see "[Meta](/rest/reference/meta)."
+For more information about the Meta API, see "[Meta](/rest/meta)."
 
 ## Restricting access to the public internet
 

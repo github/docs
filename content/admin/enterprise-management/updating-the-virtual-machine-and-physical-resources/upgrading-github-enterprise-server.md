@@ -48,7 +48,7 @@ shortTitle: Upgrading GHES
 
 A snapshot is a checkpoint of a virtual machine (VM) at a point in time. We highly recommend taking a snapshot before upgrading your virtual machine so that if an upgrade fails, you can revert your VM back to the snapshot. We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
 
-If you're upgrading to a new feature release, you must take a VM snapshot. If you're upgrading to a patch release, you can attach the existing data disk. 
+If you're upgrading to a new feature release, you must take a VM snapshot. If you're upgrading to a patch release, you can attach the existing data disk.
 
 There are two types of snapshots:
 
@@ -73,7 +73,7 @@ There are two types of snapshots:
 
 ## Upgrading with a hotpatch
 
-{% data reusables.enterprise_installation.hotpatching-explanation %} 
+{% data reusables.enterprise_installation.hotpatching-explanation %}
 
 Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/admin/guides/installation/upgrade-requirements/)."
 
@@ -89,6 +89,8 @@ Using the {% data variables.enterprise.management_console %}, you can install a 
 {% endnote %}
 
 ### Upgrading a single appliance with a hotpatch
+
+If you're upgrading a single appliance with a hotpatch and your target is a patch release, you can use the {% data variables.enterprise.management_console %}. To upgrade to a feature release, you must use the administrative shell.
 
 #### Installing a hotpatch using the {% data variables.enterprise.management_console %}
 
@@ -131,11 +133,11 @@ If the upgrade target you're presented with is a feature release instead of a pa
 
 Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
 
-#### Upgrading the primary instance
+#### Upgrading the primary instance with a hotpatch
 
 1. Upgrade the primary instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
 
-#### Upgrading a replica instance
+#### Upgrading a replica instance with a hotpatch
 
 {% note %}
 
@@ -194,7 +196,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
 Appliances configured for high-availability and geo-replication use replica instances in addition to primary instances. To upgrade these appliances, you'll need to upgrade both the primary instance and all replica instances, one at a time.
 
-#### Upgrading the primary instance
+#### Upgrading the primary instance with an upgrade package
 
 {% warning %}
 
@@ -207,7 +209,7 @@ Appliances configured for high-availability and geo-replication use replica inst
 3. On the replica instance, or on all replica instances if you're running multiple replica instances as part of geo-replication, run `ghe-repl-stop` to stop replication.
 4. Upgrade the primary instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)."
 
-#### Upgrading a replica instance
+#### Upgrading a replica instance with an upgrade package
 
 {% note %}
 
@@ -226,7 +228,7 @@ Appliances configured for high-availability and geo-replication use replica inst
    {% note %}
 
    **Note:** While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
-   
+
    ```
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
    ```
@@ -248,7 +250,7 @@ If an upgrade fails or is interrupted, you should revert your instance back to i
 
 To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas. 
+Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas.
 
 For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
 

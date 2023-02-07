@@ -41,7 +41,7 @@ shortTitle: Change your username
 
 You can change your username to another username that is not currently in use.{% ifversion fpt or ghec %} If the username you want is not available, consider other names or unique variations. Using a number, hyphen, or an alternative spelling might help you find a similar username that's still available.
 
-If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/free-pro-team@latest/github/site-policy/github-trademark-policy) page. 
+If you hold a trademark for the username, you can find more information about making a trademark complaint on our [Trademark Policy](/free-pro-team@latest/github/site-policy/github-trademark-policy) page.
 
 If you do not hold a trademark for the name, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
 
@@ -51,9 +51,15 @@ After changing your username, your old username becomes available for anyone els
 - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
 - Links to [gists](/articles/creating-gists) that include your old username
 
-{% ifversion fpt or ghec %} 
+{% ifversion fpt or ghec %}
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot make changes to your username. {% data reusables.enterprise-accounts.emu-more-info-account %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.accounts.rename-account-repo-namespace-retirement %} If you try to create a repository using a retired owner name and repository name combination, you will see the error: "The repository `<REPOSITORY_NAME>` has been retired and cannot be reused."
 
 {% endif %}
 

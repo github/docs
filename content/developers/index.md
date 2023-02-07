@@ -5,7 +5,7 @@ introLinks:
   About apps: /developers/apps/getting-started-with-apps/about-apps
 layout: product-landing
 featuredLinks:
-  guides:
+  startHere:
     - /developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps
     - /developers/apps/building-github-apps/creating-a-github-app
     - /developers/apps/building-github-apps/authenticating-with-github-apps

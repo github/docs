@@ -6,4 +6,8 @@ Any navigation to resources protected by an IP allow list will be filtered by th
 * {% data variables.product.pat_generic_caps %}
 * SSH keys
 
-All user credentials, including those belonging to administrators, are subject to IP allow list checks. IP allow lists are not enforced on traffic directed to public repositories.
+All user credentials, including those belonging to administrators, are subject to IP allow list checks.
+
+Only organization-owned repositories are subject to IP allow list checks. IP allow list restrictions are not enforced for repositories owned by a {% data variables.enterprise.prodname_managed_user %}. 
+
+IP allow lists are not enforced on traffic directed to public repositories.
