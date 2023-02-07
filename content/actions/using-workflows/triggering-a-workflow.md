@@ -118,7 +118,9 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs for manually triggered workflows
 
+{% data reusables.actions.workflow-dispatch %}
 {% data reusables.actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs-example %}
 
 {% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows

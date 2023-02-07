@@ -199,9 +199,27 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## `on.workflow_dispatch.inputs`
+## `on.workflow_dispatch`
+
+{% data reusables.actions.workflow-dispatch %}
+
+### `on.workflow_dispatch.inputs`
 
 {% data reusables.actions.workflow-dispatch-inputs %}
+
+#### Example
+
+{% data reusables.actions.workflow-dispatch-inputs-example %}
+
+#### `on.workflow_dispatch.inputs.<input_id>.required`
+
+A boolean specifying whether the input must be supplied.
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+#### `on.workflow_dispatch.inputs.<input_id>.type`
+
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `environment`, or `string`.
+{% endif %}
 
 ## `permissions`
 
