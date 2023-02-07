@@ -618,6 +618,8 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 {% ifversion fpt or ghec %}
 
+{% ifversion fpt or ghec %}
+
 ## Organization codespaces
 
 {% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces`](/rest/codespaces#list-in-organization) (read){% endif %}
@@ -646,6 +648,8 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 {% endif %}
 
 {% ifversion ghec %}
+
+{% endif %}
 
 ## Organization custom roles
 

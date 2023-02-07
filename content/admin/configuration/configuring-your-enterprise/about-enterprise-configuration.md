@@ -16,7 +16,7 @@ shortTitle: About configuration
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} For more information, see "[Site admin dashboard](/admin/configuration/site-admin-dashboard)."
 
-{% data reusables.enterprise_site_admin_settings.about-the-management-console %} For more information, see "[Accessing the management console](/admin/configuration/accessing-the-management-console)."
+{% data reusables.enterprise_site_admin_settings.management-console-overview %} For more information, see "[Accessing the {% data variables.enterprise.management_console %}](/admin/configuration/accessing-the-management-console)."
 
 {% data reusables.enterprise_site_admin_settings.about-ssh-access %} For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 {% endif %}

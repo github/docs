@@ -274,6 +274,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /codes_of_conduct`](/rest/codes-of-conduct#get-all-codes-of-conduct)
 - [`GET /codes_of_conduct/{key}`](/rest/codes-of-conduct#get-a-code-of-conduct)
 
+{% ifversion fpt or ghec %}
+
 ## codespaces
 
 - [`GET /orgs/{org}/codespaces`](/rest/codespaces#list-in-organization)
@@ -323,6 +325,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /user/codespaces/{codespace_name}/publish`](/rest/codespaces/codespaces#create-a-repository-from-an-unpublished-codespace)
 - [`POST /user/codespaces/{codespace_name}/start`](/rest/codespaces#start-a-codespace-for-the-authenticated-user)
 - [`POST /user/codespaces/{codespace_name}/stop`](/rest/codespaces#stop-a-codespace-for-the-authenticated-user)
+
+{% endif %}
 
 ## collaborators
 
@@ -464,6 +468,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /gitignore/templates`](/rest/gitignore#get-all-gitignore-templates)
 - [`GET /gitignore/templates/{name}`](/rest/gitignore#get-a-gitignore-template)
 
+{% ifversion fpt or ghec %}
+
 ## interactions
 
 - [`GET /orgs/{org}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-an-organization)
@@ -475,6 +481,8 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /user/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-your-public-repositories)
 - [`PUT /user/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-your-public-repositories)
 - [`DELETE /user/interaction-limits`](/rest/interactions#remove-interaction-restrictions-from-your-public-repositories)
+
+{% endif %}
 
 ## issues
 
@@ -544,12 +552,12 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/stats/commit_activity`](/rest/metrics/statistics#get-the-last-year-of-commit-activity)
 - [`GET /repos/{owner}/{repo}/stats/contributors`](/rest/metrics/statistics#get-all-contributor-commit-activity)
 - [`GET /repos/{owner}/{repo}/stats/participation`](/rest/metrics/statistics#get-the-weekly-commit-count)
-- [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day)
-- [`GET /repos/{owner}/{repo}/community/profile`](/rest/metrics/community#get-community-profile-metrics)
-- [`GET /repos/{owner}/{repo}/traffic/clones`](/rest/metrics/traffic#get-repository-clones)
-- [`GET /repos/{owner}/{repo}/traffic/popular/paths`](/rest/metrics/traffic#get-top-referral-paths)
-- [`GET /repos/{owner}/{repo}/traffic/popular/referrers`](/rest/metrics/traffic#get-top-referral-sources)
-- [`GET /repos/{owner}/{repo}/traffic/views`](/rest/metrics/traffic#get-page-views)
+- [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day){% ifversion fpt or ghec %}
+- [`GET /repos/{owner}/{repo}/community/profile`](/rest/metrics/community#get-community-profile-metrics){% endif %}{% ifversion fpt or ghec %}
+- [`GET /repos/{owner}/{repo}/traffic/clones`](/rest/metrics/traffic#get-repository-clones){% endif %}{% ifversion fpt or ghec %}
+- [`GET /repos/{owner}/{repo}/traffic/popular/paths`](/rest/metrics/traffic#get-top-referral-paths){% endif %}{% ifversion fpt or ghec %}
+- [`GET /repos/{owner}/{repo}/traffic/popular/referrers`](/rest/metrics/traffic#get-top-referral-sources){% endif %}{% ifversion fpt or ghec %}
+- [`GET /repos/{owner}/{repo}/traffic/views`](/rest/metrics/traffic#get-page-views){% endif %}
 
 ## migrations
 
@@ -618,23 +626,28 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /orgs/{org}/invitations/{invitation_id}`](/rest/orgs#cancel-an-organization-invitation)
 - [`GET /orgs/{org}/invitations/{invitation_id}/teams`](/rest/orgs#list-organization-invitation-teams)
 
+{% ifversion fpt or ghec %}
+
 ## packages
 
-- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization)
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization)
-- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization)
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization)
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization)
-- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user)
-- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user)
-- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user)
-- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user)
-- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user)
-- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user)
-- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user)
-- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user)
-- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user)
-- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user)
+{% ifversion fpt or ghec %}
+- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization){% endif %}{% ifversion fpt or ghec %}
+- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization){% endif %}{% ifversion fpt or ghec %}
+- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization){% endif %}{% ifversion fpt or ghec %}
+- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization){% endif %}{% ifversion fpt or ghec %}
+- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization){% endif %}{% ifversion fpt or ghec %}
+- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
+- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user){% endif %}{% ifversion fpt or ghec %}
+- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user){% endif %}{% ifversion fpt or ghec %}
+- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user){% endif %}
+
+{% endif %}
 
 ## pages
 
