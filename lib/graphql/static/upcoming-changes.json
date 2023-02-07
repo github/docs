@@ -8,6 +8,70 @@
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "stevepopovich"
+      },
+      {
+        "location": "MergeQueueEntry.isSolo",
+        "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
+        "reason": "<p><code>isSolo</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.hasJumpedQueue",
+        "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
+        "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.checkStatus",
+        "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>checkStatus</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.blockedByMergeConflicts",
+        "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.pendingRemovalEntries",
+        "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergingEntries",
+        "description": "<p><code>mergingEntries</code> will be removed.</p>",
+        "reason": "<p><code>mergingEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergeMethod",
+        "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
+        "reason": "<p><code>mergeMethod</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
       }
     ],
     "2023-04-01": [
@@ -248,6 +312,70 @@
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "stevepopovich"
+      },
+      {
+        "location": "MergeQueueEntry.isSolo",
+        "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
+        "reason": "<p><code>isSolo</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.hasJumpedQueue",
+        "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
+        "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.checkStatus",
+        "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>checkStatus</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.blockedByMergeConflicts",
+        "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.pendingRemovalEntries",
+        "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergingEntries",
+        "description": "<p><code>mergingEntries</code> will be removed.</p>",
+        "reason": "<p><code>mergingEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergeMethod",
+        "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
+        "reason": "<p><code>mergeMethod</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
       }
     ],
     "2023-04-01": [
@@ -1140,6 +1268,70 @@
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "stevepopovich"
+      },
+      {
+        "location": "MergeQueueEntry.isSolo",
+        "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
+        "reason": "<p><code>isSolo</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.hasJumpedQueue",
+        "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
+        "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.checkStatus",
+        "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>checkStatus</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.blockedByMergeConflicts",
+        "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
+        "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.pendingRemovalEntries",
+        "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergingEntries",
+        "description": "<p><code>mergingEntries</code> will be removed.</p>",
+        "reason": "<p><code>mergingEntries</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.mergeMethod",
+        "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
+        "reason": "<p><code>mergeMethod</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueue.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
       }
     ],
     "2023-04-01": [
