@@ -332,7 +332,6 @@ on:
   pull_request:
     types:
       - closed
-  workflow_dispatch:
 
 jobs:
   cleanup:
