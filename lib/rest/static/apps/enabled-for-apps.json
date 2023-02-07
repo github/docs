@@ -21928,7 +21928,7 @@
       }
     ]
   },
-  "ghes-3.8.2022-11-28": {
+  "ghes-3.8": {
     "actions": [
       {
         "slug": "get-github-actions-cache-usage-for-an-enterprise",
