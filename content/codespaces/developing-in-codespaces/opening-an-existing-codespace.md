@@ -26,6 +26,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 - See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 - See the machine type, size, and status of your codespaces.
 - Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- Prevent automatic deletion of a codespace. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 ## Opening an existing codespace
 
@@ -101,7 +102,7 @@ You can also access the commands listed above by navigating to the Remote Explor
    - To open a codespace in JupyterLab, enter:
 
      ```shell{:copy}
-     gh codespace code --jupyter
+     gh codespace jupyter
      ```
 
      {% note %}

@@ -69,7 +69,7 @@ introLinks:
 changelog:
   label: enterprise
 featuredLinks:
-  guides:
+  startHere:
     - '{% ifversion ghae %}/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise{% endif %}'
     - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
     - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

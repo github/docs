@@ -131,7 +131,7 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 1. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.location.product_location %}.
 
    ![Screenshot of option to enable option to respect the "administrator" attribute from the IdP to enable or disable administrative rights](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-{%- ifversion ghes > 3.3 %}
+{%- ifversion ghes %}
 1. Optionally, to allow {% data variables.location.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**. You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.location.product_location %}'s public certificate to your IdP. For more information, see "[Enabling encrypted assertions](/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions)."
 
    ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)

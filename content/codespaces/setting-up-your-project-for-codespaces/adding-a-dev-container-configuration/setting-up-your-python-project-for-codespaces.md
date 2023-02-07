@@ -39,7 +39,7 @@ The default development container, or "dev container," for {% data variables.pro
 
    ![Screenshot of the 'Python 3' option](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 
-1. Click the latest version of Python 3.
+1. Choose the version of Python you want to use for your project. In this case, select the version marked "(default)."
 
    ![Screenshot of the Python 3 version selection](/assets/images/help/codespaces/add-python-version.png)
 

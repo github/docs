@@ -39,9 +39,9 @@ The default development container, or "dev container," for {% data variables.pro
 
    ![Screenshot of the 'C# (.NET)' option](/assets/images/help/codespaces/add-csharp-prebuilt-container.png)
 
-1. Click the latest version of .NET.
+1. Choose the version of .NET you want to use for your project. In this case, select the version marked "(default)."
 
-   ![Screenshot of the Node.js version selection](/assets/images/help/codespaces/add-dotnet-version.png)
+   ![Screenshot of the .NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
 
 1. A list of additional features is displayed. We'll install the .NET CLI, a command-line interface for developing, building, running, and publishing .NET applications. To install this tool, type `dotnet`, select `Dotnet CLI`, then click **OK**.
 

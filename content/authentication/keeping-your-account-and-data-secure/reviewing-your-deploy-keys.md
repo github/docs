@@ -26,7 +26,7 @@ shortTitle: Deploy keys
 4. On the Deploy keys page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
 	![Deploy key list](/assets/images/help/settings/settings-deploy-key-review.png)
 
-For more information, see "[Managing deploy keys](/guides/managing-deploy-keys)."
+For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
 
 ## Further reading
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

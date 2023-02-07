@@ -4,7 +4,7 @@ intro: 'Learn how to use the search functions available on GitHub to find differ
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
-  guides:
+  startHere:
     - /search-github/searching-on-github/searching-issues-and-pull-requests
     - /search-github/searching-on-github/searching-code
     - /search-github/searching-on-github/searching-for-repositories

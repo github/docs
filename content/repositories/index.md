@@ -5,7 +5,7 @@ introLinks:
   quickstart: /get-started/quickstart/create-a-repo
   overview: /repositories/creating-and-managing-repositories/about-repositories
 featuredLinks:
-  guides:
+  startHere:
     - /repositories/creating-and-managing-repositories/cloning-a-repository
     - /repositories/creating-and-managing-repositories/restoring-a-deleted-repository
     - /repositories/working-with-files/managing-files/adding-a-file-to-a-repository

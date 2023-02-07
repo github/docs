@@ -72,14 +72,14 @@ To create codespaces with custom permissions defined, you must use one of the fo
    * `statuses` - read / write
    * `workflows` - write
 
-  To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
+  To set a permission for a repository in an organization, you must explicitly add that repository name in the `repositories` object.
 
   ```json
   {
     "customizations": {
       "codespaces": {
         "repositories": {
-          "my_org/*": {
+          "my_org/my_repo": {
             "permissions": {
               "issues": "write"
             }

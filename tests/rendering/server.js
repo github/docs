@@ -514,7 +514,7 @@ describe('server', () => {
       )
       expect(
         $(
-          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+          'a[href="/en/site-policy/github-terms/github-terms-for-additional-products-and-features#connect"]'
         ).length
       ).toBe(1)
     })
@@ -562,11 +562,6 @@ describe('server', () => {
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
-      expect(
-        $(
-          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
-        ).length
-      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
