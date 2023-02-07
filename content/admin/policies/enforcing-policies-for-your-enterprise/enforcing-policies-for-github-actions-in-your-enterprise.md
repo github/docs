@@ -179,8 +179,8 @@ However, you can set an enterprise policy to customize both the default total ca
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. In the "Artifact, cache and log settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
-1. In the "Artifact, cache and log settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
+1. In the "Artifact, log, and cache settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
+1. In the "Artifact, log, and cache settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
 
 {% else %}
 
