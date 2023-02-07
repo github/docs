@@ -47,7 +47,7 @@ export const ArticlePage = () => {
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
-        <div className={cx('my-3 mr-auto width-full')} data-search="breadcrumbs">
+        <div className={cx('my-3 mr-auto width-full')}>
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
