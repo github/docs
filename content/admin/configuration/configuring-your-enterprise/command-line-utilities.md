@@ -580,9 +580,28 @@ To create a standard bundle:
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
+{% ifversion specify-period-for-support-bundle %}
+
+To create a standard bundle including data from the last 3 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '3 hours' -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 2 days:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '2 days' -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 4 days and 8 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
+```
+
+{% endif %}
+
 To create an extended bundle:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
@@ -722,6 +741,14 @@ This utility tests the blob storage configuration for {% data variables.product.
 
 For more information about the configuration of {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
+{% ifversion ghes-actions-storage-oidc %}
+{% note %}
+
+**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. It does not work with OpenID Connect (OIDC) configurations.
+
+{% endnote %}
+{% endif %}
+
 ```shell
 ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
 ```
@@ -812,6 +839,25 @@ To create a standard bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
+
+{% ifversion specify-period-for-support-bundle %}
+
+To create a standard bundle including data from the last 3 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '3 hours' -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 2 days:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '2 days' -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 4 days and 8 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
+```
+
+{% endif %}
 
 To create an extended bundle:
 ```shell

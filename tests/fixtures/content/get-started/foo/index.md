@@ -10,5 +10,6 @@ versions:
 children:
   - /bar
   - /autotitling
+  - /typo-autotitling
   - /cross-version-linking
 ---
