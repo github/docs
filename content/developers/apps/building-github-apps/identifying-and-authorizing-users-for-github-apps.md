@@ -44,7 +44,7 @@ Direct the user to the following URL in their browser:
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
-#### Parameters
+#### Input parameters for `GET {% data variables.product.oauth_host_code %}/login/oauth/authorize`
 
 Name | Type | Description
 -----|------|------------
@@ -78,7 +78,7 @@ Make a request to the following endpoint to receive an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+#### Input parameters for `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 Name | Type | Description
 -----|------|------------
@@ -87,7 +87,7 @@ Name | Type | Description
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 
-#### Response
+#### Response from `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`
 
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable expiring user-to-server access tokens.
 

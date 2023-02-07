@@ -26,17 +26,17 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing account on {% data variables.location.product_location %}, unless the name is your own user or organization name.
 
-### Very short description
+### Very short description of listing
 
 The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
 
 ![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
 
-#### Length
+#### Length of "Very short description"
 
 We recommend keeping short descriptions to 40-80 characters. Although you are allowed to use more characters, concise descriptions are easier for customers to read and understand quickly.
 
-#### Content
+#### Content of "Very short description"
 
 - Describe the app’s functionality. Don't use this space for a call to action. For example:
 
@@ -52,7 +52,7 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
   **DON'T:** Skycap is a container-native continuous integration tool
 
-#### Formatting
+#### Formatting of "Very short description"
 
 - Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
 
@@ -142,19 +142,19 @@ Clicking **Read more...**, displays the "Detailed description."
 
 Follow these guidelines for writing these descriptions.
 
-### Length
+### Length of "Introductory description" and "Detailed description"
 
 We recommend writing a 1-2 sentence high-level summary between 150-250 characters in the required "Introductory description" field when [listing your app](/marketplace/listing-on-github-marketplace/). Although you are allowed to use more characters, concise summaries are easier for customers to read and understand quickly.
 
 You can add more information in the optional "Detailed description" field. You see this description when you click **Read more...** below the introductory description on your app's landing page. A detailed description consists of 3-5 [value propositions](https://en.wikipedia.org/wiki/Value_proposition), with 1-2 sentences describing each one. You can use up to 1,000 characters for this description.
 
-### Content
+### Content of "Introductory description" and "Detailed description"
 
 - Always begin introductory descriptions with your app's name.
 
 - Always write descriptions and value propositions using the active voice.
 
-### Formatting
+### Formatting of "Introductory description" and "Detailed description"
 
 - Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
 
