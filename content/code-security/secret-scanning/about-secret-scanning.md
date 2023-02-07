@@ -107,5 +107,5 @@ You can also use the REST API to monitor results from {% data variables.product.
 {%- ifversion fpt or ghec %}
 - "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
 {%- ifversion fpt or ghec or ghes %}
-- "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
+- "[Configuring access to private registries for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"{% endif %}
 - "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"

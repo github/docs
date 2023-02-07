@@ -1,5 +1,5 @@
 ---
-title: Configuring Dependabot to only access private registries
+title: Removing Dependabot access to public registries
 intro: 'Examples of how you can configure {% data variables.product.prodname_dependabot %} to only access private registries by removing calls to public registries.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 miniTocMaxHeadingLevel: 3
@@ -9,12 +9,16 @@ type: how_to
 topics:
   - Dependabot
   - Version updates
-shortTitle: Configure Dependabot to only access private registries
+shortTitle: Remove access to public registries
+redirect_from:
+  - /code-security/dependabot/working-with-dependabot/configuring-dependabot-to-only-access-private-registries
 ---
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-You can configure {% data variables.product.prodname_dependabot %} to only access private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
+{% data variables.product.prodname_dependabot %} can access public registries and you can configure {% data variables.product.prodname_dependabot %} to also access private registries. For more information about private registry support and configuration, see "[Configuring access to private registries for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+
+You can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
 
 ## Bundler
 
