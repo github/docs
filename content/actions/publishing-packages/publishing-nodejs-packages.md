@@ -51,7 +51,7 @@ If you add steps in your workflow to configure the `publishConfig` fields in you
 
 ## Publishing packages to the npm registry
 
-You can trigger a workflow to publish your NPM package every time you [publish a new release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release). The process in the following example is executed when the release event of type 'published' is triggered. If the CI tests pass, the process uploads the package to the npm registry.
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to the npm registry. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
 
 To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
@@ -94,7 +94,7 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
-You can trigger a workflow to publish your NPM package every time you [publish a new release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release). The process in the following example is executed when the release event of type 'published' is triggered. If the CI tests pass, the process uploads the package to the npm registry.
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to {% data variables.product.prodname_registry %}. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
 
 ### Configuring the destination repository
 
