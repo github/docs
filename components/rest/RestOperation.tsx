@@ -7,11 +7,12 @@ import { LinkIconHeading } from 'components/article/LinkIconHeading'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
-import styles from './RestOperation.module.scss'
 import { ParameterTable } from 'components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { Operation } from './types'
+
+import styles from './RestOperation.module.scss'
 
 type Props = {
   operation: Operation
