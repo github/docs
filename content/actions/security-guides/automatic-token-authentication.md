@@ -56,7 +56,7 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: write 
+      issues: write
     steps:
       - name: Create issue using REST API
         run: |
@@ -86,7 +86,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | id-token      | none        | none | read |{% endif %}
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
-| packages      | read/write  | none | read |
+| packages      | read/write  | {% ifversion actions-default-workflow-permissions-restrictive %}read{% else %}none{% endif %} | read |
 | pages         | read/write  | none | read |
 | pull-requests | read/write  | none | read |
 | repository-projects | read/write | none | read |
