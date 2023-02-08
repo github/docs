@@ -18,15 +18,15 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
-## Downloading your license if you don't have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}
+## Downloading your license file
 
-If you do not have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, or if you're not sure, you may be able to download your {% data variables.product.prodname_ghe_server %} license from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
+There are two possible ways to download a license file for {% data variables.product.prodname_ghe_server %}.
 
-If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}.
+1. If you are using a trial of {% data variables.product.prodname_ghe_server %}, if you do not have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, or if you are not sure, you may be able to download your license file from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
 
-## Downloading your license from {% data variables.product.prodname_dotcom_the_website %} if you have an enterprise account
+2. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} using the following instructions.
 
-You must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} to download your license from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
+If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
