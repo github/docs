@@ -55,10 +55,10 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 1. Register a new application in Azure Active Directory. For more information, see [Register an application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) in the Azure documentation.
 1. In your Azure application, under "Essentials", take note of the values for "Application (client) ID" and "Directory (tenant) ID". These values are used later.
 
-   ![Azure portal showing the Active Directory app "Essentials" section](/assets/images/azure/azure-aad-app-storage-ids.png)
+   ![Screenshot of the "Overview" page in Azure. The first four items in the "Essentials" section are highlighted with an orange outline.](/assets/images/azure/azure-aad-app-storage-ids.png)
 1. In your Azure application, under "Manage", click **Certificates & secrets**, select the **Federated credentials** tab, then click **Add credential**.
 
-   ![Azure portal showing the Active Directory app "certificates & secrets" page](/assets/images/azure/azure-federated-credential.png)
+   ![Screenshot of the "Federated credentials" page in Azure. The "Certificates & secrets" tab, the "Federated credentials" tab, and the "Add credential" button are highlighted with orange outlines.](/assets/images/azure/azure-federated-credential.png)
 1. Enter the following details for the credential:
    1. For "Federated credential scenario", select **Other issuer**.
    1. For "Issuer", enter `https://HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}. For example, `https://my-ghes-host.example.com/_services/token`.
