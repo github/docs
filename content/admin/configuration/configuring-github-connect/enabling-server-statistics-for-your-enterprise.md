@@ -20,7 +20,7 @@ By enabling {% data variables.product.prodname_server_statistics %}, you are als
 
 ## Enabling {% data variables.product.prodname_server_statistics %}
 
-Before you can enable {% data variables.product.prodname_server_statistics %}, you must first connect your {% data variables.product.prodname_ghe_server %} instance to {% data variables.product.prodname_dotcom_the_website %} through {% data variables.product.prodname_github_connect %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@3.1/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/connecting-github-enterprise-server-to-github-enterprise-cloud)."
+Before you can enable {% data variables.product.prodname_server_statistics %}, you must first connect your {% data variables.product.prodname_ghe_server %} instance to {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 You can disable {% data variables.product.prodname_server_statistics %} from {% data variables.product.prodname_ghe_server %} at any time.
 
