@@ -23,7 +23,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can manage branch protection rules.
+permissions: People with admin permissions {% ifversion edit-repository-rules %}or a custom role with the "edit repository rules" permission{% endif %} to a repository can manage branch protection rules.
 topics:
   - Repositories
 shortTitle: Branch protection rule
