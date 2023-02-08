@@ -6,7 +6,9 @@ Our application is in Node, Express, React, & Next. We are using a "subject fold
 
 We used to organize our code more by role: client, stylesheets, server middleware, shared files, tests, etc. We found over time as the site grew it was difficult to find all the pieces that made a single feature work across the code base. Instead, we're moving to organize by subject, so its easy to find all the related code for a single capability in one place.
 
-## How subject folders
+## How to create and use subject folders
+
+Run `script/create-subject.js --name x` to create a new subject folder.
 
 We compose subjects together like TBD - still a work in progress!
 
