@@ -21,7 +21,7 @@ permissions: People with admin access to a repository can add an outside collabo
 
 An outside collaborator is a person who is not a member of your organization, but has access to one or more of your organization's repositories. You can choose the level of access to grant for each outside collaborator. {% data reusables.organizations.outside_collaborator_forks %}
 
-{% data reusables.organizations.outside-collaborators-use-seats %}
+{% data reusables.organizations.outside-collaborators-use-seats %}. For those on a Free plan there will not be any paid seats required for collaborator access to a private repository as these repositories do not have the advanced features the upgraded plans do. 
 
 {% ifversion fpt %}
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
