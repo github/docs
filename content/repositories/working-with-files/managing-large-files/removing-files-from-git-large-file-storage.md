@@ -14,7 +14,7 @@ shortTitle: Remove files
 ---
 ## Removing a single file
 
-1.  Remove the file from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
+1.  Remove the file from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
 2. Navigate to your *.gitattributes* file.
 
   {% note %}
@@ -27,7 +27,7 @@ shortTitle: Remove files
 
 ## Removing all files within a {% data variables.large_files.product_name_short %} repository
 
-1. Remove the files from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
+1. Remove the files from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
 2. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
   ```shell
   $ git lfs uninstall
