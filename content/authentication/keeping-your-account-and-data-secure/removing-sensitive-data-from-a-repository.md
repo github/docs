@@ -40,7 +40,7 @@ You can purge a file from your repository's history using either the `git filter
 
 ### Using the BFG
 
-The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-branch` for removing unwanted data. 
+The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-repo` for removing unwanted data. 
 
 For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
