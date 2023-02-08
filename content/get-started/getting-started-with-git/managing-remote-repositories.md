@@ -151,7 +151,7 @@ The `git remote rename` command takes two arguments:
 * An existing remote name, for example, `origin`
 * A new name for the remote, for example, `destination`
 
-## Example
+### Example of renaming a remote repository
 
 These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
 
@@ -187,7 +187,7 @@ $ git remote -v
 
 This error means that the remote name you want to use already exists. To solve this, either use a different remote name, or rename the original remote.
 
-## Removing a remote repository 
+## Removing a remote repository
 
 Use the `git remote rm` command to remove a remote URL from your repository.
 
@@ -196,7 +196,7 @@ The `git remote rm` command takes one argument:
 
 Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
 
-## Example
+### Example of removing a remote repository
 
 These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
 

@@ -41,8 +41,8 @@ shortTitle: Working with non-code files
 
 {% note %}
 
-**Note:** 
-- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
+**Note:**
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
 - If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
@@ -301,7 +301,7 @@ If your map contains a large number of markers (roughly over 750), GitHub will a
 
 The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap](http://www.openstreetmap.org/), a collaborative project to create a free editable map of the world. If you notice something's not quite right, since it's open source, simply [sign up](https://www.openstreetmap.org/user/new) and submit a fix.
 
-### Troubleshooting
+### Troubleshooting GeoJSON/TopoJSON files
 
 If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
@@ -311,7 +311,7 @@ Additionally, if your `.geojson` file is especially large (over 10 MB), it is no
 
 It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
 
-### Further reading
+### Further reading about GeoJSON/TopoJSON
 
 {% ifversion geoJSON-with-MapBox %}
 * [Leaflet.js documentation](https://leafletjs.com/)
@@ -331,7 +331,7 @@ To view your Jupyter notebook with JavaScript content rendered or to share your 
 
 To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
 
-### Troubleshooting
+### Troubleshooting Jupyter Notebook files
 
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
@@ -339,7 +339,7 @@ If you're having trouble rendering Jupyter Notebook files in static HTML, you ca
 $ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
-### Further reading
+### Further reading about Jupyter Notebook
 
 - [Jupyter Notebook's GitHub repository](https://github.com/jupyter/jupyter_notebook)
 - [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
@@ -363,11 +363,11 @@ graph TD
 When you view the file in the repository, it is rendered as a flow chart.
 ![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
 
-### Troubleshooting
+### Troubleshooting Mermaid files
 
 If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
 
-If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label. 
+If the chart displays, but does not appear as you'd expect, you can create a new [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/general), and add the `Mermaid` label.
 
 #### Known issues
 
@@ -379,9 +379,8 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
 
-### Further reading
+### Further reading about Mermaid
 
 * [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
 * [Mermaid.js live editor](https://mermaid.live/edit)
 {% endif %}
-

@@ -37,13 +37,15 @@ For more information on all of {% data variables.product.prodname_dotcom %}'s pl
 To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[Verifying your email address](/github/getting-started-with-github/signing-up-for-github/verifying-your-email-address)."
 {% endif %}
 
-{% ifversion ghes %}
+{% ifversion ghes or ghae %}
 ### 1. Accessing your account
+{% endif %}
+
+{% ifversion ghes %}
 The administrator of your {% data variables.product.product_name %} instance will notify you about how to authenticate and access your account. The process varies depending on the authentication mode they have configured for the instance.
 {% endif %}
 
 {% ifversion ghae %}
-### 1. Accessing your account
 You will receive an email notification once your enterprise owner for {% data variables.product.product_name %} has set up your account, allowing you to authenticate with SAML single sign-on (SSO) and access your account.
 {% endif %}
 
@@ -154,20 +156,20 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 ### {% ifversion fpt or ghec %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### {% ifversion fpt or ghec %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
+### {% ifversion fpt or ghec %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 ## Part 5: Building securely on {% data variables.product.product_name %}
 {% data variables.product.product_name %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of {% data variables.product.product_name %} security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 ### 1. Securing your repository
-As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed. 
+As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
 For more information on steps you can take to secure your repositories, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
 {% ifversion fpt or ghec %}
 ### 2. Managing your dependencies
-A large part of building securely is maintaining your project's dependencies to ensure that all packages and applications you depend on are updated and secure. You can manage your repository's dependencies on {% data variables.product.product_name %} by exploring the dependency graph for your repository, using Dependabot to automatically raise pull requests to keep your dependencies up-to-date, and receiving Dependabot alerts and security updates for vulnerable dependencies. 
+A large part of building securely is maintaining your project's dependencies to ensure that all packages and applications you depend on are updated and secure. You can manage your repository's dependencies on {% data variables.product.product_name %} by exploring the dependency graph for your repository, using Dependabot to automatically raise pull requests to keep your dependencies up-to-date, and receiving Dependabot alerts and security updates for vulnerable dependencies.
 
 For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)."
 {% endif %}
