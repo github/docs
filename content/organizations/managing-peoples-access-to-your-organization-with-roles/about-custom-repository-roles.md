@@ -111,6 +111,9 @@ For more information, see "[{% data variables.product.prodname_discussions %}](/
 {%- ifversion bypass-branch-protections %}
 - Bypass branch protections
 {%- endif %}
+{%- ifversion edit-repository-rules %}
+- Edit repository rules
+{%- endif %}
 
 ### Security
 
