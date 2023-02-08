@@ -65,10 +65,6 @@ jobs:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: 'Set env vars'
         run: |
@@ -77,10 +73,10 @@ jobs:
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
-      - name: Setup node
+      - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.17.0'
+          node-version-file: '.node-version'
           cache: npm
 
       - name: Clone docs-early-access
@@ -95,7 +91,7 @@ jobs:
         run: .github/actions-scripts/merge-early-access.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true

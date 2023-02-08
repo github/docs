@@ -8,7 +8,6 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
   - /actions/managing-workflows/storing-secrets
-  
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -22,7 +21,7 @@ versions:
 
 ## About encrypted secrets
 
-Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
@@ -40,7 +39,9 @@ For secrets stored at the environment level, you can enable required reviewers t
 
 ### Naming your secrets
 
-{% data reusables.codespaces.secrets-naming %}
+The following rules apply to secret names:
+
+{% data reusables.actions.actions-secrets-and-variables-naming %}
 
   For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
@@ -72,13 +73,16 @@ When generating credentials, we recommend that you grant the minimum permissions
 
 ## Creating encrypted secrets for a repository
 
-{% data reusables.actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-variables-repository %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secrets-and-variables %}
+{%- ifversion actions-configuration-variables %}
+{% data reusables.actions.actions-secrets-tab %}
+   ![Repository secrets tab](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
 1. Click **New repository secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the value for your secret.
@@ -143,15 +147,18 @@ gh secret list --env ENV_NAME
 
 ## Creating encrypted secrets for an organization
 
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
+{% data reusables.actions.actions-secrets-variables-repository-access %}
 
-{% data reusables.actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-and-variables-organization %}
 
 {% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secrets-and-variables %}
+{%- ifversion actions-configuration-variables %}
+{% data reusables.actions.actions-secrets-tab %}
+   ![Organization secrets tab](/assets/images/help/organizations/actions-organization-secrets-tab.png){% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
@@ -204,9 +211,9 @@ You can check which access policies are being applied to a secret in your organi
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secrets-and-variables %}
 1. The list of secrets includes any configured permissions and policies. For example:
-![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+   ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
 
 ## Using encrypted secrets in a workflow
@@ -217,7 +224,7 @@ You can check which access policies are being applied to a secret in your organi
 
 * {% data reusables.actions.forked-secrets %}
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 
 * Secrets are not automatically passed to reusable workflows. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
 
@@ -295,11 +302,11 @@ A workflow created in a repository can access the following number of secrets:
 * If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
 * All 100 environment secrets.
 
-Secrets are limited to 64 KB in size. To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
+Secrets are limited to 48 KB in size. To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
 
 ### Storing large secrets
 
-To use secrets that are larger than 64 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
+To use secrets that are larger than 48 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 
 {% warning %}
 
@@ -356,9 +363,9 @@ To use secrets that are larger than 64 KB, you can use a workaround to store enc
 
    ```yaml
    name: Workflows with large secrets
- 
+
    on: push
- 
+
    jobs:
      my-job:
        name: My Job
@@ -399,7 +406,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```
 
-1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  For example: 
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  For example:
 
    ```yaml
    name: Retrieve Base64 secret

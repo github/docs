@@ -45,7 +45,13 @@ jobs:
     # Ensure this is actually a pull request and not a merge group
     # If its a merge group, report success without doing anything
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
-    if: ((github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)) && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    if: |
+      (
+        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) 
+         && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
+       ) 
+       && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+       &&  github.actor != 'dependabot[bot]'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -85,7 +91,6 @@ jobs:
         with:
           ref: 'main'
           persist-credentials: 'false'
-          lfs: 'true'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
@@ -94,10 +99,6 @@ jobs:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: Get preview app info
         env:
@@ -179,7 +180,7 @@ jobs:
         run: .github/actions-scripts/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true

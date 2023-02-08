@@ -39,19 +39,19 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommended using lowercase input ids.
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommend using lowercase input ids.
 
 ### Example: Specifying inputs
 
-This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
+This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of '1'; `octocat-eye-color` is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
 
 ```yaml
 inputs:
-  numOctocats:
+  num-octocats:
     description: 'Number of Octocats'
     required: false
     default: '1'
-  octocatEyeColor:
+  octocat-eye-color:
     description: 'Eye color of the Octocats'
     required: true
 ```
@@ -62,7 +62,7 @@ If the action is written using a [composite](/actions/creating-actions/creating-
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
-For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUM-OCTOCATS` and `INPUT_OCTOCAT-EYE-COLOR` environment variables.
 
 ### `inputs.<input_id>`
 
@@ -149,19 +149,19 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
+### Example: Using Node.js {% ifversion fpt or ghes or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'main.js'
 ```
 
-### `runs.using`
+### `runs.using` for JavaScript actions
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+- Use `node12` for Node.js v12.{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 - Use `node16` for Node.js v16.{% endif %}
 
 ### `runs.main`
@@ -176,7 +176,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -203,7 +203,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -225,7 +225,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 
 **Required** Configures the path to the composite action.
 
-### `runs.using`
+### `runs.using` for composite actions
 
 **Required** You must set this value to `'composite'`.
 
@@ -263,7 +263,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 **Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
@@ -387,7 +387,7 @@ runs:
   image: 'docker://debian:stretch-slim'
 ```
 
-### `runs.using`
+### `runs.using` for Docker container actions
 
 **Required** You must set this value to `'docker'`.
 

@@ -25,7 +25,7 @@ shortTitle: Enable push protection
 Up to now, {% data variables.product.prodname_secret_scanning %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %} {% ifversion secret-scanning-push-protection-custom-patterns %}{% data variables.product.prodname_secret_scanning_caps %} can also check pushes for custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %}
 
 If a contributor bypasses a push protection block for a secret, {% data variables.product.prodname_dotcom %}:
-- creates an alert in the "Security" tab of the repository in the state described in the table below.
+- creates an alert in the **Security** tab of the repository in the state described in the table below.
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 

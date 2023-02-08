@@ -17,7 +17,7 @@ shortTitle: Invite users to join
 
 ## About organization invitations
 
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." 
+If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
 
 {% data reusables.organizations.org-invite-scim %}
 
@@ -37,6 +37,17 @@ If your organization requires members to use two-factor authentication, users th
 {% data reusables.organizations.add-user-to-teams %}
 {% data reusables.organizations.send-invitation %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
+
+{% ifversion organization-invitation-enhancements %}
+## Retrying or canceling expired invitations
+
+Invitations expire after 7 days. You can retry or cancel expired invitations, either one by one or in bulk. Failed invitations to outside collaborators can also be found in this view.
+
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.retrying-or-deleting-expired-invitations %}
+{% endif %}
 
 ## Further reading
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

@@ -2,7 +2,7 @@
 title: Repository tags
 allowTitleToDifferFromFilename: true
 shortTitle: Tags
-intro: 'Use the REST API to manage tags for a repository.'
+intro: Use the REST API to manage tags for a repository.
 versions:
   fpt: '*'
   ghec: '*'

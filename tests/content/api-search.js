@@ -71,46 +71,6 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['surrogate-key']).toBe('api-search:en')
   })
 
-  test('basic search in Japanese', async () => {
-    const sp = new URLSearchParams()
-    // To see why this will work,
-    // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
-    // which clearly has a record with the title "Foo"
-    sp.set('query', 'foo')
-    sp.set('language', 'ja')
-    const res = await get('/api/search/v1?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-
-    expect(results.meta).toBeTruthy()
-    expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
-    expect(results.meta.found.relation).toBeTruthy()
-    expect(results.meta.page).toBe(1)
-    expect(results.meta.size).toBeGreaterThanOrEqual(1)
-    expect(results.meta.took.query_msec).toBeGreaterThanOrEqual(0)
-    expect(results.meta.took.total_msec).toBeGreaterThanOrEqual(0)
-
-    // Might be empty but at least an array
-    expect(results.hits).toBeTruthy()
-    // The word 'foo' appears in more than 1 document in the fixtures.
-    expect(results.hits.length).toBeGreaterThanOrEqual(1)
-    // ...but only one has the word "foo" in its title so we can
-    // be certain it comes first.
-    const hit = results.hits[0]
-    // This specifically checks what we expect of version v1
-    expect(hit.url).toBe('/ja/foo')
-    expect(hit.title).toBe('フー')
-    expect(hit.breadcrumbs).toBe('fooing')
-
-    // Check that it can be cached at the CDN
-    expect(res.headers['set-cookie']).toBeUndefined()
-    expect(res.headers['cache-control']).toContain('public')
-    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-control']).toContain('public')
-    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe('api-search:ja')
-  })
-
   test('debug search', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
@@ -310,42 +270,6 @@ describeIfElasticsearchURL('search legacy middleware', () => {
     expect(Array.isArray(results)).toBeTruthy()
     const foundURLS = results.map((result) => result.url)
     expect(foundURLS.includes('/en/foo')).toBeTruthy()
-  })
-
-  test('basic legacy search with single filter', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Fixture')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/foo')).toBeTruthy()
-    expect(foundURLS.includes('/en/bar')).toBeTruthy()
-    const foundTopics = results.map((result) => result.topics)
-    expect(foundTopics.every((topics) => topics.includes('Fixture'))).toBeTruthy()
-  })
-
-  test('basic legacy search with multiple filters', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Fixture')
-    sp.append('filters', 'Get started')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/bar')).toBeTruthy()
-    const foundTopics = results.map((result) => result.topics)
-    expect(
-      foundTopics.every((topics) => topics.includes('Fixture') && topics.includes('Get started'))
-    ).toBeTruthy()
   })
 
   test('basic legacy search with unknown filters', async () => {

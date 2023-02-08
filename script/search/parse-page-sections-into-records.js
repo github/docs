@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import { render } from 'cheerio-to-text'
 
-import { maxContentLength } from '../../lib/search/config.js'
-
 // This module takes cheerio page object and divides it into sections
 // using H1,H2 heading elements as section delimiters. The text
 // that follows each heading becomes the content of the search record.
@@ -10,7 +8,7 @@ import { maxContentLength } from '../../lib/search/config.js'
 const ignoredHeadingSlugs = ['in-this-article', 'further-reading', 'prerequisites']
 
 export default function parsePageSectionsIntoRecords(page) {
-  const { href, $, languageCode } = page
+  const { href, $ } = page
   const title = $('h1').first().text().trim()
   const breadcrumbsArray = $('[data-search=breadcrumbs] nav.breadcrumbs a')
     .map((i, el) => {
@@ -25,18 +23,6 @@ export default function parsePageSectionsIntoRecords(page) {
   $('[data-search=hide]').remove()
 
   const breadcrumbs = breadcrumbsArray.join(' / ') || ''
-  const metaKeywords = $('meta[name="keywords"]').attr('content')
-  const topics = (metaKeywords ? metaKeywords.split(',') : [])
-    .filter(Boolean)
-    .map((keyword) => keyword.trim())
-
-  const productName = breadcrumbsArray[0] || ''
-  if (productName) topics.push(productName)
-  // Remove "github" to make filter queries shorter
-  if (productName.includes('GitHub ')) {
-    const productNameShort = productName.replace('GitHub ', '').trim()
-    if (productNameShort) topics.push(productNameShort)
-  }
 
   const objectID = href
 
@@ -81,15 +67,6 @@ export default function parsePageSectionsIntoRecords(page) {
     console.warn(`${objectID} has no body and no intro.`)
   }
 
-  // These below lines can be deleted (along with the `maxContentLength`
-  // config) once we've stopped generating Lunr indexes on disk that
-  // we store as Git LFS.
-  if (!process.env.ELASTICSEARCH_URL) {
-    if (languageCode !== 'en' && body.length > maxContentLength) {
-      body = body.slice(0, maxContentLength)
-    }
-  }
-
   const content =
     intro && !body.includes(intro.trim()) ? `${intro.trim()}\n${body.trim()}`.trim() : body.trim()
 
@@ -99,6 +76,5 @@ export default function parsePageSectionsIntoRecords(page) {
     title,
     headings,
     content,
-    topics,
   }
 }

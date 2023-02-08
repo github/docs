@@ -36,7 +36,7 @@ The name for workflow runs generated from the workflow. {% data variables.produc
 
 This value can include expressions and can reference the [`github`](/actions/learn-github-actions/contexts#github-context) and [`inputs`](/actions/learn-github-actions/contexts#inputs-context) contexts.
 
-### Example
+### Example of `run-name`
 
 {% raw %}
 ```yaml
@@ -69,7 +69,7 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -88,7 +88,7 @@ Within the called workflow, you can use the `inputs` context to refer to an inpu
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
-#### Example
+#### Example of `on.workflow_call.inputs`
 
 {% raw %}
 ```yaml
@@ -123,7 +123,7 @@ A map of outputs for a called workflow. Called workflow outputs are available to
 
 In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
 
-#### Example
+#### Example of `on.workflow_call.outputs`
 
 {% raw %}
 ```yaml
@@ -156,7 +156,7 @@ Within the called workflow, you can use the `secrets` context to refer to a secr
 
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
-#### Example
+#### Example of `on.workflow_call.secrets`
 
 {% raw %}
 ```yaml
@@ -199,9 +199,27 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## `on.workflow_dispatch.inputs`
+## `on.workflow_dispatch`
+
+{% data reusables.actions.workflow-dispatch %}
+
+### `on.workflow_dispatch.inputs`
 
 {% data reusables.actions.workflow-dispatch-inputs %}
+
+#### Example
+
+{% data reusables.actions.workflow-dispatch-inputs-example %}
+
+#### `on.workflow_dispatch.inputs.<input_id>.required`
+
+A boolean specifying whether the input must be supplied.
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+#### `on.workflow_dispatch.inputs.<input_id>.type`
+
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `environment`, or `string`.
+{% endif %}
 
 ## `permissions`
 
@@ -209,13 +227,13 @@ A boolean specifying whether the secret must be supplied.
 
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+A `map` of variables that are available to the steps of all jobs in the workflow. You can also set variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 Variables in the `env` map cannot be defined in terms of other variables in the map.
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### Example of `env`
 
 ```yaml
 env:
@@ -250,6 +268,10 @@ env:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
 
+#### Example: Setting permissions for a specific job
+
+{% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
+
 ## `jobs.<job_id>.needs`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-needs %}
@@ -276,11 +298,11 @@ env:
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+A `map` of variables that are available to all steps in the job. You can set variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### Example of `jobs.<job_id>.env`
 
 ```yaml
 jobs:
@@ -297,13 +319,17 @@ jobs:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}
 
+#### Example: Setting default `run` step options for a job
+
+{% data reusables.actions.jobs.setting-default-run-value-for-job-example %}
+
 ## `jobs.<job_id>.steps`
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
 You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
-### Example
+### Example of `jobs.<job_id>.steps`
 
 {% raw %}
 ```yaml
@@ -667,7 +693,7 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
-#### Example
+#### Example of `jobs.<job_id>.steps[*].with`
 
 Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
 
@@ -685,9 +711,9 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
+A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter. A single argument that includes spaces should be surrounded by double quotes `""`.
 
-#### Example
+#### Example of `jobs.<job_id>.steps[*].with.args`
 
 {% raw %}
 ```yaml
@@ -710,7 +736,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
-#### Example
+#### Example of `jobs.<job_id>.steps[*].with.entrypoint`
 
 ```yaml
 steps:
@@ -724,13 +750,13 @@ The `entrypoint` keyword is meant to be used with Docker container actions, but 
 
 ### `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+Sets variables for steps to use in the runner environment. You can also set variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
-#### Example
+#### Example of `jobs.<job_id>.steps[*].env`
 
 {% raw %}
 ```yaml
@@ -900,7 +926,7 @@ The Docker image to use as the service container to run the action. The value ca
 
 {% data reusables.actions.registry-credentials %}
 
-#### Example
+#### Example of `jobs.<job_id>.services.<service_id>.credentials`
 
 {% raw %}
 ```yaml
@@ -936,7 +962,7 @@ To specify a volume, you specify the source and destination path:
 
 The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-#### Example
+#### Example of `jobs.<job_id>.services.<service_id>.volumes`
 
 ```yaml
 volumes:
@@ -955,7 +981,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -964,7 +990,7 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-### Example
+### Example of `jobs.<job_id>.uses`
 
 {% data reusables.actions.uses-keyword-example %}
 
@@ -978,7 +1004,7 @@ Any inputs that you pass must match the input specifications defined in the call
 
 Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
-#### Example
+#### Example of `jobs.<job_id>.with`
 
 ```yaml
 jobs:
@@ -1018,7 +1044,7 @@ jobs:
 
 Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
 
-#### Example
+#### Example of `jobs.<job_id>.secrets.inherit`
 
 {% raw %}
 

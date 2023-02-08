@@ -39,7 +39,7 @@ If your project communicates with an external service, you might use a token or 
    - Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}, on repositories owned by the organization, including _private_ and _internal_ repositories.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. This includes private and internal repositories.{% endif %} 
   {%- indented_data_reference reusables.secret-scanning.secret-scanning-alerts-beta %}
   
-  Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
+  Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
 
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
@@ -88,7 +88,7 @@ If {% data variables.product.prodname_secret_scanning %} detects a secret, {% da
 
 - {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository, and if you have enabled notifications either for security alerts or for all the activity on the repository.
 - If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
-- {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.
+- {% data variables.product.prodname_dotcom %} displays an alert in the **Security** tab of the repository.
 
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
@@ -107,5 +107,5 @@ You can also use the REST API to monitor results from {% data variables.product.
 {%- ifversion fpt or ghec %}
 - "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
 {%- ifversion fpt or ghec or ghes %}
-- "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)"{% endif %}
+- "[Configuring access to private registries for {% data variables.product.prodname_dependabot %}](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"{% endif %}
 - "[Encrypted secrets](/actions/security-guides/encrypted-secrets)"

@@ -15,7 +15,6 @@ children:
   - /media-types
   - /other-authentication-methods
   - /troubleshooting
-  - /api-previews
   - /libraries
   - /openapi-description
   - /endpoints-available-for-github-apps
@@ -24,3 +23,4 @@ children:
   - /breaking-changes
   - /permissions-required-for-fine-grained-personal-access-tokens
 ---
+

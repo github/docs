@@ -95,6 +95,8 @@ You cannot change the contents of an existing cache. Instead, you can create a n
   ```
   {% endraw %}
 
+- `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
+
 ### Output parameters for the `cache` action
 
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
@@ -150,7 +152,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Test
         run: npm test
@@ -330,7 +332,6 @@ on:
   pull_request:
     types:
       - closed
-  workflow_dispatch:
 
 jobs:
   cleanup:
@@ -343,8 +344,8 @@ jobs:
         run: |
           gh extension install actions/gh-actions-cache
           
-          REPO=${{ github.repository }}
-          BRANCH=${{ github.ref }}
+          REPO={% raw %}${{ github.repository }}{% endraw %}
+          BRANCH="refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge"
 
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
@@ -358,7 +359,7 @@ jobs:
           done
           echo "Done"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[Delete GitHub Actions caches for a repository](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."

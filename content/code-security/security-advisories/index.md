@@ -13,7 +13,8 @@ topics:
   - Repositories
   - CVEs
 children:
-- /global-security-advisories
-- /repository-security-advisories
-- /guidance-on-reporting-and-writing
+  - /global-security-advisories
+  - /repository-security-advisories
+  - /guidance-on-reporting-and-writing
 ---
+

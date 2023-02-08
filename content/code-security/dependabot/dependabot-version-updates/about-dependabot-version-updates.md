@@ -67,6 +67,13 @@ You can configure version updates for repositories that contain a dependency man
 
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[About integrations](/github/customizing-your-github-workflow/about-integrations)."{% endif %}
 
+{% ifversion dependabot-updates-paused %}
+## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
+
+{% data reusables.dependabot.automatically-pause-dependabot-updates %}
+
+{% endif %}
+
 ## About notifications for {% data variables.product.prodname_dependabot %} version updates
 
 You can filter your notifications on {% data variables.product.company_short %} to show notifications for pull requests created by {% data variables.product.prodname_dependabot %}. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)."

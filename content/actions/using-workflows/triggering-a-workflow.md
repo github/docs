@@ -30,7 +30,7 @@ The following steps occur to trigger a workflow run:
 1. {% data variables.product.product_name %} searches the `.github/workflows` directory in your repository for workflow files that are present in the associated commit SHA or Git ref of the event.
 1. A workflow run is triggered for any workflows that have `on:` values that match the triggering event. Some events also require the workflow file to be present on the default branch of the repository in order to run.
 
-  Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
+   Each workflow run will use the version of the workflow that is present in the associated commit SHA or Git ref of the event. When a workflow runs, {% data variables.product.product_name %} sets the `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) environment variables in the runner environment. For more information, see "[Variables](/actions/learn-github-actions/variables)."
 
 ### Triggering a workflow from a workflow
 
@@ -118,9 +118,11 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs for manually triggered workflows
 
+{% data reusables.actions.workflow-dispatch %}
 {% data reusables.actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs-example %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}

@@ -32,7 +32,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 ## Setting additional repository permissions
 
-1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, add one now. For more information, "[Adding a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
 
 1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
@@ -72,14 +72,14 @@ To create codespaces with custom permissions defined, you must use one of the fo
    * `statuses` - read / write
    * `workflows` - write
 
-  To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
+  To set a permission for a repository in an organization, you must explicitly add that repository name in the `repositories` object.
 
   ```json
   {
     "customizations": {
       "codespaces": {
         "repositories": {
-          "my_org/*": {
+          "my_org/my_repo": {
             "permissions": {
               "issues": "write"
             }
@@ -124,7 +124,7 @@ You can only authorize permissions that your personal account already possesses.
 
 {% endwarning %}
 
-When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust. 
+When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}

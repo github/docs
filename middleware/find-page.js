@@ -1,12 +1,13 @@
 import path from 'path'
 import { existsSync } from 'fs'
 
+import { ROOT } from '../lib/constants.js'
 import Page from '../lib/page.js'
 import { languageKeys } from '../lib/languages.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
-const CONTENT_ROOT = 'content'
+const CONTENT_ROOT = path.join(ROOT, 'content')
 
 export default async function findPage(
   req,

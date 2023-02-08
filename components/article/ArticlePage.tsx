@@ -1,14 +1,12 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import cx from 'classnames'
 
-import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
-import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
@@ -18,32 +16,14 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
 })
 const isDev = process.env.NODE_ENV === 'development'
-
-// Mapping of a "normal" article to it's interactive counterpart
-const interactiveAlternatives: Record<string, { href: string }> = {
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
-    },
-}
 
 export const ArticlePage = () => {
   const router = useRouter()
@@ -52,7 +32,6 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
-    contributor,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
@@ -60,8 +39,7 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
-  const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const isLearningPath = !!currentLearningTrack?.trackName
 
   return (
     <DefaultLayout>
@@ -69,21 +47,13 @@ export const ArticlePage = () => {
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('my-3 mr-auto width-full')}>
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              {contributor && (
-                <Callout variant="info" className="mb-3">
-                  <p>
-                    <span className="mr-2">
-                      <InfoIcon />
-                    </span>
-                    {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
-                  </p>
-                </Callout>
-              )}
-
               {intro && (
                 <Lead data-testid="lead" data-search="lead">
                   {intro}
@@ -106,14 +76,7 @@ export const ArticlePage = () => {
           }
           toc={
             <>
-              {!!interactiveAlternatives[currentPath] && (
-                <div className="flash mb-3">
-                  <ZapIcon className="mr-2" />
-                  <Link href={interactiveAlternatives[currentPath].href}>
-                    Try the new interactive article
-                  </Link>
-                </div>
-              )}
+              {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
               {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
@@ -131,7 +94,7 @@ export const ArticlePage = () => {
           </div>
         </ArticleGridLayout>
 
-        {currentLearningTrack?.trackName ? (
+        {isLearningPath ? (
           <div className="mt-4">
             <LearningTrackNav track={currentLearningTrack} />
           </div>

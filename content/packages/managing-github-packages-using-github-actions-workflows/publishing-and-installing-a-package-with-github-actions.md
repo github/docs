@@ -26,6 +26,8 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 {% ifversion packages-registries-v2 %}
 ### Authenticating to package registries with granular permissions
 
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be owned by a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)." 
+
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 ### Authenticating to package registries with repository-scoped permissions
@@ -72,7 +74,7 @@ These are more examples of how default permissions work for workflows that manag
 |----|----|
 | Download an existing container | - If the container is public, any workflow running in any repository can download the container. <br> - If the container is internal, then all workflows running in any repository owned by the Enterprise account can download the container. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the container is private, only workflows running in repositories that are given read permission on that container can download the container. <br>
 | Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
-| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
+| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given admin permission can delete existing versions of the container.
 
 You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
@@ -145,7 +147,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     needs: run-npm-test {% ifversion ghes or ghae %}
-    permissions: 
+    permissions:
       contents: read
       packages: write {% endif %}
     steps:
@@ -298,16 +300,16 @@ build-and-push-image:
 <td>
 {% raw %}
 ```yaml
-permissions: 
+permissions:
   contents: read
-  packages: write 
+  packages: write
 ```
 {% endraw %}
 </td>
 <td>
   Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
 </td>
-</tr> 
+</tr>
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -506,7 +508,7 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 
   {% endnote %}
 1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
 For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
@@ -514,7 +516,7 @@ For example, this workflow publishes a Docker image to the {% data variables.pro
 ```yaml{:copy}
 name: Demo Push
 
-on:   
+on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:

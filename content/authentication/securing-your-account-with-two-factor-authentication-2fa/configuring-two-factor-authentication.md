@@ -16,9 +16,20 @@ topics:
   - 2FA
 shortTitle: Configure 2FA
 ---
-You can configure two-factor authentication using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
 
-We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% ifversion fpt or ghec %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
+
+{% ifversion 2fa-check-up-period %}
+
+After you configure 2FA, your account will enter a 28-day check up period. You can leave the check up period by successfully performing 2FA in those 28 days. Otherwise, you will be prompted to perform 2FA in an existing {% data variables.product.prodname_dotcom_the_website %} session on the 28th day. If you cannot perform 2FA to pass the checkup, you must use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}.
+
+{% ifversion fpt or ghec %}
+
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+
+{% endif %}
+{% endif %}
 
 {% warning %}
 
@@ -28,10 +39,12 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% endwarning %}
 
-{% ifversion fpt or ghec %}
+{% ifversion 2fa-reconfiguration-inline-update %}
+{% note %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you cannot configure 2FA for your {% data variables.enterprise.prodname_managed_user %} account unless you're signed in as the setup user. For users other than the setup user, an administrator must configure 2FA on your identity provider (IdP).
+**Note:** You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
 
+{% endnote %}
 {% endif %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
@@ -70,13 +83,13 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {%- endif %}
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
+{% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
 
 ## Configuring two-factor authentication using text messages
 
-If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your primary device and your recovery codes, a backup SMS number can get you back in to your account.
+If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your preferred device and your recovery codes, a backup SMS number can get you back in to your account.
 
 Before using this method, be sure that you can receive text messages. Carrier rates may apply.
 
@@ -89,7 +102,7 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-4. Below "Setup authenticator app", select **SMS authentication**
+1. Below "Setup authenticator app", select **SMS authentication**
 
   ![2FA SMS alternative option](/assets/images/help/2fa/2fa_sms_alt_option.png)
 
@@ -102,7 +115,6 @@ Before using this method, be sure that you can receive text messages. Carrier ra
   ![2FA SMS continue field](/assets/images/help/2fa/2fa_wizard_sms_enter_code.png)
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
-{% data reusables.two_fa.test_2fa_immediately %}
 
 {% endif %}
 
@@ -118,16 +130,16 @@ Authentication with a security key is *secondary* to authentication with a TOTP 
 2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-5. Next to "Security keys", click **Add**.
+1. Next to "Security keys", click **Add**.
   ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
-6. Under "Security keys", click **Register new security key**.
+1. Under "Security keys", click **Register new security key**.
   ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
-7. Type a nickname for the security key, then click **Add**.
+1. Type a nickname for the security key, then click **Add**.
   ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
-8. Activate your security key, following your security key's documentation.
+1. Activate your security key, following your security key's documentation.
   ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
-9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[Downloading your 2FA recovery codes](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
-{% data reusables.two_fa.test_2fa_immediately %}
+1.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[Downloading your 2FA recovery codes](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+{% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}

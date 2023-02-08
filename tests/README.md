@@ -6,7 +6,7 @@ but it's helpful to run tests locally before pushing your changes to
 GitHub.
 
 Tests are written using [jest](https://ghub.io/jest), a framework maintained
-by Facebook and used by many teams at GitHub. 
+by Facebook and used by many teams at GitHub.
 Jest provides everything: a test runner, an assertion library, code coverage analysis,
 custom reporters for different types of test output, etc.
 
@@ -98,7 +98,25 @@ In another terminal, type:
 START_JEST_SERVER=false jest tests/rendering/foo/bar.js
 ```
 
-Or whatever the testing command you use is. 
+Or whatever the testing command you use is.
 
 The `START_JEST_SERVER` environment variable needs to be set to `false`, or else `jest` will try to start
 a server on `:4000` too.
+
+### Debugging middleware errors
+
+By default, errors handled by the middleware are dealt with just like
+any error in production. It's common to have end-to-end tests that expect
+a page to throw a 500 Internal Server Error response.
+
+If you don't expect that and you might struggle to see exactly where the
+error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
+
+```sh
+export DEBUG_MIDDLEWARE_TESTS=true
+jest tests/rendering/ -b
+```
+
+### Fixture based testing
+
+See [Fixture content](./fixtures/README.md).

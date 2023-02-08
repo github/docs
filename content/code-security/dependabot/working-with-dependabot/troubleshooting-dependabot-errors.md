@@ -34,6 +34,14 @@ topics:
 
 If anything prevents {% data variables.product.prodname_dependabot %} from raising a pull request, this is reported as an error.
 
+{% ifversion dependabot-updates-paused %}
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} doesn't create pull requests for inactive repositories. For information about inactivity criteria, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)" and "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)," for security and version updates, respectively. 
+
+{% endnote %}
+{% endif %}
+
 ## Investigating errors with {% data variables.product.prodname_dependabot_security_updates %}
 
 When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
