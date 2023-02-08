@@ -24,7 +24,7 @@ If you do not have an enterprise account on {% data variables.product.prodname_d
 
 If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}.
 
-## Downloading your license from {% data variables.product.prodname_dotcom_the_website %}
+## Downloading your license from {% data variables.product.prodname_dotcom_the_website %} if you have an enterprise account
 
 You must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} to download your license from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 
