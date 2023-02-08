@@ -207,7 +207,7 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflow-dispatch-inputs %}
 
-#### Example
+#### Example of `on.workflow_dispatch.inputs`
 
 {% data reusables.actions.workflow-dispatch-inputs-example %}
 
@@ -1026,7 +1026,7 @@ When a job is used to call a reusable workflow, you can use `secrets` to provide
 
 Any secrets that you pass must match the names defined in the called workflow.
 
-#### Example
+#### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
 ```yaml
