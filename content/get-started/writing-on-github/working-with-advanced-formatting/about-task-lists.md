@@ -41,7 +41,7 @@ If you add a task list to the body of an issue, the list has added functionality
 
 - To help you track your team's work on an issue, the progress of an issue's task list appears in various places on {% data variables.product.product_name %}, such as a repository's list of issues.
 - If a task references another issue and someone closes that issue, the task's checkbox will automatically be marked as complete. 
-- If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[Keyboard shortcuts](/github/getting-started-with-github/using-github/keyboard-shortcuts#issues-and-pull-requests)."
+- If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts#issues-and-pull-requests)."
 - Any issues referenced in the task list will specify that they are tracked in the referencing issue.
 
 ![Rendered task list](/assets/images/help/writing/task-list-rendered.png)

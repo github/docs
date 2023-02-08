@@ -1,0 +1,4 @@
+# Insights for Projects
+versions:
+  fpt: '*'
+  ghec: '*'

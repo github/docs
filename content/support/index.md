@@ -22,7 +22,7 @@ topics:
 introLinks:
   overview: /support/learning-about-github-support/about-github-support
 featuredLinks:
-  guides:
+  startHere:
     - /support/contacting-github-support/creating-a-support-ticket
     - /support/contacting-github-support/viewing-and-updating-support-tickets
     - '{% ifversion ghes or ghec %}/support/learning-about-github-support/about-ticket-priority{% endif %}'

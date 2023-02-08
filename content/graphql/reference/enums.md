@@ -1,5 +1,6 @@
 ---
 title: Enums
+intro: Enums represent possible sets of values for a field.
 redirect_from:
   - /v4/enum
   - /v4/reference/enum

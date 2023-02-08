@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 children:
+  - /administering-your-instance-from-the-management-console
   - /configuring-your-enterprise
   - /configuring-network-settings
   - /configuring-github-connect

@@ -47,6 +47,8 @@ prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 prodname_global_campus: 'GitHub Global Campus'
 prodname_community_exchange: 'GitHub Community Exchange'
+prodname_student_leader_program: 'GitHub Campus Experts'
+prodname_student_leader_program_singular: 'GitHub Campus Expert'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -71,18 +73,18 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
+  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% elsif ghes = 3.8 or ghae = 3.8 %}2.11.6{% endif %}
 
 # Projects v2
-prodname_projects_v2: 'Projects'
+prodname_projects_v2: '{% ifversion ghes = 3.8 %}Projects (beta){% else %}Projects{% endif %}'
 prodname_projects_v1: >-
-  {% ifversion ghes or ghae %}project boards{% else %}projects (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}project boards{% else %}projects (classic){% endif %}
 prodname_projects_v1_caps: >-
-  {% ifversion ghes or ghae %}Project boards{% else %}Projects (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}Project boards{% else %}Projects (classic){% endif %}
 prodname_project_v1: >-
-  {% ifversion ghes or ghae %}project board{% else %}project (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}project board{% else %}project (classic){% endif %}
 prodname_project_v1_caps: >-
-  {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}Project board{% else %}Project (classic){% endif %}
 
 # Personal access tokens
 pat_generic: 'personal access token'

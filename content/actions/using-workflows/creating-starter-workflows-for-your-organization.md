@@ -34,7 +34,7 @@ Starter workflows can be created by users with write access to the organization'
 Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 {% note %}
 
 **Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
@@ -72,7 +72,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
            run: echo Hello from Octo Organization
    ```
 4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
-   ```yaml{:copy}
+   ```json{:copy}
    {
        "name": "Octo Organization Workflow",
        "description": "Octo Organization CI starter workflow.",

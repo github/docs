@@ -21,12 +21,6 @@ export default function Page({ mainContext }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  // The dedicated search results page is, as of Sep 2022 not enabled by
-  // default.
-  if (!process.env.ENABLE_SEARCH_RESULTS_PAGE) {
-    return { notFound: true }
-  }
-
   const req = context.req as any
   const res = context.res as any
 

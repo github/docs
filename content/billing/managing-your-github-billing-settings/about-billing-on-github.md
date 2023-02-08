@@ -22,6 +22,8 @@ You can upgrade your personal account or organization to a paid subscription at 
 
 ## Managing billing settings
 
+{% data reusables.sponsors.paypal-deprecation %}
+
 You must manage billing settings, payment method, and paid features and products for each of your accounts separately. You can choose to pay monthly or yearly for each account's paid products and features. Every paid feature or product associated with an account shares a billing date, payment method, and receipt.
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
@@ -30,7 +32,7 @@ For more information, see "[Managing your {% data variables.product.prodname_dot
 
 ## Switching between settings for your different accounts
 
-If you're an organization or enterprise owner, you can switch between settings for your different accounts using the context switcher in your settings. 
+If you're an organization or enterprise owner, you can switch between settings for your different accounts using the context switcher in your settings.
 
 {% data reusables.user-settings.access_settings %}
 1. At the top of the page, to the right of your username, click **Switch to another account**.

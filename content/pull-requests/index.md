@@ -4,7 +4,7 @@ intro: 'Learn how to use pull requests to suggest changes to a project, receive 
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:
-  guides:
+  startHere:
     - /pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
     - /pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
