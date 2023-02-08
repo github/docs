@@ -95,7 +95,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
   {% tip %}
 
-  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **Tip:** The pull request merge queue feature is currently in public beta and subject to change.
 
   {% endtip %}
 {%- endif %}
