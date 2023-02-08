@@ -1,12 +1,15 @@
 import { Box, Pagination, Text } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
+import cx from 'classnames'
 
 import type { SearchResultsT, SearchResultHitT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { useQuery } from 'components/hooks/useQuery'
 import { sendEvent, EventType } from 'components/lib/events'
+
+import styles from './SearchResults.module.scss'
 
 type Props = {
   results: SearchResultsT
@@ -22,8 +25,8 @@ export function SearchResults({ results, query }: Props) {
     <div>
       <Text>
         {results.meta.found.value === 1
-          ? t('one_result_found')
-          : t('found_results').replace('{n}', results.meta.found.value.toLocaleString())}
+          ? t('one_result')
+          : t('n_results').replace('{n}', results.meta.found.value.toLocaleString())}
       </Text>
       <br />
       <SearchResultHits hits={results.hits} query={query} />
@@ -57,7 +60,7 @@ function NoSearchResults() {
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('found_results').replace('{n}', 0)}</Text>
+        <Text className="f2 mt-3">{t('n_results').replace('{n}', 0)}</Text>
       </div>
     </div>
   )
@@ -80,7 +83,7 @@ function SearchResultHit({
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
 
   return (
-    <div className="my-6" data-testid="search-result">
+    <div className={cx('my-6', styles.search_result)} data-testid="search-result">
       <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
         {hit.breadcrumbs.length > 1 && (
           <>

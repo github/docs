@@ -1,4 +1,4 @@
-import { getDOM } from '../helpers/e2etest.js'
+import { get, getDOM } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { allVersions } from '../../lib/all-versions.js'
 
@@ -13,6 +13,21 @@ describe('autotitle', () => {
     })
     // There are 4 links on the `autotitling.md` content.
     expect.assertions(4)
+  })
+
+  test('typos lead to error when NODE_ENV !== production', async () => {
+    // The fixture typo-autotitling.md contains two different typos
+    // of the word "AUTOTITLE", separated by `{% if version ghes %}`
+    {
+      const res = await get('/get-started/foo/typo-autotitling', { followRedirects: true })
+      expect(res.statusCode).toBe(500)
+    }
+    {
+      const res = await get('/enterprise-server@latest/get-started/foo/typo-autotitling', {
+        followRedirects: true,
+      })
+      expect(res.statusCode).toBe(500)
+    }
   })
 })
 
