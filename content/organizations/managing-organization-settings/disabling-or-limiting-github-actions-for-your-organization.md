@@ -160,23 +160,27 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 ### Configuring the default `GITHUB_TOKEN` permissions
 
 {% ifversion actions-default-workflow-permissions-restrictive %}
-By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` scope.{% endif %}
+By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
 
    {% ifversion allow-actions-to-approve-pr %}
       {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+         {% ifversion actions-default-workflow-permissions-restrictive %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-default-restrictive.png)
+         {% else %}
    ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+         {% endif %}
       {% else %}
    ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
       {% endif %}
    {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
    {% endif %}
 1. Click **Save** to apply the settings.
 
@@ -193,15 +197,16 @@ By default, when you create a new organization, workflows are not allowed to {% 
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+   {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+      {% ifversion actions-default-workflow-permissions-restrictive %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-default-restrictive.png)
       {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
       {% endif %}
    {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
    {% endif %}
+
 1. Click **Save** to apply the settings.
 
 {% endif %}
