@@ -53,6 +53,7 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
   - /code-security/repository-security-advisories/about-github-security-advisories-for-repositories
   - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
   - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
   - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
   - /code-security/repository-security-advisories/creating-a-repository-security-advisory

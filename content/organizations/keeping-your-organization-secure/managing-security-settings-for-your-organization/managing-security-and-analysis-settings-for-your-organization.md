@@ -43,6 +43,7 @@ The page that's displayed allows you to enable or disable all security and analy
 You can enable or disable features for all repositories. 
 {% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
 
+- **Private vulnerability reporting** - Your changes affect public repositories only.
 - **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
 - **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
 - **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
