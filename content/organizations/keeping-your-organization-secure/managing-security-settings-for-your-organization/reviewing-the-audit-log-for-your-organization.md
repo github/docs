@@ -773,7 +773,6 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update` | Triggered when changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 | `delete` | Triggered when a custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
 
-
 {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
 
 ### `repository_secret_scanning_custom_pattern_push_protection` category actions
@@ -798,8 +797,8 @@ For more information, see "[Managing the publication of {% data variables.produc
 | Action | Description
 |------------------|-------------------
 | `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
-| `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
+| `dismiss` | Triggered when an organization owner or person with admin{% ifversion dependabot-alerts-permissions-write-maintain %}, write, or maintain{% endif %} access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
+| `resolve` | Triggered when someone with write {% ifversion dependabot-alerts-permissions-write-maintain %}or maintain{% endif %} access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 {% ifversion fpt or ghec %}
 ### `repository_vulnerability_alerts` category actions
 
@@ -905,7 +904,7 @@ For more information, see "[Managing the publication of {% data variables.produc
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+- "[Keeping your organization secure](/articles/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {%- ifversion fpt or ghec %}
 - "[Exporting member information for your organization](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
 {%- endif %}

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
   ghae: '>= 3.4'
 topics:
   - Repositories

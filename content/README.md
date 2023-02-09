@@ -19,7 +19,6 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`childGroups`](#childgroups)
   - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
-  - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
   - [`changelog`](#changelog)
   - [`defaultPlatform`](#defaultplatform)
@@ -181,7 +180,7 @@ Example:
 featuredLinks:
   gettingStarted:
     - /path/to/page
-  guides:
+  startHere:
     - /guides/example
   popular:
     - /path/to/popular/article1

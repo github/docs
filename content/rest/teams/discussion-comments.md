@@ -13,6 +13,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}
+
 ## About team discussion comments
 
 Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)." 

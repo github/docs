@@ -52,9 +52,9 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-a-repository) (read){% endif %}
 {% ifversion ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/cache/usage-policy`](/rest/actions#get-github-actions-cache-usage-policy-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun`](/rest/actions#re-run-job-for-workflow-run) (write){% endif %}
-{% ifversion fpt or ghec or ghae or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}`](/rest/actions#get-a-workflow-run-attempt) (read){% endif %}
-{% ifversion fpt or ghec or ghae or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs`](/rest/actions#list-jobs-for-a-workflow-run-attempt) (read){% endif %}
-{% ifversion fpt or ghec or ghae or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs`](/rest/actions#download-workflow-run-attempt-logs) (read){% endif %}
+- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}`](/rest/actions#get-a-workflow-run-attempt) (read)
+- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs`](/rest/actions#list-jobs-for-a-workflow-run-attempt) (read)
+- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs`](/rest/actions#download-workflow-run-attempt-logs) (read)
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs`](/rest/actions#re-run-workflow-failed-jobs) (write){% endif %}
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`GET /repos/{owner}/{repo}/actions/caches`](/rest/actions/cache#list-github-actions-caches-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`DELETE /repos/{owner}/{repo}/actions/caches`](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key) (write){% endif %}
@@ -158,12 +158,12 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/autolinks`](/v3/repos#create-an-autolink) (write)
 - [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#get-autolink) (read)
 - [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#delete-autolink) (write)
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-a-repository) (read){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository) (write){% endif %}
-{% ifversion ghes > 3.3 %}- [`GET /repos/{owner}/{repo}/replicas/caches`](/rest/repos#list-repository-cache-replication-status) (read){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-a-repository) (read){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository) (write){% endif %}
+{% ifversion ghes %}- [`GET /repos/{owner}/{repo}/replicas/caches`](/rest/repos#list-repository-cache-replication-status) (read){% endif %}
 {% ifversion ghes > 3.4 %}- [`PATCH /repos/{owner}/{repo}/actions/cache/usage-policy`](/rest/actions#set-github-actions-cache-usage-policy-for-a-repository) (write){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/permissions/access`](/rest/actions#get-workflow-access-level-to-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`PUT /repos/{owner}/{repo}/actions/permissions/access`](/rest/actions#set-workflow-access-to-a-repository) (write){% endif %}
@@ -187,7 +187,6 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#enable-vulnerability-alerts) (write){% endif %}
 {% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#disable-vulnerability-alerts) (write){% endif %}
-
 
 {% ifversion fpt or ghec %}
 
@@ -288,6 +287,7 @@ shortTitle: GitHub App permissions
 
 ## Contents
 
+- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (read)
 - [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches) (read)
 - [`GET /repos/{owner}/{repo}/branches/{branch}`](/rest/branches/branches#get-a-branch) (read)
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/branches/{branch}/rename`](/rest/branches/branches#rename-a-branch) (write){% endif %}
@@ -333,7 +333,7 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/releases/{release_id}/assets`](/rest/repos#list-release-assets) (read)
 - [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository) (write)
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/releases/generate-notes`](/rest/repos#generate-release-notes) (write){% endif %}
-{% ifversion fpt or ghec or ghae or ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/repos#list-codeowners-errors) (read){% endif %}
+- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/repos#list-codeowners-errors) (read)
 {% ifversion fpt or ghec or ghes > 3.5 %}- [`GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}`](/rest/dependency-graph#get-a-diff-of-the-dependencies-between-commits) (read){% endif %}
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/code-scanning#list-codeql-databases) (read){% endif %}
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/code-scanning#get-codeql-database) (read){% endif %}
@@ -347,7 +347,7 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/migrations#get-large-files) (read){% endif %}
 {% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/migrations#update-git-lfs-preference) (write){% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Dependabot secrets
 
@@ -382,11 +382,11 @@ shortTitle: GitHub App permissions
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 %}
+{% ifversion ghec or ghes %}
 
 ## Enterprise administration
 
-{% ifversion ghec or ghes > 3.3 %}- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise) (write){% endif %}
+{% ifversion ghec or ghes %}- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise) (write){% endif %}
 {% ifversion ghec or ghes > 3.4 %}- [`GET /enterprises/{enterprise}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-an-enterprise) (write){% endif %}
 {% ifversion ghes > 3.4 %}- [`GET /enterprises/{enterprise}/actions/cache/usage-policy`](/rest/actions#get-github-actions-cache-usage-policy-for-an-enterprise) (write){% endif %}
 {% ifversion ghes > 3.4 %}- [`PATCH /enterprises/{enterprise}/actions/cache/usage-policy`](/rest/actions#set-github-actions-cache-usage-policy-for-an-enterprise) (write){% endif %}
@@ -602,8 +602,8 @@ shortTitle: GitHub App permissions
 - [`GET /search/labels`](/rest/search#search-labels) (read)
 - [`GET /user/repos`](/rest/repos#list-repositories-for-the-authenticated-user) (read)
 - [`GET /users/{username}/repos`](/rest/repos#list-repositories-for-a-user) (read)
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}`](/rest/dependabot#add-selected-repository-to-an-organization-secret) (read){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`DELETE /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}`](/rest/dependabot#remove-selected-repository-from-an-organization-secret) (read){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}`](/rest/dependabot#add-selected-repository-to-an-organization-secret) (read){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`DELETE /orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}`](/rest/dependabot#remove-selected-repository-from-an-organization-secret) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.7 %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.7 %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (read){% endif %}
 {% ifversion fpt or ghec %}- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#add-selected-repository-to-an-organization-secret) (read){% endif %}
@@ -645,7 +645,7 @@ shortTitle: GitHub App permissions
 - [`PUT /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-organization) (write)
 - [`GET /orgs/{org}/installations`](/rest/orgs#list-app-installations-for-an-organization) (read)
 {% ifversion ghec or ghae or ghes %}- [`GET /orgs/{org}/audit-log`](/rest/orgs#get-audit-log) (read){% endif %}
-{% ifversion ghec or ghes > 3.3 %}- [`GET /orgs/{org}/settings/billing/advanced-security`](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) (read){% endif %}
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/settings/billing/advanced-security`](/rest/billing#get-github-advanced-security-active-committers-for-an-organization) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`GET /orgs/{org}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-an-organization) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`GET /orgs/{org}/actions/cache/usage-by-repository`](/rest/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 %}- [`GET /orgs/{org}/actions/permissions/workflow`](/rest/actions#get-default-workflow-permissions) (read){% endif %}
@@ -706,7 +706,7 @@ shortTitle: GitHub App permissions
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.3 %}
+{% ifversion ghec or ghes %}
 
 ## Organization custom roles
 
@@ -714,7 +714,7 @@ shortTitle: GitHub App permissions
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.3 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Organization dependabot secrets
 
@@ -815,11 +815,11 @@ shortTitle: GitHub App permissions
 - [`POST /orgs/{org}/actions/runners/remove-token`](/rest/actions#create-a-remove-token-for-an-organization) (write)
 - [`GET /orgs/{org}/actions/runners/{runner_id}`](/rest/actions#get-a-self-hosted-runner-for-an-organization) (read)
 - [`DELETE /orgs/{org}/actions/runners/{runner_id}`](/rest/actions#delete-a-self-hosted-runner-from-an-organization) (write)
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`GET /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-an-organization) (read){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`POST /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`PUT /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-an-organization) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`DELETE /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-an-organization) (write){% endif %}
-{% ifversion fpt or ghec or ghes > 3.3 %}- [`DELETE /orgs/{org}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`GET /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-an-organization) (read){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`POST /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-an-organization) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`PUT /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-an-organization) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`DELETE /orgs/{org}/actions/runners/{runner_id}/labels`](/rest/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-an-organization) (write){% endif %}
+{% ifversion fpt or ghec or ghes %}- [`DELETE /orgs/{org}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-an-organization) (write){% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -1007,7 +1007,7 @@ shortTitle: GitHub App permissions
 - [`DELETE /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}`](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository) (write)
 - [`POST /repos/{owner}/{repo}/code-scanning/sarifs`](/rest/code-scanning#upload-a-sarif-file) (write)
 - [`GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}`](/rest/code-scanning#list-recent-code-scanning-analyses-for-a-repository) (read)
-{% ifversion fpt or ghec or ghae or ghes > 3.4 %}- [`GET /orgs/{org}/code-scanning/alerts`](/rest/code-scanning#list-code-scanning-alerts-by-organization) (read){% endif %}
+- [`GET /orgs/{org}/code-scanning/alerts`](/rest/code-scanning#list-code-scanning-alerts-by-organization) (read)
 {% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{owner}/{repo}/dependabot/alerts`](/rest/dependabot#list-dependabot-alerts-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.7 %}- [`GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#get-a-dependabot-alert) (read){% endif %}
 {% ifversion fpt or ghec or ghes > 3.7 %}- [`PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#update-a-dependabot-alert) (write){% endif %}

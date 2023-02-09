@@ -34,7 +34,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% data reusables.actions.internal-actions-summary %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 
 {% data reusables.actions.reusable-workflows %}
@@ -46,7 +46,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 ## Sharing secrets{% ifversion actions-configuration-variables %} and variables{% endif %} within an organization
 
-You can centrally manage your secrets {% ifversion actions-configuration-variables %} and variables{% endif %} within an organization, and then make them available to selected repositories. This also means that you can update a secret {% ifversion actions-configuration-variables %} or variable{% endif %} in one location, and have the change apply to all repository workflows that use the it.
+You can centrally manage your secrets {% ifversion actions-configuration-variables %} and variables{% endif %} within an organization, and then make them available to selected repositories. This also means that you can update a secret {% ifversion actions-configuration-variables %} or variable{% endif %} in one location, and have the change apply to all repository workflows that use it.
 
 When creating a secret {% ifversion actions-configuration-variables %} or variable{% endif %} in an organization, you can use a policy to limit which repositories can access it. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
@@ -72,7 +72,6 @@ When creating a secret {% ifversion actions-configuration-variables %} or variab
 Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
 For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
-
 
 ## Next steps
 
