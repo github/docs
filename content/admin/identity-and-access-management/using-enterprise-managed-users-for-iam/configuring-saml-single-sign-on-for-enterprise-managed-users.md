@@ -38,7 +38,7 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
 
-To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning. 
+To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP and then configure your enterprise on GitHub.com. After you configure SAML SSO, you can configure user provisioning.
 
 To install and configure the {% data variables.product.prodname_emu_idp_application %} application on your IdP, you must have a tenant and administrative access on a supported IdP.
 
@@ -78,7 +78,7 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
 ### Configuring your enterprise
 
-After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise. 
+After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise.
 
 1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
 
@@ -116,5 +116,4 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 
 ### Enabling provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](//admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
-
+After you enable SAML SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
