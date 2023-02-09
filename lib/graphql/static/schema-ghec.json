@@ -42047,6 +42047,86 @@
               }
             }
           ]
+        },
+        {
+          "name": "workflow",
+          "description": "<p>A workflow of the project.</p>",
+          "type": "ProjectV2Workflow",
+          "id": "projectv2workflow",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2workflow",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The number of a workflow belonging to the project.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "workflows",
+          "description": "<p>List of the workflows in the project.</p>",
+          "type": "ProjectV2WorkflowConnection!",
+          "id": "projectv2workflowconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2workflowconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for project v2 workflows returned from the connection.</p>",
+              "type": {
+                "name": "ProjectV2WorkflowOrder",
+                "id": "projectv2workfloworder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2workfloworder"
+              }
+            }
+          ]
         }
       ]
     },
@@ -44440,6 +44520,144 @@
           "id": "projectv2view",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2view"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Workflow",
+      "kind": "objects",
+      "id": "projectv2workflow",
+      "href": "/graphql/reference/objects#projectv2workflow",
+      "description": "<p>A workflow inside a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>The workflows' enabled state.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The workflows' name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "number",
+          "description": "<p>The workflows' number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this workflow.</p>",
+          "type": "ProjectV2!",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2WorkflowConnection",
+      "kind": "objects",
+      "id": "projectv2workflowconnection",
+      "href": "/graphql/reference/objects#projectv2workflowconnection",
+      "description": "<p>The connection type for ProjectV2Workflow.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2WorkflowEdge]",
+          "id": "projectv2workflowedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2workflowedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2Workflow]",
+          "id": "projectv2workflow",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2workflow"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2WorkflowEdge",
+      "kind": "objects",
+      "id": "projectv2workflowedge",
+      "href": "/graphql/reference/objects#projectv2workflowedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2Workflow",
+          "id": "projectv2workflow",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2workflow"
         }
       ]
     },
@@ -77165,6 +77383,31 @@
       ]
     },
     {
+      "name": "ProjectV2WorkflowsOrderField",
+      "kind": "enums",
+      "id": "projectv2workflowsorderfield",
+      "href": "/graphql/reference/enums#projectv2workflowsorderfield",
+      "description": "<p>Properties by which project workflows can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>The workflows' date and time of creation.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>The workflows' name.</p>"
+        },
+        {
+          "name": "NUMBER",
+          "description": "<p>The workflows' number.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>The workflows' date and time of update.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestMergeMethod",
       "kind": "enums",
       "id": "pullrequestmergemethod",
@@ -88168,6 +88411,31 @@
           "id": "projectv2vieworderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectv2vieworderfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2WorkflowOrder",
+      "kind": "inputObjects",
+      "id": "projectv2workfloworder",
+      "href": "/graphql/reference/input-objects#projectv2workfloworder",
+      "description": "<p>Ordering options for project v2 workflows connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order the project v2 workflows by.</p>",
+          "type": "ProjectV2WorkflowsOrderField!",
+          "id": "projectv2workflowsorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2workflowsorderfield"
         }
       ]
     },

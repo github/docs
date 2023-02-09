@@ -38,22 +38,14 @@ To enable encrypted assertions, you must provide {% data variables.location.prod
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
 1. Select **Require encrypted assertions**.
-
-   ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-1. To the right of "Encryption Certificate", click **Download** to save a copy of {% data variables.location.product_location %}'s public certificate on your local machine.
-
-   ![Screenshot of "Download" button for public certificate for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
+1. To the right of "Encryption Certificate", to save a copy of {% data variables.location.product_location %}'s public certificate on your local machine, click **Download**.
 1. Sign into your SAML IdP as an administrator.
 1. In the application for {% data variables.location.product_location %}, enable encrypted assertions.
    - Note the encryption method and key transport method.
    - Provide the public certificate you downloaded in step 7.
 1. Return to the management console on {% data variables.location.product_location %}.
 1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
-
-   ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
 1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.
-
-   ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
 1. Click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 

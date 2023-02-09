@@ -3,6 +3,25 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'ProjectV2Workflow' was added</p>",
+          "<p>Type 'ProjectV2WorkflowConnection' was added</p>",
+          "<p>Type 'ProjectV2WorkflowEdge' was added</p>",
+          "<p>Type 'ProjectV2WorkflowOrder' was added</p>",
+          "<p>Type 'ProjectV2WorkflowsOrderField' was added</p>",
+          "<p>Field <code>workflow</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>workflows</code> was added to object type 'ProjectV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],
