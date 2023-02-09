@@ -294,7 +294,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2625
         - |
-          Users can save time and switch context less often by receiving and acting on real-time updates about GitHub Enterprise Server activity directly within Slack or Microsoft Teams. GitHub's integrations for these services are now generally available. For more information, see "[About integrations](/get-started/customizing-your-github-workflow/exploring-integrations/about-integrations)."
+          Users can save time and switch context less often by receiving and acting on real-time updates about GitHub Enterprise Server activity directly within Slack or Microsoft Teams. GitHub's integrations for these services are now generally available. For more information, see "[GitHub extensions and integrations](/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations)."
 
   changes:
     # https://github.com/github/releases/issues/2702
