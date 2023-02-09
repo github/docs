@@ -130,7 +130,7 @@ When you make calls to the OAuth Authorizations API, Basic Authentication requir
 
 `X-GitHub-OTP: required; SMS` or `X-GitHub-OTP: required; app`.  
 
-This header tells you how your account receives its two-factor authentication codes. Depending how you set up your account, you will either receive your OTP codes via SMS or you will use an application like Google Authenticator or 1Password. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)." Pass the OTP in the header:
+This header tells you how your account receives its two-factor authentication codes. Depending how you set up your account, you will either receive your OTP codes via SMS or you will use an application like Google Authenticator, Keeper or 1Password. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)." Pass the OTP in the header:
 
 ```shell
 $ curl --request POST \

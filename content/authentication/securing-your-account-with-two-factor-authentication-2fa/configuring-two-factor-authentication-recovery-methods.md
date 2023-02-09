@@ -25,6 +25,7 @@ In addition to securely storing your two-factor authentication recovery codes, w
 {% data reusables.two_fa.about-recovery-codes %} You can also download your recovery codes at any point after enabling two-factor authentication.
 
 To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
+- [Keeper](https://keepersecurity.com)
 - [1Password](https://1password.com/)
 - [LastPass](https://lastpass.com/)
 

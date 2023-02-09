@@ -28,7 +28,7 @@ To access {% data variables.product.company_short %} from the command line, cons
 
 When using a {% data variables.product.pat_generic %} in a script, consider storing your token as a secret and running your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another service such as [Keeper Secrets Manager](https://www.keepersecurity.com/secrets-manager.html) or [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
 
 {% endwarning %}
 

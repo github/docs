@@ -13,7 +13,7 @@ topics:
 shortTitle: Download SAML recovery codes
 ---
 
-Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [Keeper](https://keepersecurity.com), [LastPass](https://lastpass.com/), or [1Password](https://1password.com/).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
