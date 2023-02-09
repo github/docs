@@ -27,3 +27,13 @@ environment:
   url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
+
+The `name` can also be an expression but the available contexts are not currently documented.
+
+### Example: Using an expression as environment name
+{% raw %}
+```yaml
+environment:
+  name: ${{ github.ref_name }}
+```
+{% endraw %}
