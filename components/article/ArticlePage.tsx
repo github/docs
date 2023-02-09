@@ -19,6 +19,10 @@ import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
+
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -36,10 +40,12 @@ export const ArticlePage = () => {
     includesPlatformSpecificContent,
     includesToolSpecificContent,
     product,
+    productVideoUrl,
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
+  const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
@@ -82,6 +88,15 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
+            {productVideoUrl && (
+              <div className="my-2">
+                <Link id="product-video" href={productVideoUrl} target="_blank">
+                  <LinkExternalIcon className="octicon-link mr-2" />
+                  {t('video_from_transcript')}
+                </Link>
+              </div>
+            )}
+
             <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
