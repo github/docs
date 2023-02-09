@@ -24,9 +24,9 @@ versions:
 Your ability to view a package depends on several factors. By default, you can view all packages you have published.
 
 {% ifversion packages-registries-v2 %}
-Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. Some registries **only** support repository-scoped packages. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+Repository-scoped packages inherit their permissions and visibility from the repository in which the package is published. Some registries **only** support repository-scoped packages. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-Other registries offer you the option of granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account. You can choose to use granular permissions or connect the package to a repository and inherit the repository's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+Other registries offer you the option of granular permissions and visibility settings that can be customized for each package scoped to a personal account or organization. You can choose to use granular permissions or connect the package to a repository and inherit the repository's permissions. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)" and "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% else %}
 

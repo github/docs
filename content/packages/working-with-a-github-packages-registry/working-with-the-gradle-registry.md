@@ -39,7 +39,7 @@ Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your 
 Replace *REGISTRY-URL* with the URL for your enterprise's Maven registry, `maven.HOSTNAME`. Replace *HOSTNAME* with the host name of {% data variables.location.product_location %}.
 {% endif %}
 
-Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_v1 %}, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 
