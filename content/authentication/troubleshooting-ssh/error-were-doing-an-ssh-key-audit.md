@@ -27,4 +27,4 @@ fatal: could not read from remote repository
 ```
 ## Solving the issue
 
-To fix this, you need to [review your SSH keys](/articles/reviewing-your-ssh-keys) and either reject or approve the unverified key. Clicking the URL link in the error message brings you to the SSH Settings page, where the unverified SSH key is highlighted in the SSH key list.
+To fix this, you need to [review your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys) and either reject or approve the unverified key. Clicking the URL link in the error message brings you to the SSH Settings page, where the unverified SSH key is highlighted in the SSH key list.
