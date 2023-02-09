@@ -17,6 +17,18 @@ shortTitle: Invite users to join
 
 ## About organization invitations
 
+ When you invite someone to become a member of your organization, the person receives an email with an invitation link. To join the organization, the invitee clicks the invitation link in the email.
+
+ You can use a person's {% data variables.product.company_short %} username or email address for the invitation.
+
+{% note %}
+
+**Note:** If you use an email address for the invitation, the invitee will only be able to accept the invitation if the email address matches with a verified email address associated with the invitee's personal account on {% data variables.product.prodname_dotcom %}. For more information, see "[Verifying your email address](/get-started/signing-up-for-github/verifying-your-email-address)."
+
+If an invitee's personal account has been flagged, the invitee won't be able to accept any new or pending invitations to join organizations.
+
+{% endnote %}
+
 If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
 
 {% data reusables.organizations.org-invite-scim %}

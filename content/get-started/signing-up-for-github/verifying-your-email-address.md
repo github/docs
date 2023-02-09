@@ -30,6 +30,7 @@ If you do not verify your email address, you will not be able to:
   - Create or update gists
   - Create or use {% data variables.product.prodname_actions %}
   - Sponsor developers with {% data variables.product.prodname_sponsors %}
+  - Accept organization invitations
 
 {% warning %}
 
