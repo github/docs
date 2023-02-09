@@ -216,6 +216,12 @@ upcoming_changes:
     date: '2023-07-01T00:00:00+00:00'
     criticality: breaking
     owner: github/merge_queue
+  - location: MergeQueueEntry.baseOid
+    description: '`baseOid` will be removed. Use `baseCommit` instead.'
+    reason: '`baseOid` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
   - location: MergeQueueEntry.blockedByMergeConflicts
     description: '`blockedByMergeConflicts` will be removed. Use `state` instead.'
     reason: '`blockedByMergeConflicts` will be removed.'
@@ -231,6 +237,12 @@ upcoming_changes:
   - location: MergeQueueEntry.hasJumpedQueue
     description: '`hasJumpedQueue` will be removed. Use `jump` instead.'
     reason: '`hasJumpedQueue` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.headOid
+    description: '`headOid` will be removed. Use `headCommit` instead.'
+    reason: '`headOid` will be removed.'
     date: '2023-07-01T00:00:00+00:00'
     criticality: breaking
     owner: github/merge_queue

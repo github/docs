@@ -18,6 +18,14 @@
         "owner": "github/merge_queue"
       },
       {
+        "location": "MergeQueueEntry.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
         "location": "MergeQueueEntry.hasJumpedQueue",
         "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
         "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
@@ -37,6 +45,14 @@
         "location": "MergeQueueEntry.blockedByMergeConflicts",
         "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
         "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.baseOid",
+        "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
+        "reason": "<p><code>baseOid</code> will be removed.</p>",
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "github/merge_queue"
@@ -322,6 +338,14 @@
         "owner": "github/merge_queue"
       },
       {
+        "location": "MergeQueueEntry.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
         "location": "MergeQueueEntry.hasJumpedQueue",
         "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
         "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
@@ -341,6 +365,14 @@
         "location": "MergeQueueEntry.blockedByMergeConflicts",
         "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
         "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.baseOid",
+        "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
+        "reason": "<p><code>baseOid</code> will be removed.</p>",
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "github/merge_queue"
@@ -1556,6 +1588,14 @@
         "owner": "github/merge_queue"
       },
       {
+        "location": "MergeQueueEntry.headOid",
+        "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
+        "reason": "<p><code>headOid</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
         "location": "MergeQueueEntry.hasJumpedQueue",
         "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
         "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
@@ -1575,6 +1615,14 @@
         "location": "MergeQueueEntry.blockedByMergeConflicts",
         "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
         "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+        "date": "2023-07-01",
+        "criticality": "breaking",
+        "owner": "github/merge_queue"
+      },
+      {
+        "location": "MergeQueueEntry.baseOid",
+        "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
+        "reason": "<p><code>baseOid</code> will be removed.</p>",
         "date": "2023-07-01",
         "criticality": "breaking",
         "owner": "github/merge_queue"
