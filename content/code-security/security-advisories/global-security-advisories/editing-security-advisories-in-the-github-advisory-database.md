@@ -32,14 +32,9 @@ Only repository owners and administrators can edit repository-level security adv
 1. Navigate to https://github.com/advisories.
 1. Select the security advisory you would like to contribute to.
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
-   
-   ![Screenshot of the suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory.png)
-
 1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see "[Best practices for writing repository security advisories](/code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories)."{% endif %}{% ifversion security-advisories-reason-for-change %}
 1. Under **Reason for change**, explain why you want to make this improvement. If you include links to supporting material this will help our reviewers.
-   
-   ![Screenshot of the reason for change field](/assets/images/help/security/security-advisories-suggest-improvement-reason.png){% endif %}
-
+{% endif %}
 1. When you finish editing the advisory, click **Submit improvements**.
 1. Once you submit your improvements, a pull request containing your changes will be created for review in [github/advisory-database](https://github.com/github/advisory-database) by the {% data variables.product.prodname_security %} curation team. If the advisory originated from a {% data variables.product.prodname_dotcom %} repository, we will also tag the original publisher for optional commentary. You can view the pull request and get notifications when it is updated or closed.
 
@@ -53,6 +48,5 @@ If you have {% data variables.product.prodname_github_connect %} enabled for {% 
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Select the security advisory you would like to contribute to.
 3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom_the_website %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
-![Suggest improvements link](/assets/images/help/security/suggest-improvements-to-advisory-on-github-com.png)
 4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
 {% endif %}

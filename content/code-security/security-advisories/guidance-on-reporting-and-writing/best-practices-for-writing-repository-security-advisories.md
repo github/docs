@@ -45,8 +45,6 @@ You need to assign the advisory to one of our supported ecosystems using the **E
 
 We recommend that you use the **Package name** field to specify which packages are affected because package information is required for "{% data variables.product.company_short %}-reviewed" advisories in the {% data variables.product.prodname_advisory_database %}. Package information is optional for repository-level security advisories, but including this information early simplifies the review process when you publish your security advisory.
 
-![Screenshot highlighting the Package name on the form](/assets/images/help/security/security-advisory-package-name.png)
-
 ### Affected versions
 
 We recommend that you use the **Affected versions** field to specify which versions are affected because this information is required for "{% data variables.product.company_short %}-reviewed" advisories in the {% data variables.product.prodname_advisory_database %}. Version information is optional for repository-level security advisories, but including this information early simplifies the review process when you publish your security advisory.

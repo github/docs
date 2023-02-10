@@ -29,7 +29,7 @@ Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
 {% ifversion ghec %}
-All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Your IdP will send team membership data to {% data variables.product.prodname_dotcom %} once every hour.
+All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Team synchronization will fetch group information from your IdP at least once every hour, and reflect any changes in IdP group membership into {% data variables.product.product_name %}.
 Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
 {% endif %}
 

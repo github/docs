@@ -40,6 +40,7 @@ export type ProductLandingContextT = {
   product: Product
   introLinks: Record<string, string> | null
   productVideo: string
+  productVideoTranscript: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
@@ -108,6 +109,7 @@ export const getProductLandingContextFromRequest = async (
   return {
     ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
     productVideo,
+    productVideoTranscript: page.product_video_transcript || null,
     hasGuidesPage,
     product: {
       href: productTree.href,
