@@ -89,7 +89,6 @@ After changing your username, the URLs to any public or secret gists will also c
 
 After changing your username, CODEOWNERS files will need to be manually updated. When viewing the CODEOWNERS files from the web, a warning will show if the file contains any unknown user(s) or user(s) without write access. We recommend updating all relevant CODEOWNERS files with your new username.
 
-
 ## Changing your username
 
 {% data reusables.user-settings.access_settings %}
