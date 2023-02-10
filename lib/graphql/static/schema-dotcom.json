@@ -82565,7 +82565,7 @@
         },
         {
           "name": "title",
-          "description": "<p>The title of the draft issue.</p>",
+          "description": "<p>The title of the draft issue. A project item can also be created by providing\nthe URL of an Issue or Pull Request if you have access.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
