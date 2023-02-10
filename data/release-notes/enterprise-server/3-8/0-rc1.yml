@@ -294,7 +294,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2625
         - |
-          Users can save time and switch context less often by receiving and acting on real-time updates about GitHub Enterprise Server activity directly within Slack or Microsoft Teams. GitHub's integrations for these services are now generally available. For more information, see "[About integrations](/get-started/customizing-your-github-workflow/exploring-integrations/about-integrations)."
+          Users can save time and switch context less often by receiving and acting on real-time updates about GitHub Enterprise Server activity directly within Slack or Microsoft Teams. GitHub's integrations for these services are now generally available. For more information, see "[GitHub extensions and integrations](/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations)."
 
   changes:
     # https://github.com/github/releases/issues/2702
@@ -456,6 +456,7 @@ sections:
     - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
@@ -464,7 +465,7 @@ sections:
         - |
           GitHub has disabled the use of unsecure algorithms for SSH connections to the administrative shell.
 
-    - heading: Deprecation of the `repository_vulnerability_alert` webhook
+    - heading: Deprecation of the repository_vulnerability_alert webhook
       notes:
         # https://github.com/github/releases/issues/2621
         - |

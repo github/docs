@@ -12,6 +12,7 @@ security_advisories:
     - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
     - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
     - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+    - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
     - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability

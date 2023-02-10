@@ -37,9 +37,7 @@ Collaborators have write permissions to the security advisory. For more informat
 {% data reusables.repositories.sidebar-advisories %}
 4. In the "Security Advisories" list, click the security advisory you'd like to add a collaborator to.
 5. On the right side of the page, under "Collaborators", type the name of the user or team you'd like to add to the security advisory.
-  ![Field to type user or team name](/assets/images/help/security/add-collaborator-field.png)
 6. Click **Add**.
-  ![Add button](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
 ## Further reading
 

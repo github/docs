@@ -72,14 +72,14 @@ To authenticate by logging in to npm, use the `npm login` command, replacing *US
 
 If you are using npm CLI version 9 or greater and are logging in or out of a private registry using the command line, you should use the `--auth-type=legacy` option to read in your authentication details from prompts instead of using the default login flow through a browser. For more information, see [`npm-login`](https://docs.npmjs.com/cli/v9/commands/npm-login).
 
-If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the namespace that hosts the package (the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository where the package is hosted{% endif %}) when you authenticate to {% data variables.product.prodname_registry %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-$ npm login --scope=@OWNER --auth-type=legacy --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}
+$ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}
 
 > Username: USERNAME
 > Password: TOKEN
@@ -89,7 +89,7 @@ $ npm login --scope=@OWNER --auth-type=legacy --registry=https://{% ifversion fp
 If your instance has subdomain isolation disabled:
 
 ```shell
-$ npm login --scope=@OWNER --auth-type=legacy --registry=https://HOSTNAME/_registry/npm/
+$ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_registry/npm/
 > Username: USERNAME
 > Password: TOKEN
 ```
@@ -125,7 +125,7 @@ By default, {% data variables.product.prodname_registry %} publishes a package i
 
 You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the *package.json* file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
 
-You can set up the scope mapping for your project using either a local *.npmrc* file in the project or using the `publishConfig` option in the *package.json*. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@owner/name`. Scoped packages always begin with an `@` symbol. You may need to update the name in your *package.json* to use the scoped name. For example, `"name": "@codertocat/hello-world-npm"`.
+You can set up the scope mapping for your project using either a local *.npmrc* file in the project or using the `publishConfig` option in the *package.json*. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@NAMESPACE/PACKAGE-NAME`. Scoped packages always begin with an `@` symbol. You may need to update the name in your *package.json* to use the scoped name. For example, `"name": "@codertocat/hello-world-npm"`.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -166,11 +166,11 @@ You can use `publishConfig` element in the *package.json* file to specify the re
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the *package.json* file for each package.
+To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the *package.json* file for each package.
 
-To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository.
+To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository.
 
-{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
+{% data variables.product.prodname_registry %} will match the repository based on the URL{% ifversion packages-npm-v2 %}{% else %}, instead of based on the package name{% endif %}.
 
 ```shell
 "repository":"https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY",
@@ -214,23 +214,23 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% ifversion ghes or ghae %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-@OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
-@OWNER:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
+@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
+@NAMESPACE:registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME{% endif %}
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-@OWNER:registry=https://HOSTNAME/_registry/npm
-@OWNER:registry=https://HOSTNAME/_registry/npm
+@NAMESPACE:registry=https://HOSTNAME/_registry/npm
+@NAMESPACE:registry=https://HOSTNAME/_registry/npm
 ```
 {% endif %}
 

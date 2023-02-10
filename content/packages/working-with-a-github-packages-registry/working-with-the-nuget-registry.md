@@ -34,8 +34,11 @@ This registry supports granular permissions. {% data reusables.package_registry.
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a {% data variables.product.pat_generic %} in a nuget.config file in the repository:
 
 ```shell
-dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json"
 ```
+
+Replace `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.
+
 {% ifversion packages-nuget-v2 %}{% else %}{% data reusables.package_registry.authenticate-packages-github-token %}{% endif %}
 
 {% ifversion packages-nuget-v2 %}
@@ -55,7 +58,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your {% data variables.product.pat_v1 %}.
-- `OWNER` with the name of the user or organization account that owns {% ifversion packages-nuget-v2 %}the package you want to install, or to which you want to publish a package{% else %}the repository containing your project{% endif %}.{% ifversion ghes or ghae %}
+- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.{% ifversion ghes or ghae %}
 - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
@@ -66,7 +69,7 @@ You must replace:
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
+        <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
@@ -85,7 +88,7 @@ If your instance has subdomain isolation disabled:
 <configuration>
     <packageSources>
         <clear />
-        <add key="github" value="https://HOSTNAME/_registry/nuget/OWNER/index.json" />
+        <add key="github" value="https://HOSTNAME/_registry/nuget/NAMESPACE/index.json" />
     </packageSources>
     <packageSourceCredentials>
         <github>
@@ -133,7 +136,7 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
 
 ### Publishing a package using a *nuget.config* file
 
-When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+When publishing, {% ifversion packages-nuget-v2 %}if you are linking your package to a repository, {% endif %}the `OWNER` of the repository specified in your *.csproj* file must match the `NAMESPACE` that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Create a new project.
@@ -141,7 +144,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
   dotnet new console --name OctocatApp
   ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository to which you want to connect your package.
+    - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
     - `REPOSITORY` with the name of the repository to which you want to connect your package.                      
     - `1.0.0` with the version number of the package.{% ifversion ghes or ghae %}
     - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
@@ -248,9 +251,9 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 ## Troubleshooting
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+{% ifversion packages-nuget-v2 %}{% else %}Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository.
 
-If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
+If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.{% endif %}
 
 If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a {% data variables.product.pat_v1 %} with the `read:packages` scope and pass this token in as a secret.
  

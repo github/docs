@@ -29,14 +29,10 @@ You can also clone a repository directly from {% data variables.product.prodname
 {% data reusables.desktop.click-clone %}
 
 ## Forking a repository
-If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
 
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
-{% data reusables.desktop.fork-type-prompt %}
+You can fork a repository on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_desktop %}. For information about forking on {% data variables.product.prodname_dotcom_the_website %}, see "[Fork a repo](/get-started/quickstart/fork-a-repo?tool=webui)."
+
+{% data reusables.desktop.forking-a-repo %}
 
 ## Managing fork behavior
 You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
