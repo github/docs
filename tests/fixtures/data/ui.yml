@@ -55,6 +55,7 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_statement: Who can use this feature
+  video_from_transcript: See video for this transcript
 errors:
   oops: Ooops!
   something_went_wrong: It looks like something went wrong.
@@ -229,6 +230,7 @@ product_landing:
   docs: docs
   explore_release_notes: Explore release notes
   view: View all
+  view_transcript: View video transcript
 product_guides:
   start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

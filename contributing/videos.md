@@ -111,7 +111,8 @@ If you have captions, you can use them to create the transcript. Edit the captio
 - If a video has multiple speakers, identify the speakers in the transcript
 - Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video
 - Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`
-- Link to the YouTube URL of the video in the article's `intro`
+- Add a `product_video_transcript` property below the `product_video` property in the article utilizing the video. The value of `product_video_transcript` is a link to the transcript article
+- Link to the YouTube URL of the video in the transcript article's `product_video` property. This will display in the transcript as an external link to the video.
 - At the end of the transcript, link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`
 
 See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.

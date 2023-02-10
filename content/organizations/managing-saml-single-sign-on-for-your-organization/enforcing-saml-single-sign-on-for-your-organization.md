@@ -16,9 +16,7 @@ shortTitle: Enforce SAML single sign-on
 
 When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
 
-![Banner with prompt to authenticate via SAML SSO to access organization](/assets/images/help/saml/sso-has-been-enabled.png)
-
-You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user. 
+You can also enforce SAML SSO for your organization. {% data reusables.saml.when-you-enforce %} Enforcement removes any members and administrators who have not authenticated via your IdP from the organization. {% data variables.product.company_short %} sends an email notification to each removed user.
 
 {% data reusables.saml.ghec-only %}
 
@@ -42,9 +40,9 @@ If your organization is owned by an enterprise account, requiring SAML for the e
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 1. Under "SAML single sign-on", select **Require SAML SSO authentication for all members of the _ORGANIZATION_ organization**.
-    !["Require SAML SSO authentication" checkbox](/assets/images/help/saml/require-saml-sso-authentication.png)
-1. If any organization members have not authenticated via your IdP, {% data variables.product.company_short %} displays the members. If you enforce SAML SSO, {% data variables.product.company_short %} will remove the members from the organization. Review the warning and click **Remove members and require SAML single sign-on**.
-    !["Confirm SAML SSO enforcement" dialog with list of members to remove from organization](/assets/images/help/saml/confirm-saml-sso-enforcement.png)
+1. If any organization members have not authenticated via your IdP, {% data variables.product.company_short %} displays the members. If you enforce SAML SSO, {% data variables.product.company_short %} will remove the members from the organization.
+
+   Review the warning and click **Remove members and require SAML single sign-on**.
 1. Under "Single sign-on recovery codes", review your recovery codes. Store the recovery codes in a safe location like a password manager.
 
 ## Further reading
