@@ -16,9 +16,20 @@ export const SmallFooter = () => {
           </Link>
         </li>
         <li className="mr-3 mr-xl-0">
-          <Link href={`/${router.locale}/site-policy/privacy-policies/github-privacy-statement`}>
-            {t('privacy')}
-          </Link>
+          {/* KO law requires link to privacy statement to be conspicuous  */}
+          {router.locale === 'ko' ? (
+            <Link
+              href={`/${router.locale}/site-policy/privacy-policies/github-privacy-statement`}
+              legacyBehavior={false}
+              className="color-fg-attention text-bold"
+            >
+              {t('privacy')}
+            </Link>
+          ) : (
+            <Link href={`/${router.locale}/site-policy/privacy-policies/github-privacy-statement`}>
+              {t('privacy')}
+            </Link>
+          )}
         </li>
         <li className="mr-3 mr-xl-0">
           <a href="https://github.com/security">{t('product.links.security')}</a>
