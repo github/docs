@@ -464,7 +464,7 @@ sections:
         - |
           GitHub has disabled the use of unsecure algorithms for SSH connections to the administrative shell.
 
-    - heading: Deprecation of the `repository_vulnerability_alert` webhook
+    - heading: Deprecation of the repository_vulnerability_alert webhook
       notes:
         # https://github.com/github/releases/issues/2621
         - |
