@@ -456,6 +456,7 @@ sections:
     - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
