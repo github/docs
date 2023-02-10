@@ -51,7 +51,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.get-number.outputs.number != '' }}
-        uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
+        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ steps.get-number.outputs.number }}
