@@ -105,14 +105,14 @@ In addition to the features available with {% data variables.product.prodname_te
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
 - {% data variables.product.prodname_github_connect %}
-- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 - 50,000 {% data variables.product.prodname_actions %} minutes per month
 - 50 GB {% data variables.product.prodname_registry %} storage
 - A service level agreement for 99.9% monthly uptime
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
-- The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+- The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" and "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
 

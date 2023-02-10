@@ -72,7 +72,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
            run: echo Hello from Octo Organization
    ```
 4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
-   ```yaml{:copy}
+   ```json{:copy}
    {
        "name": "Octo Organization Workflow",
        "description": "Octo Organization CI starter workflow.",

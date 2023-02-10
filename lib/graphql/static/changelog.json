@@ -4,6 +4,69 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ProjectV2Workflow' was added</p>",
+          "<p>Type 'ProjectV2WorkflowConnection' was added</p>",
+          "<p>Type 'ProjectV2WorkflowEdge' was added</p>",
+          "<p>Type 'ProjectV2WorkflowOrder' was added</p>",
+          "<p>Type 'ProjectV2WorkflowsOrderField' was added</p>",
+          "<p>Field <code>workflow</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>workflows</code> was added to object type 'ProjectV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>MergeQueueEntry.baseOid</code>:<code>baseOid</code> will be removed. Use <code>baseCommit</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.headOid</code>:<code>headOid</code> will be removed. Use <code>headCommit</code> instead. <strong>Effective 2023-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-02-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>MergeQueue.headOid</code>:<code>headOid</code> will be removed. Use <code>entry.headOid</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.mergeMethod</code>:<code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.mergingEntries</code>:<code>mergingEntries</code> will be removed. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueue.pendingRemovalEntries</code>:<code>pendingRemovalEntries</code> will be removed. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.blockedByMergeConflicts</code>:<code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.checkStatus</code>:<code>checkStatus</code> will be removed. Use <code>state</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.hasJumpedQueue</code>:<code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead. <strong>Effective 2023-07-01</strong>.</p>",
+          "<p>On member <code>MergeQueueEntry.isSolo</code>:<code>isSolo</code> will be removed. Use <code>solo</code> instead. <strong>Effective 2023-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'CopyProjectV2Input' was added</p>",
           "<p>Type 'CopyProjectV2Payload' was added</p>",
           "<p>Field 'copyProjectV2<code>was added to object type</code>Mutation'</p>"

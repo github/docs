@@ -144,6 +144,8 @@ To indicate the purpose of the view, give it a descriptive name.
 
 ![Example priorities](/assets/images/help/projects/project-view-switch.gif)
 
+{% ifversion projects-v2-workflows %}
+
 ## Configure built-in automation
 
 {% ifversion projects-v2-auto-add %}
@@ -187,6 +189,8 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
 1. Click the **Disabled** toggle to enable the workflow.
   ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+
+{% endif %}
 
 ## Further reading
 

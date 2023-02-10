@@ -427,3 +427,9 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
+   
+{% note %}
+
+**Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
+
+{% endnote %}

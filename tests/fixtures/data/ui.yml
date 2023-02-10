@@ -29,7 +29,6 @@ release_notes:
 search:
   need_help: Need help?
   placeholder: Search GitHub Docs
-  no_results: No results found
   search_results_for: Search results for
   no_content: No content
   matches_found: Results found
@@ -37,8 +36,8 @@ search:
   search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Documentation.
   label: Search GitHub Docs
-  found_results: Found {n} results
-  one_result_found: Found 1 result
+  n_results: '{n} results'
+  one_result: 1 result
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -56,6 +55,7 @@ pages:
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
   permissions_statement: Who can use this feature
+  video_from_transcript: See video for this transcript
 errors:
   oops: Ooops!
   something_went_wrong: It looks like something went wrong.
@@ -230,6 +230,7 @@ product_landing:
   docs: docs
   explore_release_notes: Explore release notes
   view: View all
+  view_transcript: View video transcript
 product_guides:
   start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

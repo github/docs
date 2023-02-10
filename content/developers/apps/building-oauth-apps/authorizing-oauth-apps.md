@@ -44,9 +44,7 @@ The web application flow to authorize users for your app is:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
-
-#### Parameters
+This endpoint takes the following input parameters:
 
 Name | Type | Description
 -----|------|--------------
@@ -65,7 +63,7 @@ Exchange this `code` for an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-#### Parameters
+This endpoint takes the following input parameters:
 
 Name | Type | Description
 -----|------|--------------
@@ -73,8 +71,6 @@ Name | Type | Description
 `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `code` | `string` | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users are sent after authorization.
-
-#### Response
 
 By default, the response takes the following form:
 
@@ -143,20 +139,26 @@ Before you can use the device flow to authorize and identify users, you must fir
 
 Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
-#### Input Parameters
+The endpoint takes the following input parameters:
 
 Name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
 `scope` | `string` | The scope that your app is requesting access to.
 
-#### Response
-
 By default, the response takes the following form:
 
 ```
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
+
+Name | Type | Description
+-----|------|--------------
+`device_code` | `string` | The device verification code is 40 characters and used to verify the device.
+`user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
+`verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.
+`expires_in` | `integer`| The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.
+`interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error.
 
 {% data reusables.apps.oauth-auth-vary-response %}
 
@@ -182,16 +184,6 @@ Accept: application/xml
 </OAuth>
 ```
 
-#### Response parameters
-
-Name | Type | Description
------|------|--------------
-`device_code` | `string` | The device verification code is 40 characters and used to verify the device.
-`user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
-`verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.
-`expires_in` | `integer`| The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.
-`interval` | `integer` | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error.
-
 ### Step 2: Prompt the user to enter the user code in a browser
 
 Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
@@ -208,15 +200,13 @@ The user must enter a valid code within 15 minutes (or 900 seconds). After 15 mi
 
 Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
-#### Input parameters
+The endpoint takes the following input parameters:
 
 Name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
-
-#### Response
 
 By default, the response takes the following form:
 

@@ -17,6 +17,8 @@ topics:
 shortTitle: Sponsor a contributor
 ---
 
+{% data reusables.sponsors.paypal-deprecation %}
+
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
 ## About sponsorships
@@ -39,7 +41,7 @@ We may share certain limited tax information with sponsored accounts. For more i
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month. 
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
 If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)."
 
