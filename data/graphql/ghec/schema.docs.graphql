@@ -577,7 +577,8 @@ input AddProjectV2DraftIssueInput {
   projectId: ID! @possibleTypes(concreteTypes: ["ProjectV2"])
 
   """
-  The title of the draft issue.
+  The title of the draft issue. A project item can also be created by providing
+  the URL of an Issue or Pull Request if you have access.
   """
   title: String!
 }
