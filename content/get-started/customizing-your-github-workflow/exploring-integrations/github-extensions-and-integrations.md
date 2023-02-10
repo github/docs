@@ -1,6 +1,6 @@
 ---
 title: GitHub extensions and integrations
-intro: 'Use {% data variables.product.product_name %} extensions to work seamlessly in {% data variables.product.product_name %} repositories within third-party applications.'
+intro: 'Use {% data variables.product.prodname_dotcom %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -9,8 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.7'
 shortTitle: Extensions & integrations
 ---
+
+{% ifversion fpt or ghec %}
+
 ## Editor tools
 
 You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
@@ -35,18 +39,44 @@ You can integrate your personal or organization account on {% data variables.loc
 
 You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
 
+{% endif %}
+
+{% ifversion slack-and-team-integrations %}
+
 ## Team communication tools
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
+You can integrate your {% ifversion fpt or ghec %}personal{% elsif ghes %}user{% endif %} or organization account on {% data variables.location.product_location %} with third-party team communication tools, such as Slack or Microsoft Teams.
 
 ### Slack and {% data variables.product.product_name %} integration
 
-The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get real-time updates about activity for the following features on {% data variables.location.product_location %}.
+
+- Issues
+- Pull requests
+- Commits
+- Discussions
+- Releases
+- {% data variables.product.prodname_actions %}
+- Deployments
+
+You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally on Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
 The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
 
 ### Microsoft Teams and {% data variables.product.product_name %} integration
 
-The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get real-time updates about activity for the following features on {% data variables.location.product_location %}.
+
+- Issues
+- Pull requests
+- Commits
+- Discussions
+- Releases
+- {% data variables.product.prodname_actions %}
+- Deployments
+
+You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally on Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
 For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+
+{% endif %}

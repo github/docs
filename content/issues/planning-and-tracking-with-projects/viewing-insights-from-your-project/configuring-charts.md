@@ -3,7 +3,7 @@ title: Configuring charts
 intro: Learn how to configure your charts and filter data from your project.
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: projects-v2-insights
 type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 permissions: '{% data reusables.projects.insights-permissions %}'

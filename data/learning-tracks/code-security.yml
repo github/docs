@@ -57,7 +57,7 @@ dependency_version_updates:
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
     - /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
-    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
 

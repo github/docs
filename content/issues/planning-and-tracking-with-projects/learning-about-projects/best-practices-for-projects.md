@@ -62,13 +62,16 @@ To prevent information from getting out of sync, maintain a single source of tru
 
 You can automate tasks to spend less time on busy work and more time on the project itself. The less you need to remember to do manually, the more likely your project will stay up to date.
 
+{% ifversion projects-v2-workflows %}
+
 {% data variables.product.prodname_projects_v2 %} offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." {% ifversion projects-v2-auto-archive %}You can also configure built-in workflows to automatically archive items when they meet certain criteria{% ifversion projects-v2-auto-add %} and to automatically add items from a repository when they match a filter{% endif %}.{% endif %}
 
-Additionally, {% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
+Additionally, {%endif %}{% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
 
+{% ifversion projects-v2-workflows %}
 - For more information about the built-in workflows, see "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% ifversion projects-v2-auto-archive %}
 - For more information about automatically archiving items, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}{% ifversion projects-v2-auto-add %}
-- For more information about automatically adding items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}
+- For more information about automatically adding items, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}{% endif %}
 - For an example workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 - For more information about the API, see "[Using the API to manage {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 - For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."
