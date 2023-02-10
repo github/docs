@@ -35,8 +35,7 @@ For more information about the identity providers (IdPs) that {% data variables.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "SAML single sign-on", select **Enable SAML authentication**.
-![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
+1. Under "SAML single sign-on", select **Enable SAML authentication**.
 
   {% note %}
 
@@ -44,25 +43,18 @@ For more information about the identity providers (IdPs) that {% data variables.
 
   {% endnote %}
 
-6. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
-![Field for the URL that members will be forwarded to when signing in](/assets/images/help/saml/saml_sign_on_url.png)
-7. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
-![Field for the SAML issuer's name](/assets/images/help/saml/saml_issuer.png)
-8. Under "Public Certificate," paste a certificate to verify SAML responses.
-![Field for the public certificate from your identity provider](/assets/images/help/saml/saml_public_certificate.png)
-9. Click {% octicon "pencil" aria-label="The edit icon" %} and then in the Signature Method and Digest Method drop-downs, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests.
-![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
-10. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
-
+1. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
+1. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
+1. Under "Public Certificate," paste a certificate to verify SAML responses.
+{% data reusables.saml.edit-signature-and-digest-methods %}
+1. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct.
   {% tip %}
 
   **Tip:** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
-11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
-![Checkbox to require SAML SSO for your organization ](/assets/images/help/saml/saml_require_saml_sso.png)
-12. Click **Save**.
-![Button to save SAML SSO settings](/assets/images/help/saml/saml_save.png)
+1. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
+1. Click **Save**.
 
 ## Further reading
 
