@@ -1,7 +1,7 @@
 ---
 title: Changing the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
-permissions: People with admin permissions to a repository can change the default branch for the repository.
+permissions: People with admin access for a repository can change the default branch for the repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -28,11 +28,7 @@ You can choose the default branch for a repository. The default branch is the ba
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
-
-{% endif %}
 
 {% data reusables.branches.set-default-branch %}
 

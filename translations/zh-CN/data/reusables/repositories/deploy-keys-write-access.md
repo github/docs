@@ -1,1 +1,0 @@
-具有写入权限的部署键可以执行与具有管理员权限的组织成员或个人仓库上的协作者相同的操作。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)."

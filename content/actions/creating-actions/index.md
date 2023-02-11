@@ -6,7 +6,7 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
   - /actions/building-actions
-  - /articles/creating-a-github-action/
+  - /articles/creating-a-github-action
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,6 +21,9 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-from-your-private-repository
+  - /sharing-actions-and-workflows-with-your-enterprise
+  - /sharing-actions-and-workflows-with-your-organization
   - /releasing-and-maintaining-actions
   - /developing-a-third-party-cli-action
 ---

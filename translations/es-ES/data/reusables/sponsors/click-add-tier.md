@@ -1,1 +1,0 @@
-1. Para crear un nivel mensual, haz clic en **Agregar un nivel mensual** a la derecha de la página. Como alternativa, para crear un nivel para pagos de una sola ocasión, haz clic en **Niveles de una sola ocasión** y luego en **Agregar un nivel de una sola ocasión**. ![Botón de agregar nivel](/assets/images/help/sponsors/add-a-tier-button.png)

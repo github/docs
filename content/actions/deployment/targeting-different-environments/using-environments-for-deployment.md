@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -27,14 +27,14 @@ You can configure environments with protection rules and secrets. When a workflo
 
 **Note:** You can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
 
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
+Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/get-started/learning-about-github/githubs-products)."
 
 {% endnote %}
 {% endif %}
 
 ## Environment protection rules
 
-Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.{% else %}You can use environment protection rules to require a manual approval or delay a job.{% endif %}
+Environment protection rules require specific conditions to pass before a job referencing the environment can proceed. You can use environment protection rules to require a manual approval, delay a job, or restrict the environment to certain branches.
 
 ### Required reviewers
 
@@ -46,7 +46,6 @@ For more information on reviewing jobs that reference an environment with requir
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ### Deployment branches
 
 Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
@@ -56,7 +55,6 @@ Use deployment branches to restrict which branches can deploy to the environment
 * **Selected branches**: Only branches that match your specified name patterns can deploy to the environment.
 
   For example, if you specify `releases/*` as a deployment branch rule, only branches whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a deployment branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
-{% endif %}
 ## Environment secrets
 
 Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
@@ -67,15 +65,29 @@ Secrets stored in an environment are only available to workflow jobs that refere
 
 {% endnote %}
 
+{% ifversion actions-configuration-variables %}
+## Environment variables
+
+Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Variables](/actions/learn-github-actions/variables)."
+{% endif %}
+
 ## Creating an environment
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** Creation of an environment in a private repository is available to organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %}.
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment.
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
@@ -92,8 +104,15 @@ Secrets stored in an environment are only available to workflow jobs that refere
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
+{%- ifversion actions-configuration-variables %}
+5. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Variables](/actions/learn-github-actions/variables)."
+   1. Under **Environment variables**, click **Add Variable**.
+   1. Enter the variable name.
+   1. Enter the variable value.
+   1. Click **Add variable**.
+{%- endif %}
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also create and configure environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)" and "[Secrets](/rest/reference/actions#secrets)."{% endif %}
+You can also create and configure environments through the REST API. For more information, see "[Deployment environments](/rest/deployments/environments)," "[{% data variables.product.prodname_actions %} Secrets](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[{% data variables.product.prodname_actions %} Variables](/rest/actions/variables),"{% endif %} and "[Deployment branch policies](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
@@ -107,23 +126,23 @@ When a workflow references an environment, the environment will appear in the re
 
 ## Deleting an environment
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 Deleting an environment will delete all secrets and protection rules associated with the environment. Any jobs currently waiting because of protection rules from the deleted environment will automatically fail.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. Click **I understand, delete this environment**.
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
+You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."
 
 ## How environments relate to deployments
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[Repositories](/rest/reference/repos#deployments)" (REST API), "[Objects](/graphql/reference/objects#deployment)" (GraphQL API), or "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
 
 ## Next steps
 

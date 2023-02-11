@@ -1,5 +1,6 @@
 ---
 title: Configuring the self-hosted runner application as a service
+shortTitle: Run the runner app as a service
 intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
@@ -10,24 +11,31 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
-shortTitle: Run runner app on startup
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
 {% capture service_non_windows_intro_shell %}On the runner machine, open a shell in the directory where you installed the self-hosted runner application. Use the commands below to install and manage the self-hosted runner service.{% endcapture %}
-{% capture service_nonwindows_intro %}You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service. For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
-{% capture service_win_name %}actions.runner.*{% endcapture %}
 
+{% capture service_nonwindows_intro %}
+
+{% note %}
+
+**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
+For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+
+{% endnote %}
+{% endcapture %}
+
+{% capture service_win_name %}actions.runner.*{% endcapture %}
 
 {% linux %}
 
 {{ service_nonwindows_intro }}
 
-For Linux systems that use `systemd`, you can use the `svc.sh` script distributed with the self-hosted runner application to install and manage using the application as a service.
+For Linux systems that use `systemd`, you can use the `svc.sh` script that is created after successfully adding the runner to install and manage using the application as a service.
 
 {{ service_non_windows_intro_shell }}
 
@@ -66,7 +74,14 @@ You can manage the runner service in the Windows **Services** application, or yo
    sudo ./svc.sh install
    ```
 
+1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
+
+  ```shell
+  ./svc.sh install USERNAME
+  ```
+
 {% endlinux %}
+
 {% mac %}
 
 ## Installing the service
@@ -161,7 +176,6 @@ Stop-Service "{{ service_win_name }}"
     ./svc.sh uninstall
     ```
     {% endmac %}
-
 
 {% linux %}
 

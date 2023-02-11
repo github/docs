@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remove a member
+permissions: Organization owners can remove members from an organization.
 ---
-
-Only organization owners can remove members from an organization.
 
 {% ifversion fpt or ghec %}
 
@@ -24,10 +23,11 @@ Only organization owners can remove members from an organization.
 **Warning:** When you remove members from an organization:
 - The paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[Downgrading your organization's paid seats](/articles/downgrading-your-organization-s-paid-seats)."
 - Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork. 
 {%- ifversion ghec %}
 -  Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 {%- endif %}
-- Any organization invitations sent by a removed member, that have not been accepted, are cancelled and will not be accessible.
+- Any organization invitations sent by a removed member, that have not been accepted, are canceled and will not be accessible.
 
 {% endwarning %}
 
@@ -38,7 +38,7 @@ Only organization owners can remove members from an organization.
 **Warning:** When you remove members from an organization:
  - Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 - Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
- - Any organization invitations sent by the removed user, that have not been accepted, are cancelled and will not be accessible.
+ - Any organization invitations sent by the removed user, that have not been accepted, are canceled and will not be accessible.
 
 {% endwarning %}
 
@@ -55,7 +55,7 @@ To help the person you're removing from your organization transition and help en
 ## Revoking the user's membership
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Select the member or members you'd like to remove from the organization.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
@@ -66,4 +66,5 @@ To help the person you're removing from your organization transition and help en
 
 ## Further reading
 
-- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"
+- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"{% ifversion remove-enterprise-members %}
+- "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

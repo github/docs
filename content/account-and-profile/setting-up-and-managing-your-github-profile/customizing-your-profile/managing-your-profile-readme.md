@@ -14,7 +14,7 @@ shortTitle: Your profile README
 ---
 ## About your profile README
 
-You can share information about yourself with the community on {% data variables.product.product_location %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
+You can share information about yourself with the community on {% data variables.location.product_location %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
 
 You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
 
@@ -24,7 +24,7 @@ You decide what information to include in your profile README, so you have full 
 
 ![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
-You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
+You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)." For a hands-on guide to customizing your profile README, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ GitHub will display your profile README on your profile page if all of the follo
   The generated README file is pre-populated with a template to give you some inspiration for your profile README.
   ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
 
-For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
+For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 
 ## Removing a profile README
 
@@ -70,7 +70,7 @@ The profile README is removed from your {% data variables.product.prodname_dotco
 - The repository is private.
 - The repository name no longer matches your username.
 
-The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[Changing a repository's visibility](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## Further reading
 

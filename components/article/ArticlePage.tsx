@@ -1,47 +1,33 @@
 import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
 
-import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
-import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
-import { MiniTocItem, useArticleContext } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useArticleContext } from 'components/context/ArticleContext'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
+import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
+import { MiniTocs } from 'components/ui/MiniTocs'
+import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { LearningTrackCard } from 'components/article/LearningTrackCard'
+import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
 
-// Mapping of a "normal" article to it's interactive counterpart
-const interactiveAlternatives: Record<string, { href: string }> = {
-  '/actions/automating-builds-and-tests/building-and-testing-nodejs': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=nodejs',
-  },
-  '/actions/automating-builds-and-tests/building-and-testing-python': {
-    href: '/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python?langId=python',
-  },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
-    },
-}
+import { LinkExternalIcon } from '@primer/octicons-react'
+
+const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
+  ssr: false,
+})
+const isDev = process.env.NODE_ENV === 'development'
 
 export const ArticlePage = () => {
   const router = useRouter()
@@ -50,70 +36,40 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
-    contributor,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
     product,
+    productVideoUrl,
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
-  const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
-
-  const renderTocItem = (item: MiniTocItem) => {
-    return (
-      <ActionList.Item
-        as="li"
-        key={item.contents}
-        className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
-      >
-        <div className={cx('lh-condensed d-block width-full')}>
-          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
-          {item.items && item.items.length > 0 ? (
-            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
-          ) : null}
-        </div>
-      </ActionList.Item>
-    )
-  }
+  const isLearningPath = !!currentLearningTrack?.trackName
+  const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
+      {isDev && <ClientSideRefresh />}
+      <ClientSideHighlight />
+      {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('my-3 mr-auto width-full')}>
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              {contributor && (
-                <Callout variant="info" className="mb-3">
-                  <p>
-                    <span className="mr-2">
-                      <InfoIcon />
-                    </span>
-                    {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
-                  </p>
-                </Callout>
-              )}
-
               {intro && (
                 <Lead data-testid="lead" data-search="lead">
                   {intro}
                 </Lead>
               )}
 
-              {permissions && (
-                <div className="permissions-statement d-table">
-                  <div className="d-table-cell pr-2">
-                    <ShieldLockIcon size={16} />
-                  </div>
-                  <div className="d-table-cell" dangerouslySetInnerHTML={{ __html: permissions }} />
-                </div>
-              )}
+              {permissions && <PermissionsStatement permissions={permissions} />}
 
-              {includesPlatformSpecificContent && <PlatformPicker variant="underlinenav" />}
-              {includesToolSpecificContent && <ToolPicker variant="underlinenav" />}
+              {includesPlatformSpecificContent && <PlatformPicker />}
+              {includesToolSpecificContent && <ToolPicker />}
 
               {product && (
                 <Callout
@@ -126,36 +82,21 @@ export const ArticlePage = () => {
           }
           toc={
             <>
-              {!!interactiveAlternatives[currentPath] && (
-                <div className="flash mb-3">
-                  <ZapIcon className="mr-2" />
-                  <Link href={interactiveAlternatives[currentPath].href}>
-                    Try the new interactive article
-                  </Link>
-                </div>
-              )}
-              {miniTocItems.length > 1 && (
-                <>
-                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <Link href="#in-this-article">{t('miniToc')}</Link>
-                  </Heading>
-
-                  <ActionList
-                    key={title}
-                    items={miniTocItems.map((items, i) => {
-                      return {
-                        key: title + i,
-                        text: title,
-                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
-                      }
-                    })}
-                  />
-                </>
-              )}
+              {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
+              {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
         >
           <div id="article-contents">
+            {productVideoUrl && (
+              <div className="my-2">
+                <Link id="product-video" href={productVideoUrl} target="_blank">
+                  <LinkExternalIcon className="octicon-link mr-2" />
+                  {t('video_from_transcript')}
+                </Link>
+              </div>
+            )}
+
             <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
@@ -168,7 +109,7 @@ export const ArticlePage = () => {
           </div>
         </ArticleGridLayout>
 
-        {currentLearningTrack?.trackName ? (
+        {isLearningPath ? (
           <div className="mt-4">
             <LearningTrackNav track={currentLearningTrack} />
           </div>

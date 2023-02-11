@@ -7,12 +7,16 @@ name: Auto label Pull Requests
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   triage:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
       # See labeling configuration in the `.github/labeler.yml` file
-      - uses: actions/labeler@5f867a63be70efff62b767459b009290364495eb
+      - uses: actions/labeler@e54e5b338fbd6e6cdb5d60f51c22335fc57c401e
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'

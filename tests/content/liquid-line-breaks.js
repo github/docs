@@ -4,7 +4,7 @@ import walk from 'walk-sync'
 import matter from '../../lib/read-frontmatter.js'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import readFileAsync from '../../lib/readfile-async.js'
+import fs from 'fs/promises'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.join(__dirname, '../..')
@@ -55,7 +55,7 @@ describe('Liquid references', () => {
     test.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
       'in "%s"',
       async (markdownRelPath, markdownAbsPath) => {
-        const fileContents = await readFileAsync(markdownAbsPath, 'utf8')
+        const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
         const { content } = matter(fileContents)
 
         const matches = content.match(liquidRefsWithLinkBreaksRegex) || []
@@ -79,7 +79,7 @@ describe('Liquid references', () => {
     const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
 
     test.each(variableYamlTuples)('in "%s"', async (yamlRelPath, yamlAbsPath) => {
-      const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
       const dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
       const matches = []

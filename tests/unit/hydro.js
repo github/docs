@@ -1,3 +1,4 @@
+import { afterEach } from '@jest/globals'
 import nock from 'nock'
 import Hydro from '../../lib/hydro.js'
 
@@ -5,7 +6,14 @@ describe('hydro', () => {
   let hydro, params
 
   beforeEach(() => {
-    hydro = new Hydro({ secret: '123', endpoint: 'https://real-hydro.com' })
+    hydro = new Hydro({
+      secret: '123',
+      endpoint: 'https://real-hydro.com',
+      // When jest tests run, `NODE_ENV==='test'` so the actualy `got()`
+      // calls inside the Hydro class would be prevented.
+      // Setting this to true will prevent that second-layer protection.
+      forceDisableMock: true,
+    })
 
     nock(hydro.endpoint, {
       reqheaders: {
@@ -19,6 +27,11 @@ describe('hydro', () => {
       .reply(200, (_, body) => {
         params = body
       })
+  })
+
+  afterEach(() => {
+    // Gotta always clean up after activating `nock`.
+    nock.cleanAll()
   })
 
   describe('#publish', () => {

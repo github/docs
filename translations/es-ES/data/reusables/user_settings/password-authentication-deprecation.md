@@ -1,1 +1,0 @@
-Cuando Git pide tu contraseña, ingresa tu token de acceso personal (PAT) en su lugar.{% ifversion not ghae %} Se ha eliminado la autenticación con contraseña para Git y es más seguro utilizar un PAT.{% endif %} Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".

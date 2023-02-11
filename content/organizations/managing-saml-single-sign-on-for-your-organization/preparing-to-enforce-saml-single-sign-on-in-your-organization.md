@@ -12,6 +12,8 @@ topics:
 shortTitle: Prepare to enforce SAML SSO
 ---
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.when-you-enforce %} Before enforcing SAML SSO in your organization, you should review organization membership, enable SAML SSO, and review organization members' SAML access. For more information, see the following.
 
 | Task | More information |

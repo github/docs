@@ -23,28 +23,27 @@ versions:
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /github/getting-started-with-github/quickstart
+  quickstart: /get-started/quickstart
 featuredLinks:
-  guides:
-    - /github/getting-started-with-github/githubs-products
-    - /github/getting-started-with-github/create-a-repo
+  startHere:
+    - /get-started/learning-about-github/githubs-products
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
     - /get-started/onboarding/getting-started-with-github-ae
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /github/getting-started-with-github/signing-up-for-a-new-github-account
+    - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
-    - /github/getting-started-with-github/set-up-git
-    - /github/getting-started-with-github/github-glossary
-    - /github/getting-started-with-github/fork-a-repo
-    - /github/getting-started-with-github/keyboard-shortcuts
-    - /github/getting-started-with-github/saving-repositories-with-stars
+    - /get-started/quickstart/set-up-git
+    - /get-started/learning-about-github/about-versions-of-github-docs
+    - /get-started/quickstart/github-glossary
+    - /get-started/using-github/keyboard-shortcuts
   guideCards:
-    - /github/getting-started-with-github/types-of-github-accounts
-    - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
-    - /github/getting-started-with-github/troubleshooting-connectivity-problems
+    - /get-started/learning-about-github/types-of-github-accounts
+    - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
+    - /get-started/using-github/troubleshooting-connectivity-problems
 topics:
   - Pull requests
   - Issues
@@ -56,7 +55,12 @@ children:
   - /learning-about-github
   - /signing-up-for-github
   - /using-github
+  - /writing-on-github
+  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
+  - /customizing-your-github-workflow
+  - /privacy-on-github
 ---
+

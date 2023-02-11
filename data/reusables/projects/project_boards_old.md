@@ -1,8 +1,11 @@
-{% ifversion fpt or ghec %}
+{% ifversion projects-v2 %}
 
 {% note %}
 
-**Note:** Projects (beta), the all-new projects experience, is now available. For more information about projects (beta), see "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)."
+**Notes:**
+* {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is now available. For more information about {% data variables.product.prodname_projects_v2 %}, see "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects){% ifversion projects-v2-migration %}" and for information about migrating your {% data variables.projects.projects_v1_board %}, see "[Migrating from {% data variables.product.prodname_projects_v1_caps %}](/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic){% endif %}."
+* You can only create a new classic project board for an organization, user, or repository that already has at least one classic project board. If you're unable to create a classic project board, create a project board instead.
 
 {% endnote %}
+
 {% endif %}

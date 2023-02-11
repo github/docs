@@ -1,1 +1,0 @@
-Si tienes acceso a las solicitudes de cambio en más de 10,000 repositorios, necesitarás limitar tu búsqueda a una organización, cuenta de usuario o repositorio específicos para poder ver los resultados.

@@ -23,27 +23,28 @@ If you do not verify your email address, you will not be able to:
   - Create issues or pull requests
   - Comment on issues, pull requests, or commits
   - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate personal access tokens
+  - Generate {% data variables.product.pat_generic %}s
   - Receive email notifications
   - Star repositories
   - Create or update project boards, including adding cards
   - Create or update gists
   - Create or use {% data variables.product.prodname_actions %}
   - Sponsor developers with {% data variables.product.prodname_sponsors %}
+  - Accept organization invitations
 
 {% warning %}
 
 **Warnings**:
 
-- {% data reusables.user_settings.no-verification-disposable-emails %}
-- {% data reusables.user_settings.verify-org-approved-email-domain %}
+- {% data reusables.user-settings.no-verification-disposable-emails %}
+- {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
 ## Verifying your email address
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 1. Under your email address, click **Resend verification email**.
   ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
@@ -53,17 +54,17 @@ If you do not verify your email address, you will not be able to:
 
 ### Unable to send verification email
 
-{% data reusables.user_settings.no-verification-disposable-emails %}
+{% data reusables.user-settings.no-verification-disposable-emails %}
 
 ### Error page after clicking verification link
 
 The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.product_location %}.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.product.product_location %}.
+1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
 2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.product.product_location %}.
+3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
 4. Click on the verification link in the email we sent you.
 
 ## Further reading

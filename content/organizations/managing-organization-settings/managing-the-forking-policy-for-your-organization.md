@@ -21,16 +21,22 @@ By default, new organizations are configured to disallow the forking of private{
 
 If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository. For more information, see "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
+{% ifversion org-owners-limit-forks-creation %}
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% data reusables.profile.org_member_privileges %}
 1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 
    {%- ifversion fpt %}
    ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png)
    {%- elsif ghes or ghec or ghae %}
    ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
-   {%- endif %}
-6. Click **Save**.
+   {%- endif %}{% ifversion org-owners-limit-forks-creation %}
+2. Optionally, if forking is enabled, you can specify where users are allowed to fork repositories. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings. Review the information about changing the setting and choose a policy.
+   ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/org-repository-forking-policy-settings.png){%- endif %}
+3. Click **Save**.
 
 ## Further reading
 

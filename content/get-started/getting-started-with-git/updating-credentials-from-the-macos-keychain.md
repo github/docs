@@ -1,6 +1,6 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% ifversion not ghae %} username, password, or{% endif %} {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -16,13 +16,13 @@ shortTitle: macOS Keychain credentials
 ---
 {% tip %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a PAT using the  `osxkeychain` helper that is built-in to macOS. 
+**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the  `osxkeychain` helper that is built-in to macOS. 
 
-We recommend you either [configure SSH](/articles/generating-an-ssh-key) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual PATs) including 2FA (two-factor auth).
+We recommend you either [configure SSH](/authentication/connecting-to-github-with-ssh) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
 
 {% endtip %}
 
-{% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user-settings.password-authentication-deprecation %}
 
 ## Updating your credentials via Keychain Access
 
@@ -40,11 +40,11 @@ Through the command line, you can use the credential helper directly to erase th
 $ git credential-osxkeychain erase
 host={% data variables.command_line.codeblock %}
 protocol=https
-> <em>[Press Return]</em>
+> [Press Return]
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+If it's successful, nothing will print out. To test that it works, try and clone a private repository from {% data variables.location.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ## Further reading
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
+- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"

@@ -1,5 +1,6 @@
 ---
 title: Input objects
+intro: Input objects can be described as "composable objects" because they include a set of input fields that define the object.
 redirect_from:
   - /v4/input_object
   - /v4/reference/input_object
@@ -20,5 +21,6 @@ For example, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tak
 
 For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-input-objects.json -->
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

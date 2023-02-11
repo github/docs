@@ -13,9 +13,14 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Monitoring your workflows
+## Monitoring your workflows 
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
+{% ifversion github-runner-dashboard %}
+### Monitoring your current jobs in your organization or enterprise
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+
+{% endif %}
 
 ### Using the visualization graph
 
@@ -24,8 +29,6 @@ Every workflow run generates a real-time graph that illustrates the run progress
    ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
 For more information, see "[Using the visualization graph](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph)." 
-
-{% endif %}
 
 ### Adding a workflow status badge
 
@@ -65,8 +68,13 @@ For more information, see "[Using workflow run logs](/actions/monitoring-and-tro
 
 If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging. For more information, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
+### Canceling a workflow
+
+If you attempt to cancel a workflow and the cancellation doesn't succeed, make sure you aren't using the `always` expression. The `always` expression causes a workflow step to run even when the workflow is canceled, which results in a hanging cancellation. For more information, see "[always expression](/actions/learn-github-actions/expressions#always)". 
+
 ## Monitoring and troubleshooting self-hosted runners
 
 If you use self-hosted runners, you can view their activity and diagnose common issues. 
 
 For more information, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+

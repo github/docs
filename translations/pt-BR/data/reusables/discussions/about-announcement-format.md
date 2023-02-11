@@ -1,1 +1,0 @@
-Os mantenedores podem usar categorias com o formato do anúncio para compartilhar informações, versões ou eventos. Para manter as discussões nessas categorias focadas em atualizações importantes, apenas pessoas com permissões de manutenção ou administração podem criar novas discussões, mas qualquer pessoa pode comentar e responder.

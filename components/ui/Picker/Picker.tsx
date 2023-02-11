@@ -1,83 +1,78 @@
-import { ReactNode } from 'react'
-import cx from 'classnames'
+import React, { ReactNode, useState } from 'react'
+import { ActionMenu, IconButton } from '@primer/react'
+import { Icon } from '@primer/octicons-react'
 
-import { Details, useDetails, Text, Dropdown, Box } from '@primer/components'
-import { ChevronDownIcon } from '@primer/octicons-react'
+import { AnchorAlignment } from '@primer/behaviors'
 
-export type PickerOptionsTypeT = {
-  text: string
-  item: ReactNode
-  selected?: boolean
-}
+import { Fields } from './Fields'
 
-export type PickerPropsT = {
-  variant?: 'inline'
+interface Props {
+  items: PickerItem[]
+  iconButton?: Icon
+  onSelect?: (item: PickerItem) => void
+  buttonBorder?: boolean
+  pickerLabel?: string
+  dataTestId: string
   defaultText: string
-  options: Array<PickerOptionsTypeT>
+  ariaLabel: string
+  alignment: AnchorAlignment
+  renderItem?: (item: PickerItem) => ReactNode | string
 }
 
-type PickerWrapperPropsT = {
-  variant?: 'inline'
-  children: ReactNode
-}
-
-function PickerSummaryWrapper({ variant, children }: PickerWrapperPropsT) {
-  if (variant === 'inline') {
-    return (
-      <div className="d-flex flex-items-center flex-justify-between">
-        {children}
-        <ChevronDownIcon size={24} className="arrow ml-md-1" />
-      </div>
-    )
+export interface PickerItem {
+  href: string
+  text: string
+  selected: boolean
+  extra?: {
+    [key: string]: any
   }
-  return (
-    <>
-      {children}
-      <Dropdown.Caret />
-    </>
-  )
+  divider?: boolean
 }
 
-function PickerOptionsWrapper({ variant, children }: PickerWrapperPropsT) {
-  if (variant === 'inline') {
-    return <Box py="2">{children}</Box>
-  }
+export const Picker = ({
+  items,
+  iconButton,
+  ariaLabel,
+  pickerLabel,
+  dataTestId,
+  defaultText,
+  onSelect,
+  buttonBorder,
+  alignment,
+  renderItem,
+}: Props) => {
+  const [open, setOpen] = useState(false)
+  const selectedOption = items.find((item) => item.selected === true)
   return (
-    <Dropdown.Menu direction="sw" style={{ width: 'unset' }}>
-      {children}
-    </Dropdown.Menu>
-  )
-}
-
-export function Picker({ variant, defaultText, options, ...restProps }: PickerPropsT) {
-  const { getDetailsProps, setOpen } = useDetails({ closeOnOutsideClick: true })
-  const selectedOption = options.find((option) => option.selected)
-
-  return (
-    <Details
-      {...getDetailsProps()}
-      className={cx(
-        'position-relative details-reset',
-        variant === 'inline' ? 'd-block' : 'd-inline-block'
+    <ActionMenu open={open} onOpenChange={setOpen}>
+      {iconButton ? (
+        <ActionMenu.Anchor>
+          <IconButton icon={iconButton} aria-label={ariaLabel} />
+        </ActionMenu.Anchor>
+      ) : (
+        <ActionMenu.Button
+          aria-label={ariaLabel}
+          variant={buttonBorder ? 'default' : 'invisible'}
+          sx={{
+            color: `var(--color-fg-default)`,
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          {pickerLabel && <span className="color-fg-muted text-normal">{`${pickerLabel}: `}</span>}
+          <span data-testid={dataTestId}>{selectedOption?.text || defaultText}</span>
+        </ActionMenu.Button>
       )}
-      {...restProps}
-    >
-      <summary
-        className="d-block btn btn-invisible color-fg-default"
-        aria-haspopup="true"
-        aria-label="Toggle picker list"
-      >
-        <PickerSummaryWrapper variant={variant}>
-          <Text>{selectedOption?.text || defaultText}</Text>
-        </PickerSummaryWrapper>
-      </summary>
-      <PickerOptionsWrapper variant={variant}>
-        {options.map((option) => (
-          <Dropdown.Item onClick={() => setOpen(false)} key={option.text}>
-            {option.item}
-          </Dropdown.Item>
-        ))}
-      </PickerOptionsWrapper>
-    </Details>
+      <ActionMenu.Overlay width="auto" align={alignment}>
+        <Fields
+          open={open}
+          setOpen={setOpen}
+          items={items}
+          onSelect={onSelect}
+          renderItem={renderItem}
+        />
+      </ActionMenu.Overlay>
+    </ActionMenu>
   )
 }

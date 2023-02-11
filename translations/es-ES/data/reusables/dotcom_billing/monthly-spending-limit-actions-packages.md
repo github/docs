@@ -1,1 +1,0 @@
-1. Debajo de "Límite de gastos mensual", desplázate hacia abajo hasta "Acciones & Paquetes" y elige limitar el gasto o permitir el gasto ilimitado. ![Botones radiales para limitar los gastos o permitir gastos ilimitados](/assets/images/help/billing/limit-or-unlimited.png)

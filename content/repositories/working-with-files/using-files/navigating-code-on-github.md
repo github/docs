@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
 ## About navigating code on {% data variables.product.prodname_dotcom %}
 
@@ -21,24 +21,26 @@ Code navigation helps you to read, navigate, and understand code by showing and 
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
 
-| Language   | search-based code navigation | precise code navigation |
+| Language   | Search-based code navigation | Precise code navigation |
 |:----------:|:----------------------------:|:-----------------------:|
 | C#         | ✅                           |                         |
 | CodeQL     | ✅                           |                         |
+| Elixir     | ✅                           |                         |
 | Go         | ✅                           |                         |
 | Java       | ✅                           |                         |
 | JavaScript | ✅                           |                         |
 | PHP        | ✅                           |                         |
 | Python     | ✅                           | ✅                      |
 | Ruby       | ✅                           |                         |
+| Rust       | ✅                           |                         |
 | TypeScript | ✅                           |                         |
 
 
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
 
 {% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - search-based - searches all definitions and references across a repository to find entities with a given name
- - precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+ - Search-based - searches all definitions and references across a repository to find entities with a given name
+ - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
 
 To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
@@ -65,6 +67,12 @@ If you don't see the results you expect from a precise code navigation query, yo
 ![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 If your precise results appear inaccurate, you can file a support request.
+
+## Cross-repository precise code navigation
+
+Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
+
+![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Troubleshooting code navigation
 

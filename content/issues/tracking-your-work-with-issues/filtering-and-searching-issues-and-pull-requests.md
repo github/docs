@@ -47,7 +47,7 @@ type: how_to
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-## Filtering issues and pull requests 
+## Filtering issues and pull requests
 
 Issues and pull requests come with a set of default filters you can apply to organize your listings.
 
@@ -107,8 +107,8 @@ You can filter a repository's list of pull requests to find:
 - Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
-- Pull requests that you have reviewed{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-- Pull requests that someone has asked you directly to review{% endif %}
+- Pull requests that you have reviewed
+- Pull requests that someone has asked you directly to review
 - Pull requests that [someone has asked you, or a team you're a member of, to review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -123,8 +123,6 @@ You can filter a repository's list of pull requests to find:
 You can use advanced filters to search for issues and pull requests that meet specific criteria.
 
 ### Searching for issues and pull requests
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -170,21 +168,18 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
 **Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`. 
+- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
 - To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
 
 {% endtip %}
-{% endif %}
 
-{% ifversion fpt or ghes or ghae or ghec %}
 For issues, you can also use search to:
 
-- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
-{% endif %}
+- Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
+- Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 For pull requests, you can also use search to:
 - Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
@@ -193,10 +188,10 @@ For pull requests, you can also use search to:
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae or ghes > 3.2 or ghec %}
-- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
-- Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`{% endif %}
+- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
+- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/docs`
+- Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
 
 ## Sorting issues and pull requests
 
@@ -219,7 +214,6 @@ You can sort any filtered view by:
 
 To clear your sort selection, click **Sort** > **Newest**.
 
-
 ## Sharing filters
 
 When you filter or sort issues and pull requests, your browser's URL is automatically updated to match the new view.
@@ -234,4 +228,4 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 
 ## Further reading
 
-- "[Searching issues and pull requests](/articles/searching-issues)""
+- "[Searching issues and pull requests](/articles/searching-issues)"

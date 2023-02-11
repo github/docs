@@ -1,5 +1,6 @@
 ---
 title: Objects
+intro: Objects in GraphQL represent the resources you can access.
 redirect_from:
   - /v4/object
   - /v4/reference/object
@@ -20,5 +21,6 @@ For example, the [`Repository`](/graphql/reference/objects#repository) object ha
 
 For more information, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."
 
-<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
-<!-- see lib/graphql/static/prerendered-objects.json -->
+{% data reusables.projects.graphql-ghes %}
+
+<!-- Content after this section is automatically generated -->

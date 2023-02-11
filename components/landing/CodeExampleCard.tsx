@@ -1,7 +1,7 @@
 import { RepoIcon } from '@primer/octicons-react'
 import { CodeExample } from 'components/context/ProductLandingContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
-import { Label } from '@primer/components'
+import { Label } from '@primer/react'
 
 type Props = {
   example: CodeExample
@@ -14,15 +14,12 @@ export const CodeExampleCard = ({ example }: Props) => {
       href={`https://github.com/${example.href}`}
     >
       <div className="p-4">
-        <h4 dangerouslySetInnerHTML={{ __html: example.title }} />
-        <p
-          className="mt-2 mb-4 color-fg-muted"
-          dangerouslySetInnerHTML={{ __html: example.description }}
-        />
+        <h3 className="f4">{example.title}</h3>
+        <p className="mt-2 mb-4 color-fg-muted">{example.description}</p>
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
             return (
-              <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
+              <Label key={tag} variant="accent" sx={{ mb: 1, mr: 2 }}>
                 {tag}
               </Label>
             )

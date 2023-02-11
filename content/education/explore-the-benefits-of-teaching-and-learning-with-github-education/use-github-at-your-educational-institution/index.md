@@ -9,8 +9,7 @@ versions:
   fpt: '*'
 children:
   - /about-github-campus-program
-  - /about-campus-experts
-  - /about-campus-advisors
+  - /about-github-campus-experts
+  - /applying-to-be-a-github-campus-expert
 shortTitle: At your institution
 ---
-

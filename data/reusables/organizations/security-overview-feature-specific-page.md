@@ -1,0 +1,1 @@
+1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to that feature to fine-tune your search. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."

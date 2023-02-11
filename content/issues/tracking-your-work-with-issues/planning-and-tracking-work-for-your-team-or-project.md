@@ -89,24 +89,32 @@ Once you have created a label in a repository, you can apply it on any issue, pu
 Below is an example of a `front-end` label that we created and added to the issue.
 
 ![Adding a label to an issue example](/assets/images/help/issues/quickstart-add-label-to-issue.png)
+
 ## Adding issues to a project board
-{% ifversion fpt or ghec %}You can use projects on {% data variables.product.prodname_dotcom %}, currently in limited public beta, to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects (beta)](/issues/trying-out-the-new-projects-experience/quickstart)."
-### Project (beta) example
+
+{% ifversion projects-v2 %}
+
+You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see "[Quickstart for projects](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)."
+### Project example
 Here is the table layout of an example project, populated with the Project Octocat issues we have created.
 
-![Projects (beta) table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
+![Projects table layout example](/assets/images/help/issues/quickstart-projects-table-view.png)
 
 We can also view the same project as a board.
 
-![Projects (beta) board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
+![Projects board layout example](/assets/images/help/issues/quickstart-projects-board-view.png)
 
 {% endif %}
+{% ifversion projects-v1 %}
 
-You can {% ifversion fpt or ghec %} also use the existing{% else %} use{% endif %} project boards on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 ### Project board example
 Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
 ![Project board example](/assets/images/help/issues/quickstart-project-board.png)
+
+{% endif %}
+
 ## Next steps
 
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
@@ -116,6 +124,6 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 - "[About issues and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
 - "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
 - "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)" for learning more about task lists
-{% ifversion fpt or ghec %} - "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" for learning more about the new projects experience, currently in limited public beta 
-- "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)" for learning how to customize views for projects, currently in limited public beta{% endif %}
-- "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards
+{% ifversion projects-v2 %} - "[About projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
+- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)" for learning how to customize views for projects{% endif %}
+{% ifversion projects-v1 %}- "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

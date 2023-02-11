@@ -3,8 +3,13 @@
   "ignore": [
     "assets",
     "script",
-    "translations",
     "stylesheets",
-    "tests"
+    "tests",
+    "content",
+    "data/reusables",
+    "data/variables",
+    "data/glossaries",
+    "data/product-examples",
+    "data/learning-tracks"
   ]
 }

@@ -18,17 +18,13 @@ shortTitle: Create from a template
 
 Anyone with read permissions to a template repository can create a repository from that template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."
 
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
-{% endif %}
 
-{% ifversion fpt or ghae or ghes or ghec %}
 You can choose to include the directory structure and files from only the default branch of the template repository or to include all branches. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
-{% endif %}
 
 Creating a repository from a template is similar to forking a repository, but there are important differences:
 - A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
@@ -40,12 +36,22 @@ For more information about forks, see "[About forks](/pull-requests/collaboratin
 ## Creating a repository from a template
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the file list, click **Use this template**.
-  ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+1. Above the file list, click **Use this template**.
+{% ifversion fpt or ghec %}
+1. Select **Create a new repository**.
+
+   ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+
+   {% note %}
+
+   **Note:** Alternatively, you can open the template in a codespace and publish your work to a new repository later. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+   {% endnote %}
+{% endif %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
-{% data reusables.repositories.choose-repo-visibility %}{% ifversion fpt or ghae or ghes or ghec %}
-6. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
+{% data reusables.repositories.choose-repo-visibility %}
+1. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
+  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 8. Click **Create repository from template**.

@@ -1,1 +1,0 @@
-1. 在安全侧边栏中，点击 **{% data variables.product.prodname_dependabot_alerts %}**。{% ifversion fpt or ghec %} ![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/repository/dependabot-alerts-tab.png){% else %}![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/repository/dependabot-alerts-tab.png){% endif %}

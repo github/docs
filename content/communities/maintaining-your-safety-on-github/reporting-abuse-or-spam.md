@@ -1,6 +1,7 @@
 ---
 title: Reporting abuse or spam
 intro: You can report behavior and content that violates community guidelines and terms.
+permissions: 'Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /articles/reporting-abuse-or-spam
   - /github/building-a-strong-community/reporting-abuse-or-spam
@@ -11,8 +12,6 @@ topics:
   - Community
 ---
 
-Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.
-
 ## About reporting abuse or spam
 
 {% data reusables.policies.github-community-guidelines-and-terms %}
@@ -20,6 +19,8 @@ Owners, collaborators, prior contributors, and people with write access can repo
 You can report users that have violated {% data variables.product.prodname_dotcom %}'s Community Guidelines or Terms of Service through {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. You can also report issues, pull requests, or comments on issues, pull requests, and commits.
 
 If reported content is enabled for a public repository, you can also report content directly to repository maintainers.
+
+Users in India can contact GitHub's Grievance Officer for India [here](https://support.github.com/contact/india-grievance-officer).
 
 ## Reporting a user
 

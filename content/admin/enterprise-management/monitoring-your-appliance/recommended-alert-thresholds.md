@@ -2,7 +2,7 @@
 title: Recommended alert thresholds
 intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
 redirect_from:
-  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
+  - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/recommended-alert-thresholds
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
@@ -42,7 +42,7 @@ We also recommend that you monitor virtualization "steal" time to ensure that ot
 
 ## Monitoring memory usage
 
-The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
 | Severity | Threshold |
 | -------- | --------- |

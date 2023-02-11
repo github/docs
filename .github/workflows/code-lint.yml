@@ -4,14 +4,8 @@ name: Lint code
 # **Why we have it**: We want some level of consistency to our code.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
-permissions:
-  contents: read
-
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
     paths:
       - '**.js'
@@ -21,26 +15,31 @@ on:
       - '**.yaml'
       - '**.yml'
       - '**.scss'
+      - .eslintrc.cjs
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
+      # In case one of the script definitions changed
+      - 'package.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/code-lint.yml
 
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-        with:
-          node-version: 16.13.x
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Run linter
         run: npm run lint

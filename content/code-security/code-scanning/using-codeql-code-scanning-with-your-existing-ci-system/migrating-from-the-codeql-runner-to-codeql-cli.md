@@ -1,23 +1,23 @@
 ---
 title: Migrating from the CodeQL runner to CodeQL CLI
 shortTitle: Migrating from the CodeQL runner
-intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to complete the same tasks as with the {% data variables.product.prodname_codeql_runner %}.'
+intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to complete the same tasks as with the {% data variables.code-scanning.codeql_runner %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
 ---
 
-# Migrating from the {% data variables.product.prodname_codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
-
-The {% data variables.product.prodname_codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
-This document describes how to migrate common workflows from the {% data variables.product.prodname_codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
+On April 1, 2022, the {% data variables.code-scanning.codeql_runner %} was fully deprecated. You should use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
+This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 
 ## Installation
 
@@ -27,7 +27,7 @@ For more information on setting up the {% data variables.product.prodname_codeql
 
 ## Overview of workflow changes
 
-A typical workflow that uses the {% data variables.product.prodname_codeql_runner %} to analyze a codebase has the following steps.
+A typical workflow that uses the {% data variables.code-scanning.codeql_runner %} to analyze a codebase has the following steps.
 - `codeql-runner-<platform> init` to start creating {% data variables.product.prodname_codeql %} databases and read the configuration.
 - For compiled languages: set environment variables produced by the `init` step.
 - For compiled languages: run autobuild or manual build steps.
@@ -39,6 +39,8 @@ A typical workflow that uses the {% data variables.product.prodname_codeql_cli %
 - `codeql database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. This command must be run once for each language or database.
 - `codeql github upload-results` to upload the resulting SARIF files to {% data variables.product.prodname_dotcom %}, to be displayed as code scanning alerts. This command must be run once for each language or SARIF file.
 
+The {% data variables.code-scanning.codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.code-scanning.codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
+
 For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
 
 ## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
@@ -49,9 +51,9 @@ These examples assume that the source code has been checked out to the current w
 
 These examples also assume that the {% data variables.product.prodname_codeql_cli %} is placed on the current PATH.
 
-In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via stdin, or is stored in the `$GITHUB_TOKEN` environment variable.
+In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
 
-The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pulls/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pulls/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
+The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
 
 ### Single non-compiled language (JavaScript)
 
@@ -332,7 +334,7 @@ CLI:
 
 ### Multiple languages using autobuild (C++, Python)
 
-This example is not strictly possible with the {% data variables.product.prodname_codeql_runner %}.
+This example is not strictly possible with the {% data variables.code-scanning.codeql_runner %}.
 Only one language (the compiled language with the most files) will be analyzed.
 
 Runner:

@@ -1,1 +1,0 @@
-Los clientes de {% data variables.product.prodname_enterprise %} sin una cuenta empresarial en {% data variables.product.prodname_dotcom_the_website %} pueden ver las facturas e historial de pagos en el [sitio web de {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/login). {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}

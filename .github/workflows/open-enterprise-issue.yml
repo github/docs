@@ -7,7 +7,10 @@ name: Open Enterprise release or deprecation issue
 on:
   workflow_dispatch:
   schedule:
-    - cron: '49 14 * * *' # At 14:49 UTC daily
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
 
 jobs:
   open_enterprise_issue:
@@ -16,16 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-        with:
-          node-version: 16.13.x
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Check for existing release or deprecation issues
         id: existingIssue

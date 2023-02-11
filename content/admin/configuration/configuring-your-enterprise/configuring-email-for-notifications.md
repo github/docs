@@ -1,13 +1,14 @@
 ---
 title: Configuring email for notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.'
+intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
+permissions: '{% ifversion ghes %}Site administrators{% elsif ghae %}Enterprise owners{% endif %} can configure email for notifications.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -19,18 +20,11 @@ topics:
   - Notifications
 shortTitle: Configure email notifications
 ---
-{% ifversion ghae %}
-Enterprise owners can configure email for notifications.
-{% endif %}
+
 ## Configuring SMTP for your enterprise
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Settings**.
-![Settings tab](/assets/images/enterprise/management-console/settings-tab.png)
-3. In the left sidebar, click **Email**.
-![Email tab](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 ![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -88,8 +82,27 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 5. When the test email succeeds, at the bottom of the page, click **Save settings**.
 ![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
-6. Wait for the configuration run to complete.
-![Configuring your instance](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+{% ifversion require-tls-for-smtp %}
+## Enforcing TLS for SMTP connections
+
+You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
+
+{%- ifversion ghes = 3.6 %}
+{% note %}
+
+**Note**: Enforcement of TLS for SMTP connections is unavailable in {% data variables.product.product_name %} 3.6.0 and 3.6.1. The feature is available in 3.6.2 and later.
+
+{% endnote %}
+{%- endif %}
+
+{% data reusables.enterprise_site_admin_settings.email-settings %}
+1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+
+   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
 
 ## Configuring DNS and firewall settings to allow incoming emails
 
@@ -98,13 +111,13 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see {% ifversion ghes %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
+4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 ## Troubleshooting email delivery
 
-### Create a Support Bundle
+### Create a support bundle
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in `enterprise-manage-logs/unicorn.log` for the entire SMTP conversation log and any related errors.
 
 The unicorn log should show a transaction similar to the following:
 
@@ -145,11 +158,11 @@ This log shows that the appliance:
 * The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
 * The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
 
-### Check {% data variables.product.product_location %} logs
+### Check {% data variables.location.product_location %} logs
 
-If you need to verify that your inbound email is functioning, there are two log files that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
+If you need to verify that your inbound email is functioning, you can review `/var/log/mail.log` and `/var/log/mail-replies/metroplex.log` on your instance.
 
-*/var/log/mail.log* verifies that messages are reaching your server. Here's an example of a successful email reply:
+`/var/log/mail.log` verifies that messages are reaching your server. Here's an example of a successful email reply:
 
 ```
 Oct 30 00:47:18 54-171-144-1 postfix/smtpd[13210]: connect from st11p06mm-asmtp002.mac.com[17.172.124.250]
@@ -163,7 +176,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 Note that the client first connects; then, the queue becomes active. Then, the message is delivered, the client is removed from the queue, and the session disconnects.
 
-*/var/log/mail-replies/metroplex.log* shows whether inbound emails are being processed to add to issues and pull requests as replies. Here's an example of a successful message:
+`/var/log/mail-replies/metroplex.log` shows whether inbound emails are being processed to add to issues and pull requests as replies. Here's an example of a successful message:
 
 ```
 [2014-10-30T00:47:23.306 INFO (5284) #] metroplex: processing <b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
@@ -171,15 +184,17 @@ Note that the client first connects; then, the queue becomes active. Then, the m
 [2014-10-30T00:47:23.334 DEBUG (5284) #] Moving /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie => /data/user/incoming-mail/success
 ```
 
-You'll notice that `metroplex` catches the inbound message, processes it, then moves the file over to `/data/user/incoming-mail/success`.{% endif %}
+You'll notice that `metroplex` catches the inbound message, processes it, then moves the file over to `/data/user/incoming-mail/success`.
 
 ### Verify your DNS settings
 
 In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
-### Check firewall or AWS Security Group settings
+### Check firewall or AWS security group settings
 
-If {% data variables.product.product_location %} is behind a firewall or is being served through an AWS Security Group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
+If {% data variables.location.product_location %} is behind a firewall or is being served through an AWS security group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
+
+{% endif %}
 
 ### Contact support
 {% ifversion ghes %}

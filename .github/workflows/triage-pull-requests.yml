@@ -11,9 +11,8 @@ on:
       - opened
 
 permissions:
-  pull-requests: write
-  repository-projects: write
   issues: write
+  pull-requests: write
 
 jobs:
   triage_pulls:
@@ -25,9 +24,3 @@ jobs:
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
           add-labels: 'triage'
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'

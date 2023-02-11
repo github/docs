@@ -2,7 +2,7 @@
 title: About Git rebase
 redirect_from:
   - /rebase
-  - articles/interactive-rebase/
+  - /articles/interactive-rebase
   - /articles/about-git-rebase
   - /github/using-git/about-git-rebase
   - /github/getting-started-with-github/about-git-rebase
@@ -22,7 +22,7 @@ Typically, you would use `git rebase` to:
 
 {% warning %}
 
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.location.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 {% endwarning %}
 
@@ -31,7 +31,7 @@ Typically, you would use `git rebase` to:
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
 ```shell
-$ git rebase --interactive <em>other_branch_name</em>
+$ git rebase --interactive OTHER-BRANCH-NAME
 ```
 
 ## Rebasing commits against a point in time
@@ -68,7 +68,7 @@ There are six commands available while rebasing:
 
 ## An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
 ```
 pick 1fc6c95 Patch A
@@ -104,8 +104,8 @@ Breaking this information, from top to bottom, we see that:
 
 ## Further reading
 
-- "[Using Git rebase](/articles/using-git-rebase)"
+- "[Using Git rebase](/get-started/using-git/using-git-rebase-on-the-command-line)"
 - [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation

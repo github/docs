@@ -39,8 +39,8 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 4. Add the following YAML frontmatter to the top of the file, replacing _PAGE TITLE_ with the page's title and _URL-PATH_ with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your _URL-PATH_ is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
   ```shell
   layout: page
-  title: "<em>PAGE TITLE</em>"
-  permalink: /<em>URL-PATH</em>/
+  title: "PAGE-TITLE"
+  permalink: /URL-PATH
   ```
 5. Below the frontmatter, add content for your page.
 {% data reusables.files.write_commit_message %}
@@ -62,9 +62,9 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 4. Add the following YAML frontmatter to the top of the file, replacing _POST TITLE_ with the post's title, _YYYY-MM-DD hh:mm:ss -0000_ with the date and time for the post, and _CATEGORY-1_ and _CATEGORY-2_ with as many categories you want for your post.
   ```shell
   layout: post
-  title: "<em>POST TITLE</em>"
-  date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
-  categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>
+  title: "POST-TITLE"
+  date: YYYY-MM-DD hh:mm:ss -0000
+  categories: CATEGORY-1 CATEGORY-2
   ```
 5. Below the frontmatter, add content for your post.
 {% data reusables.files.write_commit_message %}

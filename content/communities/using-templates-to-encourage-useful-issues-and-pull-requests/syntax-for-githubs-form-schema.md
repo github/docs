@@ -4,6 +4,7 @@ intro: 'You can use {% data variables.product.company_short %}''s form schema to
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.7'
 miniTocMaxHeadingLevel: 3
 topics:
   - Community
@@ -38,8 +39,8 @@ For example, the following form definition includes four form elements: a text a
     description: What version of our software are you running?
     multiple: false
     options:
-      - label: 1.0.2 (Default)
-      - label: 1.0.3 (Edge)
+      - 1.0.2 (Default)
+      - 1.0.3 (Edge)
   validations:
     required: true
 - type: checkboxes
@@ -63,8 +64,8 @@ For each form element, you can set the following keys.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 | `type` | The type of element that you want to define. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul> |
 | `id` | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} If provided, the `id` is the canonical identifier for the field in URL query parameter prefills. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
-| `validations` | A set of key-value pairs that set constraints on the element. | Optional | Hash | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `attributes` | A set of key-value pairs that define the properties of the element.  | Required | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `validations` | A set of key-value pairs that set constraints on the element. | Optional | Map | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 You can choose from the following types of form elements. Each type has unique attributes and validations.
 
@@ -80,7 +81,7 @@ You can choose from the following types of form elements. Each type has unique a
 
 You can use a `markdown` element to display Markdown in your form that provides extra context to the user, but is not submitted.
 
-#### Attributes
+#### Attributes for `markdown`
 
 {% data reusables.form-schema.attributes-intro %}
 
@@ -96,12 +97,13 @@ For multi-line text, you can use the pipe operator.
 
 {% endtip %}
 
-#### Example
+#### Example of `markdown`
 
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |
@@ -112,7 +114,7 @@ body:
 
 You can use a `textarea` element to add a multi-line text field to your form. Contributors can also attach files in `textarea` fields.
 
-#### Attributes
+#### Attributes for `textarea`
 
 {% data reusables.form-schema.attributes-intro %}
 
@@ -124,7 +126,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 | `value` | Text that is pre-filled in the text area. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml). |
 
-#### Validations
+#### Validations for `textarea`
 
 {% data reusables.form-schema.validations-intro %}
 
@@ -132,7 +134,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Example
+#### Example of `textarea`
 
 ```YAML{:copy}
 body:
@@ -155,7 +157,7 @@ body:
 
 You can use an `input` element to add a single-line text field to your form.
 
-#### Attributes
+#### Attributes for `input`
 
 {% data reusables.form-schema.attributes-intro %}
 
@@ -166,7 +168,7 @@ You can use an `input` element to add a single-line text field to your form.
 | `placeholder` | A semi-transparent placeholder that renders in the field when empty. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `value` | Text that is pre-filled in the field. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### Validations
+#### Validations for `input`
 
 {% data reusables.form-schema.validations-intro %}
 
@@ -174,7 +176,7 @@ You can use an `input` element to add a single-line text field to your form.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Example
+#### Example of `input`
 
 ```YAML{:copy}
 body:
@@ -183,7 +185,7 @@ body:
   attributes:
     label: Bug prevalence
     description: "How often do you or others encounter this bug?"
-    placeholder: "Example: Whenever I visit the user account page (1-2 times a week)"
+    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
   validations:
     required: true
 ```
@@ -192,7 +194,7 @@ body:
 
 You can use a `dropdown` element to add a dropdown menu in your form.
 
-#### Attributes
+#### Attributes for `dropdown`
 
 {% data reusables.form-schema.attributes-intro %}
 
@@ -203,7 +205,7 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 | `multiple` | Determines if the user can select more than one option. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | Required | String array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
-#### Validations
+#### Validations for `dropdown`
 
 {% data reusables.form-schema.validations-intro %}
 
@@ -211,7 +213,7 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 | --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Example
+#### Example of `dropdown`
 
 ```YAML{:copy}
 body:
@@ -232,20 +234,27 @@ body:
 
 You can use the `checkboxes` element to add a set of checkboxes to your form.
 
-#### Attributes
+#### Attributes for `checkboxes`
 
 {% data reusables.form-schema.attributes-intro %}
 
 | Key | Description | Required | Type | Default | Valid values |
 | --- | ----------- | -------- | ---- | ------- | ------- |
-| `label` | A brief description of the expected user input, which is displayed in the form. | Optional | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
+| `label` | A brief description of the expected user input, which is displayed in the form. | Required | String | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 | `description` | A description of the set of checkboxes, which is displayed in the form. Supports Markdown formatting. | Optional | String | Empty String | {% octicon "dash" aria-label="The dash icon" %} |
 | `options` | An array of checkboxes that the user can select. For syntax, see below. | Required | Array | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %} |
 
 {% data reusables.form-schema.options-syntax %}
+
+#### Validations for `checkboxes`
+
+{% data reusables.form-schema.validations-intro %}
+
+| Key | Description | Required | Type | Default | Valid values |
+| --- | ----------- | -------- | ---- | ------- | ------- |
 {% data reusables.form-schema.required-key %}
 
-#### Example
+#### Example of `checkboxes`
 
 ```YAML{:copy}
 body:

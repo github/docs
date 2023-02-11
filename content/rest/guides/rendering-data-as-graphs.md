@@ -2,7 +2,7 @@
 title: Rendering data as graphs
 intro: Learn how to visualize the programming languages from your repository using the D3.js library and Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
   fpt: '*'
@@ -271,7 +271,7 @@ something like this:
 ```
 
 Since we already have a list of repositories above, let's inspect each one, and
-call [the language listing API method][language API]:
+call the [GET /repos/{owner}/{repo}/languages endpoint][language API]:
 
 ``` ruby
 repos.each do |repo|

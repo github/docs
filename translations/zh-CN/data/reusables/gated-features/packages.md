@@ -1,5 +1,0 @@
-{% data variables.product.prodname_registry %} is available with {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} 3.0 or higher, and {% data variables.product.prodname_ghe_managed %}.{% ifversion ghes %} For more information about upgrading your {% data variables.product.prodname_ghe_server %} instance, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.{% endif %}
-{% ifversion fpt or ghec %}
-<br>
-{% data variables.product.prodname_registry %} 不适用于使用旧版按仓库计划的帐户所拥有的私有仓库。 此外，使用旧版按仓库计划的帐户无法访问 {% data variables.product.prodname_container_registry %}，因为这些帐户是按仓库计费的。 {% data reusables.gated-features.more-info %}
-{% endif %}

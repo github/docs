@@ -9,18 +9,29 @@
 import fs from 'fs'
 import path from 'path'
 import rimraf from 'rimraf'
+import walk from 'walk-sync'
 import { allVersions } from '../../lib/all-versions.js'
+import { deprecated } from '../../lib/enterprise-server-releases.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
-const restDereferencedDir = path.join(process.cwd(), 'lib/rest/static/dereferenced')
-const lunrIndexDir = path.join(process.cwd(), 'lib/search/indexes')
+const ghesReleaseNotesDir = 'data/release-notes/enterprise-server'
 
 const supportedEnterpriseVersions = Object.values(allVersions).filter(
   (v) => v.plan === 'enterprise-server'
 )
+
+// GHES release notes
+const deprecatedVersionsHyphenated = deprecated.map((v) => v.replace(/\./g, '-'))
+walk(ghesReleaseNotesDir)
+  // Only directories end with a /
+  .filter((file) => file.endsWith('/'))
+  // Check if the directory name contains a deprecated GHES version
+  .filter((dir) => deprecatedVersionsHyphenated.some((version) => dir.includes(version)))
+  // Remove the directory
+  .map((dir) => rimraf.sync(path.join(ghesReleaseNotesDir, dir)))
 
 // webhooks and GraphQL
 const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersionName)
@@ -36,16 +47,9 @@ const supportedOpenApiVersions = supportedEnterpriseVersions.map((v) => v.openAp
 // The openApiBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
 const openApiBaseName = supportedEnterpriseVersions.map((v) => v.openApiBaseName)[0]
 
-;[restDecoratedDir, restDereferencedDir].forEach((dir) => {
+;[restDecoratedDir].forEach((dir) => {
   removeFiles(dir, openApiBaseName, supportedOpenApiVersions)
 })
-
-// Lunr
-const lunrBaseName = 'github-docs-'
-const supportedLunrVersions = Object.values(allVersions).map((v) =>
-  v.miscVersionName.replace('ghes-', '')
-)
-removeFiles(lunrIndexDir, lunrBaseName, supportedLunrVersions)
 
 function removeFiles(dir, baseName, supportedVersions) {
   fs.readdirSync(dir)

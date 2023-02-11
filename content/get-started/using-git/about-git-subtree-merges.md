@@ -52,7 +52,7 @@ The best way to explain subtree merges is to show by example. We will:
 
 1. Add a new remote URL pointing to the separate project that we're interested in.
   ```shell
-  $ git remote add -f spoon-knife git@github.com:octocat/Spoon-Knife.git
+  $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
   > Updating spoon-knife
   > warning: no common commits
   > remote: Counting objects: 1732, done.
@@ -60,7 +60,7 @@ The best way to explain subtree merges is to show by example. We will:
   > remote: Total 1732 (delta 1086), reused 1558 (delta 967)
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
-  > From git://github.com/octocat/Spoon-Knife
+  > From https://github.com/octocat/Spoon-Knife
   >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
@@ -90,7 +90,7 @@ Although we've only added one subproject, any number of subprojects can be incor
 
 {% tip %}
 
-**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/github/getting-started-with-github/managing-remote-repositories).
+**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/get-started/getting-started-with-git/managing-remote-repositories).
 
 {% endtip %}
 
@@ -99,7 +99,7 @@ Although we've only added one subproject, any number of subprojects can be incor
 When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
 ```shell
-$ git pull -s subtree <em>remotename</em> <em>branchname</em>
+$ git pull -s subtree REMOTE-NAME BRANCH-NAME
 ```
 
 For the example above, this would be:

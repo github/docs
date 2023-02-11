@@ -1,1 +1,0 @@
-1. Under your business account's name, click {% octicon "key" aria-label="The key icon" %} **Identity provider**. !["Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)

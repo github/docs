@@ -1,1 +1,0 @@
-You can use {% data variables.product.prodname_discussions %} to ask and answer questions, share information, make announcements, and conduct or participate in conversations about a project. 詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。

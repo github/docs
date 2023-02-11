@@ -2,7 +2,7 @@
 title: Renaming an organization
 intro: 'If your project or company has changed names, you can update the name of your organization to match.'
 redirect_from:
-  - /articles/what-happens-when-i-change-my-organization-s-name/
+  - /articles/what-happens-when-i-change-my-organization-s-name
   - /articles/renaming-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/renaming-an-organization
 versions:
@@ -29,7 +29,9 @@ After changing your organization's name, your old organization name becomes avai
 
 - {% data variables.product.prodname_dotcom %} automatically redirects references to your repositories.  Web links to your organization's existing **repositories** will continue to work. This can take a few minutes to complete after you initiate the change.
 - You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
-- Previous Git commits will also be correctly attributed to users within your organization.
+- Previous Git commits will also be correctly attributed to users within your organization.{% ifversion fpt or ghec %}
+- {% data reusables.accounts.rename-account-repo-namespace-retirement %}{% endif %}
+- {% data reusables.package_registry.rename-account-namespace-retirement %}
 
 ### Changes that aren't automatic
 

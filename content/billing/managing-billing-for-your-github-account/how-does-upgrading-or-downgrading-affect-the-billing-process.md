@@ -16,7 +16,7 @@ topics:
   - User account
 shortTitle: Billing process
 ---
-Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
+Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
 For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)" and "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 

@@ -177,7 +177,7 @@
     Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)" or "[About your organization dashboard](/articles/about-your-organization-dashboard)."
 - term: default branch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% ifversion ghes < 3.2 %}`master`{% else %}`main`{% endif %}, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - term: dependents graph
   description: >-
     A repository graph that shows the packages, projects, and repositories that depend on a
@@ -204,6 +204,9 @@
     A diff is the difference in changes between two commits, or saved changes.
     The diff will visually describe what was added or removed from a file since
     its last commit.
+- term: directory
+  description: >-
+    A folder containing one or more files or folders. You can create directories to organize the contents of a repository.
 - term: dirty
   description: >-
     A working tree is considered "dirty" if it contains modifications that have
@@ -211,7 +214,7 @@
 - term: email notifications
   description: Notifications sent to a user's email address.
 - term: enterprise account
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
 - term: Explorer
   description: >-
     An instance of GraphiQL, which is a "graphical interactive in-browser GraphQL
@@ -397,18 +400,16 @@
   description: A system for annotating and formatting a document.
 - term: main
   description: >-
-    {% ifversion fpt or ghes > 3.1 or ghae %}
     The default development branch. Whenever you create a Git repository,
     a branch named `main` is created, and becomes the active branch.
     In most cases, this contains the local development, though that is purely by
-    convention and is not required.{% else %}Name often chosen as an alternative to `master`
-    for the default branch of a repository.{% endif %}
+    convention and is not required.
 - term: master
   description: >-
     The default branch in many Git repositories. By default, when you create
     a new Git repository on the command line, a branch called `master` is created.
-    Many tools now use an alternative name for the default branch.{% ifversion fpt or ghes > 3.1 or ghae %} For example,
-    when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
+    Many tools now use an alternative name for the default branch. For example,
+    when you create a new repository on GitHub, the default branch is called `main`.
 - term: members graph
   description: A repository graph that shows all the forks of a repository.
 - term: mention

@@ -1,12 +1,12 @@
 import { jest } from '@jest/globals'
 import revalidator from 'revalidator'
+
 import { allVersions } from '../../lib/all-versions.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import schema from '../helpers/schemas/versions-schema.js'
-import { getJSON } from '../helpers/supertest.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
-jest.useFakeTimers('legacy')
+jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
@@ -21,24 +21,19 @@ describe('versions module', () => {
       expect(valid, expectation).toBe(true)
     })
   })
-})
 
-describe('versions middleware', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  test('check REST api calendar date versioned versions set to correct latestApiVersion', () => {
+    Object.values(allVersions).forEach((versionObj) => {
+      if (versionObj.apiVersions.length > 0) {
+        const latestApiVersion = versionObj.latestApiVersion
+        const apiVersions = versionObj.apiVersions
+        expect(apiVersions).toContain(latestApiVersion)
 
-  test('adds res.context.allVersions object', async () => {
-    const allVersionsFromMiddleware = await getJSON('/en?json=allVersions')
-    expect(allVersionsFromMiddleware).toEqual(allVersions)
-  })
-
-  test('adds res.context.currentVersion string', async () => {
-    let currentVersion = await getJSON('/en?json=currentVersion')
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
-
-    currentVersion = await getJSON(`/en/${nonEnterpriseDefaultVersion}?json=currentVersion`)
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
-
-    currentVersion = await getJSON(`/en/enterprise-server@${latest}?json=currentVersion`)
-    expect(currentVersion).toBe(`enterprise-server@${latest}`)
+        const latestApiDate = new Date(latestApiVersion).getTime()
+        for (const version of apiVersions) {
+          expect(latestApiDate).toBeGreaterThanOrEqual(new Date(version).getTime())
+        }
+      }
+    })
   })
 })

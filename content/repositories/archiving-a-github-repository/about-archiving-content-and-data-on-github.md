@@ -29,7 +29,7 @@ The {% data variables.product.prodname_archive %} enables third-party partners t
 
 Responsible use of archives includes respecting users' privacy. For more information, see "[Public information on GitHub](/free-pro-team@latest/github/site-policy/github-privacy-statement#public-information-on-github)."
 
-You can opt out of the {% data variables.product.prodname_archive %} for your repository. For more information, see "[Opting into or out of the {% data variables.product.prodname_archive %} for your public repository](/github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)."
+You can opt out of the {% data variables.product.prodname_archive %} for your repository. For more information, see "[Opting into or out of the {% data variables.product.prodname_archive %} for your public repository](/get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository)."
 
 ## Adding an open source license to increase archivability
 

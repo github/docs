@@ -6,10 +6,11 @@ import matter from '../../lib/read-frontmatter.js'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import readFileAsync from '../../lib/readfile-async.js'
-import loadSiteData from '../../lib/site-data.js'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import contextualize from '../../middleware/context.js'
+import shortVersions from '../../middleware/contextualizers/short-versions.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const slugger = new GithubSlugger()
@@ -17,17 +18,15 @@ const slugger = new GithubSlugger()
 const contentDir = path.join(__dirname, '../../content')
 
 describe('category pages', () => {
-  let siteData
-
-  beforeAll(async () => {
-    // Load the English site data
-    const allSiteData = await loadSiteData()
-    siteData = allSiteData.en.site
-  })
-
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
-    ignore: ['{rest,graphql}/**', 'enterprise/index.md', '**/articles/**', 'early-access/**'],
+    ignore: [
+      '{rest,graphql}/**',
+      'enterprise/index.md',
+      '**/articles/**',
+      'early-access/**',
+      'search/index.md',
+    ],
     directories: false,
     includeBasePath: true,
   }
@@ -66,29 +65,59 @@ describe('category pages', () => {
     describe.each(categoryTuples)(
       'category index "%s"',
       (indexRelPath, indexAbsPath, indexLink) => {
-        let publishedArticlePaths, availableArticlePaths, indexTitle, categoryVersions
+        let publishedArticlePaths,
+          availableArticlePaths,
+          indexTitle,
+          categoryVersions,
+          categoryChildTypes
         const articleVersions = {}
 
         beforeAll(async () => {
           const categoryDir = path.dirname(indexAbsPath)
 
           // Get child article links included in each subdir's index page
-          const indexContents = await readFileAsync(indexAbsPath, 'utf8')
+          const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const { data } = matter(indexContents)
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
+          categoryChildTypes = []
           const articleLinks = data.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
-            return fs.existsSync(mdPath) && fs.statSync(mdPath).isFile()
+
+            const fileExists = fs.existsSync(mdPath)
+
+            // We're checking each item in the category's 'children' frontmatter
+            // to see if the child is an article by tacking on `.md` to it.  If
+            // that file exists it's an article, otherwise it's a map topic.  A
+            // category needs to have all the same type of children so we track
+            // that here so we can test to make sure all the types are the same.
+            if (fileExists) {
+              categoryChildTypes.push('article')
+            } else {
+              categoryChildTypes.push('mapTopic')
+            }
+
+            return fileExists && fs.statSync(mdPath).isFile()
           })
 
+          const next = () => {}
+          const res = {}
+          const req = {
+            language: 'en',
+            pagePath: '/en',
+          }
+          await contextualize(req, res, next)
+          await shortVersions(req, res, next)
+
           // Save the index title for later testing
-          indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
+          indexTitle = data.title.includes('{')
+            ? await renderContent(data.title, req.context, { textOnly: true })
+            : data.title
 
           publishedArticlePaths = (
             await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
@@ -110,7 +139,7 @@ describe('category pages', () => {
           availableArticlePaths = (
             await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
@@ -124,7 +153,7 @@ describe('category pages', () => {
 
           await Promise.all(
             childFilePaths.map(async (articlePath) => {
-              const articleContents = await readFileAsync(articlePath, 'utf8')
+              const articleContents = await fs.promises.readFile(articlePath, 'utf8')
               const { data } = matter(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
@@ -150,6 +179,19 @@ describe('category pages', () => {
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
           })
+        })
+
+        test('categories contain all the same type of children', () => {
+          let errorType = ''
+          expect(
+            categoryChildTypes.every((categoryChildType) => {
+              errorType = categoryChildType
+              return categoryChildType === categoryChildTypes[0]
+            }),
+            `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
+              categoryChildTypes[0]
+            }s, category children must be of the same type`
+          ).toBe(true)
         })
 
         // TODO: Unskip this test once the related script has been executed

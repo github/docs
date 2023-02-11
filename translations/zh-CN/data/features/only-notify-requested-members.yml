@@ -1,8 +1,0 @@
----
-#Issue #5108
-#Documentation for the "Only notify requested team members" option in the code review settings
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.4'
-  ghae: '*'

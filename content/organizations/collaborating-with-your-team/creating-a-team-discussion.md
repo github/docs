@@ -15,10 +15,14 @@ topics:
 shortTitle: Create a team discussion
 ---
 
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}
+
 {% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Type a team discussion title and a comment to start a conversation.

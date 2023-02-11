@@ -1,1 +1,0 @@
-Você deve usar um token de acesso pessoal com os escopos apropriados para publicar e instalar pacotes no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)."

@@ -15,12 +15,12 @@ topics:
   - Access management
 shortTitle: Review OAuth apps
 ---
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
-{% data reusables.user_settings.access_authorized_oauth_apps %}
-{% data reusables.user_settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+{% data reusables.user-settings.review-oauth-apps %}
 
 ## Further reading
 {% ifversion fpt or ghec %}
-- "[About integrations](/articles/about-integrations)"{% endif %}
-- "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)"
+- "[About integrations](/get-started/customizing-your-github-workflow/exploring-integrations/about-integrations)"{% endif %}
+- "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)"

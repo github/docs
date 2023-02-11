@@ -19,5 +19,9 @@ children:
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
+  - /secret-scanning-patterns
+  - /protecting-pushes-with-secret-scanning
+  - /pushing-a-branch-blocked-by-push-protection
+  - /troubleshooting-secret-scanning
 ---
 

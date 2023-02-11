@@ -1,11 +1,6 @@
 import { SyntheticEvent, useState } from 'react'
 import cx from 'classnames'
-import {
-  ChevronDownIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  LinkExternalIcon,
-} from '@primer/octicons-react'
+import { ChevronDownIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
@@ -15,54 +10,27 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { GHESReleaseNotesContextT } from './types'
 import { GHESReleaseNotePatch } from './GHESReleaseNotePatch'
 
+import styles from './PatchNotes.module.scss'
+import { PlainLink } from './PlainLink'
+
 type Props = {
   context: GHESReleaseNotesContextT
 }
+
 export function GHESReleaseNotes({ context }: Props) {
   const router = useRouter()
   const { currentProduct } = useMainContext()
   const [focusedPatch, setFocusedPatch] = useState('')
-  const {
-    prevRelease,
-    nextRelease,
-    latestPatch,
-    latestRelease,
-    currentVersion,
-    releaseNotes,
-    releases,
-    message,
-  } = context
+  const { latestPatch, latestRelease, currentVersion, releaseNotes, releases, message } = context
   return (
     <div className="d-flex">
       <article className="min-width-0 flex-1">
-        <div className="d-flex flex-items-center flex-justify-between color-bg-default text-bold px-5 py-2">
-          {prevRelease ? (
-            <Link
-              className="btn btn-outline"
-              href={`/${router.locale}/${currentVersion.plan}@${prevRelease}/${currentProduct?.id}/release-notes`}
-            >
-              <ChevronLeftIcon /> {prevRelease}
-            </Link>
-          ) : (
-            <div />
-          )}
-
+        <div className="d-flex flex-items-center flex-justify-center color-bg-default text-bold px-5 py-2">
           <h1 className="f4 py-3 m-0">
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
-
-          {nextRelease ? (
-            <Link
-              className="btn btn-outline"
-              href={`/${router.locale}/${currentVersion.plan}@${nextRelease}/${currentProduct?.id}/release-notes`}
-            >
-              {nextRelease} <ChevronRightIcon />
-            </Link>
-          ) : (
-            <div />
-          )}
         </div>
-        <MarkdownContent data-search="article-content">
+        <MarkdownContent data-search="article-body">
           {releaseNotes.map((patch) => {
             return (
               <GHESReleaseNotePatch
@@ -82,25 +50,35 @@ export function GHESReleaseNotes({ context }: Props) {
       </article>
 
       <aside
-        className="position-sticky top-0 d-none d-md-block border-left no-print color-bg-default flex-shrink-0"
-        style={{ width: 260, height: '100vh' }}
+        className={cx(
+          'position-sticky d-none d-md-block border-left no-print color-bg-default flex-shrink-0',
+          styles.aside
+        )}
       >
         <nav className="height-full overflow-auto">
-          <MarkdownContent data-search="article-content">
+          <MarkdownContent>
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
                 const releaseLink = `/${router.locale}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
 
+                // Use client-side router link component only if it's a supported release.
+                // Otherwise, it will trigger a NextJS data XHR fetch for releases
+                // that are deprecated when in fact you should load it regularly
+                // so it's read as a proxy from the archive.
+                const LinkComponent = currentVersion.releases.includes(release.version)
+                  ? Link
+                  : PlainLink
+
                 if (!release.patches || release.patches.length === 0) {
                   return (
                     <li key={release.version} className="border-bottom">
-                      <Link
+                      <LinkComponent
                         href={releaseLink}
                         className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       >
                         {release.version}
                         <LinkExternalIcon />
-                      </Link>
+                      </LinkComponent>
                     </li>
                   )
                 }
@@ -118,15 +96,16 @@ export function GHESReleaseNotes({ context }: Props) {
 
                 return (
                   <li key={release.version} className="border-bottom">
-                    <Link
+                    <LinkComponent
                       className="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       href={releaseLink}
                     >
                       {release.version}
                       <span className="color-fg-muted text-small text-normal mr-1">
-                        {release.patches.length} releases
+                        {release.patches.length}{' '}
+                        {release.patches.length === 1 ? 'release' : 'releases'}
                       </span>
-                    </Link>
+                    </LinkComponent>
                   </li>
                 )
               })}

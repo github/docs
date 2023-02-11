@@ -1,1 +1,0 @@
-Ao configurar o SSO do SAML na sua organização, você pode testar sua implementação sem afetar os integrantes da sua organização, deixando **Exigir autenticação do SSO do SAML para todos os integrantes da organização _nome da organização_** desmarcada.

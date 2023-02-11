@@ -1,1 +1,0 @@
-使い捨てのメールアドレスサービス（一定期間後に期限切れになる一時的なアドレスでメールを受信できるようにしてくれるサービス）からのメールアドレスは検証できません。 メールアドレスをプライベートにしておきたいなら、{% data variables.product.prodname_dotcom %} が提供する`noreply`メールアドレスを使ってください。 詳しい情報については「[{% data variables.product.prodname_dotcom %}でのコミットメールアドレスの設定](/articles/setting-your-commit-email-address#setting-your-commit-email-address-on-github)」を参照してください。

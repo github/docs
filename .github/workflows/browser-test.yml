@@ -6,9 +6,6 @@ name: Browser Tests
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   pull_request:
     paths:
       - '**.js'
@@ -22,23 +19,42 @@ on:
       # Ultimately, for debugging this workflow itself
       - .github/workflows/browser-test.yml
 
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: http://localhost:9200/
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
-      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
-      # Even if if doesn't do anything
-      - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:
-          lfs: true
-      - name: Checkout LFS objects
-        run: git lfs checkout
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
 
-      - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+      - name: Checkout
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: 16.13.x
+          node-version-file: '.node-version'
           cache: npm
 
       - name: Install dependencies
@@ -50,16 +66,20 @@ jobs:
         run: npm ci --include=optional
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/workflows/browser-test.yml') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
 
-      - name: Cache lib/redirects/.redirects-cache_en_ja.json
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
-        with:
-          path: lib/redirects/.redirects-cache_en_ja.json
-          key: ${{ runner.os }}-redirects-cache-${{ hashFiles('.github/workflows/browser-test.yml') }}
+      - name: Run build script
+        run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
 
       - name: Run browser-test
         run: npm run browser-test

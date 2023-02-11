@@ -12,6 +12,8 @@ export const FeaturedArticles = () => {
   return (
     <div className="d-lg-flex gutter my-6 py-6">
       {featuredArticles.map((section, i) => {
+        const viewAllTitleText =
+          section.key === 'startHere' ? `All '${section.label}' content` : `All ${section.label}`
         return (
           <div
             key={section.label + i}
@@ -20,6 +22,7 @@ export const FeaturedArticles = () => {
             <ArticleList
               title={section.label}
               viewAllHref={section.viewAllHref}
+              {...(section.viewAllHref ? { viewAllTitleText } : {})}
               articles={section.articles}
             />
           </div>
@@ -31,6 +34,7 @@ export const FeaturedArticles = () => {
           <ArticleList
             title={t('whats_new')}
             viewAllHref={changelogUrl}
+            viewAllTitleText={t('all_changelogs')}
             articles={(whatsNewChangelog || []).map((link) => {
               return {
                 title: link.title,

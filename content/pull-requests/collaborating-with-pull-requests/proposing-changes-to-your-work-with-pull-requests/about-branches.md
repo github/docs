@@ -3,7 +3,7 @@ title: About branches
 intro: 'Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
-  - /articles/working-with-protected-branches/
+  - /articles/working-with-protected-branches
   - /articles/about-branches
   - /github/collaborating-with-issues-and-pull-requests/about-branches
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
@@ -56,7 +56,7 @@ Now when you merge the `feature2` pull request, it'll be merged into the `main` 
 
 ## Working with protected branches
 
-Repository administrators can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
+Repository administrators {% ifversion edit-repository-rules %}or custom roles with the "edit repository rules" permission {% endif %}can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
 
 {% note %}
 

@@ -3,7 +3,8 @@ title: Configuring custom footers
 intro: 'You can give users easy access to enterprise-specific links by adding custom footers to {% data variables.product.product_name %}.'
 versions:
   ghec: '*'
-  ghes: '>=3.4'
+  ghes: '*'
+  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise
@@ -14,7 +15,7 @@ Enterprise owners can configure {% data variables.product.product_name %} to sho
 
 ![Custom footer](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% else %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+The custom footer is displayed above the {% data variables.product.prodname_dotcom %} footer {% ifversion ghes or ghae %}to all users, on all pages of {% data variables.product.product_name %}{% elsif ghec %}to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
 
 ## Configuring custom footers for your enterprise
 

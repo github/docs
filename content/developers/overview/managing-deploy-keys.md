@@ -2,8 +2,11 @@
 title: Managing deploy keys
 intro: Learn different ways to manage SSH keys on your servers when you automate deployment scripts and which way is best for you.
 redirect_from:
-  - /guides/managing-deploy-keys/
+  - /guides/managing-deploy-keys
   - /v3/guides/managing-deploy-keys
+  - /deploy-keys
+  - /articles/managing-deploy-keys
+  - /multiple-keys
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,28 +23,28 @@ You can manage SSH keys on your servers when automating deployment scripts using
 
 In many cases, especially in the beginning of a project, SSH agent forwarding is the quickest and simplest method to use. Agent forwarding uses the same SSH keys that your local development computer uses.
 
-#### Pros
+### Pros of SSH agent forwarding
 
 * You do not have to generate or keep track of any new keys.
 * There is no key management; users have the same permissions on the server that they do locally.
 * No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
 
-#### Cons
+### Cons of SSH agent forwarding
 
 * Users **must** SSH in to deploy; automated deploy processes can't be used.
 * SSH agent forwarding can be troublesome to run for Windows users.
 
-#### Setup
+### Set up SSH agent forwarding
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this: 
+2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
 `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## HTTPS cloning with OAuth tokens
 
-If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-automation].
+If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
-#### Pros
+### Pros of HTTPS cloning with OAuth tokens
 
 * Anyone with access to the server can deploy the repository.
 * Users don't have to change their local SSH settings.
@@ -51,14 +54,14 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
-#### Cons
+### Cons of HTTPS cloning with OAuth tokens
 
 * You must make sure that you configure your token with the correct access scopes.
 * Tokens are essentially passwords, and must be protected the same way.
 
-#### Setup
+### Set up HTTPS cloning with OAuth tokens
 
-See [our guide on Git automation with tokens][git-automation].
+See [our guide on creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Deploy keys
 
@@ -66,29 +69,31 @@ See [our guide on Git automation with tokens][git-automation].
 
 {% data reusables.repositories.deploy-keys-write-access %}
 
-#### Pros
+### Pros of deploy keys
 
 * Anyone with access to the repository and server has the ability to deploy the project.
 * Users don't have to change their local SSH settings.
 * Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
 
-#### Cons
+### Cons of deploy keys
 
 * Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
 * Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
 
-#### Setup
+### Set up deploy keys
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public/private rsa key pair.
-2. In the upper-right corner of any {% data variables.product.product_name %} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
-3. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-4. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-5. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-6. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
-7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-8. Click **Add key**.
+1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
+{% data reusables.profile.navigating-to-profile %}
 
-#### Using multiple repositories on one server
+   ![Navigation to profile](/assets/images/profile-page.png)
+1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
+2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
+3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
+4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
+5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
+6. Click **Add key**.
+
+### Using multiple repositories on one server
 
 If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
 
@@ -116,23 +121,23 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 ## Server-to-server tokens
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents. 
+If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
+Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
-#### Pros
+### Pros of server-to-server tokens
 
 - Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
 - Dedicated rate limits that grow with your organization.
 - Decoupled from GitHub user identities, so they do not consume any licensed seats.
 - Never granted a password, so cannot be directly signed in to.
 
-#### Cons
+### Cons of server-to-server tokens
 
 - Additional setup is needed to create the GitHub App.
 - Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
 
-#### Setup
+### Set up server-to-server tokens
 
 1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
 1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
@@ -146,7 +151,7 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 
 ## Machine users
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
 
 {% ifversion fpt or ghec %}
 
@@ -162,18 +167,18 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 {% endif %}
 
-#### Pros
+### Pros of machine users
 
 * Anyone with access to the repository and server has the ability to deploy the project.
 * No (human) users need to change their local SSH settings.
 * Multiple keys are not needed; one per server is adequate.
 
-#### Cons
+### Cons of machine users
 
 * Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
 * Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
-#### Setup
+### Set up machine users
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
 2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
@@ -188,4 +193,3 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 ## Further reading
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
-

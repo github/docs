@@ -2,10 +2,10 @@
 title: Installing GitHub Enterprise Server on VMware
 intro: 'To install {% data variables.product.prodname_ghe_server %} on VMware, you must download the VMware vSphere client, and then download and deploy the {% data variables.product.prodname_ghe_server %} software.'
 redirect_from:
-  - /enterprise/admin/articles/getting-started-with-vmware/
-  - /enterprise/admin/articles/installing-vmware-tools/
-  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums/
-  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware/
+  - /enterprise/admin/articles/getting-started-with-vmware
+  - /enterprise/admin/articles/installing-vmware-tools
+  - /enterprise/admin/articles/vmware-esxi-virtual-machine-maximums
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-vmware
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
   - /admin/installation/installing-github-enterprise-server-on-vmware
 versions:
@@ -21,7 +21,7 @@ shortTitle: Install on VMware
 ## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.product.product_location %}s. We support versions 5.5 through 6.7. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
+- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 through 6.7 for {% data variables.product.prodname_ghe_server %} 3.4 and earlier. ESX version 7.0 is supported for {% data variables.product.prodname_ghe_server %} 3.5 and later. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
 - You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
 
 ## Hardware considerations
@@ -30,10 +30,9 @@ shortTitle: Install on VMware
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **VMware ESXi/vSphere (OVA)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
 5. Click **Download for VMware ESXi/vSphere (OVA)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance

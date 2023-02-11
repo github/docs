@@ -16,12 +16,14 @@ shortTitle: About configuration
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %} For more information, see "[Site admin dashboard](/admin/configuration/site-admin-dashboard)."
 
-{% data reusables.enterprise_site_admin_settings.about-the-management-console %} For more information, see "[Accessing the management console](/admin/configuration/accessing-the-management-console)."
+{% data reusables.enterprise_site_admin_settings.management-console-overview %} For more information, see "[Accessing the {% data variables.enterprise.management_console %}](/admin/configuration/accessing-the-management-console)."
 
 {% data reusables.enterprise_site_admin_settings.about-ssh-access %} For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
 {% endif %}
 
 {% ifversion ghae %}
+To get started with {% data variables.product.product_name %}, you first need to deploy {% data variables.product.product_name %}. For more information, see "[Deploying {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)."
+
 The first time you access your enterprise, you will complete an initial configuration to get {% data variables.product.product_name %} ready to use. The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
 
 Later, you can use the site admin dashboard and enterprise settings to further configure your enterprise, manage users, organizations and repositories, and set policies that reduce risk and increase quality. 

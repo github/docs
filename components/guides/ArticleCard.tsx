@@ -1,20 +1,27 @@
+import { Label } from '@primer/react'
+
 import { ArticleGuide } from 'components/context/ProductGuidesContext'
-import { Label } from '@primer/components'
+import { Link } from 'components/Link'
 
 type Props = {
   card: ArticleGuide
   typeLabel: string
+  tabIndex?: number
 }
 
-export const ArticleCard = ({ card, typeLabel }: Props) => {
+export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
   return (
-    <div data-testid="article-card" className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8">
-      <a className="no-underline d-flex flex-column py-3 border-bottom" href={card.href}>
-        <h4 className="h4 color-fg-default mb-1" dangerouslySetInnerHTML={{ __html: card.title }} />
+    <li
+      tabIndex={tabIndex}
+      data-testid="article-card"
+      className="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8"
+    >
+      <Link className="no-underline d-flex flex-column py-3 border-bottom" href={card.href}>
+        <h3 className="h4 color-fg-default mb-1">{card.title}</h3>
         <div className="h6 text-uppercase" data-testid="article-card-type">
           {typeLabel}
         </div>
-        <p className="color-fg-muted my-3" dangerouslySetInnerHTML={{ __html: card.intro }} />
+        <p className="color-fg-muted my-3">{card.intro}</p>
         {card.topics.length > 0 && (
           <ul style={{ listStyleType: 'none' }}>
             {card.topics.map((topic) => {
@@ -22,8 +29,9 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
                 <li className="d-inline-block" key={topic}>
                   <Label
                     data-testid="article-card-topic"
-                    variant="small"
-                    sx={{ bg: 'accent.emphasis', mr: 1 }}
+                    size="small"
+                    variant="accent"
+                    sx={{ mr: 1 }}
                   >
                     {topic}
                   </Label>
@@ -32,7 +40,7 @@ export const ArticleCard = ({ card, typeLabel }: Props) => {
             })}
           </ul>
         )}
-      </a>
-    </div>
+      </Link>
+    </li>
   )
 }

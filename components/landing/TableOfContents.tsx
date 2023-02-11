@@ -1,9 +1,8 @@
-import { useRouter } from 'next/router'
+import React from 'react'
 import cx from 'classnames'
 
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 import { Link } from 'components/Link'
-import { BumpLink } from 'components/ui/BumpLink'
 import type { TocItem } from 'components/context/ProductLandingContext'
 
 type Props = {
@@ -12,79 +11,75 @@ type Props = {
 }
 export const TableOfContents = (props: Props) => {
   const { items, variant = 'expanded' } = props
-  const router = useRouter()
 
   return (
     <ul
       data-testid="table-of-contents"
-      className={cx(variant === 'compact' ? 'list-style-outside pl-2' : 'list-style-none')}
+      className={cx(variant === 'compact' ? 'list-style-outside pl-2' : '')}
     >
-      <ActionList
-        items={(items || [])
-          .filter((item) => typeof item !== 'undefined')
-          .map((item) => {
-            const { fullPath: href, title, intro, childTocItems } = item
-            const isActive = router.pathname === href
-            return variant === 'compact'
-              ? {
-                  key: href,
-                  text: title,
-                  renderItem: () => (
-                    <ActionList.Item>
-                      <li key={href} className="f4 d-list-item width-full list-style-none">
-                        <Link className="d-block width-full" href={href}>
-                          {title}
-                        </Link>
-                        {(childTocItems || []).length > 0 && (
-                          <ul
-                            className={cx(
-                              variant === 'compact'
-                                ? 'list-style-circle pl-5 my-3'
-                                : 'list-style-none'
-                            )}
-                          >
-                            {(childTocItems || []).map((childItem) => {
-                              if (!childItem) {
-                                return null
-                              }
-                              return (
-                                <li key={childItem.fullPath} className="f4 d-block width-full m-2">
-                                  <Link className="d-block width-full" href={childItem.fullPath}>
-                                    {childItem.title}
-                                  </Link>
-                                </li>
-                              )
-                            })}
-                          </ul>
-                        )}
-                      </li>
-                    </ActionList.Item>
-                  ),
-                }
-              : {
-                  key: href,
-                  title: title,
-                  renderItem: () => (
-                    <ActionList.Item className={cx('border-bottom')}>
-                      <li key={href} className={cx('mt-2', isActive && 'color-fg-muted')}>
-                        <BumpLink
-                          as={Link}
-                          href={href}
-                          title={<h2 className="py-1 h4">{title}</h2>}
+      {variant === 'expanded' &&
+        items.map((item) => {
+          const { fullPath: href, title, intro } = item
+
+          return (
+            <li
+              key={href}
+              data-testid="expanded-item"
+              className="pt-4 pb-3 f4 d-list-item width-full list-style-none border-bottom"
+            >
+              <h2 className="py-1 h4">
+                <Link href={href} className="color-fg-accent">
+                  {title}
+                </Link>
+              </h2>
+              {intro && (
+                <div className="f4 color-fg-muted" dangerouslySetInnerHTML={{ __html: intro }} />
+              )}
+            </li>
+          )
+        })}
+
+      {variant === 'compact' && (
+        <ActionList>
+          {items.map((item) => {
+            const { fullPath: href, title, childTocItems } = item
+            return (
+              <React.Fragment key={href}>
+                <ActionList.LinkItem
+                  key={href}
+                  href={href}
+                  className="f4 color-fg-accent d-list-item d-block width-full text-underline"
+                >
+                  {title}
+                </ActionList.LinkItem>
+                {(childTocItems || []).length > 0 && (
+                  <ul
+                    className={cx(
+                      variant === 'compact' ? 'list-style-circle pl-5' : 'list-style-none'
+                    )}
+                  >
+                    {(childTocItems || []).map((childItem) => {
+                      if (!childItem) {
+                        return null
+                      }
+                      return (
+                        <ActionList.LinkItem
+                          key={childItem.fullPath}
+                          href={childItem.fullPath}
+                          className="f4 color-fg-accent d-list-item d-block width-full text-underline"
                         >
-                          {intro && (
-                            <p
-                              className="f4 color-fg-muted"
-                              dangerouslySetInnerHTML={{ __html: intro }}
-                            />
-                          )}
-                        </BumpLink>
-                      </li>
-                    </ActionList.Item>
-                  ),
-                }
+                          {childItem.title}
+                        </ActionList.LinkItem>
+                      )
+                    })}
+                  </ul>
+                )}
+                {/* </li> */}
+              </React.Fragment>
+            )
           })}
-      />
+        </ActionList>
+      )}
     </ul>
   )
 }

@@ -3,7 +3,7 @@ title: Resolving a merge conflict using the command line
 intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
-  - /articles/resolving-a-merge-conflict-from-the-command-line/
+  - /articles/resolving-a-merge-conflict-from-the-command-line
   - /articles/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-using-the-command-line
   - /github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
@@ -33,7 +33,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
-  cd <em>REPOSITORY-NAME</em>
+  cd REPOSITORY-NAME
   ```
 3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
   ```shell
@@ -49,7 +49,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
   > #
   > no changes added to commit (use "git add" and/or "git commit -a")
   ```
-4. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+4. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
 5. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
     ```
@@ -85,7 +85,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
-  cd <em>REPOSITORY-NAME</em>
+  cd REPOSITORY-NAME
   ```
 2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell
@@ -104,7 +104,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-3. Open your favorite text editor, such as [Atom](https://atom.io/), and navigate to the file that has merge conflicts.
+3. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
 6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
  To add the removed file back to your repository:

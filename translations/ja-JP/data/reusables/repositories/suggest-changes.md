@@ -1,1 +1,0 @@
-1. あるいは、特定の変更を行{% ifversion fpt or ghes or ghae or ghec %}あるいは複数行{% endif %}に対して示唆するには、{% octicon "diff" aria-label="The diff symbol" %}をクリックし、示唆するブロック内のテキストを編集してください。 ![サジェッションブロック](/assets/images/help/pull_requests/suggestion-block.png)

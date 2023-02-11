@@ -1,7 +1,6 @@
 ---
 title: GitHub event types
 intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -34,11 +33,19 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
 | `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
 | `actor.avatar_url` | The URL of the actor's profile image. |
-| `repo` | The repository object where the event occurred.  |
-| `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
+| `repository` | The repository object where the event occurred.  |
+| `repository.id` | The unique identifier of the repository. |
+| `repository.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
+| `repository.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
+| `public` | Whether the event is visible to all users. |
+| `created_at` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
+| `org` | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
+| `org.id` | The unique identifier for the organization. |
+| `org.login` | The name of the organization. |
+| `org.gravatar_id` | The unique identifier of the Gravatar profile for the organization. |
+| `org.url` | The REST API URL used to retrieve the organization object, which includes additional organization information. |
+| `org.avatar_url` | The URL of the organization's profile image. |
 
 ### Example WatchEvent event object
 
@@ -56,7 +63,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
     "public": false,
     "payload": {
     },
-    "repo": {
+    "repository": {
       "id": 3,
       "name": "octocat/Hello-World",
       "url": "https://api.github.com/repos/octocat/Hello-World"
@@ -87,7 +94,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for CommitCommentEvent
 
 {% data reusables.webhooks.commit_comment_properties %}
 
@@ -97,7 +104,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for CreateEvent
 
 {% data reusables.webhooks.create_properties %}
 
@@ -107,7 +114,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for DeleteEvent
 
 {% data reusables.webhooks.delete_properties %}
 
@@ -117,7 +124,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for ForkEvent
 
 {% data reusables.webhooks.fork_properties %}
 
@@ -127,7 +134,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for GollumEvent
 
 {% data reusables.webhooks.gollum_properties %}
 
@@ -137,7 +144,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for IssueCommentEvent
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -148,7 +155,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for IssuesEvent
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -159,7 +166,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for MemberEvent
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -168,7 +175,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-### Event `payload` object
+### Event `payload` object for PublicEvent
 
 This event returns an empty `payload` object.
 {% endif %}
@@ -178,7 +185,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestEvent
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -189,7 +196,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestReviewEvent
 
 Key | Type | Description
 ----|------|-------------
@@ -203,10 +210,20 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
+
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Event `payload` object for PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_thread_properties %}
 
 ## PushEvent
 
@@ -214,7 +231,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for PushEvent
 
 Key | Type | Description
 ----|------|-------------
@@ -239,7 +256,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for ReleaseEvent
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -249,7 +266,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-### Event `payload` object
+### Event `payload` object for SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
@@ -261,6 +278,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Event `payload` object for WatchEvent
 
 {% data reusables.webhooks.watch_properties %}

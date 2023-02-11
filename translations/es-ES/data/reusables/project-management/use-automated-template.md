@@ -1,1 +1,0 @@
-Puedes utilizar una plantilla de tablero de proyecto para crear un tablero de proyecto que ya tenga configurada la automatización. Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards#templates-for-project-boards)."

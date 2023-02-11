@@ -1,1 +1,0 @@
-1. Digite o nome de usuário e endereço de e-mail para cada uma das contas de usuário que você gostaria de criar e clique em **Generate a password reset link** (Gerar um link de redefinição de senha). ![Gerar um link de redefinição de senha](/assets/images/enterprise/site-admin-settings/generate-password-reset-link-button.png)

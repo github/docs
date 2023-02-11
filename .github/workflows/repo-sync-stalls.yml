@@ -7,7 +7,10 @@ name: Repo Sync Stalls
 on:
   workflow_dispatch:
   schedule:
-    - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
+    - cron: '20 */2 * * *' # Run every 2nd hour at 20 minutes after
+
+permissions:
+  pull-requests: read
 
 jobs:
   repo-sync-stalls:
@@ -15,15 +18,14 @@ jobs:
     steps:
       - if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
         name: Check if repo sync is stalled
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
             let pulls;
             const owner = context.repo.owner
             const repo = context.repo.repo
             try {
-              pulls = await github.pulls.list({
+              pulls = await github.rest.pulls.list({
                 owner: owner,
                 repo: repo,
                 head: `${owner}:repo-sync`,
@@ -50,7 +52,7 @@ jobs:
               }
             })
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

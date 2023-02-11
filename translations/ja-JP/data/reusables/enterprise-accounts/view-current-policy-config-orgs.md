@@ -1,1 +1,0 @@
-Optionally, to view the current configuration for all organizations in the enterprise account before you change the setting, click {% octicon "eye" aria-label="The eye octicon" %} **View your organizations' current configurations**. ![ビジネス内のOrganizationの現在のポリシー設定を表示するリンク](/assets/images/help/business-accounts/view-current-policy-implementation-link.png)

@@ -1,23 +1,33 @@
 /* eslint-disable camelcase */
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
-import getCsrf from './get-csrf'
-import parseUserAgent from './user-agent'
+import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
 
 const startVisitTime = Date.now()
 
+let initialized = false
 let cookieValue: string | undefined
 let pageEventId: string | undefined
-let maxScrollY = 0
-let pauseScrolling = false
+
 let sentExit = false
+let pauseScrolling = false
+let scrollPosition = 0
+let scrollDirection = 1
+let scrollFlipCount = 0
+let maxScrollY = 0
+
+let hoveredUrls = new Set()
 
 function resetPageParams() {
-  maxScrollY = 0
-  pauseScrolling = false
   sentExit = false
+  pauseScrolling = false
+  scrollPosition = 0
+  scrollDirection = 1
+  scrollFlipCount = 0
+  maxScrollY = 0
+  hoveredUrls = new Set()
 }
 
 export function getUserEventsId() {
@@ -26,7 +36,7 @@ export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
   Cookies.set(COOKIE_NAME, cookieValue, {
-    secure: true,
+    secure: document.location.protocol !== 'http:',
     sameSite: 'strict',
     expires: 365,
   })
@@ -37,6 +47,7 @@ export enum EventType {
   page = 'page',
   exit = 'exit',
   link = 'link',
+  hover = 'hover',
   search = 'search',
   searchResult = 'searchResult',
   navigate = 'navigate',
@@ -56,7 +67,11 @@ type SendEventProps = {
   exit_dom_complete?: number
   exit_visit_duration?: number
   exit_scroll_length?: number
+  exit_scroll_flip?: number
   link_url?: string
+  link_samesite?: boolean
+  hover_url?: string
+  hover_samesite?: boolean
   search_query?: string
   search_context?: string
   search_result_query?: string
@@ -84,8 +99,6 @@ function getMetaContent(name: string) {
 
 export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
   const body = {
-    _csrf: getCsrf(),
-
     type,
 
     context: {
@@ -129,10 +142,14 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
     ...props,
   }
 
-  // Only send the beacon if the feature is not disabled in the user's browser
-  if (navigator?.sendBeacon) {
-    const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-    navigator.sendBeacon('/events', blob)
+  const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
+  const endpoint = '/api/events'
+  try {
+    // Only send the beacon if the feature is not disabled in the user's browser
+    // Even if the function exists, it can still throw an error from the call being blocked
+    navigator?.sendBeacon(endpoint, blob)
+  } catch {
+    console.warn(`sendBeacon to '${endpoint}' failed.`)
   }
 
   return body
@@ -178,10 +195,20 @@ function trackScroll() {
     pauseScrolling = false
   }, 200)
 
-  // Update maximum scroll position reached
+  // Calculate where we are on the page
   const scrollPixels = window.scrollY + window.innerHeight
-  const scrollPosition = scrollPixels / document.documentElement.scrollHeight
-  if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
+  const newScrollPosition = scrollPixels / document.documentElement.scrollHeight
+
+  // Count scroll flips
+  const newScrollDirection = Math.sign(newScrollPosition - scrollPosition)
+  if (newScrollDirection !== scrollDirection) scrollFlipCount++
+
+  // Update maximum scroll position reached
+  if (newScrollPosition > maxScrollY) maxScrollY = newScrollPosition
+
+  // Update before the next event
+  scrollDirection = newScrollDirection
+  scrollPosition = newScrollPosition
 }
 
 function sendPage() {
@@ -193,6 +220,7 @@ function sendExit() {
   if (sentExit) return
   sentExit = true
   const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
+
   return sendEvent({
     type: EventType.exit,
     exit_render_duration: render,
@@ -201,6 +229,7 @@ function sendExit() {
     exit_dom_complete: domComplete,
     exit_visit_duration: (Date.now() - startVisitTime) / 1000,
     exit_scroll_length: maxScrollY,
+    exit_scroll_flip: scrollFlipCount,
   })
 }
 
@@ -241,14 +270,41 @@ function initClipboardEvent() {
   })
 }
 
+function initCopyButtonEvent() {
+  document.documentElement.addEventListener('click', (evt) => {
+    const target = evt.target as HTMLElement
+    const button = target.closest('.js-btn-copy') as HTMLButtonElement
+    if (!button) return
+    sendEvent({ type: EventType.navigate, navigate_label: 'copy icon button' })
+  })
+}
+
 function initLinkEvent() {
   document.documentElement.addEventListener('click', (evt) => {
     const target = evt.target as HTMLElement
-    const link = target.closest('a[href^="http"]') as HTMLAnchorElement
+    const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
+    const sameSite = link.origin === location.origin
     sendEvent({
       type: EventType.link,
       link_url: link.href,
+      link_samesite: sameSite,
+    })
+  })
+}
+
+function initHoverEvent() {
+  document.documentElement.addEventListener('mouseover', (evt) => {
+    const target = evt.target as HTMLElement
+    const link = target.closest('a[href]') as HTMLAnchorElement
+    if (!link) return
+    if (hoveredUrls.has(link.href)) return // Otherwise this is a flood of events
+    const sameSite = link.origin === location.origin
+    hoveredUrls.add(link.href)
+    sendEvent({
+      type: EventType.hover,
+      hover_url: link.href,
+      hover_samesite: sameSite,
     })
   })
 }
@@ -259,10 +315,14 @@ function initPrintEvent() {
   })
 }
 
-export default function initializeEvents() {
+export function initializeEvents() {
+  if (initialized) return
+  initialized = true
   initPageAndExitEvent() // must come first
   initLinkEvent()
+  initHoverEvent()
   initClipboardEvent()
+  initCopyButtonEvent()
   initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js

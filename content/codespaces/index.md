@@ -6,27 +6,32 @@ introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
-  guides:
-    - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
-    - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
-    - /codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project
-    - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
-    - /codespaces/developing-in-codespaces/codespaces-lifecycle
-  popular:
-    - /codespaces/getting-started-with-codespaces/getting-started-with-your-nodejs-project-in-codespaces
-    - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
-    - /codespaces/getting-started-with-codespaces/getting-started-with-your-java-project-in-codespaces
-    - /codespaces/getting-started-with-codespaces/getting-started-with-your-dotnet-project
+  startHere:
+    - /codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization
+    - /codespaces/getting-started/the-codespace-lifecycle
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
+    - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
+    - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace
-    - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
-    - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
+    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+    - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
+  popular:
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-java-project-for-codespaces
+    - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces
   popularHeading: Set up your project
+changelog:
+  label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/codespaces-feedback'
+  href: 'https://github.com/orgs/community/discussions/categories/codespaces'
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
@@ -38,9 +43,10 @@ versions:
 children:
   - /overview
   - /getting-started
-  - /setting-up-your-project-for-codespaces
-  - /customizing-your-codespace
   - /developing-in-codespaces
+  - /customizing-your-codespace
+  - /setting-up-your-project-for-codespaces
+  - /prebuilding-your-codespaces
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference

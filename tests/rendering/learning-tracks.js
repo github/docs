@@ -1,5 +1,6 @@
-import { getDOM } from '../helpers/supertest.js'
-import { jest } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
+
+import { getDOMCached as getDOM } from '../helpers/e2etest.js'
 
 jest.setTimeout(3 * 60 * 1000)
 
@@ -26,8 +27,6 @@ describe('learning tracks', () => {
       const found = href.match(/.*\?learn=(.*)/i)
       expect(found).not.toBeNull()
       const trackName = found[1]
-
-      // check all the links contain track name
       $(trackElem)
         .find('a.Box-row')
         .each((i, elem) => {
@@ -50,9 +49,43 @@ describe('navigation banner', () => {
     })
   })
 
+  test('render guides index page and verify that the first page has guide navigation links', async () => {
+    let $ = await getDOM('/en/code-security/guides')
+
+    let firstLearningPathURL = null
+    $('a[href]').each((i, element) => {
+      if (firstLearningPathURL) {
+        return
+      }
+      const href = $(element).attr('href')
+      if (new URLSearchParams(href.split('?')[1]).has('learn')) {
+        firstLearningPathURL = href
+      }
+    })
+
+    expect(firstLearningPathURL).not.toBeNull()
+
+    // Navigate to the first learning path URL
+    $ = await getDOM(firstLearningPathURL)
+
+    expect($('[data-testid=learning-track-card]')).toHaveLength(1)
+    const $navLinks = $('[data-testid=learning-track-card] a')
+    expect($navLinks).toHaveLength(2)
+    $navLinks.each((i, elem) => {
+      // First link is to the guides index page
+      if (i === 0) {
+        expect($(elem).attr('href')).toEqual(expect.stringContaining('/guides'))
+        // Other links are to the next page in the learning track
+      } else {
+        expect($(elem).attr('href')).toMatch('learn=security_advisories')
+      }
+    })
+    expect.assertions(1 + 2 + 2)
+  })
+
   test('render navigation banner when url is a redirect to a learning track URL', async () => {
     const $ = await getDOM(
-      '/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
+      '/en/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
     )
     expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
     const $navLinks = $('[data-testid=learning-track-nav] a')

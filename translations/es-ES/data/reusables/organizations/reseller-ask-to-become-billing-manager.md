@@ -1,1 +1,0 @@
-Si no eres un gerente de facturación de la organización, pide a tu cliente que haga que un *propietario* de la misma [te agregue a esta como gerente de facturación](/articles/adding-a-billing-manager-to-your-organization).

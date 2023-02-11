@@ -4,7 +4,7 @@ import { graphql } from '@octokit/graphql'
 
 // Pull out the node ID of a project field
 export function findFieldID(fieldName, data) {
-  const field = data.organization.projectNext.fields.nodes.find((field) => field.name === fieldName)
+  const field = data.organization.projectV2.fields.nodes.find((field) => field.name === fieldName)
 
   if (field && field.id) {
     return field.id
@@ -15,14 +15,12 @@ export function findFieldID(fieldName, data) {
 
 // Pull out the node ID of a single select field value
 export function findSingleSelectID(singleSelectName, fieldName, data) {
-  const field = data.organization.projectNext.fields.nodes.find((field) => field.name === fieldName)
+  const field = data.organization.projectV2.fields.nodes.find((field) => field.name === fieldName)
   if (!field) {
     throw new Error(`A field called "${fieldName}" was not found. Check if the field was renamed.`)
   }
 
-  const singleSelect = JSON.parse(field.settings).options.find(
-    (field) => field.name === singleSelectName
-  )
+  const singleSelect = field.options.find((field) => field.name === singleSelectName)
 
   if (singleSelect && singleSelect.id) {
     return singleSelect.id
@@ -41,11 +39,11 @@ export async function addItemsToProject(items, project) {
 
   const mutations = items.map(
     (item, index) => `
-    item_${index}: addProjectNextItem(input: {
+    item_${index}: addProjectV2ItemById(input: {
       projectId: $project
       contentId: "${item}"
     }) {
-      projectNextItem {
+      item {
         id
       }
     }
@@ -59,19 +57,17 @@ export async function addItemsToProject(items, project) {
   `
 
   const newItems = await graphql(mutation, {
-    project: project,
+    project,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
-      'GraphQL-Features': 'projects_next_graphql',
     },
   })
 
   // The output of the mutation is
   // {"item_0":{"projectNextItem":{"id":ID!}},...}
   // Pull out the ID for each new item
-  const newItemIDs = Object.entries(newItems).map((item) => item[1].projectNextItem.id)
 
-  console.log(`New item IDs: ${newItemIDs}`)
+  const newItemIDs = Object.entries(newItems).map((item) => item[1].item.id)
 
   return newItemIDs
 }
@@ -114,9 +110,32 @@ export async function isDocsTeamMember(login) {
   return teamMembers.includes(login)
 }
 
+// Given a GitHub login, returns a bool indicating
+// whether the login is part of the GitHub org
+export async function isGitHubOrgMember(login) {
+  const data = await graphql(
+    `
+      query {
+        user(login: "${login}") {
+          organization(login: "github"){
+            name
+          }
+        }
+      }
+    `,
+    {
+      headers: {
+        authorization: `token ${process.env.TOKEN}`,
+      },
+    }
+  )
+
+  return Boolean(data.user.organization)
+}
+
 // Formats a date object into the required format for projects
 export function formatDateForProject(date) {
-  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+  return date.toISOString()
 }
 
 // Given a date object and optional turnaround time
@@ -150,7 +169,7 @@ export function calculateDueDate(datePosted, turnaround = 2) {
 //   - "Contributor type" (as variable passed with the request)
 //   - "Feature" (as {feature})
 //   - "Author" (as {author})"
-export function generateUpdateProjectNextItemFieldMutation({
+export function generateUpdateProjectV2ItemFieldMutation({
   item,
   author,
   turnaround = 2,
@@ -161,22 +180,22 @@ export function generateUpdateProjectNextItemFieldMutation({
 
   // Build the mutation to update a single project field
   // Specify literal=true to indicate that the value should be used as a string, not a variable
-  function generateMutationToUpdateField({ item, fieldID, value, literal = false }) {
-    const parsedValue = literal ? `value: "${value}"` : `value: ${value}`
+  function generateMutationToUpdateField({ item, fieldID, value, fieldType, literal = false }) {
+    const parsedValue = literal ? `${fieldType}: "${value}"` : `${fieldType}: ${value}`
 
     // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.substr(1)}_item_${item.replaceAll(
+      set_${fieldID.slice(1)}_item_${item.replaceAll(
       /[^a-z0-9]/g,
       ''
-    )}: updateProjectNextItemField(input: {
+    )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
         itemId: "${item}"
         fieldId: ${fieldID}
-        ${parsedValue}
+        value: { ${parsedValue} }
       }) {
-      projectNextItem {
+      projectV2Item {
         id
       }
     }
@@ -198,42 +217,49 @@ export function generateUpdateProjectNextItemFieldMutation({
       $authorID: ID!
     ) {
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$statusID',
         value: '$statusValueID',
+        fieldType: 'singleSelectOptionId',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$datePostedID',
         value: formatDateForProject(datePosted),
+        fieldType: 'date',
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$reviewDueDateID',
         value: formatDateForProject(dueDate),
+        fieldType: 'date',
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$contributorTypeID',
         value: '$contributorType',
+        fieldType: 'singleSelectOptionId',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$sizeTypeID',
         value: '$sizeType',
+        fieldType: 'singleSelectOptionId',
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$featureID',
         value: feature,
+        fieldType: 'text',
         literal: true,
       })}
       ${generateMutationToUpdateField({
-        item: item,
+        item,
         fieldID: '$authorID',
         value: author,
+        fieldType: 'text',
         literal: true,
       })}
       }
@@ -246,9 +272,10 @@ export default {
   addItemsToProject,
   addItemToProject,
   isDocsTeamMember,
+  isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
   formatDateForProject,
   calculateDueDate,
-  generateUpdateProjectNextItemFieldMutation,
+  generateUpdateProjectV2ItemFieldMutation,
 }

@@ -23,10 +23,9 @@ topics:
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
-{% endif %}
-{% ifversion ghes or ghae %}
+{% else %}
 You can create and participate in issues, pull requests and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
@@ -99,7 +98,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 - The user creates a pull request with the fix.
 - A repository maintainer reviews the pull request, comments on it, and merges it.
 
-{% ifversion fpt or ghec %}
+{% ifversion discussions %}
 ### Scenarios for {% data variables.product.prodname_discussions %}
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -116,7 +115,6 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
 {% endif %}
-{% ifversion fpt or ghes or ghae or ghec %}
 ### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -139,18 +137,18 @@ The `octocat` team member posted a team discussion, informing the team of variou
 - There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
 - Material about the April All Hands is now available for all team members to view.
 
-{% endif %}
-
 ## Next steps
 
 These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 
-For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
+For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
 
-For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
+For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
-{% ifversion fpt or ghec %}
-For {% data variables.product.prodname_discussions %}, you can set up a code of conduct and pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% ifversion discussions %}
+For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 {% endif %}
 
 For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+
+To learn some advanced formatting features that will help you communicate, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."

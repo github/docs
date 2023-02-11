@@ -7,7 +7,10 @@ name: Check Broken Docs Links in github/github
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
 
 # **IMPORTANT:** Do not change the FREEZE environment variable set here!
 # This workflow runs on a recurring basis. To temporarily disable it (e.g.,
@@ -36,16 +39,36 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
-
-      - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          node-version: 16.13.x
-          cache: npm
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
 
-      - name: Install Node.js dependencies
-        run: npm ci
+      - name: Clone docs-early-access
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: main
+
+      - name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Build server
+        run: npm run build
+
+      - name: Start server in the background
+        env:
+          NODE_ENV: production
+          PORT: 4000
+        run: |
+
+          node server.js &
+          sleep 5
+          curl --retry-connrefused --retry 3 -I http://localhost:4000/
 
       - name: Run broken github/github link check
         run: |
@@ -62,11 +85,11 @@ jobs:
       - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Get title for issue
         id: check
-        run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
+        run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Create issue from file
         id: github-github-broken-link-report
-        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
+        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
         with:
           token: ${{ env.GITHUB_TOKEN }}
           title: ${{ steps.check.outputs.title }}

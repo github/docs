@@ -1,3 +1,0 @@
-- **Leitura**, que dá permissão para pessoas visualizarem um quadro de projeto.
-- **Gravação**, que dá permissão às pessoas para visualizar um quadro de projeto, vincular repositórios a um quadro de projeto e interagir com um quadro de projeto. Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)".
-- **Administrador**, que dá permissão às pessoas para visualizar um quadro de projeto, interagir com um quadro de projeto, gerenciar as configurações do quadro de projeto e gerenciar o acesso de outras pessoas ao quadro de projetos.

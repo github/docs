@@ -9,7 +9,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import walk from 'walk-sync'
 import { escapeRegExp, last } from 'lodash-es'
 import yaml from 'js-yaml'

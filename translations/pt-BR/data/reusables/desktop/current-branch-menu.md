@@ -1,1 +1,0 @@
-1. No {% data variables.product.prodname_desktop %}, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual**. ![Menu suspenso Current Branch (Branch atual)](/assets/images/help/desktop/current-branch-menu.png)

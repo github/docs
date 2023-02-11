@@ -2,7 +2,7 @@
 title: Using the GitHub API in your app
 intro: Learn how to set up your app to listen for events and use the Octokit library to perform REST API operations.
 redirect_from:
-  - /apps/building-your-first-github-app/
+  - /apps/building-your-first-github-app
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
 versions:
@@ -201,7 +201,7 @@ See "[Next steps](#next-steps)" for ideas about where you can go from here.
 
 ## Troubleshooting
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
 
 * **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm sending events on GitHub.com by opening new issues, but I don't see any output in the Terminal window where I'm running the server.
 
@@ -234,5 +234,5 @@ Here are some ideas for what you can do next:
 * When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
+* Share your project or get advice in the {% data reusables.support.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
 * Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

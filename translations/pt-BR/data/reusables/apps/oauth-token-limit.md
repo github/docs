@@ -1,1 +1,0 @@
-Há um limite de dez tokens emitidos por combinação de usuário/aplicativo/escopo. Se um aplicativo cria mais de 10 tokens para o mesmo usuário e os mesmos escopos, os tokens mais antigos com a mesma combinação de usuário/aplicativo/escopo serão revogados.

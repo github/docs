@@ -1,3 +1,0 @@
-{% ifversion ghec %}
-Si tu organización pertenece a una cuenta empresarial, el habilitar la sincronización de equipo o el aprovisionamiento de SCIM para la cuenta empresarial anulará tus ajustes de sincronización de equipos a nivel organizacional. For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)" and "[Configuring SCIM provisioning for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)."
-{% endif %}

@@ -2,8 +2,8 @@
 title: Delivering deployments
 intro: 'Using the Deployments REST API, you can build custom tooling that interacts with your server and a third-party app.'
 redirect_from:
-  - /guides/delivering-deployments/
-  - /guides/automating-deployments-to-integrators/
+  - /guides/delivering-deployments
+  - /guides/automating-deployments-to-integrators
   - /v3/guides/delivering-deployments
 versions:
   fpt: '*'
@@ -16,15 +16,12 @@ topics:
  
   
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
-the capability to launch them on a server that you own. Combined with
-[the Status API][status API], you'll be able to coordinate your deployments
-the moment your code lands on the default branch.
+You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[Deployments](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[Building a CI server](/rest/guides/building-a-ci-server)."
 
-This guide will use that API to demonstrate a setup that you can use.
+This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Merge a pull request
+* Merge a pull request.
 * When the CI is finished, we'll set the pull request's status accordingly.
 * When the pull request is merged, we'll run our deployment to our server.
 
@@ -32,9 +29,17 @@ Our CI system and host server will be figments of our imagination. They could be
 Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
 and configuring the server managing the communication.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
+If you haven't already, be sure to [download `ngrok`][ngrok], and learn how
 to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+applications to the internet.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
 
 Note: you can download the complete source code for this project
 [from the platform-samples repo][platform samples].
@@ -57,14 +62,14 @@ end
 (If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+to configure `ngrok` to start listening for that, too.
 
 In order for this server to work, we'll need to set a repository up with a webhook.
 The webhook should be configured to fire whenever a pull request is created, or merged.
 Go ahead and create a repository you're comfortable playing around in. Might we
 suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
 After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
+that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
 content type:
 
 ![A new ngrok URL](/assets/images/webhook_sample_url.png)

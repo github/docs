@@ -10,7 +10,7 @@
 
 import fs from 'fs/promises'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { execSync } from 'child_process'
 import libLanguages from '../lib/languages.js'
 import { getPathWithoutLanguage } from '../lib/path-utils.js'

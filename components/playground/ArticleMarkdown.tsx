@@ -1,10 +1,11 @@
 import React from 'react'
 import cx from 'classnames'
-import { useTheme } from '@primer/components'
+import { useTheme } from '@primer/react'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vs, vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import gfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 
@@ -22,6 +23,9 @@ export const ArticleMarkdown = ({ className, children }: Props) => {
       <ReactMarkdown
         className={cx(styles.articleMarkdown, className)}
         remarkPlugins={[gfm as any]}
+        // This makes it so that HTML inside that `children`, as a string,
+        // is preserved and left alone.
+        rehypePlugins={[rehypeRaw]}
         components={{
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           code: ({ node, inline, className, children, ...props }) => {

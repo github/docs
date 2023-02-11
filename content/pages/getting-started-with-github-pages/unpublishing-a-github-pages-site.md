@@ -2,10 +2,10 @@
 title: Unpublishing a GitHub Pages site
 intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
-  - /articles/how-do-i-unpublish-a-project-page/
-  - /articles/unpublishing-a-project-page/
-  - /articles/unpublishing-a-project-pages-site/
-  - /articles/unpublishing-a-user-pages-site/
+  - /articles/how-do-i-unpublish-a-project-page
+  - /articles/unpublishing-a-project-page
+  - /articles/unpublishing-a-project-pages-site
+  - /articles/unpublishing-a-user-pages-site
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
@@ -19,6 +19,18 @@ topics:
   - Pages
 shortTitle: Unpublish Pages site
 ---
+
+{% ifversion pages-custom-workflow %}
+
+When you unpublish your site, the site will no longer be available. Any existing repository settings or content will not be affected.
+
+{% data reusables.repositories.navigate-to-repo %}
+1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
+1. In the menu that appears, select **Unpublish site**.
+
+   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+
+{% else %}
 
 ## Unpublishing a project site
 
@@ -36,3 +48,5 @@ shortTitle: Unpublish Pages site
 {% data reusables.repositories.navigate-to-repo %}
 2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[Deleting a repository](/articles/deleting-a-repository)."
 {% data reusables.pages.update_your_dns_settings %}
+
+{% endif %}

@@ -2,6 +2,17 @@
 import dotenv from 'dotenv'
 import got from 'got'
 import Bottleneck from 'bottleneck'
+
+// NOTE: If you get this error:
+//
+//    Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'bottleneck' ...
+//
+// it's because you haven't installed all the *optional* dependencies.
+// To do that, run:
+//
+//    npm install --include=optional
+//
+
 import { loadPages } from '../../lib/page-data.js'
 import { allVersions } from '../../lib/all-versions.js'
 import languages from '../../lib/languages.js'
@@ -29,7 +40,7 @@ async function main() {
   const languageCodes =
     [languageCode] ||
     Object.keys(languages)
-      .filter((language) => !language.wip && language !== 'en')
+      .filter((language) => language !== 'en')
       .map((language) => languages[language].code)
   const versions = singleVersion ? [singleVersion] : Object.keys(allVersions)
 

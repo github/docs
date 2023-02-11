@@ -2,15 +2,15 @@
 title: Configuring Git Large File Storage for your enterprise
 intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
-  - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
+  - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise
   - /enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server
   - /enterprise/admin/installation/configuring-git-large-file-storage
   - /enterprise/admin/installation/configuring-git-large-file-storage-to-use-a-third-party-server
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-a-repository/
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-every-repository-owned-by-a-user-account-or-organization/
-  - /enterprise/admin/articles/configuring-git-large-file-storage-for-your-appliance/
-  - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-a-repository
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-every-repository-owned-by-a-user-account-or-organization
+  - /enterprise/admin/articles/configuring-git-large-file-storage-for-your-appliance
+  - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
@@ -73,7 +73,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-1. Disable {% data variables.large_files.product_name_short %} on {% data variables.product.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
+1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
 
 2. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
   ```shell
@@ -82,20 +82,20 @@ For more information, see "[About {% data variables.large_files.product_name_lon
   > git-lfs/1.1.0 (GitHub; darwin amd64; go 1.5.1; git 94d356c)
   > git version 2.7.4 (Apple Git-66)
   &nbsp;
-  > Endpoint=https://<em>GITHUB-ENTERPRISE-HOST</em>/path/to/repo/info/lfs (auth=basic)
+  > Endpoint=https://GITHUB-ENTERPRISE-HOST/path/to/repo/info/lfs (auth=basic)
   &nbsp;
   # Create .lfsconfig that points to third party server.
-  $ git config -f .lfsconfig remote.origin.lfsurl https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
+  $ git config -f .lfsconfig remote.origin.lfsurl https://THIRD-PARTY-LFS-SERVER/path/to/repo
   $ git lfs env
   > git-lfs/1.1.0 (GitHub; darwin amd64; go 1.5.1; git 94d356c)
   > git version 2.7.4 (Apple Git-66)
   &nbsp;
-  > Endpoint=https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo/info/lfs (auth=none)
+  > Endpoint=https://THIRD-PARTY-LFS-SERVER/path/to/repo/info/lfs (auth=none)
   &nbsp;
   # Show the contents of .lfsconfig
   $ cat .lfsconfig
   [remote "origin"]
-  lfsurl = https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
+  lfsurl = https://THIRD-PARTY-LFS-SERVER/path/to/repo
   ```
 
 3. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
@@ -111,14 +111,14 @@ Before migrating to a different {% data variables.large_files.product_name_long 
 
 1. Configure the repository with a second remote.
   ```shell
-  $ git remote add <em>NEW-REMOTE</em> https://<em>NEW-REMOTE-HOSTNAME</em>/path/to/repo
+  $ git remote add NEW-REMOTE https://NEW-REMOTE-HOSTNAME/path/to/repo
   &nbsp;
   $ git lfs env
   > git-lfs/1.1.0 (GitHub; darwin amd64; go 1.5.1; git 94d356c)
   > git version 2.7.4 (Apple Git-66)
   &nbsp;
-  > Endpoint=https://<em>GITHUB-ENTERPRISE-HOST</em>/path/to/repo/info/lfs (auth=basic)
-  > Endpoint (<em>NEW-REMOTE</em>)=https://<em>NEW-REMOTE-HOSTNAME</em>/path/to/repo/info/lfs (auth=none)
+  > Endpoint=https://GITHUB-ENTERPRISE-HOST/path/to/repo/info/lfs (auth=basic)
+  > Endpoint (NEW-REMOTE)=https://NEW-REMOTE-HOSTNAME/path/to/repo/info/lfs (auth=none)
   ```
 
 2. Fetch all objects from the old remote.
@@ -132,7 +132,7 @@ Before migrating to a different {% data variables.large_files.product_name_long 
 
 3. Push all objects to the new remote.
   ```shell
-  $ git lfs push <em>NEW-REMOTE</em> --all
+  $ git lfs push NEW-REMOTE --all
   > Scanning for all objects ever referenced...
   > ✔ 16 objects found
   > Pushing objects...

@@ -2,7 +2,7 @@
 title: Building a CI server
 intro: Build your own CI system using the Status API.
 redirect_from:
-  - /guides/building-a-ci-server/
+  - /guides/building-a-ci-server
   - /v3/guides/building-a-ci-server
 versions:
   fpt: '*'
@@ -15,9 +15,9 @@ topics:
 
 
 
-The [Status API][status API] is responsible for tying together commits with
+You can use the REST API to tie together commits with
 a testing service, so that every push you make can be tested and represented
-in a {% data variables.product.product_name %} pull request.
+in a {% data variables.product.product_name %} pull request. For more information about the relevant endpoints, see "[Commit statuses][status API]."
 
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -29,9 +29,17 @@ Our CI system and host server will be figments of our imagination. They could be
 Travis, Jenkins, or something else entirely. The crux of this guide will be setting up
 and configuring the server managing the communication.
 
-If you haven't already, be sure to [download ngrok][ngrok], and learn how
+If you haven't already, [download `ngrok`][ngrok], and learn how
 to [use it][using ngrok]. We find it to be a very useful tool for exposing local
-connections.
+applications to the internet.
+
+{% ifversion cli-webhook-forwarding %}
+{% note %}
+
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+
+{% endnote %}
+{% endif %}
 
 Note: you can download the complete source code for this project
 [from the platform-samples repo][platform samples].
@@ -54,14 +62,14 @@ end
 (If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
 
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
-to configure ngrok to start listening for that, too.
+to configure `ngrok` to start listening for that, too.
 
 In order for this server to work, we'll need to set a repository up with a webhook.
 The webhook should be configured to fire whenever a Pull Request is created, or merged.
 Go ahead and create a repository you're comfortable playing around in. Might we
 suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
 After that, you'll create a new webhook in your repository, feeding it the URL
-that ngrok gave you, and choosing `application/x-www-form-urlencoded` as the
+that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
 content type:
 
 ![A new ngrok URL](/assets/images/webhook_sample_url.png)
@@ -113,7 +121,7 @@ new pull request every time you make a change!
 
 Since we're interacting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll use [Octokit.rb][octokit.rb]
 to manage our interactions. We'll configure that client with
-[a personal access token][access token]:
+[a {% data variables.product.pat_generic %}][access token]:
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -170,7 +178,7 @@ build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/commits/statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

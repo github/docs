@@ -17,17 +17,18 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
+import cheerio from 'cheerio'
 import walk from 'walk-sync'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import visit from 'unist-util-visit'
 import { loadPages, loadPageMap } from '../lib/page-data.js'
-import loadSiteData from '../lib/site-data.js'
 import loadRedirects from '../lib/redirects/precompile.js'
 import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
 import { allVersionKeys } from '../lib/all-versions.js'
 import frontmatter from '../lib/read-frontmatter.js'
 import renderContent from '../lib/render-content/index.js'
 import patterns from '../lib/patterns.js'
+import getRedirect from '../lib/get-redirect.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const walkFiles = (pathToWalk) => {
@@ -58,12 +59,10 @@ async function main() {
   const pageList = await loadPages()
   const pageMap = await loadPageMap(pageList)
   const redirects = await loadRedirects(pageList)
-  const site = await loadSiteData()
 
   const context = {
     pages: pageMap,
     redirects,
-    site: site.en.site,
     currentLanguage: 'en',
   }
 
@@ -122,7 +121,8 @@ async function main() {
       for (const version of allVersionKeys) {
         context.currentVersion = version
         // Render the link for each version using the renderContent pipeline, which includes the rewrite-local-links plugin.
-        const $ = await renderContent(oldMarkdownLink, context, { cheerioObject: true })
+        const html = await renderContent(oldMarkdownLink, context)
+        const $ = cheerio.load(html, { xmlMode: true })
         let linkToCheck = $('a').attr('href')
 
         // We need to preserve fragments and hardcoded versions if any are found.
@@ -200,10 +200,11 @@ function findPage(tryPath, pageMap, redirects) {
     }
   }
 
-  if (pageMap[redirects[tryPath]]) {
+  const redirect = getRedirect(tryPath, { redirects, pages: pageMap })
+  if (pageMap[redirect]) {
     return {
-      title: pageMap[redirects[tryPath]].title,
-      path: redirects[tryPath],
+      title: pageMap[redirect].title,
+      path: redirect,
     }
   }
 }

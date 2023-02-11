@@ -1,1 +1,0 @@
-1. Revisa la información acerca del gasto y de tu fecha de facturación y luego haz clic en **Upgrade my account (Actualizar mi cuenta)** o **Upgrade my organization's account (Actualizar la cuenta de mi organización)**.

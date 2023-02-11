@@ -1,0 +1,6 @@
+# Reference: #7757
+# Setting to disable personal namespace repo creation for EMUs, GHES 3.7+ and GHAE 3.7+ users
+versions:
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>= 3.7'

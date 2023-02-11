@@ -1,57 +1,108 @@
 import { useRouter } from 'next/router'
-import { ArrowRightIcon } from '@primer/octicons-react'
+import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
+import cx from 'classnames'
 
-import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Picker } from 'components/ui/Picker'
 
+import styles from './VersionPicker.module.scss'
+
 type Props = {
-  variant?: 'inline'
+  mediumOrLower?: boolean
 }
 
-export const VersionPicker = ({ variant }: Props) => {
+export const VersionPicker = ({ mediumOrLower }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
-  const { t } = useTranslation('pages')
+  const { t } = useTranslation(['pages', 'picker'])
+  const isSearchResultsPage = router.route === '/search' || router.route === '/[versionId]/search'
 
-  if (page.permalinks && page.permalinks.length <= 1) {
+  if (page.permalinks && page.permalinks.length < 1) {
     return null
   }
 
   const allLinks = (page.permalinks || []).map((permalink) => ({
-    text: permalink.pageVersionTitle,
-    selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
-    item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
+    text: allVersions[permalink.pageVersion].versionTitle,
+    selected: currentVersion === permalink.pageVersion,
+    href:
+      isSearchResultsPage && typeof router.query.query === 'string'
+        ? permalink.href + `?${new URLSearchParams({ query: router.query.query })}`
+        : permalink.href,
+    extra: {
+      arrow: false,
+      info: false,
+    },
+    divider: false,
   }))
-  const hasEnterpriseVersions = (page.permalinks || []).find((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-version')
+
+  const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
+    permalink.pageVersion.startsWith('enterprise-server')
   )
+
+  allLinks.push({
+    text: '',
+    selected: false,
+    href: ``,
+    extra: {
+      arrow: false,
+      info: false,
+    },
+    divider: true,
+  })
 
   if (hasEnterpriseVersions) {
     allLinks.push({
       text: t('all_enterprise_releases'),
       selected: false,
-      item: (
-        <Link
-          href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-          className="f6 no-underline color-fg-muted"
-        >
-          {t('all_enterprise_releases')}{' '}
-          <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
-        </Link>
-      ),
+      href: `/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`,
+      extra: {
+        arrow: true,
+        info: false,
+      },
+      divider: false,
+    })
+  }
+
+  if (allLinks) {
+    const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
+
+    allLinks.push({
+      text: t('about_versions'),
+      selected: false,
+      href: `/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`,
+      extra: {
+        arrow: false,
+        info: true,
+      },
+      divider: false,
     })
   }
 
   return (
-    <Picker
-      variant={variant}
-      data-testid="version-picker"
-      defaultText="Choose version"
-      options={allLinks}
-    />
+    <div data-testid="version-picker">
+      <Picker
+        defaultText={t('version_picker_default_text')}
+        items={allLinks}
+        alignment="start"
+        pickerLabel="Version"
+        dataTestId="field"
+        buttonBorder={mediumOrLower}
+        ariaLabel="Select GitHub product version"
+        renderItem={(item) => {
+          return (
+            <div data-testid="version-picker-item" className={cx(styles.itemsWidth)}>
+              {item.text}
+              {item.extra?.arrow && (
+                <ArrowRightIcon verticalAlign="middle" size={15} className="ml-1" />
+              )}
+              {item.extra?.info && <InfoIcon verticalAlign="middle" size={15} className="ml-1" />}
+            </div>
+          )
+        }}
+      />
+    </div>
   )
 }
