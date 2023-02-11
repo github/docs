@@ -1,10 +1,10 @@
 import {
   readCompressedJsonFileFallbackLazily,
   readCompressedJsonFileFallback,
-} from '../../lib/read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '../get-mini-toc-items.js'
-import languages from '../languages.js'
-import { allVersions } from '../all-versions.js'
+} from '../../../lib/read-json-file.js'
+import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
+import languages from '../../../lib/languages.js'
+import { allVersions } from '../../../lib/all-versions.js'
 
 /* ADD LANGUAGE KEY */
 let previews
@@ -22,7 +22,7 @@ export function getGraphqlSchema(version, type) {
   if (!graphqlSchema.has(graphqlVersion)) {
     graphqlSchema.set(
       graphqlVersion,
-      readCompressedJsonFileFallback(`lib/graphql/static/schema-${graphqlVersion}.json`)
+      readCompressedJsonFileFallback(`src/graphql/data/schema-${graphqlVersion}.json`)
     )
   }
   return graphqlSchema.get(graphqlVersion)[type]
@@ -32,7 +32,7 @@ export function getGraphqlChangelog() {
   if (!changelog.has('schema')) {
     changelog.set(
       'schema',
-      readCompressedJsonFileFallbackLazily('./lib/graphql/static/changelog.json')()
+      readCompressedJsonFileFallbackLazily('./src/graphql/data/changelog.json')()
     )
   }
 
@@ -43,7 +43,7 @@ export function getGraphqlBreakingChanges(version) {
   const graphqlVersion = getGraphqlVersion(version)
   if (!upcomingChanges) {
     upcomingChanges = readCompressedJsonFileFallbackLazily(
-      './lib/graphql/static/upcoming-changes.json'
+      './src/graphql/data/upcoming-changes.json'
     )()
   }
   return upcomingChanges[graphqlVersion]
@@ -52,7 +52,7 @@ export function getGraphqlBreakingChanges(version) {
 export function getPreviews(version) {
   const graphqlVersion = getGraphqlVersion(version)
   if (!previews) {
-    previews = readCompressedJsonFileFallbackLazily('./lib/graphql/static/previews.json')()
+    previews = readCompressedJsonFileFallbackLazily('./src/graphql/data/previews.json')()
   }
   return previews[graphqlVersion]
 }

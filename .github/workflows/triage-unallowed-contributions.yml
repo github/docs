@@ -14,7 +14,7 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'lib/graphql/**'
+      - 'src/**'
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
@@ -58,7 +58,7 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'lib/graphql/**'
+              - 'src/**'
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
@@ -81,9 +81,9 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'lib/graphql/**',
+              'src/**',
               'lib/redirects/**',
-              'lib/rest/**',
+              'lib/rest/**',	
               'lib/webhooks/**',
               'package*.json',
               'scripts/**',
