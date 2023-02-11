@@ -1,4 +1,110 @@
----
+Name :run::/
+###run
+failed 2 weeks ago in 2s. View latest attempt.
+Search logs
+1s
+##[debug]Starting: Set up job
+Current runner version: '2.301.1'
+Operating System
+  Ubuntu
+  22.04.1
+  LTS
+Runner Image
+  Image: ubuntu-22.04
+  Version: 20230122.1
+  Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20230122.1/images/linux/Ubuntu2204-Readme.md
+  Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20230122.1
+Runner Image Provisioner
+  2.0.98.1
+GITHUB_TOKEN Permissions
+  Contents: read
+  Metadata: read
+  Packages: read
+Secret source: Actions
+##[debug]Primary repository: https-www-bitore-net/demo-repository
+Prepare workflow directory
+##[debug]Creating pipeline directory: '/home/runner/work/demo-repository'
+##[debug]Creating workspace directory: '/home/runner/work/demo-repository/demo-repository'
+##[debug]Update context data
+##[debug]Evaluating job-level environment variables
+##[debug]Evaluating job container
+##[debug]Evaluating job service containers
+##[debug]Evaluating job defaults
+Prepare all required actions
+Getting action download info
+Download action repository 'wow-actions/auto-assign@v1' (SHA:707ec486377e28a595619469e26b375d8746b330)
+##[debug]Download 'https://api.github.com/repos/wow-actions/auto-assign/tarball/707ec486377e28a595619469e26b375d8746b330' to '/home/runner/work/_actions/_temp_0074698e-1053-4ca5-a60f-55561f61aa1b/3752f8e9-84d5-4767-8240-1cbe0aa109ba.tar.gz'
+##[debug]Unwrap 'wow-actions-auto-assign-707ec48' to '/home/runner/work/_actions/wow-actions/auto-assign/v1'
+##[debug]Archive '/home/runner/work/_actions/_temp_0074698e-1053-4ca5-a60f-55561f61aa1b/3752f8e9-84d5-4767-8240-1cbe0aa109ba.tar.gz' has been unzipped into '/home/runner/work/_actions/wow-actions/auto-assign/v1'.
+##[debug]action.yml for action: '/home/runner/work/_actions/wow-actions/auto-assign/v1/action.yml'.
+##[debug]Set step '__wow-actions_auto-assign' display name to: 'Run wow-actions/auto-assign@v1'
+Complete job name: run
+##[debug]Collect running processes for tracking orphan processes.
+##[debug]Finishing: Set up job
+1s
+##[debug]Evaluating condition for step: 'Run wow-actions/auto-assign@v1'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: Run wow-actions/auto-assign@v1
+##[debug]Loading inputs
+##[debug]Evaluating: secrets.GITHUB_TOKEN
+##[debug]Evaluating Index:
+##[debug]..Evaluating secrets:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'GITHUB_TOKEN'
+##[debug]=> '***'
+##[debug]Result: '***'
+##[debug]Loading env
+Run wow-actions/auto-assign@v1
+  with:
+    GITHUB_TOKEN: ***
+    CONFIG_FILE: .github/auto-assign.yml
+##[debug]event: issues
+##[debug]action: opened
+(node:1631) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[debug]Load config from ".github/auto-assign.yml": 
+##[debug]{
+##[debug]  "addReviewers": true,
+##[debug]  "addAssignees": "author",
+##[debug]  "numberOfAssignees": 0,
+##[debug]  "numberOfReviewers": 1,
+##[debug]  "reviewers": [
+##[debug]    "mowjoejoejoejoe"
+##[debug]  ],
+##[debug]  "assignees": [
+##[debug]    "mowjoejoejoejoe"
+##[debug]  ],
+##[debug]  "skipKeywords": [
+##[debug]    "wip"
+##[debug]  ]
+##[debug]}
+##[debug]Assignees: [
+##[debug]  "mowjoejoejoejoe"
+##[debug]]
+Error: HttpError: Resource not accessible by integration
+Error: Resource not accessible by integration
+##[debug]Node Action run completed with exit code 1
+##[debug]Finishing: Run wow-actions/auto-assign@v1
+0s
+##[debug]Starting: Complete job
+Uploading runner diagnostic logs
+##[debug]Starting diagnostic file upload.
+##[debug]Setting up diagnostic log folders.
+##[debug]Creating diagnostic log files folder.
+##[debug]Copying 1 worker diagnostic logs.
+##[debug]Copying 1 runner diagnostic logs.
+##[debug]Zipping diagnostic files.
+##[debug]Uploading diagnostic metadata file.
+##[debug]Diagnostic file upload complete.
+Completed runner diagnostic log upload
+Cleaning up orphan processes
+##[debug]Finishing: Complete jobBEGIN
+GLOW4
+run::/runs::/run::/-on::/run::/-on :
 title: Working with the NuGet registry
 intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
 product: '{% data reusables.gated-features.packages %}'
