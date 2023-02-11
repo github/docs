@@ -6,7 +6,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 const externalScalarsJSON = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './lib/graphql/non-schema-scalars.json'))
+  await fs.readFile(path.join(process.cwd(), './src/graphql/lib/non-schema-scalars.json'))
 )
 const externalScalars = await Promise.all(
   externalScalarsJSON.map(async (scalar) => {
@@ -18,7 +18,7 @@ const externalScalars = await Promise.all(
 )
 
 // select and format all the data from the schema that we need for the docs
-// used in the build step by script/graphql/build-static-files.js
+// used in the build step
 export default async function processSchemas(idl, previewsPerVersion) {
   const schemaAST = parse(idl.toString())
   const schema = buildASTSchema(schemaAST)

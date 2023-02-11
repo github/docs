@@ -4,17 +4,17 @@ import path from 'path'
 import mkdirp from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
-import { getContents, listMatchingRefs } from '../helpers/git-utils.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { getContents, listMatchingRefs } from '../../../script/helpers/git-utils.js'
+import { allVersions } from '../../../lib/all-versions.js'
 import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const dataFilenames = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './script/graphql/utils/data-filenames.json'))
+  await fs.readFile(path.join(process.cwd(), './src/graphql/scripts/utils/data-filenames.json'))
 )
 
 // check for required PAT
@@ -75,7 +75,7 @@ async function main() {
       if (changelogEntry) {
         prependDatedEntry(
           changelogEntry,
-          path.join(process.cwd(), 'lib/graphql/static/changelog.json')
+          path.join(process.cwd(), 'src/graphql/data/changelog.json')
         )
       }
     }
@@ -104,7 +104,7 @@ async function getRemoteRawContent(filepath, graphqlVersion) {
   return getContents(...Object.values(options))
 }
 
-// find the relevant filepath in script/graphql/utils/data-filenames.json
+// find the relevant filepath in src/graphql/scripts/util/data-filenames.json
 function getDataFilepath(id, graphqlVersion) {
   const versionType = getVersionType(graphqlVersion)
 
