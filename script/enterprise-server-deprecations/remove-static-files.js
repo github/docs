@@ -15,7 +15,7 @@ import { deprecated } from '../../lib/enterprise-server-releases.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'lib/webhooks/static')
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const restDecoratedDir = path.join(process.cwd(), 'lib/rest/static/decorated')
 const ghesReleaseNotesDir = 'data/release-notes/enterprise-server'
 

@@ -34,7 +34,7 @@
     "file-type": "18.2.0",
     "flat": "^5.0.2",
     "github-slugger": "^2.0.0",
-    "got": "^12.1.0",
+    "got": "^12.5.3",
     "gray-matter": "^4.0.3",
     "hast-util-from-parse5": "^7.1.0",
     "hast-util-parse-selector": "^3.1.0",
