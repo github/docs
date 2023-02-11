@@ -82,6 +82,8 @@ To clear your filter selection, click **Clear current search query, filters, and
 
 {% endtip %}
 
+Unlike lables, you can't exclude multiple assignees. For example, `is:issue is:open -assignee:octocat` displays all open issues except those assigned to octocat.
+
 ## Filtering issues and pull requests by labels
 
 Once you've [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.
