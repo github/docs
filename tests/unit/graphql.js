@@ -6,12 +6,10 @@ import {
   getGraphqlChangelog,
   getGraphqlBreakingChanges,
   getPreviews,
-} from '../../src/graphql/lib/index.js'
+} from '../../lib/graphql/index.js'
 
 describe('graphql schema', () => {
-  const graphqlTypes = JSON.parse(readFileSync('src/graphql/lib/types.json')).map(
-    (item) => item.kind
-  )
+  const graphqlTypes = JSON.parse(readFileSync('lib/graphql/types.json')).map((item) => item.kind)
   for (const version in allVersions) {
     for (const type of graphqlTypes) {
       test(`getting the GraphQL ${type} schema works for ${version}`, async () => {

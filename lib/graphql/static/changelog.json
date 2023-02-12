@@ -4,21 +4,6 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
-          "<p>Type 'DeleteProjectV2Input' was added</p>",
-          "<p>Type 'DeleteProjectV2Payload' was added</p>",
-          "<p>Field 'deleteProjectV2<code>was added to object type</code>Mutation'</p>"
-        ]
-      }
-    ],
-    "previewChanges": [],
-    "upcomingChanges": [],
-    "date": "2023-02-11"
-  },
-  {
-    "schemaChanges": [
-      {
-        "title": "The GraphQL schema includes these changes:",
-        "changes": [
           "<p>Type 'ProjectV2Workflow' was added</p>",
           "<p>Type 'ProjectV2WorkflowConnection' was added</p>",
           "<p>Type 'ProjectV2WorkflowEdge' was added</p>",
