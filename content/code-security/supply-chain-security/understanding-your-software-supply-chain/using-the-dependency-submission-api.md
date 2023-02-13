@@ -29,14 +29,14 @@ The simplest way to use the Dependency submission API is by adding a pre-made ac
 
 Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
 --- | --- | --- |
-Any<sup>[†]</sup> | [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | |
+Any [1] | [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | |
 Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | **✓** |
 Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/gradle-dependency-submission) | |
 Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | **✓** |
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | |
 
-[†] This action is ecosystem-agnostic.
+[1] This action is ecosystem-agnostic.
 
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
 
