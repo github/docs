@@ -37,6 +37,7 @@ env:
 
 jobs:
   figureOutMatrix:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
