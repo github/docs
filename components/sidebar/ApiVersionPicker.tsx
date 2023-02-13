@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import cx from 'classnames'
 import Cookies from 'js-cookie'
 import { InfoIcon } from '@primer/octicons-react'
 
@@ -9,14 +8,7 @@ import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'components/RestRedirect'
 
-import styles from './SidebarProduct.module.scss'
-
 const API_VERSION_SUFFIX = ' (latest)'
-
-type Props = {
-  mediumOrLower?: boolean
-  width?: number
-}
 
 function rememberApiVersion(apiVersion: string) {
   try {
@@ -37,7 +29,7 @@ function rememberApiVersion(apiVersion: string) {
   }
 }
 
-export const ApiVersionPicker = ({ mediumOrLower, width }: Props) => {
+export const ApiVersionPicker = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
@@ -89,18 +81,7 @@ export const ApiVersionPicker = ({ mediumOrLower, width }: Props) => {
 
   // This only shows the REST Version picker if it's calendar date versioned
   return allVersions[currentVersion].apiVersions.length > 0 ? (
-    <div
-      className={
-        mediumOrLower
-          ? 'mx-2 mb-3'
-          : cx(
-              'pt-4 px-4 d-flex flex-justify-center pb-4 border-bottom',
-              styles.apiVersionPicker,
-              styles.apiFixedHeader
-            )
-      }
-      style={{ width: `${width}px` }}
-    >
+    <div className="mb-3">
       <div data-testid="api-version-picker" className="width-full">
         <Picker
           defaultText={currentDateDisplayText}
@@ -126,7 +107,5 @@ export const ApiVersionPicker = ({ mediumOrLower, width }: Props) => {
         />
       </div>
     </div>
-  ) : (
-    <div className={cx(styles.noApiVersion)}></div>
-  )
+  ) : null
 }
