@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+intro: 'If you build tools that integrate with {data variables.product.prodname_dotcom }, you can join the {data variables.product.prodname_dotcom } Developer Program.'
 redirect_from:
   - /program
 versions:
