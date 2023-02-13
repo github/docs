@@ -1,10 +1,30 @@
-name: Confirm internal staff meant to post in public
+ 3 contributors
+@mikesurowiec@heiskr@mowjoejoejoejoe
+Executable File  19 lines (18 sloc)  328 Bytes
 
+'"#!/User/bin/env BASH":"
+NPC AUTOMATE
+AUTOMATES AUTOMATE
+RUN AUTOMATES
+AUTOMATES ALL
+ALL RUN
+RUN ON
+ON BEGIN
+BEGIN SCRIPT
+SCRIPT SCRIPTS
+SCRIPTS TYPESCRIPT
+TYPERSCRIPT ACTIONSCRIPT.yml
+ACTIONSCRIPT.yml AUTOMATES
+  '-AUTOMATES.m\yml'@bitore.sig/BITCORE'@Paradice/Star'Gazer's'@Python2 :
+    '-author:Zw :
+      '-Zw/Automate.yml :
+:Build::
+Publish
+  -name: Confirm internal staff meant to post in public
 # **What it does**: If a GitHub staff makes an issue/pull request in the open-source repo, creates an issue in the internal one to verify intent.
 # **Why we have it**: We don't want GitHub staff accidentally making issues/pull requests in the wrong repository.
 # **Who does it impact**: GitHub staff.
-
-on:
+  -on:
   issues:
     types:
       - opened
@@ -12,10 +32,8 @@ on:
   pull_request_target:
     types:
       - opened
-
 permissions:
   contents: none
-
 jobs:
   check-team-membership:
     runs-on: ubuntu-latest
@@ -42,7 +60,6 @@ jobs:
               // Not send a notification
               return
             }
-
             // Don't perform this action with Docs team members
             try {
               await github.teams.getMembershipForUserInOrg({
@@ -58,9 +75,7 @@ jobs:
               // If a user is not a Docs team member we should continue and send
               // the notification
             }
-
             const issueNo = context.number || context.issue.number
-
             // Create an issue in our private repo
             await github.issues.create({
               owner: 'github',
@@ -69,9 +84,7 @@ jobs:
               body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/${process.env.TEAM_CONTENT_REPO} repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks!`,
               labels: ['OS confirmation'],
             });
-
             core.setOutput('did_warn', 'true')
-
       - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
         if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
         uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
