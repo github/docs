@@ -80,13 +80,12 @@ Across all organizations owned by your enterprise, you can set a base repository
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Base permissions", use the drop-down menu and choose a policy.
-  ![Drop-down menu with repository permissions policy options](/assets/images/help/business-accounts/repository-permissions-policy-drop-down.png)
+5. Under "Base permissions", select the dropdown menu and click a policy.
 
 
 ## Enforcing a policy for repository creation
 
-Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level. 
+Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level.
 
 If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
 
@@ -103,9 +102,10 @@ If you allow members to create repositories in your organizations, you can choos
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
-{% data reusables.enterprise-accounts.repo-creation-types %}{% ifversion enterprise-namespace-repo-setting %}
+{% data reusables.enterprise-accounts.repo-creation-types %}
+{%- ifversion enterprise-namespace-repo-setting %}
 1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**.
-  ![Screenshot showing the list of disabled options from forking policy](/assets/images/help/business-accounts/restrict-personal-namespace-enabled-setting.png){% endif %}
+{%- endif %}
 
 ## Enforcing a policy for forking private or internal repositories
 Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
@@ -126,13 +126,11 @@ People with admin permissions can set a more granular forking policy. For more i
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-2. Under "Repository forking", use the dropdown menu and choose a policy.
+2. Under "Repository forking", select the dropdown menu and click a policy.
+{%- ifversion innersource-fork-policies %}
+5. If forking is enabled, select a policy for where users are allowed to fork repositories.
+{%- endif %}
 
-  ![Drop-down menu with repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png){% ifversion innersource-fork-policies %}
-5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
-
-    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png){% endif %}
-  
 ## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
 
 Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% ifversion prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
@@ -141,13 +139,7 @@ Across all organizations owned by your enterprise, you can allow members to invi
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", use the drop-down menu and choose a policy.
-
-  {% ifversion ghec %}
-  ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
-  {% elsif ghes or ghae %}
-  ![Drop-down menu with invitation policy options](/assets/images/enterprise/business-accounts/repository-invitation-policy-drop-down.png)  
-  {% endif %}
+4. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", select the dropdown menu and click a policy.
 
 ## Enforcing a policy for the default branch name
 
@@ -155,12 +147,10 @@ Across all organizations owned by your enterprise, you can set the default branc
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. On the **Repository policies** tab, under "Default branch name", enter the default branch name that new repositories should use.
-    ![Text box for entering default branch name](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
-    ![Enforcement checkbox](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. Click **Update**.
-    ![Update button](/assets/images/help/business-accounts/default-branch-name-update.png)
+{% data reusables.enterprise-accounts.repositories-tab %}
+1. Under "Default branch name", enter the default branch name that new repositories should use.
+1. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**.
+1. Click **Update**.
 
 ## Enforcing a policy for changes to repository visibility
 
@@ -172,8 +162,7 @@ If an enterprise owner has restricted repository creation to organization owners
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Repository visibility change", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-1. Under "Repository visibility change", use the drop-down menu and choose a policy.
-   ![Drop-down menu with repository visibility policy options](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)
+1. Under "Repository visibility change", select the dropdown menu and click a policy.
 
 ## Enforcing a policy for repository deletion and transfer
 
@@ -193,9 +182,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Under "Repository issue deletion", use the drop-down menu and choose a policy.
-
-  ![Drop-down menu with issue deletion policy options](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+4. Under "Repository issue deletion", select the dropdown menu and click a policy.
 
 {% ifversion ghes or ghae %}
 
