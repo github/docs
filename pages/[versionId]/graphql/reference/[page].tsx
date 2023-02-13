@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import React from 'react'
 
 import { GraphqlPage } from 'components/graphql/GraphqlPage'
-import { getGraphqlSchema, getMiniToc } from 'lib/graphql/index.js'
+import { getGraphqlSchema, getMiniToc } from 'src/graphql/lib/index.js'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import type { ObjectT, GraphqlT } from 'components/graphql/types'
 import { AutomatedPage } from 'components/article/AutomatedPage'
