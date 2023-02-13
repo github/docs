@@ -28,7 +28,7 @@ You can add self-hosted runners at various levels in the management hierarchy:
 
 {% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
-{% ifversion ghes %} 
+{% ifversion ghes %}
 {% note %}
 
 **Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
@@ -183,6 +183,13 @@ api.github.com
 codeload.github.com
 ```
 
+**Needed for uploading/downloading job summaries and logs**
+
+```
+actions-results-receiver-production.githubapp.com
+productionresultssa*.blob.core.windows.net
+```
+
 **Needed for runner version updates:**
 
 ```
@@ -192,7 +199,7 @@ github-releases.githubusercontent.com
 github-registry-files.githubusercontent.com
 ```
 
-**Needed for uploading/downloading caches and workflow artifacts:**    
+**Needed for uploading/downloading caches and workflow artifacts:**
 
 ```
 *.blob.core.windows.net
@@ -235,7 +242,7 @@ For more information about troubleshooting common network connectivity issues, s
 
 Self-hosted runners do not need to connect to {% data variables.product.prodname_dotcom_the_website %} unless you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions for {% data variables.location.product_location %}. For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
 
-If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below. 
+If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
 ```
 github.com

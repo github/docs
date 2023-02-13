@@ -95,6 +95,8 @@ You cannot change the contents of an existing cache. Instead, you can create a n
   ```
   {% endraw %}
 
+- `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
+
 ### Output parameters for the `cache` action
 
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
@@ -330,7 +332,6 @@ on:
   pull_request:
     types:
       - closed
-  workflow_dispatch:
 
 jobs:
   cleanup:
@@ -344,7 +345,7 @@ jobs:
           gh extension install actions/gh-actions-cache
           
           REPO={% raw %}${{ github.repository }}{% endraw %}
-          BRANCH={% raw %}${{ github.ref }}{% endraw %}
+          BRANCH="refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge"
 
           echo "Fetching list of cache key"
           cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )

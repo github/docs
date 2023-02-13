@@ -27,7 +27,7 @@ To link a pull request to an issue to show that a fix is in progress and to auto
 * resolves
 * resolved
 
-For more information, see "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)."
+For more information, see "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
 ## Marking an issue or pull request as a duplicate
 

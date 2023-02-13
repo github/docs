@@ -23,7 +23,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can manage branch protection rules.
+permissions: People with admin permissions {% ifversion edit-repository-rules %}or a custom role with the "edit repository rules" permission{% endif %} to a repository can manage branch protection rules.
 topics:
   - Repositories
 shortTitle: Branch protection rule
@@ -50,7 +50,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 1. Optionally, enable required pull requests.
    - Under "Protect matching branches", select **Require a pull request before merging**.
      ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
@@ -67,7 +67,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
      ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
    - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
      ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
 {% endif %}
@@ -95,7 +95,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
   {% tip %}
 
-  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **Tip:** The pull request merge queue feature is currently in public beta and subject to change.
 
   {% endtip %}
 {%- endif %}
@@ -121,7 +121,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
   Then, choose who can force push to the branch.
     - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
     - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.

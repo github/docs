@@ -147,5 +147,9 @@ includeGuides:
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+  - /admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console
 ---
 

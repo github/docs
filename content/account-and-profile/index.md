@@ -5,7 +5,7 @@ intro: 'Make {% data variables.product.product_name %} work best for you by adju
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
-  guides:
+  startHere:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username
     - '{% ifversion ghae %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard{% endif %}'
     - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme

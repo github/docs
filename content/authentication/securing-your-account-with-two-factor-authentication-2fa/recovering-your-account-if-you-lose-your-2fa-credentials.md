@@ -19,7 +19,7 @@ shortTitle: Recover an account with 2FA
 
 {% warning %}
 
-**Warnings**: 
+**Warnings**:
 
 - {% data reusables.two_fa.support-may-not-help %}
 
@@ -42,7 +42,7 @@ Use one of your recovery codes to automatically regain entry into your account. 
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-    
+
     {% endwarning %}
 
 {% ifversion fpt or ghec %}
@@ -60,7 +60,7 @@ Use one of your recovery codes to automatically regain entry into your account. 
 {% ifversion fpt or ghec %}
 ## Authenticating with a fallback number
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 {% endif %}
 
 ## Authenticating with a security key
@@ -85,7 +85,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-    
+
     {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.
 

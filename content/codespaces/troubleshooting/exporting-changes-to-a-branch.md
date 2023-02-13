@@ -12,7 +12,7 @@ shortTitle: Exporting changes
 
 ## About exporting changes
 
-While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace. This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces) or have a general issue accessing your codespace. 
+While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace. This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces) or have a general issue accessing your codespace. 
 
 You can export your changes in one of several ways, depending on how you created the codespace. In every case, only the Git branch that is currently checked out in the codespace is exported. Work contained in other branches is not exported.
 

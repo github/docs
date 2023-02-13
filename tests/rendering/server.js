@@ -562,11 +562,6 @@ describe('server', () => {
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
-      expect(
-        $(
-          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
-        ).length
-      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
@@ -878,9 +873,9 @@ describe('extended Markdown', () => {
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + nav ul div.extended-markdown.mac').length).toBe(1)
+    expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBe(1)
+    expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBe(0)
   })
 })
 

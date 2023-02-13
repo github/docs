@@ -6,7 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: 'Repository administrators and organization owners can view and update dependencies, as well as users and teams with explicit access.'
+permissions: 'Repository administrators{% ifversion dependabot-alerts-permissions-write-maintain %}, organization owners, and people with write or maintain access to a repository {% else %} and organization owners{% endif %} can view and update dependencies, as well as users and teams with explicit access.'
 shortTitle: View Dependabot alerts
 versions:
   fpt: '*'
@@ -183,7 +183,7 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 
 ### Dismissing multiple alerts at once
 
-1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
+1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
 2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
 3. To the left of each alert title, select the alerts that you want to dismiss.
    ![Screenshot of open alerts with checkboxes emphasized](/assets/images/help/graphs/select-multiple-alerts.png)
@@ -227,7 +227,7 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 
 ### Reopening multiple alerts at once
 
-1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
+1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Viewing and updating closed alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
 2. To the left of each alert title, select the alerts that you want to reopen.
    ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
 3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
