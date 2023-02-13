@@ -1,10 +1,11 @@
 ---
-title: Importing a Git repository using the command line
+title: Importing an external Git repository using the command line
 intro: '{% ifversion fpt %}If [GitHub Importer](/articles/importing-a-repository-with-github-importer) is not suitable for your purposes, such as if your existing code is hosted on a private network, then we recommend importing using the command line.{% else %}Importing Git projects using the command line is suitable when your existing code is hosted on a private network.{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line
   - /github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line
+  - /get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line
 versions:
   fpt: '*'
   ghes: '*'
@@ -29,7 +30,7 @@ For purposes of demonstration, we'll use:
 {% endtip %}
 
 1. [Create a new repository on {% data variables.product.product_name %}](/repositories/creating-and-managing-repositories/creating-a-new-repository). You'll import your external Git repository to this new repository.
-2. On the command line, make a "bare" clone of the repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
+2. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
   ```shell
   $ git clone --bare https://external-host.com/EXTUSER/REPO.git
   # Makes a bare clone of the external repository in a local directory
