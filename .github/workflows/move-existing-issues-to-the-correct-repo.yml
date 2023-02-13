@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: move_to_correct_repo
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
@@ -26,12 +26,12 @@ jobs:
             const originalRepo = 'docs-internal'
             let correctRepo = process.env.TEAM_ENGINEERING_REPO 
 
-            const correctRepoObject = await github.repos.get({
+            const correctRepoObject = await github.rest.repos.get({
               owner: owner,
               repo: correctRepo
             })
 
-            const allIssues = await github.paginate(github.issues.listForRepo, {
+            const allIssues = await github.paginate(github.rest.issues.listForRepo, {
               owner: owner,
               repo: originalRepo,
               per_page: 100,
@@ -69,7 +69,7 @@ jobs:
                 
                 // Add the same labels to the new issue
                 const newIssueNumber = graph.transferIssue.issue.number
-                await github.issues.addLabels({
+                await github.rest.issues.addLabels({
                   owner: owner,
                   repo: correctRepo,
                   issue_number: newIssueNumber,

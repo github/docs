@@ -1,5 +1,5 @@
 // the tests in tests/graphql.js use this schema to ensure the integrity
-// of the data in lib/graphql/static/*.json
+// of the data in src/graphql/data/*.json
 
 // PREVIEWS
 export const previewsValidator = {

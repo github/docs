@@ -37,7 +37,7 @@ The usernames of your enterprise's {% data variables.enterprise.prodname_managed
 
 Enterprise owners can audit all of the {% data variables.enterprise.prodname_managed_users %}' actions on {% data variables.product.prodname_dotcom %}. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#about-audit-log-events-for-your-enterprise)."
 
-To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[About enterprises with managed users](#about-enterprises-with-managed-users)."
+To use {% data variables.product.prodname_emus %}, you need a separate type of enterprise account with {% data variables.product.prodname_emus %} enabled. For more information about creating this account, see "[Getting started with {% data variables.product.prodname_emus %}](#getting-started-with-enterprise-managed-users)."
 
 {% note %}
 

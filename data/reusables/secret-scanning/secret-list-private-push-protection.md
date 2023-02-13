@@ -67,6 +67,11 @@ Grafana | Grafana Project Service Account Token | grafana_project_service_accoun
 HashiCorp | HashiCorp Vault Batch Token (v1.10.0+) | hashicorp_vault_batch_token
 HashiCorp | HashiCorp Vault Root Service Token (v1.10.0+) | hashicorp_vault_root_service_token
 HashiCorp | HashiCorp Vault Service Token (v1.10.0+) | hashicorp_vault_service_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Highnote | Highnote RK Live Key | highnote_rk_live_key
+Highnote | Highnote RK Test Key | highnote_rk_test_key
+Highnote | Highnote SK Live Key | highnote_sk_live_key
+Highnote | Highnote SK Test Key | highnote_sk_test_key{% endif %}
 Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Hubspot | Hubspot API Personal Access Key | hubspot_api_personal_access_key{% endif %}
@@ -105,6 +110,8 @@ ReadMe | ReadMe API Access Key | readmeio_api_access_token{% endif %}
 redirect.pizza | redirect.pizza API Token | redirect_pizza_api_token{% endif %}
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Segment | Segment Public API Token | segment_public_api_token{% endif %}
 SendGrid | SendGrid API Key | sendgrid_api_key
 Sendinblue | Sendinblue API Key | sendinblue_api_key
 Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key
@@ -119,6 +126,10 @@ Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform {% data variables.product.pat_generic_title_case %} | typeform_personal_access_token
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Uniwise | WISEflow API Key | wiseflow_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+WakaTime | WakaTime App Secret | wakatime_pp_secret
+WakaTime | WakaTime OAuth Access Token | wakatime_oauth_access_token
+WakaTime | WakaTime OAuth Refresh Token | wakatime_oauth_refresh_token{% endif %}
 WorkOS | WorkOS Production API Key | workos_production_api_key
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 Zuplo | Zuplo Consumer API Key | zuplo_consumer_api_key{% endif %}
