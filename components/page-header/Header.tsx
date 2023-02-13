@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { AnchoredOverlay, IconButton } from '@primer/react'
+import { AnchoredOverlay, Dialog, IconButton } from '@primer/react'
 import {
   KebabHorizontalIcon,
   LinkExternalIcon,
   MarkGithubIcon,
   SearchIcon,
+  ThreeBarsIcon,
   XIcon,
 } from '@primer/octicons-react'
 
@@ -19,14 +20,17 @@ import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'components/Search'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { VersionPicker } from 'components/page-header/VersionPicker'
+import { SidebarNav } from 'components/sidebar/SidebarNav'
+import { AllProductsLink } from 'components/sidebar/AllProductsLink'
 
 import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { currentProduct, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct, currentProductTree, allVersions } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
@@ -36,12 +40,21 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const openMenuOverlay = useCallback(() => setIsMenuOpen(true), [setIsMenuOpen])
   const closeMenuOverlay = useCallback(() => setIsMenuOpen(false), [setIsMenuOpen])
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
   const isMounted = useRef(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
-
+  const { asPath } = useRouter()
+  const isSearchResultsPage = router.route === '/search'
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
+  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
+  const [windowSize, setWindowSize] = useState(0)
+  const handleWindowResize = useCallback(() => {
+    setWindowSize(window.innerWidth)
+  }, [])
 
   useEffect(() => {
     function onScroll() {
@@ -75,6 +88,40 @@ export const Header = () => {
     }
   }, [isSearchOpen])
 
+  // When the sidebar overlay is opened, prevent the main content from being
+  // scrollable.
+  useEffect(() => {
+    const bodyDiv = document.querySelector('body div') as HTMLElement
+    const body = document.querySelector('body')
+    if (bodyDiv && body) {
+      // The full sidebar automatically shows at the xl window size so unlock
+      // scrolling if the overlay was opened and the window size is increased to xl.
+      body.style.overflow = isSidebarOpen && windowSize < 1280 ? 'hidden' : 'auto'
+    }
+    window.addEventListener('resize', handleWindowResize)
+    return () => window.removeEventListener('resize', handleWindowResize)
+  }, [isSidebarOpen, windowSize])
+
+  // with client side navigation clicking sidebar overlay links doesn't dismiss
+  // the overlay so we close it ourselves when the path changes
+  useEffect(() => {
+    setIsSidebarOpen(false)
+  }, [asPath])
+
+  // on REST pages there are sidebar links that are hash anchor links to different
+  // sections on the same page so the sidebar overlay doesn't dismiss.  we listen
+  // for hash changes and close the overlay when the hash changes.
+  useEffect(() => {
+    const hashChangeHandler = () => {
+      setIsSidebarOpen(false)
+    }
+    window.addEventListener('hashchange', hashChangeHandler)
+
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler)
+    }
+  }, [])
+
   return (
     <>
       <div
@@ -86,12 +133,12 @@ export const Header = () => {
         {error !== '404' && <HeaderNotifications />}
         <header
           className={cx(
-            'color-bg-default px-3 pt-3 pb-3 position-sticky top-0 z-1 border-bottom',
+            'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
             scroll && 'color-shadow-small'
           )}
         >
           <div
-            className="d-flex flex-justify-between flex-items-center flex-wrap"
+            className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
             data-testid="desktop-header"
           >
             <div
@@ -170,8 +217,9 @@ export const Header = () => {
               />
 
               {/* The ... navigation menu at medium and smaller widths */}
-              <nav>
+              <div>
                 <AnchoredOverlay
+                  anchorRef={menuButtonRef}
                   renderAnchor={(anchorProps) => (
                     <IconButton
                       data-testid="mobile-menu"
@@ -205,7 +253,7 @@ export const Header = () => {
                     </span>
                     {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
                       <span className="pb-2 m-2 d-block">
-                        <ApiVersionPicker mediumOrLower={true} />
+                        <ApiVersionPicker />
                       </span>
                     )}
                     {signupCTAVisible && (
@@ -222,9 +270,66 @@ export const Header = () => {
                     )}
                   </div>
                 </AnchoredOverlay>
-              </nav>
+              </div>
             </div>
           </div>
+          {!isHomepageVersion && !isSearchResultsPage && (
+            <div className="d-flex flex-items-center d-xl-none mt-2">
+              <div className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}>
+                <IconButton
+                  data-testid="sidebar-hamburger"
+                  className="color-fg-muted"
+                  variant="invisible"
+                  icon={ThreeBarsIcon}
+                  aria-label="Open Sidebar"
+                  onClick={openSidebar}
+                />
+                <Dialog
+                  isOpen={isSidebarOpen}
+                  onDismiss={closeSidebar}
+                  aria-labelledby="menu-title"
+                  sx={{
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    marginTop: '0',
+                    maxHeight: '100vh',
+                    width: 'auto !important',
+                    transform: 'none',
+                    borderRadius: '0',
+                    borderRight: '1px solid var(--color-border-default)',
+                  }}
+                >
+                  <Dialog.Header
+                    style={{ paddingTop: '0px', background: 'none' }}
+                    id="sidebar-overlay-header"
+                    sx={{ display: 'block' }}
+                  >
+                    <AllProductsLink />
+                    {error === '404' ||
+                    !currentProduct ||
+                    isSearchResultsPage ||
+                    !currentProductTree ? null : (
+                      <div className="mt-3">
+                        <Link
+                          data-testid="sidebar-product-dialog"
+                          href={currentProductTree.href}
+                          className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+                        >
+                          {productTitle}
+                        </Link>
+                      </div>
+                    )}
+                    {isRestPage && <ApiVersionPicker />}
+                  </Dialog.Header>
+                  <SidebarNav variant="overlay" />
+                </Dialog>
+              </div>
+              <div className="mr-auto width-full" data-search="breadcrumbs">
+                <Breadcrumbs inHeader={true} />
+              </div>
+            </div>
+          )}
         </header>
       </div>
     </>
