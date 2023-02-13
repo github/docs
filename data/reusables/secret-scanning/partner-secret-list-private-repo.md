@@ -111,6 +111,11 @@ HashiCorp | HashiCorp Vault Batch Token | hashicorp_vault_batch_token
 {%- ifversion fpt or ghec or ghes > 3.8 or ghae > 3.8 %}
 HashiCorp | HashiCorp Vault Root Service Token | hashicorp_vault_root_service_token{% endif %}
 HashiCorp | HashiCorp Vault Service Token | hashicorp_vault_service_token
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Highnote | Highnote RK Live Key | highnote_rk_live_key
+Highnote | Highnote RK Test Key | highnote_rk_test_key
+Highnote | Highnote SK Live Key | highnote_sk_live_key
+Highnote | Highnote SK Test Key | highnote_sk_test_key{% endif %}
 Hubspot | Hubspot API Key | hubspot_api_key
 {%- ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
 Hubspot | Hubspot API Personal Access Key | hubspot_api_personal_access_key{% endif %}
@@ -149,6 +154,8 @@ Notion | Notion Integration Token | notion_integration_token{% endif %}
 Notion | Notion OAuth Client Secret | notion_oauth_client_secret{% endif %}
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+{%- ifversion fpt or ghec or ghes > 3.9 or ghae > 3.9 %}
+Oculus | Oculus Very Tiny Encrypted Session | oculus_very_tiny_encrypted_session{% endif %}
 {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
 Onfido | Onfido Live API Token | onfido_live_api_token

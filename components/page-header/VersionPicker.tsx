@@ -90,7 +90,7 @@ export const VersionPicker = ({ mediumOrLower }: Props) => {
         pickerLabel="Version"
         dataTestId="field"
         buttonBorder={mediumOrLower}
-        ariaLabel="Select GitHub product version"
+        ariaLabel={`Select GitHub product version: current version is ${currentVersion}`}
         renderItem={(item) => {
           return (
             <div data-testid="version-picker-item" className={cx(styles.itemsWidth)}>

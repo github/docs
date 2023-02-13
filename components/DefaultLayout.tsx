@@ -42,7 +42,7 @@ export const DefaultLayout = (props: Props) => {
         </Head>
 
         {/* For local site search indexing */}
-        <div data-search="breadcrumbs">
+        <div className="d-none d-xl-block" data-search="breadcrumbs">
           <Breadcrumbs />
         </div>
 
