@@ -18,6 +18,7 @@ permissions:
 
 jobs:
   find-pr-and-post-comment:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
