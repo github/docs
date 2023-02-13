@@ -85,12 +85,12 @@ The recommended formats explicitly define which versions are used for all direct
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
-| {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+| {% data variables.product.prodname_actions %} workflows [1] | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
+| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`[2] |
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
@@ -101,11 +101,11 @@ The recommended formats explicitly define which versions are used for all direct
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% ifversion github-actions-in-dependency-graph %}
-[†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[1] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 {% endif %}
 
-[‡] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+[2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
 {% ifversion github-actions-in-dependency-graph %}
 {% note %}

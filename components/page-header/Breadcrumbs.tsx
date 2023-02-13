@@ -1,18 +1,20 @@
 import cx from 'classnames'
-import { useRouter } from 'next/router'
+
 import { useMainContext } from '../context/MainContext'
 import { Link } from 'components/Link'
+
 import styles from './Breadcrumbs.module.scss'
+
+type Props = {
+  inHeader?: boolean
+}
 
 export type BreadcrumbT = {
   title: string
   href?: string
 }
 
-export const Breadcrumbs = () => {
-  const router = useRouter()
-  // remove query string and hash
-  const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0].split('#')[0]}`
+export const Breadcrumbs = ({ inHeader }: Props) => {
   const { breadcrumbs } = useMainContext()
 
   return (
@@ -23,7 +25,7 @@ export const Breadcrumbs = () => {
       updating script/search/parse-page-sections-into-records.js.
     */
     <nav
-      data-testid="breadcrumbs"
+      data-testid={inHeader ? 'breadcrumbs-header' : 'breadcrumbs-in-article'}
       className={cx('f5 breadcrumbs', styles.breadcrumbs)}
       aria-label="Breadcrumb"
     >
@@ -44,21 +46,19 @@ export const Breadcrumbs = () => {
                     href={breadcrumb.href}
                     title={title}
                     className={cx(
-                      'pr-3',
-                      // Always show first and last, show middle on XL size
-                      i === 0 || i === arr.length - 1
-                        ? 'd-inline-block'
-                        : 'd-none d-xl-inline-block',
-                      pathWithLocale === breadcrumb.href && 'color-fg-muted'
+                      'Link--primary mr-2 color-fg-muted',
+                      // Show the last breadcrumb if it's in the header, but not if it's in the article
+                      // If there's only 1 breadcrumb, show it
+                      !inHeader && i === arr.length - 1 && arr.length !== 1 && 'd-none'
                     )}
                   >
                     {breadcrumb.title}
-                    {i !== arr.length - 1 ? (
-                      <span className="color-fg-muted pl-3" key={`${i}-slash`}>
-                        /
-                      </span>
-                    ) : null}
                   </Link>
+                  {i !== arr.length - 1 ? (
+                    <span className="color-fg-muted pr-2" key={`${i}-slash`}>
+                      /
+                    </span>
+                  ) : null}
                 </li>
               ),
             ]

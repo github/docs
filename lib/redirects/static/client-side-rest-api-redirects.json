@@ -796,7 +796,7 @@
   "/rest/metrics/statistics#get-the-last-year-of-commit-activity": "/rest/metrics/statistics#get-the-last-year-of-commit-activity",
   "/rest/metrics/statistics#get-all-contributor-commit-activity": "/rest/metrics/statistics#get-all-contributor-commit-activity",
   "/rest/metrics/statistics#get-the-weekly-commit-count": "/rest/metrics/statistics#get-the-weekly-commit-count",
-  "/rest/statistics/repos#get-the-hourly-commit-count-for-each-day": "/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day",
+  "/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day": "/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day",
   "/rest/commits/statuses#create-a-commit-status": "/rest/commits/statuses#create-a-commit-status",
   "/rest/activity#list-watchers": "/rest/activity/watching#list-watchers",
   "/rest/activity#watching": "/rest/activity/watching",

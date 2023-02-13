@@ -37,7 +37,7 @@ The SP metadata for an organization on {% data variables.location.product_locati
 | :- | :- | :- | :- |
 | SP Entity ID | SP URL, audience restriction | The top-level URL for your organization on {% data variables.location.product_location %} | `https://github.com/orgs/ORGANIZATION` |
 | SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://github.com/orgs/ORGANIZATION/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/orgs/ORGANIZATION/saml/sso` |
+| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/orgs/ORGANIZATION/sso` |
 
 ### Enterprises
 

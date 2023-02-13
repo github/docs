@@ -125,6 +125,16 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
+## Footnotes
+
+Avoid using footnotes where possible. Consider instead whether you could use a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes:
+
+* Use numbers. Do not use typographical symbols or special characters. 
+* Place footnote markers in square brackets: `[1]`. 
+* Do not use superscript.
+
 ## Headers
 
 Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique. 
@@ -587,9 +597,7 @@ For tables that use symbols:
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase". 
 
 ### Use footnotes sparingly
-Avoid using footnotes where possible. Consider instead whether you could place a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) before or after the table, or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
-
-If you must use footnotes, use numbers in square brackets [1]. Do not use typographical symbols or special characters.
+See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
 
 ## Titles
 

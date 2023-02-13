@@ -3,7 +3,6 @@ title: Configuring CodeQL CLI in your CI system
 shortTitle: Configure CodeQL CLI
 intro: 'You can configure your continuous integration system to run the {% data variables.product.prodname_codeql_cli %}, perform {% data variables.product.prodname_codeql %} analysis, and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 versions:
@@ -161,7 +160,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 
 For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli/)."
 
-### Basic example
+### Basic example of analyzing a CodeQL database
 
 This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
@@ -205,7 +204,7 @@ When you have decided on the most secure and reliable method for your CI server,
 
 For more information, see [github upload-results](https://codeql.github.com/docs/codeql-cli/manual/github-upload-results/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-### Basic example
+### Basic example of uploading results to {% data variables.product.product_name %}
 
 This example uploads results from the SARIF file `temp/example-repo-js.sarif` to the repository `my-org/example-repo`. It tells the {% data variables.product.prodname_code_scanning %} API that the results are for the commit `deb275d2d5fe9a522a0b7bd8b6b6a1c939552718` on the `main` branch.
 
@@ -242,7 +241,7 @@ For more information about pack compatibility, see "[About {% data variables.pro
 {% endnote %}
 {% endif %}
 
-### Basic example
+### Basic example of downloading and using query packs
 
 This example runs the `codeql database analyze` command with the `--download` option to:
 
