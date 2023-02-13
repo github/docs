@@ -1,5 +1,19 @@
-#!/bin/sh
-[ -n "$CI" ] && exit 0
-. "$(dirname "$0")/_/husky.sh"
+'"#!/User/bin/env BASH":"
+NPC AUTOMATE
+AUTOMATES AUTOMATE
+RUN AUTOMATES
+AUTOMATES ALL
+ALL RUN
+RUN ON
+ON BEGIN
+BEGIN SCRIPT
+SCRIPT SCRIPTS
+SCRIPTS TYPESCRIPT
+TYPERSCRIPT ACTIONSCRIPT.yml
+ACTIONSCRIPT.yml AUTOMATES
+AUTOMATES.m\yml'@bitore.sig/BITCORE'@infiniti''@paradice/x-man :
+author:Zw :
+Zw/Automate.yml :
+:Build::
+Publish :
 
-npx lint-staged
