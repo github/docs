@@ -21,3 +21,4 @@ redirect_from:
   - /issues/trying-out-the-new-projects-experience
 ---
 
+{% data reusables.projects.projects-beta %}

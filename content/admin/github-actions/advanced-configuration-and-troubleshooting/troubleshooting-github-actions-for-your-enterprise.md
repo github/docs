@@ -186,8 +186,6 @@ There are three ways to resolve this problem:
 
 {% endif %}
 
-{% ifversion ghes > 3.3 %}
-
 <a name="bundled-actions"></a>
 
 ## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
@@ -223,5 +221,3 @@ To install the official bundled actions and starter workflows within a designate
     ```
 
 After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[Managing access permissions for GitHub Actions in your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
-
-{% endif %}

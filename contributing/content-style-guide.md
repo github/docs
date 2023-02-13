@@ -189,7 +189,7 @@ When using a screenshot of a command-line interface to show user interface eleme
 Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
-- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
+- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -374,7 +374,7 @@ To link to a specific header in a different article, use this format:
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
 
 ### Links to learning paths
 
@@ -450,7 +450,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 #### Reusables for first-party actions
 
-Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
 
 Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
 

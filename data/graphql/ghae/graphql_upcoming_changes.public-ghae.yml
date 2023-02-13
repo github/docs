@@ -172,6 +172,66 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
+  - location: MergeQueue.headOid
+    description: '`headOid` will be removed. Use `entry.headOid` instead.'
+    reason: '`headOid` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueue.mergeMethod
+    description: '`mergeMethod` will be removed. Use `configuration.merge_method` instead.'
+    reason: '`mergeMethod` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueue.mergingEntries
+    description: '`mergingEntries` will be removed.'
+    reason: '`mergingEntries` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueue.pendingRemovalEntries
+    description: '`pendingRemovalEntries` will be removed.'
+    reason: '`pendingRemovalEntries` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.baseOid
+    description: '`baseOid` will be removed. Use `baseCommit` instead.'
+    reason: '`baseOid` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.blockedByMergeConflicts
+    description: '`blockedByMergeConflicts` will be removed. Use `state` instead.'
+    reason: '`blockedByMergeConflicts` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.checkStatus
+    description: '`checkStatus` will be removed. Use `state` instead.'
+    reason: '`checkStatus` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.hasJumpedQueue
+    description: '`hasJumpedQueue` will be removed. Use `jump` instead.'
+    reason: '`hasJumpedQueue` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.headOid
+    description: '`headOid` will be removed. Use `headCommit` instead.'
+    reason: '`headOid` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
+  - location: MergeQueueEntry.isSolo
+    description: '`isSolo` will be removed. Use `solo` instead.'
+    reason: '`isSolo` will be removed.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/merge_queue
   - location: ProjectV2ItemFieldGroup.field
     description:
       '`field` will be removed. Check out the `ProjectV2ItemFieldGroup#groupByField`

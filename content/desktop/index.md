@@ -5,7 +5,7 @@ intro: 'With GitHub Desktop, you can interact with GitHub using a GUI instead of
 introLinks:
   overview: /desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop
 featuredLinks:
-  guides:
+  startHere:
     - /desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop
     - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop
     - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github

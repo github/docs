@@ -73,7 +73,7 @@ The SP metadata for your enterprise on {% data variables.product.product_name %}
 
 ## SAML attributes
 
-The following SAML attributes are available for {% data variables.product.product_name %}.{% ifversion ghes %} You can change the attribute names in the management console, with the exception of the `administrator` attribute. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."{% endif %}
+The following SAML attributes are available for {% data variables.product.product_name %}.{% ifversion ghes %} You can change the attribute names in the {% data variables.enterprise.management_console %}, with the exception of the `administrator` attribute. For more information, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)."{% endif %}
 
 | Name | Required? | Description |
 | :- | :- | :- |
@@ -103,7 +103,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 - Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
 - Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes or ghae %} This value is the URL where you access {% data variables.location.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us`, or `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
-  
+
   {%- ifversion ghec %}
   - If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
   - If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.

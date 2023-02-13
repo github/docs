@@ -767,7 +767,10 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
+{% ifversion projects-v2-webhooks %}
 
 ## Using webhooks
 
 You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+
+{% endif %}

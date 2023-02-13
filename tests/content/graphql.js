@@ -3,16 +3,16 @@ import {
   schemaValidator,
   previewsValidator,
   upcomingChangesValidator,
-} from '../../lib/graphql/validator.js'
+} from '../../src/graphql/lib/validator.js'
 import revalidator from 'revalidator'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 
-const previewsJson = readJsonFile('./lib/graphql/static/previews.json')
-const upcomingChangesJson = readJsonFile('./lib/graphql/static/upcoming-changes.json')
+const previewsJson = readJsonFile('./src/graphql/data/previews.json')
+const upcomingChangesJson = readJsonFile('./src/graphql/data/upcoming-changes.json')
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
-const graphqlTypes = readJsonFile('./lib/graphql/types.json').map((t) => t.kind)
+const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.kind)
 
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -30,7 +30,7 @@ describe('graphql json files', () => {
     // test up significantly.
     const typeObjsTested = new Set()
     graphqlVersions.forEach((version) => {
-      const schemaJsonPerVersion = readJsonFile(`lib/graphql/static/schema-${version}.json`)
+      const schemaJsonPerVersion = readJsonFile(`src/graphql/data/schema-${version}.json`)
       // all graphql types are arrays except for queries
       graphqlTypes.forEach((type) => {
         schemaJsonPerVersion[type].forEach((typeObj) => {

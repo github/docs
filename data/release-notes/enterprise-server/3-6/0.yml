@@ -20,11 +20,11 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1569
         - |
-          GitHub has changed the supported algorithms and hash functions for all SSH connections to GitHub Enterprise Server, disabled the unencrypted and unauthenticated Git protocol, and optionally allowed the advertisement of an Ed25519 host key. For more information, see the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) and the following articles.
+          Site administrators can configure a cutoff date for allowing Git operations over SSH that use an RSA key and are signed by the SHA-1 hash function. By default, these connections will fail for RSA keys added to user accounts after the cutoff date of midnight UTC on August 1, 2022. For more information, see [Deprecations](#changes-to-supported-ssh-algorithms). [Updated: 2023-01-31]
 
-          - "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
-          - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
-          - "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+        # https://github.com/github/releases/issues/1569
+        - |
+          GitHub Enterprise Server optionally allows the advertisement of an Ed25519 host key. For more information, see "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)."
 
         # https://github.com/github/releases/issues/2341
         - |
@@ -280,6 +280,15 @@ sections:
           When editing a Markdown file in the web interface, clicking the **Preview** tab will automatically scroll to the place in the preview that you were editing. The scroll location is based on the position of your cursor before you clicked the **Preview** tab.
 
   changes:
+    # https://github.com/github/releases/issues/1569
+    - |
+      The unencrypted and unauthenticated Git protocol is now disabled by default. If you do not re-enable the protocol after you upgrade to GitHub Enterprise Server 3.6 or later, `git://` connections on port 9418 will return the following error.
+      
+      ```
+      The unauthenticated git protocol on port 9418 is no longer supported.
+      ```
+      
+      If you wish to support the protocol in your environment, you must manually re-enable the feature. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)" and the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/). [Updated: 2023-01-31]
     - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
     - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
     - |
@@ -303,3 +312,14 @@ sections:
     - |
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+
+  deprecations:
+    - heading: Changes to supported SSH algorithms
+      notes:
+        # https://github.com/github/releases/issues/1569
+        - |
+          In GitHub Enterprise Server 3.6 and later, GitHub is changing the supported algorithms and hash functions for Git operations over SSH. By default, SSH connections that satisfy **both** of the following conditions will fail.
+
+          {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
+          
+          You can adjust the cutoff date. For more information, see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)." [Updated: 2023-01-31]
