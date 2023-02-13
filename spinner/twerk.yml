@@ -1,6 +1,226 @@
 # Welcome to GitHub docs contributing guide <!-- omit in toc -->
+ZACHRY T WOOD
+5323 BRADFORD DR
+Dallas, TX 75235 US
+cr12753750.00bitore341731337@gmail.com
+Invoice
+BILL TO
+Working on Firefox Firefox
+Contributors’ Quick ReferenceReport
+an issue / View page source
+Firefox Contributors’ Quick
+Reference¶
+Some parts of this process,
+including cloning and compiling,
+can take a long time even on modern
+hardware. If at any point you get
+stuck, please don’t hesitate to ask
+at https://chat.mozilla.org in the
+#introduction channel.
+Don’t hesitate to look at the
+Getting Set Up To Work On The
+Firefox Codebase for a more
+detailed tutorial.
+Before you start¶
+Please register and create your
+account for
+Bugzilla : web-based generalpurpose bug tracking system. To
+register with Phabricator, make
+sure you enable Two-Factor
+Authentication (My Profile >> Edit
+Profile & Preferences >> Two-Factor
+Authentication) in Bugzilla.
+Phabricator: web-based software
+development collaboration tools,
+mainly for code review. Please
+obtain an API Token (Settings >>
+Conduit API Tokens)
+Windows dependencies¶
+You need a supported version of
+Windows.
+Download and install Visual Studio
+Community Edition.
+Finally download the MozillaBuild
+Package. Installation directory
+should be:
+$ c:\mozilla-build\
+Before moving on to the next steps,
+make sure to fulfill the Windows
+prerequisites
+Note
+All the commands of this tutorial
+must be run in the shell provided
+with the MozillaBuild Package
+(start-shell.bat)
+More information
+Bootstrap a copy of the Firefox
+source code¶
+You can download the source code
+and have Firefox automatically
+download and install the other
+dependencies it needs. The below
+command as per your Operating
+System, will download a lot of data
+(years of Firefox history!) then
+guide you through the interactive
+setup process.
+Downloading can take from 40
+minutes to two hours (depending on
+your connection) and the repository
+should be less than 5GB (~ 20GB
+after the build).
+The default options are
+recommended. If you’re not planning
+to write C++ or Rust code, select
+Artifact Mode and follow the
+instructions at the end of the 
+bootstrap for creating a mozconf
+INVOICE # DATE TOTAL DUE DUE DATE TERMS ENCLOSED
+132624430 02/13/2023 0,00 USD 03/15/2023 Net 30
+DATE ACTIVITY DESCRIPTION QTY RATE AMOUNT
+02/19/2023 4.1.10.1 Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+@mowjoejoejoejoe
+Your account has been flagged.
+Because of that, your profile is hidden from the public.
+If you believe this is a mistake, contact support to
+have your account status reviewed.
+github
+/
+docs
+Public
+Fork your own copy of github/docs
+Code
+Issues
+95
+Pull requests
+42
+Discussions
+Actions
+Projects
+4
+Security
+Insights
+Comparing changes
+Choose two branches to see what’s changed or to start a
+new pull request. If you need to, you can also .
+...
+ Able to merge. These branches can be automatically
+merged.
+Discuss and review the changes in this comparison with
+others. Learn about pull requests
+ 1 commit
+ 1 file changed
+ 1 contributor
+Commits on Feb 11, 2023
+Update working-with-the-nuget-registry.md
+1 0,00 0,00
+DATE ACTIVITY DESCRIPTION QTY RATE AMOUNT
+@mowjoejoejoejoe
+mowjoejoejoejoe committed 13 minutes ago
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
+Showing with 107 additions and 1 deletion.
+ 108
+...ages/working-with-a-github-packages-registry/workingwith-the-nuget-registry.md
+@@ -1,4 +1,110 @@
+--- Name :run::/
+###run
+failed 2 weeks ago in 2s. View latest attempt.
+Search logs
+1s
+##[debug]Starting: Set up job
+Current runner version: '2.301.1'
+Operating System
+ Ubuntu
+ 22.04.1
+ LTS
+Runner Image
+ Image: ubuntu-22.04
+ Version: 20230122.1
+ Included Software: https://github.com/actions/runnerimages/blob/ubuntu22/20230122.1/images/linux/Ubuntu2204-
+Readme.md
+ Image Release: https://github.com/actions/runnerimages/releases/tag/ubuntu22%2F20230122.1
+Runner Image Provisioner
+ 2.0.98.1
+GITHUB_TOKEN Permissions
+ Contents: read
+ Metadata: read
+ Packages: read
+Secret source: Actions
+##[debug]Primary repository: https-www-bitore-net/demorepository
+Prepare workflow directory
+##[debug]Creating pipeline directory:
+'/home/runner/work/demo-repository'
+##[debug]Creating workspace directory:
+'/home/runner/work/demo-repository/demo-repository'
+##[debug]Update context data
+##[debug]Evaluating job-level environment variables
+##[debug]Evaluating job container
+##[debug]Evaluating job service containers
+##[debug]Evaluating job defaults
+Prepare all required actions
+Getting action download info
+Download action repository 'wow-actions/auto-assign@v1'
+(SHA:707ec486377e28a595619469e26b375d8746b330)
+##[debug]Download 'https://api.github.com/repos/wowactions/autoassign/tarball/707ec486377e28a595619469e26b375d8746b330'
+to '/home/runner/work/_actions/_temp_0074698e-1053-4ca5-
+a60f-55561f61aa1b/3752f8e9-84d5-4767-8240-
+1cbe0aa109ba.tar.gz'
+DATE ACTIVITY DESCRIPTION QTY RATE AMOUNT
+##[debug]Unwrap 'wow-actions-auto-assign-707ec48' to
+'/home/runner/work/_actions/wow-actions/auto-assign/v1'
+##[debug]Archive
+'/home/runner/work/_actions/_temp_0074698e-1053-4ca5-
+a60f-55561f61aa1b/3752f8e9-84d5-4767-8240-
+1cbe0aa109ba.tar.gz' has been unzipped into
+'/home/runner/work/_actions/wow-actions/auto-assign/v1'.
+##[debug]action.yml for action:
+'/home/runner/work/_actions/wow-actions/autoassign/v1/action.yml'.
+##[debug]Set step '__wow-actions_auto-assign' display
+name to: 'Run wow-actions/auto-assign@v1'
+Complete job name: run
+##[debug]Collect running processes for tracking orphan
+processes.
+##[debug]Finishing: Set up job
+1s
+##[debug]Evaluating condition for step: 'Run wowactions/auto-assign@v1'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: Run wow-actions/auto-assign@v1
+##[debug]Loading inputs
+##[debug]Evaluating: secrets.GITHUB_TOKEN
+##[debug]Evaluating Index:
+##[debug]..Evaluating secrets:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'GITHUB_TOKEN'
+##[debug]=> '***'
+##[debug]Result: '***'
+##[debug]Loading env
+Run wow-actions/auto-assign@v1
+ with:
+ GITHUB_TOKEN: ***
+ CONFIG_FILE: .github/auto-assign.yml
+##[debug]event: issues
+##[debug]action: opened
+deprecated due to security and usability issues. Please
+Buffer.from(spinner.yml) methods instead.
+(Use `node --trace-deprecation ...` to show where the
+warn
+ eBay
+Sales Tax Item
+12,753,750 0,00
+SUBTOTAL 0,00
+TAX 0,00
+TOTAL 0,00
+BALANCE DUE 0,00 USDThank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:. 
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
