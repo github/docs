@@ -61,14 +61,8 @@ For more information about managing identity and access for your enterprise on {
 {% data reusables.saml.okta-browse-app-catalog %}
 {%- ifversion ghae %}
 1. In the search field, type "GitHub AE", then click **GitHub AE** in the results.
-
-  !["Search result"](/assets/images/help/saml/okta-ae-search.png)
 1. Click **Add**.
-
-  !["Add GitHub AE app"](/assets/images/help/saml/okta-ae-add-github-ae.png)
 1. For "Base URL", type the URL of your enterprise on {% data variables.product.product_name %}.
-
-  !["Configure Base URL"](/assets/images/help/saml/okta-ae-configure-base-url.png)
 1. Click **Done**.
 {%- elsif scim-for-ghes %}
 1. In the search field, type "GitHub Enterprise Server", then click **GitHub Enterprise Server** in the results.
@@ -86,7 +80,7 @@ To enable single sign-on (SSO) for {% data variables.product.product_name %}, yo
 {% ifversion ghae %}
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details. 
+1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details.
 1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.product_name %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 {% elsif scim-for-ghes %}
 {% data reusables.saml.okta-sign-on-tab %}
@@ -108,14 +102,10 @@ The Okta app uses the REST API for {% data variables.product.product_name %} for
 {% data reusables.saml.okta-click-on-the-app %}
 {% data reusables.saml.okta-ae-provisioning-tab %}
 1. Click **Configure API Integration**.
-
 1. Select **Enable API integration**.
-
-  ![Enable API integration](/assets/images/help/saml/okta-ae-enable-api-integration.png)
-
 1. For "API Token", type the {% data variables.product.product_name %} {% data variables.product.pat_generic %} you generated previously.
 
-1. Click **Test API Credentials**. 
+1. Click **Test API Credentials**.
 
 {% note %}
 
@@ -131,9 +121,6 @@ This procedure demonstrates how to configure the SCIM settings for Okta provisio
 {% data reusables.saml.okta-click-on-the-app %}
 {% data reusables.saml.okta-ae-provisioning-tab %}
 1. Under "Settings", click **To App**.
-
-  !["To App" settings](/assets/images/help/saml/okta-ae-to-app-settings.png)
-
 1. To the right of "Provisioning to App", click **Edit**.
 1. To the right of "Create Users", select **Enable**.
 1. To the right of "Update User Attributes", select **Enable**.
@@ -152,21 +139,10 @@ Before your Okta users can use their credentials to sign in to {% data variables
 {% data reusables.saml.okta-click-on-the-app %}
 
 1. Click **Assignments**.
-
-  ![Assignments tab](/assets/images/help/saml/okta-ae-assignments-tab.png)
-
-1. Select the Assign drop-down menu and click **Assign to People**.
-
-  !["Assign to People" button](/assets/images/help/saml/okta-ae-assign-to-people.png)
-
+1. Select the **Assign** dropdown menu, then click **Assign to People**.
 1. To the right of the required user account, click **Assign**.
-
-  ![List of users](/assets/images/help/saml/okta-ae-assign-user.png)
-
-1. To the right of "Role", click a role for the user, then click **Save and go back**.
-
-  ![Role selection](/assets/images/help/saml/okta-ae-assign-role.png)
-
+1. To the right of "Role", select the dropdown menu, then click a role for the user.
+1. Click **Save and go back**.
 1. Click **Done**.
 
 {% ifversion ghae %}

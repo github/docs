@@ -65,8 +65,7 @@ For example, you can configure {% data variables.location.product_location %} to
       {% elsif ghes or ghae %}
       ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png)
       {% endif %}
-12. Confirm that the **Active** checkbox is selected.
-  ![Selected Active checkbox](/assets/images/help/business-accounts/webhook-active.png)
+12. Confirm that **Active** is selected.
 13. Click **Add webhook**.
 
 ## Editing a global webhook

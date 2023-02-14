@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-result
         with:
           github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
@@ -33,9 +33,7 @@ jobs:
             const repoName = context.payload.repository.name
             const ownerName = context.payload.repository.owner.login
             const issueNumber = (context.eventName === "issues") ? context.payload.issue.number : context.payload.number
-            const labels = (context.eventName === "issues") ? context.payload.issue.labels : context.payload.pull_request.labels
-            const isOpenApiBotLabel = labels.filter(label => label.name === 'github-openapi-bot').length
-            const updatedIssueInformation = await github.issues.get({
+            const updatedIssueInformation = await github.rest.issues.get({
               owner: ownerName,
               repo: repoName,
               issue_number: issueNumber
@@ -43,13 +41,10 @@ jobs:
             const teamMembers = await github.request(
               `/orgs/github/teams/docs/members?per_page=100`
             )
-            const logins = teamMembers.data.map(member => member.login)
+            const teamLogins = teamMembers.data.map(member => member.login)
             // ignore PRs opened by docs bot accounts
-            logins.push('Octomerger', 'octoglot')
-            // For now, we do want the OpenAPI PRs to show up on the FR
-            // project board because they aren't yet automerged.
-            if (!isOpenApiBotLabel) logins.push('docubot') 
-            if (logins.some(login => login === updatedIssueInformation.data.user.login)) {
+            teamLogins.push('Octomerger', 'octoglot')
+            if (teamLogins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'
             }
@@ -76,20 +71,20 @@ jobs:
 
     steps:
       - name: Remove card from project
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           result-encoding: string
           script: |
             const issueToRemove = context.payload.number
-            const cards = await github.projects.listCards({
+            const cards = await github.rest.projects.listCards({
               column_id: 11130889
             })
             cards.data.forEach(card => {
               if (card.content_url) {
                 const cardIssueNumber = parseInt(card.content_url.split('/').pop(), 10)
                 if (cardIssueNumber === issueToRemove) {
-                  const cards = github.projects.deleteCard({
+                  const cards = github.rest.projects.deleteCard({
                     card_id: card.id
                   })
                 }

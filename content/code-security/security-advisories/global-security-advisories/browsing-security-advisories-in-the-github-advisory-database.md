@@ -29,11 +29,10 @@ topics:
 You can access any advisory in the {% data variables.product.prodname_advisory_database %}.
 
 1. Navigate to https://github.com/advisories.
-2. Optionally, to filter the list, use any of the drop-down menus.
-  ![Dropdown filters](/assets/images/help/security/advisory-database-dropdown-filters.png)
+2. Optionally, to filter the list of advisories, use the search field or the drop-down menus at the top of the list.
    {% tip %}
 
-   **Tip:** You can use the sidebar on the left to explore  {% data variables.product.company_short %}-reviewed and unreviewed advisories separately.
+   **Tip:** You can use the sidebar on the left to explore {% data variables.product.company_short %}-reviewed and unreviewed advisories separately, or to filter by ecosystem.
 
    {% endtip %}
 3. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. {% ifversion GH-advisory-db-supports-malware %}To show malware advisories, use `type:malware` in the search bar.{% endif %}
@@ -83,9 +82,8 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 1. Navigate to https://github.com/advisories.
 2. Click an advisory.
 3. At the top of the advisory page, click **Dependabot alerts**.
-   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+   ![Screenshot of a "global security advisory". The "Dependabot alerts" button is highlighted with an orange outline.](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
-   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% ifversion security-advisories-ghes-ghae %}
@@ -97,7 +95,6 @@ You can use your local advisory database to check whether a specific security vu
 
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Optionally, to filter the list, use any of the drop-down menus.
-  ![Dropdown filters](/assets/images/help/security/advisory-database-dropdown-filters.png)
    {% note %}
 
    **Note:** Only reviewed advisories will be listed. Unreviewed advisories can be viewed in the {% data variables.product.prodname_advisory_database %} on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Accessing an advisory in the GitHub Advisory Database](#accessing-an-advisory-in-the-github-advisory-database)". 
@@ -116,9 +113,8 @@ In the local advisory database, you can see which repositories are affected by e
 1. Navigate to `https://HOSTNAME/advisories`.
 2. Click an advisory.
 3. At the top of the advisory page, click **Dependabot alerts**.
-   ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+   ![Screenshot of a "global security advisory". The "Dependabot alerts" button is highlighted with an orange outline.](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
-   ![Search bar and drop-down menus to filter alerts](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% endif %}

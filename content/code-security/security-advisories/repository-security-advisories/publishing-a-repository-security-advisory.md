@@ -91,9 +91,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for.
   ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
 5. Use the **Publish advisory** drop-down menu, and click **Request CVE**.
-  ![Request CVE in drop-down](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Click **Request CVE**.
-  ![Request CVE button](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Further reading
 

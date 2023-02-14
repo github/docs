@@ -28,6 +28,6 @@ If your enterprise or any of the organizations owned by your enterprise uses an 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To the right of the person you want to remove, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click **Remove from enterprise**.
+1. To the right of the person you want to remove, select the {% octicon "kebab-horizontal" aria-label="Member settings" %} dropdown menu and click **Remove from enterprise**.
 
-   ![Screenshot of the "Remove from enterprise" option for an enterprise member](/assets/images/help/business-accounts/remove-member.png)
+   ![Screenshot of a user in the list of enterprise members. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/remove-member.png)

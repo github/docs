@@ -57,16 +57,18 @@ The person creating the app will be redirected to a GitHub page with an input fi
 
  Name | Type | Description
 -----|------|-------------
-`name` | `string` | The name of the GitHub App.
-`url` | `string` | **Required.** The homepage of your GitHub App.
-`hook_attributes` | `object` | The configuration of the GitHub App's webhook.
-`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.
+`name` | `string` | The name of the {% data variables.product.prodname_github_app %}.
+`url` | `string` | **Required.** The homepage of your {% data variables.product.prodname_github_app %}.
+`hook_attributes` | `object` | The configuration of the {% data variables.product.prodname_github_app %}'s webhook.
+`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a {% data variables.product.prodname_github_app %} from a manifest.
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.
-`setup_url` | `string` | A full URL to redirect users to after they install your GitHub App if additional setup is required.
-`description` | `string` | A description of the GitHub App.
-`public` | `boolean` | Set to `true` when your GitHub App is available to the public or `false` when it is only accessible to the owner of the app.
-`default_events` | `array` | The list of [events](/webhooks/event-payloads) the GitHub App subscribes to.
+`setup_url` | `string` | A full URL to redirect users to after they install your {% data variables.product.prodname_github_app %} if additional setup is required.
+`description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
+`public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
+`default_events` | `array` | The list of [events](/webhooks/event-payloads) the {% data variables.product.prodname_github_app %} subscribes to.
 `default_permissions` | `object` | The set of [permissions](/rest/reference/permissions-required-for-github-apps) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`).
+`request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the {% data variables.product.prodname_github_app %}, after the {% data variables.product.prodname_github_app %} is installed.
+`setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your {% data variables.product.prodname_github_app %} installation.
 
 The `hook_attributes` object has the following key:
 

@@ -237,6 +237,8 @@ If you are a member of more than one organization, you can configure each one to
 
 ## {% data variables.product.prodname_dependabot_alerts %} notification options 
 
+The notification options for your user account are available at [https://github.com/settings/notifications](https://github.com/settings/notifications). You can configure notification settings for each repository, in the repository watch settings.
+
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
 {% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
 {% data reusables.notifications.vulnerable-dependency-notification-options %}

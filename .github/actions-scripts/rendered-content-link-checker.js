@@ -288,6 +288,12 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         )
       }
     }
+  } else {
+    // It might be that the PR got a comment about >0 flaws before,
+    // and now it can update that comment to say all is well again.
+    if (shouldComment) {
+      await commentOnPR(core, octokit, flaws, opts)
+    }
   }
 }
 
@@ -327,7 +333,7 @@ async function linkReports(core, octokit, newReport, opts) {
 
   const [owner, repo] = reportRepository.split('/')
 
-  core.debug('Attempting to link reports...')
+  core.info('Attempting to link reports...')
   // Find previous broken link report issue
   let previousReports
   try {
@@ -346,7 +352,7 @@ async function linkReports(core, octokit, newReport, opts) {
     core.setFailed('Error listing issues for repo')
     throw error
   }
-  core.debug(`Found ${previousReports.length} previous reports`)
+  core.info(`Found ${previousReports.length} previous reports`)
 
   if (previousReports.length <= 1) {
     core.info('No previous reports to link to')
@@ -422,10 +428,48 @@ async function commentOnPR(core, octokit, flaws, opts) {
     return
   }
 
+  const findAgainSymbol = '<!-- rendered-content-link-checker-comment-finder -->'
+
   const body = flawIssueDisplay(flaws, opts, false)
+
+  const { data } = await octokit.rest.issues.listComments({
+    owner,
+    repo,
+    issue_number: pullNumber,
+  })
+  let previousCommentId
+  for (const { body, id } of data) {
+    if (body.includes(findAgainSymbol)) {
+      previousCommentId = id
+    }
+  }
+
   // Since failed external urls aren't included in PR comment, body may be empty
   if (!body) {
     core.info('No flaws qualify for comment')
+
+    if (previousCommentId) {
+      const nothingComment = 'Previous broken links comment now moot. 👌😙'
+      await octokit.rest.issues.updateComment({
+        owner,
+        repo,
+        comment_id: previousCommentId,
+        body: `${nothingComment}\n\n${findAgainSymbol}`,
+      })
+      core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
+    }
+    return
+  }
+
+  if (previousCommentId) {
+    const noteComment = '(*The original automated comment was updated*)'
+    await octokit.rest.issues.updateComment({
+      owner,
+      repo,
+      comment_id: previousCommentId,
+      body: `${body}\n\n${noteComment}\n\n${findAgainSymbol}`,
+    })
+    core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
     return
   }
 
@@ -434,7 +478,7 @@ async function commentOnPR(core, octokit, flaws, opts) {
       owner,
       repo,
       issue_number: pullNumber,
-      body,
+      body: `${body}\n\n${findAgainSymbol}`,
     })
     core.info(`Created comment on PR: ${pullNumber}`)
   } catch (error) {

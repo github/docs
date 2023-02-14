@@ -26,7 +26,7 @@ featuredLinks:
     - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - '{% ifversion ghae %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
     - '{% ifversion ghes < 3.3 or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages{% endif %}'

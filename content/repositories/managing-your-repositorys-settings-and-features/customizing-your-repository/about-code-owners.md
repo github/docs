@@ -117,6 +117,11 @@ apps/ @octocat
 # will require approval from @doctocat or @octocat.
 /scripts/ @doctocat @octocat
 
+# In this example, @octocat owns any file in a `/logs` directory such as
+# `/build/logs`, `/scripts/logs`, and `/deeply/nested/logs`. Any changes
+# in a `/logs` directory will require approval from @octocat.
+**/logs @octocat
+
 # In this example, @octocat owns any file in the `/apps`
 # directory in the root of your repository except for the `/apps/github`
 # subdirectory, as its owners are left empty.

@@ -14,7 +14,7 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'lib/graphql/**'
+      - 'src/**'
       - 'lib/redirects/**'
       - 'lib/rest/**'
       - 'lib/webhooks/**'
@@ -58,7 +58,7 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'lib/graphql/**'
+              - 'src/**'
               - 'lib/redirects/**'
               - 'lib/rest/**'
               - 'lib/webhooks/**'
@@ -70,7 +70,7 @@ jobs:
       # explaining this to the PR author
       - name: "Comment about changes we can't accept"
         if: ${{ steps.filter.outputs.notAllowed }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
             const badFilesArr = [
@@ -81,9 +81,9 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'lib/graphql/**',
+              'src/**',
               'lib/redirects/**',
-              'lib/rest/**',
+              'lib/rest/**',	
               'lib/webhooks/**',
               'package*.json',
               'scripts/**',
@@ -96,7 +96,7 @@ jobs:
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
-               createdComment = await github.issues.createComment({
+               createdComment = await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.number,

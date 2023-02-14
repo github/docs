@@ -48,6 +48,7 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
+COPY src ./src
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -88,6 +89,7 @@ COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
+COPY --chown=node:node src ./src
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
