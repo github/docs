@@ -19,9 +19,7 @@ shortTitle: Integrate Jira with projects
 3. Under **Homepage URL**, type the full URL to your Jira instance.
 4. Under **Authorization callback URL**, type the full URL to your Jira instance.
 5. Click **Register application**.
-![Register application button](/assets/images/help/oauth/register-application-button.png)
 8. Under **Developer applications**, note the "Client ID" and "Client Secret" values.
-![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user-settings.jira_help_docs %}
 
 ## Further reading
