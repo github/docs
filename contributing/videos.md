@@ -153,17 +153,6 @@ Transcript: ./content/video-transcripts/filename
 ```
 
 ```
-Title: GitHub Actions - Supercharge your GitHub Flow
-URL: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
-Description: A 3 minute overview of how GitHub Actions fits in the GitHub flow.
-Product: Actions
-Versions: All
-Date added: 2020-12-03
-Location: content/actions/index.md
-Transcript: TBD
-```
-
-```
 Title: Codespaces - Your instant dev box in the cloud
 URL: https://www.youtube-nocookie.com/embed/_W9B7qc9lVc
 Description: A 1.5 minute overview of GitHub Codespaces.
