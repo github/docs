@@ -5,13 +5,13 @@ import { readFile } from 'fs/promises'
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
 
-import renderContent from '../../../lib/render-content/index.js'
+import renderContent from '../../../../lib/render-content/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
 import { getBodyParams } from './get-body-params.js'
 
 const { operationUrls } = JSON.parse(
-  await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
+  await readFile('src/rest/scripts/utils/rest-api-overrides.json', 'utf8')
 )
 
 export default class Operation {

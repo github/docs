@@ -15,10 +15,10 @@ import rimraf from 'rimraf'
 
 import { decorate } from './utils/decorator.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions } from '../../../lib/all-versions.js'
 
 const TEMP_DOCS_DIR = path.join(process.cwd(), 'openapiTmp')
-const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'src/rest/data/dereferenced')
 const GITHUB_REP_DIR = path.join(process.cwd(), '../github')
 
 program
@@ -78,7 +78,7 @@ async function main() {
   // Decorate the dereferenced files in a format ingestible by docs.github.com
   await decorate(schemas)
   console.log(
-    '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*`.\n\n'
+    '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout src/rest/data/*`.\n\n'
   )
   if (!keepDereferencedFiles) {
     rimraf.sync(DOCS_DEREF_OPENAPI_DIR)

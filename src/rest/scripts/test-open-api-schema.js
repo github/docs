@@ -9,9 +9,9 @@ import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
 
-import frontmatter from '../../lib/read-frontmatter.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import { allVersions, getDocsVersion } from '../../lib/all-versions.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import { allVersions, getDocsVersion } from '../../../lib/all-versions.js'
 
 const contentFiles = []
 
@@ -50,7 +50,7 @@ export async function getDiffOpenAPIContentRest() {
 }
 
 async function createOpenAPISchemasCheck() {
-  const schemasPath = path.join(process.cwd(), 'lib/rest/static/decorated')
+  const schemasPath = path.join(process.cwd(), 'src/rest/data')
   const openAPICheck = createCheckObj()
   const schemas = fs.readdirSync(schemasPath)
 

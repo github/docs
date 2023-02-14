@@ -1,16 +1,14 @@
-import { fileURLToPath } from 'url'
 import fs from 'fs'
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '../read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '../get-mini-toc-items.js'
-import { allVersions } from '../all-versions.js'
-import languages from '../languages.js'
+import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
+import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import languages from '../../../lib/languages.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const schemasPath = path.join(__dirname, 'static/decorated')
-const ENABLED_APPS_FILENAME = path.join(__dirname, 'static/apps/enabled-for-apps.json')
-const contentPath = path.join(process.cwd(), 'content/rest')
+const schemasPath = 'src/rest/data'
+const ENABLED_APPS_FILENAME = 'src/github-apps/data/enabled-for-apps.json'
+const contentPath = 'content/rest'
 
 /*
   Loads the schemas from the static/decorated folder into a single
