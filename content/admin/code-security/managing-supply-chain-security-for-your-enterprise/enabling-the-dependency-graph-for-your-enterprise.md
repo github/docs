@@ -31,8 +31,7 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **Dependency graph**.
-![Checkbox to enable or disable the dependency graph](/assets/images/enterprise/3.2/management-console/enable-dependency-graph-checkbox.png)
+1. Under "Security," select **Dependency graph**.
 {% data reusables.enterprise_management_console.save-settings %}
 1. Click **Visit your instance**.
 

@@ -37,20 +37,10 @@ If you pay by invoice, you can create an enterprise account directly through {% 
 
 {% data reusables.organizations.billing-settings %}
 1. Click **Upgrade to enterprise account**.
-
-   ![Screenshot of the "Upgrade to an enterprise account" button](/assets/images/help/business-accounts/upgrade-to-enterprise-account.png)
 1. Under "Enterprise name", type a name for your enterprise account.
-
-   ![Screenshot of the "Enterprise name" field](/assets/images/help/business-accounts/enterprise-name-field.png)
 1. Under "Enterprise URL slug", type a slug for your enterprise account. This slug will be used in the URL for your enterprise. For example, if you choose `octo-enterprise`, the URL for your enterprise will be `https://github.com/enterprises/octo-enterprise`.
-
-   ![Screenshot of the "Enterprise URL slug" field](/assets/images/help/business-accounts/enterprise-slug-field.png)
 1. Click **Confirm and upgrade**.
-
-   ![Screenshot of the "Confirm and upgrade" button](/assets/images/help/business-accounts/confirm-and-upgrade-button.png)
 1. Read the warnings, then click **Create enterprise account**.
-
-   ![Screenshot of the "Create enterprise account" button](/assets/images/help/business-accounts/create-enterprise-account-button.png)
 
 ## Next steps
 

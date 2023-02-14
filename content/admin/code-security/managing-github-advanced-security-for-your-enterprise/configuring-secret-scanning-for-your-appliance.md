@@ -57,8 +57,7 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," click **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/enable-secret-scanning-checkbox.png)
+1. Under "Security," select **{% data variables.product.prodname_secret_scanning_caps %}**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Disabling {% data variables.product.prodname_secret_scanning %}
@@ -68,6 +67,5 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security," unselect **{% data variables.product.prodname_secret_scanning_caps %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/management-console/secret-scanning-disable.png)
+1. Under "Security," deselect **{% data variables.product.prodname_secret_scanning_caps %}**.
 {% data reusables.enterprise_management_console.save-settings %}

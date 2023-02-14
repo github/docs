@@ -110,10 +110,12 @@ For more information, see:
 
 {% data reusables.actions.disabling-github-actions %}
 
+{% ifversion actions-cache-admin-ui %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
+
 For more information, see:
 - "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
-- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)"
 
 ## Disabling and enabling workflows
 

@@ -199,9 +199,27 @@ A boolean specifying whether the secret must be supplied.
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
-## `on.workflow_dispatch.inputs`
+## `on.workflow_dispatch`
+
+{% data reusables.actions.workflow-dispatch %}
+
+### `on.workflow_dispatch.inputs`
 
 {% data reusables.actions.workflow-dispatch-inputs %}
+
+#### Example of `on.workflow_dispatch.inputs`
+
+{% data reusables.actions.workflow-dispatch-inputs-example %}
+
+#### `on.workflow_dispatch.inputs.<input_id>.required`
+
+A boolean specifying whether the input must be supplied.
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+#### `on.workflow_dispatch.inputs.<input_id>.type`
+
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `environment`, or `string`.
+{% endif %}
 
 ## `permissions`
 
@@ -492,7 +510,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+A public Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -1008,7 +1026,7 @@ When a job is used to call a reusable workflow, you can use `secrets` to provide
 
 Any secrets that you pass must match the names defined in the called workflow.
 
-#### Example
+#### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
 ```yaml

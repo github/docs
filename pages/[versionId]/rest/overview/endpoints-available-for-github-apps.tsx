@@ -11,7 +11,7 @@ import {
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { RestRedirect } from 'components/RestRedirect'
-import { getEnabledForApps, categoriesWithoutSubcategories } from 'lib/rest/index.js'
+import { getEnabledForApps, categoriesWithoutSubcategories } from 'src/rest/lib/index.js'
 
 type OperationT = {
   slug: string

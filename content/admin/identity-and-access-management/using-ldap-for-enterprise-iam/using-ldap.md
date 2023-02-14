@@ -60,10 +60,9 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Under "Authentication", select **LDAP**.
-![LDAP select](/assets/images/enterprise/management-console/ldap-select.png)
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %} ![Select LDAP built-in authentication checkbox](/assets/images/enterprise/management-console/ldap-built-in-authentication.png)
-5. Add your configuration settings.
+1. Under "Authentication", select **LDAP**.
+1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
+1. Add your configuration settings.
 
 ## LDAP attributes
 Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
@@ -89,17 +88,19 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 
 ### Disabling password authentication for Git operations
 
-Select **Disable username and password authentication for Git operations** in your LDAP settings to enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests. We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+To enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests, you can disable password authentication for Git operations.
 
-![Disable LDAP password auth for Git check box](/assets/images/enterprise/management-console/ldap-disable-password-auth-for-git.png)
+We recommend this setting because a slow-responding LDAP server, especially combined with a large number of requests due to polling, is a frequent source of performance issues and outages.
+
+To disable password authentication for Git operations, select **Disable username and password authentication for Git operations** in your LDAP settings.
 
 When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
 ### Enabling LDAP certificate verification
 
-Select **Enable LDAP certificate verification** in your LDAP settings to validate the LDAP server certificate you use with TLS.
+You can validate the LDAP server certificate you use with TLS by enabling LDAP certificate verification.
 
-![LDAP certificate verification box](/assets/images/enterprise/management-console/ldap-enable-certificate-verification.png)
+To enable LDAP certificate verification, select **Enable LDAP certificate verification** in your LDAP settings.
 
 When this option is selected, the certificate is validated to make sure:
 - If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
@@ -114,11 +115,9 @@ When this option is selected, the certificate is validated to make sure:
 
 {% endnote %}
 
-LDAP Sync lets you synchronize {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.prodname_ghe_server %}. For more information, see "[Creating teams](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
+You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[Creating teams](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
 
 To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
-
-![Synchronization check box](/assets/images/enterprise/management-console/ldap-synchronize.png)
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 

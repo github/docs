@@ -4,7 +4,7 @@ import {
   cleanPreviewTitle,
   previewAnchor,
   prependDatedEntry,
-} from '../../script/graphql/build-changelog.js'
+} from '../../src/graphql/scripts/build-changelog.js'
 import fs from 'fs/promises'
 import MockDate from 'mockdate'
 import readJsonFile from '../../lib/read-json-file.js'

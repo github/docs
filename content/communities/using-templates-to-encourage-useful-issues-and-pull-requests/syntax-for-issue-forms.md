@@ -18,11 +18,11 @@ When a contributor fills out an issue form, their responses for each input are c
 
 Issue forms are not supported for pull requests. You can create pull request templates in your repositories for collaborators to use. For more information, see "[Creating a pull request template for your repository](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
 
-This example YAML configuration file defines an issue form using several inputs to report a bug. 
+This example YAML configuration file defines an issue form using several inputs to report a bug.
 
 {% note %}
 
-**Note:** The required field key is only supported in public repositories.
+**Note:** The `required` field key is only supported in public repositories. In private and internal repositories, all fields are optional.
 
 {% endnote %}
 

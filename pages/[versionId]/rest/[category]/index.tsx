@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import getRest, { getRestMiniTocItems } from 'lib/rest/index.js'
+import getRest, { getRestMiniTocItems } from 'src/rest/lib/index.js'
 import nonEnterpriseDefaultVersion from 'lib/non-enterprise-default-version.js'
 import { Operation } from 'components/rest/types'
 import { RestReferencePage } from 'components/rest/RestReferencePage'

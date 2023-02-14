@@ -1,6 +1,6 @@
 ---
 title: Connecting a repository to a package
-intro: 'You can connect a repository to a container image on {% data variables.location.product_location %}.'
+intro: 'You can connect a repository to a package on {% data variables.location.product_location %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
@@ -12,15 +12,15 @@ versions:
 shortTitle: Connect a repository
 ---
 
-By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
+When you publish a package that is scoped to a personal account or an organization, the package is not linked to a repository by default. By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
 
-## Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
+## Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-## Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
+## Connecting a repository to an organization-scoped package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
@@ -60,8 +60,11 @@ By connecting a repository to a package, the package landing page will show info
 
 4. Tag your Docker image with your desired image name and hosting destination.
   ```shell
-  $ docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/OWNER/NEW_IMAGE_NAME:TAG
+  $ docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:TAG
   ```
+
+  Replace `NAMESPACE` with the name of the personal account or organization to which you want the package to be scoped.
+
   For example:
   ```shell
   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-example-hostname %}/monalisa/hello_docker:latest
@@ -76,7 +79,7 @@ By connecting a repository to a package, the package landing page will show info
     {% endraw %}
 6. Push your container image to the {% data variables.product.prodname_container_registry %}.
   ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/OWNER/IMAGE-NAME:TAG
+  $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE-NAME:TAG
   ```
   For example:
   ```shell

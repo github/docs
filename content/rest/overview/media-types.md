@@ -43,28 +43,28 @@ put it after `github`:
 
 The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and [gist comments](/rest/reference/gists#comments) all accept these same media types:
 
-### Raw
+### Raw media type for comment body properties
 
     application/vnd.github.raw+json
 
 Return the raw markdown body. Response will include `body`. This is the
 default if you do not pass any specific media type.
 
-### Text
+### Text media type for comment body properties
 
     application/vnd.github.text+json
 
 Return a text only representation of the markdown body. Response will
 include `body_text`.
 
-### HTML
+### HTML media type for comment body properties
 
     application/vnd.github.html+json
 
 Return HTML rendered from the body's markdown. Response will include
 `body_html`.
 
-### Full
+### Full media type for comment body properties
 
     application/vnd.github.full+json
 
@@ -75,7 +75,7 @@ Return raw, text and HTML representations. Response will include `body`,
 
 The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
 
-### JSON
+### JSON media type for Git blob properties
 
     application/vnd.github+json
     application/json
@@ -83,7 +83,7 @@ The following media types are allowed when [getting a blob](/rest/reference/git#
 Return JSON representation of the blob with `content` as a base64
 encoded string. This is the default if nothing is passed.
 
-### Raw
+### Raw media type for Git blob properties
 
     application/vnd.github.raw
 
@@ -93,27 +93,27 @@ Return the raw blob data.
 
 The REST API to manage [commits](/rest/reference/repos#commits) and [pull requests](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
-### diff
+### diff media type for commits, commit comparison, and pull requests
 
     application/vnd.github.diff
 
-### patch
+### patch media type for commits, commit comparison, and pull requests
 
     application/vnd.github.patch
 
-### sha
+### sha media type for commits, commit comparison, and pull requests
 
     application/vnd.github.sha
 
 ## Repository contents
 
-### Raw
+### Raw media type for repository contents
 
     application/vnd.github.raw
 
 Return the raw contents of a file. This is the default if you do not pass any specific media type.
 
-### HTML
+### HTML media type for repository contents
 
     application/vnd.github.html
 
@@ -121,13 +121,13 @@ For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTM
 
 ## Gists
 
-### Raw
+### Raw media type for gists
 
     application/vnd.github.raw
 
 Return the raw contents of a gist. This is the default if you do not pass any specific media type.
 
-### base64
+### base64 media type for gists
 
     application/vnd.github.base64
 
