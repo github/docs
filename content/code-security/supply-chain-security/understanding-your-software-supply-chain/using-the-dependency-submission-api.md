@@ -25,11 +25,18 @@ You can use the Dependency submission API in a {% data variables.product.prodnam
 
 ### Using pre-made actions
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %} and more actions will be created during the course of the beta and beyond. You can find links to the currently available actions in the table below:
+The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. Some of these actions are provided by third parties. You can find links to the currently available actions in the table below.
 
-Ecosystem | Action |
---- | --- |
-Go | [Go Dependency Submission](https://github.com/actions/go-dependency-submission)
+Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
+--- | --- | --- |
+Any [1] | [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | |
+Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | **✓** |
+Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/gradle-dependency-submission) | |
+Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | **✓** |
+Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | |
+Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | |
+
+[1] This action is ecosystem-agnostic.
 
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
 

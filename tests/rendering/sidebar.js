@@ -27,18 +27,16 @@ describe('sidebar', () => {
     ])
   })
 
-  test('highlights active product on Enterprise pages', async () => {
-    expect($enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Enterprise administrators')
+  test('highlights active product on Enterprise pages on xl viewport', async () => {
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').text().trim()).toBe(
+      'Enterprise administrators'
+    )
   })
 
-  test('highlights active product on GitHub pages', async () => {
-    expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Get started')
+  test('highlights active product on GitHub pages on xl viewport', async () => {
+    expect($githubPage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($githubPage('[data-testid=sidebar-product-xl]').text().trim()).toBe('Get started')
   })
 
   test('includes links to external products like Electron and CodeQL', async () => {

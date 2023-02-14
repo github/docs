@@ -15,9 +15,7 @@ GitHub Importer looks for GitHub users whose email addresses match the authors o
 ## Updating commit authors
 
 1. After you've imported your repository, on the import status page, click **Match authors**.
-![Match authors button](/assets/images/help/importer/match-authors-button.png)
 2. Next to the author whose information you'd like to update, click **Connect**.
-![List of commit authors](/assets/images/help/importer/connect-commit-author.png)
 3. Type the email address or GitHub username of the author, then press **Enter**.
 
 ## Attributing commits to a GitHub user with a public email address

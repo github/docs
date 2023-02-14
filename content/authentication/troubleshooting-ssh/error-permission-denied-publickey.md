@@ -16,7 +16,7 @@ shortTitle: Permission denied (publickey)
 ---
 ## Should the `sudo` command or elevated privileges be used with Git?
 
-You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
+You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/authentication/connecting-to-github-with-ssh) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
 ## Check that you are connecting to the correct server
 
@@ -33,7 +33,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port){% endif %}.
 
 ## Always use the "git" user
 
@@ -43,7 +43,7 @@ All connections, including those for remote URLs, must be made as the "git" user
 $ ssh -T GITHUB-USERNAME@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/github/getting-started-with-github/managing-remote-repositories).
+If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/get-started/getting-started-with-git/managing-remote-repositories).
 
 You should verify your connection by typing:
 
@@ -95,7 +95,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 {% endlinux %}
 
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
+The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -208,10 +208,10 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 {% endlinux %}
 
-If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
+If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)."
 
 {% endwarning %}

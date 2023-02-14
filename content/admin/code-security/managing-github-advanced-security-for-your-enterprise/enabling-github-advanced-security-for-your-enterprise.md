@@ -58,11 +58,12 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Introduct
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
+{% data reusables.enterprise_management_console.advanced-security-tab %}
+{%- ifversion ghes %}
 1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
-{% ifversion ghes %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
+{%- else %}
+1. Under "{% data variables.product.prodname_advanced_security %}," select **{% data variables.product.prodname_code_scanning_capc %}**.
+{%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."

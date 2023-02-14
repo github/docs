@@ -39,7 +39,6 @@ You can restore the head branch of a closed pull request.
 {% data reusables.repositories.list-closed-pull-requests %}
 4. In the list of pull requests, click the pull request that's associated with the branch that you want to restore.
 5. Near the bottom of the pull request, click **Restore branch**.
-   ![Restore deleted branch button](/assets/images/help/branches/branches-restore-deleted.png)
 
 ## Further reading
 

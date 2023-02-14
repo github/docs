@@ -102,12 +102,10 @@ If the upgrade target you're presented with is a feature release instead of a pa
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
-4. When a new hotpatch has been downloaded, use the Install package drop-down menu:
-    - To install immediately, select **Now**:
+4. When a new hotpatch has been downloaded, select the **Install package** dropdown menu.
+    - To install immediately, click **Now**.
     - To install later, select a later date.
-  ![Hotpatch installation date dropdown](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
 5. Click **Install**.
-  ![Hotpatch install button](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
 #### Installing a hotpatch using the administrative shell
 

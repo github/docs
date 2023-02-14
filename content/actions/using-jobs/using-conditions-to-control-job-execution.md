@@ -26,3 +26,9 @@ miniTocMaxHeadingLevel: 4
 You would see the following status on a skipped job:
 
 ![Skipped-required-run-details](/assets/images/help/repository/skipped-required-run-details.png)
+
+{% note %}
+
+**Note:** In some parts of the workflow you cannot use environment variables. Instead you can use contexts to access the value of an environment variable. For more information, see "[Using the env context to access environment variable values](/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values)."
+
+{% endnote %}

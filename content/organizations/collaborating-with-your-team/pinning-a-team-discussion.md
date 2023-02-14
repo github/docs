@@ -14,6 +14,10 @@ topics:
   - Community
 ---
 
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}

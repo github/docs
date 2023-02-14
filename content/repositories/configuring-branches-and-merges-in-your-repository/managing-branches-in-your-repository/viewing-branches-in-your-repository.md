@@ -24,8 +24,6 @@ shortTitle: View branches
 
 4. Optionally, use the search field on the top right. It provides a simple, case-insensitive, sub-string search on the branch name. It does not support any additional query syntax.
 
-![The branches page for the Atom repository](/assets/images/help/branches/branches-overview-atom.png)
-
 ## Further reading
 
 - "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)"

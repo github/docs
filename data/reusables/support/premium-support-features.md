@@ -3,7 +3,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Phone support via callback request, in English, through our support portal 24 hours per day, 7 days per week
   - A Service Level Agreement (SLA) with guaranteed initial response times
   - Escalation and incident management
-    - Support Engineers, for Premium customers, and Customer Reliability Engineers (CREs), for Premium Pus customers, have direct access to escalation engineering resources, if needed to expedite case resolution
+    - Support Engineers, for Premium customers, and Customer Reliability Engineers (CREs), for Premium Plus customers, have direct access to escalation engineering resources, if needed to expedite case resolution
     - Available incident coordinator to manage technical resources within {% data variables.product.company_short %} until underlying issue is mitigated or fully resolved
   - Access to premium content
   - Health Checks

@@ -18,7 +18,7 @@ shortTitle: View people in your enterprise
 
 ## About the list of people in your enterprise
 
-To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise. 
+To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise.
 
 You can see all current enterprise members and enterprise administrators{% ifversion ghec %}, as well as pending invitations to become members and administrators{% endif %}. To make it easier to consume this information, you can search and filter the lists.
 
@@ -68,9 +68,8 @@ You can also remove any enterprise member from all organizations owned by the en
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
-1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
-
-   ![Outside collaborators tab on the enterprise members page](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
+1. Optionally, to view a list of outside collaborators rather than the list of members, under "Members", click **Outside collaborators**.
+{% endif %}
 
 {% ifversion enterprise-membership-view-improvements %}
 ## Viewing outside collaborators
@@ -82,9 +81,6 @@ You can view more information about the person's access to your enterprise, such
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. Under "People", click **Outside collaborators**.
-
-  ![Outside collaborators tab in the enterprise settings sidebar]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
-  
 {% endif %}
 
 {% ifversion ghec %}
@@ -92,7 +88,7 @@ You can view more information about the person's access to your enterprise, such
 
 You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
 
-In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator. 
+In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
 
 {% note %}
 

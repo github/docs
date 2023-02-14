@@ -72,10 +72,11 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 ### Create a branch
 
 1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**.
-   ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
-4. Type a branch name, `readme-edits`, into the text box.
-5. Click **Create branch: readme-edits from main**.
+1. Above the file list, click the dropdown menu that says **main**.
+
+   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+1. Type a branch name, `readme-edits`, into the text box.
+1. Click **Create branch: readme-edits from main**.
 
 ![Branch menu](/assets/images/help/repository/new-branch.png)
 

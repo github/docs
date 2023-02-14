@@ -29,6 +29,4 @@ Commit co-authors are included in the commit activity summary if their commits w
 
 ## Filtering by time
 
-By default, Pulse shows the last seven days of repository activity. To choose a different time period, click the **Period** dropdown in the upper-right corner of the Pulse overview.
-
-![Filtering Pulse activity by time](/assets/images/help/pulse/pulse_time_filter_dropdown.png)
+By default, Pulse shows the last seven days of repository activity. To choose a different time period, select the **Period** dropdown menu in the upper-right corner of the Pulse overview.

@@ -274,7 +274,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
 {%- ifversion actions-job-summaries %}
-| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
+| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
 {%- ifversion actions-oidc-custom-claims %}

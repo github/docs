@@ -1,5 +1,5 @@
 import { describe, expect } from '@jest/globals'
-import getCodeSamples, { mergeExamples } from '../../script/rest/utils/create-rest-examples.js'
+import getCodeSamples, { mergeExamples } from '../../src/rest/scripts/utils/create-rest-examples.js'
 import {
   operation,
   noContent,

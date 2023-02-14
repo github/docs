@@ -12,9 +12,11 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
 ---
 
-The {% data variables.code-scanning.codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
+On April 1, 2022, the {% data variables.code-scanning.codeql_runner %} was fully deprecated. You should use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
 This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 
 ## Installation
