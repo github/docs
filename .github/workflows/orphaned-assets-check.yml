@@ -24,66 +24,13 @@ jobs:
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
-      # TODO: Can be removed after we no longer keep translations in-repo
-      - name: Remove existing language translations
-        run: |
-          rm -rf translations
-
-      - name: Checkout the zh-cn repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.zh-cn
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/zh-CN
-
-      - name: Checkout the ja-jp repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ja-jp
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ja-JP
-
-      - name: Checkout the es-es repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.es-es
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/es-ES
-
-      - name: Checkout the pt-br repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.pt-br
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/pt-BR
-
-      - name: Checkout the de-de repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.de-de
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/de-DE
-
-      - name: Checkout the fr-fr repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.fr-fr
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/fr-FR
-
-      - name: Checkout the ru-ru repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ru-ru
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ru-RU
-
-      - name: Checkout the ko-kr repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ko-kr
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ko-KR
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -95,6 +42,8 @@ jobs:
           set -e
 
           ./script/find-orphaned-assets.js | xargs git rm
+
+          git status
 
           # If nothing to commit, exit now. It's fine. No orphans.
           git status -- ':!translations*' | grep 'nothing to commit' && exit 0

@@ -1,26 +1,26 @@
 ---
-title: Managing your GitHub Copilot for Individuals subscription
-intro: 'Set up your {% data variables.product.prodname_copilot %} trial for your personal account and manage your subscription.'
+title: Managing your GitHub Copilot subscription for your personal account
+intro: 'Set up your {% data variables.product.prodname_copilot_for_individuals %} trial for your personal account and manage your subscription.'
 product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription
 versions:
-  fpt: '*'
+  feature: copilot
 type: how_to
 topics:
   - Copilot
-shortTitle: Your GitHub Copilot subscription
+shortTitle: Your individual subscription
 ---
 
 ## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
 
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription.
+Before you can start using {% data variables.product.prodname_copilot_for_individuals %}, you will need to set up a free trial or subscription.
 
 {% data reusables.copilot.tp-users-trial-eligibility %}
 
 {% data reusables.copilot.signup-procedure %}
 
-## Modifying your {% data variables.product.prodname_copilot %} subscription
+## Modifying your {% data variables.product.prodname_copilot_individuals_short %} subscription
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -31,9 +31,9 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
    ![Screenshot of {% data variables.product.prodname_copilot %} section on billing page with edit dropdown emphasized](/assets/images/help/copilot/copilot-settings-edit-dropdown.png)
 
 
-## Canceling your {% data variables.product.prodname_copilot %} subscription
+## Canceling your {% data variables.product.prodname_copilot_individuals_short %} subscription
 
-You can cancel your {% data variables.product.prodname_copilot %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
+You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. If you cancel during your 60 day trial, you won't be charged. If you do not cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription before the end of the 60 day trial, you will be charged according to the billing cycle you selected when setting up the trial.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -56,5 +56,5 @@ You can cancel your {% data variables.product.prodname_copilot %} subscription a
 
 ## Further reading
 
-- [About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot)
 - [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
