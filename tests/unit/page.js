@@ -528,15 +528,15 @@ describe('Page class', () => {
       expect(page.featuredLinks.videos).toStrictEqual([
         {
           title: 'codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
         {
           title: 'more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
         {
           title: 'even more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
       ])
 

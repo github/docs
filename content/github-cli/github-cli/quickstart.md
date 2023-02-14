@@ -20,19 +20,16 @@ shortTitle: Quickstart
 ## Getting started
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
-1. In the command line, authenticate to {% data variables.product.company_short %}.
+1. In the command line, authenticate to {% data variables.product.company_short %}.{% ifversion not fpt or ghec %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
 
+  {% ifversion fpt or ghec %}
   ```shell
   gh auth login
   ```
-
-  {% ifversion not fpt or ghec %}
-  To authenticate to {% data variables.location.product_location %}, use the `--hostname` flag.
-
+  {% else %}
   ```shell
   gh auth login --hostname HOSTNAME
   ```
-
   {% endif %}
 1. Start working with {% data variables.product.company_short %} in the command line. For example, find an issue to work on with `gh issue status` or `gh issue list --assignee @me`. Create a pull request with `gh pr create`. Review a pull request with `gh pr checkout`, `gh pr diff` and `gh pr review`.
 

@@ -1,4 +1,5 @@
 import { Heading, NavList } from '@primer/react'
+import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
 import type { MiniTocItem } from 'components/context/ArticleContext'
@@ -11,9 +12,28 @@ export type MiniTocsPropsT = {
 }
 
 function RenderTocItem(item: MiniTocItem) {
+  const [currentAnchor, setCurrentAnchor] = useState('')
+
+  useEffect(() => {
+    const onHashChanged = () => {
+      setCurrentAnchor(window.location.hash)
+    }
+
+    window.addEventListener('hashchange', onHashChanged)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChanged)
+    }
+  }, [])
+
   return (
     <div className={cx(styles.nested, item.platform)}>
-      <NavList.Item href={item.contents.href}>{item.contents.title}</NavList.Item>
+      <NavList.Item
+        aria-current={item.contents.href === currentAnchor && 'location'}
+        href={item.contents.href}
+      >
+        {item.contents.title}
+      </NavList.Item>
       {item.items && item.items.length > 0 && (
         <ul className={cx(styles.indentNested)}>
           {item.items.map((toc) => (
