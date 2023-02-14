@@ -56,7 +56,8 @@ The organization-level Security Coverage view includes extra filters.
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
 | Qualifier | Description |
-| -------- | -------- |
+| -------- | -------- | {% ifversion ghec or ghes > 3.8 %}
+| `advanced-security:enabled` | Display repositories that have enabled {% data variables.product.prodname_GH_advanced_security %}. | {% endif %}
 | `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
 | `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
 | `secret-scanning-push-protection:enabled` | Display repositories that have enabled push protection for {% data variables.product.prodname_secret_scanning %}. |
