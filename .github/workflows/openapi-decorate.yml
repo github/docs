@@ -52,8 +52,8 @@ jobs:
       - name: Copy dereferenced OpenAPI files
         id: rest-api-description
         run: |
-          mkdir ./lib/rest/static/dereferenced
-          find rest-api-description/descriptions-next -type f -name "*.deref.json" -exec sh -c 'cp $1 ./lib/rest/static/dereferenced' sh {} \;
+          mkdir ./src/rest/data/dereferenced
+          find rest-api-description/descriptions-next -type f -name "*.deref.json" -exec sh -c 'cp $1 ./src/rest/data/dereferenced' sh {} \;
           cd rest-api-description
           OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
           echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
@@ -61,7 +61,7 @@ jobs:
 
       - name: Decorate the dereferenced OpenAPI schemas
         run: |
-          script/rest/update-files.js --decorate-only --open-source
+          src/rest/scripts/update-files.js --decorate-only --open-source
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
@@ -74,7 +74,7 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running lib/rest/update-files.js. Exiting..."
+            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
             exit 0
           fi
 

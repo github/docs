@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import renderContent from '../../../lib/render-content/index.js'
+import renderContent from '../../../../lib/render-content/index.js'
 
 // If there is a oneOf at the top level, then we have to present just one
 // in the docs. We don't currently have a convention for showing more than one

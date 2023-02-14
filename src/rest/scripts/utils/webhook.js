@@ -2,7 +2,7 @@
 import Ajv from 'ajv'
 import { get, isPlainObject } from 'lodash-es'
 
-import renderContent from '../../../lib/render-content/index.js'
+import renderContent from '../../../../lib/render-content/index.js'
 import webhookSchema from './webhook-schema.js'
 import { getBodyParams } from './get-body-params.js'
 
