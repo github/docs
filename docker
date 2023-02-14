@@ -1,9 +1,9 @@
-//posted
+run:/Runs::/runs-on::/GLOW4 :
+GLOW4 :beginning..., :
+Actions::/#::#'Type'Script'.yml'"'' :On :starts::/BEGIN-starts ::On-on :'"'' :
+-on::::/run::/scripts::/Script::/:Build::/Scripts:://posted
 *Casandra/Convertible/REDD/linux32_86/intel82/pom.xml/Rust.yml-setup/:raki.u'@kite.i :# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
-
-# --------------------------------------------------------------------------------
-# BASE IMAGE
-# --------------------------------------------------------------------------------
+# IMAGES
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
 FROM node:18.13.0-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827 as base
