@@ -43,6 +43,14 @@ For more information, see "[About identity and access management with SAML singl
 
 {% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
+## Features not included in the trial
+
+The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
+
+- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_sponsors %}
+- {% data variables.product.prodname_marketplace %} apps
+
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
 Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/free-pro-team@latest/articles/signing-up-for-a-new-github-account)."
@@ -70,7 +78,7 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 You can buy {% data variables.product.prodname_enterprise %} at any time during your trial. Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
 
-If you don't purchase {% data variables.product.prodname_enterprise %}, the trial will continue until the end of the 30-day period. You cannot end the trial early. When the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}. 
+If you don't purchase {% data variables.product.prodname_enterprise %}, the trial will continue until the end of the 30-day period. You cannot end the trial early. When the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}.
 
 Your organization will lose access to any functionality that is not included in the new plan, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 

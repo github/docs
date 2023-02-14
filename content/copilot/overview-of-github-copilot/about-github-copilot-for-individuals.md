@@ -1,11 +1,13 @@
 ---
-title: About GitHub Copilot
+title: About GitHub Copilot for Individuals
 intro: '{% data variables.product.prodname_copilot %} can help you code by offering autocomplete-style suggestions. You can learn how {% data variables.product.prodname_copilot %} works, and what to consider while using {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: About GitHub Copilot
+shortTitle: About GitHub Copilot for Individuals
+redirect_from:
+  - /copilot/overview-of-github-copilot/about-github-copilot
 ---
 
 ## About {% data variables.product.prodname_copilot %}
@@ -15,6 +17,10 @@ shortTitle: About GitHub Copilot
 {% data variables.product.prodname_copilot %} is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may produce fewer or less robust suggestions.
 
 {% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Neovim and the JetBrains suite of IDEs. For more information, see "[Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)."
+
+### Understanding the differences between {% data variables.product.prodname_copilot_individuals_short %} and {% data variables.product.prodname_copilot_business_short %}
+
+{% data reusables.copilot.differences-cfi-cfb-table %}
 
 ## Using {% data variables.product.prodname_copilot %}
 
@@ -28,9 +34,9 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 ## About billing for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. {% data variables.product.prodname_copilot %} subscriptions can be paid for and managed through a personal account on {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_copilot_for_individuals %}, or paid for and managed centrally through an enterprise account on {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_copilot_for_business %}.
+{% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. {% data variables.product.prodname_copilot %} subscriptions can be paid for and managed through a personal account on {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_copilot_individuals_short %}, or paid for and managed centrally through {% ifversion fpt %} an organization account {% else %}an enterprise account on {% data variables.product.prodname_ghe_cloud %}{% endif %} with {% data variables.product.prodname_copilot_for_business %}.
 
-Verified students, teachers, and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot_individuals_short %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. {% ifversion fpt %}If you do not meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be offered a 60-day free trial, after which a paid subscription is required for continued use. {% data variables.product.prodname_copilot_for_business %} does not include a free trial.{% endif %} For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+Verified students, teachers, and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot_individuals_short %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. {% ifversion fpt %}If you do not meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be offered a 60-day free trial, after which a paid subscription is required for continued use.{% endif %} For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
 ## About the license for the {% data variables.product.prodname_copilot %} plugin in JetBrains IDEs
 

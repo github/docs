@@ -9,9 +9,7 @@ versions:
   fpt: '*'
   ghec: '*'
 ---
-GitHub Importer is a tool that quickly imports source code repositories, including commits and revision history, to GitHub for you.
-
-![Importing a repository gif](/assets/images/help/importer/github-importer.gif)
+{% data variables.product.prodname_dotcom %} Importer is a tool that quickly imports source code repositories, including commits and revision history, to {% data variables.product.prodname_dotcom %} for you.
 
 During an import, depending on the version control system you're importing from, you can authenticate with your remote repository, update commit author attribution, and import repositories with large files (or remove large files if you don't want to use Git Large File Storage).
 

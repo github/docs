@@ -106,4 +106,4 @@ GitHub's procurement instructions to employees making company purchases now incl
 
 GitHub is developing modern slavery and child labor training that will be mandatory for all employees, with a view to GitHub's business and supply chain. GitHub will emphasize suppliers providing services involving manual labor, such as event support, construction, facilities services, and food services, as areas of greater potential risk.
 
-**GitHub's Board of Directors approved [this Statement](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf).**
+**GitHub's Board of Directors approved this Statement. See a [copy of this statement signed by GitHub's Chief Strategy Officer and General Counsel (PDF)](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf).**
