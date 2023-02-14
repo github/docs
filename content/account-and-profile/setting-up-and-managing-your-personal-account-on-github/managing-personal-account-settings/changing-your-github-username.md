@@ -87,7 +87,7 @@ After changing your username, the URLs to any public or secret gists will also c
 
 ## CODEOWNERS files
 
-After changing your username, CODEOWNERS files will need to be manually updated. When viewing the CODEOWNERS files from the web, a warning will show if the file contains any unknown user(s) or user(s) without write access. We recommend updating all relevant CODEOWNERS files with your new username.
+After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom_the_website %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
 
 ## Changing your username
 
