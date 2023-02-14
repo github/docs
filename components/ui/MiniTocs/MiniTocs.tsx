@@ -35,7 +35,13 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
 
   return (
     <>
-      <Heading as="h2" id="in-this-article" className="mb-1 ml-3" sx={{ fontSize: 1 }}>
+      <Heading
+        as="h2"
+        id="in-this-article"
+        className="mb-1 ml-3"
+        sx={{ fontSize: 1 }}
+        aria-label={t('miniToc')}
+      >
         {t('miniToc')}
       </Heading>
 
