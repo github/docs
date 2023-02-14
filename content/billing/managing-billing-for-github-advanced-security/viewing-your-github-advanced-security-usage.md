@@ -52,8 +52,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% endif %}
 {%- ifversion ghas-billing-table-ui-update -%}
 1. Optionally, to see a detailed breakdown of usage per organization, in the left sidebar, click **Billing**.
-  ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png)
-  In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
+
+   In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} billing table for an enterprise](/assets/images/help/billing/ghas-enterprise-billing-table.png)
 {% endif %}
 1. Optionally, click the name of an organization where you are an owner to display the security and analysis settings for the organization.

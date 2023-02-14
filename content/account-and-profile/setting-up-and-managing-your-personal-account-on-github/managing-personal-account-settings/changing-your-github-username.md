@@ -85,6 +85,10 @@ After changing your username, links to your previous profile page, such as `http
 
 After changing your username, the URLs to any public or secret gists will also change and previous links to these will return a 404 error. We recommend updating the links to these gists anywhere you may have shared them.
 
+## CODEOWNERS files
+
+After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom_the_website %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+
 ## Changing your username
 
 {% data reusables.user-settings.access_settings %}

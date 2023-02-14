@@ -40,7 +40,6 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -50,13 +49,11 @@ Setting secondary rate limits protects the overall level of service on {% data v
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
+{%- ifversion ghes %}
 2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
+{%- else %}
 2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
+{%- endif %}
 3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -72,10 +69,9 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
+1. Under "Rate Limiting", select **Enable Git Rate Limiting**.
+1. Under "Repository Network Limit", type a limit for each repository network.
+1. Under "User ID Limit", type a limit for each user ID.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}

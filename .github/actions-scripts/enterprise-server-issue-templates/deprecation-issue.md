@@ -121,7 +121,7 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
-- [ ] Re-generate the static files by running `script/rest/update-files.js --decorate-only`.
+- [ ] Re-generate the static files by running `src/rest/scripts/update-files.js --decorate-only`.
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
 

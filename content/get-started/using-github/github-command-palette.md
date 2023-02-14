@@ -16,13 +16,13 @@ You can navigate, search, and run commands on {% data variables.product.product_
 
 When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, personal account, or organization to top-level pages like the Issues page. If the location you want isn't listed, start entering the name or number for the location to refine the suggestions.
 
-![Command palette repository suggestions](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
+![Screenshot of the command palette. The "Issues" and "Pull requests" pages for the current repository are suggested.](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 
 ### Easy access to commands
 
 The ability to run commands directly from your keyboard, without navigating through a series of menus, may change the way you use {% data variables.product.prodname_dotcom %}. For example, you can switch themes with a few keystrokes, making it easy to toggle between themes as your needs change.
 
-![Command palette change theme](/assets/images/help/command-palette/command-palette-command-change-theme.png)
+![Screenshot of the command palette. "switch theme to dark" is in the command palette input, and results for changing your theme are displayed.](/assets/images/help/command-palette/command-palette-command-change-theme.png)
 
 ## Opening the {% data variables.product.prodname_command_palette %}
 
@@ -32,9 +32,9 @@ Open the command palette using one of the following default keyboard shortcuts:
 
 You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
 
-When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
+When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `octo-org` organization).
 
-![Command palette launch](/assets/images/help/command-palette/command-palette-launch.png)
+![Screenshot of the command palette. "octo-org" is highlighted with an orange outline.](/assets/images/help/command-palette/command-palette-launch.png)
 
 {% note %}
 
@@ -46,27 +46,23 @@ When you open the command palette, it shows your location at the top left and us
 
 ### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
 
+The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode.
 
-The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode. 
-
-![Command palette keyboard shortcut settings](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
 You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
 
 {% data reusables.command-palette.open-palette %}
 
-2. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
-
-   ![Command palette navigation current scope](/assets/images/help/command-palette/command-palette-navigation-current-scope.png)
+1. Start typing the path you want to navigate to. The suggestions in the command palette change to match your text.
 
 {% data reusables.command-palette.change-scope %}
 
    You can also use keystrokes to narrow your search. For more information, see "[Keystroke functions](#keystroke-functions)."
 
-4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
+1. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+1. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
@@ -76,16 +72,14 @@ You can use the command palette to search for anything on {% data variables.loca
 
 {% data reusables.command-palette.change-scope %}
 
-3. Optionally, use keystrokes to find specific types of resource:
+1. Optionally, use keystrokes to find specific types of resource:
 
    - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
    - <kbd>!</kbd> Search for projects
    - <kbd>@</kbd> Search for users, organizations, and repositories
    - <kbd>/</kbd> Search for files within a repository scope
 
-   ![Command palette search files](/assets/images/help/command-palette/command-palette-search-files.png)
-
-4. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
+1. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
 
    {% tip %}
 
@@ -93,7 +87,7 @@ You can use the command palette to search for anything on {% data variables.loca
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+1. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Running commands from the {% data variables.product.prodname_command_palette %}
 
@@ -106,14 +100,11 @@ For a full list of supported commands, see "[{% data variables.product.prodname_
 
 1. The default keyboard shortcuts to open the command palette in command mode are <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac). If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 
-   ![Command palette command mode](/assets/images/help/command-palette/command-palette-command-mode.png)
-
 {% data reusables.command-palette.change-scope %}
 
-3. If the command you want is not displayed, check your scope then start entering the command name in the text box.
+1. If the command you want is not displayed, check your scope then start entering the command name in the text box.
 
-4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
-
+1. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
 
 ## Closing the command palette
 
@@ -122,7 +113,7 @@ When the command palette is active, you can use one of the following keyboard sh
 - Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
 - Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
 
-If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.  
+If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.
 
 ## {% data variables.product.prodname_command_palette %} reference
 
@@ -174,7 +165,6 @@ Most of these commands are available only on the home page of the repository. If
 |`New discussion`|Create a new discussion in the repository. For more information, see "[Creating a new discussion](/discussions/quickstart#creating-a-new-discussion)."|
 |`New file`|Create a new file from any page in the repository. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
 |`New issue`|Open a new issue from any page in the repository. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."|
-|`Open in new codespace`|Create and open a codespace for this repository. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."|
 |`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see "[The {% data variables.codespaces.serverless %} web-based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
 
 ### File commands
@@ -224,6 +214,5 @@ These commands are available only when you open the command palette from a pull 
 |`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
 |`Edit pull request body`|Open the main body of the pull request ready for editing.
 |`Edit pull request title`|Open the title of the pull request ready for editing.
-|`Open in new codespace`|Create and open a codespace for the head branch of the pull request. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 |`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 |`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|

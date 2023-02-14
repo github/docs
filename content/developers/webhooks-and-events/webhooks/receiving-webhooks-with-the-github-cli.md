@@ -33,6 +33,11 @@ When you make changes to your integration code, running the code in a local envi
    gh extension install cli/gh-webhook
    ```
 
+1. If you want to forward organization webhooks, add the `admin:org_hook` scope to your {% data variables.product.prodname_cli %} login so you have the required permissions.
+
+   ```sh
+   gh auth refresh --scopes admin:org_hook
+   ```
 
 1. Start your application locally, and take a note of the URL where it's expecting to receive webhooks. This guide assumes that your application is listening for webhook events at `http://localhost:3000/webhook`.
 

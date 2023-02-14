@@ -53,19 +53,14 @@ You can see all pending invitations to become an administrator of your enterpris
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. Above the list of administrators, click {% ifversion ghec %}**Invite admin**{% elsif ghes %}**Add owner**{% endif %}.
-  {% ifversion ghec %}
-  !["Invite admin" button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
-  {% elsif ghes %}
-  !["Add owner" button above the list of enterprise owners](/assets/images/help/business-accounts/add-owner-button.png)
-  {% endif %}
 1. Type the username, full name, or email address of the person you want to invite to become an enterprise administrator, then select the appropriate person from the results.
-  ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png){% ifversion ghec %}
+{%- ifversion ghec %}
 1. Select **Owner** or **Billing Manager**.
-  ![Modal box with role choices](/assets/images/help/business-accounts/invite-admins-roles.png)
 1. Click **Send Invitation**.
-  ![Send invitation button](/assets/images/help/business-accounts/invite-admins-send-invitation.png){% endif %}{% ifversion ghes %}
+{%- endif %}
+{%- ifversion ghes %}
 1. Click **Add**.
-  !["Add" button](/assets/images/help/business-accounts/add-administrator-add-button.png){% endif %}
+{%- endif %}
 
 ## Removing an enterprise administrator from your enterprise account
 
@@ -78,10 +73,11 @@ If the administrator you want to remove is a member of any organizations owned b
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member** or **Remove from enterprise**.{% endif %}.
-  {% ifversion ghec %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/remove-admin.png)
-  {% elsif ghes %}
-  ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/ghes-remove-owner.png)
-  {% endif %}
-1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
+{%- ifversion ghec or ghes > 3.6 %}
+1. Next to the username of the person you'd like to remove, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Convert to member**{% ifversion ghec %} or **Remove from enterprise**{% endif %}.
+  ![Screenshot of a user in the enterprise administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
+1. Read the confirmation, then click **Yes, convert USERNAME to member**{% ifversion ghec %} or **Yes, remove USERNAME**{% endif %}.
+{%- else %}
+1. Next to the username of the person you'd like to remove, select the {% octicon "gear" aria-label="Administrator settings" %} dropdown menu, then click **Remove owner**.
+1. Read the confirmation, then click **Remove owner**.
+{%- endif %}

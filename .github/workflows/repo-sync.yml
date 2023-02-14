@@ -41,13 +41,13 @@ jobs:
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
             const { owner, repo } = context.repo
 
-            const { data: pr } = await github.pulls.get({
+            const { data: pr } = await github.rest.pulls.get({
               owner,
               repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
@@ -61,7 +61,7 @@ jobs:
             }
 
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: prCreator
@@ -75,7 +75,7 @@ jobs:
             }
 
             // Close the PR and add the invalid label
-            await github.issues.update({
+            await github.rest.issues.update({
               owner,
               repo,
               issue_number: pr.number,
@@ -84,7 +84,7 @@ jobs:
             })
 
             // Comment on the PR
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner,
               repo,
               issue_number: pr.number,
@@ -150,11 +150,11 @@ jobs:
       # Because we get far too much spam ;_;
       - name: Lock conversations
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
             try {
-              await github.issues.lock({
+              await github.rest.issues.lock({
                 ...context.repo,
                 issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
                 lock_reason: 'spam'
@@ -168,17 +168,17 @@ jobs:
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
-            const mainHeadSha = await github.git.getRef({
+            const mainHeadSha = await github.rest.git.getRef({
               ...context.repo,
               ref: 'heads/main'
             })
             console.log(`heads/main sha: ${mainHeadSha.data.object.sha}`)
 
-            const pull = await github.pulls.get({
+            const pull = await github.rest.pulls.get({
               ...context.repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
             })
@@ -186,7 +186,7 @@ jobs:
 
             if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
               try {
-                const updateBranch = await github.pulls.updateBranch({
+                const updateBranch = await github.rest.pulls.updateBranch({
                   ...context.repo,
                   pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
                 })
@@ -196,7 +196,7 @@ jobs:
                 // We should retry one more time to update the branch
                 if (error.status === 422) {
                   try {
-                    const updateBranch = await github.pulls.updateBranch({
+                    const updateBranch = await github.rest.pulls.updateBranch({
                       ...context.repo,
                       pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
                     })
@@ -217,7 +217,7 @@ jobs:
 
       - name: Check pull request file count after updating
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: pr-files
         env:
           PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
@@ -225,7 +225,7 @@ jobs:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           result-encoding: string
           script: |
-            const { data: prFiles } = await github.pulls.listFiles({
+            const { data: prFiles } = await github.rest.pulls.listFiles({
               ...context.repo,
               pull_number: process.env.PR_NUMBER,
             })

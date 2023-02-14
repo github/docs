@@ -32,7 +32,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% endnote %}
 
-If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+If that worked, great! If not, you may need to [follow our troubleshooting guide](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
 
 Now, to clone the repository, you can run the following command:
 

@@ -12,7 +12,7 @@ shortTitle: Server Statistics
 
 ## About {% data variables.product.prodname_server_statistics %}
 
-{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.location.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
+{% data variables.product.prodname_server_statistics %} collects aggregate usage data from {% data variables.location.product_location %}, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
 {% data variables.product.prodname_server_statistics %} only collects certain aggregate metrics on repositories, issues, pull requests, and other features. {% data variables.product.prodname_dotcom %} content, such as code, issues, comments, or pull request content, is not collected. For more information, see "[About {% data variables.product.prodname_server_statistics %}](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
 
@@ -27,4 +27,3 @@ You can disable {% data variables.product.prodname_server_statistics %} from {% 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 4. Under "Share server statistics with GitHub.com", select the dropdown menu and click **Enabled** or **Disabled**.
-  ![Screenshot of {% data variables.product.prodname_server_statistics %} drop-down menu with disabled or enabled options](/assets/images/help/server-statistics/server-statistics-enable-disable-options.png)

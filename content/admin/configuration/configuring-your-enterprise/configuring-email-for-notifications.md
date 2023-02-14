@@ -25,21 +25,18 @@ shortTitle: Configure email notifications
 
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
+4. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
-![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Type the settings for your SMTP server.
       - In the **Server address** field, type the address of your SMTP server.
       - In the **Port** field, type the port that your SMTP server uses to send email.
       - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
       - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.      
+      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-![Checkbox to discard emails addressed to the no-reply email address](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Under **Support**, choose a type of link to offer additional support to your users.
+7. Under **Support**, select a type of link to offer additional support to your users.
     - **Email:** An internal email address.
     - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
-  ![Support email or URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Test email delivery](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -67,11 +64,8 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 ## Testing email delivery
 
 1. At the top of the **Email** section, click **Test email settings**.
-![Test email settings](/assets/images/enterprise/management-console/test-email.png)
-2. In the **Send test email to** field, type an address to send the test email to.
-![Test email address](/assets/images/enterprise/management-console/test-email-address.png)
+2. Under "Send test email to," type an address to send the test email to.
 3. Click **Send test email**.
-![Send test email](/assets/images/enterprise/management-console/test-email-address-send.png)
 
   {% tip %}
 
@@ -80,8 +74,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
   {% endtip %}
 
 4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
-5. When the test email succeeds, at the bottom of the page, click **Save settings**.
-![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
+5. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}

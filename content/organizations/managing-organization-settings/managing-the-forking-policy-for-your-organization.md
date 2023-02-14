@@ -28,14 +28,11 @@ If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal
 {% data reusables.profile.org_settings %}
 {% data reusables.profile.org_member_privileges %}
 1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
+{%- ifversion org-owners-limit-forks-creation %}
+2. Optionally, if your organization is owned by an enterprise account, select a policy for where users are allowed to fork repositories.
 
-   {%- ifversion fpt %}
-   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-fpt.png)
-   {%- elsif ghes or ghec or ghae %}
-   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)
-   {%- endif %}{% ifversion org-owners-limit-forks-creation %}
-2. Optionally, if forking is enabled, you can specify where users are allowed to fork repositories. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and a more restrictive default has been selected in the enterprise settings, you won't be able to select the more permissive default in your organization settings. Review the information about changing the setting and choose a policy.
-   ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/org-repository-forking-policy-settings.png){%- endif %}
+   If repository forking policy is configured at the enterprise level, you won't be able to select a more permissive policy in your organization settings.
+{%- endif %}
 3. Click **Save**.
 
 ## Further reading

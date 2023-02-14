@@ -60,7 +60,7 @@ With registries that support granular permissions, you can use a `GITHUB_TOKEN` 
 {% ifversion packages-registries-v2 %}
 With registries that support granular permissions, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository.
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at {% ifversion ghes %}`https://containers.HOSTNAME/OWNER/PACKAGE-NAME`{% else %}`https://ghcr.io/OWNER/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} or packages stored at `https://npm.pkg.github.com/OWNER/PACKAGE-NAME`{% endif %}, you must have admin access to the package. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+To delete a package that has granular permissions separate from a repository, such as container images stored at {% ifversion ghes %}`https://containers.HOSTNAME/NAMESPACE/PACKAGE-NAME`{% else %}`https://ghcr.io/NAMESPACE/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} or packages stored at `https://npm.pkg.github.com/NAMESPACE/PACKAGE-NAME`{% endif %} (where `NAMESPACE` is the name of the personal account or organization to which the package is scoped), you must have admin access to the package. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 For packages that inherit their access permissions from repositories, you can delete a package if you have admin permissions to the repository.
 
@@ -68,7 +68,7 @@ Some registries **only** support repository-scoped packages. For a list of these
 
 {% else %}
 
-You can delete a package if you have admin permissions to the repository to which the package is published.
+You can delete a package if you have admin permissions to the repository in which the package is published.
 
 {% endif %}
 
@@ -76,7 +76,7 @@ You can delete a package if you have admin permissions to the repository to whic
 
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package on {% data variables.product.prodname_dotcom %}
 
-To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package, you must have admin permissions to the repository that owns the package. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package, you must have admin permissions to the repository in which the package is published. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -194,13 +194,13 @@ For example, if you have a deleted RubyGems package named `octo-package` that wa
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-  - For repository-scoped packages: You have admin permissions to the repository that owns the deleted package.{% ifversion fpt or ghec %}
-  - For user-account scoped packages: Your personal account owns the deleted package.
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization that owns the package.{% endif %}
+  - For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+  - For user-account scoped packages: The deleted package is scoped to your personal account.
+  - For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
 {% ifversion ghae or ghes %}
-To delete a package, you must also have admin permissions to the repository that owns the deleted package.
+To delete a package, you must also have admin permissions to the repository in which the package is published.
 {% endif %}
 
 For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
@@ -209,7 +209,7 @@ Once the package is restored, the package will use the same namespace it did bef
 
 ### Restoring a package in an organization
 
- You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization{% ifversion fpt or ghec %} or had granular permissions and was scoped to your organization account{% endif %}.
+ You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization{% ifversion packages-registries-v2 %} or had granular permissions and was scoped to your organization account{% endif %}.
 
 To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 

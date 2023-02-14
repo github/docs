@@ -71,8 +71,8 @@ After you configure rate limits and a user exceeds the limit, the {% data variab
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
+1. Optionally, under "Lockout time", type a number of minutes to lock the {% data variables.enterprise.management_console %} after too many failed login attempts.
+1. Optionally, under "Login attempt limit", type a maximum number of failed login attempts to allow before the {% data variables.enterprise.management_console %} is locked.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

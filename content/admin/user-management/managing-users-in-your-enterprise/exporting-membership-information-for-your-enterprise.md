@@ -17,4 +17,3 @@ To perform an audit of people with access to your enterprise's resources, you ca
 
    - If your enterprise has less than 1,000 members, the report will download immediately.
    - If your enterprise has 1,000 or more members, you'll soon receive an email with a link to download the report.
-   ![Screenshot of the "CSV report" button](/assets/images/help/business-accounts/csv-report-button.png)

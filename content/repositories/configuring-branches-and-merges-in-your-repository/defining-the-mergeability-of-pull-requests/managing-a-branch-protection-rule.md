@@ -23,7 +23,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can manage branch protection rules.
+permissions: People with admin permissions {% ifversion edit-repository-rules %}or a custom role with the "edit repository rules" permission{% endif %} to a repository can manage branch protection rules.
 topics:
   - Repositories
 shortTitle: Branch protection rule
@@ -95,7 +95,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
   ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
   {% tip %}
 
-  **Tip:** The pull request merge queue feature is currently in limited public beta and subject to change. Organizations owners can request early access to the beta by joining the [waitlist](https://github.com/features/merge-queue/signup).
+  **Tip:** The pull request merge queue feature is currently in public beta and subject to change.
 
   {% endtip %}
 {%- endif %}

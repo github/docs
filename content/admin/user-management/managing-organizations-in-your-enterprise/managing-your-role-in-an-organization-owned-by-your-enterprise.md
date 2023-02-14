@@ -37,9 +37,9 @@ If an organization enforces SAML single sign-on (SSO), you cannot use the enterp
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.
+1. Next to the organization you want to manage your role in, select the {% octicon "gear" aria-label="Organization settings" %} dropdown menu and click **Join as an organization owner** or **Join as an organization member**.
 
-   ![Screenshot of the dropdown menu for the gear icon for an organization](/assets/images/help/business-accounts/change-role-in-org.png)
+   {% data reusables.enterprise-accounts.organization-settings-dropdown %}
 
 {% ifversion ghec %}
 

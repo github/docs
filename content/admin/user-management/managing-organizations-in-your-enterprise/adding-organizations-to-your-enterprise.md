@@ -48,46 +48,41 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. On the **Organizations** tab, above the list of organizations, click **New organization**.
-  ![New organization button](/assets/images/help/business-accounts/enterprise-account-add-org.png)
 3. Under "Organization name", type a name for your organization.
-  ![Field to type a new organization name](/assets/images/help/business-accounts/new-organization-name-field.png)
 4. Click **Create organization**.
-5. Under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
-  ![Organization owner search field and Invite button](/assets/images/help/business-accounts/invite-org-owner.png)
+5. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
 6. Click **Finish**.
 
 ## Inviting an organization to join your enterprise account
 
-Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts, or the previous enterprise must give up ownership of the organization first. For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)." 
+Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts, or the previous enterprise must give up ownership of the organization first. For more information, see "[Removing an organization from your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+
+When you invite an organization to join your enterprise account, at least one owner needs to accept the invitation. Then, you must give a final approval for the transfer.
+
+After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. On the **Organizations** tab, above the list of organizations, click **Invite organization**.
-![Invite organization](/assets/images/help/business-accounts/enterprise-account-invite-organization.png)
-3. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
-![Search for organization](/assets/images/help/business-accounts/enterprise-account-search-for-organization.png)
-4. Click **Invite organization**.
-5. The organization owners will receive an email inviting them to join the enterprise. At least one owner needs to accept the invitation before the process can continue. You can cancel or resend the invitation at any time before an owner approves it.
-![Cancel or resend](/assets/images/help/business-accounts/enterprise-account-invitation-sent.png)
-6. Once an organization owner has approved the invitation, you can view its status in the list of pending invitations.
-![Pending invitation](/assets/images/help/business-accounts/enterprise-account-pending.png)
-7. To complete the transfer, click **Approve**.
-![Approve invitation](/assets/images/help/business-accounts/enterprise-account-transfer-approve.png)
+1. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
+1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.
+1. After an organization owner has approved the invitation, navigate back to the the **Organizations** tab of the enterprise settings.
+1. Under "Organizations", click **X pending**.
+1. To complete the transfer, next to the organization name, click **Approve**.
 
 ## Transferring an organization between enterprise accounts
 
-Enterprise owners can transfer existing organizations between enterprise accounts. You must be an enterprise owner of both enterprise accounts. 
+Enterprise owners can transfer existing organizations between enterprise accounts. You must be an enterprise owner of both enterprise accounts.
 
 {% note %}
 
-**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %}.  
+**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %}.
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Gear" %} dropdown, and then click **Transfer organization**. 
-![Screenshot of the transfer button](/assets/images/help/business-accounts/org-transfer-button.png)
-1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and select the enterprise when it appears in the dropdown list.
-![Screenshot of the enterprise dropdown](/assets/images/help/business-accounts/org-transfer-select-enterprise.png)
+1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
+
+   {% data reusables.enterprise-accounts.organization-settings-dropdown %}
+1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and click the enterprise you want to transfer the organization to.
 2. Click **Review transfer**.
 3. To confirm the transfer, click **Transfer organization**.
-![Screenshot of the transfer organization button](/assets/images/help/business-accounts/org-transfer-confirm-button.png)
