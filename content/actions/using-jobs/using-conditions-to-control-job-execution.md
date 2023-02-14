@@ -29,6 +29,6 @@ You would see the following status on a skipped job:
 
 {% note %}
 
-**Note:** In some parts of the workflow, you cannot use environment variables; but instead, you can use contexts to access the value of an environment variable. For more information, see ["Using the env context to access environment variable values"](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values).
+**Note:** In some parts of the workflow you cannot use environment variables. Instead you can use contexts to access the value of an environment variable. For more information, see "[Using the env context to access environment variable values](/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values)."
 
 {% endnote %}
