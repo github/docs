@@ -1,4 +1,89 @@
-Attribution 4.0 International
+From bb62d7b889871c87fc7e075ef37ec56c823c5836 Mon Sep 17 00:00:00 2001
+From: Martin Lopes <54248166+martin389@users.noreply.github.com>
+Date: Mon, 7 Dec 2020 15:42:20 +1000
+Subject: [PATCH 1/2] Added initial draft of reference table
+ ...grating-from-travis-ci-to-github-actions.md | 18 ++++++++++++++++++
+ .../workflow-syntax-for-github-actions.md      |  4 +++-
+ .../github-actions/run_number_description.md   |  2 +-
+ 3 files changed, 22 insertions(+), 2 deletions(-
+diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+index ff321c94728..c13d67a5b51 100644
+--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -39,6 +39,24 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
++To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
++
++| Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
++| ---------------------|------------ |------------ |
++| `CI` | [`CI`](/actions/reference/environment-variables#default-environment-variables) | Allows your software to identify that it is running within a CI workflow. Always set to `true`.|
++| `TRAVIS` | [`GITHUB_ACTIONS`](/actions/reference/environment-variables#default-environment-variables) | Use `GITHUB_ACTIONS` to identify whether tests are being run locally or by {% data variables.product.prodname_actions %}. Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow.|
++| `TRAVIS_BRANCH` | [`github.head_ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) or [`github.ref`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Use `github.ref` to identify the branch or tag ref that triggered the workflow run. For example, `refs/heads/<branch_name>` or `refs/tags/<tag_name>`. Alternatvely, `github.head_ref` is the source branch of the pull request in a workflow run; this property is only available when the workflow event trigger is a `pull_request`.  |
++| `TRAVIS_BUILD_DIR` | [`github.workspace`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | Returns the default working directory for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
++| `TRAVIS_BUILD_NUMBER` | [`GITHUB_RUN_NUMBER`](/actions/reference/environment-variables#default-environment-variables) | {% data reusables.github-actions.run_number_description %} |
++| `TRAVIS_COMMIT` | [`GITHUB_SHA`](/actions/reference/environment-variables#default-environment-variables) | Returns the SHA of the commit that triggered the workflow. |
++| `TRAVIS_EVENT_TYPE` | [`github.event_name`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) |  The name of the webhook event that triggered the workflow. For example, `pull_request` or `push`. |
++| `TRAVIS_JOB_ID` | [`github.job`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context) | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
++| `TRAVIS_OS_NAME` | [`runner.os`](/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`. |
++| `TRAVIS_PULL_REQUEST` | [`github.event.pull_request.number`](/developers/webhooks-and-events/webhook-events-and-payloads#pull_request) | The pull request number. This property is only available when the workflow event trigger is a `pull_request`. |
++| `TRAVIS_REPO_SLUG` | [`GITHUB_REPOSITORY`](/actions/reference/environment-variables#default-environment-variables) | The owner and repository name. For example, `octocat/Hello-World`. |
++| `TRAVIS_TEST_RESULT` | [`job.status`](/actions/reference/context-and-expression-syntax-for-github-actions#job-context) | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
++| `USER` | [`GITHUB_ACTOR`](/actions/reference/environment-variables#default-environment-variables) | The name of the person or app that initiated the workflow. For example, `octocat`. |
++
+ #### Parallel job processing
+ 
+ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables.product.prodname_actions %} runs `jobs` in parallel. For more information, see "[Creating dependent jobs](/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs)."
+diff --git a/content/actions/reference/workflow-syntax-for-github-actions.md b/content/actions/reference/workflow-syntax-for-github-actions.md
+index dcfa3af305f..b46c4db515f 100644
+--- a/content/actions/reference/workflow-syntax-for-github-actions.md
++++ b/content/actions/reference/workflow-syntax-for-github-actions.md
+@@ -231,10 +231,12 @@ If you need to find the unique identifier of a job running in a workflow run, yo
+ 
+ ### `jobs.<job_id>`
+ 
+-Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
++You must create an identifier for each job by giving it a unique name. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+ 
+ #### Example
+ 
++In this example, two jobs have been created, and their `job_id` values are `my_first_job` and `my_second_job`.
++
+ ```yaml
+ jobs:
+   my_first_job:
+diff --git a/data/reusables/github-actions/run_number_description.md b/data/reusables/github-actions/run_number_description.md
+index 7f4c94a6224..748c350059c 100644
+--- a/data/reusables/github-actions/run_number_description.md
++++ b/data/reusables/github-actions/run_number_description.md
+@@ -1 +1 @@
+-A unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
++A unique number for each run of a particular workflow in a repository. This number begins at `1` for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.
+
+From 2f9ec0c54b590b34052e648358b1a09f70c4b4ae Mon Sep 17 00:00:00 2001
+From: Martin Lopes <54248166+martin389@users.noreply.github.com>
+Date: Mon, 7 Dec 2020 16:05:02 +1000
+Subject: [PATCH 2/2] Small edit
+
+---
+ .../migrating-from-travis-ci-to-github-actions.md               | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+index c13d67a5b51..2602fbad454 100644
+--- a/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
++++ b/content/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions.md
+@@ -39,7 +39,7 @@ Travis CI lets you set environment variables and share them between stages. Simi
+ 
+ Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
+ 
+-To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
++To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
+ 
+ | Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
+ | ---------------------|------------ |------------ |
+ Attribution 4.0 International
 
 =======================================================================
 
