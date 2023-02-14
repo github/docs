@@ -20,8 +20,9 @@ shortTitle: Access the monitor dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Monitor**.
-![The Monitor Dashboard link](/assets/images/enterprise/management-console/monitor-dash-link.png)
+2. In the top navigation bar, click **Monitor**.
+
+   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/monitor-dash-link.png)
 
 ## Troubleshooting common resource allocation problems on your appliance
 
@@ -31,7 +32,7 @@ shortTitle: Access the monitor dashboard
 
 {% endnote %}
 
-Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.  
+Use the monitor dashboard to stay informed on your appliance's resource health and make decisions on how to fix high usage issues.
 
 | Problem | Possible cause(s) | Recommendations |
 | -------- | ----------------- | --------------- |

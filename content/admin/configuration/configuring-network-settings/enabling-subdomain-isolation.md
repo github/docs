@@ -73,6 +73,5 @@ Before you enable subdomain isolation, you must configure your network settings 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Select **Subdomain isolation (recommended)**.
-  ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
+1. Select **Subdomain isolation (recommended)**.
 {% data reusables.enterprise_management_console.save-settings %}
