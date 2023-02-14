@@ -51,15 +51,13 @@ Most people will use one personal account for all their work on {% data variable
 
 ## Organization accounts
 
-Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once. 
+Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once.
 
 Like personal accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign into an organization. Instead, each person signs into their own personal account, and any actions the person takes on organization resources are attributed to their personal account. Each personal account can be a member of multiple organizations.
 
 The personal accounts within an organization can be given different roles in the organization, which grant different levels of access to the organization and its data. All members can collaborate with each other in repositories and projects, but only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
 
-![Diagram showing that users must sign in to their personal account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
-
-{% ifversion fpt or ghec %} 
+{% ifversion fpt or ghec %}
 Even if you're a member of an organization that uses SAML single sign-on, you will still sign into your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
 
 However, if you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, instead of using a personal account that you created, a new account will be provisioned for you by the enterprise's IdP. To access any organizations owned by that enterprise, you must authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
