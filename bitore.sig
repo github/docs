@@ -1,30 +1,10 @@
-
-github
-/
-docs
-Public
-Fork your own copy of github/docs
-Code
-Issues
-95
-Pull requests
-45
-Discussions
-Actions
-Projects
-4
-Security
-Insights
-Bump node from 16.18.0-alpine to 19.1.0-alpine
+BEGIN'
+GLOW7, ".Docx':
 Bumps node from 16.18.0-alpine to 19.1.0-alpine.
-
----
 updated-dependencies:
 - dependency-name: node
   dependency-type: direct:production
   update-type: version-update:semver-major
-...
-
 Signed-off-by: dependabot[bot] <support@github.com>
  dependabot/docker/node-19.1.0-alpine (#22152, #23154, #23297, HaTin79/docs#18, Winlove0710/docs#4, diberry/docs-1#1)
 @dependabot
