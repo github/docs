@@ -2,7 +2,7 @@ import { readFile, readdir } from 'fs/promises'
 import yaml from 'js-yaml'
 import path from 'path'
 
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '../../../../lib/all-versions.js'
 const OPEN_API_RELEASES_DIR = path.join('..', 'github', '/app/api/description/config/releases')
 
 // Gets the full list of unpublished + active, deprecated + active,

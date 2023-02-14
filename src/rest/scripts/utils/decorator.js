@@ -3,18 +3,18 @@ import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
 
-import { allVersions } from '../../../lib/all-versions.js'
-import { categoriesWithoutSubcategories } from '../../../lib/rest/index.js'
+import { allVersions } from '../../../../lib/all-versions.js'
+import { categoriesWithoutSubcategories } from '../../lib/index.js'
 import getOperations, { getWebhooks } from './get-operations.js'
 
-const ENABLED_APPS = 'lib/rest/static/apps/enabled-for-apps.json'
+const ENABLED_APPS = 'src/github-apps/data/enabled-for-apps.json'
 const STATIC_REDIRECTS = 'lib/redirects/static/client-side-rest-api-redirects.json'
-const REST_DECORATED_DIR = 'lib/rest/static/decorated'
-const WEBHOOK_DECORATED_DIR = 'lib/webhooks/static/decorated'
-const REST_DEREFERENCED_DIR = 'lib/rest/static/dereferenced'
+const REST_DECORATED_DIR = 'src/rest/data'
+const WEBHOOK_DECORATED_DIR = 'src/webhooks/data'
+const REST_DEREFERENCED_DIR = 'src/rest/data/dereferenced'
 
 export async function decorate(schemas) {
-  console.log('\n🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.\n')
+  console.log('\n🎄 Decorating the OpenAPI schema files in src/rest/data/dereferenced.\n')
   const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(schemas)
   const webhookOperations = await getWebhookOperations(webhookSchemas)
   await createStaticWebhookFiles(webhookOperations)
@@ -230,7 +230,7 @@ async function createStaticWebhookFiles(webhookSchemas) {
 
 async function getCategoryOverrideRedirects() {
   const { operationUrls, sectionUrls } = JSON.parse(
-    await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
+    await readFile('src/rest/scripts/utils/rest-api-overrides.json', 'utf8')
   )
 
   const operationRedirects = {}
@@ -253,7 +253,7 @@ async function getCategoryOverrideRedirects() {
 
 async function addRestClientSideRedirects(operations, clientSideRedirects) {
   // For each rest operation that doesn't have an override defined
-  // in script/rest/utils/rest-api-overrides.json,
+  // in src/rest/scripts/utils/rest-api-overrides.json,
   // add a client-side redirect
   operations.forEach((operation) => {
     // A handful of operations don't have external docs properties

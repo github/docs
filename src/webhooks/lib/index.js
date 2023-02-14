@@ -1,11 +1,9 @@
-import { fileURLToPath } from 'url'
 import path from 'path'
 
-import { allVersions } from '../all-versions.js'
-import { readCompressedJsonFileFallback } from '../read-json-file.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const schemasPath = path.join(__dirname, 'static/decorated')
+const schemasPath = 'src/webhooks/data'
 
 // cache for webhook data per version
 const webhooksCache = new Map()
