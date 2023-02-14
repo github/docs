@@ -44,13 +44,13 @@ After a pull request has been merged, or closed, you can delete the head branch 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 The following diagrams illustrate this.
 
- Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, `feature1` is the base branch for `feature2`. If the pull request for `feature2` is merged now, the `feature2` branch will be merged into `feature1`.
+Here someone has created a branch called `feature1` from the `main` branch, and you've then created a branch called `feature2` from `feature1`. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, `feature1` is the base branch for `feature2`. If the pull request for `feature2` is merged now, the `feature2` branch will be merged into `feature1`.
 
- ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram1.png)
+![Diagram that shows a feature1 branch with a pull request targeting main, and a feature2 branch with a pull request targeting feature1.](/assets/images/help/branches/pr-retargeting-diagram1.png)
 
 In the next diagram, someone has merged the pull request for `feature1` into the `main` branch, and they have deleted the `feature1` branch. As a result, {% data variables.product.prodname_dotcom %} has automatically retargeted the pull request for `feature2` so that its base branch is now `main`.
 
- ![merge-pull-request-button](/assets/images/help/branches/pr-retargeting-diagram2.png)
+![Diagram that shows both feature1 and feature2 branches with pull requests targeting main.](/assets/images/help/branches/pr-retargeting-diagram2.png)
 
 Now when you merge the `feature2` pull request, it'll be merged into the `main` branch.
 
