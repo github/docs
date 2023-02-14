@@ -15,6 +15,8 @@ topics:
 
 ## About {% data variables.product.prodname_sponsors %}
 
+{% data reusables.sponsors.paypal-deprecation %}
+
 {% data reusables.sponsors.sponsorship-details %}
 
 {% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."

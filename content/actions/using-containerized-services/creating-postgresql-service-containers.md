@@ -91,7 +91,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs in containers
 
 {% data reusables.actions.service-container-host %}
 
@@ -123,7 +123,7 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs in containers
 
 {% data reusables.actions.service-template-steps %}
 
@@ -213,7 +213,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs directly on the runner machine
 
 {% data reusables.actions.service-container-host-runner %}
 
@@ -248,7 +248,7 @@ jobs:
           - 5432:5432
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs directly on the runner machine
 
 {% data reusables.actions.service-template-steps %}
 

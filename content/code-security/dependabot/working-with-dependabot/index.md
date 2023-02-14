@@ -17,8 +17,8 @@ children:
   - /managing-pull-requests-for-dependency-updates
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
-  - /managing-encrypted-secrets-for-dependabot
-  - /configuring-dependabot-to-only-access-private-registries
+  - /configuring-access-to-private-registries-for-dependabot
+  - /removing-dependabot-access-to-public-registries
   - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /troubleshooting-dependabot-errors
 ---

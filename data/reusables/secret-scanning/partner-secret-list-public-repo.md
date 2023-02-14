@@ -122,6 +122,9 @@ Twilio | Twilio API Key
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}
 Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+WakaTime | WakaTime App Secret
+WakaTime | WakaTime OAuth Access Token
+WakaTime | WakaTime OAuth Refresh Token
 Yandex | Yandex.Cloud API Key	
 Yandex | Yandex.Cloud IAM Cookie	
 Yandex | Yandex.Cloud IAM Token	

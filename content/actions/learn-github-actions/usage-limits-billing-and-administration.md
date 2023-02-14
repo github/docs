@@ -26,7 +26,6 @@ shortTitle: Workflow billing & limits
 GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
-
 {% ifversion fpt or ghec %}
 
 ## Availability
@@ -85,7 +84,7 @@ Usage limits apply to self-hosted runners. For more information, see "[About sel
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service/). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/github/site-policy/github-additional-product-terms#a-actions-usage).
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Billing for reusable workflows
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -111,10 +110,12 @@ For more information, see:
 
 {% data reusables.actions.disabling-github-actions %}
 
+{% ifversion actions-cache-admin-ui %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
+
 For more information, see:
 - "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
-- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+- "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)"
 
 ## Disabling and enabling workflows
 

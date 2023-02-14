@@ -86,7 +86,7 @@ If you cannot connect to services on {% data variables.location.product_location
 
 ### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
 
-If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)" and "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
+If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)" and "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
 
 If {% data variables.location.product_location %} indicates that your session has expired when you connect to the {% data variables.enterprise.management_console %} through a load balancer, try one of the following configurations on your load balancer.
 
@@ -97,6 +97,6 @@ For more information, refer to the documentation for your load balancer.
 
 ### Live updates to issues and check runs not working
 
-When {% data variables.location.product_location %} is accessed via a load balancer or reverse proxy, expected live updates, such as new comments on issues and changes in notification badges or check run output, may not display until the page is refreshed. This is most common when the reverse proxy or load balancer is running in a layer 7 mode or does not support the required [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) protocol. 
+When {% data variables.location.product_location %} is accessed via a load balancer or reverse proxy, expected live updates, such as new comments on issues and changes in notification badges or check run output, may not display until the page is refreshed. This is most common when the reverse proxy or load balancer is running in a layer 7 mode or does not support the required [websocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) protocol.
 
 To enable live updates, you may need to reconfigure the load balancer or proxy. For more information, refer to the documentation for your load balancer.

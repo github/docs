@@ -116,7 +116,7 @@ Here are the currently supported color models.
 
 ## Links
 
-You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% ifversion fpt or ghae > 3.3 or ghes or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
 
 {% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
 
@@ -172,7 +172,7 @@ Here are some examples for using relative links to display an image.
 
 For more information, see "[Relative Links](#relative-links)."
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 ### Specifying the theme an image is shown to
 
 You can specify the theme an image is displayed for in Markdown by using the HTML `<picture>` element in combination with the `prefers-color-scheme` media feature. We distinguish between light and dark color modes, so there are two options available. You can use these options to display images optimized for dark or light backgrounds. This is particularly helpful for transparent PNG images.
@@ -291,18 +291,6 @@ For more information, see "[Autolinked references and URLs](/get-started/writing
 
 {% data reusables.repositories.autolink-references %}
 
-{% ifversion ghes < 3.4 %}
-## Content attachments
-
-Some {% data variables.product.prodname_github_apps %} provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
-
-![Content attachment](/assets/images/github-apps/content_reference_attachment.png)
-
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% ifversion fpt or ghec %} For more information, see "[Installing an app in your personal account](/get-started/customizing-your-github-workflow/purchasing-and-installing-apps-in-github-marketplace/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/get-started/customizing-your-github-workflow/purchasing-and-installing-apps-in-github-marketplace/installing-an-app-in-your-organization)."{% endif %}
-
-Content attachments will not be displayed for URLs that are part of a markdown link.
-
-For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/developers/apps/guides/using-content-attachments)."{% endif %}
 
 ## Uploading assets
 

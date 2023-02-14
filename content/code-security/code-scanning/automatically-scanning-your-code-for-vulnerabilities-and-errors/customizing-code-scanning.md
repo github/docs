@@ -102,7 +102,7 @@ By default, only alerts with the severity level of `Error` or security severity 
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
 
-``` yaml
+``` yaml{:copy}
 on:
   push:
     branches: [main, protected]
@@ -138,7 +138,7 @@ If you use the default {% data variables.code-scanning.codeql_workflow %}, the w
 
 The following example shows a {% data variables.code-scanning.codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
 
-``` yaml
+``` yaml{:copy}
 on:
   push:
     branches: [main, protected]
@@ -157,7 +157,7 @@ This workflow scans:
 
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
-``` yaml
+``` yaml{:copy}
 jobs:
   analyze:
     name: Analyze
@@ -166,7 +166,7 @@ jobs:
 
 If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% endif %}
 
-``` yaml
+``` yaml{:copy}
 jobs:
   analyze:
     name: Analyze
@@ -183,7 +183,7 @@ For recommended specifications (RAM, CPU cores, and disk) for running {% data va
 
 In general, you do not need to worry about where the {% data variables.code-scanning.codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
-``` yaml
+``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
@@ -205,7 +205,7 @@ The default {% data variables.code-scanning.codeql_workflow %} file contains a m
 
 If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was configured. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was configured, and you later added Python code, you will need to add `python` to the matrix.
 
-```yaml
+```yaml{:copy}
 jobs:
   analyze:
     name: Analyze
@@ -218,7 +218,7 @@ jobs:
 
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
 
-```yaml
+```yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     languages: cpp, csharp, python
@@ -234,7 +234,7 @@ For GitHub-hosted runners that use Linux only, the {% data variables.code-scanni
 
 Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
 
-```yaml
+```yaml{:copy}
 jobs:
   CodeQL-Build:
     runs-on: ubuntu-latest
@@ -274,7 +274,7 @@ Use `category` to distinguish between multiple analyses for the same tool and co
 
 This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
-``` yaml
+``` yaml{:copy}
     - name: Perform CodeQL Analysis
       uses: {% data reusables.actions.action-codeql-action-analyze %}
       with:
@@ -315,7 +315,7 @@ In the example below, `scope` is the organization or personal account that publi
 - The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
 - Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
 
-``` yaml
+``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Comma-separated list of packs to download
@@ -341,7 +341,7 @@ For more information about pack compatibility, see "[About {% data variables.pro
 
 If your workflow uses packs that are published on a {% data variables.product.prodname_ghe_server %} installation, you need to tell your workflow where to find them. You can do this by using the `registries` input of the {% data reusables.actions.action-codeql-action-init %} action. This input accepts a list of `url`, `packages`, and `token` properties as shown below.
 
-```
+```yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     registries: {% raw %}|
@@ -373,7 +373,7 @@ Notice the `|` after the `registries` property name. This is important since  {%
 {% endif %}
 To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
-``` yaml
+``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
@@ -393,7 +393,7 @@ If you also use a configuration file for custom settings, any additional {% ifve
 
 In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
-``` yaml
+``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
@@ -409,7 +409,7 @@ A custom configuration file is an alternative way to specify additional {% ifver
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
-``` yaml
+``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
@@ -419,7 +419,7 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
-```yaml
+```yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
@@ -435,7 +435,7 @@ The settings in the configuration file are written in YAML format.
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
 {% raw %}
-``` yaml
+``` yaml{:copy}
 packs:
   # Use the latest version of 'pack1' published by 'scope'
   - scope/pack1
@@ -457,7 +457,7 @@ The full format for specifying a query pack is `scope/name[@version][:path]`. Bo
 If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
 
 {% raw %}
-``` yaml
+``` yaml{:copy}
 packs:
   # Use these packs for JavaScript and TypeScript analysis
   javascript:
@@ -475,7 +475,7 @@ packs:
 
 You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
 
-``` yaml
+``` yaml{:copy}
 queries:
   - uses: ./my-basic-queries/example-query.ql
   - uses: ./my-advanced-queries
@@ -500,7 +500,7 @@ This is useful if you want to exclude, for example:
 
 You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
 
-```yaml
+```yaml{:copy}
 query-filters:
   - exclude:
       id: js/redundant-assignment
@@ -525,9 +525,9 @@ For more information about using `exclude` and `include` filters in your custom 
 
 ### Specifying directories to scan
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes > 3.3 or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python{% ifversion fpt or ghes or ghae > 3.3 %}, Ruby{% endif %} and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
-``` yaml
+``` yaml{:copy}
 paths:
   - src
 paths-ignore:

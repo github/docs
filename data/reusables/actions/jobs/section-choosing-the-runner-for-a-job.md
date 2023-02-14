@@ -48,7 +48,9 @@ For more information, see "[About self-hosted runners](/github/automating-your-w
 
 You can use `runs-on` to target runner groups, so that the job will execute on any runner that is a member of that group. For more granular control, you can also combine runner groups with labels.
 
+{% ifversion fpt or ghec %}
 Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners) or [self-hosted runners](/actions/hosting-your-own-runners) as members.
+{% endif %}
 
 #### Example: Using groups to control where jobs are run
 

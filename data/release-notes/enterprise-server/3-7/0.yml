@@ -24,7 +24,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2344
         - |
-          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Administering your instance from the Management Console](/admin/configuration/administering-your-instance-from-the-management-console)."
 
     - heading: Authentication
       notes:

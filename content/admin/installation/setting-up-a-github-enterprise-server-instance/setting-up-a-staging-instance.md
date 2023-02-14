@@ -140,7 +140,7 @@ To access the staging instance using the same hostname, update your local hosts 
 
 {% endnote %}
 
-Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the  {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+Then, review the staging instance's configuration in the {% data variables.enterprise.management_console %}. For more information, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)."
 
 {% warning %}
 

@@ -212,7 +212,6 @@ In this modification of the earlier example, we've introduced an `if` conditiona
 
 You will commonly use either the `env` or `github` context to access variable values in parts of the workflow that are processed before jobs are sent to runners.
 
-
 | Context | Use case | Example |
 | --- | --- | --- |
 | `env` | Reference custom variables defined in the workflow. | <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span> |
@@ -255,7 +254,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
@@ -275,7 +274,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
 {%- ifversion actions-job-summaries %}
-| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/rob/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
+| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
 {%- ifversion actions-oidc-custom-claims %}

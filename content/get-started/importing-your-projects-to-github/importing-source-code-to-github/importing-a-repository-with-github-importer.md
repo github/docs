@@ -36,7 +36,7 @@ If SAML SSO or 2FA are enabled for your user account on the old project, enter a
 ![Password form and Submit button for password-protected project](/assets/images/help/importer/submit-old-credentials-importer.png)
 7. If there are multiple projects hosted at your old project's clone URL, choose the project you'd like to import, then click **Submit**.
 ![List of projects to import and Submit button](/assets/images/help/importer/choose-project-importer.png)
-8. If your project contains files larger than 100 MB, choose whether to import the large files using [Git Large File Storage](/repositories/working-with-files/managing-large-files), then click **Continue**.
+8. If you're moving from a version control system other than Git and your project contains files larger than 100 MB, choose whether to import the large files using [Git Large File Storage](/repositories/working-with-files/managing-large-files), then click **Continue**.
 ![Git Large File Storage menu and Continue button](/assets/images/help/importer/select-gitlfs-importer.png)
 
 You'll receive an email when the repository has been completely imported.

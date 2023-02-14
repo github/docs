@@ -57,7 +57,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
-### Example
+### Example of literals
 
 {% raw %}
 
@@ -147,7 +147,7 @@ For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)`
 
 Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `startsWith`
 
 `startsWith('Hello world', 'He')` returns `true`.
 
@@ -157,7 +157,7 @@ Returns `true` when `searchString` starts with `searchValue`. This function is n
 
 Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `endsWith`
 
 `endsWith('Hello world', 'ld')` returns `true`.
 
@@ -167,7 +167,7 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
-#### Example
+#### Example of `format`
 
 {% raw %}
 ```js
@@ -193,7 +193,7 @@ Returns '{Hello Mona the Octocat!}'.
 
 The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
 
-#### Example
+#### Example of `join`
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
@@ -203,7 +203,7 @@ The value for `array` can be an array or a string. All values in `array` are con
 
 Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
 
-#### Example
+#### Example of `toJSON`
 
 `toJSON(job)` might return `{ "status": "Success" }`
 
@@ -284,8 +284,7 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
@@ -298,7 +297,7 @@ You can use the following status check functions as expressions in `if` conditio
 
 Returns `true` when none of the previous steps have failed or been canceled.
 
-#### Example
+#### Example of `success`
 
 ```yaml
 steps:
@@ -309,9 +308,15 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
 
-#### Example
+{% note %}
+
+**Note:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative:`if: success() || failure()`
+
+{% endnote %}
+
+#### Example of `always`
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -321,7 +326,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 Returns `true` if the workflow was canceled.
 
-#### Example
+#### Example of `cancelled`
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
@@ -331,7 +336,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
-#### Example
+#### Example of `failure`
 
 ```yaml
 steps:
@@ -344,7 +349,7 @@ steps:
 
 You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-##### Example
+##### Example of `failure` with conditions
 
 ```yaml
 steps:

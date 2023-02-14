@@ -45,9 +45,22 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
 
 1. Choose how you want to automatically trigger prebuild updates.
 
-   * **Every push** (the default setting) - With this setting, prebuilds will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
-   * **On configuration change** - With this setting, prebuilds will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The {% data variables.product.prodname_actions %} workflow that updates the prebuilds will run less often, so this option will use fewer {% data variables.product.prodname_actions %} minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
-   * **Scheduled** - With this setting, you can have your prebuilds updated on a custom schedule that's defined by you. This can reduce consumption of {% data variables.product.prodname_actions %} minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+   - **Every push** (the default setting) - With this setting, prebuilds will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild always contain the latest codespace configuration, including any recently added or updated dependencies.
+
+   - **On configuration change** - With this setting, prebuilds will be updated every time any of the following files is changed:
+     - `.devcontainer/devcontainer.json`
+
+       {% note %}
+
+       **Note**: Prebuild updates are not triggered by changes to `devcontainer.json` files within subdirectories of `.devcontainer`.
+
+       {% endnote %}
+
+     - The Dockerfile referenced in the `build.dockerfile` property of the `.devcontainer/devcontainer.json` file.
+
+     This setting ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild. The {% data variables.product.prodname_actions %} workflow that updates the prebuilds will run less often, so this option will use fewer {% data variables.product.prodname_actions %} minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
+
+   - **Scheduled** - With this setting, you can have your prebuilds updated on a custom schedule that's defined by you. This can reduce consumption of {% data variables.product.prodname_actions %} minutes, however, with this option, codespaces may be created that do not use the latest dev container configuration changes.
 
    ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 

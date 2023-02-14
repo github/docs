@@ -82,9 +82,9 @@ A {% data variables.product.prodname_github_codespaces %} instance (a "codespace
 |                     |  8 core      | 1 hour          | 8                         | $0.72 |
 |                     |  16 core     | 1 hour          | 16                        | $1.44 |
 |                     |  32 core     | 1 hour          | 32                        | $2.88 |
-| Codespaces storage  |  Storage     | 1 GB-month<sup>*</sup> | N/A                | $0.07 |
+| Codespaces storage  |  Storage     | 1 GB-month [1] | N/A                | $0.07 |
 
-<sup>*</sup> See "[Billing for storage usage](#billing-for-storage-usage)" below for details of the GB-month unit of measure.
+[1] See "[Billing for storage usage](#billing-for-storage-usage)" below for details of the GB-month unit of measure.
 
 If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[Billing for {% data variables.product.prodname_codespaces %} prebuilds](#billing-for-codespaces-prebuilds)."
 

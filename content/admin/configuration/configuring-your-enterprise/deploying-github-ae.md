@@ -27,12 +27,11 @@ You must have permission to perform the `/register/action` operation for the res
 The {% data variables.actions.azure_portal %} allows you to deploy the {% data variables.product.product_name %} account in your Azure resource group.
 
 1. Click one of the following two links to begin deployment of {% data variables.product.product_name %}. The link you should click depends on the Azure cloud where you plan to deploy {% data variables.product.product_name %}. For more information about Azure Government, see [What is Azure Government?](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-welcome) in the Microsoft documentation.
-   
+
    - [Deploy {% data variables.product.product_name %} to Azure Commercial](https://aka.ms/create-github-ae-instance)
    - [Deploy {% data variables.product.product_name %} to Azure Government](https://aka.ms/create-github-ae-instance-gov)
 1. To begin the process of adding a new {% data variables.product.product_name %} account, click **Create GitHub AE account**.
 1. Complete the "Project details" and "Instance details" fields.
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-form.png)
     - **Account name:** The hostname for your enterprise
     - **Administrator username:** A username for the initial enterprise owner that will be created in {% data variables.product.product_name %}
     - **Administrator email:** The email address that will receive the login information
@@ -53,14 +52,13 @@ You can use the {% data variables.actions.azure_portal %} to navigate to your {%
 
 1. On the {% data variables.actions.azure_portal %}, in the left panel, click **All resources**.
 1. From the available filters, click **All types**, then deselect **Select all** and select **GitHub AE**:
-    ![{% data variables.actions.azure_portal %} search result](/assets/images/azure/github-ae-azure-portal-type-filter.png)
 
 ## Next steps
 
 - Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 - If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. If you need more time to evaluate {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
 
-## Further reading 
+## Further reading
 
 - "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)" 
+- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)"

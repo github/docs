@@ -9,23 +9,23 @@ Package manager | YAML value      | Supported versions | Private repositories | 
 Bundler        | `bundler`        | v1, v2           | | **✓** | **✓** |
 Cargo          | `cargo`          | v1               | **✓** | **✓** | |
 Composer       | `composer`       | v1, v2           | **✓** | **✓** | |
-Docker {% ifversion dependabot-version-updates-enhanced-docker-support %}<sup>[1]</sup>{% endif %}         | `docker`         | v1               | **✓** | **✓** | |
+Docker {% ifversion dependabot-version-updates-enhanced-docker-support %}[1]{% endif %}         | `docker`         | v1               | **✓** | **✓** | |
 Hex            | `mix`            | v1               | | **✓** | |
 elm-package    | `elm`            | v0.19            | **✓** | **✓** | |
 git submodule  | `gitsubmodule`   | N/A (no version) | **✓** | **✓** | |
-{% data variables.product.prodname_actions %} <sup>[2]</sup>   | `github-actions` | N/A (no version) | **✓** | **✓** | |
+{% data variables.product.prodname_actions %} [2]   | `github-actions` | N/A (no version) | **✓** | **✓** | |
 Go modules     | `gomod`          | v1               | **✓** | **✓** | **✓** |
-Gradle <sup>[3]</sup>         | `gradle`         | N/A (no version)   | **✓** | **✓** | |
-Maven <sup>[4]</sup>       | `maven`          | N/A (no version)   | **✓** | **✓** | |
+Gradle [3]         | `gradle`         | N/A (no version)   | **✓** | **✓** | |
+Maven [4]       | `maven`          | N/A (no version)   | **✓** | **✓** | |
 npm            | `npm`            | v6, v7, v8       | **✓** | **✓** | |
-NuGet          | `nuget`          | <= 4.8<sup>[5]</sup> | **✓** | **✓** | |
-pip{% ifversion dependabot-PEP621-support %}<sup>[6]</sup>{% endif %}          | `pip`            | v21.1.2          | | **✓** | |
+NuGet          | `nuget`          | <= 4.8 [5] | **✓** | **✓** | |
+pip{% ifversion dependabot-PEP621-support %} [6]{% endif %}          | `pip`            | v21.1.2          | | **✓** | |
 pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |
-pip-compile{% ifversion dependabot-PEP621-support %}<sup>[6]</sup>{% endif %}   | `pip`            | 6.1.0            | | **✓** | |
+pip-compile{% ifversion dependabot-PEP621-support %} [6]{% endif %}   | `pip`            | 6.1.0            | | **✓** | |
 poetry         | `pip`            | v1               | | **✓** | |{% ifversion fpt or ghec or ghes > 3.4 %}
-pub <sup>[7]</sup>           | `pub`            | v2  | | | |{% endif %}
+pub [7]           | `pub`            | v2  | | | |{% endif %}
 Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | **✓** | **✓** | |
-{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**<sup>[8]</sup> |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
+{% ifversion dependabot-yarn-v3-update %}yarn           | `npm`            | v1, v2, v3       | **✓** | **✓** | **✓**[8] |{% else %}yarn           | `npm`            | v1               | **✓** | **✓** |  |
 {% endif %}
 
 {% tip %}

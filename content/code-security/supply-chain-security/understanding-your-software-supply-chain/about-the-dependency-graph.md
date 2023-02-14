@@ -47,7 +47,6 @@ Repository administrators can also set up the dependency graph for private repos
 {% ifversion ghes %}
 For more information about configuration of the dependency graph, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."{% endif %}
 
-
 ## Dependencies included
 
 The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems{% ifversion dependency-submission-api %}, as well as any dependencies that are submitted using the Dependency submission API (beta){% endif %}. This includes:
@@ -86,27 +85,27 @@ The recommended formats explicitly define which versions are used for all direct
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
-| {% data variables.product.prodname_actions %} workflows<sup>[†]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+| {% data variables.product.prodname_actions %} workflows [1] | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`<sup>[‡]</sup> |
+| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`[2] |
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 {%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% ifversion github-actions-in-dependency-graph %}
-[†] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[1] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 {% endif %}
 
-[‡] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+[2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
 {% ifversion github-actions-in-dependency-graph %}
 {% note %}
