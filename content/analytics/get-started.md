@@ -5,3 +5,5 @@ redirect_from:
   - /analytics/get-started/
   - /analytics/getting-started-with-github-analytics/
 ---
+
+# Getting Started with GitHub Analytics
