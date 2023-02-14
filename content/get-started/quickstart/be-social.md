@@ -23,7 +23,7 @@ To learn about accessing your personal dashboard, see "[About your personal dash
 
 ## Following people
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard. 
+When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard.
 
 Click **Follow** on a person's profile page to follow them.
 
@@ -45,7 +45,7 @@ Click **Watch** at the top of a repository to watch it.
 
 ## Communicating on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. 
+{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions.
 
 For an overview of these tools, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/get-started/quickstart/communicating-on-github)."
 
@@ -54,8 +54,6 @@ For an overview of these tools, see "[Quickstart for communicating on {% data va
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
 From your dashboard, click the drop down menu of your username on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
-
-![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
 {% ifversion for-you-feed %}
 
@@ -77,7 +75,7 @@ For more information, see "[Following organizations](/get-started/exploring-proj
 
 You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. You can star interesting projects to make them easy to find again later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
-Your dashboard feed displays projects based on your interests including repositories you star, people you follow, and your contributions to public repositories. From your dashboard, you can see trending projects, view topics, and check out collections. 
+Your dashboard feed displays projects based on your interests including repositories you star, people you follow, and your contributions to public repositories. From your dashboard, you can see trending projects, view topics, and check out collections.
 
 To explore more projects, see "{% data variables.explore.explore_github %}".
 
