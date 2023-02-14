@@ -64,41 +64,33 @@ The application security team at your company can use the different views for bo
 
 Organization owners and security managers for organizations have access to the security overview for their organizations. {% ifversion ghec or ghes > 3.6 or ghae > 3.6 %}Organization members can also access the organization-level security overview to view results for repositories where they have admin privileges or have been granted access to security alerts. For more information on managing security alert access, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 
-{% ifversion security-overview-single-repo-enablement or security-overview-org-risk-coverage %}
+{% ifversion security-overview-org-risk-coverage %}
 
 ### Security Risk view
 
 This view shows data about the repositories affected by different types of security alert.
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Open alerts** or **Repositories affected** to show only repositories with a specific type of security alert.
+- Use the **Teams** dropdown menu to show information only for the repositories owned by one or more teams.
+- Click **NUMBER affected** or **NUMBER unaffected** in the header for any type of alert to show only the repositories with or without alerts of that type.
+- Click any of the descriptions of "Open alerts" in the header to show only repositories with alerts of that type and category. For example, **1 critical** to show the repository with a critical alert for {% data variables.product.prodname_dependabot %}.
+- Click **NUMBER Archived** to show only repositories that are archived.
+- Click in the search box to show a list of the full set of available filters.
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
-
-![Screenshot of the Security Risk view for an organization](/assets/images/help/security-overview/security-risk-view.png)
+![Screenshot of the "Security Risk" view on the "Security" tab for an organization. Illustrates information and filter options available in the view.](/assets/images/help/security-overview/security-risk-interactive-header.png)
 
 
 ### Security Coverage view
 
-This view shows data about which repositories are using security features.
+This view shows data about which security features are used by repositories in the organization. You can filter the view to show the repositories of interest using links, a dropdown menu, and a search field.
 
-- Use the **Type** and **Teams** drop-downs to add repository type and team filters.
-- Click **Alerts enabled** and other features listed in the header to see only repositories with those features enabled.
-- Change any `FEATURE:enabled` filter to `FEATURE:not-enabled` in the search box to see repositories that haven't enabled a feature.
-{%- ifversion security-overview-single-repo-enablement %}
-- For any repository, click **Security Settings** to enable security features that have a one-click setup.
+- Use the **Teams** dropdown to show information only for the repositories owned by one or more teams.
+- Click **NUMBER enabled** or **NUMBER not enabled** in the header for any feature to show only the repositories with that feature enabled or not enabled.
+- Click **NUMBER Archived** to show only repositories that are archived.
+- Click in the search box to show a list of the full set of available filters.
 
-In addition, when you click in the search box, a list of the full set of filters available is shown.
+In addition, you can click **{% octicon "gear" aria-label="" %} Security settings** for any repository to enable the security features that have a one-click setup.
 
-![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
-
-{%- elsif security-overview-org-risk-coverage %}
-- For any repository, click the ellipsis (**...**) then **Security Settings** to enable additional features.
-
-In addition, when you click in the search box, a list of the full set of filters available is shown.
-
-![Screenshot of the Security Coverage view for an organization](/assets/images/help/security-overview/security-coverage-view.png)
-{% endif %}
+![Screenshot of the "Security Coverage" view on the "Security" tab for an organization. Illustrates information and filter options available in view.](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
 
 {% else %}
 
@@ -107,8 +99,6 @@ In addition, when you click in the search box, a list of the full set of filters
 ![Screenshot of the security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
 For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
-
-![Icons in the security overview](/assets/images/help/security-overview/security-overview-icons.png)
 
 | Icon | Meaning |
 | -------- | -------- |

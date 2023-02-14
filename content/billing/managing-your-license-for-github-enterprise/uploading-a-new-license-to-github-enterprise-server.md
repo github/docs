@@ -28,10 +28,7 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "Quick links", click **Update license**.
-  ![Update license link](/assets/images/enterprise/business-accounts/update-license-link.png)
-1. To select your license, click **License file**, or drag your license file onto **License file**.
-  ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
-1. Click **Upload**.
-  ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+1. To upload your license, click **License file**, or drag your license file onto **License file**.
 
+   ![Screenshot of the "License" page of the Management Console. A link, labeled "License file", is highlighted with an orange outline.](/assets/images/enterprise/management-console/upload-license.png)
+1. Click **Upload**.
