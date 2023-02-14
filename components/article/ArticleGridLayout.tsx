@@ -17,7 +17,7 @@ export const ArticleGridLayout = ({ intro, topper, toc, children, className }: P
         <SidebarContent
           gridArea="sidebar"
           alignSelf="flex-start"
-          className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0"
+          className="border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0"
         >
           {toc}
         </SidebarContent>
@@ -44,7 +44,7 @@ const Container = styled(Box)`
 
   row-gap: ${themeGet('space.2')};
 
-  @media (min-width: ${themeGet('breakpoints.3')}) {
+  @media (min-width: ${themeGet('breakpoints.2')}) {
     max-width: none;
     padding-top: ${themeGet('space.4')};
     grid-template-rows: auto 1fr;
@@ -59,7 +59,7 @@ const Container = styled(Box)`
 `
 
 const SidebarContent = styled(Box)`
-  @media (min-width: ${themeGet('breakpoints.3')}) {
+  @media (min-width: ${themeGet('breakpoints.2')}) {
     position: sticky;
     padding-top: ${themeGet('space.4')};
     top: 5em;

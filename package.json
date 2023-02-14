@@ -194,7 +194,7 @@
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "node script/prevent-pushes-to-main.js",
-    "rest-dev": "script/rest/update-files.js && npm run dev",
+    "rest-dev": "src/rest/scripts/update-files.js",
     "show-action-deps": "echo 'Action Dependencies:' && rg '^[\\s|-]*(uses:.*)$' .github -I -N --no-heading -r '$1$2' | sort | uniq | cut -c 7-",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon server.js",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",

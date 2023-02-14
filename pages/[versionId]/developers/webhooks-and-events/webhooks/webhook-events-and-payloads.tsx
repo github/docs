@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { getInitialPageWebhooks } from 'lib/webhooks'
+import { getInitialPageWebhooks } from 'src/webhooks/lib'
 import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,

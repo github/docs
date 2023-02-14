@@ -16,8 +16,6 @@ on:
       - 'Dockerfile*'
       - 'src/**'
       - 'lib/redirects/**'
-      - 'lib/rest/**'
-      - 'lib/webhooks/**'
       - 'package*.json'
       - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -49,7 +47,7 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             openapi:
-              - 'lib/rest/static/**'
+              - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
               - '.github/actions-scripts/**'
@@ -60,8 +58,6 @@ jobs:
               - 'Dockerfile*'
               - 'src/**'
               - 'lib/redirects/**'
-              - 'lib/rest/**'
-              - 'lib/webhooks/**'
               - 'package*.json'
               - 'scripts/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -83,8 +79,6 @@ jobs:
               'Dockerfile*',
               'src/**',
               'lib/redirects/**',
-              'lib/rest/**',	
-              'lib/webhooks/**',
               'package*.json',
               'scripts/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
