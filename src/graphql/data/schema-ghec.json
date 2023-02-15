@@ -57734,6 +57734,26 @@
           "href": "/graphql/reference/enums#repositoryvisibility"
         },
         {
+          "name": "vulnerabilityAlert",
+          "description": "<p>Returns a single vulnerability alert from the current repository by number.</p>",
+          "type": "RepositoryVulnerabilityAlert",
+          "id": "repositoryvulnerabilityalert",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryvulnerabilityalert",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The number for the vulnerability alert to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "vulnerabilityAlerts",
           "description": "<p>A list of vulnerability alerts that are on this repository.</p>",
           "type": "RepositoryVulnerabilityAlertConnection",
