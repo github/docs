@@ -3,7 +3,8 @@ import path from 'path'
 import { allVersions } from '../../../lib/all-versions.js'
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 
-const schemasPath = 'src/webhooks/data'
+export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
+export const WEBHOOK_SCHEMA_FILENAME = 'schema.json'
 
 // cache for webhook data per version
 const webhooksCache = new Map()
@@ -62,13 +63,13 @@ export async function getWebhook(version, webhookCategory) {
 export async function getWebhooks(version) {
   const openApiVersion = getOpenApiVersion(version)
   if (!webhooksCache.has(openApiVersion)) {
-    const filename = `${openApiVersion}.json`
-
     // The `readCompressedJsonFileFallback()` function
     // will check for both a .br and .json extension.
     webhooksCache.set(
       openApiVersion,
-      readCompressedJsonFileFallback(path.join(schemasPath, filename))
+      readCompressedJsonFileFallback(
+        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME)
+      )
     )
   }
 
