@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { allVersions } from '../../../lib/all-versions.js'
+import { getOpenApiVersion } from '../../../lib/all-versions.js'
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
@@ -74,11 +74,4 @@ export async function getWebhooks(version) {
   }
 
   return webhooksCache.get(openApiVersion)
-}
-
-function getOpenApiVersion(version) {
-  if (!(version in allVersions)) {
-    throw new Error(`Unrecognized version '${version}'. Not found in ${Object.keys(allVersions)}`)
-  }
-  return allVersions[version].openApiVersionName
 }

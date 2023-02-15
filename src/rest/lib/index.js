@@ -3,11 +3,11 @@ import path from 'path'
 
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions, getOpenApiVersion } from '../../../lib/all-versions.js'
 import languages from '../../../lib/languages.js'
 
 const schemasPath = 'src/rest/data'
-const ENABLED_APPS_FILENAME = 'src/github-apps/data/enabled-for-apps.json'
+
 const contentPath = 'content/rest'
 
 /*
@@ -100,13 +100,6 @@ export default async function getRest(version, apiVersion, category, subCategory
   }
 }
 
-function getOpenApiVersion(version) {
-  if (!(version in allVersions)) {
-    throw new Error(`Unrecognized version '${version}'. Not found in ${Object.keys(allVersions)}`)
-  }
-  return allVersions[version].openApiVersionName
-}
-
 // Generates the miniToc for a rest reference page.
 export async function getRestMiniTocItems(
   category,
@@ -133,16 +126,4 @@ export async function getRestMiniTocItems(
     restOperationData.set(restOperationData, languageTree)
   }
   return restOperationData.get(language).get(version).get(apiDate).get(category).get(subCategory)
-}
-
-const enabledForApps = {}
-export async function getEnabledForApps(docsVersion, apiVersion) {
-  if (Object.keys(enabledForApps).length === 0) {
-    // The `readCompressedJsonFileFallback()` function
-    // will check for both a .br and .json extension.
-    Object.assign(enabledForApps, readCompressedJsonFileFallback(ENABLED_APPS_FILENAME))
-  }
-  const openApiVersion = getOpenApiVersion(docsVersion) + (apiVersion ? `.${apiVersion}` : '')
-
-  return enabledForApps[openApiVersion]
 }
