@@ -27,6 +27,13 @@ const POSSIBLE_SORTS = ['best', 'relevance']
 const DEFAULT_SORT = POSSIBLE_SORTS[0]
 const MAX_PAGE = 10
 
+// There are some fields you can optionally include in the output.
+// These are fields available in Elasticsearch that we don't include in
+// the output by default. E.g. `...&include=intro`
+// Requesting anything that is not in this list will result in
+// a 400 Bad Request.
+const V1_ADDITIONAL_INCLUDES = ['intro', 'headings']
+
 // If someone searches for `...&version=3.5` what they actually mean
 // is `ghes-3.5`. This is because of legacy formatting with the old search.
 // In some distant future we can clean up any client enough that this
@@ -204,6 +211,16 @@ const validationMiddleware = (req, res, next) => {
     },
     { key: 'autocomplete', default_: false, cast: toBoolean },
     { key: 'debug', default_: process.env.NODE_ENV === 'development', cast: toBoolean },
+    {
+      key: 'include',
+      default_: [],
+      cast: toArray,
+      // Note: At the time of writing this general validator middleware
+      // doesn't yet know it's being used by the v1 version.
+      // But we don't have any other versions yet so no need to
+      // over-engineer this more.
+      validate: (values) => values.every((value) => V1_ADDITIONAL_INCLUDES.includes(value)),
+    },
   ]
 
   const search = {}
@@ -247,12 +264,26 @@ function toBoolean(value) {
   return false
 }
 
+function toArray(value) {
+  return Array.isArray(value) ? value : [value]
+}
+
 router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, language, query, autocomplete, page, size, debug, sort, highlights } =
-      req.search
+    const {
+      indexName,
+      language,
+      query,
+      autocomplete,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      include,
+    } = req.search
 
     // The getSearchResults() function is a mix of preparing the search,
     // sending & receiving it, and post-processing the response from the
@@ -272,6 +303,7 @@ router.get(
       sort,
       highlights,
       usePrefixSearch: autocomplete,
+      include,
     }
     try {
       const { meta, hits } = await timed(options)
