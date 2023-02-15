@@ -80,7 +80,7 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %} with your specific IdP, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %} with your specific IdP, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
 
 {% ifversion ghae or scim-for-ghes %}
 
