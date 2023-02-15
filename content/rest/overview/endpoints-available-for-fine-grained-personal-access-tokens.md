@@ -198,7 +198,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 {% endif %}
 
 ## apps
-- [`GET /apps/{app_slug}`](/rest/apps/#get-an-app)
+- [`GET /apps/{app_slug}`](/rest/apps#get-an-app)
 - [`GET /user/installations/{installation_id}/repositories`](/rest/apps#list-repositories-accessible-to-the-user-access-token)
 {% ifversion fpt or ghec %}- [`GET /user/marketplace_purchases`](/rest/apps#list-subscriptions-for-the-authenticated-user){% endif %}
 {% ifversion fpt or ghec %}- [`GET /user/marketplace_purchases/stubbed`](/rest/apps#list-subscriptions-for-the-authenticated-user-stubbed){% endif %}
@@ -439,7 +439,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /gists/public`](/rest/gists#list-public-gists)
 - [`GET /gists/starred`](/rest/gists#list-starred-gists)
 - [`GET /gists/{gist_id}`](/rest/gists#get-a-gist)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist)
 - [`GET /gists/{gist_id}/comments`](/rest/gists#list-gist-comments)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment)
@@ -534,7 +534,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 ## licenses
 - [`GET /licenses`](/rest/licenses#get-all-commonly-used-licenses)
 - [`GET /licenses/{license}`](/rest/licenses#get-a-license)
-- [`GET /repos/{owner}/{repo}/license`](/rest/licenses/#get-the-license-for-a-repository)
+- [`GET /repos/{owner}/{repo}/license`](/rest/licenses#get-the-license-for-a-repository)
 
 ## markdown
 - [`POST /markdown`](/rest/markdown#render-a-markdown-document)
@@ -614,7 +614,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/orgs#remove-a-security-manager-team)
 - [`POST /orgs/{org}/{security_product}/{enablement}`](/rest/orgs#enable-or-disable-security-product-on-all-org-repos)
 {% ifversion ghec %}- [`POST /orgs/{org}/custom_roles`](/rest/orgs#create-a-custom-role){% endif %}
-{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs/#get-a-custom-role){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#get-a-custom-role){% endif %}
 {% ifversion ghec %}- [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#update-a-custom-role){% endif %}
 {% ifversion ghec %}- [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#delete-a-custom-role){% endif %}
 {% ifversion ghec %}- [`GET /orgs/{org}/fine_grained_permissions`](/rest/orgs#list-repository-fine-grained-permissions-for-an-organization){% endif %}
@@ -694,7 +694,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PATCH /repos/{owner}/{repo}/pulls/comments/{comment_id}`](/rest/pulls#update-a-review-comment-for-a-pull-request)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}`](/rest/pulls#delete-a-review-comment-for-a-pull-request)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request)
-- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/#update-a-pull-request)
+- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#update-a-pull-request)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#list-review-comments-on-a-pull-request)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#create-a-review-comment-for-a-pull-request)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies`](/rest/pulls#create-a-reply-for-a-review-comment)
@@ -730,9 +730,9 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
 - [`POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-pull-request-comment-reaction)
-- [`GET /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions/#list-reactions-for-a-release)
-- [`POST /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions/#create-reaction-for-a-release)
-- [`DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}`](/rest/reactions/#delete-a-release-reaction)
+- [`GET /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions#list-reactions-for-a-release)
+- [`POST /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions#create-reaction-for-a-release)
+- [`DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-release-reaction)
 
 ## repos
 - [`GET /orgs/{org}/repos`](/rest/repos#list-organization-repositories)
@@ -816,7 +816,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 
 ## users
 - [`GET /user`](/rest/users#get-the-authenticated-user)
-- [`PATCH /user`](/rest/users/#update-the-authenticated-user)
+- [`PATCH /user`](/rest/users#update-the-authenticated-user)
 - [`GET /user/emails`](/rest/users#list-email-addresses-for-the-authenticated-user)
 - [`POST /user/emails`](/rest/users#add-an-email-address-for-the-authenticated-user)
 - [`DELETE /user/emails`](/rest/users#delete-an-email-address-for-the-authenticated-user)

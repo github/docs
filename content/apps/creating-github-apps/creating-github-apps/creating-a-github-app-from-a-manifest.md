@@ -16,7 +16,7 @@ shortTitle: App creation manifest flow
 ---
 ## About GitHub App Manifests
 
-When someone creates a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and retrieves the app's webhook secret, private key (PEM file), and GitHub App ID. The person who creates the app from the manifest will own the app and can choose to [edit the app's configuration settings](/apps/managing-github-apps/modifying-a-github-app/), delete it, or transfer it to another person on GitHub.
+When someone creates a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and retrieves the app's webhook secret, private key (PEM file), and GitHub App ID. The person who creates the app from the manifest will own the app and can choose to [edit the app's configuration settings](/apps/maintaining-github-apps/modifying-a-github-app), delete it, or transfer it to another person on GitHub.
 
 You can use [Probot](https://probot.github.io/) to get started with GitHub App Manifests or see an example implementation. See "[Using Probot to implement the GitHub App Manifest flow](#using-probot-to-implement-the-github-app-manifest-flow)" to learn more.
 
@@ -30,7 +30,7 @@ Here are some scenarios where you might use GitHub App Manifests to create preco
 
 ## Implementing the GitHub App Manifest flow
 
-The GitHub App Manifest flow uses a handshaking process similar to the [OAuth flow](/apps/building-oauth-apps/authorizing-oauth-apps/). The flow uses a manifest to [register a GitHub App](/apps/building-github-apps/creating-a-github-app/) and receives a temporary `code` used to retrieve the app's private key, webhook secret, and ID.
+The GitHub App Manifest flow uses a handshaking process similar to the [OAuth flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps). The flow uses a manifest to [register a GitHub App](/apps/creating-github-apps/creating-github-apps/creating-a-github-app) and receives a temporary `code` used to retrieve the app's private key, webhook secret, and ID.
 
 {% note %}
 
@@ -66,8 +66,8 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `setup_url` | `string` | A full URL to redirect users to after they install your {% data variables.product.prodname_github_app %} if additional setup is required.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
-`default_events` | `array` | The list of [events](/webhooks/event-payloads) the {% data variables.product.prodname_github_app %} subscribes to.
-`default_permissions` | `object` | The set of [permissions](/rest/reference/permissions-required-for-github-apps) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`).
+`default_events` | `array` | The list of [events](/webhooks-and-events/webhooks/webhook-events-and-payloads) the {% data variables.product.prodname_github_app %} subscribes to.
+`default_permissions` | `object` | The set of [permissions](/rest/overview/permissions-required-for-github-apps) needed by the GitHub App. The format of the object uses the permission name for the key (for example, `issues`) and the access type for the value (for example, `write`).
 `request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the {% data variables.product.prodname_github_app %}, after the {% data variables.product.prodname_github_app %} is installed.
 `setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your {% data variables.product.prodname_github_app %} installation.
 
@@ -168,19 +168,19 @@ If you provided a `state` parameter, you will also see that parameter in the `re
 
 ### 3. You exchange the temporary code to retrieve the app configuration
 
-To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
+To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/rest/apps#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
 
 You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% note %}
 
-**Note:** This endpoint is rate limited. See [Rate limits](/rest/reference/rate-limit) to learn how to get your current rate limit status.
+**Note:** This endpoint is rate limited. See [Rate limits](/rest/rate-limit) to learn how to get your current rate limit status.
 
 {% endnote %}
 
     POST /app-manifests/{code}/conversions
 
-For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest).
+For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/apps#create-a-github-app-from-a-manifest).
 
 When the final step in the manifest flow is completed, the person creating the app from the flow will be an owner of a registered GitHub App that they can install on any of their personal repositories. They can choose to extend the app using the GitHub APIs, transfer ownership to someone else, or delete it at any time.
 
@@ -201,4 +201,4 @@ Using [dotenv](https://github.com/bkeepers/dotenv), Probot creates a `.env` file
 
 ### Hosting your app with Glitch
 
-You can see an [example Probot app](https://glitch.com/~auspicious-aardwolf) that uses [Glitch](https://glitch.com/) to host and share the app. The example uses the [Checks API](/rest/reference/checks) and selects the necessary Checks API events and permissions in the `app.yml` file. Glitch is a tool that allows you to "Remix your own" apps. Remixing an app creates a copy of the app that Glitch hosts and deploys. See "[About Glitch](https://glitch.com/about/)" to learn about remixing Glitch apps.
+You can see an [example Probot app](https://glitch.com/~auspicious-aardwolf) that uses [Glitch](https://glitch.com/) to host and share the app. The example uses the [Checks API](/rest/checks) and selects the necessary Checks API events and permissions in the `app.yml` file. Glitch is a tool that allows you to "Remix your own" apps. Remixing an app creates a copy of the app that Glitch hosts and deploys. See "[About Glitch](https://glitch.com/about/)" to learn about remixing Glitch apps.

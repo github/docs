@@ -16,15 +16,15 @@ shortTitle: REST API
 ---
 Here are some useful endpoints available for Marketplace listings:
 
-* [List plans](/rest/reference/apps#list-plans)
-* [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan)
-* [Get a subscription plan for an account](/rest/reference/apps#get-a-subscription-plan-for-an-account)
-* [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
+* [List plans](/rest/apps#list-plans)
+* [List accounts for a plan](/rest/apps#list-accounts-for-a-plan)
+* [Get a subscription plan for an account](/rest/apps#get-a-subscription-plan-for-an-account)
+* [List subscriptions for the authenticated user](/rest/apps#list-subscriptions-for-the-authenticated-user)
 
 See these pages for details on how to authenticate when using the {% data variables.product.prodname_marketplace %} API:
 
-* [Authorization options for OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/)
-* [Authentication options for GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/)
+* [Authorization options for OAuth Apps](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
+* [Authentication options for GitHub Apps](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps)
 
 {% note %}
 

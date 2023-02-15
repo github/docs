@@ -20,9 +20,9 @@ shortTitle: GitHub Copilot policies
 
 You can enforce policies for {% data variables.product.prodname_copilot_for_business %} within your enterprise's organizations, or allow policies to be set in each organization.
 
-If you set up a subscription for {% data variables.product.prodname_copilot_for_business %}, you can grant and revoke access to {% data variables.product.prodname_copilot %} for organizations within your enterprise. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the admins of that organization can grant access to individuals and teams. For more information, see "[Configuring {% data variables.product.prodname_copilot %} settings in your organization](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
+If you set up a subscription for {% data variables.product.prodname_copilot_for_business %}, you can grant and revoke access to {% data variables.product.prodname_copilot %} for organizations within your enterprise. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the admins of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
-{% data variables.product.prodname_copilot_for_business %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your enterprise. For more information, see "[{% data variables.product.prodname_copilot %} pricing for {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#github-copilot-pricing-for-github-enterprise-cloud)."
+{% data variables.product.prodname_copilot_for_business %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#github-copilot-pricing-for-github-enterprise-cloud)."
 
 {% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_copilot_for_business %} lets you choose whether to enable or disable the filter at the enterprise-level, or allow organization admins to decide at the organization-level. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown.
 
@@ -59,4 +59,4 @@ If you set up a subscription for {% data variables.product.prodname_copilot_for_
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot_for_business %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"

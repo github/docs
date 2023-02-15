@@ -9,7 +9,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
 
 ## About permissions required for {% data variables.product.pat_v2 %}
 
-When you create a {% data variables.product.pat_v2 %}, you grant it a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+When you create a {% data variables.product.pat_v2 %}, you grant it a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 ## Actions
 
@@ -383,7 +383,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 ## Gists
 
 - [`POST /gists`](/rest/gists#create-a-gist) (write)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (write)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (write)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (write)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (write)
 - [`PATCH /gists/{gist_id}/comments/{comment_id}`](/rest/gists#update-a-gist-comment) (write)
@@ -505,7 +505,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 ## Metadata
 
 - [`POST /gists`](/rest/gists#create-a-gist) (read)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (read)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (read)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (read)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (read)
 - [`GET /gists/{gist_id}/comments/{comment_id}`](/rest/gists#get-a-gist-comment) (read)
@@ -533,7 +533,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`GET /repos/{owner}/{repo}/events`](/rest/activity#list-repository-events) (read)
 - [`GET /repos/{owner}/{repo}/forks`](/rest/repos#list-forks) (read)
 - [`GET /repos/{owner}/{repo}/languages`](/rest/repos#list-repository-languages) (read)
-- [`GET /repos/{owner}/{repo}/license`](/rest/licenses/#get-the-license-for-a-repository) (read)
+- [`GET /repos/{owner}/{repo}/license`](/rest/licenses#get-the-license-for-a-repository) (read)
 - [`GET /repos/{owner}/{repo}/stargazers`](/rest/activity#list-stargazers) (read)
 - [`GET /repos/{owner}/{repo}/stats/code_frequency`](/rest/metrics/statistics#get-the-weekly-commit-activity) (read)
 - [`GET /repos/{owner}/{repo}/stats/commit_activity`](/rest/metrics/statistics#get-the-last-year-of-commit-activity) (read)
@@ -606,7 +606,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 {% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/actions#set-selected-repositories-for-a-required-workflow) (write){% endif %}
 {% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow) (write){% endif %}
 {% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow) (write){% endif %}
-{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs/#get-a-custom-role) (read){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#get-a-custom-role) (read){% endif %}
 {% ifversion fpt or ghec %}- [`GET /orgs/{org}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-an-organization) (read){% endif %}
 {% ifversion fpt or ghec %}- [`PUT /orgs/{org}/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-an-organization) (write){% endif %}
 {% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/interaction-limits`](/rest/interactions#remove-interaction-restrictions-for-an-organization) (write){% endif %}
@@ -663,7 +663,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 {% ifversion ghec or ghes > 3.3 %}- [`GET /organizations/{organization_id}/custom_roles`](/rest/orgs#list-custom-repository-roles-in-an-organization) (read){% endif %}
 {% ifversion ghec %}- [`POST /orgs/{org}/custom_roles`](/rest/orgs#create-a-custom-role) (write){% endif %}
-{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs/#get-a-custom-role) (read){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#get-a-custom-role) (read){% endif %}
 {% ifversion ghec %}- [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#update-a-custom-role) (write){% endif %}
 {% ifversion ghec %}- [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#delete-a-custom-role) (write){% endif %}
 {% ifversion ghec %}- [`GET /orgs/{org}/fine_grained_permissions`](/rest/orgs#list-repository-fine-grained-permissions-for-an-organization) (read){% endif %}
@@ -809,7 +809,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 ## Profile
 
-- [`PATCH /user`](/rest/users/#update-the-authenticated-user) (write)
+- [`PATCH /user`](/rest/users#update-the-authenticated-user) (write)
 
 ## Pull requests
 
@@ -857,7 +857,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#create-reaction-for-a-pull-request-review-comment) (write)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-pull-request-comment-reaction) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) (read)
-- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/#update-a-pull-request) (write)
+- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#update-a-pull-request) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#list-review-comments-on-a-pull-request) (read)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#create-a-review-comment-for-a-pull-request) (write)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies`](/rest/pulls#create-a-reply-for-a-review-comment) (write)

@@ -19,12 +19,12 @@ Integrations can be {% data variables.product.prodname_github_apps %}, {% data v
 {% data variables.product.prodname_github_apps %} offer granular permissions and request access to only what the app needs. {% data variables.product.prodname_github_apps %} also offer specific user-level permissions that each user must authorize individually when an app is installed or when the integrator changes the permissions requested by the app.
 
 For more information, see:
-- "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}](/developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps)"
-- "[About apps](/developers/apps/getting-started-with-apps/about-apps)"
-- "[User-level permissions](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-level-permissions)"
-- "[Authorizing {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
-- "[Authorizing {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)"
-- "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)"
+- "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps#user-level-permissions)"
+- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)"
+- "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
+- "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)"
 
 You can install a preconfigured {% data variables.product.prodname_github_app %}, if the integrators or app creators have created their app with the {% data variables.product.prodname_github_app %} manifest flow. For information about how to  run your {% data variables.product.prodname_github_app %} with automated configuration, contact the integrator or app creator.
 
@@ -34,7 +34,7 @@ You can create a {% data variables.product.prodname_github_app %} with simplifie
 
 You can find an integration to install or publish your own integration in {% data variables.product.prodname_marketplace %}.
 
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contains {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}. For more information on finding an integration or creating your own integration, see "[About {% data variables.product.prodname_marketplace %}](/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace)."
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) contains {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}. For more information on finding an integration or creating your own integration, see "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)."
 
 ## Integrations purchased directly from integrators
 

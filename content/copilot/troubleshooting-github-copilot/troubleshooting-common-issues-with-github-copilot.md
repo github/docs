@@ -15,11 +15,11 @@ If {% data variables.product.prodname_copilot %} stops working, check {% data va
 
 ## Unable to use the {% data variables.product.prodname_copilot %} extension in the IDE
 
-We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see "[Quickstart for {% data variables.product.prodname_copilot %}](/copilot/quickstart)."
+We recommend you follow the quickstart guide for {% data variables.product.prodname_copilot %} while setting up {% data variables.product.prodname_copilot %} on your machine. For more information, see "[AUTOTITLE](/copilot/quickstart)."
 
 The {% data variables.product.prodname_copilot %} extension is frequently updated to fix bugs and add new features. It's important to keep your extension up to date because older clients cannot communicate with the {% data variables.product.prodname_copilot %} servers. Update your {% data variables.product.prodname_copilot %} extension on all the machines you have it installed.
 
-For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see "[Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot)."
+For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see "[AUTOTITLE](/copilot/configuring-github-copilot)."
 
 ## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed"
 
@@ -27,7 +27,7 @@ This error indicates that you either do not have a {% data variables.product.pro
 
 To request another token from api.github.com, try signing in and out of {% data variables.product.prodname_copilot %} from your IDE. Once you've logged out, {% data variables.product.prodname_copilot %} will prompt you to sign back in.
 
-If you still cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information, see the information about log files in the client-specific articles under "[Troubleshooting {% data variables.product.prodname_copilot %}](/copilot/troubleshooting-github-copilot)."
+If you still cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information, see the information about log files in the client-specific articles under "[AUTOTITLE](/copilot/troubleshooting-github-copilot)."
 
 ## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed: "read ETIMEDOUT" or “read ECONNRESET""
 
@@ -41,4 +41,4 @@ This is a known issue and our team is working towards a fix. For more informatio
 
 ## Further reading
 
-- [Troubleshooting {% data variables.product.prodname_copilot %}](/copilot/troubleshooting-github-copilot)
+- [AUTOTITLE](/copilot/troubleshooting-github-copilot)

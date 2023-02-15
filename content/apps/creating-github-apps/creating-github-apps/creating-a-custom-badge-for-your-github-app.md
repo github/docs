@@ -21,7 +21,7 @@ An identicon badge looks something like this:
 
 After you create a GitHub App, you can customize your app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can visually distinguish your app.
 
-Your logo should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend an image size of at least 200px x 200px. {% ifversion fpt or ghec %}See "[Tips for logo and badge images](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" for more guidance on customizing badges.{% endif %}
+Your logo should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend an image size of at least 200px x 200px. {% ifversion fpt or ghec %}See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#guidelines-for-logos)" for more guidance on customizing badges.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -46,6 +46,6 @@ To create a custom badge:
 
 ## Next steps
 
-For more information about creating a Marketplace listing for this app, see "[Listing on GitHub Marketplace](/marketplace/listing-on-github-marketplace/)".
+For more information about creating a Marketplace listing for this app, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace)".
 
 {% endif %}

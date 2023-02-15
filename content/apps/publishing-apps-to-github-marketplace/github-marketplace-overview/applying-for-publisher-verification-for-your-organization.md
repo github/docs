@@ -13,9 +13,9 @@ shortTitle: Publisher verification
 ---
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
 
-Once your organization has been verified, you can publish paid plans for your app. For information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
+Once your organization has been verified, you can publish paid plans for your app. For information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
 
-To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a personal account, you'll need to transfer the ownership of the app to an organization. For more information, see "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)."
+To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a personal account, you'll need to transfer the ownership of the app to an organization. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/transferring-ownership-of-a-github-app)" or "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/transferring-ownership-of-an-oauth-app)."
 
 ## Requesting publisher verification
 
@@ -28,8 +28,8 @@ To offer paid plans for your app, the app must be owned by an organization and y
   ![Publisher verification option in the organization settings sidebar](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Under "Publisher Verification", complete the information in the checklist:
    - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
-   - Ensure that Two-factor authentication is enabled for your organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+   - Ensure that Two-factor authentication is enabled for your organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
   ![Publisher Verification checklist](/assets/images/marketplace/publisher-verification-checklist.png)
 
@@ -37,4 +37,4 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 ## Further reading
 
-For information about the process of publishing apps, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)."
+For information about the process of publishing apps, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)."

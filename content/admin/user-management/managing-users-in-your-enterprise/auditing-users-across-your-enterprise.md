@@ -45,7 +45,7 @@ The audit log lists the following information about actions made within your ent
 
 **Notes:**
 
-- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 - Audit records are available for the current month and every day of the previous six months.
 
 {% endwarning %}
@@ -80,7 +80,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 
 ### Search based on the action performed
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Category name | Description
 |------------------|-------------------
@@ -112,7 +112,7 @@ The `country` qualifier filters actions by the originating country.
 
 The `created` qualifier filters actions by the time they occurred.
 - Define dates using the format of `YYYY-MM-DD`--that's year, followed by month, followed by day.
-- Dates support [greater than, less than, and range qualifiers](/enterprise/user/articles/search-syntax). For example:
+- Dates support [greater than, less than, and range qualifiers](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax). For example:
   * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
   * `created:>=2014-07-01` finds all events that occurred on or after July 8th, 2014.
   * `created:<=2014-07-01` finds all events that occurred on or before July 8th, 2014.

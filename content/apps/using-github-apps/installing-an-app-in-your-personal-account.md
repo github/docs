@@ -46,5 +46,5 @@ If you choose a paid plan, you'll pay for your app subscription on your personal
 
 ## Further reading
 
-- "[Updating your personal account's payment method](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-- "[Installing an app in your organization](/get-started/customizing-your-github-workflow/purchasing-and-installing-apps-in-github-marketplace/installing-an-app-in-your-organization)"
+- "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
+- "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)"

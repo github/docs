@@ -42,7 +42,7 @@ topics:
 You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
 {% endif %}
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)."
+After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
 
 ## What to include in your support ticket
 
@@ -112,4 +112,4 @@ Commercial customers can submit a support request in the {% data variables.conta
 
 ## Further reading
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"

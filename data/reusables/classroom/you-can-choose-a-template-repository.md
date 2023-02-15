@@ -1,4 +1,4 @@
-You can optionally choose a template repository as starter code for the assignment. For more information about template repositories, see "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)."
+You can optionally choose a template repository as starter code for the assignment. For more information about template repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
 
 {% note %}
 

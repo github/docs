@@ -25,7 +25,7 @@ If you're using a GPG key that matches your committer identity and your verified
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
@@ -62,7 +62,7 @@ If you're using a GPG key that matches your committer identity and your verified
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
@@ -83,7 +83,7 @@ If you're using a GPG key that matches your committer identity and your verified
 
 {% note %}
 
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)".
+If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
 
 {% endnote %}
 
@@ -104,7 +104,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 ## Telling Git about your SSH key
 
-You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% data reusables.gpg.ssh-git-version %}
 
@@ -117,6 +117,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% data reusables.gpg.x-509-key %}
 ## Further reading
 
-- "[Adding a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

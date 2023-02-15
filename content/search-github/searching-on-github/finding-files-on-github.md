@@ -18,7 +18,7 @@ topics:
 **Tips:**
 
 - By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
-- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
+- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
 
 {% endtip %}
 
@@ -63,6 +63,6 @@ Note that this override requires the use of the recursive glob pattern (`**`). F
 
 ## Further reading
 
-- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
-- "[Customizing how changed files appear on GitHub](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
 - [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation{% endif %}

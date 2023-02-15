@@ -24,11 +24,11 @@ People with admin permissions to a security advisory can add collaborators to th
 
 ## Adding a collaborator to a security advisory
 
-Collaborators have write permissions to the security advisory. For more information, see "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)."
+Collaborators have write permissions to the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories)."
 
 {% note %}
 
-{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
 
 {% endnote %}
 
@@ -41,6 +41,6 @@ Collaborators have write permissions to the security advisory. For more informat
 
 ## Further reading
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
-- "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."

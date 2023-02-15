@@ -17,7 +17,7 @@ shortTitle: View 2FA usage
 
 {% note %}
 
-**Note:** You can require that all members{% ifversion fpt or ghec %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
+**Note:** You can require that all members{% ifversion fpt or ghec %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
 {% endnote %}
 
@@ -33,4 +33,4 @@ shortTitle: View 2FA usage
 
 ## Further reading
 
-- "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)"

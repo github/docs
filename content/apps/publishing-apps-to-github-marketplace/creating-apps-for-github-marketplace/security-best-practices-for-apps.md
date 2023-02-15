@@ -18,7 +18,7 @@ If you follow these best practices it will help you to provide a secure user exp
 
 ## Authorization, authentication, and access control
 
-We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
+We recommend creating a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)" for more details.
 - Apps should use the principle of least privilege and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality. For more information, see [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) in Wikipedia.
 - Apps should provide customers with a way to delete their account, without having to email or call a support person.
 - Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
@@ -26,9 +26,9 @@ We recommend creating a GitHub App rather than an OAuth App. {% data reusables.m
 - Apps should not share service accounts such as email or database services to manage your SaaS service.
 - All services used in your app should have unique login and password credentials.
 - Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
-- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or a [GitHub App](/apps/about-apps/#about-github-apps):
-  - OAuth Apps should authenticate using an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/).
-  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+- Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/creating-github-apps/creating-github-apps/about-apps#about-oauth-apps) or a [GitHub App](/apps/creating-github-apps/creating-github-apps/about-apps#about-github-apps):
+  - OAuth Apps should authenticate using an [OAuth token](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
+  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app), [OAuth token](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps), or [installation access token](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation).
 
 ## Data protection
 

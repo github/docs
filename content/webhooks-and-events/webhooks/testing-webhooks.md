@@ -14,7 +14,7 @@ versions:
 topics:
   - Webhooks
 ---
-Now that you've [configured your local server](/webhooks/configuring/), you might
+Now that you've [configured your local server](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads), you might
 be interested in pushing your code to the limits. To that end, GitHub's webhooks
 view provides some tooling for testing your deployed payloads.
 

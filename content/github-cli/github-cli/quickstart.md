@@ -39,6 +39,6 @@ shortTitle: Quickstart
 
 - Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).
 
-- Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)" and "[Creating {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/creating-github-cli-extensions)."
+- Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)" and "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
 
-- For more information about all of the commands that you can run with {% data variables.product.prodname_cli %}, see "[{% data variables.product.prodname_cli %} reference](/github-cli/github-cli/github-cli-reference)."
+- For more information about all of the commands that you can run with {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/github-cli-reference)."

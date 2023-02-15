@@ -59,5 +59,5 @@ Organization owners can schedule a reminder for one or more teams in their organ
 
 ## Further reading
 
-- "[Managing your scheduled reminders](/github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders)"
-- "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

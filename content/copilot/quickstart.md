@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_copilot %} is an AI pair programmer. You can use {% data variables.product.prodname_copilot %} to get suggestions for whole lines or entire functions right inside your editor.
 
-This guide will show you how to set up a {% data variables.product.prodname_copilot %} subscription for your personal {% ifversion fpt %}or organization{% else %}, organization, or enterprise{% endif %} account, install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}, and get your first suggestion. For more information on {% data variables.product.prodname_copilot %}, see "[About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see "[Getting Started](/copilot/getting-started-with-github-copilot)."
+This guide will show you how to set up a {% data variables.product.prodname_copilot %} subscription for your personal {% ifversion fpt %}or organization{% else %}, organization, or enterprise{% endif %} account, install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}, and get your first suggestion. For more information on {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot)."
 
 ## Signing up for {% data variables.product.prodname_copilot %} for your personal account
 
@@ -75,12 +75,12 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.
 
-- [Getting Started](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
+- [AUTOTITLE](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 
 
 ## Further reading
 
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)
 - [About {% data variables.product.prodname_copilot_for_business %}](/copilot/overview-of-github-copilot/about-github-copilot-for-business)

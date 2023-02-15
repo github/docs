@@ -17,7 +17,7 @@ sections:
     - In some cluster topologies, webhook delivery information was not available. 
     - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job. 
     - Elasticsearch health checks would not allow a yellow cluster status when running migrations. 
-    - When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.
+    - When using the [Migrations API](/rest/migrations), queued export jobs were not processed.
     - Repositories would display a non-functional Discussions tab in the web UI. 
     - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account. 
     - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously. 
@@ -34,7 +34,7 @@ sections:
     - Memcached connection limits were increased to better accommodate large cluster topologies. 
     - The Dependency Graph API previously ran with a statically defined port. 
     - The default shard counts for cluster-related Elasticsearch shard settings have been updated. 
-    - The [Migrations API](/rest/reference/migrations) now generates exports of repositories. 
+    - The [Migrations API](/rest/migrations) now generates exports of repositories. 
     - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved. 
     - The “Triage” and “Maintain” team roles are preserved during repository migrations. 
     - Performance has been improved for web requests made by enterprise owners. 
@@ -60,10 +60,10 @@ sections:
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) as soon as possible.'
     - heading: Deprecation of GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) as soon as possible.'
 
     - heading: Deprecation of XenServer Hypervisor support
       notes:

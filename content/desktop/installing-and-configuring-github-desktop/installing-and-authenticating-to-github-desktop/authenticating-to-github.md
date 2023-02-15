@@ -143,7 +143,7 @@ Please make sure you have the correct access rights and the repository exists.
 
 This error means that you do not have a valid SSH key set up.
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+To troubleshoot, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 ### Failed to clone
 
@@ -161,7 +161,7 @@ This error means that either the repository that you are trying to clone has sub
 
 If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+If you do not have a valid SSH key set up, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% windows %}
 
@@ -187,4 +187,4 @@ If your Windows username has extended Unicode characters, it may cause an AskPas
 {% endwindows %}
 
 ## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

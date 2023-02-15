@@ -17,7 +17,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 {% tip %}
 
-**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 
@@ -31,9 +31,9 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 +size 17330
 ```
 
-For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
+For more information about pointer files, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[Checking out pull requests locally](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
 {% ifversion fpt or ghec %}
 
@@ -47,4 +47,4 @@ You can push {% data variables.large_files.product_name_short %} objects to publ
 
 ## Further reading
 
-- "[Duplicating a repository with Git Large File Storage objects](/articles/duplicating-a-repository/#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+- "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

@@ -24,6 +24,6 @@ For transactions made before January 1, 2021, {% data variables.product.company_
 
 {% note %}
 
-**Note:** For details of the current pricing and payment terms, see "[{% data variables.product.prodname_marketplace %} developer agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)."
+**Note:** For details of the current pricing and payment terms, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)."
 
 {% endnote %}

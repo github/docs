@@ -53,7 +53,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 {% warning %}
 
-**Warning**: If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
+**Warning**: If you configure `X-Forwarded-For` support on {% data variables.location.product_location %} and load balancer, you may not be able to connect to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#error-your-session-has-expired-for-connections-to-the-management-console)."
 
 {% endwarning %}
 
@@ -67,7 +67,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 
 ## Configuring health checks
 
-Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica instance before it will begin serving requests. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If the instance is offline due to maintenance or unexpected failure, the load balancer can display a status page. In a High Availability (HA) configuration, a load balancer can be used as part of a failover strategy. However, automatic failover of HA pairs is not supported. You must manually promote the replica instance before it will begin serving requests. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability)."
 
 {% data reusables.enterprise_clustering.health_checks %}
 {% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
@@ -78,13 +78,13 @@ If you cannot connect to services on {% data variables.location.product_location
 
 {% note %}
 
-**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+**Note**: Always test changes to your network infrastructure and instance configuration in a staging environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endnote %}
 
 ### Error: "Your session has expired" for connections to the {% data variables.enterprise.management_console %}
 
-If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)" and "[Network ports](/admin/configuration/configuring-network-settings/network-ports)."
+If you enable support for the `X-Forwarded-For` header on your instance and load balancer, you may not be able to access your instance's {% data variables.enterprise.management_console %}. For more information about the {% data variables.enterprise.management_console %} and ports required for connections, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)."
 
 If {% data variables.location.product_location %} indicates that your session has expired when you connect to the {% data variables.enterprise.management_console %} through a load balancer, try one of the following configurations on your load balancer.
 

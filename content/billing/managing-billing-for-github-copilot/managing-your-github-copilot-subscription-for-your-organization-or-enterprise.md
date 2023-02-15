@@ -1,5 +1,5 @@
 ---
-title: Managing your GitHub Copilot subscription for your organization {% ifversion ghec%}or enterprise{% endif %}
+title: 'Managing your GitHub Copilot subscription for your organization {% ifversion ghec%}or enterprise{% endif %}'
 intro: 'Set up {% data variables.product.prodname_copilot_for_business %} for your organization{% ifversion ghec %} or enterprise{% endif %} account and manage your subscription.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-billing %}'
@@ -48,11 +48,11 @@ You can modify your {% data variables.product.prodname_copilot_business_short %}
 
 {% endnote %}
 
-You can modify the policies for the use of {% data variables.product.prodname_copilot %} suggestions that match public code in your enterprise, and the access to your {% data variables.product.prodname_copilot %} subscription. For more information, see "[Enforcing policies for {% data variables.product.prodname_copilot %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."
+You can modify the policies for the use of {% data variables.product.prodname_copilot %} suggestions that match public code in your enterprise, and the access to your {% data variables.product.prodname_copilot %} subscription. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."
 
 ### Modifying your {% data variables.product.prodname_copilot_business_short %} settings for your organization
 {% endif %}
-You can configure {% data variables.product.prodname_copilot %} in your organization, including granting and revoking access to individuals and teams, and determining whether to block suggestions that match public code. For more information, see "[Configuring {% data variables.product.prodname_copilot %} settings in your organization](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
+You can configure {% data variables.product.prodname_copilot %} in your organization, including granting and revoking access to individuals and teams, and determining whether to block suggestions that match public code. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
 ## Canceling your {% data variables.product.prodname_copilot_business_short %} subscription
 

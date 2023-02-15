@@ -39,7 +39,7 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -85,5 +85,5 @@ You can add or override response headers for {% data variables.product.prodname_
 {% ifversion ghes %}
 ## Further reading
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
 {% endif %}

@@ -38,5 +38,5 @@ Anytime you search across all of {% data variables.product.prodname_dotcom_the_w
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_marketplace %}](/github/customizing-your-github-workflow/about-github-marketplace)"
-- "[Using actions from {% data variables.product.prodname_marketplace %} in your workflow](/actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow)"
+- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
+- "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
