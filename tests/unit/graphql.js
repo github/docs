@@ -22,8 +22,7 @@ describe('graphql schema', () => {
   }
 
   test('getting the graphql changelog works for dotcom', async () => {
-    const defaultVersion = allVersions.defaultVersion
-    const schema = getGraphqlChangelog(defaultVersion)
+    const schema = getGraphqlChangelog('free-pro-team@latest')
     expect(schema).toBeDefined()
   })
 

@@ -1,0 +1,116 @@
+{
+  "2022-10-01": [
+    {
+      "location": "RemovePullRequestFromMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    }
+  ],
+  "2022-07-01": [
+    {
+      "location": "Enterprise.userAccounts",
+      "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
+      "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
+      "date": "2022-07-01",
+      "criticality": "breaking",
+      "owner": "jdennes"
+    },
+    {
+      "location": "AddPullRequestToMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-07-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    }
+  ],
+  "2022-04-01": [
+    {
+      "location": "Repository.defaultMergeQueue",
+      "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
+      "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
+      "date": "2022-04-01",
+      "criticality": "breaking",
+      "owner": "colinshum"
+    }
+  ],
+  "2021-10-01": [
+    {
+      "location": "ReactionGroup.users",
+      "description": "<p><code>users</code> will be removed. Use the <code>reactors</code> field instead.</p>",
+      "reason": "<p>Reactors can now be mannequins, bots, and organizations.</p>",
+      "date": "2021-10-01",
+      "criticality": "breaking",
+      "owner": "synthead"
+    }
+  ],
+  "2021-06-21": [
+    {
+      "location": "PackageType.DOCKER",
+      "description": "<p><code>DOCKER</code> will be removed.</p>",
+      "reason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2021-06-21",
+      "criticality": "breaking",
+      "owner": "reybard"
+    }
+  ],
+  "2021-01-01": [
+    {
+      "location": "MergeStateStatus.DRAFT",
+      "description": "<p><code>DRAFT</code> will be removed. Use PullRequest.isDraft instead.</p>",
+      "reason": "<p>DRAFT state will be removed from this enum and <code>isDraft</code> should be used instead</p>",
+      "date": "2021-01-01",
+      "criticality": "breaking",
+      "owner": "nplasterer"
+    }
+  ],
+  "2020-10-01": [
+    {
+      "location": "PullRequest.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use PullRequest.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    },
+    {
+      "location": "Issue.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use Issue.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    }
+  ],
+  "2020-01-01": [
+    {
+      "location": "UnassignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    },
+    {
+      "location": "AssignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ],
+  "2019-04-01": [
+    {
+      "location": "LegacyMigration.uploadUrlTemplate",
+      "description": "<p><code>uploadUrlTemplate</code> will be removed. Use <code>uploadUrl</code> instead.</p>",
+      "reason": "<p><code>uploadUrlTemplate</code> is being removed because it is not a standard URL and adds an extra user step.</p>",
+      "date": "2019-04-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ]
+}
