@@ -6,11 +6,10 @@ import { slug } from 'github-slugger'
 import { allVersions } from '../../../../lib/all-versions.js'
 import { categoriesWithoutSubcategories } from '../../lib/index.js'
 import getOperations, { getWebhooks } from './get-operations.js'
-
+import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../../../webhooks/lib/index.js'
 const ENABLED_APPS = 'src/github-apps/data/enabled-for-apps.json'
 const STATIC_REDIRECTS = 'lib/redirects/static/client-side-rest-api-redirects.json'
 const REST_DECORATED_DIR = 'src/rest/data'
-const WEBHOOK_DECORATED_DIR = 'src/webhooks/data'
 const REST_DEREFERENCED_DIR = 'src/rest/data/dereferenced'
 
 export async function decorate(schemas) {
@@ -216,11 +215,11 @@ async function createStaticWebhookFiles(webhookSchemas) {
       }
     })
     const webhooksFilename = path
-      .join(WEBHOOK_DECORATED_DIR, `${schemaName}.json`)
+      .join(WEBHOOK_DATA_DIR, schemaName, WEBHOOK_SCHEMA_FILENAME)
       .replace('.deref', '')
     if (Object.keys(categorizedWebhooks).length > 0) {
-      if (!existsSync(WEBHOOK_DECORATED_DIR)) {
-        mkdirSync(WEBHOOK_DECORATED_DIR)
+      if (!existsSync(`${WEBHOOK_DATA_DIR}/${schemaName}`)) {
+        mkdirSync(`${WEBHOOK_DATA_DIR}/${schemaName}`)
       }
       await writeFile(webhooksFilename, JSON.stringify(categorizedWebhooks, null, 2))
       console.log('Wrote', path.relative(process.cwd(), webhooksFilename))
