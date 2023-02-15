@@ -17,7 +17,7 @@ shortTitle: Enterprise Server trial
 
 ## About trials of {% data variables.product.prodname_ghe_server %}
 
-You can request a 45-day trial to evaluate {% data variables.product.prodname_ghe_server %}. Your trial will be installed as a virtual appliance, with options for on-premises or cloud deployment. For more information about {% data variables.product.prodname_ghe_server %}, and for a list of supported virtualization platforms, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/overview/about-github-enterprise-server)."
+You can request a 45-day trial to evaluate {% data variables.product.prodname_ghe_server %}. Your trial will be installed as a virtual appliance, with options for on-premises or cloud deployment. For more information about {% data variables.product.prodname_ghe_server %}, and for a list of supported virtualization platforms, see "[About {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/overview/about-github-enterprise-server)."
 
 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}Security{% endif %} alerts and {% data variables.product.prodname_github_connect %} are not currently available in trials of {% data variables.product.prodname_ghe_server %}. For a demonstration of these features, contact {% data variables.contact.contact_enterprise_sales %}. For more information about these features, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %}](/enterprise-server@latest/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
 
@@ -55,7 +55,7 @@ To get the most out of your trial, follow these steps:
 
     {% endnote %}
 
-{% data reusables.enterprise.best-practices %}    
+{% data reusables.enterprise.best-practices %}
 
 {% data reusables.products.product-roadmap %}
 

@@ -31,7 +31,7 @@ If {% data variables.product.prodname_github_connect %} is configured for your e
 
 For more information about {% data variables.product.prodname_github_connect %}, see the following articles.
 
-- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
 - "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
 
 {% endif %}
