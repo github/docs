@@ -42,7 +42,6 @@ redirect_from:
   - /early-access/integrations/install-an-integration
   - /apps/adding-integrations
   - /apps/building-integrations/setting-up-a-new-integration/about-integrations
-  - /apps
   - /v3/integrations
   - /developers/apps
 ---
