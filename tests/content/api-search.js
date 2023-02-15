@@ -285,3 +285,53 @@ describeIfElasticsearchURL('search legacy middleware', () => {
     expect(results.length).toBe(0)
   })
 })
+
+describeIfElasticsearchURL("additional fields with 'include'", () => {
+  jest.setTimeout(60 * 1000)
+
+  test("'intro' and 'headings' are omitted by default", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeFalsy()
+    expect(firstKeys.includes('headings')).toBeFalsy()
+  })
+
+  test("additionally include 'intro'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'intro')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeTruthy()
+    expect(firstKeys.includes('headings')).toBeFalsy()
+  })
+
+  test("additionally include 'intro' and 'headings'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.append('include', 'intro')
+    sp.append('include', 'headings')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeTruthy()
+    expect(firstKeys.includes('headings')).toBeTruthy()
+  })
+
+  test("unknown 'include' is 400 bad request", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'xxxxx')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(400)
+    const results = JSON.parse(res.text)
+    expect(results.error).toMatch(`Not a valid value (["xxxxx"]) for key 'include'`)
+  })
+})
