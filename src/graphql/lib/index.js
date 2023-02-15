@@ -6,9 +6,10 @@ import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js
 import languages from '../../../lib/languages.js'
 import { allVersions } from '../../../lib/all-versions.js'
 
+export const GRAPHQL_DATA_DIR = 'src/graphql/data'
 /* ADD LANGUAGE KEY */
-let previews
-let upcomingChanges
+const previews = new Map()
+const upcomingChanges = new Map()
 const changelog = new Map()
 const graphqlSchema = new Map()
 const miniTocs = new Map()
@@ -22,39 +23,44 @@ export function getGraphqlSchema(version, type) {
   if (!graphqlSchema.has(graphqlVersion)) {
     graphqlSchema.set(
       graphqlVersion,
-      readCompressedJsonFileFallback(`src/graphql/data/schema-${graphqlVersion}.json`)
+      readCompressedJsonFileFallback(`${GRAPHQL_DATA_DIR}/${graphqlVersion}/schema.json`)
     )
   }
   return graphqlSchema.get(graphqlVersion)[type]
 }
 
-export function getGraphqlChangelog() {
-  if (!changelog.has('schema')) {
+export function getGraphqlChangelog(version) {
+  const graphqlVersion = getGraphqlVersion(version)
+  if (!changelog.has(graphqlVersion)) {
     changelog.set(
-      'schema',
-      readCompressedJsonFileFallbackLazily('./src/graphql/data/changelog.json')()
+      graphqlVersion,
+      readCompressedJsonFileFallbackLazily(`${GRAPHQL_DATA_DIR}/${graphqlVersion}/changelog.json`)()
     )
   }
 
-  return changelog.get('schema')
+  return changelog.get(graphqlVersion)
 }
 
 export function getGraphqlBreakingChanges(version) {
   const graphqlVersion = getGraphqlVersion(version)
-  if (!upcomingChanges) {
-    upcomingChanges = readCompressedJsonFileFallbackLazily(
-      './src/graphql/data/upcoming-changes.json'
+  if (!upcomingChanges.has(graphqlVersion)) {
+    const data = readCompressedJsonFileFallbackLazily(
+      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/upcoming-changes.json`
     )()
+    upcomingChanges.set(graphqlVersion, data)
   }
-  return upcomingChanges[graphqlVersion]
+  return upcomingChanges.get(graphqlVersion)
 }
 
 export function getPreviews(version) {
   const graphqlVersion = getGraphqlVersion(version)
-  if (!previews) {
-    previews = readCompressedJsonFileFallbackLazily('./src/graphql/data/previews.json')()
+  if (!previews.has(graphqlVersion)) {
+    const data = readCompressedJsonFileFallbackLazily(
+      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/previews.json`
+    )()
+    previews.set(graphqlVersion, data)
   }
-  return previews[graphqlVersion]
+  return previews.get(graphqlVersion)
 }
 
 export async function getMiniToc(context, type, items, depth = 2, markdownHeading = '') {

@@ -27,9 +27,6 @@ const versionsToBuild = Object.keys(allVersions)
 main()
 
 async function main() {
-  const previewsJson = {}
-  const upcomingChangesJson = {}
-
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
     // For example, free-pro-team@latest corresponds to dotcom,
@@ -41,14 +38,22 @@ async function main() {
     const previewsPath = getDataFilepath('previews', graphqlVersion)
     const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
     await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
-    previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
+    const previewsJson = processPreviews(safeForPublicPreviews)
+    await updateStaticFile(
+      previewsJson,
+      path.join(graphqlStaticDir, graphqlVersion, 'previews.json')
+    )
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
     const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     await updateFile(upcomingChangesPath, safeForPublicChanges)
-    upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
+    const upcomingChangesJson = await processUpcomingChanges(safeForPublicChanges)
+    await updateStaticFile(
+      upcomingChangesJson,
+      path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json')
+    )
 
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
@@ -59,12 +64,12 @@ async function main() {
     const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
     await updateStaticFile(
       schemaJsonPerVersion,
-      path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
+      path.join(graphqlStaticDir, graphqlVersion, 'schema.json')
     )
 
     // 4. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
-      // The Changelog is only build for free-pro-team@latest
+      // The changelog is only built for free-pro-team@latest
       const changelogEntry = await createChangelogEntry(
         previousSchemaString,
         latestSchema,
@@ -75,14 +80,11 @@ async function main() {
       if (changelogEntry) {
         prependDatedEntry(
           changelogEntry,
-          path.join(process.cwd(), 'src/graphql/data/changelog.json')
+          path.join(graphqlStaticDir, graphqlVersion, 'changelog.json')
         )
       }
     }
   }
-
-  await updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-  await updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')
