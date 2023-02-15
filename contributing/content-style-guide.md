@@ -332,17 +332,26 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking.
+Introduce links consistently using a standard format that clearly indicates where we're linking.
 
-- For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-- For links to another section in the same article: `For more information, see "[Header text]()."`
-- For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-- For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
-- For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+For any link that points to another GitHub docs page, use the special keyword `AUTOTITLE`. See details in the [content markup reference](./content-markup-reference.md#internal-links-with-autotitle).
+
+Usage examples:
+
+- For links to other pages: `For more information, see "[AUTOTITLE](/path/to/page)."`
+- For links to sections in other pages: `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
+- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME).`
+
+Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[Header text](#section-link)."`
+
+For links to external documentation, type out the full article name: `For more information, see [Page or article title](https://some-docs.com/path/to/page) in the X documentation.`
 
 Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
+Some best practices for using links:
+- Links should be meaningful and provide high value to the user’s journey—link out carefully.
+- Move links that are helpful but not necessary to an article’s further reading section.
+- Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
