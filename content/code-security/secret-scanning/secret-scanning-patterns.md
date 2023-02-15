@@ -23,7 +23,9 @@ redirect_from:
 
 {% data variables.product.product_name %} maintains these different sets of {% data variables.product.prodname_secret_scanning %} patterns:
 
-1. **Partner patterns.** Used to detect potential secrets in all public repositories. For details, see "[Supported secrets for partner alerts](#supported-secrets-for-partner-alerts)."
+1. **Partner patterns.** Used to detect potential secrets in all public repositories. 
+   - For details, see "[Supported secrets for partner alerts](#supported-secrets-for-partner-alerts)." 
+   - {% data reusables.secret-scanning.partner-program-link %}
 2. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. For details, see "[Supported secrets for user alerts](#supported-secrets-for-user-alerts)."{% ifversion secret-scanning-push-protection %}
 3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled. For details, see "[Supported secrets for push protection](#supported-secrets-for-push-protection)."{% endif %}
 
