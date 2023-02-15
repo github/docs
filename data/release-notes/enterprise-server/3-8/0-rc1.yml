@@ -323,7 +323,7 @@ sections:
 
     # https://github.com/github/releases/issues/2640
     - |
-      On instances with a GitHub Advanced Security license, to ensure that secret scanning can always display a preview of a detected secret in the APIs or web UI, the detected secrets are now stored separately from source code. Detected secrets are stored using symmetric encryption.
+      On instances with a GitHub Advanced Security license, to ensure that future releases of GitHub Enterprise Server can always display a preview of a detected secret in the APIs or web UI, the detected secrets are now stored separately from source code. Detected secrets are stored using symmetric encryption. [Updated: 2023-02-15]
 
     # https://github.com/github/releases/issues/2696
     - |
