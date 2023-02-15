@@ -22,12 +22,12 @@ shortTitle: Manage releases
 ---
 ## About release management
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[Releases](/rest/releases/releases)" in the REST API documentation.
+You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[AUTOTITLE](/rest/releases/releases)" in the REST API documentation.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 ## Creating a release
@@ -55,10 +55,10 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 {%- data reusables.releases.previous-release-tag %}
 1. Type a title and description for your release.
-   {%- ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+   {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec or ghes > 3.3 %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
+   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
 
    ![Screenshot of the releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
 
@@ -88,7 +88,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
    {%- ifversion fpt or ghec or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Screenshot of your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
@@ -114,7 +114,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
 {% endif %}
 
@@ -133,7 +133,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 3. On the right side of the page, next to the release you want to edit, click **Edit release**.
   ![Edit a release](/assets/images/help/releases/edit-release.png)
 {% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
+4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
   ![Update a release](/assets/images/help/releases/update-release.png)
 
 {% endwebui %}

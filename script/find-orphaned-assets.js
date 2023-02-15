@@ -12,6 +12,8 @@ import path from 'path'
 import { program } from 'commander'
 import walk from 'walk-sync'
 
+import languages from '../lib/languages.js'
+
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
   'assets/images/site/apple-touch-icon.png',
@@ -60,7 +62,11 @@ async function main(opts) {
     '.github/actions-scripts',
   ]
   if (!excludeTranslations) {
-    roots.push('translations')
+    for (const [language, { dir }] of Object.entries(languages)) {
+      if (language !== 'en') {
+        roots.push(dir)
+      }
+    }
   }
 
   for (const root of roots) {

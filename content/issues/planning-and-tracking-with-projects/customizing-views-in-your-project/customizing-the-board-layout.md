@@ -1,7 +1,7 @@
 ---
 title: Customizing the board layout
 shortTitle: Customizing boards
-intro: 'You can use the board layout to arrange your project''s items over customizable columns.'
+intro: You can use the board layout to arrange your project's items over customizable columns.
 miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.projects.about-board-layout %}
 
-For more information about changing a view to use the board layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the board layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 
@@ -45,6 +45,22 @@ In the board layout, you can can choose which columns to display. The available 
 1. Select the columns you want to show.
 
    ![Screenshot showing the list of columns](/assets/images/help/projects-v2/board-select-columns.png)
+
+{% endif %}
+
+{% ifversion projects-v2-consistent-sorting %}
+
+## Sorting by field values
+
+You can sort items by a field value.
+
+{% note %}
+
+**Note:** When a board is sorted, you cannot manually reorder items within a column. You can continue to move items from column to column.
+
+{% endnote %}
+
+{% data reusables.projects.customize.sort %}
 
 {% endif %}
 

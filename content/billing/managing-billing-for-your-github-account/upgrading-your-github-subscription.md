@@ -74,9 +74,9 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 
 ### Next steps for organizations using {% data variables.product.prodname_ghe_cloud %}
 
-If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ### Adding seats to your organization
 
@@ -89,7 +89,7 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ### Switching your organization from per-repository to per-user pricing
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
+{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
 
 {% data reusables.organizations.billing-settings %}
 5. To the right of your plan name, use the **Edit** drop-down menu, and select **Edit plan**.
@@ -107,6 +107,6 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Further reading
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
-- "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
+- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."

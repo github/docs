@@ -39,7 +39,7 @@ The default development container, or "dev container," for {% data variables.pro
 
    ![Screenshot of the 'Java' option](/assets/images/help/codespaces/add-java-prebuilt-container.png)
 
-1. Click the latest version of Java.
+1. Choose the version of Java you want to use for your project. In this case, select the version marked "(default)."
 
    ![Screenshot of the Java version selection](/assets/images/help/codespaces/add-java-version.png)
 

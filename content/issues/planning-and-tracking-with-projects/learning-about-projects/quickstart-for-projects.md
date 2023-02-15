@@ -14,13 +14,13 @@ topics:
 
 ## Introduction
 
-This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll also learn how to create saved views that help you communicate priorities and progress with your collaborators.
+This guide demonstrates how to use {% data variables.product.prodname_projects_v2 %} to plan and track work. In this guide, you will create a new project and add a custom field to track priorities for your tasks. You'll learn how to create saved views that help you communicate priorities and progress with your collaborators. You'll also set up built-in workflows to manage the items in your project.
 
 ## Prerequisites
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 ## Creating a project
 
@@ -46,7 +46,7 @@ Next, add a few issues to your project.
 
 Repeat the above steps a few times to add multiple issues to your project.
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+For more information and other ways to add issues to your project, or about other items you can add to your project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
 
 ## Adding draft issues to your project
 
@@ -144,7 +144,36 @@ To indicate the purpose of the view, give it a descriptive name.
 
 ![Example priorities](/assets/images/help/projects/project-view-switch.gif)
 
+{% ifversion projects-v2-workflows %}
+
 ## Configure built-in automation
+
+{% ifversion projects-v2-auto-add %}
+
+Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project. 
+
+{% data reusables.projects.access-workflows %}
+1. In the "Default workflows" list, click **Auto-add to project**.
+   
+   ![Screenshot showing auto-add workflow](/assets/images/help/projects-v2/workflow-autoadd.png)
+   
+1. To start editing the workflow, in the top right, click **Edit**.
+   
+   ![Screenshot showing edit button](/assets/images/help/projects-v2/workflow-start-editing.png)
+   
+1. Under "Filters", select the repository you want to add items from.
+   
+   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-repo.png)
+   
+1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
+   
+   ![Screenshot showing repository select](/assets/images/help/projects-v2/workflow-autoadd-filter.png)
+   
+1. To enable the new workflow, click **Save and turn on workflow**.
+   
+   ![Screenshot showing autoadd workflows](/assets/images/help/projects-v2/workflow-save-and-turn-on.png)
+
+{% endif %}
 
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
 
@@ -161,7 +190,9 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 1. Click the **Disabled** toggle to enable the workflow.
   ![Screenshot showing the "enable" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
 
+{% endif %}
+
 ## Further reading
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"

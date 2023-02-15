@@ -19,7 +19,7 @@ shortTitle: Recover an account with 2FA
 
 {% warning %}
 
-**Warnings**: 
+**Warnings**:
 
 - {% data reusables.two_fa.support-may-not-help %}
 
@@ -35,14 +35,14 @@ shortTitle: Recover an account with 2FA
 
 ## Using a two-factor authentication recovery code
 
-Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+Use one of your recovery codes to automatically regain entry into your account. You may have saved your recovery codes to a password manager or your computer's downloads folder. The default filename for recovery codes is `github-recovery-codes.txt`. For more information about recovery codes, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 
 1. Type your username and password to prompt authentication.
 
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-    
+
     {% endwarning %}
 
 {% ifversion fpt or ghec %}
@@ -60,12 +60,12 @@ Use one of your recovery codes to automatically regain entry into your account. 
 {% ifversion fpt or ghec %}
 ## Authenticating with a fallback number
 
-If you lose access to your primary TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
 {% endif %}
 
 ## Authenticating with a security key
 
-If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 {% ifversion fpt or ghec %}
 ## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
@@ -85,7 +85,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
     {% warning %}
 
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
-    
+
     {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.
 

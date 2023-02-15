@@ -42,7 +42,7 @@ shortTitle: Prepare to migrate data
     ```shell
     $ ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```
-    - If no conflicts are reported, you can safely import the data by following the steps in "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
+    - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise)".
 2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy *conflicts.csv* to your local computer:
   ```shell
   $ scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
@@ -84,7 +84,7 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
 | `merge`       | Data from the source is combined with existing data on the target. | Teams
 
-**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
+**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise)".
 
 
 ## Resolving migration conflicts or setting up custom mappings
@@ -115,7 +115,7 @@ A common scenario during a migration is for migrated users to have different use
 
 Given a list of usernames from the source and a list of usernames on the target, you can build a CSV file with custom mappings and then apply it to ensure each user's username and content is correctly attributed to them at the end of a migration.
 
-You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) command:
+You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/admin/user-management/migrating-data-to-and-from-your-enterprise/migrating-data-to-your-enterprise) command:
 
 ```shell
 $ ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
@@ -129,7 +129,7 @@ For example, to rename the user `octocat` to `monalisa` on the target `https://e
 |--------------|--------------|------------|--------------------|
 | `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/monalisa` | `rename`
 
-The same process can be used to create mappings for each record that supports custom mappings. For more information, see [our table on the possible mappings for records](/enterprise/admin/guides/migrations/reviewing-migration-conflicts#possible-mappings-for-each-record-type).
+The same process can be used to create mappings for each record that supports custom mappings. For more information, see [our table on the possible mappings for records](/admin/user-management/migrating-data-to-and-from-your-enterprise/preparing-to-migrate-data-to-your-enterprise#possible-mappings-for-each-record-type).
 
 ### Applying modified migration data
 

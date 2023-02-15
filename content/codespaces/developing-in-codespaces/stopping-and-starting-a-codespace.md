@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting a codespace
-intro: 'You can stop and start your codespace to save resources and to pause work.'
+intro: You can stop and start your codespace to save resources and to pause work.
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,7 +22,7 @@ shortTitle: Stop a codespace
 
 {% data reusables.codespaces.stopping-a-codespace %}
 
-Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces. 
+Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces.
 
 ## Stopping a codespace
 
@@ -67,17 +67,18 @@ You can stop a codespace from the "Your codespaces" page (see [the web browser i
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
 1. Click the name of the codespace you want to restart.
-![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+
+   ![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
 {% cli %}
 
-When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser. 
+When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser.
 
  - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
- ```shell{:copy} 
+ ```shell{:copy}
  gh codespace code
  ```
 
@@ -105,4 +106,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"

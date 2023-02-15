@@ -18,7 +18,7 @@ shortTitle: Renewing paid organization
 
 {% tip %}
 
-**Tip**: Billing managers can also [change the organization's number of paid seats](/articles/upgrading-or-downgrading-your-client-s-paid-organization) anytime.
+**Tip**: Billing managers can also [change the organization's number of paid seats](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization) anytime.
 
 {% endtip %}
 

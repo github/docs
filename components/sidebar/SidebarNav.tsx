@@ -1,51 +1,63 @@
-import { useRouter } from 'next/router'
-import { MarkGithubIcon } from '@primer/octicons-react'
+import cx from 'classnames'
 
-import { Link } from 'components/Link'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from './SidebarProduct'
 import { SidebarHomepage } from './SidebarHomepage'
+import { AllProductsLink } from './AllProductsLink'
+import { ApiVersionPicker } from './ApiVersionPicker'
+import { Link } from 'components/Link'
 
-export const SidebarNav = () => {
-  const router = useRouter()
-  const { error, currentProduct } = useMainContext()
-  const { t } = useTranslation('header')
+type Props = {
+  variant?: 'full' | 'overlay'
+}
+
+export const SidebarNav = ({ variant = 'full' }: Props) => {
+  const { error, currentProduct, currentProductTree } = useMainContext()
+  const isRestPage = currentProduct && currentProduct.id === 'rest'
+  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
+  // we need to roughly account for the site header height plus the height of
+  // the side nav header (which is taller when we show the API version picker)
+  // so we don't cut off the bottom of the sidebar
+  const sidebarPaddingBottom = isRestPage ? '250px' : '185px'
 
   return (
     <div
-      className="d-none d-lg-block bg-primary position-sticky top-0 overflow-y-auto flex-shrink-0 pb-5 border-right"
-      style={{ width: 326, height: '100vh' }}
-      role="banner"
+      className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xl-block' : '')}
+      style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >
+      {variant === 'full' && currentProductTree && (
+        <div className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}>
+          <AllProductsLink />
+          {currentProduct && (
+            <div className="mt-3">
+              <Link
+                data-testid="sidebar-product-xl"
+                href={currentProductTree.href}
+                className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+              >
+                {productTitle}
+              </Link>
+            </div>
+          )}
+          {variant === 'full' && isRestPage && <ApiVersionPicker />}
+        </div>
+      )}
       <div
-        tabIndex={-1}
-        className="d-flex flex-items-center p-4 position-sticky top-0 color-bg-default"
-        style={{ zIndex: 3 }}
-        id="github-logo"
-      >
-        <Link
-          href={`/${router.locale}`}
-          className="color-fg-default"
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <MarkGithubIcon size={32} />
-        </Link>
-        <Link
-          href={`/${router.locale}`}
-          className="f4 text-semibold color-fg-default no-underline no-wrap pl-2 flex-auto"
-        >
-          {t('github_docs')}
-        </Link>
-      </div>
-      <nav>
-        {error === '404' || !currentProduct || currentProduct.id === 'search' ? (
-          <SidebarHomepage />
-        ) : (
-          <SidebarProduct />
+        className={cx(
+          variant === 'overlay' ? 'd-xl-none' : 'border-right d-none d-xl-block',
+          'bg-primary overflow-y-auto flex-shrink-0'
         )}
-      </nav>
+        style={{ width: 326, height: '100vh', paddingBottom: sidebarPaddingBottom }}
+        role="banner"
+      >
+        <nav>
+          {error === '404' || !currentProduct || currentProduct.id === 'search' ? (
+            <SidebarHomepage />
+          ) : (
+            <SidebarProduct />
+          )}
+        </nav>
+      </div>
     </div>
   )
 }

@@ -25,7 +25,7 @@ layout: product-landing
 introLinks:
   quickstart: /get-started/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /get-started/learning-about-github/githubs-products
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
@@ -60,6 +60,7 @@ children:
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
-  - /customizing-your-github-workflow
+  - /exploring-integrations
   - /privacy-on-github
 ---
+

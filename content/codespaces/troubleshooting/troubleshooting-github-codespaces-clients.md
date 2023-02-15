@@ -43,6 +43,8 @@ Click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of th
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
+{% data reusables.codespaces.troubleshooting-simple-browser %}
+
 {% endwebui %}
 
 {% vscode %}
@@ -63,6 +65,8 @@ To switch to {% data variables.product.prodname_vscode %} Stable, close the {% d
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
+{% data reusables.codespaces.troubleshooting-simple-browser %}
+
 {% endvscode %}
 
 {% jetbrains %}
@@ -71,7 +75,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ### Performance issues
 
-A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
 If you are using a machine with 4 or more cores and the performance you are experiencing in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size.
 
@@ -106,11 +110,15 @@ Depending on the size of your codebase, and the memory needed to run your applic
 
 ### Client can't be opened in MacOS Ventura
 
-In MacOS Ventura, the first time you try to connect to a codespace from the JetBrains Gateway a message may be displayed telling you that the JetBrains client application "is damaged and can't be opened."
+In MacOS Ventura, using versions of the JetBrains Gateway prior to version 2022.3, the first time you try to connect to a codespace from the JetBrains Gateway a message was displayed telling you that the JetBrains client application "is damaged and can't be opened."
 
 <img src="/assets/images/help/codespaces/jetbrains-ventura-error1.png" alt="Screenshot of the 'cannot be opened' error message" style="width:230px;"/>
 
-If this happens:
+This issue is fixed in the JetBrains Gateway, version 2022.3 and later.
+
+To avoid this issue, update the JetBrains Gateway.
+
+To work around this problem with older versions of the Gateway:
 
 1. Click **Cancel** to dismiss this message.
 1. Click the Apple icon, top left of the screen, and click **System Settings**.
@@ -131,7 +139,7 @@ If this happens:
 
 ### SSH connection issues
 
-To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
 
 If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 

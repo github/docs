@@ -15,7 +15,7 @@ topics:
   - User account
 shortTitle: View your Actions usage
 ---
-You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
+You can also view the billable job execution minutes for an individual workflow run. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your personal account
 

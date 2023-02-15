@@ -1,7 +1,7 @@
 ---
 title: Creating an announcement banner for your organization
 shortTitle: Create an announcement banner
-intro: 'Organization owners can create announcement banners for the organization.'
+intro: Organization owners can create announcement banners for the organization.
 versions:
   feature: custom-banner-messages
 type: how_to
@@ -13,7 +13,7 @@ You can create an announcement banner that will be displayed to all organization
 
 {% data reusables.enterprise.user-messages-markdown %}
 
-You can also set announcement banners at the enterprise level. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)."
+You can also set announcement banners at the enterprise level. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

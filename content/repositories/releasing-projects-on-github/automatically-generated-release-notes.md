@@ -5,7 +5,7 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
   ghae: '>= 3.4'
 topics:
   - Repositories
@@ -126,4 +126,4 @@ changelog:
 
 ## Further reading
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

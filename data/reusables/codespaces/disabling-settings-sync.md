@@ -2,7 +2,7 @@ You can disable Settings Sync to stop syncing settings to and from an instance o
 
 By default, when you disable Settings Sync, new codespaces continue to use the settings cached from the last time your settings were pushed to the cloud. If your codespaces are still being created with cached settings, and you want to return to using the default {% data variables.product.prodname_vscode_shortname %} settings in your codespaces, you can clear the cache in the cloud when you disable Settings Sync.
 
-1. If Settings Sync is currently disabled in your instance of {% data variables.product.prodname_vscode_shortname %}, you must first enable it. For instructions, see "[Enabling Settings Sync](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#enabling-settings-sync)."
+1. If Settings Sync is currently disabled in your instance of {% data variables.product.prodname_vscode_shortname %}, you must first enable it. For instructions, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#enabling-settings-sync)."
 1. At the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is On**.
 1. In the dropdown, click **Settings Sync: Turn Off**.
 

@@ -120,4 +120,4 @@ To finish configuring storage for {% data variables.product.prodname_registry %}
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."

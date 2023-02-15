@@ -27,6 +27,7 @@ const PUBLIC_REPOS = new Set([
   'codeql-action-sync-tool',
   'codeql-action',
   'codeql-cli-binaries',
+  'codeql-go',
   'codeql',
   'codespaces-precache',
   'codespaces-jupyter',
@@ -78,11 +79,10 @@ const ALLOW_DOCS_PATHS = [
   'contributing/search.md',
   'docs/index.yaml',
   'lib/excluded-links.js',
-  'lib/rest/**/*.json',
-  'lib/webhooks/**/*.json',
   'ownership.yaml',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
+  'script/i18n/clone-translations.sh',
 ]
 
 // This regexp will capture the last segment of a GitHub repo name.
@@ -109,7 +109,7 @@ const IGNORE_PATHS = [
   '.linkinator/full.log', // Only present if you've run linkinator
   'lib/search/popular-pages.json', // used to build search indexes
   'tests/**/*.json',
-
+  'src/**/*.json', // OpenAPI schema files
   'content/early-access', // Not committed to public repository.
   'data/early-access', // Not committed to public repository.
   'data/release-notes', // These include links to many internal issues in Liquid comments.

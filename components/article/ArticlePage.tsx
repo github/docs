@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import cx from 'classnames'
 
-import { InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
 
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
@@ -19,6 +18,11 @@ import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
+
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -32,17 +36,16 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
-    contributor,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
     product,
+    productVideoUrl,
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
-  const { t } = useTranslation('pages')
-
   const isLearningPath = !!currentLearningTrack?.trackName
+  const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
@@ -50,21 +53,13 @@ export const ArticlePage = () => {
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
-              {contributor && (
-                <Callout variant="info" className="mb-3">
-                  <p>
-                    <span className="mr-2">
-                      <InfoIcon />
-                    </span>
-                    {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
-                  </p>
-                </Callout>
-              )}
-
               {intro && (
                 <Lead data-testid="lead" data-search="lead">
                   {intro}
@@ -93,6 +88,15 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
+            {productVideoUrl && (
+              <div className="my-2">
+                <Link id="product-video" href={productVideoUrl} target="_blank">
+                  <LinkExternalIcon className="octicon-link mr-2" />
+                  {t('video_from_transcript')}
+                </Link>
+              </div>
+            )}
+
             <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">

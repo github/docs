@@ -61,7 +61,8 @@ children:
   - codespaces
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks-and-events
   - rest
   - graphql
   - github-cli
@@ -73,6 +74,8 @@ children:
   - desktop
   - early-access
   - support
+  # TODO 47F50CA3 uncomment when ready to add video transcripts
+  # - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -118,9 +121,10 @@ childGroups:
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks-and-events
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:

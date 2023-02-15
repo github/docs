@@ -26,7 +26,7 @@ You can add encrypted secrets to your personal account that you want to use in y
 - Access tokens to cloud services
 - Service principals
 - Subscription identifiers
-- Credentials for a private image registry (for more information, see "[Allowing your codespace to access a private registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)")
+- Credentials for a private image registry (for more information, see "[AUTOTITLE](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry)")
 
 You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
 
@@ -90,7 +90,7 @@ A secret is exported as an environment variable into the user's terminal session
 You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
 
 * When launching an application from the integrated terminal or ssh session.
-* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on the Development Containers website.: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on the Development Containers website: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
 Codespace secrets cannot be used:
 
@@ -99,4 +99,4 @@ Codespace secrets cannot be used:
 
 ## Further reading
 
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"

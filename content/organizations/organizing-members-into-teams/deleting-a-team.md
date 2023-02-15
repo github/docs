@@ -16,7 +16,7 @@ topics:
 
 {% tip %}
 
-**Tip:** Only organization owners can delete parent teams. For more information, see "[About teams](/articles/about-teams)."
+**Tip:** Only organization owners can delete parent teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 {% endtip %}
 

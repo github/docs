@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import cx from 'classnames'
 
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -13,6 +14,7 @@ import { Lead } from 'components/ui/Lead'
 import { LearningTrackNav } from 'components/article/LearningTrackNav'
 import { ClientSideRedirects } from 'components/ClientSideRedirects'
 import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 export const TocLanding = () => {
   const router = useRouter()
@@ -36,6 +38,9 @@ export const TocLanding = () => {
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout>
           <ArticleTitle>{title}</ArticleTitle>
 

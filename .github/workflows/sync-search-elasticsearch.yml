@@ -37,11 +37,12 @@ env:
 
 jobs:
   figureOutMatrix:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-matrix
         with:
           script: |
@@ -185,7 +186,7 @@ jobs:
         run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

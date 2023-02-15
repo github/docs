@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-The security overview is available for organizations that use {% data variables.product.prodname_enterprise %}. For more information, see "[GitHub's products](/articles/githubs-products)."
+The security overview is available for organizations that use {% data variables.product.prodname_enterprise %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
 {% elsif security-overview-displayed-alerts %}
 All organizations and enterprises have a security overview. If you use {% data variables.product.prodname_GH_advanced_security %} features{% ifversion ghae %}, which are free during the beta release,{% elsif ghec %}, which are free for public repositories,{% endif %} you will see additional information. {% data reusables.advanced-security.more-info-ghas %}
 {% elsif ghes < 3.7 %}

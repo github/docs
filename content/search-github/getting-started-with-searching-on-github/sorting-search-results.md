@@ -71,5 +71,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-- "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

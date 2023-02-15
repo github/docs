@@ -21,8 +21,8 @@ Before you start, make sure you know:
 - The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
 - The name your client would like to use for the organization
 - The email address where you would like receipts to be sent
-- The [product](/articles/github-s-products) your client would like to purchase
-- The number of [paid seats](/articles/about-per-user-pricing/) your client would like you to purchase for the organization
+- The [product](/get-started/learning-about-github/githubs-products) your client would like to purchase
+- The number of [paid seats](/billing/managing-billing-for-your-github-account/about-per-user-pricing) your client would like you to purchase for the organization
 
 ## Step 1: Create your personal {% data variables.product.prodname_dotcom %} account
 
@@ -97,12 +97,12 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 ## Next steps
 
-1. Contact your client and ask them to [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
+1. Contact your client and ask them to [add you to the organization as a billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
 2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-3. When it's time to renew your client's paid subscription, see "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)."
+3. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)."
 
 ## Further reading
 
-- "[About organizations for procurement companies](/articles/about-organizations-for-procurement-companies)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)"

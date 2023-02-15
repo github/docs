@@ -43,6 +43,6 @@ shortTitle: Check verification status
 
 ## Further reading
 
-- "[About commit signature verification](/articles/about-commit-signature-verification)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

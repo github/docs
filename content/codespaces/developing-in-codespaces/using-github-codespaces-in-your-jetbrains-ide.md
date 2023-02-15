@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces in your JetBrains IDE
 shortTitle: JetBrains IDEs
-intro: 'You can use the JetBrains Gateway to connect to your codespace and work in your favorite JetBrains IDE.'
+intro: You can use the JetBrains Gateway to connect to your codespace and work in your favorite JetBrains IDE.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -22,7 +22,7 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 {% note %}
 
-**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 {% endnote %}
 
@@ -70,19 +70,19 @@ Use this command to check your version of {% data variables.product.prodname_cli
 gh --version
 ```
 
-For more information, see "[About GitHub CLI](/github-cli/github-cli/about-github-cli)."
+For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 ### Codespace running an SSH server
 
-You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.ssh-server-installed %}
 
-For more information about the `devcontainer.json` file and the default container image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 {% note %}
 
-**Note**: For help with connecting to your codespace over SSH, see "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
+**Note**: For help with connecting to your codespace over SSH, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains#ssh-connection-issues)."
 
 {% endnote %}
 
@@ -127,7 +127,7 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 ## Further reading
 
-- "[Developing in a codespace](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
-- "[Using the {% data variables.product.prodname_github_codespaces %} plugin for JetBrains](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-- "[Using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"
-- "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
+- "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
+- "[AUTOTITLE](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"
+- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"

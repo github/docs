@@ -22,17 +22,17 @@ permissions: Organization owners can promote team members to team maintainers.
 
 People with the team maintainer role can manage team membership and settings.
 
-- [Change the team's name and description](/articles/renaming-a-team)
-- [Change the team's visibility](/articles/changing-team-visibility)
-- [Request to add a child team](/articles/requesting-to-add-a-child-team)
-- [Request to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)
-- [Set the team profile picture](/articles/setting-your-team-s-profile-picture)
-- [Edit team discussions](/articles/managing-disruptive-comments/#editing-a-comment)
-- [Delete team discussions](/articles/managing-disruptive-comments/#deleting-a-comment)
-- [Add organization members to the team](/articles/adding-organization-members-to-a-team)
-- [Remove organization members from the team](/articles/removing-organization-members-from-a-team)
+- [Change the team's name and description](/organizations/organizing-members-into-teams/renaming-a-team)
+- [Change the team's visibility](/organizations/organizing-members-into-teams/changing-team-visibility)
+- [Request to add a child team](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)
+- [Request to add or change a parent team](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)
+- [Set the team profile picture](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)
+- [Edit team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment)
+- [Delete team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment)
+- [Add organization members to the team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)
+- [Remove organization members from the team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
 - Remove the team's access to repositories
-- [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% ifversion fpt or ghec %}
+- [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% ifversion fpt or ghec %}
 - [Manage scheduled reminders for pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
 
 ## Promoting an organization member to team maintainer

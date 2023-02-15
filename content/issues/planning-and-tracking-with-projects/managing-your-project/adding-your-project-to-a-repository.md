@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 
 You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
 
-In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing visibility of your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" and "[Managing access to your {% data variables.projects.projects_v2 %}](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
 1. Click {% octicon "table" aria-label="the project icon" %} **Projects**.
