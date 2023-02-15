@@ -14,11 +14,11 @@ shortTitle: Create enterprise account
 
 ## About enterprise account creation
 
-{% data variables.product.prodname_ghe_cloud %} includes the option to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. When you purchase {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account. Creation of an enterprise account does not result in additional charges on your bill.
+
+For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 
 {% data reusables.enterprise.create-an-enterprise-account %} If you pay by invoice, you can create an enterprise account yourself on {% data variables.product.prodname_dotcom %}. If not, you can [contact our sales team](https://github.com/enterprise/contact?ref_page=/pricing&ref_cta=Contact%20Sales&ref_loc=cards) to create an enterprise account for you.
-
-An enterprise account is included with {% data variables.product.prodname_ghe_cloud %}. Creation of an enterprise account does not result in additional charges on your bill.
 
 When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
 
