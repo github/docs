@@ -159,7 +159,7 @@ On macOS, `ssh-agent` will "forget" this key, once it gets restarted during rebo
 $ ssh-add --apple-use-keychain YOUR-KEY
 ```
 
-For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[Adding your SSH key to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endtip %}
 

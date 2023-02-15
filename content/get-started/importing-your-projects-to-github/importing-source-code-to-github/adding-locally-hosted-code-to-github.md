@@ -19,11 +19,11 @@ shortTitle: Add locally hosted code
 
 If you have existing source code or repositories stored locally on your computer or private network you can add them to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
 
-{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 {% tip %}
 
-**Tip:** If you're most comfortable with a point-and-click user interface, try adding your project with {% data variables.product.prodname_desktop %}. For more information, see "[Adding a repository from your local computer to GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)" in the *{% data variables.product.prodname_desktop %} Help*.
+**Tip:** If you're most comfortable with a point-and-click user interface, try adding your project with {% data variables.product.prodname_desktop %}. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)" in the *{% data variables.product.prodname_desktop %} Help*.
 
 {% endtip %}
 
@@ -193,4 +193,4 @@ If you have existing source code or repositories stored locally on your computer
 
 ## Further reading
 
-- "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"

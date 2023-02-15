@@ -17,7 +17,7 @@ redirect_from:
 
 By setting up a template repository, you can help people get started with your framework, library, or other project in {% data variables.product.prodname_github_codespaces %}. Users will be able to start working with your template files immediately in a cloud-based development environment, without having to worry about cloning your repository or installing tools or other dependencies. With some configuration, you will be able to set users up in a codespace with important files already open for editing, and with an application already running in a preview browser tab within the {% data variables.product.prodname_vscode_shortname %} web editor.
 
-Anyone with read access to your template repository can create a codespace from the repository's page on {% data variables.product.product_name %}. You can turn any existing repository into a template, and you do not have to change any settings to allow users to create a codespace from your template repository. For more information on turning a repository into a template, see "[Creating a template repository](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
+Anyone with read access to your template repository can create a codespace from the repository's page on {% data variables.product.product_name %}. You can turn any existing repository into a template, and you do not have to change any settings to allow users to create a codespace from your template repository. For more information on turning a repository into a template, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
 
 You can provide a link in the format `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` to take users directly to a "Create a new codespace" page for your template.
 
@@ -25,11 +25,11 @@ You can provide a link in the format `https://github.com/codespaces/new?template
 
 For example, you could provide this link in a tutorial for getting started with your framework. In your link, replace `OWNER/TEMPLATE-REPO` with the name of your template repository, for example `monalisa/octo-template`.
 
-When someone creates a codespace from your template, the contents of your template repository will be cloned into their codespace. When the user is ready, they will be able to publish their work to a new repository on {% data variables.product.product_name %} belonging to their personal account. Any usage charges for the codespace will be billed to the user who created it. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+When someone creates a codespace from your template, the contents of your template repository will be cloned into their codespace. When the user is ready, they will be able to publish their work to a new repository on {% data variables.product.product_name %} belonging to their personal account. Any usage charges for the codespace will be billed to the user who created it. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
 ## Describe your template
 
-If you don't have one, create a README for your template repository to describe the purpose of your template and how to get started with it. For more information, see "[About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+If you don't have one, create a README for your template repository to describe the purpose of your template and how to get started with it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
 A short description of your template is displayed on the "Create a new codespace" page that users land on when they follow the `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` link. This description is taken from the **Description** field that you can set when you create a repository. You can edit this description at any time by navigating to the repository's page and clicking **{% octicon "gear" aria-label="The Settings gear" %}** next to the **About** section on the right of the page.
 
@@ -49,7 +49,7 @@ For guidance on the kinds of files to include, you can look at the starter files
 
 ## Configure the dev container
 
-You can add dev container configuration files to your template repository to customize the development environment for people using your template with {% data variables.product.prodname_github_codespaces %}. You can choose from a list of predefined configuration settings in {% data variables.product.prodname_vscode %}, or you can create a custom configuration by writing your own `devcontainer.json` file. If you don't add configuration files, the default container image will be used. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)" and "[Adding a dev container configuration to your repository](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
+You can add dev container configuration files to your template repository to customize the development environment for people using your template with {% data variables.product.prodname_github_codespaces %}. You can choose from a list of predefined configuration settings in {% data variables.product.prodname_vscode %}, or you can create a custom configuration by writing your own `devcontainer.json` file. If you don't add configuration files, the default container image will be used. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."
 
 {% note %}
 
@@ -83,4 +83,4 @@ The following configuration settings for a React template will open the `app.js`
     }
 }
 ```
-For more information, see "[Automatically opening files in the codespaces for a repository](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/automatically-opening-files-in-the-codespaces-for-a-repository)" and the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on the Development Containers website.
+For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/automatically-opening-files-in-the-codespaces-for-a-repository)" and the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on the Development Containers website.

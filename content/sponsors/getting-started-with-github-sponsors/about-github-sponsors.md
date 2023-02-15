@@ -19,13 +19,13 @@ topics:
 
 {% data reusables.sponsors.sponsorship-details %}
 
-{% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
-{% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+{% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
-When you become a sponsored developer or sponsored organization, additional terms for {% data variables.product.prodname_sponsors %} apply. For more information, see "[GitHub Sponsors Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)."
+When you become a sponsored developer or sponsored organization, additional terms for {% data variables.product.prodname_sponsors %} apply. For more information, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms)."
 
 ## About the {% data variables.product.prodname_matching_fund %}
 
@@ -35,9 +35,9 @@ When you become a sponsored developer or sponsored organization, additional term
 
 {% endnote %}
 
-The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
 
-To be eligible for the {% data variables.product.prodname_matching_fund %}, you must create a profile that will attract a community that will sustain you for the long term. For more information about creating a strong profile, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."
+To be eligible for the {% data variables.product.prodname_matching_fund %}, you must create a profile that will attract a community that will sustain you for the long term. For more information about creating a strong profile, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)."
 
 Donations between sponsored developers will not be matched.
 
@@ -48,8 +48,8 @@ Donations between sponsored developers will not be matched.
 {% data reusables.sponsors.feedback %}
 
 ## Further reading
-- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
-- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"
-- "[Searching users and organizations based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
-- "[Searching repositories based on ability to sponsor](/github/searching-for-information-on-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
+- "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
+- "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
+- "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"
+- "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-ability-to-sponsor)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

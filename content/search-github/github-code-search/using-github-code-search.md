@@ -20,7 +20,7 @@ topics:
 
 Upon getting access to the new code search beta, GitHub will index any repositories you own and any repositories in organizations you are a member of, whether public, private, or internal. This means that you can search across all of your repositories, in addition to the public repositories on {% data variables.product.prodname_dotcom_the_website %} that have already been indexed. Only users with permission to view your code on {% data variables.product.prodname_dotcom_the_website %} will be able to see your code in search results. Forks are indexed and searchable in the same way as other repositories.
 
-Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[About GitHub Code Search (beta)](/search-github/github-code-search/about-github-code-search#limitations)."
+Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
 
 The new code search beta is integrated within the new code view beta. {% data reusables.search.code-view-link %}
 
@@ -28,7 +28,7 @@ The new code search beta is integrated within the new code view beta. {% data re
 
 On top of the new code search engine, the beta includes an upgraded search interface on {% data variables.product.prodname_dotcom_the_website %}. Using suggestions, completions, and saved searches, you can quickly find what you are looking for, often without having to fully type a query or view the search results page.
 
-For more information about the search syntax of the new code search (beta), see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax)."
+For more information about the search syntax of the new code search (beta), see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
 {% data reusables.search.non-code-search-explanation %}
 

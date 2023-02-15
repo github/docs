@@ -15,7 +15,7 @@ topics:
 ---
 ## Understanding the billing cycle
 
-Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[Webhook events for the {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)."
+Customers can choose a monthly or yearly billing cycle when they purchase your app. All changes customers make to the billing cycle and plan selection will trigger a `marketplace_purchase` event. You can refer to the `marketplace_purchase` webhook payload to see which billing cycle a customer selects and when the next billing date begins (`effective_date`). For more information about webhook payloads, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
 
 ## Providing billing services in your app's UI
 
@@ -25,9 +25,9 @@ Customers should be able to perform the following actions from your app's websit
 
 ## Billing services for upgrades, downgrades, and cancellations
 
-Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan).
+You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/rest/apps#list-accounts-for-a-plan).
 
 ### Upgrades
 
@@ -35,7 +35,7 @@ When a customer upgrades their pricing plan or changes their billing cycle from 
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-For information about building upgrade and downgrade workflows into your app, see "[Handling plan changes](/developers/github-marketplace/handling-plan-changes)."
+For information about building upgrade and downgrade workflows into your app, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-changes)."
 
 ### Downgrades and cancellations
 
@@ -47,4 +47,4 @@ When a customer cancels a plan, you must:
   {% data reusables.marketplace.cancellation-clarification %}
 - Enable them to upgrade the plan through GitHub if they would like to continue the plan at a later time.
 
-For information about building cancellation workflows into your app, see "[Handling plan cancellations](/developers/github-marketplace/handling-plan-cancellations)."
+For information about building cancellation workflows into your app, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/handling-plan-cancellations)."

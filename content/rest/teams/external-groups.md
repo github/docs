@@ -20,8 +20,8 @@ To use these endpoints, the authenticated user must be a team maintainer or an o
 
 **Notes:** 
 
-- These endpoints are only available for organizations that are part of an enterprise using {% data variables.product.prodname_emus %}. For more information, see "[About Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
-- If your organization uses team synchronization, you can use the API to manage team synchronization. For more information, see "[Team synchronization](/rest/teams/team-sync)."
+- These endpoints are only available for organizations that are part of an enterprise using {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+- If your organization uses team synchronization, you can use the API to manage team synchronization. For more information, see "[AUTOTITLE](/rest/teams/team-sync)."
 
 {% endnote %}
 {% endif %}

@@ -16,7 +16,7 @@ Effective Date: August 24, 2021
 
 ## 1.	DEFINITIONS
 
-Capitalized terms utilized in this Agreement and not defined herein shall have the meaning set forth in the GitHub Terms of Service located at [https://docs.github.com/articles/github-terms-of-service](/articles/github-terms-of-service) (the “Terms” or “ToS”).
+Capitalized terms utilized in this Agreement and not defined herein shall have the meaning set forth in the GitHub Terms of Service located at [https://docs.github.com/articles/github-terms-of-service](/site-policy/github-terms/github-terms-of-service) (the “Terms” or “ToS”).
 
 "Action" means a mechanism that allows you to implement custom logic without having to create an application to perform a particular task with GitHub.
 

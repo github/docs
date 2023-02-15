@@ -9,7 +9,7 @@ versions:
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} allows you to create annotated tags. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[About releases](/github/administering-a-repository/about-releases)."
+{% data variables.product.prodname_desktop %} allows you to create annotated tags. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[AUTOTITLE](/repositories/releasing-projects-on-github/about-releases)."
 
 {% data reusables.desktop.tags-push-with-commits %}
 

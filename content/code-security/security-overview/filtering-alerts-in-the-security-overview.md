@@ -146,7 +146,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | Qualifier | Description |
 | -------- | -------- |
 |`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
 {% endif %}
 
 {% endif %}
@@ -159,4 +159,4 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
 
-For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."

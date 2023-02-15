@@ -20,7 +20,7 @@ To request the raw format or rendered HTML (when supported), use custom media ty
 
 ### Custom media types for repository contents
 
-[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
+[READMEs](/rest/repos#get-a-repository-readme), [files](/rest/repos#get-repository-content), and [symlinks](/rest/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.raw
     application/vnd.github.html
@@ -29,7 +29,7 @@ Use the `.raw` media type to retrieve the contents of the file.
 
 For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[All objects](/rest/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.object
 

@@ -76,5 +76,5 @@ receive this error.
 }
 ```
 
-To solve this error, start the [OAuth authorization process again](/apps/building-oauth-apps/authorizing-oauth-apps/)
+To solve this error, start the [OAuth authorization process again](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
 and get a new code.

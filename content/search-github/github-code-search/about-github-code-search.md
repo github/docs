@@ -18,9 +18,9 @@ topics:
 
 ## About the new code search (beta)
 
-The new code search (beta) lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community, all from {% data variables.product.prodname_dotcom_the_website %}. This search engine is designed to be scalable, code-aware, and support searching code across GitHub using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of the new code search (beta), see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax)."
+The new code search (beta) lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community, all from {% data variables.product.prodname_dotcom_the_website %}. This search engine is designed to be scalable, code-aware, and support searching code across GitHub using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of the new code search (beta), see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
-On top of the new code search engine, the code search (beta) includes new features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. The new search interface allows you to more quickly and easily find what you are looking for. For more information, see "[Using GitHub Code Search (beta)](/search-github/github-code-search/using-github-code-search)."
+On top of the new code search engine, the code search (beta) includes new features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. The new search interface allows you to more quickly and easily find what you are looking for. For more information, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search)."
 
 {% data reusables.search.non-code-search-explanation %}
 
@@ -46,7 +46,7 @@ We currently only support searching for code on the default branch of a reposito
 
 Results for any search with the new code search (beta) are restricted to 100 results (10 pages). Sorting is not supported for code search results at this time. This limitation only applies to searching code with the new code search (beta) and does not apply to other types of searches.
 
-The new code search (beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[Symbol qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+The new code search (beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
 
 ## Feedback and support
 

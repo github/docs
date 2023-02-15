@@ -19,7 +19,7 @@ redirect_from:
 ---
 ## About the {% data variables.product.prodname_github_codespaces %} spending limit
 
-{% data reusables.codespaces.codespaces-free-for-personal-intro %} For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+{% data reusables.codespaces.codespaces-free-for-personal-intro %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 {% data reusables.codespaces.codespaces-monthly-billing %} 
@@ -28,7 +28,7 @@ Once you've reached your spending limit, you will no longer be able to create ne
 
 {% ifversion ghec %}
 ## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[Connecting an Azure subscription to your enterprise](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
 {% endif %}
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your personal account
@@ -97,5 +97,5 @@ For personal accounts only, you can also choose to turn off email notifications 
 
 ## Further reading
 
-- "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[Managing the cost of {% data variables.product.prodname_github_codespaces %} in your organization](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

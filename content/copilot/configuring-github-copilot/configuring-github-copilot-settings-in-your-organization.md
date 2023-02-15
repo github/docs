@@ -18,7 +18,7 @@ shortTitle: Organization settings
 
 {% ifversion ghec %}To configure {% data variables.product.prodname_copilot %} use in your organization, the organization must be owned by a {% data variables.product.prodname_ghe_cloud %} account, and an enterprise admin must first enable {% data variables.product.prodname_copilot_business_short %} for your organization. Organization admins will then be able to manage seat assignment within the organization.
 
-Depending on the policy settings configured at the enterprise level, an organization admin may also be able to determine whether to allow or block {% data variables.product.prodname_copilot %} suggestions that match public code. For more information, see "[Enforcing policies for {% data variables.product.prodname_copilot %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."{% endif %}
+Depending on the policy settings configured at the enterprise level, an organization admin may also be able to determine whether to allow or block {% data variables.product.prodname_copilot %} suggestions that match public code. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."{% endif %}
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
@@ -131,4 +131,4 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot_for_business %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"

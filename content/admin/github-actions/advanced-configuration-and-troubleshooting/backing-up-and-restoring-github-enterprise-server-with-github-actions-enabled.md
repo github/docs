@@ -16,7 +16,7 @@ redirect_from:
 
 ## About backups of {% data variables.product.product_name %} when using {% data variables.product.prodname_actions %}
 
-You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+You can use {% data variables.product.prodname_enterprise_backup_utilities %} to back up and restore the data and configuration for {% data variables.location.product_location %} to a new instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
 However, not all the data for {% data variables.product.prodname_actions %} is included in these backups. {% data reusables.actions.enterprise-storage-ha-backups %}
 
@@ -25,8 +25,8 @@ However, not all the data for {% data variables.product.prodname_actions %} is i
 To restore a backup of {% data variables.location.product_location %} with {% data variables.product.prodname_actions %}, you must manually configure network settings and external storage on the destination instance before you restore your backup from {% data variables.product.prodname_enterprise_backup_utilities %}. 
 
 1. Confirm that the source instance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
-1. SSH into the destination instance. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings)."
+1. SSH into the destination instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
    ```shell{:copy}
    $ ssh -p 122 admin@HOSTNAME
@@ -40,5 +40,5 @@ To restore a backup of {% data variables.location.product_location %} with {% da
    ghe-config app.actions.enabled true
    ```
 {% data reusables.actions.apply-configuration-and-enable %}
-1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the destination instance. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#restoring-a-backup)."
+1. Re-register your self-hosted runners on the destination instance. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."

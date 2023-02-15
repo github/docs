@@ -23,7 +23,7 @@ topics:
   - User account
 shortTitle: Add to your receipts
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
+Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
 {% warning %}
 

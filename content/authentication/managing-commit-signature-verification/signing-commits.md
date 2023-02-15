@@ -32,14 +32,14 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 
 {% endtip %}
 
-If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
+If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
 1. When committing changes in your local branch, add the -S flag to the git commit command:
   ```shell
   $ git commit -S -m "YOUR_COMMIT_MESSAGE"
   # Creates a signed commit
   ```
-2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
+2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
   ```shell
   $ git push
@@ -52,6 +52,6 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 
 ## Further reading
 
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Signing tags](/articles/signing-tags)"{% ifversion fpt or ghec %}
-* "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}

@@ -34,4 +34,4 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## Further reading
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+- "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"

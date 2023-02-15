@@ -58,7 +58,7 @@ If you do not verify your email address, you will not be able to:
 
 ### Error page after clicking verification link
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
 
 If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
@@ -69,4 +69,4 @@ If you click on the link in the confirmation email within 24 hours and you are d
 
 ## Further reading
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"

@@ -42,7 +42,7 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 
 {% note %}
 
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
+**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ All types in a GraphQL schema include a `description` field compiled into docume
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
+The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
 
 {% endnote %}
 

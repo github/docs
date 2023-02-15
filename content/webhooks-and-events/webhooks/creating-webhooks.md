@@ -29,7 +29,7 @@ First of all, we need to expose our local development environment to the interne
 {% ifversion cli-webhook-forwarding %}
 {% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
 
 {% endnote %}
 {% endif %}
@@ -88,7 +88,7 @@ Since our webhook is dealing with issues in a repository, we'll click **Let me s
 
 When you're finished, click **Add webhook**.
 
-Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
+Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads) to learn how to do that.
 
 ### Wildcard event
 

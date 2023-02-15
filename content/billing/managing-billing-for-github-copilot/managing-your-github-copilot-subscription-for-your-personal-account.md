@@ -56,5 +56,5 @@ You can cancel your {% data variables.product.prodname_copilot_individuals_short
 
 ## Further reading
 
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot)
+- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)
 - [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)

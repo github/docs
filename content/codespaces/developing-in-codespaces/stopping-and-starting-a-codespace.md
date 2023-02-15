@@ -106,4 +106,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"

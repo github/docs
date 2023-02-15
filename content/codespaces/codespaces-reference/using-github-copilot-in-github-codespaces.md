@@ -41,7 +41,7 @@ redirect_from:
 
 ## Installing {% data variables.product.prodname_copilot %} in your JetBrains IDE
 
-[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. For more information, see "[About GitHub Copilot](/copilot/overview-of-github-copilot/about-github-copilot)."
+[{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)."
 
 To use {% data variables.product.prodname_copilot %} in a codespace in your JetBrains IDE, install the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) from within your codespace.
 
@@ -70,7 +70,7 @@ To use {% data variables.product.prodname_copilot %} in a codespace in your JetB
    ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-restart.png)
  
 1. Click **Restart** when prompted to confirm that you want to restart the backend IDE that's running remotely. The JetBrains client application will close when you do this.
-1. Open the codespace again from the JetBrains Gateway application. For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)."
+1. Open the codespace again from the JetBrains Gateway application. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)."
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**. 
 
     ![Screenshot of the JetBrains Tools menu](/assets/images/help/codespaces/jetbrains-tools-menu.png)
@@ -90,6 +90,6 @@ To use {% data variables.product.prodname_copilot %} in a codespace in your JetB
 
 ## Further reading
 
-- "[Getting started with GitHub Copilot in a JetBrains IDE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)"
+- "[AUTOTITLE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide)"
 
 {% endjetbrains %}

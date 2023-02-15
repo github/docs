@@ -43,29 +43,29 @@ Before asking us to disclose data, it may be useful to understand how our system
 GitHub hosts millions of data repositories using the [Git version control system](https://git-scm.com/video/what-is-version-control).
 Repositories on GitHub—which may be public or private—are most commonly used for software development projects, but are also often used to work on content of all kinds.
 
-- [**Users**](/articles/github-glossary#user) —
+- [**Users**](/get-started/quickstart/github-glossary#user) —
 Users are represented in our system as personal GitHub accounts.
 Each user has a personal profile, and can own multiple repositories.
 Users can create or be invited to join organizations or to collaborate on another user's repository.
 
-- [**Collaborators**](/articles/github-glossary#collaborator) —
+- [**Collaborators**](/get-started/quickstart/github-glossary#collaborator) —
 A collaborator is a user with read and write access to a repository who has been invited to contribute by the repository owner.
 
-- [**Organizations**](/articles/github-glossary#organization) —
+- [**Organizations**](/get-started/quickstart/github-glossary#organization) —
 Organizations are a group of two or more users that typically mirror real-world organizations, such as businesses or projects.
 They are administered by users and can contain both repositories and teams of users.
 
-- [**Repositories**](/articles/github-glossary#repository) —
+- [**Repositories**](/get-started/quickstart/github-glossary#repository) —
 A repository is one of the most basic GitHub elements.
 They may be easiest to imagine as a project's folder.
 A repository contains all of the project files (including documentation), and stores each file's revision history.
 Repositories can have multiple collaborators and, at its administrators' discretion, may be publicly viewable or not.
 
-- [**Pages**](/articles/what-is-github-pages) —
+- [**Pages**](/pages/getting-started-with-github-pages/about-github-pages) —
 GitHub Pages are public webpages freely hosted by GitHub that users can easily publish through code stored in their repositories.
 If a user or organization has a GitHub Page, it can usually be found at a URL such as `https://username.github.io` or they may have the webpage mapped to their own custom domain name.
 
-- [**Gists**](/articles/creating-gists) —
+- [**Gists**](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) —
 Gists are snippets of source code or other text that users can use to store ideas or share with friends.
 Like regular GitHub repositories, Gists are created with Git, so they are automatically versioned, forkable and downloadable.
 Gists can either be public or secret (accessible only through a known URL). Public Gists cannot be converted into secret Gists.
@@ -97,7 +97,7 @@ All user public profiles display:
 
 - <a name="private-account-data"></a>
 **Private account data** —
-GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/articles/github-privacy-statement).
+GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/site-policy/privacy-policies/github-privacy-statement).
 This may include:
   - Private email addresses
   - Payment details

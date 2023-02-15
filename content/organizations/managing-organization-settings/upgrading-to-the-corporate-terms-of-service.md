@@ -27,4 +27,4 @@ The Standard Terms of Service is an agreement between {% data variables.product.
   ![Accept terms button](/assets/images/help/organizations/accept-terms-button.png)
 
 ## Further reading
-- "[GitHub Corporate Terms of Service](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"

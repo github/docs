@@ -209,7 +209,7 @@ pack names:
 codeql database analyze <database> microsoft/coding-standards@1.0.0 github/security-queries --format=sarifv2.1.0 --output=query-results.sarif --download
 ```
 
-This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs/)”.
+This command runs the default query suite of two {% data variables.product.prodname_codeql %} query packs: `microsoft/coding-standards` version 1.0.0 and the latest version of `github/security-queries` on the specified database. For further information about default suites, see “[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)”.
 
 The `--download` flag is optional. Using it will ensure the query pack is downloaded if it isn’t yet available locally.
 {% endif %}
@@ -348,8 +348,8 @@ codeql database analyze <cpp-database> codeql/cpp-queries:codeql-suites/cpp-code
 ```
 
 This command downloads the `codeql/cpp-queries` {% data variables.product.prodname_codeql %} query pack, runs the analysis, and generates a file in the SARIF version 2.1.0 format that is supported by all versions of {% data variables.product.prodname_dotcom %}. This file can be uploaded to {% data variables.product.prodname_dotcom %} by executing `codeql github upload-results` or the code scanning API.
-For more information, see "[Analyzing a {% data variables.product.prodname_codeql %} database](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)"
-or "[Code scanning API](/rest/reference/code-scanning)".
+For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)"
+or "[AUTOTITLE](/rest/code-scanning)".
 
 {% data variables.product.prodname_codeql %} query suites are `.qls` files that use directives to select queries to run
 based on certain metadata properties. The standard {% data variables.product.prodname_codeql %} packs have metadata that specify
@@ -357,8 +357,7 @@ the location of the query suites used by code scanning, so the {% data variables
 suite files automatically, and you don’t have to specify the full path on the command line.
 For more information, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)".
 
-For information about creating custom query suites, see "[Creating
-{% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)."
+For information about creating custom query suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)."
 
 #### Diagnostic and summary information
 
@@ -369,7 +368,7 @@ If the analysis found fewer results for standard queries than you expected, revi
 ### Integrating a {% data variables.product.prodname_codeql %} pack into a code scanning workflow in {% data variables.product.prodname_dotcom %}
 
 You can use {% data variables.product.prodname_codeql %} query packs in your code scanning setup. This allows you to select query packs published by various sources and use them to analyze your code.
-For more information, see “[Using {% data variables.product.prodname_codeql %} query packs in the {% data variables.product.prodname_codeql %} action](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-codeql-query-packs/)” or “[Downloading and using {% data variables.product.prodname_codeql %} query packs in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#downloading-and-using-codeql-query-packs).”
+For more information, see “[Using {% data variables.product.prodname_codeql %} query packs in the {% data variables.product.prodname_codeql %} action](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-codeql-query-packs/)” or “[Downloading and using {% data variables.product.prodname_codeql %} query packs in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#downloading-and-using-codeql-query-packs).”
 
 ### Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 
