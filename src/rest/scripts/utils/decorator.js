@@ -4,14 +4,22 @@ import path from 'path'
 import { slug } from 'github-slugger'
 
 import { allVersions } from '../../../../lib/all-versions.js'
-import { categoriesWithoutSubcategories } from '../../lib/index.js'
+import {
+  categoriesWithoutSubcategories,
+  REST_DATA_DIR,
+  REST_SCHEMA_FILENAME,
+} from '../../lib/index.js'
 import getOperations, { getWebhooks } from './get-operations.js'
 import { ENABLED_APPS_DIR, ENABLED_APPS_FILENAME } from '../../../github-apps/lib/index.js'
 import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../../../webhooks/lib/index.js'
-
 const STATIC_REDIRECTS = 'lib/redirects/static/client-side-rest-api-redirects.json'
-const REST_DECORATED_DIR = 'src/rest/data'
 const REST_DEREFERENCED_DIR = 'src/rest/data/dereferenced'
+// All of the schema releases that we store in allVersions
+//  Ex: 'api.github.com', 'ghec', 'ghes-3.6', 'ghes-3.5',
+// 'ghes-3.4', 'ghes-3.3', 'ghes-3.2', 'github.ae'
+const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
+  (elem) => allVersions[elem].openApiVersionName
+)
 
 export async function decorate(schemas) {
   console.log('\n🎄 Decorating the OpenAPI schema files in src/rest/data/dereferenced.\n')
@@ -20,6 +28,7 @@ export async function decorate(schemas) {
   await createStaticWebhookFiles(webhookOperations)
   const restOperations = await getRestOperations(restSchemas)
   await createStaticRestFiles(restOperations)
+  await updateRestMetaData(restSchemas)
 }
 
 async function getRestOperations(restSchemas) {
@@ -123,7 +132,9 @@ async function createStaticRestFiles(restOperations) {
       })
     })
 
-    const restFilename = path.join(REST_DECORATED_DIR, `${schemaName}.json`).replace('.deref', '')
+    const restFilename = path
+      .join(REST_DATA_DIR, schemaName, REST_SCHEMA_FILENAME)
+      .replace('.deref', '')
 
     // write processed operations to disk
     await writeFile(restFilename, JSON.stringify(operationsByCategory, null, 2))
@@ -304,19 +315,13 @@ export async function getOpenApiSchemaFiles(schemas) {
   const webhookSchemas = []
   const restSchemas = []
 
-  // All of the schema releases that we store in allVersions
-  //  Ex: 'api.github.com', 'ghec', 'ghes-3.6', 'ghes-3.5',
-  // 'ghes-3.4', 'ghes-3.3', 'ghes-3.2', 'github.ae'
-  const openApiVersions = Object.keys(allVersions).map(
-    (elem) => allVersions[elem].openApiVersionName
-  )
   // The full list of dereferened OpenAPI schemas received from
   // bundling the OpenAPI in github/github
   const schemaBaseNames = schemas.map((schema) => path.basename(schema, '.deref.json'))
   for (const schema of schemaBaseNames) {
     // catches all of the schemas that are not
     // calendar date versioned. Ex: ghec, ghes-3.7, and api.github.com
-    if (openApiVersions.includes(schema)) {
+    if (OPENAPI_VERSION_NAMES.includes(schema)) {
       webhookSchemas.push(schema)
       // Non-calendar date schemas could also match the calendar date versioned
       // counterpart.
@@ -335,4 +340,28 @@ export async function getOpenApiSchemaFiles(schemas) {
     }
   }
   return { restSchemas, webhookSchemas }
+}
+
+// Every time we update the REST data files, we'll want to make sure the
+// meta.json file is updated with the latest api versions.
+async function updateRestMetaData(schemas) {
+  const restMetaFilename = `${REST_DATA_DIR}/meta.json`
+  const restMetaData = JSON.parse(await readFile(restMetaFilename, 'utf8'))
+  const restApiVersionData = restMetaData['api-versions']
+  schemas.forEach((schema) => {
+    // If the version isn't one of the OpenAPI version,
+    // then it's an api-versioned schema
+    if (!OPENAPI_VERSION_NAMES.includes(schema)) {
+      const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schema.startsWith(ver))
+      const date = schema.split(`${openApiVer}.`)[1]
+
+      if (!restApiVersionData[openApiVer].includes(date)) {
+        const dates = restApiVersionData[openApiVer]
+        dates.push(date)
+        restApiVersionData[openApiVer] = dates
+      }
+    }
+  })
+  restMetaData['api-versions'] = restApiVersionData
+  await writeFile(restMetaFilename, JSON.stringify(restMetaData, null, 2))
 }

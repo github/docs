@@ -6,9 +6,9 @@ import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js
 import { allVersions, getOpenApiVersion } from '../../../lib/all-versions.js'
 import languages from '../../../lib/languages.js'
 
-const schemasPath = 'src/rest/data'
-
-const contentPath = 'content/rest'
+export const REST_DATA_DIR = 'src/rest/data'
+export const REST_SCHEMA_FILENAME = 'schema.json'
+const REST_CONTENT_DIR = 'content/rest'
 
 /*
   Loads the schemas from the static/decorated folder into a single
@@ -59,7 +59,7 @@ Object.keys(languages).forEach((language) => {
 })
 
 export const categoriesWithoutSubcategories = fs
-  .readdirSync(contentPath)
+  .readdirSync(REST_CONTENT_DIR)
   .filter((file) => {
     return file.endsWith('.md') && !file.includes('index.md') && !file.includes('README.md')
   })
@@ -71,26 +71,21 @@ export const categoriesWithoutSubcategories = fs
 // and the OpenApi Version bc it's not the same
 export default async function getRest(version, apiVersion, category, subCategory) {
   const openApiVersion = getOpenApiVersion(version)
-  const filename = apiVersion ? `${openApiVersion}.${apiVersion}.json` : `${openApiVersion}.json`
+  const openapiSchemaName = apiVersion ? `${openApiVersion}.${apiVersion}` : `${openApiVersion}`
   const apiDate = apiVersion || NOT_API_VERSIONED
-
+  const fileName = path.join(REST_DATA_DIR, openapiSchemaName, REST_SCHEMA_FILENAME)
   if (!restOperations.has(openApiVersion)) {
     restOperations.set(openApiVersion, new Map())
     restOperations.get(openApiVersion).set(apiDate, new Map())
     // The `readCompressedJsonFileFallback()` function
     // will check for both a .br and .json extension.
-    restOperations
-      .get(openApiVersion)
-      .set(apiDate, readCompressedJsonFileFallback(path.join(schemasPath, filename)))
+    restOperations.get(openApiVersion).set(apiDate, readCompressedJsonFileFallback(fileName))
   } else if (!restOperations.get(openApiVersion).has(apiDate)) {
     restOperations.get(openApiVersion).set(apiDate, new Map())
     // The `readCompressedJsonFileFallback()` function
     // will check for both a .br and .json extension.
-    restOperations
-      .get(openApiVersion)
-      .set(apiDate, readCompressedJsonFileFallback(path.join(schemasPath, filename)))
+    restOperations.get(openApiVersion).set(apiDate, readCompressedJsonFileFallback(fileName))
   }
-
   if (subCategory) {
     return restOperations.get(openApiVersion).get(apiDate)[category][subCategory]
   } else if (category) {
