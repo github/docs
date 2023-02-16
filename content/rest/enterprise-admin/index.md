@@ -68,7 +68,7 @@ http(s)://HOSTNAME/
 {% ifversion ghae or ghes %}
 ## Authentication
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the {% data variables.product.prodname_dotcom %} API. You can authenticate yourself with [OAuth tokens](/apps/oauth-apps/building-oauth-apps) {% ifversion ghes %}(, which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization, )) {% endif %}or [basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication). {% ifversion ghes %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the {% data variables.product.prodname_dotcom %} API. You can authenticate yourself with [OAuth tokens](/apps/oauth-apps/building-oauth-apps) {% ifversion ghes %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or [basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication). {% ifversion ghes %}
 OAuth tokens must have the `site_admin` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
 These endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% ifversion ghes %}, except for the [Management Console](#management-console) endpoints, which requires the [Management Console password](/admin/configuration/administering-your-instance-from-the-management-console){% endif %}.
