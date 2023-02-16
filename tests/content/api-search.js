@@ -256,36 +256,6 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   })
 })
 
-describeIfElasticsearchURL('search legacy middleware', () => {
-  jest.setTimeout(60 * 1000)
-
-  test('basic legacy search', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/foo')).toBeTruthy()
-  })
-
-  test('basic legacy search with unknown filters', async () => {
-    const sp = new URLSearchParams()
-    sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Never heard of')
-    const res = await get('/api/search/legacy?' + sp)
-    expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    expect(results.length).toBe(0)
-  })
-})
-
 describeIfElasticsearchURL("additional fields with 'include'", () => {
   jest.setTimeout(60 * 1000)
 

@@ -10,6 +10,21 @@ We used to organize our code more by role: client, stylesheets, server middlewar
 
 Run `script/create-subject.js --name x` to create a new subject folder.
 
+Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks similar to:
+
+```
+src/
+  xsubject/
+    README.md
+    components/
+    lib/
+    tests/
+    scripts/
+    stylesheets/
+    pages/
+    docs/
+```
+
 We compose subjects together like TBD - still a work in progress!
 
 How to declare a subject depends on another subject TBD - still a work in progress!
