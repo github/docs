@@ -57,14 +57,14 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
+//{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_auth=TOKEN
 ```
 
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-//HOSTNAME/_registry/npm/:_authToken=TOKEN
+//HOSTNAME/_registry/npm/:_auth=TOKEN
 ```
 {% endif %}
 
