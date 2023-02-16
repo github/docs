@@ -359,7 +359,7 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 
 ### Using AUTOTITLE for internal links
 
-If you create an internal link, you can use the AUOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](../contributing/content-markup-reference.md#internal-links-with-autotitle) for details.
+If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](../contributing/content-markup-reference.md#internal-links-with-autotitle) for details.
 
 ### Linking to the current article in a different version of the docs
 
