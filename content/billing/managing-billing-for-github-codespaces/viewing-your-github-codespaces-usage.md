@@ -42,9 +42,7 @@ You can see how much of the usage included in your personal account you have use
 Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
-
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
+1. Under "Usage this month", under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
 
    You can also see and update your current spending limit. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
