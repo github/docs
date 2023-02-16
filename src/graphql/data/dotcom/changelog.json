@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'ROADMAP_LAYOUT<code>was added to enum</code>ProjectV2ViewLayout'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>vulnerabilityAlert</code> was added to object type <code>Repository</code></p>"
         ]
       }
