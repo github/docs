@@ -21,6 +21,7 @@ children:
   - /quickstart
   - /foo
   - /video-transcripts
+  - /liquid
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

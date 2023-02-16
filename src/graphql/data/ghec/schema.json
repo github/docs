@@ -77410,6 +77410,10 @@
           "description": "<p>Board layout.</p>"
         },
         {
+          "name": "ROADMAP_LAYOUT",
+          "description": "<p>Roadmap layout.</p>"
+        },
+        {
           "name": "TABLE_LAYOUT",
           "description": "<p>Table layout.</p>"
         }
