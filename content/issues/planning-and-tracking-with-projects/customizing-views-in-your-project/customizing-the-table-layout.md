@@ -55,11 +55,15 @@ You can change the order of rows.
 
 You can sort items by a field value.
 
+{% ifversion projects-v2-consistent-sorting %}{% else %}
+
 {% note %}
 
 **Note:** When a table is sorted, you cannot manually reorder rows.
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.projects.customize.sort %}
 
