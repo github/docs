@@ -47,8 +47,9 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
   ```
 4. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-5. To view more detailed information about the verified signature, click Verified.
-![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+5. To view more detailed information about the verified signature, click **Verified.**
+
+   ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
 ## Further reading
 

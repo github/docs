@@ -2,4 +2,4 @@ When you use an IdP for IAM on {% data variables.product.product_name %}, SAML S
 
 - "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)"
 - "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)"
-- "[Synchronizing a team with an identity provider group](http://localhost:4000/github-ae@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)"
+- "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)"
