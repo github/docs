@@ -27,10 +27,11 @@ This guide shows you how to create a continuous integration (CI) workflow that b
 
 ## Prerequisites
 
-We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
+We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file, such as to via starter workflow. For more information, see:
 
 - "[AUTOTITLE](/actions/learn-github-actions)"
 - "[Getting started with Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
+- "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)" 
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
