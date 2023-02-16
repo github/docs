@@ -20,7 +20,7 @@ shortTitle: Delete organization
 {% ifversion fpt or ghec %}
 {% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription) instead of deleting the organization and its content.
 
 {% endtip %}
 
@@ -42,7 +42,7 @@ Deleting your organization account removes all repositories, forks of private re
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
 
 {% endnote %}
 {% endif %}

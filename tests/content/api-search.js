@@ -256,32 +256,52 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   })
 })
 
-describeIfElasticsearchURL('search legacy middleware', () => {
+describeIfElasticsearchURL("additional fields with 'include'", () => {
   jest.setTimeout(60 * 1000)
 
-  test('basic legacy search', async () => {
+  test("'intro' and 'headings' are omitted by default", async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    const res = await get('/api/search/legacy?' + sp)
+    const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    const foundURLS = results.map((result) => result.url)
-    expect(foundURLS.includes('/en/foo')).toBeTruthy()
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeFalsy()
+    expect(firstKeys.includes('headings')).toBeFalsy()
   })
 
-  test('basic legacy search with unknown filters', async () => {
+  test("additionally include 'intro'", async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
-    sp.set('language', 'en')
-    sp.set('version', 'dotcom')
-    sp.set('filters', 'Never heard of')
-    const res = await get('/api/search/legacy?' + sp)
+    sp.set('include', 'intro')
+    const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.text)
-    expect(Array.isArray(results)).toBeTruthy()
-    expect(results.length).toBe(0)
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeTruthy()
+    expect(firstKeys.includes('headings')).toBeFalsy()
+  })
+
+  test("additionally include 'intro' and 'headings'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.append('include', 'intro')
+    sp.append('include', 'headings')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.text)
+    const firstKeys = Object.keys(results.hits[0])
+    expect(firstKeys.includes('intro')).toBeTruthy()
+    expect(firstKeys.includes('headings')).toBeTruthy()
+  })
+
+  test("unknown 'include' is 400 bad request", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'xxxxx')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(400)
+    const results = JSON.parse(res.text)
+    expect(results.error).toMatch(`Not a valid value (["xxxxx"]) for key 'include'`)
   })
 })

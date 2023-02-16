@@ -26,7 +26,7 @@ shortTitle: Remove self-hosted runners
 
 {% endnote %}
 
-To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+To remove a self-hosted runner from a user repository you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
 
 {% data reusables.actions.self-hosted-runner-reusing %}
 {% ifversion fpt or ghec or ghes or ghae > 3.3 %}
@@ -47,7 +47,7 @@ To remove a self-hosted runner from a user repository you must be the repository
 
 {% endnote %}
 
-To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[Self-hosted runners](/rest/reference/actions#self-hosted-runners)."
+To remove a self-hosted runner from an organization, you must be an organization owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
 
 {% data reusables.actions.self-hosted-runner-reusing %}
 {% data reusables.organizations.navigate-to-org %}
@@ -70,7 +70,7 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 
 {% endnote %}
 
-To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runners).
+To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions#self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-reusing %}
 {% ifversion ghec or ghes or ghae > 3.3 %}

@@ -67,7 +67,7 @@ were setting up a "real" web application, you might want to log some of the JSON
 output to a database.
 
 For additional information on working with webhooks for fun and profit, head on
-over to the [Testing Webhooks](/webhooks/testing) guide.
+over to the [Testing Webhooks](/webhooks-and-events/webhooks/testing-webhooks) guide.
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/

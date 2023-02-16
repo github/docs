@@ -37,4 +37,4 @@ shortTitle: View releases & tags
 
 ## Further reading
 
-- "[Signing tags](/articles/signing-tags)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

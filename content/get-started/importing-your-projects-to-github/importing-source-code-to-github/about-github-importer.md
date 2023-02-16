@@ -22,7 +22,7 @@ During an import, depending on the version control system you're importing from,
 
 ## Further reading
 
-- "[Importing a repository with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)"
-- "[Updating commit author attribution with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"
-- "[Importing a Git repository using the command line](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line)"
-- "[Source code migration tools](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-an-external-git-repository-using-the-command-line)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"

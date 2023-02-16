@@ -68,8 +68,8 @@ An action's listing page includes the action's version and the workflow syntax r
 1. Navigate to the action you want to use in your workflow.
 1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
    ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Paste the syntax as a new step in your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
@@ -104,13 +104,13 @@ jobs:
       - uses: ./.github/actions/hello-world-action
 ```
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 ### Adding an action from a different repository
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -132,7 +132,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
 
 
 ## Using release management for your custom actions
@@ -143,7 +143,7 @@ You will designate the version of the action in your workflow file. Check the ac
 
 {% note %}
 
-**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)
+**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)
 
 {% endnote %}
 
@@ -174,7 +174,7 @@ steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
 ## Using inputs and outputs with an action
 
@@ -201,9 +201,9 @@ outputs:
 
 ## Using the actions included with {% data variables.product.prodname_ghe_managed %}
 
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[AUTOTITLE](/admin/github-actions/using-github-actions-in-github-ae/using-actions-in-github-ae)."
 {% endif %}
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions)."

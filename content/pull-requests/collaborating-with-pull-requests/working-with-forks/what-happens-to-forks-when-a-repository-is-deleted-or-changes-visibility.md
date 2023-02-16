@@ -40,10 +40,10 @@ When you delete a public repository, one of the existing public forks is chosen 
 
 If a public repository is made private, its public forks are split off into a new network. As with deleting a public repository, one of the existing public forks is chosen to be the new upstream repository and all other repositories are forked off of this new upstream. Subsequent pull requests go to this new upstream repository.
 
-In other words, a public repository's forks will remain public in their own separate repository network even after the upstream repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/articles/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) upstream repository—even though they didn't need those permissions before.
+In other words, a public repository's forks will remain public in their own separate repository network even after the upstream repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/get-started/learning-about-github/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) upstream repository—even though they didn't need those permissions before.
 
 {% ifversion ghes or ghae %}
-If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
 {% endif %}
 
 ### Deleting the private repository
@@ -76,8 +76,8 @@ If you change the visibility of an internal repository and then delete the repos
 
 ## Further reading
 
-- "[Setting repository visibility](/articles/setting-repository-visibility)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

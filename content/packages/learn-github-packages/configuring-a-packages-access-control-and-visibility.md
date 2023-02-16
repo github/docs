@@ -15,9 +15,9 @@ shortTitle: Access control & visibility
 
 Packages with granular permissions are scoped to a personal account or organization. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
 
-Some registries only support repository-scoped permissions. For the list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+Some registries only support repository-scoped permissions. For the list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-{% else %}A package inherits the permissions and visibility of the repository in which the package is published.{% endif %} For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
+{% else %}A package inherits the permissions and visibility of the repository in which the package is published.{% endif %} For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% ifversion packages-registries-v2 %}
 
@@ -78,7 +78,7 @@ The specified repository does not need to be the repository where the source cod
 
 {% note %}
 
-**Note:** Syncing your package with a repository through the **Actions access** menu option is different than connecting your package to a repository. For more information about linking a repository to your package, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Note:** Syncing your package with a repository through the **Actions access** menu option is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 {% endnote %}
 
@@ -111,7 +111,7 @@ To further customize access to your package, see "[Configuring access to package
 {% ifversion fpt or ghec %}
 ## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
 
-By default, a codespace can seamlessly access certain packages in registries that support granular permissions, such as packages published in the same repository with the **Inherit access** option selected. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+By default, a codespace can seamlessly access certain packages in registries that support granular permissions, such as packages published in the same repository with the **Inherit access** option selected. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
 
@@ -157,7 +157,7 @@ A public package can be accessed anonymously without authentication. Once you ma
 
 ## Package creation visibility for organization members
 
-For registries that support granular permissions, you can choose the visibility of packages that organization members can publish by default. For the list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+For registries that support granular permissions, you can choose the visibility of packages that organization members can publish by default. For the list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

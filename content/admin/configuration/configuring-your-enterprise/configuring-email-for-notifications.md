@@ -104,13 +104,13 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 ## Troubleshooting email delivery
 
 ### Create a support bundle
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in `enterprise-manage-logs/unicorn.log` for the entire SMTP conversation log and any related errors.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/support/contacting-github-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in `enterprise-manage-logs/unicorn.log` for the entire SMTP conversation log and any related errors.
 
 The unicorn log should show a transaction similar to the following:
 
@@ -193,5 +193,5 @@ If {% data variables.location.product_location %} is behind a firewall or is bei
 {% ifversion ghes %}
 If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
 {% elsif ghae %}
-You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 {% endif %}

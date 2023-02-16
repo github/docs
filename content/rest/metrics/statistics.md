@@ -31,7 +31,7 @@ Repository statistics are cached by the SHA of the repository's default branch; 
 
 ### Statistics exclude some types of commits
 
-The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+The statistics exposed by the API match the statistics shown by [different repository graphs](/repositories/viewing-activity-and-data-for-your-repository/about-repository-graphs).
 
 To summarize this:
 - All statistics exclude merge commits.

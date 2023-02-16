@@ -16,13 +16,13 @@ versions:
 topics:
   - GitHub Apps
 ---
-Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% ifversion fpt or ghec %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[Getting started with GitHub Marketplace](/marketplace/getting-started/)."{% endif %}
+Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% ifversion fpt or ghec %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)."{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[Differences between GitHub Apps and OAuth Apps](/developers/apps/differences-between-github-apps-and-oauth-apps)."
+{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)."
 
 {% data reusables.apps.general-apps-restrictions %}
 
-For a walkthrough of the process of building a {% data variables.product.prodname_github_app %}, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
+For a walkthrough of the process of building a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/using-the-github-api-in-your-app)."
 
 ## About {% data variables.product.prodname_github_apps %}
 
@@ -32,7 +32,7 @@ For a walkthrough of the process of building a {% data variables.product.prodnam
 
 {% data reusables.apps.app_manager_role %}
 
-{% data variables.product.prodname_github_apps %} are applications that need to be hosted somewhere. For step-by-step instructions that cover servers and hosting, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
+{% data variables.product.prodname_github_apps %} are applications that need to be hosted somewhere. For step-by-step instructions that cover servers and hosting, see "[AUTOTITLE](/apps/creating-github-apps/guides/using-the-github-api-in-your-app)."
 
 To improve your workflow, you can create a {% data variables.product.prodname_github_app %} that contains multiple scripts or an entire application, and then connect that app to many other tools. For example, you can connect {% data variables.product.prodname_github_apps %} to GitHub, Slack, other in-house apps you may have, email programs, or other APIs.
 
@@ -40,16 +40,16 @@ Keep these ideas in mind when creating {% data variables.product.prodname_github
 
 {% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-github-apps-allowed %} {% endif %}
-* A {% data variables.product.prodname_github_app %} should take actions independent of a user (unless the app is using a [user-to-server](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) token). {% data reusables.apps.expiring_user_authorization_tokens %}
+* A {% data variables.product.prodname_github_app %} should take actions independent of a user (unless the app is using a [user-to-server](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) token). {% data reusables.apps.expiring_user_authorization_tokens %}
 
 * Make sure the {% data variables.product.prodname_github_app %} integrates with specific repositories.
 * The {% data variables.product.prodname_github_app %} should connect to a personal account or an organization.
 * Don't expect the {% data variables.product.prodname_github_app %} to know and do everything a user can.
-* Don't use a {% data variables.product.prodname_github_app %} if you just need a "Login with GitHub" service. But a {% data variables.product.prodname_github_app %} can use a [user identification flow](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) to log users in _and_ do other things.
+* Don't use a {% data variables.product.prodname_github_app %} if you just need a "Login with GitHub" service. But a {% data variables.product.prodname_github_app %} can use a [user identification flow](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) to log users in _and_ do other things.
 * Don't build a {% data variables.product.prodname_github_app %} if you _only_ want to act as a GitHub user and do everything that user can do.{% ifversion fpt or ghec %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
-To begin developing {% data variables.product.prodname_github_apps %}, start with "[Creating a {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)."{% ifversion fpt or ghec %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[Creating {% data variables.product.prodname_github_apps %} from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
+To begin developing {% data variables.product.prodname_github_apps %}, start with "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."{% ifversion fpt or ghec %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest)."{% endif %}
 
 ## About {% data variables.product.prodname_oauth_apps %}
 
@@ -71,13 +71,13 @@ Keep these ideas in mind when creating {% data variables.product.prodname_oauth_
 * Don't build an {% data variables.product.prodname_oauth_app %} to act as an application for your team or company. {% data variables.product.prodname_oauth_apps %} authenticate as a single user, so if one person creates an {% data variables.product.prodname_oauth_app %} for a company to use, and then they leave the company, no one else will have access to it.{% ifversion fpt or ghec %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-For more on {% data variables.product.prodname_oauth_apps %}, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
+For more on {% data variables.product.prodname_oauth_apps %}, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and "[AUTOTITLE](/rest/guides/basics-of-authentication#registering-your-app)."
 
 ## {% data variables.product.pat_generic_caps %}s
 
-A [{% data variables.product.pat_generic %}](/articles/creating-a-personal-access-token-for-the-command-line/) is a string of characters that functions similarly to an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/) in that you can specify its permissions via [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A {% data variables.product.pat_generic %} is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
+A [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) is a string of characters that functions similarly to an [OAuth token](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) in that you can specify its permissions via [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). A {% data variables.product.pat_generic %} is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
 
-As an example, you can enable a {% data variables.product.pat_generic %} to write to your repositories. If then you run a `curl` command or write a script that [creates an issue](/rest/reference/issues#create-an-issue) in your repository, you would pass the {% data variables.product.pat_generic %} to authenticate. You can store the {% data variables.product.pat_generic %} as an environment variable to avoid typing it every time you use it.
+As an example, you can enable a {% data variables.product.pat_generic %} to write to your repositories. If then you run a `curl` command or write a script that [creates an issue](/rest/issues#create-an-issue) in your repository, you would pass the {% data variables.product.pat_generic %} to authenticate. You can store the {% data variables.product.pat_generic %} as an environment variable to avoid typing it every time you use it.
 
 Keep these ideas in mind when using {% data variables.product.pat_generic %}s:
 

@@ -20,4 +20,4 @@ shortTitle: Access community profiles
 
 ## Further reading
 
-- "[About community profiles for public repositories](/articles/about-community-profiles-for-public-repositories)"
+- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)"

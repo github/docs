@@ -37,13 +37,13 @@ $ curl -i -X GET \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 
-The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
+The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[AUTOTITLE](/rest/apps#list-installations-for-the-authenticated-app)."
 
 ## Authenticating as an installation
 
-Authenticating as an installation lets your app access that organization or user via the API, as well as public resources on {% data variables.product.product_name %}. To authenticate as an installation, you must use an installation access token, which you get by sending a [JWT](#jwt-payload) to {% data variables.product.product_name %} to prove your app's identity. Ensure that you have already installed your GitHub App to at least one organization or user account; it is impossible to create an installation token without an installation. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
+Authenticating as an installation lets your app access that organization or user via the API, as well as public resources on {% data variables.product.product_name %}. To authenticate as an installation, you must use an installation access token, which you get by sending a [JWT](#jwt-payload) to {% data variables.product.product_name %} to prove your app's identity. Ensure that you have already installed your GitHub App to at least one organization or user account; it is impossible to create an installation token without an installation. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps)."
 
-By default, installation access tokens are scoped to all the repositories that an installation was granted access to. You can further limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %}, and like repository access, can also be scoped down using the `permissions` parameter. For more information, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint documentation. All installation tokens expire after 1 hour.
+By default, installation access tokens are scoped to all the repositories that an installation was granted access to. You can further limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %}, and like repository access, can also be scoped down using the `permissions` parameter. For more information, see the [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app) endpoint documentation. All installation tokens expire after 1 hour.
 
 To create an installation access token, include the JWT in the Authorization header in the API request, replacing `:installation_id` with the installation's `id`. For more information about generating a JWT, see "[JWT payload](#jwt-payload)."
 
@@ -54,7 +54,7 @@ $ curl -i -X POST \
 {% data variables.product.api_url_pre %}/app/installations/:installation_id/access_tokens
 ```
 
-The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint.
+The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app) endpoint.
 
 To authenticate with an installation access token, include it in the Authorization header in the API request. Replace `YOUR_INSTALLATION_ACCESS_TOKEN` with an installation access token:
 
@@ -73,13 +73,13 @@ $ curl -i \
 
 ## Accessing API endpoints as an installation
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[Endpoints available for GitHub Apps](/rest/overview/endpoints-available-for-github-apps)."
+For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_apps %} using an installation access token, see "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
 
-For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
+For a list of endpoints related to installations, see "[AUTOTITLE](/rest/apps#installations)."
 
 ## HTTP-based Git access by an installation
 
-Installations with [permissions](/apps/building-github-apps/setting-permissions-for-github-apps/) on `contents` of a repository, can use their installation access tokens to authenticate for Git access. Use the installation access token as the HTTP password:
+Installations with [permissions](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps) on `contents` of a repository, can use their installation access tokens to authenticate for Git access. Use the installation access token as the HTTP password:
 
 ```shell
 git clone https://x-access-token:&lt;token&gt;@github.com/owner/repo.git
@@ -167,7 +167,7 @@ encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
 print(f"JWT:  ", encoded_jwt)
 ```
 
-Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/building-github-apps/creating-a-github-app/), or at any time from the app settings page in the GitHub.com UI.
+Use your {% data variables.product.prodname_github_app %}'s identifier (`YOUR_APP_ID`) as the value for the JWT [iss](https://tools.ietf.org/html/rfc7519#section-4.1.1) (issuer) claim. You can obtain the {% data variables.product.prodname_github_app %} identifier via the initial webhook ping after [creating the app](/apps/creating-github-apps/creating-github-apps/creating-a-github-app), or at any time from the app settings page in the GitHub.com UI.
 
 After creating the JWT, set it in the `Header` of the API request:
 
@@ -190,7 +190,7 @@ You'll need to create a new JWT after the time expires.
 
 ## Accessing API endpoints as a {% data variables.product.prodname_github_app %}
 
-For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[GitHub Apps](/rest/reference/apps)."
+For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/rest/apps)."
 
 ## Generating a private key
 

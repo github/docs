@@ -23,7 +23,7 @@ Organization members can have different roles, such as *owner* or *billing manag
 
 ## Payments and pricing for organizations
 
-We don't provide quotes for organization pricing. You can see our published pricing for [organizations](https://github.com/pricing) and [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/). We do not provide discounts for procurement companies or for renewal orders.
+We don't provide quotes for organization pricing. You can see our published pricing for [organizations](https://github.com/pricing) and [Git Large File Storage](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage). We do not provide discounts for procurement companies or for renewal orders.
 
 We accept payment in US dollars, although end users may be located anywhere in the world.
 
@@ -33,6 +33,6 @@ For easier and more efficient purchasing, we recommend that procurement companie
 
 ## Further reading
 
-- "[Creating and paying for an organization on behalf of a client](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)"

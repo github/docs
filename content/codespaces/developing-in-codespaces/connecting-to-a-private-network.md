@@ -50,10 +50,10 @@ These third party solutions include:
 
 While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
 
-For more information about the Meta API, see "[Meta](/rest/meta)."
+For more information about the Meta API, see "[AUTOTITLE](/rest/meta)."
 
 ## Restricting access to the public internet
 
 At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
 
-For more information on how to secure your codespaces, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces)."
+For more information on how to secure your codespaces, see "[AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces)."

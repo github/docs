@@ -4,10 +4,8 @@ import { readdirSync, readFileSync } from 'fs'
 import { join } from 'path'
 
 import { get, getDOM } from '../helpers/e2etest.js'
-import getRest, {
-  getEnabledForApps,
-  categoriesWithoutSubcategories,
-} from '../../src/rest/lib/index.js'
+import getRest, { categoriesWithoutSubcategories } from '../../src/rest/lib/index.js'
+import { getEnabledForApps } from '../../src/github-apps/lib/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../src/rest/scripts/test-open-api-schema.js'
 
@@ -100,13 +98,13 @@ describe('REST references docs', () => {
     }
   })
 
-  test('404 if unrecognized apiVersion', async () => {
+  test('falls back when unsupported calendar version provided', async () => {
     const res = await get(
       `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
         apiVersion: 'junk',
       })}`
     )
-    expect(res.statusCode).toBe(404)
+    expect(res.statusCode).toBe(200)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {

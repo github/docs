@@ -27,9 +27,9 @@ If you use Okta as your IdP, you can map your Okta group to a team in {% data va
 
 You or your Okta administrator must be a Global administrator or a Privileged Role administrator in Okta.
 
-You must enable SAML single sign-on with Okta. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+You must enable SAML single sign-on with Okta. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
-You must authenticate to your enterprise account using SAML SSO and Okta. For more information, see "[Authenticating with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on)."
+You must authenticate to your enterprise account using SAML SSO and Okta. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
 
 ## Assigning your Okta group to the "GitHub AE" app
 
@@ -80,4 +80,4 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 {% data reusables.saml.external-identity-audit-events %}
 
-For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."

@@ -18,7 +18,7 @@ topics:
 
 {% tip %}
 
-**Tip:** If a team has [child or parent teams](/articles/about-teams), you cannot make it a secret team.
+**Tip:** If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
 
 {% endtip %}
 

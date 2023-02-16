@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals'
+
 import readJsonFile from '../../lib/read-json-file.js'
 import {
   schemaValidator,
@@ -6,10 +8,8 @@ import {
 } from '../../src/graphql/lib/validator.js'
 import revalidator from 'revalidator'
 import { allVersions } from '../../lib/all-versions.js'
-import { jest } from '@jest/globals'
+import { GRAPHQL_DATA_DIR } from '../../src/graphql/lib/index.js'
 
-const previewsJson = readJsonFile('./src/graphql/data/previews.json')
-const upcomingChangesJson = readJsonFile('./src/graphql/data/upcoming-changes.json')
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
 const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.kind)
@@ -17,20 +17,13 @@ const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.k
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  test('static files have versions as top-level keys', () => {
-    graphqlVersions.forEach((version) => {
-      expect(version in previewsJson).toBe(true)
-      expect(version in upcomingChangesJson).toBe(true)
-    })
-  })
-
   test('schemas object validation', () => {
     // The typeObj is repeated thousands of times in each .json file
     // so use a cache of which we've already validated to speed this
     // test up significantly.
     const typeObjsTested = new Set()
     graphqlVersions.forEach((version) => {
-      const schemaJsonPerVersion = readJsonFile(`src/graphql/data/schema-${version}.json`)
+      const schemaJsonPerVersion = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/schema.json`)
       // all graphql types are arrays except for queries
       graphqlTypes.forEach((type) => {
         schemaJsonPerVersion[type].forEach((typeObj) => {
@@ -48,8 +41,9 @@ describe('graphql json files', () => {
 
   test('previews object validation', () => {
     graphqlVersions.forEach((version) => {
-      previewsJson[version].forEach((previewObj) => {
-        const { valid, errors } = revalidator.validate(previewObj, previewsValidator)
+      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`)
+      previews.forEach((preview) => {
+        const { valid, errors } = revalidator.validate(preview, previewsValidator)
         const errorMessage = JSON.stringify(errors, null, 2)
         expect(valid, errorMessage).toBe(true)
       })
@@ -58,14 +52,15 @@ describe('graphql json files', () => {
 
   test('upcoming changes object validation', () => {
     graphqlVersions.forEach((version) => {
-      Object.values(upcomingChangesJson[version]).forEach((changes) => {
+      const upcomingChanges = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/upcoming-changes.json`)
+      for (const changes of Object.values(upcomingChanges)) {
         // each object value is an array of changes
         changes.forEach((changeObj) => {
           const { valid, errors } = revalidator.validate(changeObj, upcomingChangesValidator)
           const errorMessage = JSON.stringify(errors, null, 2)
           expect(valid, errorMessage).toBe(true)
         })
-      })
+      }
     })
   })
 })

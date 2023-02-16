@@ -17,7 +17,7 @@ shortTitle: Manage sponsorship updates
 
 The developers and organizations that your organization sponsors can send you updates about their work. You can manage the email address that receives these updates.
 
-You can also disable updates from accounts your organization sponsors. For more information, see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship#managing-email-updates-for-your-sponsorship)."
+You can also disable updates from accounts your organization sponsors. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship#managing-email-updates-for-your-sponsorship)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -28,4 +28,4 @@ You can also disable updates from accounts your organization sponsors. For more 
 
 ## Further reading
 
-- "[{% data variables.product.prodname_sponsors %}](/sponsors)"
+- "[AUTOTITLE](/sponsors)"

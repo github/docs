@@ -13,7 +13,7 @@ versions:
 topics:
   - Marketplace
 ---
-For more information about upgrading and downgrading as it relates to billing, see "[Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)."
+For more information about upgrading and downgrading as it relates to billing, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
 ## Step 1. Pricing plan change event
 
@@ -22,9 +22,9 @@ GitHub send the `marketplace_purchase` webhook with the `changed` action to your
 * Adds or removes seats to their existing plan.
 * Changes the billing cycle.
 
-GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[Billing customers in {% data variables.product.prodname_marketplace %}](/marketplace/selling-your-app/billing-customers-in-github-marketplace/)" to learn more about what actions are considered an upgrade or downgrade.
+GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/selling-your-app-on-github-marketplace/billing-customers)" to learn more about what actions are considered an upgrade or downgrade.
 
-Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
+Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)" for an example of the `marketplace_purchase` event payload.
 
 If your app offers free trials, you'll receive the `marketplace_purchase` webhook with the `changed` action when the free trial expires. If the customer's free trial expires, upgrade the customer to the paid version of the free-trial plan.
 
@@ -56,7 +56,7 @@ https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/
 
 For example, if you notice that a customer is on a 5 person plan and needs to move to a 10 person plan, you could display a button in your app's UI that says "Here's how to upgrade" or show a banner with a link to the upgrade URL. The upgrade URL takes the customer to your listing plan's upgrade confirmation page.
 
-Use the `LISTING_PLAN_NUMBER` for the plan the customer would like to purchase. When you create new pricing plans they receive a `LISTING_PLAN_NUMBER`, which is unique to each plan across your listing, and a `LISTING_PLAN_ID`, which is unique to each plan in the {% data variables.product.prodname_marketplace %}. You can find these numbers when you [List plans](/rest/reference/apps#list-plans), which identifies your listing's pricing plans. Use the `LISTING_PLAN_ID` and the "[List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan)" endpoint to get the `CUSTOMER_ACCOUNT_ID`.
+Use the `LISTING_PLAN_NUMBER` for the plan the customer would like to purchase. When you create new pricing plans they receive a `LISTING_PLAN_NUMBER`, which is unique to each plan across your listing, and a `LISTING_PLAN_ID`, which is unique to each plan in the {% data variables.product.prodname_marketplace %}. You can find these numbers when you [List plans](/rest/apps#list-plans), which identifies your listing's pricing plans. Use the `LISTING_PLAN_ID` and the "[AUTOTITLE](/rest/apps#list-accounts-for-a-plan)" endpoint to get the `CUSTOMER_ACCOUNT_ID`.
 
 
 {% note %}

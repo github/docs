@@ -24,5 +24,5 @@ shortTitle: Integrate Jira with projects
 
 ## Further reading
 
-- ["Integrating Jira with your organization project board"](/articles/integrating-jira-with-your-organization-project-board)
+- ["Integrating Jira with your organization project board"](/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board)
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Connect Jira Cloud to GitHub</a> (Atlassian documentation)

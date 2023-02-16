@@ -47,4 +47,4 @@ If it's successful, nothing will print out. To test that it works, try and clone
 
 ## Further reading
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
+- "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"

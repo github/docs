@@ -32,14 +32,14 @@ This guide shows you how to create a workflow that performs a Docker build, and 
 
 ## Prerequisites
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 You might also find it helpful to have a basic understanding of the following:
 
-- "[Encrypted secrets](/actions/reference/encrypted-secrets)"
-- "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"{% ifversion fpt or ghec %}
-- "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+- "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
+- "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
 
 ## About image configuration
 
@@ -47,7 +47,7 @@ This guide assumes that you have a complete definition for a Docker image stored
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
 
-{% data reusables.package_registry.about-annotation-keys %} For more information, see "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
+{% data reusables.package_registry.about-annotation-keys %} For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
 
 {% endif %}
 
@@ -64,7 +64,7 @@ In the example workflow below, we use the Docker `login-action` and `build-push-
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 The `metadata-action` option required for Docker Hub is:
 * `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
@@ -127,8 +127,8 @@ In the example workflow below, we use the Docker `login-action`{% ifversion fpt 
 
 The `login-action` options required for {% data variables.product.prodname_registry %} are:
 * `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes > 3.4 %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
-* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
-* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)."
+* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 {% ifversion fpt or ghec %}
 The `metadata-action` option required for {% data variables.product.prodname_registry %} is:

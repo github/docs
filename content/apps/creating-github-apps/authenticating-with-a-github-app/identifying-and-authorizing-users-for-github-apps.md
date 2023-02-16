@@ -36,7 +36,7 @@ Using the web application flow, the process to identify users on your site is:
 2. Users are redirected back to your site by GitHub
 3. Your GitHub App accesses the API with the user's access token
 
-If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
+If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#authorizing-users-during-installation)."
 
 ### 1. Request a user's GitHub identity
 Direct the user to the following URL in their browser:
@@ -71,9 +71,9 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token.  When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-to-server-access-tokens)."
 
-Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+Expiring user tokens are currently an optional feature and subject to change. To opt-in to the user-to-server token expiration feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-apps)."
 
 Make a request to the following endpoint to receive an access token:
 
@@ -126,7 +126,7 @@ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pr
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
-{% ifversion device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+{% ifversion device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
 
 ## Check which installation's resources a user can access
 
@@ -144,13 +144,13 @@ More details can be found in: [List app installations accessible to the user acc
 
 ## Handling a revoked GitHub App authorization
 
-If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {% data reusables.webhooks.authorization_event %}
+If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks-and-events/webhooks/webhook-events-and-payloads#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {% data reusables.webhooks.authorization_event %}
 
 ## User-level permissions
 
 You can add user-level permissions to your GitHub App to access user resources, such as user emails, that are granted by individual users as part of the [user authorization flow](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/overview/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
-You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+You can select user-level permissions from within your GitHub App's settings in the **User permissions** section of the **Permissions & webhooks** page. For more information on selecting permissions, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
 
 When a user installs your app on their account, the installation prompt will list the user-level permissions your app is requesting and explain that the app can ask individual users for these permissions.
 
@@ -415,10 +415,10 @@ While most of your API interaction should occur using your server-to-server inst
 {% ifversion ghes %}
 #### Organization Pre Receive Hooks
 
-* [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
-* [Get a pre-receive hook for an organization](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
-* [Update pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
-* [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
+* [List pre-receive hooks for an organization](/rest/enterprise-admin#list-pre-receive-hooks-for-an-organization)
+* [Get a pre-receive hook for an organization](/rest/enterprise-admin#get-a-pre-receive-hook-for-an-organization)
+* [Update pre-receive hook enforcement for an organization](/rest/enterprise-admin#update-pre-receive-hook-enforcement-for-an-organization)
+* [Remove pre-receive hook enforcement for an organization](/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
 #### Organization Team Projects
@@ -748,10 +748,10 @@ While most of your API interaction should occur using your server-to-server inst
 {% ifversion ghes %}
 #### Repository Pre Receive Hooks
 
-* [List pre-receive hooks for a repository](/enterprise/user/rest/enterprise-admin#list-pre-receive-hooks-for-a-repository)
-* [Get a pre-receive hook for a repository](/enterprise/user/rest/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
-* [Update pre-receive hook enforcement for a repository](/enterprise/user/rest/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
-* [Remove pre-receive hook enforcement for a repository](/enterprise/user/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
+* [List pre-receive hooks for a repository](/rest/enterprise-admin#list-pre-receive-hooks-for-a-repository)
+* [Get a pre-receive hook for a repository](/rest/enterprise-admin#get-a-pre-receive-hook-for-a-repository)
+* [Update pre-receive hook enforcement for a repository](/rest/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository)
+* [Remove pre-receive hook enforcement for a repository](/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository)
 {% endif %}
 
 #### Repository Releases
@@ -914,4 +914,4 @@ While most of your API interaction should occur using your server-to-server inst
 
 ## Further reading
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats)"

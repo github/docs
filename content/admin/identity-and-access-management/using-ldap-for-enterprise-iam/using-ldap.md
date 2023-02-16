@@ -43,7 +43,7 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 ## Username considerations with LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
 ## Configuring LDAP with {% data variables.location.product_location %}
 
@@ -115,7 +115,7 @@ When this option is selected, the certificate is validated to make sure:
 
 {% endnote %}
 
-You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[Creating teams](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
+You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/creating-teams#creating-teams-with-ldap-sync-enabled)."
 
 To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
 
@@ -195,8 +195,8 @@ You can view the full list of LDAP users who have access to your instance and pr
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
 * To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
+* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ### Manually syncing LDAP accounts
 
@@ -209,10 +209,10 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 ![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-You can also [use the API to trigger a manual sync](/enterprise/user/rest/reference/enterprise-admin#ldap).
+You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap).
 
 ## Revoking access to {% data variables.location.product_location %}
 
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
-If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
+If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".

@@ -23,6 +23,6 @@ versions:
 
 ## Further reading
 
-- "[Creating a saved reply](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
-- "[Deleting a saved reply](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
-- "[Using saved replies](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"

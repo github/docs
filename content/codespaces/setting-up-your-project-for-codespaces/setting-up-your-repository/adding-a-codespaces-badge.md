@@ -22,7 +22,7 @@ Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badg
 
 When you create a badge you can choose specific configuration options for the codespace that the badge will create.
 
-When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+When people click the badge they'll be taken to the advanced options page for codespace creation, with the options you chose preselected. For more information about the advanced options page, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 From the advanced options page, users can change the preselected settings if required, then click **Create codespace**.
 

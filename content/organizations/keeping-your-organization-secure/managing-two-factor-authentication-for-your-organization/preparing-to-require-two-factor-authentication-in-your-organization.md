@@ -19,7 +19,7 @@ We recommend that you notify {% ifversion fpt or ghec %}organization members, ou
 When you require use of two-factor authentication for your organization, members, outside collaborators, and billing managers (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories.
 
 Before requiring 2FA in your organization, we recommend that you:
-  - [Enable 2FA](/articles/securing-your-account-with-two-factor-authentication-2fa/) on your personal account
+  - [Enable 2FA](/authentication/securing-your-account-with-two-factor-authentication-2fa) on your personal account
   - Ask the people in your organization to set up 2FA for their accounts
-  - See whether [users in your organization have 2FA enabled](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled/)
+  - See whether [users in your organization have 2FA enabled](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)
   - Warn users that once 2FA is enabled, those without 2FA are automatically removed from the organization

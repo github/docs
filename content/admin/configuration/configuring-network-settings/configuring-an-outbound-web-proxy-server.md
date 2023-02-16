@@ -23,11 +23,11 @@ When a proxy server is enabled for {% data variables.location.product_location %
 
 {% note %}
 
-**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% endnote %}
 
-{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 ## Configuring an outbound web proxy server
 

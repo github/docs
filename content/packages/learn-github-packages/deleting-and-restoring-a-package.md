@@ -43,12 +43,12 @@ On {% data variables.product.prodname_dotcom %}, you can also restore an entire 
 
 {% ifversion fpt or ghec %}
 
-You can use the REST API to manage your packages. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
+You can use the REST API to manage your packages. For more information, see the "[AUTOTITLE](/rest/packages)."
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
 {% ifversion packages-delete-with-github-token-api %}
-With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
+With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
 {% endif %}
 
 {% endif %}
@@ -60,11 +60,11 @@ With registries that support granular permissions, you can use a `GITHUB_TOKEN` 
 {% ifversion packages-registries-v2 %}
 With registries that support granular permissions, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository.
 
-To delete a package that has granular permissions separate from a repository, such as container images stored at {% ifversion ghes %}`https://containers.HOSTNAME/NAMESPACE/PACKAGE-NAME`{% else %}`https://ghcr.io/NAMESPACE/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} or packages stored at `https://npm.pkg.github.com/NAMESPACE/PACKAGE-NAME`{% endif %} (where `NAMESPACE` is the name of the personal account or organization to which the package is scoped), you must have admin access to the package. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
+To delete a package that has granular permissions separate from a repository, such as container images stored at {% ifversion ghes %}`https://containers.HOSTNAME/NAMESPACE/PACKAGE-NAME`{% else %}`https://ghcr.io/NAMESPACE/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} or packages stored at `https://npm.pkg.github.com/NAMESPACE/PACKAGE-NAME`{% endif %} (where `NAMESPACE` is the name of the personal account or organization to which the package is scoped), you must have admin access to the package. For more information, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 For packages that inherit their access permissions from repositories, you can delete a package if you have admin permissions to the repository.
 
-Some registries **only** support repository-scoped packages. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+Some registries **only** support repository-scoped packages. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
 {% else %}
 
@@ -90,9 +90,9 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 {% ifversion fpt or ghec or ghes %}
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
 
-{% data reusables.package_registry.about-graphql-support %}{% ifversion fpt or ghec %} For information on using the REST API instead, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."{% endif %}
+{% data reusables.package_registry.about-graphql-support %}{% ifversion fpt or ghec %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
 
-Use the `deletePackageVersion` mutation in the GraphQL API. You must use a {% data variables.product.pat_v1 %} with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about {% data variables.product.pat_v1_plural %}, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
+Use the `deletePackageVersion` mutation in the GraphQL API. You must use a {% data variables.product.pat_v1 %} with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about {% data variables.product.pat_v1_plural %}, see "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
 
 The following example demonstrates how to delete a package version, using a `packageVersionId` of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`.
 
@@ -106,7 +106,7 @@ HOSTNAME/graphql
 
 To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `packages` connection through the `repository` object. You will need a {% data variables.product.pat_v1 %} with the `read:packages` and `repo` scopes. For more information, see the [`packages`](/graphql/reference/objects#repository) connection or the [`PackageOwner`](/graphql/reference/interfaces#packageowner) interface.
 
-For more information about the `deletePackageVersion` mutation, see "[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)."
+For more information about the `deletePackageVersion` mutation, see "[AUTOTITLE](/graphql/reference/mutations#deletepackageversion)."
 
 You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
 

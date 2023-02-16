@@ -21,7 +21,7 @@ When you make changes to your integration code, running the code in a local envi
 
 {% note %}
 
-**Note:** Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test sponsorship, GitHub App, enterprise, or Marketplace webhooks locally, you'll need to do this manually. For more information, see "[Creating webhooks](/developers/webhooks-and-events/webhooks/creating-webhooks)."
+**Note:** Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test sponsorship, GitHub App, enterprise, or Marketplace webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
 
 {% endnote %}
 

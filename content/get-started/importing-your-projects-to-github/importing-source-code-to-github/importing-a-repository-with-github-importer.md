@@ -13,7 +13,7 @@ shortTitle: Use GitHub Importer
 ---
 {% tip %}
 
-**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools) for projects imported from other version control systems.
+**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-an-external-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools) for projects imported from other version control systems.
 
 {% endtip %}
 
@@ -27,7 +27,7 @@ If you'd like to match the commits in your repository to the authors' GitHub per
 2. Under "Your old repository's clone URL", type the URL of the project you want to import.
 3. Under "Owner", select the dropdown menu and click your personal account or an organization to own the repository
 1. Under "Name", type a name for the repository on GitHub.
-4. Under "Privacy", select a visibility for the repository. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
+4. Under "Privacy", select a visibility for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 5. Review the information you entered, then click **Begin import**.
 6. If your old project requires credentials, type your login information for that project. If SAML SSO or 2FA are enabled for your user account on the old project, enter a {% data variables.product.pat_generic %} with repository read permissions in the "Password" field instead of your password.
 1. Click **Submit**.
@@ -38,4 +38,4 @@ You'll receive an email when the repository has been completely imported.
 
 ## Further reading
 
-- "[Updating commit author attribution with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer)"

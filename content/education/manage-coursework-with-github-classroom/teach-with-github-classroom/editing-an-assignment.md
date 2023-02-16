@@ -8,7 +8,7 @@ shortTitle: Edit an assignment
 ---
 ## About editing assignments
 
-After creating an assignment, you can edit many aspects of the assignment to better fit the needs of yourself and your students. Be aware that you cannot change the assignment type (either individual or group) or the online integrated development environment (IDE) after assignment creation. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)" and "[Create a group assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
+After creating an assignment, you can edit many aspects of the assignment to better fit the needs of yourself and your students. Be aware that you cannot change the assignment type (either individual or group) or the online integrated development environment (IDE) after assignment creation. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
 
 ## Editing an existing assignment
 
@@ -69,7 +69,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
     ![Screenshot of the assignment editor with emphasis on the "Repository visibility" radio buttons](/assets/images/help/classroom/edit-assignment-repository-visibility.png)
 
-1.  Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+1.  Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
     {% note %}
 
@@ -91,7 +91,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
     ![Screenshot of the assignment editor with emphasis on the "Select a repository" dropdown](/assets/images/help/classroom/edit-assignment-template-repository.png)
 
-1. To add a new autograding test, in the "Add autograding tests" section, select the **Add test** drop-down menu, then click a grading method from the options that appear. For more information, see "[Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)."
+1. To add a new autograding test, in the "Add autograding tests" section, select the **Add test** drop-down menu, then click a grading method from the options that appear. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
     
     ![Screenshot of the assignment editor with emphasis on the "Add test" dropdown](/assets/images/help/classroom/edit-assignment-add-test.png)
 
@@ -113,5 +113,5 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 ## Further reading
 
-- "[Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
-- "[Create a group assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"

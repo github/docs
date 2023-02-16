@@ -26,7 +26,7 @@ These are the supported media types for blobs.
     application/json
     application/vnd.github.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+For more information, see "[AUTOTITLE](/rest/overview/media-types)."
 
 
 <!-- Content after this section is automatically generated -->

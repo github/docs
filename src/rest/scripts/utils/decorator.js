@@ -6,11 +6,11 @@ import { slug } from 'github-slugger'
 import { allVersions } from '../../../../lib/all-versions.js'
 import { categoriesWithoutSubcategories } from '../../lib/index.js'
 import getOperations, { getWebhooks } from './get-operations.js'
+import { ENABLED_APPS_DIR, ENABLED_APPS_FILENAME } from '../../../github-apps/lib/index.js'
+import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../../../webhooks/lib/index.js'
 
-const ENABLED_APPS = 'src/github-apps/data/enabled-for-apps.json'
 const STATIC_REDIRECTS = 'lib/redirects/static/client-side-rest-api-redirects.json'
 const REST_DECORATED_DIR = 'src/rest/data'
-const WEBHOOK_DECORATED_DIR = 'src/webhooks/data'
 const REST_DEREFERENCED_DIR = 'src/rest/data/dereferenced'
 
 export async function decorate(schemas) {
@@ -67,7 +67,6 @@ async function getWebhookOperations(webhookSchemas) {
 }
 
 async function createStaticRestFiles(restOperations) {
-  const operationsEnabledForGitHubApps = {}
   const clientSideRedirects = await getCategoryOverrideRedirects()
   for (const schemaName in restOperations) {
     const operations = restOperations[schemaName]
@@ -130,15 +129,17 @@ async function createStaticRestFiles(restOperations) {
     await writeFile(restFilename, JSON.stringify(operationsByCategory, null, 2))
     console.log('Wrote', path.relative(process.cwd(), restFilename))
 
-    // Create the enabled-for-apps.json file used for
+    // Create the src/github-apps/data files used for
     // https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps
-    operationsEnabledForGitHubApps[schemaName] = {}
+    const enabledAppsFilename = path.join(ENABLED_APPS_DIR, schemaName, ENABLED_APPS_FILENAME)
+    const enabledAppsVersionDir = path.join(ENABLED_APPS_DIR, schemaName)
+    const operationsEnabledForGitHubApps = {}
     for (const category of categories) {
       const categoryOperations = operations.filter((operation) => operation.category === category)
 
       // This is a collection of operations that have `enabledForGitHubApps = true`
       // It's grouped by resource title to make rendering easier
-      operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
+      operationsEnabledForGitHubApps[category] = categoryOperations
         .filter((operation) => operation.enabledForGitHubApps)
         .map((operation) => ({
           slug: slug(operation.title),
@@ -147,10 +148,14 @@ async function createStaticRestFiles(restOperations) {
           requestPath: operation.requestPath,
         }))
     }
+    // When a new version is added, we need to create the directory for it
+    if (!existsSync(enabledAppsVersionDir)) {
+      mkdirSync(enabledAppsVersionDir)
+    }
+    await writeFile(enabledAppsFilename, JSON.stringify(operationsEnabledForGitHubApps, null, 2))
+    console.log('Wrote', enabledAppsFilename)
   }
 
-  await writeFile(ENABLED_APPS, JSON.stringify(operationsEnabledForGitHubApps, null, 2))
-  console.log('Wrote', ENABLED_APPS)
   await writeFile(STATIC_REDIRECTS, JSON.stringify(clientSideRedirects, null, 2), 'utf8')
   console.log('Wrote', STATIC_REDIRECTS)
 }
@@ -216,11 +221,11 @@ async function createStaticWebhookFiles(webhookSchemas) {
       }
     })
     const webhooksFilename = path
-      .join(WEBHOOK_DECORATED_DIR, `${schemaName}.json`)
+      .join(WEBHOOK_DATA_DIR, schemaName, WEBHOOK_SCHEMA_FILENAME)
       .replace('.deref', '')
     if (Object.keys(categorizedWebhooks).length > 0) {
-      if (!existsSync(WEBHOOK_DECORATED_DIR)) {
-        mkdirSync(WEBHOOK_DECORATED_DIR)
+      if (!existsSync(`${WEBHOOK_DATA_DIR}/${schemaName}`)) {
+        mkdirSync(`${WEBHOOK_DATA_DIR}/${schemaName}`)
       }
       await writeFile(webhooksFilename, JSON.stringify(categorizedWebhooks, null, 2))
       console.log('Wrote', path.relative(process.cwd(), webhooksFilename))

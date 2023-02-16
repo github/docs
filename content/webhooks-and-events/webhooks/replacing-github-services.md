@@ -19,14 +19,14 @@ We have deprecated GitHub Services in favor of integrating with webhooks. This g
 
 {% note %}
 
-As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[About email notifications for pushes to your repository](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/)" to learn how to configure commit email notifications.
+As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository)" to learn how to configure commit email notifications.
 
 {% endnote %}
 
 ## Deprecation timeline
 
 - **October 1, 2018**: GitHub discontinued allowing users to install services. We removed GitHub Services from the GitHub.com user interface.
-- **January 29, 2019**: As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[About email notifications for pushes to your repository](/github/receiving-notifications-about-activity-on-github/about-email-notifications-for-pushes-to-your-repository/)" to learn how to configure commit email notifications.
+- **January 29, 2019**: As an alternative to the email service, you can now start using email notifications for pushes to your repository. See "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository)" to learn how to configure commit email notifications.
 - **January 31, 2019**: GitHub will stop delivering installed services' events on GitHub.com.
 
 ## GitHub Services background
@@ -48,13 +48,13 @@ The key differences between GitHub Services and webhooks:
 
 To replace GitHub Services with Webhooks:
 
-1. Identify the relevant webhook events you’ll need to subscribe to from [this list](/webhooks/#events).
+1. Identify the relevant webhook events you’ll need to subscribe to from [this list](/webhooks-and-events/webhooks/about-webhooks#events).
 
 2. Change your configuration depending on how you currently use GitHub Services:
 
    - **GitHub Apps**: Update your app's permissions and subscribed events to configure your app to receive the relevant webhook events.
    - **OAuth Apps**: Request either the `repo_hook` and/or `org_hook` scope(s) to manage the relevant events on behalf of users.
-   - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[About apps](/apps/about-apps/)."
+   - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
 
 3. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or OAuth Apps where applicable.
 
@@ -72,4 +72,4 @@ Please [contact us](https://github.com/contact?form%5Bsubject%5D=GitHub+Services
 As a high-level overview, the process of migration typically involves:
   - Identifying how and where your product is using GitHub Services.
   - Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/creating-github-apps) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps#reasons-for-switching-to-github-apps)."

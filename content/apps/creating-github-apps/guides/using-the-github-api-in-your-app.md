@@ -32,8 +32,8 @@ Once you've worked through the steps, you'll be ready to develop other kinds of 
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/about-apps)
-* [Webhooks](/webhooks)
+* [GitHub Apps](/apps/creating-github-apps/creating-github-apps/about-apps)
+* [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
@@ -49,11 +49,11 @@ Before you begin, you'll need to do the following:
 
   Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
 
-1. Follow the steps in the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart to configure and run the `template_server.rb` app server. If you've previously completed a GitHub App quickstart other than [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/), you should register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
+1. Follow the steps in the [Setting up your development environment](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app) quickstart to configure and run the `template_server.rb` app server. If you've previously completed a GitHub App quickstart other than [Setting up your development environment](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app), you should register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
 
-  This quickstart includes the same `template_server.rb` code as the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart. **Note:** As you follow along with the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart, make sure to use the project files included in the [Using the GitHub API in your app](https://github.com/github-developer/using-the-github-api-in-your-app) repository.
+  This quickstart includes the same `template_server.rb` code as the [Setting up your development environment](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app) quickstart. **Note:** As you follow along with the [Setting up your development environment](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app) quickstart, make sure to use the project files included in the [Using the GitHub API in your app](https://github.com/github-developer/using-the-github-api-in-your-app) repository.
 
-  See the [Troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
+  See the [Troubleshooting](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#troubleshooting) section if you are running into problems setting up your template GitHub App.
 
 ## Building the app
 
@@ -78,7 +78,7 @@ These are the steps you'll complete to create your first GitHub App:
 
 ## Step 1. Update app permissions
 
-When you [first registered your app](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
+When you [first registered your app](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
 
 To update your app's permissions:
 
@@ -91,7 +91,7 @@ Great! Your app has permission to do the tasks you want it to do. Now you can ad
 
 ## Step 2. Add event handling
 
-The first thing your app needs to do is listen for new issues that are opened. Now that you've subscribed to the **Issues** event, you'll start receiving the [`issues`](/webhooks/event-payloads/#issues) webhook, which is triggered when certain issue-related actions occur. You can filter this event type for the specific action you want in your code.
+The first thing your app needs to do is listen for new issues that are opened. Now that you've subscribed to the **Issues** event, you'll start receiving the [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) webhook, which is triggered when certain issue-related actions occur. You can filter this event type for the specific action you want in your code.
 
 GitHub sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads in the `post '/event_handler'` route.
 
@@ -129,7 +129,7 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-This method receives a JSON-formatted event payload as an argument. This means you can parse the payload in the method and drill down to any specific data you need. You may find it helpful to inspect the full payload at some point: try changing `logger.debug 'An issue was opened!` to `logger.debug payload`. The payload structure you see should match what's [shown in the `issues` webhook event docs](/webhooks/event-payloads/#issues).
+This method receives a JSON-formatted event payload as an argument. This means you can parse the payload in the method and drill down to any specific data you need. You may find it helpful to inspect the full payload at some point: try changing `logger.debug 'An issue was opened!` to `logger.debug payload`. The payload structure you see should match what's [shown in the `issues` webhook event docs](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues).
 
 Great! It's time to test the changes.
 
@@ -147,11 +147,11 @@ Before the label can be _added_ anywhere, you'll need to _create_ the custom lab
 
 {% tip %}
 
-**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/rest/reference/issues#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
+**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/rest/issues#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
 
 {% endtip %}
 
-Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/reference/issues#add-labels-to-an-issue).
+Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/issues#add-labels-to-an-issue).
 
 ## Step 4. Add label handling
 
@@ -190,7 +190,7 @@ You won't see much in the Terminal, _but_ you should see that a bot user has add
 
 {% note %}
 
-**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[Machine vs. bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts)."
+**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
 
 {% endnote %}
 
@@ -206,16 +206,16 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 * **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm sending events on GitHub.com by opening new issues, but I don't see any output in the Terminal window where I'm running the server.
 
-    **A:** You may not have the correct Smee domain in your app settings. Visit your [app settings page](https://github.com/settings/apps) and double-check the fields shown in "[Register a new app with GitHub](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Start a new Smee channel](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel)."
+    **A:** You may not have the correct Smee domain in your app settings. Visit your [app settings page](https://github.com/settings/apps) and double-check the fields shown in "[AUTOTITLE](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[AUTOTITLE](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel)."
 
 * **Q:** My app doesn't work! I opened a new issue, but even after refreshing, no label has been added to it.
 
     **A:** Make sure all of the following are true:
 
-    * You [installed the app](/apps/quickstart-guides/setting-up-your-development-environment/#step-7-install-the-app-on-your-account) on the repository where you're opening the issue.
-    * Your [Smee client is running](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel) in a Terminal window.
-    * Your [web server is running](/apps/quickstart-guides/setting-up-your-development-environment/#step-6-start-the-server) with no errors in another Terminal window.
-    * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/quickstart-guides/setting-up-your-development-environment/#step-1-start-a-new-smee-channel).
+    * You [installed the app](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-7-install-the-app-on-your-account) on the repository where you're opening the issue.
+    * Your [Smee client is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel) in a Terminal window.
+    * Your [web server is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-6-start-the-server) with no errors in another Terminal window.
+    * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel).
     * You [checked your email](#step-1-update-app-permissions) after updating the permissions and accepted the new permissions.
 
 ## Conclusion
@@ -236,4 +236,4 @@ Here are some ideas for what you can do next:
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
 * Share your project or get advice in the {% data reusables.support.prodname_support_forum_with_url %}{% ifversion fpt or ghec %}
-* Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}
+* Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace)!{% endif %}

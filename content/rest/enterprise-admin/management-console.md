@@ -17,13 +17,13 @@ You should explicitly set the port number when making API calls to the Managemen
 
 If you cannot provide a port number, you'll need to configure your tool to automatically follow redirects.
 
-You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
+You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/admin/configuration/configuring-network-settings/configuring-tls).
 
 {% endtip %}
 
 ### Authentication
 
-You need to pass your [Management Console password](/enterprise/admin/articles/accessing-the-management-console/) as an authentication token to every endpoint in this category except ["Create a license"](#create-a-github-enterprise-server-license).
+You need to pass your [Management Console password](/admin/configuration/administering-your-instance-from-the-management-console) as an authentication token to every endpoint in this category except ["Create a license"](#create-a-github-enterprise-server-license).
 
 Use the `api_key` parameter to send this token with each request. For example:
 

@@ -51,8 +51,8 @@ For more information about moving from TFVC (a centralized version control syste
 
 ## Further reading
 
-- "[About GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
-- "[Importing a repository with GitHub Importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)"
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.projects.about-table-layout %}
 
-For more information about changing a view to use the table layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the table layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 

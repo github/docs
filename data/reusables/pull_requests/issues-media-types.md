@@ -7,4 +7,4 @@ These are the supported media types for this set of endpoints:
     application/vnd.github.html+json
     application/vnd.github.full+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+For more information about media types, see "[AUTOTITLE](/rest/overview/media-types)."

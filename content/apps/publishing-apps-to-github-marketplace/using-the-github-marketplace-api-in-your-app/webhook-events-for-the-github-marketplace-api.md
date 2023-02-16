@@ -16,7 +16,7 @@ shortTitle: Webhook events
 ---
 ## {% data variables.product.prodname_marketplace %} purchase webhook payload
 
-Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
+Webhooks `POST` requests have special headers. See "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
 
 Cancellations and downgrades take effect on the first day of the next billing cycle. Events for downgrades and cancellations are sent when the new plan takes effect at the beginning of the next billing cycle. Events for new purchases and upgrades begin immediately. Use the `effective_date` in the webhook payload to determine when a change will begin.
 
@@ -36,7 +36,7 @@ The `marketplace_purchase` object has the following keys:
 
 Key | Type | Description
 ----|------|-------------
-`account` | `object` | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/rest/reference/users#get-the-authenticated-user) endpoint.
+`account` | `object` | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/rest/users#get-the-authenticated-user) endpoint.
 `billing_cycle` | `string` | Can be `yearly` or `monthly`. When the `account` owner has a free GitHub plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `billing_cycle` will be `nil`.
 `unit_count`  | `integer` | Number of units purchased.
 `on_free_trial` | `boolean` | `true` when the `account` is on a free trial.

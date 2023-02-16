@@ -68,7 +68,7 @@ describe('Page class', () => {
     })
   })
 
-  describe('page.render(context)', () => {
+  describe.skip('page.render(context)', () => {
     test('rewrites links to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
       const context = {

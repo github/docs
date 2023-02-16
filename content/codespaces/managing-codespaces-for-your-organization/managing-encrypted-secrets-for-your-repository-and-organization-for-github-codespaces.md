@@ -80,4 +80,4 @@ You can check which access policies are applied to a secret in your organization
 
 ## Further reading
 
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

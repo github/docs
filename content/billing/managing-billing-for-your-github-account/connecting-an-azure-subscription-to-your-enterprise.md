@@ -11,7 +11,7 @@ shortTitle: Connect an Azure subscription
 ---
 ## About Azure subscriptions and {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
 {% note %}
 
@@ -21,9 +21,9 @@ shortTitle: Connect an Azure subscription
 
 After you connect an Azure subscription, you can also manage your spending limits.
 
-- "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
-- "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
-- "[Managing your spending limit for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"
 
 ## Connecting your Azure subscription to your enterprise account
 

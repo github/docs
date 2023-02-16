@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 
 {% data reusables.project-management.use-automated-template %}
 
@@ -42,4 +42,4 @@ allowTitleToDifferFromFilename: true
 6. Click **Update automation**.
 
 ## Further reading
-- "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"

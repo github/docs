@@ -31,7 +31,7 @@ To authorize your OAuth app, consider which authorization flow best fits your ap
 
 {% note %}
 
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" for more information.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ Name | Type | Description
 `client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
 `redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
+`scope`|`string` | A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
 `state` | `string` | {% data reusables.apps.state_description %}
 `allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
@@ -124,7 +124,7 @@ The device flow allows you to authorize users for a headless app, such as a CLI 
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for GitHub Apps.
 
 {% endif %}
 
@@ -258,7 +258,7 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 ## Non-Web application flow
 
-Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
+Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a {% data variables.product.pat_generic %} using your [{% data variables.product.pat_generic %}s settings page](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). This technique enables the user to revoke access at any time.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
@@ -324,17 +324,17 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
+**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 {% endtip %}
 
 ## Troubleshooting
 
-* "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
 * "[Device flow errors](#error-codes-for-the-device-flow)"
-* "[Token expiration and revocation](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Further reading
 
-- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
