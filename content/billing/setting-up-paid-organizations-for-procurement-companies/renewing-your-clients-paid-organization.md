@@ -27,5 +27,5 @@ shortTitle: Renewing paid organization
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. Under "Payment method", click **New Card**.
-![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

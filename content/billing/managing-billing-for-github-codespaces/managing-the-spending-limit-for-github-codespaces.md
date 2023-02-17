@@ -22,7 +22,7 @@ redirect_from:
 {% data reusables.codespaces.codespaces-free-for-personal-intro %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
-{% data reusables.codespaces.codespaces-monthly-billing %} 
+{% data reusables.codespaces.codespaces-monthly-billing %}
 
 Once you've reached your spending limit, you will no longer be able to create new codespaces, and you won't be able to start existing codespaces. Any existing codespaces that are still running will be shut down in a short time, but you will not be charged for usage after you have reached your spending limit.
 
@@ -39,9 +39,6 @@ You can set a spending limit for {% data variables.product.prodname_github_codes
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
-
-   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-user.png)
-
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your organization account
@@ -57,9 +54,6 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
-
-   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-org.png)
-
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
@@ -75,9 +69,6 @@ Enterprise owners and billing managers can manage the spending limit for {% data
    ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
-
-   ![Screenshot of GitHub's spending limit settings. The "Limit spending" radio button is selected, and the "Unlimited spending" radio button is unselected.](/assets/images/help/billing/limit-or-unlimited-codespaces-enterprise.png)
-
 {% data reusables.dotcom_billing.update-spending-limit %}
 {% endif %}
 
@@ -87,9 +78,9 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 
 ## Managing usage and spending limit email notifications
 
-Email notifications are sent to account owners and billing managers when spending reaches 75%, 90%, and 100% of an account's spending limit. 
+Email notifications are sent to account owners and billing managers when spending reaches 75%, 90%, and 100% of an account's spending limit.
 
-You can turn off these notifications at any time by navigating to the bottom of the "Billing & plans / Monthly spending limits" page and clearing the **Spending limits alerts** checkbox.
+You can turn off these notifications at any time from the "Billing and plans" page. To turn off notifications, under "Email alerts", deselect the **Spending limits alerts** checkbox.
 
 For personal accounts only, you can also choose to turn off email notifications that are sent when you have used 75%, 90%, and 100% of the free usage included with your personal account. To do this, clear the **Included resources alerts** checkbox.
 

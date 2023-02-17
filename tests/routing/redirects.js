@@ -471,19 +471,4 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(`/en`)
     })
   })
-
-  describe('redirects from old Lunr search to ES legacy search', () => {
-    test('redirects even without query string', async () => {
-      const res = await get(`/search`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy`)
-    })
-
-    test('redirects with query string', async () => {
-      const params = new URLSearchParams({ foo: 'bar' })
-      const res = await get(`/search?${params}`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy?${params}`)
-    })
-  })
 })

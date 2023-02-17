@@ -15,13 +15,12 @@ topics:
   - Profiles
 shortTitle: Troubleshoot commits
 ---
+
 ## Expected behavior to view commit details
 
 On your profile page's timeline, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
 
 ![Commit link on profile timeline](/assets/images/help/profile/commit-link-on-profile-timeline.png)
-
-![Commit details](/assets/images/help/commits/commit-details.png)
 
 ## Missing commit details from commits in your timeline
 
@@ -61,8 +60,6 @@ For example:
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
 When you open the URL with the modified commit date, you can see the commit details.
-
-![Commit details](/assets/images/help/commits/commit-details.png)
 
 ## Expected commits missing in your timeline
 
