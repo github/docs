@@ -1,0 +1,203 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow will install Deno then run `deno lint` and `deno test`.
+# For more information see: https://github.com/denoland/setup-deno
+
+name: Deno
+Code
+Pull requests
+7
+Actions
+Projects
+Security
+Insights
+Settings
+Update Dockerfile
+ patch-54 (github/docs#23998)
+@mowjoejoejoejoe
+mowjoejoejoejoe committed 1 minute ago 
+1 parent 38f7da8
+commit c18e4c1
+Showing 1 changed file with 130 additions and 20 deletions.
+ 150  
+.devcontainer/Dockerfile
+@@ -1,21 +1,131 @@
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
+#Name :slate.yml
+mod.mtml :
+On ::starts''
+ Check failure on line 3 in .github/workflows/Rust.yml
+
+# [Choice] Node.js version
+ARG VARIANT="18-buster"
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+
+# [Optional] Uncomment this section to install additional OS packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+
+# [Optional] Uncomment if you want to install an additional version of node using nvm
+# ARG EXTRA_NODE_VERSION=10
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+
+# [Optional] Uncomment if you want to install more global node modules
+# RUN su node -c "npm install -g <your-package-list-here>"
+
+# Install the GitHub CLI see:
+# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
+COPY library-scripts/github-debian.sh /tmp/library-scripts/
+RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+GitHub Actions
+/ .github/workflows/Rust.yml
+Invalid workflow file
+You have an error in your yaml syntax on line 3
+starts'' :GLOW4 ::BEGIN :'::'Run:'#Test'@ci'' :run-on :'Name ::'Run'' :
+-on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anishathalye/proof-html@v1.1.0
+        with:
+          directory: ./
+ [![Auto Assign](https://github.com/https-www-bitore-net/demo-repository/actions/workflows/auto-assign.yml/badge.svg?branch=Main.yml)](https://github.com/https-www-bitore-net/demo-repository/actions/workflows/auto-assign.yml)
+Search logs
+1s
+##[debug]Starting: Set up job
+Current runner version: '2.301.1'
+Operating System
+Runner Image
+Runner Image Provisioner
+GITHUB_TOKEN Permissions
+Secret source: Actions
+##[debug]Primary repository: https-www-bitore-net/demo-repository
+Prepare workflow directory
+##[debug]Creating pipeline directory: '/home/runner/work/demo-repository'
+##[debug]Creating workspace directory: '/home/runner/work/demo-repository/demo-repository'
+##[debug]Update context data
+##[debug]Evaluating job-level environment variables
+##[debug]Evaluating job container
+##[debug]Evaluating job service containers
+##[debug]Evaluating job defaults
+Prepare all required actions
+Getting action download info
+Download action repository 'wow-actions/auto-assign@v1' (SHA:707ec486377e28a595619469e26b375d8746b330)
+##[debug]Download 'https://api.github.com/repos/wow-actions/auto-assign/tarball/707ec486377e28a595619469e26b375d8746b330' to '/home/runner/work/_actions/_temp_b511ebcf-63c1-4305-8674-0253f9fbcf13/01abee82-ec57-4330-9447-86d5db93791e.tar.gz'
+##[debug]Unwrap 'wow-actions-auto-assign-707ec48' to '/home/runner/work/_actions/wow-actions/auto-assign/v1'
+##[debug]Archive '/home/runner/work/_actions/_temp_b511ebcf-63c1-4305-8674-0253f9fbcf13/01abee82-ec57-4330-9447-86d5db93791e.tar.gz' has been unzipped into '/home/runner/work/_actions/wow-actions/auto-assign/v1'.
+##[debug]action.yml for action: '/home/runner/work/_actions/wow-actions/auto-assign/v1/action.yml'.
+##[debug]Set step '__wow-actions_auto-assign' display name to: 'Run wow-actions/auto-assign@v1'
+Complete job name: run
+##[debug]Collect running processes for tracking orphan processes.
+##[debug]Finishing: Set up job
+1s
+##[debug]Evaluating condition for step: 'Run wow-actions/auto-assign@v1'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: Run wow-actions/auto-assign@v1
+##[debug]Loading inputs
+##[debug]Evaluating: secrets.GITHUB_TOKEN
+##[debug]Evaluating Index:
+##[debug]..Evaluating secrets:
+##[debug]..=> Object
+##[debug]..Evaluating String:
+##[debug]..=> 'GITHUB_TOKEN'
+##[debug]=> '***'
+##[debug]Result: '***'
+##[debug]Loading env
+Run wow-actions/auto-assign@v1
+##[debug]event: issues
+##[debug]action: opened
+(node:1620) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+##[debug]Load config from ".github/auto-assign.yml": 
+##[debug]{
+##[debug]  "addReviewers": true,
+##[debug]  "addAssignees": "author",
+##[debug]  "numberOfAssignees": 0,
+##[debug]  "numberOfReviewers": 1,
+##[debug]  "reviewers": [
+##[debug]    "mowjoejoejoejoe"
+##[debug]  ],
+##[debug]  "assignees": [
+##[debug]    "mowjoejoejoejoe"
+##[debug]  ],
+##[debug]  "skipKeywords": [
+##[debug]    "wip"
+##[debug]  ]
+##[debug]}
+##[debug]Assignees: [
+##[debug]  "mowjoejoejoejoe"
+##[debug]]
+Error: HttpError: Resource not accessible by integration
+Error: Resource not accessible by integration
+##[debug]Node Action run completed with exit code 1
+##[debug]Finishing: Run wow-actions/auto-assign@v1
+.github/workflows/proof-html.yml → .github/workflows/slate.yml
+@@ -1,5 +1,8 @@
+name: Proof HTML
+on:
+#Name :slate.yml
+mod.mtml :
+On ::starts''
+starts'' :GLOW4 ::BEGIN :'::'Run:'#Test'@ci'' :run-on :'Name ::'Run'' :
+-on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anishathalye/proof-html@v1.1.0
+        with:
+          directory: .
+          //# See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
+//# [Choice] Node.js version
+//ARG VARIANT="18-buster"
+//FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+//# [Optional] Uncomment this section to install additional OS packages.
+//# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+//#     && apt-get -y install --no-install-recommends <your-package-list-here>
+//# [Optional] Uncomment if you want to install an additional version of node using nvm
+//# ARG EXTRA_NODE_VERSION=10
+//# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+//# [Optional] Uncomment if you want to install more global node modules
+//# RUN su node -c "npm install -g <your-package-list-here>"
+//# Install the GitHub CLI see:
+//# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
+//COPY library-scripts/github-debian.sh /tmp/library-scripts/
+//RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+:Build::
+Publish pom.YML 
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+permissions:
+  contents: scripts
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+      - name: Setup Deno
+        # uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@9db7f66e8e16b5699a514448ce994936c63f0d54
+        with:
+          deno-version: v1.x
+      # Uncomment this step to verify the use of 'deno fmt' on each commit.
+      # - name: Verify formatting
+      #   run: deno fmt --check
+      - name: Run linter
+        run: deno lint
+      - name: Run tests
+        run: deno test -A
