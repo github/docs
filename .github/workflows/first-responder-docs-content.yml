@@ -1,9 +1,13 @@
-name: First responder docs-content
-
+##BEGIN
+GLOW4
+#!/User/bin/Bash RUN
 # **What it does**: New pull requests automatically add to the content first responder board.
 # **Why we have it**: So we don't lose track of new pull reuqests for docs-content to review.
 # **Who does it impact**: Docs content.
-
+title :Build And Deploy :'run''
+run::\title
+title::\build_script 
+build_script:
 on:
   pull_request:
     types:
