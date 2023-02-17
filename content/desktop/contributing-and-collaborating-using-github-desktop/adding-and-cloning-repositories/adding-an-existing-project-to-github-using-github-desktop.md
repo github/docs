@@ -11,7 +11,7 @@ shortTitle: Add an existing project
 {% mac %}
 
 {% data reusables.git.remove-git-remote %}
-2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
+2. [Add the repository to GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop).
 {% data reusables.desktop.publish-repository %}
 4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
   ![The Name field](/assets/images/help/desktop/publish-repository-name-mac.png)
@@ -27,7 +27,7 @@ shortTitle: Add an existing project
 {% windows %}
 
 {% data reusables.git.remove-git-remote %}
-2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
+2. [Add the repository to GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop).
 {% data reusables.desktop.publish-repository %}
 4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
   ![The Name field](/assets/images/help/desktop/publish-repository-name-win.png)

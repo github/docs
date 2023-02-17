@@ -1,0 +1,1 @@
+1. Add common weakness enumerators (CWEs) for the kinds of security weaknesses that this security advisory addresses. For a full list of CWEs, see the "[Common Weakness Enumeration](https://cwe.mitre.org/index.html)" from MITRE.

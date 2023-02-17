@@ -651,7 +651,13 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     patient,
     externalServerErrorsAsWarning,
   } = opts
-  const html = await renderInnerHTML(page, permalink)
+  let html = ''
+  try {
+    html = await renderInnerHTML(page, permalink)
+  } catch (error) {
+    console.warn(`The error happened trying to render ${page.relativePath}`)
+    throw error
+  }
   const $ = cheerio.load(html, { xmlMode: true })
   const flaws = []
   const links = []

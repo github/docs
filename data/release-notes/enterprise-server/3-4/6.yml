@@ -14,8 +14,8 @@ sections:
     - In some cases where a protected branch required more than one approving review, a pull request could be merged with fewer than the required number of approving reviews. 
     - On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible. 
     - In some cases, scheduled GitHub Actions workflows could become disabled.
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
   changes:
     - The `ghe-set-password` command-line utility starts required services automatically when the instance is booted in recovery mode. 
     - Metrics for `aqueduct` background processes are gathered for Collectd forwarding and display in the Management Console. 

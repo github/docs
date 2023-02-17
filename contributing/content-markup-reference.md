@@ -16,6 +16,7 @@
   - [Usage](#usage-5)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
 - [Tables with codeblocks](#tables-with-codeblocks)
+- [Internal links with AUTOTITLE](#internal-links-with-autotitle)
 
 ## Writing in Markdown
 
@@ -254,3 +255,17 @@ If this happens, add the following CSS style to the `<table>` HTML tag:
 ```
 
 For a current example of this usage, see the [GitHub Actions examples workflow library](https://docs.github.com/en/actions/examples).
+
+## Internal links with AUTOTITLE
+
+When linking to another GitHub docs page, use standard Markdown syntax like `[]()` but type `AUTOTITLE` instead of the page title. The application will replace `AUTOTITLE` with the title of the linked page during rendering. This special keyword is case-sensitive, so take care with your typing or the replacement will not work.
+
+### Usage
+
+- `For more information, see "[AUTOTITLE](/path/to/page)."`
+- `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
+- `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
+
+Note that **same-page section links do not work** with this keyword. Type out the full header text instead.
+
+Read more about links in the [content style guide](./content-style-guide.md#links).

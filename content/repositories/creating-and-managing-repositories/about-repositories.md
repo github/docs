@@ -26,7 +26,7 @@ You can own repositories individually, or you can share ownership of repositorie
 
 You can restrict who has access to a repository by choosing the repository's visibility. For more information, see "[About repository visibility](#about-repository-visibility)."
 
-For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion fpt or ghec %}
 With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
@@ -35,14 +35,14 @@ Each person and organization can own unlimited repositories and invite an unlimi
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% ifversion fpt or ghec %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-- You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
-- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
+- You can use pull requests to propose changes to a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
 {% data reusables.repositories.repo-size-limit %}
 
-To learn how to use repositories most effectively, see "[Best practices for repositories](/repositories/creating-and-managing-repositories/best-practices-for-repositories)."
+To learn how to use repositories most effectively, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)."
 
 ## About repository visibility
 
@@ -71,9 +71,9 @@ When you create a repository owned by your personal account, the repository is a
 - Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 
-Organization owners always have access to every repository created in an organization. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Organization owners always have access to every repository created in an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 
 {% ifversion ghes or ghec or ghae %}
 ## About internal repositories
@@ -83,12 +83,12 @@ People with admin permissions for a repository can change an existing repository
 {% ifversion ghec %}
 {% note %}
 
-**Note:** You can only create internal repositories if you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account. An enterprise account is a separate type of account that allows a central point of management for multiple organizations. For more information, see "[Types of {% data variables.product.prodname_dotcom %} account](/get-started/learning-about-github/types-of-github-accounts)."
+**Note:** You can only create internal repositories if you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account. An enterprise account is a separate type of account that allows a central point of management for multiple organizations. For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
 {% endnote %}
 {% endif %}
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion ghes %}
 {% note %}
@@ -105,7 +105,7 @@ All enterprise members have read permissions to the internal repository, but int
 {% ifversion ghec %}
 {% note %}
 
-**Note:** {% data variables.enterprise.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+**Note:** {% data variables.enterprise.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
 {% endnote %}
 {% endif %}
@@ -140,10 +140,10 @@ The compare view and pull requests pages display a list of commits between the `
 
 ## Further reading
 
-- "[About forks](/github/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Collaborating with issues and pull requests](/categories/collaborating-with-issues-and-pull-requests)"
-- "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
-- "[Administering a repository](/categories/administering-a-repository)"
-- "[Visualizing repository data with graphs](/categories/visualizing-repository-data-with-graphs/)"
-- "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
-- "[{% data variables.product.prodname_dotcom %} glossary](/articles/github-glossary)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests)"
+- "[AUTOTITLE](/issues)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features)"
+- "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository)"
+- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)"
+- "[AUTOTITLE](/get-started/quickstart/github-glossary)"

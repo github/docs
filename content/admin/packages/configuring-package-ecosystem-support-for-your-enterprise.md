@@ -51,4 +51,4 @@ If you wish to enable npm upstream sources, select `Enabled` for `npm upstreamin
 
 ## Next steps
 
-As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+As a next step, we recommend you check if you need to update or upload a TLS certificate for your packages host URL. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

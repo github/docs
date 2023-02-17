@@ -135,7 +135,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 {% ifversion mermaid %}
 ### Rendering in Markdown
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
 {% endif %}
 
 ## Rendering CSV and TSV data
@@ -213,12 +213,12 @@ another, we'd show a tooltip like this:
 
 ### Commenting on changes
 
-[Commit comments](/articles/commenting-on-differences-between-files) can only
+[Commit comments](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) can only
 be added to files within the *source* view, on a line-by-line basis.
 
 ### Linking to headers
 
-As with [other rendered prose documents](/articles/about-readmes),
+As with [other rendered prose documents](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes),
 hovering over a header in your document creates a link icon. You can link readers
 of your rendered prose diff to specific sections.
 
@@ -290,7 +290,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 {% ifversion mermaid %}
 ### Mapping in Markdown
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
 {% endif %}
 
 ### Clustering
@@ -377,7 +377,7 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+You can embed Mermaid syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
 
 ### Further reading about Mermaid
 

@@ -17,7 +17,7 @@ versions:
 
 ## Locking discussions
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion. {% ifversion discussions-lock-allow-reactions %}You can also allow emoji reactions to a locked discussion.{% endif %}
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion. {% ifversion discussions-lock-allow-reactions %}You can also allow emoji reactions to a locked discussion.{% endif %}
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -36,7 +36,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 
 ## Converting an issue to a discussion
 
-When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}
@@ -48,7 +48,7 @@ When you convert an issue to a discussion, the discussion is automatically creat
 {% ifversion discussions-hide-comments-on-block %}
 ## Blocking a user from your organization
 
-Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
+Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
 
 {% data reusables.organizations.blocking-a-user %} 
 {% endif %}

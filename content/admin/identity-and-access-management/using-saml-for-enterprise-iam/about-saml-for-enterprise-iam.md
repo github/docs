@@ -32,23 +32,23 @@ If your enterprise members manage their own user accounts on {% data variables.l
 
 {% data reusables.saml.saml-accounts %}
 
-{% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#considerations-for-enabling-saml-for-an-enterprise-or-organization)" and [Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+{% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#considerations-for-enabling-saml-for-an-enterprise-or-organization)" and [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
-Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+Alternatively, you can provision and manage the accounts of your enterprise members with {% data variables.product.prodname_emus %}. To help you determine whether SAML SSO or {% data variables.product.prodname_emus %} is better for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
 
-{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
 After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features.
 
-If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% note %}
 
-**Note:** You cannot configure SCIM for your enterprise account unless your account was created to use {% data variables.product.prodname_emus %}. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+**Note:** You cannot configure SCIM for your enterprise account unless your account was created to use {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endnote %}
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
 {% elsif ghes %}
 
@@ -60,7 +60,7 @@ SAML is an XML-based standard for authentication and authorization. When you con
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.location.product_location %} by assigning users and groups to the application on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.location.product_location %} by assigning users and groups to the application on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% endif %}
 
@@ -74,19 +74,19 @@ Your IdP does not communicate with {% data variables.product.product_name %} aut
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-After you configure SAML, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API requests. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+After you configure SAML, people who use {% data variables.location.product_location %} must use a {% data variables.product.pat_generic %} to authenticate API requests. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %} with your specific IdP, see the articles for individual IdPs in "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %} with your specific IdP, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
 
 {% ifversion ghae or scim-for-ghes %}
 
 ## About creation of user accounts
 
-{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+{% data reusables.scim.after-you-configure-saml %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 
@@ -133,7 +133,7 @@ The following IdPs are officially supported for integration with {% data variabl
 
 ## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
 
-If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.product_name %}. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 
 {% endif %}
 
@@ -144,5 +144,5 @@ If you use Okta as your IdP, you can map your Okta groups to teams on {% data va
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
 {%- endif %}
 {%- ifversion ghae %}
-- "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
 {%- endif %}

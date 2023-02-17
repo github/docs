@@ -23,7 +23,7 @@ You can see how much of the usage included in your personal account you have use
 
    ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
-   For information about "core hours" and "GB-months," see "[About billing for {% data variables.product.prodname_github_codespaces %}](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+   For information about "core hours" and "GB-months," see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 1. Optionally, click **Usage hours** and **Storage** to see more details.
 
@@ -31,7 +31,7 @@ You can see how much of the usage included in your personal account you have use
 
    The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
 
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[Adding or editing a payment method](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
+   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
 
    {% data reusables.codespaces.tips-included-usage %}
 
@@ -42,11 +42,9 @@ You can see how much of the usage included in your personal account you have use
 Organization owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for the organization.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
+1. Under "Usage this month", under "{% data variables.product.prodname_codespaces %}", view the details of the compute hours and storage used so far this month.
 
-   ![Screenshot of compute usage and storage details](/assets/images/help/billing/codespaces-compute-storage.png)
-
-   You can also see and update your current spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   You can also see and update your current spending limit. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
    {% note %}
 
@@ -72,4 +70,4 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 
 ## Further reading
 
-- "[Listing the codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"

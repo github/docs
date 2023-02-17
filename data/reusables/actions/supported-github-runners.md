@@ -51,7 +51,7 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 <sup>[deprecated]</sup>
+Ubuntu 18.04 [deprecated]
 </td>
 <td>
 <code>ubuntu-18.04</code>
@@ -83,7 +83,7 @@ macOS Big Sur 11
 </tr>
 <tr>
 <td>
-macOS Catalina 10.15 <sup>[deprecated]</sup>
+macOS Catalina 10.15 [deprecated]
 </td>
 <td>
 <code>macos-10.15</code>

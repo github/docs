@@ -28,7 +28,7 @@ In public and private projects, insights are only visible to users with write pe
 
 In private, organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[Managing access to your projects](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
 
 ## Changing project visibility
 

@@ -25,17 +25,17 @@ shortTitle: Form calls with GraphQL
 
 ### Authenticating with a {% data variables.product.pat_v1_caps %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" to create a {% data variables.product.pat_v1 %}. The data that you are requesting will dictate which scopes you will need. For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" to create a {% data variables.product.pat_v1 %}. The data that you are requesting will dictate which scopes you will need. For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
 
 If your token does not have the required scopes to access a resource, the API will return an error message that states what scopes your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a {% data variables.product.prodname_github_app %}. To authenticate as a {% data variables.product.prodname_github_app %} , you must first generate a private key in PEM format. Then, you must use this key to sign a JSON Web Token (JWT). You can use the JSON Web Token to request an installation token from {% data variables.product.company_short %} that you can use to authenticate to the GraphQL API. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a {% data variables.product.prodname_github_app %}. To authenticate as a {% data variables.product.prodname_github_app %} , you must first generate a private key in PEM format. Then, you must use this key to sign a JSON Web Token (JWT). You can use the JSON Web Token to request an installation token from {% data variables.product.company_short %} that you can use to authenticate to the GraphQL API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)", "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps), and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
-To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[Creating an OAuth App](/apps/building-oauth-apps/creating-an-oauth-app)" and " [Authorizing OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps)."
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and " [Authorizing OAuth Apps](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## The GraphQL endpoint
 
@@ -49,7 +49,7 @@ The endpoint remains constant no matter what operation you perform.
 
 Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use `curl` or any other HTTP-speaking library.
 
-In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
 
 To query GraphQL in a `curl` command, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
@@ -71,7 +71,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 
 The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
 
-For information about rate limiting, see "[GraphQL resource limitations](/graphql/overview/resource-limitations)."
+For information about rate limiting, see "[AUTOTITLE](/graphql/overview/resource-limitations)."
 
 Queries and mutations share similar forms, with some important differences.
 

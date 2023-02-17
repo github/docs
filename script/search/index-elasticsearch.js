@@ -304,6 +304,7 @@ async function indexVersion(
           headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           breadcrumbs: { type: 'text' },
           popularity: { type: 'float' },
+          intro: { type: 'text' },
         },
       },
       settings,
@@ -313,7 +314,7 @@ async function indexVersion(
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
-    const { title, objectID, content, breadcrumbs, headings } = doc
+    const { title, objectID, content, breadcrumbs, headings, intro } = doc
     const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
@@ -330,6 +331,7 @@ async function indexVersion(
       // By making it >=1.0 when we multiply a relevance score,
       // you never get a product of 0.0.
       popularity: doc.popularity + 1,
+      intro,
     }
     return [{ index: { _index: thisAlias } }, record]
   })

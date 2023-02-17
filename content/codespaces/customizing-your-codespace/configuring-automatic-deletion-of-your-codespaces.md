@@ -12,17 +12,17 @@ type: how_to
 
 By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.
 
-However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+However, because {% data variables.product.prodname_github_codespaces %} incurs storage charges, you may prefer to reduce the retention period by changing your default period in your personal settings for {% data variables.product.prodname_github_codespaces %}. For more information about storage charges, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
 {% note %}
 
-**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[Deleting a codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)."
 
 {% endnote %}
 
 Automatic deletion happens irrespective of whether a codespace contains unpushed changes. To prevent automatic deletion of a codespace, just open the codespace again. The retention period is reset every time you connect to a codespace, and the retention countdown restarts when the codespace is stopped.
 
-If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 Each codespace has its own retention period. You may, therefore, have codespaces with different retention periods. For example, if:
 * You created a codespace, changed your default retention period, then created another codespace.
@@ -49,7 +49,7 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 
    {% warning %}
 
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
    {% endwarning %}
 
@@ -77,7 +77,7 @@ You may have a codespace that you want to keep for longer than the retention per
 
 {% endnote %}
 
-Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[About billing for GitHub Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)."
+Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)."
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "bookmark" aria-label="The bookmark icon" %} Keep codespace**.

@@ -15,13 +15,13 @@ topics:
   - GitHub search
 shortTitle: Search issues & PRs
 ---
-You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% tip %}
 
 **Tips:**{% ifversion ghes or ghae %}
   - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
-  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
   - Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -96,7 +96,7 @@ You can filter issues based on the reason given when the issue was closed, using
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
@@ -125,7 +125,7 @@ The `assignee` qualifier finds issues and pull requests that are assigned to a c
 
 ## Search by mention
 
-The `mentions` qualifier finds issues that mention a certain user. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)."
+The `mentions` qualifier finds issues that mention a certain user. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)."
 
 | Qualifier     | Example
 | ------------- | -------------
@@ -180,7 +180,7 @@ You can narrow your results by labels, using the `label` qualifier. Since issues
 
 ## Search by milestone
 
-The `milestone` qualifier finds issues or pull requests that are a part of a [milestone](/articles/about-milestones) within a repository.
+The `milestone` qualifier finds issues or pull requests that are a part of a [milestone](/issues/using-labels-and-milestones-to-track-work/about-milestones) within a repository.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -189,7 +189,7 @@ The `milestone` qualifier finds issues or pull requests that are a part of a [mi
 
 ## Search by project board
 
-You can use the `project` qualifier to find issues that are associated with a specific [project board](/articles/about-project-boards/) in a repository or organization. You must search project boards by the project board number. You can find the project board number at the end of a project board's URL.
+You can use the `project` qualifier to find issues that are associated with a specific [project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) in a repository or organization. You must search project boards by the project board number. You can find the project board number at the end of a project board's URL.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -198,7 +198,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ## Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -260,7 +260,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 | | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
 
 ## Search for draft pull requests
-You can filter for draft pull requests. For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
+You can filter for draft pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -341,7 +341,7 @@ The `archived` qualifier filters your results based on whether an issue or pull 
 
 ## Search based on whether a conversation is locked
 
-You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -366,4 +366,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

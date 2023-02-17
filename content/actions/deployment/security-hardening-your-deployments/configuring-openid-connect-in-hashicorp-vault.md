@@ -144,7 +144,7 @@ jobs:
 
 **Note**:
 
-- If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+- If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 - `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
 
 {% endnote %}

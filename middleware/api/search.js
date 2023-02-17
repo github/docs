@@ -1,6 +1,5 @@
 import express from 'express'
 
-import searchVersions from '../../lib/search/versions.js'
 import FailBot from '../../lib/failbot.js'
 import languages from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
@@ -14,10 +13,6 @@ import {
   DEFAULT_HIGHLIGHT_FIELDS,
 } from './es-search.js'
 
-// Used by the legacy search
-const versions = new Set(Object.values(searchVersions))
-const languagesSet = new Set(Object.keys(languages))
-
 const router = express.Router()
 
 const DEFAULT_SIZE = 10
@@ -26,6 +21,13 @@ const DEFAULT_PAGE = 1
 const POSSIBLE_SORTS = ['best', 'relevance']
 const DEFAULT_SORT = POSSIBLE_SORTS[0]
 const MAX_PAGE = 10
+
+// There are some fields you can optionally include in the output.
+// These are fields available in Elasticsearch that we don't include in
+// the output by default. E.g. `...&include=intro`
+// Requesting anything that is not in this list will result in
+// a 400 Bad Request.
+const V1_ADDITIONAL_INCLUDES = ['intro', 'headings']
 
 // If someone searches for `...&version=3.5` what they actually mean
 // is `ghes-3.5`. This is because of legacy formatting with the old search.
@@ -41,16 +43,6 @@ Object.values(allVersions).forEach((info) => {
   }
 })
 
-const legacyEnterpriseServerVersions = Object.fromEntries(
-  Object.entries(searchVersions)
-    .filter(([fullName]) => {
-      return fullName.startsWith('enterprise-server@')
-    })
-    .map(([, shortName]) => {
-      return [shortName, `ghes-${shortName}`]
-    })
-)
-
 function getIndexPrefix() {
   // This logic is mirrored in the scripts we use before running tests
   // In particular, see the `index-test-fixtures` npm script.
@@ -65,101 +57,9 @@ function getIndexPrefix() {
   return ''
 }
 
-function convertLegacyVersionName(version) {
-  // In the olden days we used to use `?version=3.5&...` but we decided
-  // that's ambiguous and it should be `ghes-3.5` instead.
-  return legacyEnterpriseServerVersions[version] || version
-}
-
-router.get(
-  '/legacy',
-  catchMiddlewareError(async function legacySearch(req, res) {
-    const { query, version, language, filters, limit: limit_ } = req.query
-    const topics = []
-    if (filters) {
-      if (Array.isArray(filters)) {
-        topics.push(...filters)
-      } else {
-        topics.push(filters)
-      }
-    }
-    const limit = Math.min(parseInt(limit_, 10) || 10, 100)
-    if (!versions.has(version)) {
-      return res.status(400).json({ error: 'Unrecognized version' })
-    }
-    if (!languagesSet.has(language)) {
-      return res.status(400).json({ error: 'Unrecognized language' })
-    }
-    if (!query || !limit) {
-      return res.status(200).json([])
-    }
-
-    const indexName = `${getIndexPrefix()}github-docs-${convertLegacyVersionName(
-      version
-    )}-${language}`
-
-    const hits = []
-    const tags = ['version:legacy', `indexName:${indexName}`]
-    const timed = statsd.asyncTimer(getSearchResults, 'api.search', tags)
-    const options = {
-      indexName,
-      query,
-      page: 1,
-      sort: 'best',
-      size: limit,
-      debug: true,
-      includeTopics: true,
-      // The legacy search is used as an autocomplete. In other words,
-      // a debounce that sends the query before the user has had a
-      // chance to fully submit the search. That means if the user
-      // send the query 'google cl' they hope to find 'Google Cloud'
-      // even though they didn't type that fully.
-      usePrefixSearch: true,
-      topics,
-    }
-    try {
-      const { hits: hits_, meta } = await timed(options)
-      hits.push(...hits_)
-      statsd.timing('api.search.total', meta.took.total_msec, tags)
-      statsd.timing('api.search.query', meta.took.query_msec, tags)
-    } catch (error) {
-      // If we don't catch here, the `catchMiddlewareError()` wrapper
-      // will take any thrown error and pass it to `next()`.
-      await handleGetSearchResultsError(req, res, error, options)
-      return
-    }
-
-    // The legacy search just returned an array
-    const results = hits.map((hit) => {
-      let title = hit.title
-      if (hit.highlights?.title && hit.highlights?.title.length) {
-        title = hit.highlights.title[0]
-      }
-      let content = ''
-      if (hit.highlights?.content && hit.highlights?.content.length) {
-        content = hit.highlights.content.join('\n')
-      }
-
-      return {
-        url: hit.url,
-        title,
-        breadcrumbs: hit.breadcrumbs || '',
-        content,
-        topics: hit.topics || [],
-        popularity: hit.popularity || 0.0,
-        score: hit.score,
-      }
-    })
-    if (process.env.NODE_ENV !== 'development') {
-      searchCacheControl(res)
-      setFastlySurrogateKey(res, `api-search:${language}`, true)
-    }
-
-    res.setHeader('x-search-legacy', 'yes')
-
-    res.status(200).json(results)
-  })
-)
+router.get('/legacy', (req, res) => {
+  res.status(410).send('Use /api/search/v1 instead.')
+})
 
 class ValidationError extends Error {}
 
@@ -204,6 +104,16 @@ const validationMiddleware = (req, res, next) => {
     },
     { key: 'autocomplete', default_: false, cast: toBoolean },
     { key: 'debug', default_: process.env.NODE_ENV === 'development', cast: toBoolean },
+    {
+      key: 'include',
+      default_: [],
+      cast: toArray,
+      // Note: At the time of writing this general validator middleware
+      // doesn't yet know it's being used by the v1 version.
+      // But we don't have any other versions yet so no need to
+      // over-engineer this more.
+      validate: (values) => values.every((value) => V1_ADDITIONAL_INCLUDES.includes(value)),
+    },
   ]
 
   const search = {}
@@ -247,12 +157,26 @@ function toBoolean(value) {
   return false
 }
 
+function toArray(value) {
+  return Array.isArray(value) ? value : [value]
+}
+
 router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, language, query, autocomplete, page, size, debug, sort, highlights } =
-      req.search
+    const {
+      indexName,
+      language,
+      query,
+      autocomplete,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      include,
+    } = req.search
 
     // The getSearchResults() function is a mix of preparing the search,
     // sending & receiving it, and post-processing the response from the
@@ -272,6 +196,7 @@ router.get(
       sort,
       highlights,
       usePrefixSearch: autocomplete,
+      include,
     }
     try {
       const { meta, hits } = await timed(options)

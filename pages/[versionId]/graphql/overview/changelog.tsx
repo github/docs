@@ -11,7 +11,7 @@ import {
 import { getAutomatedPageMiniTocItems } from 'lib/get-mini-toc-items.js'
 import { Changelog } from 'components/graphql/Changelog'
 import { ChangelogItemT } from 'components/graphql/types'
-import { getGraphqlChangelog } from 'lib/graphql/index.js'
+import { getGraphqlChangelog } from 'src/graphql/lib/index.js'
 
 type Props = {
   mainContext: MainContextT
@@ -33,7 +33,8 @@ export default function GraphqlChangelog({ mainContext, schema, automatedPageCon
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
   const res = context.res as any
-  const schema = getGraphqlChangelog() as ChangelogItemT[]
+  const currentVersion = context.query.versionId as string
+  const schema = getGraphqlChangelog(currentVersion) as ChangelogItemT[]
   if (!schema) throw new Error('No graphql free-pro-team changelog schema found.')
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems that exist in Markdown pages in

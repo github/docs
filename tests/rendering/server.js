@@ -840,45 +840,6 @@ describe('GitHub Desktop URLs', () => {
   })
 })
 
-describe('extended Markdown', () => {
-  test('renders styled warnings', async () => {
-    const $ = await getDOM('/en/articles/removing-a-remote')
-    const warning = $('div.extended-markdown.warning')
-    expect(warning.length).toBe(1)
-    expect(warning.text().includes('does not delete the remote')).toBe(true)
-  })
-
-  test('renders styled tips (multiple per page)', async () => {
-    const $ = await getDOM('/en/articles/authorizing-oauth-apps')
-    const tips = $('div.extended-markdown.tip')
-    expect(tips.length).toBe(3)
-    expect(tips.eq(0).text().includes('verify your email address')).toBe(true)
-  })
-
-  test('renders styled notes within liquid', async () => {
-    const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
-    const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('color-border-accent-emphasis')).toBe(true)
-    expect(note.hasClass('color-bg-accent')).toBe(true)
-  })
-
-  test('renders platform-specific content', async () => {
-    const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('.extended-markdown.mac h2#using-textmate-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.windows h2#using-notepad-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.linux h2#using-textmate-as-your-editor').length).toBe(0)
-    expect($('.extended-markdown.linux h2#using-notepad-as-your-editor').length).toBe(0)
-  })
-
-  test('renders expected mini TOC headings in platform-specific content', async () => {
-    const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.mac').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBe(0)
-  })
-})
-
 describe('search', () => {
   function findDupesInArray(arr) {
     return lodash.filter(arr, (val, i, iteratee) => lodash.includes(iteratee, val, i + 1))

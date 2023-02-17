@@ -12,7 +12,7 @@ topics:
   - User account
 ---
 
-{% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see "[Accessing the {% data variables.enterprise.management_console %}](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+{% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
 {% ifversion enterprise-management-console-multi-user-auth %}
 ## Types of {% data variables.enterprise.management_console %} accounts
@@ -51,7 +51,7 @@ While signed into the {% data variables.enterprise.management_console %} as the 
 
 ## Inviting new {% data variables.enterprise.management_console %} users
 
-If you have configured email for notifications for {% data variables.location.product_location %}, new {% data variables.enterprise.management_console %} users will automatically receive an invitation to complete creation of the {% data variables.enterprise.management_console %} user account. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+If you have configured email for notifications for {% data variables.location.product_location %}, new {% data variables.enterprise.management_console %} users will automatically receive an invitation to complete creation of the {% data variables.enterprise.management_console %} user account. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
 
 If you have not configured email notifications for {% data variables.location.product_location %}, you must manually copy the {% data variables.enterprise.management_console %} invitation link and send it to the user. The user must set a password using the link before the user can access the {% data variables.enterprise.management_console %}.
 
@@ -71,8 +71,8 @@ After you configure rate limits and a user exceeds the limit, the {% data variab
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
+1. Optionally, under "Lockout time", type a number of minutes to lock the {% data variables.enterprise.management_console %} after too many failed login attempts.
+1. Optionally, under "Login attempt limit", type a maximum number of failed login attempts to allow before the {% data variables.enterprise.management_console %} is locked.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

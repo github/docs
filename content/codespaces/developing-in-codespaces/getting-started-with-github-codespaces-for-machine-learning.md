@@ -32,7 +32,7 @@ A codespace for this template will open in a web-based version of {% data variab
 
 ### Opening the image classifier notebook
 
-The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
+The default container image that's used by {% data variables.product.prodname_github_codespaces %} includes a set of machine learning libraries that are preinstalled in your codespace. For example, Numpy, pandas, SciPy, Matplotlib, seaborn, scikit-learn, Keras, PyTorch, Requests, and Plotly. For more information about the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and [the `devcontainers/images` repository](https://github.com/devcontainers/images/tree/main/src/universal).
 
 1. In the {% data variables.product.prodname_vscode_shortname %} editor, close any "Get Started" tabs that are displayed.
 1. Open the `notebooks/image-classifier.ipynb` notebook file.
@@ -51,7 +51,7 @@ The image classifier notebook contains all the code you need to download a datas
 
 ## Configuring NVIDIA CUDA for your codespace
 
-Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+Some software requires you to install NVIDIA CUDA to use your codespace’s GPU. Where this is the case, you can create your own custom configuration, by using a `devcontainer.json` file, and specify that CUDA should be installed. For more information on creating a custom configuration, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
 {% note %}
 
@@ -95,10 +95,10 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
 1. Save the change.
 {% data reusables.codespaces.rebuild-command %}
    The codespace container will be rebuilt. This will take several minutes. When the rebuild is complete the codespace is automatically reopened.
-1. Publish your change to a repository so that CUDA will be installed in any new codespaces you create from this repository in future. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code)."
+1. Publish your change to a repository so that CUDA will be installed in any new codespaces you create from this repository in future. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-vs-code)."
 
 ## Opening your codespace in JupyterLab
 
-You can open your codespace in JupyterLab from the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces), or by using {% data variables.product.prodname_cli %}. For more information, see "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
+You can open your codespace in JupyterLab from the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces), or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
 
 {% data reusables.codespaces.jupyterlab-installed-in-codespace %}

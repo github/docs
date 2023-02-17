@@ -190,5 +190,5 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 ## Further reading
 
-- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
+- "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
