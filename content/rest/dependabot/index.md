@@ -4,7 +4,7 @@ intro: 'Use the REST API to interact with {% data variables.product.prodname_dep
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-  ghes: '>=3.4'
+  ghes: '*'
   ghec: '*'
 topics:
   - API

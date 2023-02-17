@@ -6,6 +6,7 @@ import { Heading } from '@primer/react'
 import { sendEvent, EventType } from 'components/lib/events'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { useNumberFormatter } from 'components/hooks/useNumberFormatter'
 import type { SearchResultsT } from 'components/search/types'
 import { SearchResults } from 'components/search/SearchResults'
 import { SearchError } from 'components/search/SearchError'
@@ -17,6 +18,7 @@ import { useMainContext } from 'components/context/MainContext'
 
 export function Search() {
   const { locale } = useRouter()
+  const { formatInteger } = useNumberFormatter()
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
   const { query, debug } = useQuery()
@@ -69,12 +71,12 @@ export function Search() {
 
   let pageTitle = documentPage.fullTitle
   if (hasQuery) {
-    pageTitle = `${t('search_results_for')} '${query}'`
+    pageTitle = `${t('search_results_for')} "${query.trim()}"`
     if (currentVersion !== DEFAULT_VERSION) {
       pageTitle += ` (${searchVersion})`
     }
     if (results) {
-      pageTitle = `${results.meta.found.value.toLocaleString()} ${pageTitle}`
+      pageTitle = `${formatInteger(results.meta.found.value)} ${pageTitle}`
     }
   }
 
@@ -84,8 +86,8 @@ export function Search() {
         <title>{pageTitle}</title>
       </Head>
       {hasQuery && (
-        <Heading as="h1">
-          {t('search_results_for')} <i>{query}</i>
+        <Heading as="h1" className="mb-2">
+          {t('search_results_for')} "{query.trim()}"
         </Heading>
       )}
 

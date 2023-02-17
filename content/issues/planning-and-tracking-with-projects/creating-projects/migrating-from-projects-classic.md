@@ -3,7 +3,7 @@ title: 'Migrating from {% data variables.product.prodname_projects_v1 %}'
 intro: 'You can migrate your {% data variables.projects.projects_v1_board %} to the new {% data variables.product.prodname_projects_v2 %} experience.'
 miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: projects-v2-migration
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/migrating-your-project
 type: tutorial

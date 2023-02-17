@@ -17,6 +17,7 @@ const {
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
+  getPathWithoutVersion,
 } = pathUtils
 
 // This doesn't change just because the request changes, so compute it once.
@@ -44,6 +45,10 @@ export default async function contextualize(req, res, next) {
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
+
+  // define property for writers to link to the current page in a different version
+  // includes any type of rendered page not just "articles"
+  req.context.currentArticle = getPathWithoutVersion(req.context.currentPathWithoutLanguage)
   req.context.currentPath = req.pagePath
   req.context.query = req.query
   req.context.languages = languages

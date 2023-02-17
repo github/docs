@@ -17,17 +17,17 @@ This guide will walk you through setting up, configuring and managing {% data va
 For more information about {% data variables.product.product_name %}, see "[About {% data variables.product.prodname_ghe_server %}](/admin/overview/about-github-enterprise-server)."
 
 ## Part 1: Installing {% data variables.product.product_name %}
-To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the Management Console for initial setup, configure your instance, and manage billing. 
+To get started with {% data variables.product.product_name %}, you will need to create your enterprise account, install the instance, use the {% data variables.enterprise.management_console %} for initial setup, configure your instance, and manage billing.
 ### 1. Creating your enterprise account
 Before you install {% data variables.product.product_name %}, you can create an enterprise account on {% data variables.product.prodname_dotcom_the_website %} by contacting [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). An enterprise account on {% data variables.product.prodname_dotcom_the_website %} is useful for billing and for shared features with {% data variables.product.prodname_dotcom_the_website %} via {% data variables.product.prodname_github_connect %}.  For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
 ### 2. Installing {% data variables.product.product_name %}
 To get started with {% data variables.product.product_name %}, you will need to install the appliance on a virtualization platform of your choice. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
-### 3. Using the Management Console
-You will use the Management Console to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  Management Console to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+### 3. Using the {% data variables.enterprise.management_console %}
+You will use the {% data variables.enterprise.management_console %} to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  {% data variables.enterprise.management_console %} to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[Administering your instance from the {% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console)."
 
 ### 4. Configuring {% data variables.location.product_location %}
-In addition to the Management Console, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.location.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+In addition to the {% data variables.enterprise.management_console %}, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.location.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 
 You can use the default network settings used by {% data variables.product.product_name %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[Configuring network settings](/admin/configuration/configuring-network-settings)."
 
@@ -98,7 +98,7 @@ You can build integrations with the {% ifversion fpt or ghec %}{% data variables
 
 For more information on enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."

@@ -4,7 +4,7 @@ Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
 
-Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -138,14 +138,58 @@ For more information, see the [content model](/contributing/content-model.md#tit
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
+Every image must include alt text providing a textual equivalent of the visual information.
+
+- Express the core idea or meaning of the image, rather than describing it literally.
+- Use 40–150 characters.
+- End with a period.
+- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Follow standard language used to describe UI elements in article text.
+- Put multi-word titles, e.g. names of menu items, in quotes.
+- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.  
+
+#### Alt text for screenshots
+
+Follow this format:
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, along with its `keyboard shortcut XYZ`, are highlighted with `visual highlight mechanism`.
+
+- For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Describe UI elements consistently with written documentation.
+- Be flexible with word order when needed for clarity.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+
+##### Example
+
+> Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.
+
+![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](./images/repository-code-button.png)
+
+#### Alt text for diagrams and graphs
+
+Explain the information conveyed in the diagram or graph in text on the page. 
+
+Use alt text to express the core idea of the image, without duplicating the webpage text.
+
+##### Example
+
+> Diagram showing a five-step process by which a GitHub Actions runner can be automatically added to named classes of runners and then requested by specific jobs.
+
+[See accompanying explanation of this diagram in the Actions documentation.](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners) 
+
+#### Alt text for images of command-line interfaces
+
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+
+When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
 ### Filenames
 
 Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
-- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
+- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -298,11 +342,13 @@ For more information on links and accessibility, see “[Links](https://readabil
 
 ### Links between versions
 
-Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+Sometimes, you need to link from one version of GitHub Docs to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
+
+For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
 
 >You can choose to allow or disallow the publication of GitHub Pages sites.
 >
->Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
 
 To link to a different article in a different version, use this format:
 
@@ -310,9 +356,9 @@ To link to a different article in a different version, use this format:
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation]().
+> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
 
-To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
 ### Links to specific sections of articles
 
@@ -328,7 +374,7 @@ To link to a specific header in a different article, use this format:
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
 
 ### Links to learning paths
 
@@ -404,7 +450,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 #### Reusables for first-party actions
 
-Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
 
 Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
 
@@ -518,9 +564,32 @@ Use reusable strings for individual nouns (e.g. product names) or for complete s
 
 ## Tables
 
+### Use tables only for presenting tabular information
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document. 
+
+### Avoid describing tables
 A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
 - **Use:** Nothing or a clear header.
 - **Avoid:** “The table below shows what kind of migration data is exported:”
+
+### Include a value for every cell
+Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+### Use clear, consistent symbols and labels
+
+For tables that use symbols:
+
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji. 
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase". 
+
+### Use footnotes sparingly
+Avoid using footnotes where possible. Consider instead whether you could place a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) before or after the table, or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes, use numbers in square brackets [1]. Do not use typographical symbols or special characters.
 
 ## Titles
 

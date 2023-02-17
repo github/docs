@@ -102,7 +102,7 @@ You can also access the commands listed above by navigating to the Remote Explor
    - To open a codespace in JupyterLab, enter:
 
      ```shell{:copy}
-     gh codespace code --jupyter
+     gh codespace jupyter
      ```
 
      {% note %}

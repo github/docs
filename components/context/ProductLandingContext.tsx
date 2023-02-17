@@ -40,12 +40,14 @@ export type ProductLandingContextT = {
   product: Product
   introLinks: Record<string, string> | null
   productVideo: string
+  productVideoTranscript: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
   featuredArticles: Array<{
-    label: string // Guides
+    key: string // Featured article section key (startHere, popular, etc.)
+    label: string // Start here, Popular, etc.
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     viewAllTitleText?: string // Adds 'title' attribute text for the "View All" href
     articles: Array<FeaturedLink>
@@ -107,6 +109,7 @@ export const getProductLandingContextFromRequest = async (
   return {
     ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
     productVideo,
+    productVideoTranscript: page.product_video_transcript || null,
     hasGuidesPage,
     product: {
       href: productTree.href,
@@ -133,16 +136,17 @@ export const getProductLandingContextFromRequest = async (
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
-        return key === 'guides' || key === 'popular' || key === 'videos'
+        return key === 'startHere' || key === 'popular' || key === 'videos'
       })
       .map(([key, links]: any) => {
         return {
+          key,
           label:
             key === 'popular' || key === 'videos'
               ? req.context.page.featuredLinks[key + 'Heading'] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory && hasGuidesPage
+            key === 'startHere' && !req.context.currentCategory && hasGuidesPage
               ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {

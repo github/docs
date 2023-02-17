@@ -779,6 +779,11 @@
       "category": "orgs",
       "subcategory": "custom-roles",
       "originalUrl": "/rest/reference/orgs#list-custom-repository-roles-in-an-organization"
+    },
+    "apps/oauth-applications": {
+      "category": "apps",
+      "subcategory": "apps",
+      "originalUrl": "/rest/apps/oauth-applications#create-a-scoped-access-token"
     }
   },
   "sectionUrls": {

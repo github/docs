@@ -11,7 +11,7 @@ import {
 import { getAutomatedPageMiniTocItems } from 'lib/get-mini-toc-items.js'
 import { Changelog } from 'components/graphql/Changelog'
 import { ChangelogItemT } from 'components/graphql/types'
-import { getGraphqlChangelog } from 'lib/graphql/index.js'
+import { getGraphqlChangelog } from 'src/graphql/lib/index.js'
 
 type Props = {
   mainContext: MainContextT

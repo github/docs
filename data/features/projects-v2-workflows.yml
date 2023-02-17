@@ -1,0 +1,4 @@
+# Built-in workflows for Projects
+versions:
+  fpt: '*'
+  ghec: '*'

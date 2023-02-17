@@ -47,7 +47,7 @@ repository you're pushing to, you'll get a message saying `non-fast-forward upda
 This means that you must retrieve, or "fetch," the upstream changes, before
 you are able to push your local changes.
 
-For more information on this error, see "[Dealing with non-fast-forward errors](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
+For more information on this error, see "[Dealing with non-fast-forward errors](/get-started/using-git/dealing-with-non-fast-forward-errors)."
 
 ## Pushing tags
 
@@ -114,6 +114,6 @@ For more information on working with forks, see "[Syncing a fork](/pull-requests
 
 - [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
 - [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-- "[Git cheatsheet](/articles/git-cheatsheet)"
-- "[Git workflows](/github/getting-started-with-github/git-workflows)"
+- "[Git cheatsheet](/get-started/quickstart/git-cheatsheet)"
+- "[Git workflows](/get-started/getting-started-with-git/git-workflows)"
 - "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

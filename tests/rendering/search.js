@@ -1,9 +1,8 @@
 import { expect, jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
-import { describeIfDedicatedSearchResultsPage } from '../helpers/conditional-runs.js'
 
-describeIfDedicatedSearchResultsPage('search results page', () => {
+describe('search results page', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   test('says something if no query is provided', async () => {
@@ -26,6 +25,6 @@ describeIfDedicatedSearchResultsPage('search results page', () => {
     const h1Text = $container.find('h1').text()
     expect(h1Text).toMatch(/Search results for/)
     expect(h1Text).toMatch(/peterbe/)
-    expect($('title').text()).toMatch(/Search results for 'peterbe'/)
+    expect($('title').text()).toMatch(/Search results for "peterbe"/)
   })
 })

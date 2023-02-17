@@ -44,7 +44,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    {% endwindows %}
   
    ```shell
-   $ git filter-repo --path FOLDER-NAME1/ --path FOLDER-NAME2/
+   $ git filter-repo --path FOLDER-NAME/
    # Filter the specified branch in your directory and remove empty commits
    > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
    > Ref 'refs/heads/BRANCH-NAME' was rewritten
@@ -52,7 +52,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    
    The repository should now only contain the files that were in your subfolder(s).
 
-6. [Create a new repository](/articles/creating-a-new-repository/) on {% data variables.product.product_name %}.
+6. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
 
 7. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
 	
@@ -60,7 +60,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
    {% tip %}
 
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
 
    {% endtip %}
 

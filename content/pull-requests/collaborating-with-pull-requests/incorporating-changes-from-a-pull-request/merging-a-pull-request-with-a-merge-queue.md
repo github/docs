@@ -11,6 +11,7 @@ redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 defaultTool: webui
+product: '{% data reusables.gated-features.merge-queue %}'
 ---
 
 {% data reusables.pull_requests.merge-queue-beta %}
@@ -90,10 +91,6 @@ You can view the merge queue for a base branch in various places on {% data vari
 - On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
 
   ![View merge queue in Branches page](/assets/images/help/pull_requests/merge-queue-branches-page.png)
-
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %} next to any pull request in the merge queue.
-
-  ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
 - On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
 

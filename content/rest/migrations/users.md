@@ -6,7 +6,7 @@ intro: 'Use the REST API to review, backup, or migrate your user data stored on 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
   ghae: '*'
 topics:
   - API

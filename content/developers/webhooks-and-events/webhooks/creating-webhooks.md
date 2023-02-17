@@ -55,6 +55,8 @@ Webhooks require a few configuration options before you can make use of them. We
 
 ## Payload URL
 
+{% data reusables.webhooks.webhooks-ipv6 %}
+
 {% data reusables.webhooks.payload_url %}
 
 Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
