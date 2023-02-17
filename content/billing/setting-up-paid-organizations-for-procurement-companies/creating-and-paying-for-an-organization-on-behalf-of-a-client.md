@@ -31,8 +31,7 @@ You will use your personal account to set up the organization. You'll also need 
 If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 1. Go to the [Join GitHub](https://github.com/join) page.
-2. Under "Create your personal account," type your username, email address, and password, then click **Create an account**.
-![Create personal account entry form](/assets/images/help/billing/billing_create_your_personal_account_form.png)
+2. Complete the form, then click **Create account**.
 3. Select {% data variables.product.prodname_free_user %} for your personal account.
 4. Click **Finish sign up**.
 
@@ -57,7 +56,6 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (You can add more seats to the organization in the next step.)
 6. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
-![Radio button for yearly billing](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 

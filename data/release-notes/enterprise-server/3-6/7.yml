@@ -15,7 +15,6 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
     - |
       Following an upgrade to GitHub Enterprise Server 3.6 or later, existing inconsistencies in a repository such as broken refs or missing objects, may now be reported as errors like `invalid sha1 pointer 0000000000000000000000000000000000000000`, `Zero-length loose reference file`, or `Zero-length loose object file`. Previously, these indicators of repository corruption may have been silently ignored. GitHub Enterprise Server now uses an updated Git version with more diligent error reporting enabled. For more information, see this [upstream commit](https://github.com/git/git/commit/968f12fdac) in the Git project.
 

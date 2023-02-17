@@ -53,7 +53,6 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
 5. When you're done, click **Add single comment**.
-  ![Inline comment window](/assets/images/help/commits/inline-comment.png)
 
 Anyone watching the pull request or repository will receive a notification of your comment.
 

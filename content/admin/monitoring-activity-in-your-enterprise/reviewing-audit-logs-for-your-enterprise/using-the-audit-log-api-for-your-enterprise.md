@@ -117,9 +117,9 @@ For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterp
 
 ### Example 1: All events in an enterprise, for a specific date, with pagination
 
-You can use page-based pagination or cursor based pagination. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
+You can use {% ifversion ghes %}page-based{% else %}cursor based{% endif %} pagination. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
-#### Example with page-based pagination
+{% ifversion ghes %}
 
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using pagination. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
@@ -129,7 +129,7 @@ curl -H "Authorization: Bearer TOKEN" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-#### Example with cursor-based pagination
+{% else %}
 
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)." The `--include` flag causes the headers to be returned along with the response.
 
@@ -154,6 +154,8 @@ curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
+
+{% endif %}
 
 ### Example 2: Events for pull requests in an enterprise, for a specific date and actor
 

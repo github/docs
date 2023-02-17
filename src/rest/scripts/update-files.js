@@ -12,14 +12,17 @@ import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
+import { fileURLToPath } from 'url'
 
 import { decorate } from './utils/decorator.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
 import { allVersions } from '../../../lib/all-versions.js'
 
-const TEMP_DOCS_DIR = path.join(process.cwd(), 'openapiTmp')
-const DOCS_DEREF_OPENAPI_DIR = path.join(process.cwd(), 'src/rest/data/dereferenced')
-const GITHUB_REP_DIR = path.join(process.cwd(), '../github')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const DOCS_PARENT_DIRECTORY = path.join(__dirname, '..', '..')
+const TEMP_DOCS_DIR = path.join(DOCS_PARENT_DIRECTORY, 'openapiTmp')
+const DOCS_DEREF_OPENAPI_DIR = path.join(DOCS_PARENT_DIRECTORY, 'src/rest/static/dereferenced')
+const GITHUB_REP_DIR = path.join(DOCS_PARENT_DIRECTORY, '../github')
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
