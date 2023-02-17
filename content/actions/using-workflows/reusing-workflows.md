@@ -51,7 +51,7 @@ For more information, see "[Creating starter workflows for your organization](/a
 
 ## Access to reusable workflows
 
-A reusable workflow can be used by another workflow if {% ifversion private-actions or ghes or ghec or ghae %}any{% else %}either{% endif %} of the following is true:
+A reusable workflow can be used by another workflow if any of the following is true:
 
 * Both workflows are in the same repository.
 * The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
