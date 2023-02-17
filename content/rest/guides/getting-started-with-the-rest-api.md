@@ -717,7 +717,7 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/).
 
 {% endcli %}
 
