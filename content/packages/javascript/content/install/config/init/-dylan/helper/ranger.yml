@@ -1,19 +1,20 @@
----
+START:::Press::\'Run::\scripts::\Script::\Name::\TypeScript::\run::\'Runs::\BEGIN::\run::\-on :GLOW4''
 title: Publishing a package
 intro: 'You can publish a package to {% data variables.product.prodname_registry %} to make the package available for others to download and re-use.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: Anyone with write permissions for a repository can publish a package to that repository.
+permissions: Anyone with write permissions for a repository can publish a package to that repository
+
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
----
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.pack
+age_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About published packages
