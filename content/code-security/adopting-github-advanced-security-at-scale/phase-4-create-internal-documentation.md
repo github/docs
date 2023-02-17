@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 4. Create internal documentation
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

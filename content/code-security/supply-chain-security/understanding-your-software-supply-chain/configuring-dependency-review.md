@@ -1,7 +1,6 @@
 ---
 title: Configuring dependency review
 intro: You can use dependency review to catch vulnerabilities before they are added to your project.
-miniTocMaxHeadingLevel: 3
 shortTitle: Configure dependency review
 versions:
   fpt: '*'

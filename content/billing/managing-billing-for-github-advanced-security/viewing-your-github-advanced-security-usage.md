@@ -12,7 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
   - Advanced Security

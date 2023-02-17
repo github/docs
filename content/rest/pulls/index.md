@@ -11,7 +11,6 @@ versions:
   ghec: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 children:
   - /pulls
   - /comments

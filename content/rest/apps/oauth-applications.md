@@ -4,7 +4,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to interact with {% data variables.product.prodname_oauth_apps %}'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'

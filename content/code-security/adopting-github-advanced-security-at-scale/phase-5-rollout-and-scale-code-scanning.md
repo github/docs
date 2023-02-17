@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 5. Rollout code scanning
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

@@ -4,7 +4,6 @@ shortTitle: Manage access with runner groups
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'

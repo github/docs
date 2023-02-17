@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 1. Align on strategy
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

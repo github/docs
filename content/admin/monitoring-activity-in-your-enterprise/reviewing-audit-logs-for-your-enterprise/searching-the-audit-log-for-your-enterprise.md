@@ -18,7 +18,6 @@ topics:
   - Auditing
   - Enterprise
   - Logging
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About search for the enterprise audit log

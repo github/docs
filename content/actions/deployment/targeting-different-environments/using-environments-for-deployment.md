@@ -3,7 +3,6 @@ title: Using environments for deployment
 shortTitle: Use environments for deployment
 intro: You can configure environments with protection rules and secrets. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 product: '{% data reusables.gated-features.environments %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/reference/environments
   - /actions/deployment/environments

@@ -13,7 +13,6 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment
   - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
-miniTocMaxHeadingLevel: 2
 ---
 
 ## About these articles

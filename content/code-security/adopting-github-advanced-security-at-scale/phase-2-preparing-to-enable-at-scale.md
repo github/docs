@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 2. Preparation
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

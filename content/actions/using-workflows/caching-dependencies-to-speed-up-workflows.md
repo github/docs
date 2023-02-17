@@ -13,7 +13,6 @@ versions:
 type: tutorial
 topics:
   - Workflows
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About caching workflow dependencies

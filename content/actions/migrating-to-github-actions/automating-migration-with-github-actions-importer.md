@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghae: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Migration
   - CI

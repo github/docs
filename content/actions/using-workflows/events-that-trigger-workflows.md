@@ -1,7 +1,6 @@
 ---
 title: Events that trigger workflows
 intro: 'You can configure your workflows to run when specific activity on {% data variables.product.product_name %} happens, at a scheduled time, or when an event outside of {% data variables.product.product_name %} occurs.'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/events-that-trigger-workflows
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows

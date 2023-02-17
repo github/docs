@@ -13,7 +13,6 @@ redirect_from:
   - /actions/using-workflows/advanced-workflow-features
 topics:
   - Workflows
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About workflows

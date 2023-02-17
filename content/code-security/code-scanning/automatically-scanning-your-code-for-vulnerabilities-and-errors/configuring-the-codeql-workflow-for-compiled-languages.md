@@ -4,7 +4,6 @@ shortTitle: Configure compiled languages
 intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages

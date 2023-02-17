@@ -1,7 +1,6 @@
 ---
 title: About supply chain security
 intro: '{% data variables.product.product_name %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies{% ifversion fpt or ghec or ghes %}, and patching them{% endif %}.'
-miniTocMaxHeadingLevel: 3
 shortTitle: Supply chain security
 redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies

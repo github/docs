@@ -1,7 +1,6 @@
 ---
 title: Use autograding
 intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'

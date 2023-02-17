@@ -2,7 +2,6 @@
 title: About iteration fields
 shortTitle: About iteration fields
 intro: You can create iterations to plan upcoming work and group items.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:

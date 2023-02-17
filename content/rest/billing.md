@@ -3,7 +3,6 @@ title: Billing
 intro: Use the REST API to get billing information for an enterprise.
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'

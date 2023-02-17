@@ -9,7 +9,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
