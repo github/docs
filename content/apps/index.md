@@ -3,7 +3,7 @@ title: Apps
 shortTitle: Apps
 intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
 introLinks:
-  About apps: /apps/creating-github-apps/building-github-apps/about-apps
+  About apps: /apps/creating-github-apps/creating-github-apps/about-apps
 layout: product-landing
 featuredLinks:
   startHere:
