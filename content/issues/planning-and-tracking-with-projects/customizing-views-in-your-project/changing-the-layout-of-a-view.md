@@ -2,7 +2,6 @@
 title: Changing the layout of a view
 shortTitle: Changing the layout
 intro: 'You can view your project as a high-density table{% ifversion projects-v2-roadmaps %}, as a kanban board, or as a timeline-style roadmap{% else %} or as a kanban board{% endif %}.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:

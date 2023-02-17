@@ -7,7 +7,6 @@ redirect_from:
   - /github/articles/synchronizing-teams-between-okta-and-github
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization
 permissions: Organization owners can manage team synchronization for an organization.
-miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
 topics:

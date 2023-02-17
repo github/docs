@@ -21,6 +21,7 @@ children:
   - /quickstart
   - /foo
   - /video-transcripts
+  - /minitocs
   - /liquid
 communityRedirect:
   name: Provide HubGit Feedback

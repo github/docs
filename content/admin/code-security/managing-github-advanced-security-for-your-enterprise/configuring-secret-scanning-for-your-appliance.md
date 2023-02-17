@@ -3,7 +3,6 @@ title: Configuring secret scanning for your appliance
 shortTitle: Configuring secret scanning
 intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
   - /admin/advanced-security/configuring-secret-scanning-for-your-appliance

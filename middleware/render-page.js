@@ -29,7 +29,7 @@ async function buildMiniTocItems(req) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
+  return getMiniTocItems(context.renderedPage, '')
 }
 
 export default async function renderPage(req, res) {

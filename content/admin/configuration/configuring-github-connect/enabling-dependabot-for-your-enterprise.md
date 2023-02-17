@@ -1,7 +1,6 @@
 ---
 title: Enabling Dependabot for your enterprise
 intro: 'You can allow users of {% data variables.location.product_location %} to find and fix vulnerabilities in code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
-miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server

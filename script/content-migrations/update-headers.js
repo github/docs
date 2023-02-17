@@ -48,7 +48,6 @@ async function updateMdHeaders(dir) {
             return
           case '###':
             result = data
-              .replace(/^miniTocMaxHeadingLevel: 4/gm, 'miniTocMaxHeadingLevel: 3')
               .replace(/^### /gm, '## ')
               .replace(/^#### /gm, '### ')
               .replace(/^##### /gm, '#### ')

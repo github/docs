@@ -13,7 +13,6 @@ topics:
 redirect_from:
   - /guides/getting-started
   - /v3/guides/getting-started
-miniTocMaxHeadingLevel: 3
 ---
 
 This article describes how to quickly get started with the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or `curl`. For a more detailed guide, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api)."

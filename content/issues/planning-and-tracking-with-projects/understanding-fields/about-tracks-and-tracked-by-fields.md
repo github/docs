@@ -2,7 +2,6 @@
 title: About Tracks and Tracked by fields
 shortTitle: About Tracks and Tracked by fields
 intro: You can view the subtasks of the issues in your projects.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-tasklists
 type: tutorial

@@ -12,7 +12,6 @@ topics:
   - Infrastructure
   - Upgrades
 shortTitle: Set up a staging instance
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About staging instances

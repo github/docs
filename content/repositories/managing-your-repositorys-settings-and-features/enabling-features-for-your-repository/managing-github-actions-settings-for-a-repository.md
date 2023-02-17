@@ -17,7 +17,6 @@ topics:
   - Permissions
   - Pull requests
 shortTitle: Manage GitHub Actions settings
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}

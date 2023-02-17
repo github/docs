@@ -2,7 +2,6 @@
 title: Using larger runners
 shortTitle: Larger runners
 intro: '{% data variables.product.prodname_dotcom %} offers larger runners with more RAM and CPU.'
-miniTocMaxHeadingLevel: 3
 product: '{% data reusables.gated-features.hosted-runners %}'
 versions:
   feature: actions-hosted-runners

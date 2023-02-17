@@ -5,7 +5,6 @@ shortTitle: Marketplace
 intro: 'Use the REST API to interact with {% data variables.product.prodname_marketplace %}'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'

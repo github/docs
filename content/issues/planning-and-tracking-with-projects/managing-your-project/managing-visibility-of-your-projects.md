@@ -2,7 +2,6 @@
 title: 'Managing visibility of your {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} visibility'
 intro: 'Learn about setting your {% data variables.projects.project_v2 %} to private or public visibility.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:

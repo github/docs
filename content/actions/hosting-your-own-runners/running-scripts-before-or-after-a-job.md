@@ -4,7 +4,6 @@ intro: 'Scripts can automatically execute on a self-hosted runner, directly befo
 versions:
   feature: job-hooks-for-runners
 type: tutorial
-miniTocMaxHeadingLevel: 3
 shortTitle: Run a script before or after a job
 ---
 

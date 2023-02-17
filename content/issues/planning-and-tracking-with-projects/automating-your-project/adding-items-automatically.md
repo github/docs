@@ -1,7 +1,6 @@
 ---
 title: Adding items automatically
 intro: You can configure your project to automatically add items from a repository that match a filter.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-auto-add
 type: tutorial

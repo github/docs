@@ -9,7 +9,6 @@ versions:
 topics:
   - API
 shortTitle: Using the API
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About the {% data variables.product.prodname_dotcom %} REST API

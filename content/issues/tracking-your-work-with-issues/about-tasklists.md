@@ -3,7 +3,6 @@ title: About Tasklists
 intro: You can use Tasklists to divide your issues into smaller subtasks.
 versions:
   feature: projects-v2-tasklists
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
 ---

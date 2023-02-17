@@ -7,7 +7,6 @@ versions:
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
 type: how_to
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About accessibility settings

@@ -13,7 +13,6 @@ versions:
 type: overview
 topics:
   - Security
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}

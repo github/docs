@@ -8,7 +8,6 @@ versions:
 type: how_to
 topics:
   - Codespaces
-miniTocMaxHeadingLevel: 3
 ---
 
 ## Checking, changing, and deleting your prebuild configurations
