@@ -42,7 +42,7 @@ topics:
 You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
 {% endif %}
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)." 
+After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
 
 ## What to include in your support ticket
 
@@ -75,7 +75,7 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 {% ifversion ghes %}
 
-## Creating a ticket using the GitHub Enterprise Server Management Console
+## Creating a ticket using the {% data variables.enterprise.management_console %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -84,7 +84,6 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 1. If you'd like to include diagnostics with your support ticket, Under "Diagnostics", click **Download diagnostic info** and save the file locally. You'll attach this file to your support ticket later.
   ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
 1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**.
-  ![Screenshot of button labelled "New support request" on Management Console Support page.](/assets/images/enterprise/management-console/open-support-request.png)
 {% data reusables.support.submit-a-ticket %}
 
 {% endif %}
@@ -113,4 +112,4 @@ Commercial customers can submit a support request in the {% data variables.conta
 
 ## Further reading
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"

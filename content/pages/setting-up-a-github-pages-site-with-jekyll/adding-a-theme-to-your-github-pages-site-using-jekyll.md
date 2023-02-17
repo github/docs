@@ -73,4 +73,4 @@ People with write permissions for a repository can add a theme to a {% data vari
 
 ## Further reading
 
-- "[Creating new files](/articles/creating-new-files)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"

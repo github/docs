@@ -35,6 +35,6 @@ shortTitle: Cancel or edit invitation
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"
+- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"
 {% endif %}
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

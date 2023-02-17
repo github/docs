@@ -22,13 +22,13 @@ versions:
 {% tip %}
 
 **Tips:**
-- You can use a keyboard shortcut to autofill the comment with a saved reply. For more information, see "[Keyboard shortcuts](/get-started/using-github/keyboard-shortcuts#comments)."
+- You can use a keyboard shortcut to autofill the comment with a saved reply. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#comments)."
 - You can filter the list by typing the title of the saved reply.
 
 {% endtip %}
 
 ## Further reading
 
-- "[Creating a saved reply](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
-- "[Editing a saved reply](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
-- "[Deleting a saved reply](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"

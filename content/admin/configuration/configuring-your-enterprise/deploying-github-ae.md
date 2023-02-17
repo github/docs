@@ -14,7 +14,7 @@ redirect_from:
 
 ## About deployment of {% data variables.product.product_name %}
 
-{% data reusables.github-ae.github-ae-enables-you %} For more information, see "[About {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)."
+{% data reusables.github-ae.github-ae-enables-you %} For more information, see "[AUTOTITLE](/admin/overview/about-github-ae)."
 
 After you purchase or start a trial of {% data variables.product.product_name %}, you can deploy {% data variables.product.product_name %} to an available Azure region. This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
 
@@ -38,11 +38,11 @@ The {% data variables.actions.azure_portal %} allows you to deploy the {% data v
 1. To review a summary of the proposed changes, click **Review + create**.
 1. After the validation process has completed, click **Create**.
 
-The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. For more information, see "[Initializing {% data variables.product.product_name %}](/admin/configuration/initializing-github-ae)."
+The email address you entered above will receive instructions on how to access your enterprise. After you have access, you can get started by following the initial setup steps. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 
 {% note %}
 
-**Note:** Software updates for your {% data variables.product.product_name %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+**Note:** Software updates for your {% data variables.product.product_name %} deployment are performed by {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)."
 
 {% endnote %}
 
@@ -55,10 +55,10 @@ You can use the {% data variables.actions.azure_portal %} to navigate to your {%
 
 ## Next steps
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.product_name %}](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 - If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. If you need more time to evaluate {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
 
 ## Further reading
 
-- "[Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}](/github/getting-started-with-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[{% data variables.product.product_name %} release notes](/github-ae@latest/admin/overview/github-ae-release-notes)"
+- "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
+- "[AUTOTITLE](/github-ae@latest/admin/release-notes)"

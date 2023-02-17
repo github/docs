@@ -30,11 +30,11 @@ ERROR: Your account is suspended. Please check with your installation administra
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[Promoting or demoting a site administrator](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)."
+Before suspending site administrators, you must demote them to regular users. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+**Note:** If [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
 
 {% endtip %}
 
@@ -69,7 +69,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 ## Suspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
+2. Run [ghe-user-suspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-suspend) with the username to suspend.
   ```shell
   $ ghe-user-suspend USERNAME
   ```
@@ -94,10 +94,10 @@ You can create a custom message that suspended users will see when attempting to
 ## Unsuspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+2. Run [ghe-user-unsuspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
   ```shell
   $ ghe-user-unsuspend USERNAME
   ```
 
 ## Further reading
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+- "[AUTOTITLE](/rest/enterprise-admin#suspend-a-user)"

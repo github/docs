@@ -76,5 +76,6 @@ export default function parsePageSectionsIntoRecords(page) {
     title,
     headings,
     content,
+    intro,
   }
 }

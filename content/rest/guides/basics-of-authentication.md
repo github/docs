@@ -131,7 +131,7 @@ application, you should probably use [a library written in the language of your 
 
 ### Checking granted scopes
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
 The scopes that were granted are returned as a part of the response from
 exchanging a token.
@@ -168,7 +168,7 @@ To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the REST API provides an endpoint to {% ifversion fpt or ghes or ghec %}
-[check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}.
+[check a token for validity](/rest/apps#check-a-token){% else %}[check a token for validity](/rest/apps#check-an-authorization){% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 

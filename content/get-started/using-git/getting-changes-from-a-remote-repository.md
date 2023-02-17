@@ -53,7 +53,7 @@ $ git fetch REMOTE-NAME
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/get-started/getting-started-with-git/managing-remote-repositories)."
+Otherwise, you can always add a new remote and then fetch. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Merging changes into your local branch
 
@@ -84,4 +84,4 @@ to take the branch back to where it was in before you pulled.
 ## Further reading
 
 - ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
-- "[Troubleshooting connectivity problems](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}
+- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}

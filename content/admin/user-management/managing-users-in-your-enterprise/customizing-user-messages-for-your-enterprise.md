@@ -86,7 +86,7 @@ Mandatory messages have a variety of uses.
 
 If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
 
-Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 {% ifversion display-mandatory-message-again %} {% else %}
 {% note %}
@@ -117,10 +117,10 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 You can set a global announcement banner to be displayed to all users at the top of every page{% ifversion ghec %} within your enterprise{% endif %}.
 
 {% ifversion custom-banner-messages %}
-You can also create announcement banners at the organization level. For more information, see "[Creating an announcement banner for your organization](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization)."{% endif %}
+You can also create announcement banners at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization)."{% endif %}
 
 {% ifversion ghae or ghes %}
-You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-announce)" and {% endif %}"[AUTOTITLE](/rest/enterprise-admin#announcements)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

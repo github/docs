@@ -1,2 +1,1 @@
-1. Under "{% data variables.product.prodname_actions %}", view details of your minutes used.
-  ![Details of minute usage](/assets/images/help/billing/actions-minutes.png)
+1. Under "Usage this month", under "Actions", view details of your minutes used.

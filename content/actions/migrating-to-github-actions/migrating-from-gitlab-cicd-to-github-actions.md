@@ -129,7 +129,7 @@ linux_job:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
 ## Docker images
 
@@ -167,7 +167,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
 
 ## Condition and expression syntax
 
@@ -212,7 +212,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
 ## Dependencies between Jobs
 
@@ -291,19 +291,19 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
 ## Scheduling workflows
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#scheduled-events)."
 
 ## Variables and secrets
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
 
-For more information, see "[Variables](/actions/learn-github-actions/variables)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ## Caching
 
@@ -407,7 +407,7 @@ artifacts:
 </tr>
 </table>
 
-For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Databases and service containers
 
@@ -492,4 +492,4 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[About service containers](/actions/guides/about-service-containers)."
+For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."

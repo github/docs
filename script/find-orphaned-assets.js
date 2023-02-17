@@ -12,6 +12,9 @@ import path from 'path'
 import { program } from 'commander'
 import walk from 'walk-sync'
 
+import walkFiles from './helpers/walk-files.js'
+import languages from '../lib/languages.js'
+
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
   'assets/images/site/apple-touch-icon.png',
@@ -48,9 +51,34 @@ async function main(opts) {
     includeBasePath: true,
   }
   const sourceFiles = []
+  const englishFiles = []
+  englishFiles.push(...walkFiles(path.join(languages.en.dir, 'content'), ['.md']))
+  englishFiles.push(...walkFiles(path.join(languages.en.dir, 'data'), ['.md', '.yml']))
+  sourceFiles.push(...englishFiles)
+
+  if (!excludeTranslations) {
+    // Need to have this so we can filter the translations files and avoid
+    // including orphans. Because translations generally don't delete files.
+    // When the English content renames something, you later end up with
+    // 2 files in each translation repo.
+    const englishRelativeFiles = new Set(
+      englishFiles.map((englishFile) => path.relative(languages.en.dir, englishFile))
+    )
+    for (const [language, { dir }] of Object.entries(languages)) {
+      if (language !== 'en') {
+        const languageFiles = []
+        languageFiles.push(...walkFiles(path.join(dir, 'content'), ['.md']))
+        languageFiles.push(...walkFiles(path.join(dir, 'data'), ['.md', '.yml']))
+        sourceFiles.push(
+          ...languageFiles.filter((languageFile) =>
+            englishRelativeFiles.has(path.relative(dir, languageFile))
+          )
+        )
+      }
+    }
+  }
+
   const roots = [
-    'content',
-    'data',
     'tests',
     'components',
     'script',
@@ -59,9 +87,6 @@ async function main(opts) {
     'pages',
     '.github/actions-scripts',
   ]
-  if (!excludeTranslations) {
-    roots.push('translations')
-  }
 
   for (const root of roots) {
     sourceFiles.push(

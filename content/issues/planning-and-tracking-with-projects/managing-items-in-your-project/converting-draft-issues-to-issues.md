@@ -30,4 +30,4 @@ topics:
 
 ## Further reading
 
-- "[Creating draft issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#creating-draft-issues)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#creating-draft-issues)"

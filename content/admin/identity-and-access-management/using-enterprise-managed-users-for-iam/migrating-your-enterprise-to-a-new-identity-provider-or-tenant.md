@@ -18,7 +18,7 @@ topics:
 
 While using {% data variables.product.prodname_emus %}, you may need to migrate your enterprise to a new IdP or Azure AD tenant. For example, you might be ready to migrate from a test environment to your production environment.
 
-Before you migrate your {% data variables.enterprise.prodname_emu_enterprise %} to a new IdP or tenant, determine whether the values of the normalized SCIM `userName` attribute will remain the same for your {% data variables.enterprise.prodname_managed_users %} in the new environment. For more information about username normalization, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+Before you migrate your {% data variables.enterprise.prodname_emu_enterprise %} to a new IdP or tenant, determine whether the values of the normalized SCIM `userName` attribute will remain the same for your {% data variables.enterprise.prodname_managed_users %} in the new environment. For more information about username normalization, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
 If the normalized SCIM `userName` values will remain the same after the migration, you can complete the migration by yourself. For instructions, see "[Migrating when the normalized SCIM `userName` values will remain the same](#migrating-when-the-normalized-scim-username-values-will-remain-the-same)."
 
@@ -34,11 +34,11 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
 
 {% endwarning %}
 
-1. If you don't already have single sign-on recovery codes for your enterprise, download the codes now. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+1. If you don't already have single sign-on recovery codes for your enterprise, download the codes now. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 1. In your current IdP, deactivate provisioning in the application for {% data variables.product.prodname_emus %}.
     -  If you use Azure AD, navigate to the "Provisioning" tab of the application, and then click **Stop provisioning**.
     - If you use Okta, navigate to the "Provisioning" tab of the application, click the **Integration** tab, and then click **Edit**. Deselect **Enable API integration**.
-1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
+1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
 
 1. Deactivate SAML for the {% data variables.enterprise.prodname_emu_enterprise %}.
    -  From your profile, click **Your enterprises**, and then click the appropriate enterprise.

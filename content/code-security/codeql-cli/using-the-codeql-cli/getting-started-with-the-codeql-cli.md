@@ -54,7 +54,7 @@ Conditions](https://securitylab.github.com/tools/codeql/license).
 **Important:** There are several versions of the CLI available to download, depending on your use case:
 
 - If you want to use the most up to date {% data variables.product.prodname_codeql %} tools and features, download the version tagged `latest`.
-- If you want to generate code scanning data to upload to {% data variables.product.prodname_enterprise %} server, then download the version that is compatible with the {% data variables.product.prodname_codeql_cli %} used in your CI system. For more information, see “[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/enterprise-server/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#downloading-the-codeql-cli).”
+- If you want to generate code scanning data to upload to {% data variables.product.prodname_enterprise %} server, then download the version that is compatible with the {% data variables.product.prodname_codeql_cli %} used in your CI system. For more information, see “[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/enterprise-server@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#downloading-the-codeql-cli).”
 
 {% endnote %}
 
@@ -112,7 +112,7 @@ At this point, you can execute {% data variables.product.prodname_codeql %} comm
 
 - Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.{% ifversion codeql-packs %}
 - (Optional) You can download some “[{% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)” containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
- 
+
   - `codeql/cpp-queries`
   - `codeql/csharp-queries`
   - `codeql/go-queries`

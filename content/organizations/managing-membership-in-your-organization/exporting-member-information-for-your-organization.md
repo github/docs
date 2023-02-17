@@ -18,12 +18,12 @@ The exported information includes:
 - Whether the user has two-factor authentication enabled
 - Whether the membership is public or private
 - Whether the user is an organization owner or member
-- Datetime of the user's last activity (for a full list of relevant activity, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
+- Datetime of the user's last activity (for a full list of relevant activity, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
 - The user's SAML NameID, if available
 
 You can get member information directly from the {% data variables.product.product_name %} user interface, or using APIs. This article explains how to obtain member information from within {% data variables.product.product_name %}.
 
-For more information about the APIs, see our [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/reference/users) documentation about users.
+For more information about the APIs, see our [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/users) documentation about users.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

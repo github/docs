@@ -21,7 +21,7 @@ For {% data variables.product.product_name %}, the second form of authentication
 In addition to security keys, you can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to sign in to {% data variables.product.prodname_mobile %} as your second factor.
 {% endif %}
 
-You can also configure additional recovery methods in case you lose access to your two-factor authentication credentials. For more information on setting up 2FA, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)" and "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)."
+You can also configure additional recovery methods in case you lose access to your two-factor authentication credentials. For more information on setting up 2FA, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)."
 
 {% ifversion fpt or ghec %}
 {% note %}
@@ -33,17 +33,17 @@ You can also configure additional recovery methods in case you lose access to yo
 
 We **strongly** urge you to enable 2FA for the safety of your account, not only on {% data variables.product.product_name %}, but on other websites and apps that support 2FA. You can enable 2FA to access {% data variables.product.product_name %} and {% data variables.product.prodname_desktop %}.
 
-For more information, see "[Accessing {% data variables.product.prodname_dotcom %} using two-factor authentication](/articles/accessing-github-using-two-factor-authentication)."
+For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)."
 
 ## Two-factor authentication recovery codes
 
-{% data reusables.two_fa.about-recovery-codes %} For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+{% data reusables.two_fa.about-recovery-codes %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
 {% ifversion fpt or ghec %}
 
 {% warning %}
 
-**Warning**: {% data reusables.two_fa.support-may-not-help %} For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
+**Warning**: {% data reusables.two_fa.support-may-not-help %} For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
 {% endwarning %}
 
@@ -51,6 +51,6 @@ For more information, see "[Accessing {% data variables.product.prodname_dotcom 
 
 ## Requiring two-factor authentication in your organization
 
-Organization owners can require that organization members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators use two-factor authentication to secure their personal accounts. For more information, see "[Requiring two-factor authentication in your organization](/articles/requiring-two-factor-authentication-in-your-organization)."
+Organization owners can require that organization members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators use two-factor authentication to secure their personal accounts. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
 {% data reusables.two_fa.auth_methods_2fa %}

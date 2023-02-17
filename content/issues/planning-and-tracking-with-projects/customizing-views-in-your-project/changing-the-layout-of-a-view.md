@@ -15,13 +15,13 @@ topics:
 
 ## About the table layout
 
-{% data reusables.projects.about-table-layout %} For more information, see "[Customizing the table layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-table-layout)."
+{% data reusables.projects.about-table-layout %} For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-table-layout)."
 
 ![Screenshot showing an example table layout](/assets/images/help/projects-v2/example-table.png)
 
 ## About the board layout
 
-{% data reusables.projects.about-board-layout %} For more information, see "[Customizing the board layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout)."
+{% data reusables.projects.about-board-layout %} For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout)."
 
 ![Screenshot showing an example board layout](/assets/images/help/projects-v2/example-board.png)
 
@@ -31,7 +31,7 @@ topics:
 
 {% data reusables.projects.roadmaps-release-stage %}
 
-{% data reusables.projects.about-roadmap-layout %} For more information, see "[Customizing the roadmap layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
+{% data reusables.projects.about-roadmap-layout %} For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
 
 ![Screenshot showing an example roadmap layout](/assets/images/help/projects-v2/example-roadmap.png)
 

@@ -145,4 +145,4 @@ Force pushing has serious implications because it changes the historical sequenc
 
 ## Further reading
 
-* "[Resolving merge conflicts after a Git rebase](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)"
+* "[AUTOTITLE](/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)"

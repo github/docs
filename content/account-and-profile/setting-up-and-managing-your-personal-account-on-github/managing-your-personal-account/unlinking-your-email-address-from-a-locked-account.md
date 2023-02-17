@@ -16,15 +16,15 @@ shortTitle: Unlink your email
 
 **Notes:**
 
-- Following these steps will not provide access to the locked account, but instead unlink the associated email address so it may be used for a different account. If you cannot regain access to the locked account, these steps will permanently break the link between the account and the linked email address. Before continuing with this article, be sure you have lost all access to your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
+- Following these steps will not provide access to the locked account, but instead unlink the associated email address so it may be used for a different account. If you cannot regain access to the locked account, these steps will permanently break the link between the account and the linked email address. Before continuing with this article, be sure you have lost all access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
-- If you recover access to your locked account, you can re-link an unlinked email address. For more information, see "[Adding an email address to your GitHub account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+- If you recover access to your locked account, you can re-link an unlinked email address. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
 
 {% endnote %}
 
 ## About unlinking your email address
 
-Since an email address can only be associated with a single {% data variables.product.prodname_dotcom %} account, unlinking your email address from a locked account allows you to link that email address to a new or existing account. Additionally, linking a previously used commit email address to a new account will connect your commit history to that account. Unless you have chosen to keep your email address private, your account's commit email address is the same as your account's primary email address. For more information, see "[Setting your commit email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)." Be aware that nothing else associated with your locked account, including your repositories, permissions, and profile, will transfer to your new account.
+Since an email address can only be associated with a single {% data variables.product.prodname_dotcom %} account, unlinking your email address from a locked account allows you to link that email address to a new or existing account. Additionally, linking a previously used commit email address to a new account will connect your commit history to that account. Unless you have chosen to keep your email address private, your account's commit email address is the same as your account's primary email address. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)." Be aware that nothing else associated with your locked account, including your repositories, permissions, and profile, will transfer to your new account.
 
 {% note %}
 
@@ -84,7 +84,7 @@ Since an email address can only be associated with a single {% data variables.pr
 
   {% note %}
 
-  **Note:** You can also link your unlinked email to an existing {% data variables.product.prodname_dotcom %} account. For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+  **Note:** You can also link your unlinked email to an existing {% data variables.product.prodname_dotcom %} account. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
 
   {% endnote %}
 

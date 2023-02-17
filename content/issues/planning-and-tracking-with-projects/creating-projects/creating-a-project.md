@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 
 {% ifversion projects-v2-copy-a-project %}
 
-You can also choose to use an existing project as a template and copy the views and custom fields to a new project. For more information, see "[Copying an existing project](/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project)."
+You can also choose to use an existing project as a template and copy the views and custom fields to a new project. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/copying-an-existing-project)."
 
 {% endif %}
 
@@ -40,6 +40,6 @@ User projects can track issues and pull requests from the repositories owned by 
 
 ## Further reading
 
-- "[Adding your project to a repository](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"

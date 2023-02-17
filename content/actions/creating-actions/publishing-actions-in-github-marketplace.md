@@ -16,7 +16,7 @@ You must accept the terms of service to publish actions in {% data variables.pro
 
 ## About publishing actions
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see "[Creating actions](/actions/creating-actions)."
+Before you can publish an action, you'll need to create an action in your repository. For more information, see "[AUTOTITLE](/actions/creating-actions)."
 
 When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
@@ -51,7 +51,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 ![Choose category](/assets/images/help/repository/marketplace_actions_categories.png)
 1. Tag your Action with a version, and add a release title. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
 ![Tag a version](/assets/images/help/repository/marketplace_actions_version.png)
-1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication/)."
+1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 ![Publish the release](/assets/images/help/repository/marketplace_actions_publishrelease.png)
 
 ## Removing an action from {% data variables.product.prodname_marketplace %}

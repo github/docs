@@ -126,4 +126,4 @@ changelog:
 
 ## Further reading
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 

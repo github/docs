@@ -2,7 +2,7 @@
 {% ifversion ghec or ghes %}
    {% note %}
 
-   **Note:** For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[About {% data variables.product.company_short %} support](/en/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   **Note:** For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
 
    {% endnote %}
 {% endif %}
@@ -17,7 +17,7 @@
 1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[About ticket priority](/support/learning-about-github-support/about-ticket-priority)."
+1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-ticket-priority)."
 {%- endif %}
 {%- ifversion ghes %}
     - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
@@ -37,7 +37,7 @@
     - Exact wording of error messages
       {% warning %}
 
-      **Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)."{% endif %}
+      **Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)."{% endif %}
 
       {% endwarning %}
 

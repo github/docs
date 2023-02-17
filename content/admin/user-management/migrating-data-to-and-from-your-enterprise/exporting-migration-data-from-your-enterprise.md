@@ -21,7 +21,7 @@ shortTitle: Export from your enterprise
 ---
 ## Preparing the {% data variables.product.prodname_ghe_server %} source instance
 
-1. Verify that you are a site administrator on the {% data variables.product.prodname_ghe_server %} source. The best way to do this is to verify that you can [SSH into the instance](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+1. Verify that you are a site administrator on the {% data variables.product.prodname_ghe_server %} source. The best way to do this is to verify that you can [SSH into the instance](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 2. {% data reusables.enterprise_migrations.token-generation %} on the {% data variables.product.prodname_ghe_server %} source instance.
 

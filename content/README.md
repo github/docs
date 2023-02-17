@@ -357,6 +357,10 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
+### Using AUTOTITLE for internal links
+
+If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](../contributing/content-markup-reference.md#internal-links-with-autotitle) for details.
+
 ### Linking to the current article in a different version of the docs
 
 Sometimes you may want to link from an article to the same article in a different product version. For example:

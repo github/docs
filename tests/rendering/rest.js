@@ -5,9 +5,11 @@ import { join } from 'path'
 
 import { get, getDOM } from '../helpers/e2etest.js'
 import getRest, {
-  getEnabledForApps,
   categoriesWithoutSubcategories,
+  REST_DATA_DIR,
+  REST_SCHEMA_FILENAME,
 } from '../../src/rest/lib/index.js'
+import { getEnabledForApps } from '../../src/github-apps/lib/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../src/rest/scripts/test-open-api-schema.js'
 
@@ -15,13 +17,14 @@ describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('all category and subcategory REST pages render for free-pro-team', async () => {
-    const DECORATED_DIR = 'src/rest/data'
     // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
     // get a list of all categories across all versions.
-    const freeProTeamFile = readdirSync(DECORATED_DIR)
+    const freeProTeamVersion = readdirSync(REST_DATA_DIR)
       .filter((file) => file.startsWith('api.github.com'))
       .shift()
-    const freeProTeamSchema = JSON.parse(readFileSync(join(DECORATED_DIR, freeProTeamFile), 'utf8'))
+    const freeProTeamSchema = JSON.parse(
+      readFileSync(join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
+    )
     // One off edge case for secret-scanning Docs-content issue 6637
     if ('secret-scanning' in freeProTeamSchema) delete freeProTeamSchema['secret-scanning']
     const restCategories = Object.entries(freeProTeamSchema)
@@ -100,13 +103,13 @@ describe('REST references docs', () => {
     }
   })
 
-  test('404 if unrecognized apiVersion', async () => {
+  test('falls back when unsupported calendar version provided', async () => {
     const res = await get(
       `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
         apiVersion: 'junk',
       })}`
     )
-    expect(res.statusCode).toBe(404)
+    expect(res.statusCode).toBe(200)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {

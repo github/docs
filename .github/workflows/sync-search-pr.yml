@@ -3,7 +3,7 @@ name: Sync search - PR
 # **What it does**: This does what `sync-sarch-elasticsearch.yml` does but
 #                   with a localhost Elasticsearch and only for English.
 # **Why we have it**: To test that the script works and the popular pages json is valid.
-# **Who does it impact**: Docs engineering.
+# **Who does it impact**: Docs engineering
 
 on:
   pull_request:

@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.projects.about-table-layout %}
 
-For more information about changing a view to use the table layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the table layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 
@@ -55,11 +55,15 @@ You can change the order of rows.
 
 You can sort items by a field value.
 
+{% ifversion projects-v2-consistent-sorting %}{% else %}
+
 {% note %}
 
 **Note:** When a table is sorted, you cannot manually reorder rows.
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.projects.customize.sort %}
 

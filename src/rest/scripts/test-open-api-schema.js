@@ -12,11 +12,12 @@ import _ from 'lodash'
 import frontmatter from '../../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../../lib/get-applicable-versions.js'
 import { allVersions, getDocsVersion } from '../../../lib/all-versions.js'
+import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
 
 const contentFiles = []
 
 export async function getDiffOpenAPIContentRest() {
-  const contentPath = path.join(process.cwd(), 'content/rest')
+  const contentPath = 'content/rest'
 
   // Recursively go through the content/rest directory and add all categories/subcategories to contentFiles
   throughDirectory(contentPath)
@@ -50,15 +51,14 @@ export async function getDiffOpenAPIContentRest() {
 }
 
 async function createOpenAPISchemasCheck() {
-  const schemasPath = path.join(process.cwd(), 'src/rest/data')
   const openAPICheck = createCheckObj()
-  const schemas = fs.readdirSync(schemasPath)
+  const restDirectory = fs.readdirSync(REST_DATA_DIR).filter((dir) => dir !== 'meta.json')
 
-  schemas.forEach((file) => {
-    const fileData = fs.readFileSync(path.join(schemasPath, file))
-    const fileSchema = JSON.parse(fileData.toString())
+  restDirectory.forEach((dir) => {
+    const filename = path.join(REST_DATA_DIR, dir, REST_SCHEMA_FILENAME)
+    const fileSchema = JSON.parse(fs.readFileSync(filename))
     const categories = Object.keys(fileSchema).sort()
-    const version = getDocsVersion(file.split(/.json/)[0])
+    const version = getDocsVersion(dir)
 
     categories.forEach((category) => {
       const subcategories = Object.keys(fileSchema[category])

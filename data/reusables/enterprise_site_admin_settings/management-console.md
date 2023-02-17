@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% data variables.enterprise.management_console %}**.
+1. In the "{% octicon "rocket" aria-label="" %} Site admin" sidebar, click **{% data variables.enterprise.management_console %}**.

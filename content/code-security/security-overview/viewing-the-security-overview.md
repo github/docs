@@ -31,21 +31,21 @@ shortTitle: View the security overview
 {% ifversion security-overview-org-risk-coverage %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. Choose the overview you want to display from the options in the sidebar.
-1. Use the drop-down filters and search box to focus on the information of greatest interest. The "Security Risk" and "Security Coverage" views also have an interactive header that you can use to filter results.
-
-  ![Screenshot of the Security Risk view with interactive header highlighted](/assets/images/help/security-overview/security-risk-interactive-header.png)
+1. To display a summary view, in the sidebar, click **{% octicon "shield" %} Risk** or **{% octicon "meter" %} Coverage**.
+1. Optionally, to focus on the information of greatest interest, select the **Teams** dropdown filter and search box.
+1. Optionally, use links in the "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning %}", and "{% data variables.product.prodname_secret_scanning %}" header summaries to filter results further.
+  ![Screenshot of the "Security Risk" view on the "Security" tab for an organization. Illustrates information and filter options available in the view.](/assets/images/help/security-overview/security-risk-interactive-header.png)
+{% data reusables.organizations.security-overview-feature-specific-page %}
 
 {% else %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. To view aggregate information about alert types, click **Show more**.
-  ![Show more button](/assets/images/help/security-overview/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% ifversion security-overview-alert-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Screenshot of the code scanning-specific page](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
+  ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page on the "Security" tab. Features apart from filters, dropdown menus, and sidebar are grayed out.](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
 {% endif %}
 
 {% endif %}
@@ -57,7 +57,7 @@ shortTitle: View the security overview
 {% data reusables.security-overview.security-coverage-single-repo-enablement %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
+1. In the left sidebar, click **{% octicon "shield" aria-label="" %} Code Security**.
 {% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
