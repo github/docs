@@ -1,52 +1,1016 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
-// -
+Development Containers
+Overview
+Reference
+Specification
+Supporting Tools
+Guides
+Available Features
+Available Templates
+Collections
+Specification
+Reference Implementation
+devcontainer.json schema
+Dev Container metadata reference
+Features
+Features distribution
+Contributing
+Templates
+Templates distribution
+Specification
+Dev Container metadata reference
+The devcontainer.json file contains any needed metadata and settings required to configurate a development container for a given well-defined tool and runtime stack. It can be used by tools and services that support the dev container spec to create a development environment that contains one or more development containers.
+
+Metadata properties marked with a 🏷️️ can be stored in the devcontainer.metadata container image label in addition to devcontainer.json. This label can contain an array of json snippets that will be automatically merged with devcontainer.json contents (if any) when a container is created.
+
+General devcontainer.json properties
+Property	Type	Description
+name	string	A name for the dev container displayed in the UI.
+forwardPorts 🏷️	array	An array of port numbers or "host:port" values (e.g. [3000, "db:5432"]) that should always be forwarded from inside the primary container to the local machine (including on the web). The property is most useful for forwarding ports that cannot be auto-forwarded because the related process that starts before the devcontainer.json supporting service / tool connects or for forwarding a service not in the primary container in Docker Compose scenarios (e.g. "db:5432"). Defaults to [].
+portsAttributes 🏷️	object	Object that maps a port number, "host:port" value, range, or regular expression to a set of default options. See port attributes for available options. For example:
+"portsAttributes": {"3000": {"label": "Application port"}}
+otherPortsAttributes 🏷️	object	Default options for ports, port ranges, and hosts that aren’t configured using portsAttributes. See port attributes for available options. For example:
+"otherPortsAttributes": {"onAutoForward": "silent"}
+remoteEnv 🏷️	object	A set of name-value pairs that sets or overrides environment variables for the devcontainer.json supporting service / tool (or sub-processes like terminals) but not the container as a whole. Environment and pre-defined variables may be referenced in the values.
+remoteUser 🏷️	string	Overrides the user that devcontainer.json supporting services tools / runs as in the container (along with sub-processes like terminals, tasks, or debugging). Does not change the user the container as a whole runs as which can be set using containerUser. Defaults to the user the container as a whole is running as (often root).
+You may learn more in the remoteUser section below.
+containerEnv 🏷️	object	A set of name-value pairs that sets or overrides environment variables for the container. Environment and pre-defined variables may be referenced in the values. For example:
+"containerEnv": { "MY_VARIABLE": "${localEnv:MY_VARIABLE}" }
+If you want to reference an existing container variable while setting this one (like updating the PATH), use remoteEnv instead.
+containerUser 🏷️	string	Overrides the user for all operations run as inside the container. Defaults to either root or the last USER instruction in the related Dockerfile used to create the image. If you want any connected tools or related processes to use a different user than the one for the container, see remoteUser.
+updateRemoteUserUID 🏷️	boolean	On Linux, if containerUser or remoteUser is specified, the user’s UID/GID will be updated to match the local user’s UID/GID to avoid permission problems with bind mounts. Defaults to true.
+userEnvProbe 🏷️	enum	Indicates the type of shell to use to “probe” for user environment variables to include in devcontainer.json supporting services’ / tools’ processes: none, interactiveShell, loginShell, or loginInteractiveShell (default). The specific shell used is based on the default shell for the user (typically bash). For example, bash interactive shells will typically include variables set in /etc/bash.bashrc and ~/.bashrc while login shells usually include variables from /etc/profile and ~/.profile. Setting this property to loginInteractiveShell will get variables from all four files.
+overrideCommand 🏷️	boolean	Tells devcontainer.json supporting services / tools whether they should run /bin/sh -c "while sleep 1000; do :; done" when starting the container instead of the container’s default command (since the container can shut down if the default command fails). Set to false if the default command must run for the container to function properly. Defaults to true for when using an image Dockerfile and false when referencing a Docker Compose file.
+shutdownAction 🏷️	enum	Indicates whether devcontainer.json supporting tools should stop the containers when the related tool window is closed / shut down.
+Values are none, stopContainer (default for image or Dockerfile), and stopCompose (default for Docker Compose).
+init 🏷️	boolean	Defaults to false. Cross-orchestrator way to indicate whether the tini init process should be used to help deal with zombie processes.
+privileged 🏷️	boolean	Defaults to false. Cross-orchestrator way to cause the container to run in priviledged mode (--priviledged). Required for things like Docker-in-Docker, but has security implications particularly when running directly on Linux.
+capAdd 🏷️	array	Defaults to []. Cross-orchestrator way to add capabilities typically disabled for a container. Most often used to add the ptrace capability required to debug languages like C++, Go, and Rust. For example:
+"capAdd": ["SYS_PTRACE"]
+securityOpt 🏷️	array	Defaults to []. Cross-orchestrator way to set container security options. For example:
+"securityOpt": [ "seccomp=unconfined" ]
+mounts 🏷️	string or object	Defaults to unset. Cross-orchestrator way to add additional mounts to a container. Each value is a string that accepts the same values as the Docker CLI --mount flag. Environment and pre-defined variables may be referenced in the value. For example:
+"mounts": [{ "source": "dind-var-lib-docker", "target": "/var/lib/docker", "type": "volume" }]
+features	object	An object of Dev Container Feature IDs and related options to be added into your primary container. The specific options that are available varies by feature, so see its documentation for additional details. For example:
+"features": { "ghcr.io/devcontainers/features/github-cli": {} }
+overrideFeatureInstallOrder	array	By default, Features will attempt to automatically set the order they are installed based on a installsAfter property within each of them. This property allows you to override the Feature install order when needed. For example:
+"overrideFeatureInstallorder": [ "ghcr.io/devcontainers/features/common-utils", "ghcr.io/devcontainers/features/github-cli" ]
+customizations 🏷️	object	Product specific properties, defined in supporting tools
+Scenario specific properties
+The focus of devcontainer.json is to describe how to enrich a container for the purposes of development rather than acting as a multi-container orchestrator format. Instead, container orchestrator formats can be referenced when needed to manage multiple containers and their lifecycles. Today, devcontainer.json includes scenario specific properties for working without a container orchestrator (by directly referencing an image or Dockerfile) and for using Docker Compose as a simple multi-container orchestrator.
+
+Image or Dockerfile specific properties
+Property	Type	Description
+image	string	Required when using an image. The name of an image in a container registry (DockerHub, GitHub Container Registry, Azure Container Registry) that devcontainer.json supporting services / tools should use to create the dev container.
+build.dockerfile	string	Required when using a Dockerfile. The location of a Dockerfile that defines the contents of the container. The path is relative to the devcontainer.json file.
+build.context	string	Path that the Docker build should be run from relative to devcontainer.json. For example, a value of ".." would allow you to reference content in sibling directories. Defaults to ".".
+build.args	Object	A set of name-value pairs containing Docker image build arguments that should be passed when building a Dockerfile. Environment and pre-defined variables may be referenced in the values. Defaults to not set. For example: "build": { "args": { "MYARG": "MYVALUE", "MYARGFROMENVVAR": "${localEnv:VARIABLE_NAME}" } }
+build.target	string	A string that specifies a Docker image build target that should be passed when building a Dockerfile. Defaults to not set. For example: "build": { "target": "development" }
+build.cacheFrom	string,
+array	A string or array of strings that specify one or more images to use as caches when building the image. Cached image identifiers are passed to the docker build command with --cache-from.
+appPort	integer,
+string,
+array	In most cases, we recommend using the new forwardPorts property. This property accepts a port or array of ports that should be published locally when the container is running.Unlike forwardPorts, your application may need to listen on all interfaces (0.0.0.0) not just localhost for it to be available externally. Defaults to [].
+Learn more about publishing vs forwarding ports here.
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array properties.
+workspaceMount	string	Requires workspaceFolder be set as well. Overrides the default local mount point for the workspace when the container is created. Supports the same values as the Docker CLI --mount flag. Environment and pre-defined variables may be referenced in the value. For example:
+"workspaceMount": "source=${localWorkspaceFolder}/sub-folder,target=/workspace,type=bind,consistency=cached", "workspaceFolder": "/workspace"
+workspaceFolder	string	Requires workspaceMount be set. Sets the default path that devcontainer.json supporting services / tools should open when connecting to the container. Defaults to the automatic source code mount location.
+runArgs	array	An array of Docker CLI arguments that should be used when running the container. Defaults to []. For example, this allows ptrace based debuggers like C++ to work in the container:
+"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ] .
+Docker Compose specific properties
+Property	Type	Description
+dockerComposeFile	string,
+array	Required when using Docker Compose. Path or an ordered list of paths to Docker Compose files relative to the devcontainer.json file. Using an array is useful when extending your Docker Compose configuration. The order of the array matters since the contents of later files can override values set in previous ones.
+The default .env file is picked up from the root of the project, but you can use env_file in your Docker Compose file to specify an alternate location.
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array properties.
+service	string	Required when using Docker Compose. The name of the service devcontainer.json supporting services / tools should connect to once running.
+runServices	array	An array of services in your Docker Compose configuration that should be started by devcontainer.json supporting services / tools. These will also be stopped when you disconnect unless "shutdownAction" is "none". Defaults to all services.
+workspaceFolder	string	Sets the default path that devcontainer.json supporting services / tools should open when connecting to the container (which is often the path to a volume mount where the source code can be found in the container). Defaults to "/".
+Tool-specific properties
+While most properties apply to any devcontainer.json supporting tool or service, a few are specific to certain tools. You may explore this in the supporting tools and services document.
+
+Lifecycle scripts
+When creating or working with a dev container, you may need different commands to be run at different points in the container’s lifecycle. The table below lists a set of command properties you can use to update what the container’s contents in the order in which they are run (for example, onCreateCommand will run after initializeCommand). Each command property is an string or list of command arguments that should execute from the workspaceFolder.
+
+Property	Type	Description
+initializeCommand	string,
+array,
+object	A command string or list of command arguments to run on the host machine before the container is created. .
+
+⚠️ The command is run wherever the source code is located on the host. For cloud services, this is in the cloud.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+onCreateCommand 🏷️	string,
+array,
+object	This command is the first of three (along with updateContentCommand and postCreateCommand) that finalizes container setup when a dev container is created. It and subsequent commands execute inside the container immediately after it has started for the first time.
+
+Cloud services can use this command when caching or prebuilding a container. This means that it will not typically have access to user-scoped assets or secrets.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+updateContentCommand 🏷️	string,
+array,
+object	This command is the second of three that finalizes container setup when a dev container is created. It executes inside the container after onCreateCommand whenever new content is available in the source tree during the creation process.
+
+It will execute at least once, but cloud services will also periodically execute the command to refresh cached or prebuilt containers. Like cloud services using onCreateCommand, it can only take advantage of repository and org scoped secrets or permissions.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+postCreateCommand 🏷️	string,
+array,
+object	This command is the last of three that finalizes container setup when a dev container is created. It happens after updateContentCommand and once the dev container has been assigned to a user for the first time.
+
+Cloud services can use this command to take advantage of user specific secrets and permissions.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+postStartCommand 🏷️	string,
+array,
+object	A command to run each time the container is successfully started.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+postAttachCommand 🏷️	string,
+array,
+object	A command to run each time a tool has successfully attached to the container.
+
+Note that the array syntax will execute the command without a shell. You can learn more about formatting string vs array vs object properties.
+waitFor 🏷️	enum	An enum that specifies the command any tool should wait for before connecting. Defaults to updateContentCommand. This allows you to use onCreateCommand or updateContentCommand for steps that must happen before devcontainer.json supporting tools connect while still using postCreateCommand for steps that can happen behind the scenes afterwards.
+For each command property, if the value is a single string, it will be run in /bin/sh. Use && in a string to execute multiple commands. For example, "yarn install" or "apt-get update && apt-get install -y curl". The array syntax ["yarn", "install"] will invoke the command (in this case yarn) directly without using a shell. Each fires after your source code has been mounted, so you can also run shell scripts from your source tree. For example: bash scripts/install-dev-tools.sh.
+
+If one of the lifecycle scripts fails, any subsequent scripts will not be executed. For instance, if postCreateCommand fails, postStartCommand and any following scripts will be skipped.
+
+Minimum host requirements
+While devcontainer.json does not focus on hardware or VM provisioning, it can be useful to know your container’s minimum RAM, CPU, and storage requirements. This is what the hostRequirements properties allow you to do. Cloud services can use these properties to automatically default to the best compute option available, while in other cases, you will be presented with a warning if the requirements are not met.
+
+Property	Type	Description
+hostRequirements.cpus 🏷️	integer	Indicates the minimum required number of CPUs / virtual CPUs / cores. For example: "hostRequirements": {"cpus": 2}
+hostRequirements.memory 🏷️	string	A string indicating minimum memory requirements with a tb, gb, mb, or kb suffix. For example, "hostRequirements": {"memory": "4gb"}
+hostRequirements.storage 🏷️	string	A string indicating minimum storage requirements with a tb, gb, mb, or kb suffix. For example, "hostRequirements": {"storage": "32gb"}
+Port attributes
+The portsAttributes and otherPortsAttributes properties allow you to map default port options for one or more manually or automatically forwarded ports. The following is a list of options that can be set in the configuration object assigned to the property.
+
+Property	Type	Description
+label 🏷️	string	Display name for the port in the ports view. Defaults to not set.
+protocol 🏷️	enum	Controls protocol handling for forwarded ports. When not set, the port is assumed to be a raw TCP stream which, if forwarded to localhost, supports any number of protocols. However, if the port is forwarded to a web URL (e.g. from a cloud service on the web), only HTTP ports in the container are supported. Setting this property to https alters handling by ignoring any SSL/TLS certificates present when communicating on the port and using the correct certificate for the forwarded URL instead (e.g https://*.githubpreview.dev). If set to http, processing is the same as if the protocol is not set. Defaults to not set.
+onAutoForward 🏷️	enum	Controls what should happen when a port is auto-forwarded once you’ve connected to the container. notify is the default, and a notification will appear when the port is auto-forwarded. If set to openBrowser, the port will be opened in the system’s default browser. openPreview will open the URL in devcontainer.json supporting services’ / tools’ embedded preview browser. A value of silent will forward the port, but take no further action. A value of ignore means that this port should not be auto-forwarded at all.
+requireLocalPort 🏷️	boolean	Dictates when port forwarding is required to map the port in the container to the same port locally or not. If set to false, the devcontainer.json supporting services / tools will attempt to use the specified port forward to localhost, and silently map to a different one if it is unavailable. If set to true, you will be notified if it is not possible to use the same port. Defaults to false.
+elevateIfNeeded 🏷️	boolean	Forwarding low ports like 22, 80, or 443 to localhost on the same port from devcontainer.json supporting services / tools may require elevated permissions on certain operating systems. Setting this property to true will automatically try to elevate the devcontainer.json supporting tool’s permissions in this situation. Defaults to false.
+Formatting string vs. array properties
+The format of certain properties will vary depending on the involvement of a shell.
+
+postCreateCommand, postStartCommand, postAttachCommand, and initializeCommand all have 3 types:
+
+Array: Passed to the OS for execution without going through a shell
+String: Goes through a shell (it needs to be parsed into command and arguments)
+Object: All lifecycle scripts have been extended to support object types to allow for parallel execution
+runArgs only has the array type. Using runArgs via a typical command line, you’ll need single quotes if the shell runs into parameters with spaces. However, these single quotes aren’t passed on to the executable. Thus, in your devcontainer.json, you’d follow the array format and leave out the single quotes:
+
+"runArgs": ["--device-cgroup-rule=my rule here"]
+Rather than:
+
+"runArgs": ["--device-cgroup-rule='my rule here'"]
+We can compare the string, array, and object versions of postAttachCommand as well. You can use the following string format, which will remove the single quotes as part of the shell’s parsing:
+
+"postAttachCommand": "echo foo='bar'"
+By contrast, the array format will keep the single quotes and write them to standard out (you can see the output in the dev container log):
+
+"postAttachCommand": ["echo", "foo='bar'"]
+Finally, you may use an object format:
+
 {
-	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version
-		"args": { "VARIANT": "18" }
-	},
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
-	},
-
-	// Install features. Type 'feature' in the VS Code command palette for a full list.
-	"features": {
-		"sshd": "latest"
-	 },
-
-	// Visual Studio Code extensions which help authoring for docs.github.com.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"sissel.shopify-liquid",
-		"davidanson.vscode-markdownlint",
-		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker",
-		"alistairchristie.open-reusables"
-	],
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
-		
-	"portsAttributes": {
-		"4000": {
-        		"label": "Preview",
-        		"onAutoForward": "openPreview"
-      		}
-	},
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm ci",
-
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
-,
-	"hostRequirements": {
-		"memory": "8gb"
-	 }
+  "postAttachCommand": {
+    "server": "npm start",
+    "db": ["mysql", "-u", "root", "-p", "my database"]
+  }
 }
+Variables in devcontainer.json
+Variables can be referenced in certain string values in devcontainer.json in the following format: ${variableName}. The following is a list of available variables you can use.
+
+Property	Type	Description
+${localEnv:VARIABLE_NAME}	Any	Value of an environment variable on the host machine (in this case, called VARIABLE_NAME). Unset variables are left blank. For example, this would set a variable to your local home folder on Linux / macOS or the user folder on Windows:
+"remoteEnv": { "LOCAL_USER_PATH": "${localEnv:HOME}${localEnv:USERPROFILE}" }
+
+A default value for when the environment variable is not set can be given with ${localEnv:VARIABLE_NAME:default_value}.
+
+⚠️ For a cloud service, the host is in the cloud rather than your local machine.
+${containerEnv:VARIABLE_NAME}	remoteEnv	Value of an existing environment variable inside the container once it is up and running (in this case, called VARIABLE_NAME). For example:
+"remoteEnv": { "PATH": "${containerEnv:PATH}:/some/other/path" }
+
+A default value for when the environment variable is not set can be given with ${containerEnv:VARIABLE_NAME:default_value}.
+${localWorkspaceFolder}	Any	Path of the local folder that was opened in the devcontainer.json supporting service / tool (that contains .devcontainer/devcontainer.json).
+${containerWorkspaceFolder}	Any	The path that the workspaces files can be found in the container.
+${localWorkspaceFolderBasename}	Any	Name of the local folder that was opened in the devcontainer.json supporting service / tool (that contains .devcontainer/devcontainer.json).
+${containerWorkspaceFolderBasename}	Any	Name of the folder where the workspace files can be found in the container.
+${devcontainerId}	Any	Identifier derived from a set of container labels that uniquely idenity the dev container on a Docker host. It allows Features to refer to an identifier that is unique to the dev container they are installed into and that is stable across rebuilds.
+The properties supporting it in devcontainer.json are: name, runArgs, initializeCommand, onCreateCommand, updateContentCommand, postCreateCommand, postStartCommand, postAttachCommand, workspaceFolder, workspaceMount, mounts, containerEnv, remoteEnv, containerUser, remoteUser, and customizations.
+Schema
+You can see the VS Code implementation of the dev container schema here.
+
+Publishing vs forwarding ports
+Docker has the concept of “publishing” ports when the container is created. Published ports behave very much like ports you make available to your local network. If your application only accepts calls from localhost, it will reject connections from published ports just as your local machine would for network calls. Forwarded ports, on the other hand, actually look like localhost to the application.
+
+remoteUser
+A dev container configuration will inherit the remoteUser property from the base image it uses.
+
+Using the images and Templates part of the spec as an example: remoteUser in these images is set to a custom value - you may view an example in the C++ image. The C++ Template will then inherit the custom remoteUser value from its base C++ image.
+
+ 
+Microsoft
+© 2022 MicrosoftSkip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@mowjoejoejoejoe 
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+mowjoejoejoejoe
+/
+WORKSFLOW
+Public
+Fork your own copy of mowjoejoejoejoe/WORKSFLOW
+Code
+Issues
+6
+Pull requests
+10
+Discussions
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+.github/workflows/Automates.yml
+Update bitore.sig : E=Request :Pull Request.md : Title'' ':'Nan.yml'' : #6
+Jobs
+Run details
+Workflow file for this run
+.github/workflows/Automates.yml at 1009147
+BEGIN
+GLOW4
+GLOW7
+#!/Usr/bin/Bash/ env :
+GLOW4
+Request :Pull
+Pulls :pull_requests :#!/https://github.com/mowjoejoejoejoe/docs/compare/main...0-wiz-0:docs:TingluoHuang@Patch 2
+BEGIN'
+GLOW4'
+checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
+ Check failure on line 10 in .github/workflows/Automates.yml
+
+GitHub Actions
+/ .github/workflows/Automates.yml
+Invalid workflow file
+You have an error in your yaml syntax on line 10
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+https://github.com/mowjoejoejoejoe/WORKSFLOW.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+git pull origin main
+Step 2: Switch to the head branch of the pull request.
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+git merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+https://github.com/mowjoejoejoejoe/docs/compare/main...0-wiz-0:docs:TingluoHuang-patch-1
+"dockerfile"::':Build::Publish ::
+Issues.tmp :parameters.md :
+\@@ -0,0 +1,2 @@
+# WORKSFLOW
+ AUTOMATE AUTOMATES BEGIN GLOW4 AUTOMATES#Test :tests :tests :Run'@ci: 
+Actions
+Projects
+4
+Security
+Insights
+Add automated spell check #17674
+jdkato started this conversation in Ideas
+Add automated spell check
+#17674
+@jdkato
+jdkato
+on May 6, 2022 · 3 comments
+Return to top
+Discussion options
+
+jdkato
+on May 6, 2022
+Hi,
+
+I'm the maintainer of Vale, a linter for prose that allows users to implement custom quality-assurance checks (spell check, repeated words, capitalization, etc.) for their documentation.
+
+One of the challenges of implementing Vale (especially with Markdown content) is getting it to correctly handle what I call "non-standard" markup: templating, shortcodes, snippets, and so on. To make this easier, I'm in the process of creating reusable configurations (or, "packages") for common static site generators and template engines, and I chose this repo as a test case for the Liquid package.
+
+Findings
+The following are a few of the errors I found while testing the package. I aired on the side of caution while going through the results; I ignored cases like "collectd" / "Collectd" (casing inconsistencies) and "filesize" / "file size" (spacing inconsistencies), among others.
+
+You can find the full list of cases that I ignored below.
+
+accept.txt (ignored cases)
+(?i)addassigneestoassignable
+(?i)addlabelstolabelable
+(?i)api
+(?i)bluetooth
+(?i)codeql
+(?i)cpp
+(?i)cpu
+(?i)crt
+(?i)css
+(?i)dev
+(?i)docx
+(?i)env
+(?i)facebook
+(?i)gc
+(?i)gifs?
+(?i)github
+(?i)gpg
+(?i)graphql
+(?i)gz
+(?i)html
+(?i)https?
+(?i)jpg
+(?i)js
+(?i)json
+(?i)mov
+(?i)nasa
+(?i)npm
+(?i)nvm
+(?i)pdf
+(?i)php
+(?i)png
+(?i)pptx
+(?i)rdoc
+(?i)rsa
+(?i)rss
+(?i)scim
+(?i)sha
+(?i)svg
+(?i)svn
+(?i)tmp
+(?i)todo
+(?i)toml
+(?i)tsv
+(?i)tv
+(?i)txt
+(?i)ubuntu
+(?i)uri
+(?i)vmg
+(?i)vue(:js)?
+(?i)wifi
+(?i)xlsx
+(?i)xml
+(?i)yaml
+(?i)yml
+[aA]llowlist(?:ing)?
+[aA]utogenerated
+[aA]utolink(?:s|ed)?
+[cC]odespaces?
+[cC]ollectd
+[eE]lasticsearch
+[eE]xfiltrating
+[gG]radle
+[hH]ubcat
+[iI]denticon
+[jJ]inja
+[kK]ustomize
+[lL]inux
+[lL]ucene
+[mM]icrosoft
+[mM]ultiline
+[oO]cto(?:kit|cat)?
+[pP]ageviews
+[pP]arallelization
+[pP]re
+[pP]roxying
+[pP]seudonymized
+[rR]ebased?
+[rR]ebasing
+[rR]erequest
+[rR]evokable
+[rR]ostered
+[sS]everability
+[sS]trikethrough
+[sS]ubprocessing
+[sS]ubprocessor
+[sS]udo
+[tT]akedown
+[tT]ransclusion
+[tT]riaging
+[uU]ncomment
+[uU]nfollow
+[uU]nhid(?:e|ing)
+[uU]npublishing
+[uU]nresolving
+[uU]nretire
+[uU]nreviewed
+[uU]nstar
+[uU]nsuspend
+[uU]ntrusted
+[uU]nverify
+[uU]nversioned
+[uU]nwatch
+abcd
+adminable
+Adoptium
+Affero
+Aland
+alia
+anonymized
+approvers?
+archivability
+Arq
+asc
+Atlassian
+attrs
+auditlog
+Authy
+autobuild
+Autoconf
+autodetect
+Autofetch
+autofills?
+autograding
+automations
+Automattic
+autoscalers?
+autoscaling
+backfilled
+Bazel
+becca
+benbalter
+benefitting
+benjaminp
+bert
+blockchain
+bolding
+bolton
+boolean
+bootcamps?
+boto
+botocore
+Braintree
+brettcannon
+brower
+Bundler
+Caicos
+callout
+Camo
+captcha
+Carbonite
+Carlini
+carrotsearch
+certifi
+chardet
+chroots?
+Citrix
+Clearbit
+Cliquez
+Cobertura
+codeblock
+codec
+Codium
+combatting
+committish
+composable
+configs?
+cppy
+cpython
+cron
+crontab
+cryptocurrency
+cryptomining
+csproj
+cybercrime
+datacenters?
+datastores?
+datetime
+dateutil
+deallocate
+deauthorized
+deauthorizes
+decompile
+dedent
+defunkt
+deidentify
+deliverables?
+demianbrecht
+demilestoned
+Dependabot
+deprovision
+deprovisioned
+dereferenced?
+discoverability
+dmnfarrell
+Dockerfile
+dotenv
+dotfiles?
+dotnet
+downscope
+downvoting
+Eloqua
+enablement
+enthought
+enums?
+exfiltrated?
+failover
+fairyfloss
+fakeaction
+fastai
+fayland
+filepaths?
+filesize
+Fixup
+fnmatch
+forkable
+formatters
+fpco
+fprime
+friedman
+frontmatter
+fullname
+futbol
+Gazit
+gcloud
+Gebru
+Gemfiles?
+gemrc
+geo
+gh
+gidgethub
+gists?
+gitattributes?
+gitk
+gjtorikian
+gollum
+Grafana
+Gravatar
+hardcode
+hardcoded
+hardcoding
+Hashicorp
+Hashimoto
+hh
+Homebrew
+hostname
+hotpackage
+hotpatch
+hotpatching
+hovercards?
+hppc
+Hubot
+Hyperscan
+iana
+ianare
+iceland
+ici
+idna
+ies
+infringers?
+innersource
+innersourcing
+interdependencies
+isor
+iss
+itsdangerous
+jaeteekae
+Janky
+JavaScript
+jemoji
+Jira
+jkeylu
+jlord
+jmespath
+Joomla
+journalctl
+jpaugh
+jq
+jts
+kanban
+kansas
+Kbuild
+kenya
+keycutter
+keyfiles?
+keypair
+kjd
+kohsuke
+kramdown
+Kumiko
+Laravel
+launchd
+learnings
+legislations
+Liberapay
+libsaas
+Libsodium
+licensors?
+licensure
+locationtech
+lockfiles?
+lodash
+Logstash
+london
+lowercased
+Luhansk
+lxml
+Macports
+Mada
+madler
+Mailgun
+Majeure
+Maki
+manpage
+markupsafe
+matplotlib
+matrixes
+mdo
+Memcache
+menubar
+mergeability
+mergeable
+metacpan
+michael
+middleware
+milestoned
+Miniconda
+minio
+Mmmmm
+monospaced?
+Moodle
+mozilla
+multithread
+multithreaded
+myorg
+Nagios
+nameservers?
+namespace
+nano
+nanoc
+nat
+nbviewer
+Nexmo
+Nginx
+ngrok
+noreply
+nuget
+numpy
+nuspec
+oauth
+obtenir
+Okta
+onboarded
+onboarding
+onwards
+opencv
+openssh
+Otechie
+overconsumption
+passwordless
+Patreon
+perl
+pexpect
+philschatz
+pipenv
+Pithub
+pksunkara
+plaintext
+plu
+pluggy
+Pluralsight
+postsecondary
+PowerPoint
+PowerShell
+Probot
+programatically
+protectable
+pseudonymisation
+ptyprocess
+publickey
+py
+Pygments
+pypa
+pyparsing
+pyserial
+pytest
+pytz
+pyyaml
+qlpacks?
+qmake
+Quickstarts
+rauhryan
+Ravi
+Raynes
+rb
+readme
+realtime
+reauthenticate
+reblame
+recategorized
+redactions?
+redcarpet
+redirections
+Redis
+reimplement
+reinstatements?
+remediations
+renderable
+Replit
+repls
+repo
+reselecting
+Resque
+resync
+retargeted
+retrievability
+retrigger
+reusability
+roadmaps?
+rollout
+rsync
+Rubocop
+Rubygems
+runtimes?
+russia
+sanitization
+scipy
+sdepold
+semver
+Sendgrid
+serverless
+setoff
+severities
+shipit
+shortcode
+shumway
+signup
+signups
+simplestyle
+Smee
+softprops
+spammy
+sponsorable
+src
+Statsd
+stringifying
+styleguide
+subcommand
+subfields?
+subfolders?
+sublicensable
+sublicense
+subnetworks?
+subprocesors?
+subprocessor
+subprojects?
+substring
+subtrees?
+syntaxes
+syslog
+tada
+Tailscale
+tdunning
+teardown
+Termux
+textarea
+textbox
+themself
+tibdex
+Tidelift
+Tiferet
+timeframe
+timestamping
+tkintertable
+toolchains?
+tooltips?
+torvalds
+traceroute
+transformative
+treemap
+triaged
+twbs
+Twilio
+typeaheads
+Typora
+tz
+uiri
+unactionable
+unarchived
+unarchives?
+unarchiving
+unassign
+uncurated
+unencoded
+unencrypted
+unescaped
+unicode
+Unlicense
+unlink
+unmark
+unmarking
+unmerged
+unminimized
+unpatched
+unpause
+unpublish
+unpublished
+unpushed
+unredacted
+unresolve
+unsave
+unscoped
+unselect
+unstash
+unstashing
+untrack
+untracked
+updatepullrequest
+updatepullrequest
+updatePullRequest
+upscaled
+upvoted
+urls?
+usr
+validator
+vendored
+vendoring
+Vijzelstraat
+vimrc
+von
+vscode
+Waf
+waitlist
+walkthrough
+wanstrath
+webcrawlers?
+webos
+webpages?
+werkzeug
+wget
+whistleblower
+whiteinge
+whitepaper
+Wiet
+wireframe
+wonkiness
+www
+Xcode
+Zendesk
+Zenodo
+zlib
+Zsh
+Zuora
+Error	Correction	Location
+from from	from	53:246
+secert	secret	78:230
+the the	the	45:256
+be be	be	28:212
+worflows	workflows	206:86
+Luhasnk	Luhansk	51:45
+transfering	transferring	535:154
+Nothwithstanding	Notwithstanding	287:70
+apprioriate	appropriate	121:283
+currenly	currently	23:259
+vulnerabilites	vulnerabilities	43:36
+organizaton	organization	213:136
+offical	official	29:39
+Commiters	Committers	100:143
+Configuration
+If you'd like to add Vale to this repo, here's the configuration I used:
+
+StylesPath = .github/styles
+MinAlertLevel = suggestion
+
+# The accept.txt file is given above
+Vocab = Base
+
+SkippedScopes = script, style, pre, figure, alt, strong
+
+[*.md]
+BasedOnStyles = Vale
+
+TokenIgnores = ({%.+?%}), ({{.+?}})
+
+BlockIgnores = (?s) *({% raw %}\n.*?\n{% endraw %})
+This generally worked pretty good. There were still a few edge cases that I needed to disabled Vale on (using <!-- vale off --> comments), such as the tables in migrating-from-circleci-to-github-actions.md.
+
+I understand if this isn't something you're interested in, but I figured I'd share my work just in case.
+
+You can't vote on a locked discussion
+sarahs reacted with heart emoji
+Replies:3 comments
+Comment options
+
+ramyaparimi
+on May 9, 2022
+@jdkato Thanks so much for sharing your thoughts in here. We have been trying to implement Vale on this repo since quite some time. We faced a few blockers owing to the challenges while handling non standard markup situations. We raised raised this and this issue in the past with the challenges we had.
+
+With your suggestion, I am currently using TokenIgnores to ignore liquids during linting. The use of regex in BlockedIgnores is something I haven't tried so I am going to check out your configuration.
+
+Thanks so much for choosing the GitHub docs repo as a test for your use case. I will get back to you once I test this and discuss with the team 💖 .
+
+You can't vote on a locked discussion
+shukla2004 reacted with thumbs up emoji
+0 replies
+Comment options
+
+sarahs
+on May 24, 2022
+Maintainer
+Thanks @jdkato, this is so great! You're right that Liquid in our Markdown has posed some challenges for us in setting up Vale.
+
+I tried out your config and the results are really promising. The main scenario I wasn't able to get it working on is nested Liquid. So for example, in this block:
+
+1. Under "Management", type the username of the person you want to designate as a {% data variables.product.prodname_github_app %} manager in the organization, and click **Grant**. 
+
+    ![Add a {% data variables.product.prodname_github_app %} manager](/assets/images/help/organizations/add-github-app-manager.png)
+☝️ Vale correctly ignores the first data tag but incorrectly flags the term prodname in the second tag. I am assuming this is because the second tag is nested in image markup, although I am not 100% sure that's the reason.
+
+One workaround we've had success with is simply stripping out the Liquid tags via a regex (a la perl -p -e 's/{%.*?%}//g' content/*) before running Vale. We realize this hack only works because our Liquid tags never span more than one line; if our replacement changed line breaks, the Vale action's PR commenting would be inaccurate. But the simplicity of this approach has an appeal.
+
+Curious what you think about the nested tag scenario and the best approach for that.
+
+You can't vote on a locked discussion
+0 replies
+Comment options
+
+jdkato
+on May 26, 2022
+Author
+The configuration I shared above should handle this case by adding alt to SkippedScopes. It's not ideal because you miss out on linting alt tags but, at the same time, the prevalence of templating in them means the content isn't all that meaningful from a linting perspective anyway.
+
+You can't vote on a locked discussion
+sarahs reacted with thumbs up emoji
+0 replies
+An owner of this repository has limited the ability to comment from new users.
+Category
+💡
+Ideas
+Labels
+None yet
+3 participants
+@jdkato
+@sarahs
+@ramyaparimi
+Notifications
+You’re not receiving notifications from this thread.
+ Create issue from discussion
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Add automated spell check · Discussion #17674 · github/docsBEGIN
+!#/Usr/bin/BAsh ENV
+GLOW4
+ci:C:\I :
+:Build::
+DEPLOYEE :
+LAUNCH :
+RELEASE :
+Script::/# WORKFLOWS.md
+Request :Pull :AUTOMATE AUTOMATES BEGIN GLOW4 AUTOMATES#Test :tests :tests :Run'@ci:
+::Pulls :Request.md'@bitore.sig/BOTURE : 
+PUBLISH::
+:Build::
+Add :Automates.yml/spell-check.yml :
+Update bitore.sig : E=Request :Pull Request.md : Title'' ':'Nan.yml'' : · mowjoejoejoejoe/WORKSFLOW@1009147
+Blog
+About
+Add automated spell check · Discussion #17674 · github/docsBEGIN
+!#/Usr/bin/BAsh ENV
+GLOW4
+ci:C:\I :
+:Build::
+DEPLOYEE :
+LAUNCH :
+RELEASE :
+Script::/# WORKFLOWS.md
+Request :Pull :AUTOMATE AUTOMATES BEGIN GLOW4 AUTOMATES#Test :tests :tests :Run'@ci:
+::Pulls :Request.md'@bitore.sig/BOTURE : 
+PUBLISH::
+:Build::
+Add :Automates.yml/spell-check.yml :https://github.com/mowjoejoejoejoe/docs.git -\.//https://github.com/mowjoejoejoejoe/docs.git// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+/Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+:Build::
+publish.yaml
