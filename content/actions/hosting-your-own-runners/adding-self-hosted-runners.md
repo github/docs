@@ -68,7 +68,6 @@ You can add self-hosted runners at the organization level, where they can be use
 {% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
-{% data reusables.actions.self-hosted-runner-configure %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
