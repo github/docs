@@ -11,7 +11,6 @@ topics:
   - API
   - JavaScript
 type: tutorial
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About Octokit.js

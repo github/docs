@@ -4,7 +4,6 @@ intro: 'You can create dedicated runners for {% data variables.location.product_
 redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates
 allowTitleToDifferFromFilename: true
-miniTocMaxHeadingLevel: 3
 versions:
   ghes: '> 3.2'
 topics:

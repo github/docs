@@ -12,7 +12,6 @@ topics:
   - Organizations
   - Teams
 shortTitle: Disable or limit actions
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}

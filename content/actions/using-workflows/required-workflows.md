@@ -2,7 +2,6 @@
 title: Required workflows
 shortTitle: Required workflows
 intro: You can specify which workflows will run as required status checks in all repositories or selected repositories in your organization.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: required-workflows
 type: how_to

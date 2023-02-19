@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '> 3.7'
-miniTocMaxHeadingLevel: 3
 topics:
   - Community
 ---

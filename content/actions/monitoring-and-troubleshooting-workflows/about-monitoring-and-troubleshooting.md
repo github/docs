@@ -7,7 +7,6 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}

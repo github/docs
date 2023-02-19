@@ -8,7 +8,6 @@ versions:
 type: reference
 topics:
   - Codespaces
-miniTocMaxHeadingLevel: 3
 ---
 
 For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces)."

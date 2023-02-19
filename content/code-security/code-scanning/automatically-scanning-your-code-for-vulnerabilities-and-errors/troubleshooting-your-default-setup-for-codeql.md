@@ -3,7 +3,6 @@ title: Troubleshooting your default setup for CodeQL
 shortTitle: Troubleshoot default setup
 intro: 'If you''re having problems with the default {% data variables.product.prodname_code_scanning %} setup, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: code-scanning-without-workflow
 type: how_to

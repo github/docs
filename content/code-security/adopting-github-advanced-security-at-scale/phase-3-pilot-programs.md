@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 3. Pilot programs
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

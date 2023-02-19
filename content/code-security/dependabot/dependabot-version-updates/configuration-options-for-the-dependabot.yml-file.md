@@ -7,7 +7,6 @@ redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'

@@ -13,7 +13,6 @@ versions:
   ghae: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 children:
   - /orgs
   - /source-imports

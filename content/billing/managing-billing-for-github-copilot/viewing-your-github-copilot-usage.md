@@ -2,7 +2,6 @@
 title: Viewing your GitHub Copilot usage
 intro: 'You can view how many users have access to {% data variables.product.prodname_copilot %} across {% ifversion fpt %}your organization{% else %} all the organizations in your enterprise{% endif %}.'
 product: '{% data reusables.gated-features.copilot-billing %}'
-miniTocMaxHeadingLevel: 3
 permissions: '{% ifversion fpt %}Organization admins{% else %}Enterprise owners{% endif %} can view usage for {% data variables.product.prodname_copilot %} in their {% ifversion fpt %}organization{% else %}enterprise{% endif %}.'
 versions:
   feature: copilot

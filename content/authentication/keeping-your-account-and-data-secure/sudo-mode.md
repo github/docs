@@ -9,7 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 topics:
   - Identity
   - Access management

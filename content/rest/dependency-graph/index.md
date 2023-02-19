@@ -8,7 +8,6 @@ versions:
   ghae: '>= 3.6'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 children:
   - /dependency-review
   - /dependency-submission

@@ -13,7 +13,6 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-storage-about %}

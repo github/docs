@@ -3,7 +3,6 @@ title: Configuring code scanning for your appliance
 shortTitle: Configuring code scanning
 intro: 'You can enable, configure and disable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_capc %} allows users to scan code for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-code-scanning-for-your-appliance

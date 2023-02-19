@@ -1,7 +1,6 @@
 ---
 title: Creating a pre-receive hook script
 intro: Use pre-receive hook scripts to create requirements for accepting or rejecting a push based on the contents.
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script

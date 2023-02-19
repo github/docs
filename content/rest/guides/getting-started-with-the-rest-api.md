@@ -9,7 +9,6 @@ versions:
 topics:
   - API
 shortTitle: Using the API
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About the {% data variables.product.prodname_dotcom %} REST API
@@ -717,7 +716,7 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/).
 
 {% endcli %}
 

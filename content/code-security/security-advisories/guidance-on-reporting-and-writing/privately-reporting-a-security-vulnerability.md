@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Security advisories
   - Vulnerabilities

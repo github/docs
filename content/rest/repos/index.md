@@ -12,7 +12,6 @@ versions:
   ghec: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 children:
   - /repos
   - /autolinks

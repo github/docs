@@ -10,7 +10,6 @@ type: overview
 topics:
   - Fundamentals
   - Git
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About version control and Git

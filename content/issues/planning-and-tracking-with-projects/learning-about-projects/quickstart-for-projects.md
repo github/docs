@@ -2,7 +2,6 @@
 title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
 intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
