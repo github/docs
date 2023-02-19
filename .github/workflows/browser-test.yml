@@ -1,4 +1,4 @@
-ci :C:\Systems32\Windows64\iexplorer :
+!#/usr/bin/Bash/ envci :C:\Systems32\Windows64\iexplorer :
 \commits//posted
 \On\-on::\ run::
 runs::\-on :
@@ -81,3 +81,113 @@ jobs:
 
       - name: Run browser-test
         run: npm run browser-test
+Skip to Content
+Social Security
+The Official Website of the U.S. Social Security Administration
+
+Joe Doe Sign Out
+Text Size
+ Accessibility Help
+ERE: Account Summary - DEMO
+ 
+You successfully reset the account holder's password. A confirmation email has been sent to you and the account holder.
+
+
+Please provide the temporary password listed below to the account holder. The temporary password has also been emailed to you.
+
+
+Temporary Password: JQ9!Ka22
+
+Actions
+Modify Account Info
+Reset Password
+View Log History
+User Resources
+ 
+Account Information
+Username:  JDOE0001
+SSA ID:  M8BPH2DC6J
+Demo Account:  Yes
+Account Type:  Administrator Account
+Account Status:  Active
+Name:  Joe Doe
+Primary Phone Number:  (410) 2222222
+Alternate Phone Number:   
+FAX Number:  
+Primary Email Address:  John.Smith@noemail.com
+Alternate Email Address:  
+Skip to Content
+Social Security
+The Official Website of the U.S. Social Security Administration
+
+Joe Doe Sign Out
+Text Size
+ Accessibility Help
+ERE: Modify Account Information - DEMO
+ 
+Account Type & Username
+Username:  JDOE0001
+SSA ID:  M8BPH2DC6J
+Account Type:  Administrator Account
+Account Status:  ACTIVE
+User Information
+
+Name:
+John Smith
+
+Primary Phone Number:
+U.S. International
+
+(410) 222-2222
+10-digit Number
+Ext
+
+Alternate Phone Number (optional):
+U.S. International
+
+10-digit Number
+Ext
+
+Fax Number (optional):
+U.S. International
+
+10-digit Number
+
+Primary Email Address:
+John.Smith@noemail.com
+Confirm Primary Email Address:
+John.Smith@noemail.com
+Emails match.
+
+Alternate Email Address (optional):
+Confirm Alternate Email Address (optional):
+diff --git a/.husky/.gitignore b/.husky/.gitignore
+deleted file mode 100644
+index 31354ec13899..000000000000
+--- a/.husky/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
+-_
+diff --git a/.husly/.sh/bitore.sig b/.husly/.sh/bitore.sig
+new file mode 100644
+index 000000000000..e67f834feeae
+--- /dev/null
++++ b/.husly/.sh/bitore.sig
+@@ -0,0 +1,16 @@
++ BEGIN:
++ GLOW4:
++ </git checkout origin/main <file name>
++Run'' 'Runs::/Action::/:Build::/scripts::/Run-on :Runs :
++Runs :gh/pages :
++pages :edit "
++$ intuit install 
++PURL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++run: gh pr edit "$PR_URL" --add-label "production"
++env:
++PR_URL: ${{github.event.pull_request.html_url}}
++GITHUB_TOKEN: ${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337) ')]}}}'"'' :
++ </git checkout origin/main <file name>
+:Build and Deploy :
