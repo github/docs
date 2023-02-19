@@ -74,23 +74,19 @@ You can use the `error` command in your workflow to create the same error annota
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Create annotation for build error
         run: echo "::error file=app.js,line=1::Missing semicolon"
 ```
-{% endraw %}
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Create annotation for build error
         run: Write-Output "::error file=app.js,line=1::Missing semicolon"
 ```
-{% endraw %}
 
 {% endpowershell %}
 {%- else %}
@@ -106,29 +102,29 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
+{% raw %}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
         id: random-color-generator
       - name: Get color
+{% raw %}
         run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 
@@ -436,8 +432,6 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% bash %}
 
-{% raw %}
-
 ```yaml{:copy}
 jobs:
   workflow-command-job:
@@ -452,13 +446,10 @@ jobs:
           echo "::$stopMarker::"
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
-{% endraw %}
-
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
 jobs:
   workflow-command-job:
@@ -473,8 +464,6 @@ jobs:
           Write-Output "::$stopMarker::"
           Write-Output '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
-
-{% endraw %}
 
 {% endpowershell %}
 
@@ -647,7 +636,6 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
 steps:
   - name: Set the value
@@ -657,15 +645,15 @@ steps:
   - name: Use the value
     id: step_two
     run: |
+{% raw %}
       echo "${{ env.action_state }}" # This will output 'yellow'
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
 steps:
   - name: Set the value
@@ -675,9 +663,10 @@ steps:
   - name: Use the value
     id: step_two
     run: |
+{% raw %}
       Write-Output "${{ env.action_state }}" # This will output 'yellow'
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 
@@ -756,21 +745,20 @@ echo "{name}={value}" >> $GITHUB_OUTPUT
 
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
-{% raw %}
 ```yaml{:copy}
       - name: Set color
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
       - name: Get color
+{% raw %}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
 ```yaml{:copy}
@@ -779,9 +767,10 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: |
             "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
+{% raw %}
         run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 {% endif %}
