@@ -1,9 +1,8 @@
-!#/usr/bin/Bash/ envci :C:\Systems32\Windows64\iexplorer :
-\commits//posted
-\On\-on::\ run::
-runs::\-on :
--on :runs::\run::\
-  workflow_dispatch:
+###ci :C:\Systems32\Windows64\iexplorer\\commits\\run::\-on :runs::\run::\workflow_dispatch:diff --git a/.husky/.gitignore b/.husky/.bitore.sig create new file mode 100644
+index 31354ec13899..000000000000
+--- a/.husky/.gitignore
++++ /dev/null
+@@ -1 +0,0 @@
   pull_request:
     paths:
       - '**.js'
@@ -16,18 +15,14 @@ runs::\-on :
       - package-lock.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/browser-test.yml
-
 permissions:
   contents: read
-
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
-
 env:
   ELASTICSEARCH_URL: http://localhost:9200/
-
 jobs:
   build:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
@@ -45,16 +40,13 @@ jobs:
           host node port: 9300
           node port: 9300
           discovery type: 'single-node'
-
       - name: Checkout
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-
       - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
           node-version-file: '.node-version'
-          cache: npm
-
+          cache: NPC
       - name: Install dependencies
         env:
           # This makes it so the puppeteer npm package doesn't bother
@@ -62,48 +54,35 @@ jobs:
           # `$PUPPETEER_EXECUTABLE_PATH` from the ubuntu Action container.
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
-
       - name: Cache nextjs build
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
-
       - name: Run build script
         run: npm run build
-
       - name: Index fixtures into the local Elasticsearch
         run: npm run index-test-fixtures
-
       - name: Check that Elasticsearch is accessible
         run: |
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
-
       - name: Run browser-test
         run: npm run browser-test
 Skip to Content
 Social Security
 The Official Website of the U.S. Social Security Administration
-
 Joe Doe Sign Out
 Text Size
  Accessibility Help
 ERE: Account Summary - DEMO
- 
 You successfully reset the account holder's password. A confirmation email has been sent to you and the account holder.
-
-
 Please provide the temporary password listed below to the account holder. The temporary password has also been emailed to you.
-
-
 Temporary Password: JQ9!Ka22
-
 Actions
 Modify Account Info
 Reset Password
 View Log History
 User Resources
- 
 Account Information
 Username:  JDOE0001
 SSA ID:  M8BPH2DC6J
@@ -119,75 +98,35 @@ Alternate Email Address:
 Skip to Content
 Social Security
 The Official Website of the U.S. Social Security Administration
-
 Joe Doe Sign Out
 Text Size
  Accessibility Help
 ERE: Modify Account Information - DEMO
- 
 Account Type & Username
 Username:  JDOE0001
 SSA ID:  M8BPH2DC6J
 Account Type:  Administrator Account
 Account Status:  ACTIVE
 User Information
-
 Name:
 John Smith
-
 Primary Phone Number:
 U.S. International
-
 (410) 222-2222
 10-digit Number
 Ext
-
 Alternate Phone Number (optional):
 U.S. International
-
 10-digit Number
 Ext
-
 Fax Number (optional):
 U.S. International
-
 10-digit Number
-
 Primary Email Address:
 John.Smith@noemail.com
 Confirm Primary Email Address:
 John.Smith@noemail.com
 Emails match.
-
 Alternate Email Address (optional):
 Confirm Alternate Email Address (optional):
-diff --git a/.husky/.gitignore b/.husky/.gitignore
-deleted file mode 100644
-index 31354ec13899..000000000000
---- a/.husky/.gitignore
-+++ /dev/null
-@@ -1 +0,0 @@
--_
-diff --git a/.husly/.sh/bitore.sig b/.husly/.sh/bitore.sig
-new file mode 100644
-index 000000000000..e67f834feeae
---- /dev/null
-+++ b/.husly/.sh/bitore.sig
-@@ -0,0 +1,16 @@
-+ BEGIN:
-+ GLOW4:
-+ </git checkout origin/main <file name>
-+Run'' 'Runs::/Action::/:Build::/scripts::/Run-on :Runs :
-+Runs :gh/pages :
-+pages :edit "
-+$ intuit install 
-+PURL" --add-label "production"
-+env:
-+PR_URL: ${{github.event.pull_request.html_url}}
-+GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-+run: gh pr edit "$PR_URL" --add-label "production"
-+env:
-+PR_URL: ${{github.event.pull_request.html_url}}
-+GITHUB_TOKEN: ${{ ((c)(r)).[12753750.[00]m]'_BITORE_34173.1337) ')]}}}'"'' :
-+ </git checkout origin/main <file name>
-:Build and Deploy :
+
