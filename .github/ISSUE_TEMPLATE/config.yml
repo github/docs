@@ -1,8 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
-// -
-{
-	"name": "docs.github.com",
+BEGINusr/bin/env BASH
+GLOW4
+LTE	"name": "docs.github.com",
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick a Node version
@@ -28,10 +26,57 @@
 		"bierner.markdown-preview-github-styles",
 		"streetsidesoftware.code-spell-checker",
 		"alistairchristie.open-reusables"
-	],
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
+	],Name :Build and Deploy :
+title :'Run'' 
+'-'' #'Test'@'.'Travis::
+:ci :
+BEGIN'
+GLOW4'
+checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+https://github.com/mowjoejoejoejoe/WORKSFLOW.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+git pull origin main
+Step 2: Switch to the head branch of the pull request.
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+git merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+//formatting..., :
+#'Use :'forwardPorts' to make a list of ports inside the container available locally.
++# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
++#     && apt-get -y install --no-install-recommends <your-package-list-here>
++# [Optional] comment if you want to install an additional version of node using nvm
++# ARG EXTRA_NODE_VERSION=10
++# Runs::/node/OPEN/JSOM/pkg.js :
++-C:\\ci:C:\I :
++resources.md'@Request.md :
++/usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
++# [Optional] Uncomment if you want to install more global node modules
++# RUN su node -c "npm install -g <your-package-list-here>""
++# [Choice] Node.js version
++ARG VARIANT="18-buster"
++FROM My.CodeSQLcharter.yml/SqLite'.gists''@github.com/vscode/devcontainers/javascript-node:0-${VARIANT}
++# [Optional] Uncomment this section to install additional OS packages.
++# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
++#     && apt-get -y install --no-install-recommends <your-package-list-here
++# [Optional] Uncomment if you want to install an additional version of node using nvm
++# ARG EXTRA_NODE_VERSION=10
++# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
++# [Optional] Uncomment if you want to install more global node modules
++# RUN su node -c "npm install -g <your-package-list-here>"
++# Install the GitHub CLI see:
++# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
++COPY library-scripts/github-debian.sh /tmp/library-scripts/
++RUN apt-get update && bash /tmp/library-scripts/github-debian.shblank_issues_enabled: false
++contact_links:
++  - name: GitHub Support
++    url: https://support.github.com/contact
++    about: Contact Support if you're having trouble with your GitHub account.
+"forwardPorts": [4000],
 		
 	"portsAttributes": {
 		"4000": {
