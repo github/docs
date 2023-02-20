@@ -21,6 +21,7 @@ export const ProductLanding = () => {
   const router = useRouter()
   const { isEnterpriseServer } = useVersion()
   const {
+    title,
     shortTitle,
     featuredLinks,
     productUserExamples,
@@ -34,7 +35,7 @@ export const ProductLanding = () => {
       <div data-search="article-body">
         {router.query.productId === 'rest' && <RestRedirect />}
         <LandingSection className="pt-3">
-          <div className={cx('my-3 mr-auto width-full')}>
+          <div className={cx('d-none d-xl-block my-3 mr-auto width-full')}>
             <Breadcrumbs />
           </div>
           <LandingHero />
@@ -80,7 +81,11 @@ export const ProductLanding = () => {
           </div>
         )}
 
-        <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
+        <LandingSection
+          title={`All ${shortTitle || title} docs`}
+          sectionLink="all-docs"
+          className="pt-9"
+        >
           <ProductArticlesList />
         </LandingSection>
       </div>

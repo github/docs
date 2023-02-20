@@ -25,7 +25,7 @@ When you enable {% data variables.product.prodname_actions %}, {% data variables
 
 Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. {% data reusables.actions.github-token-expiration %}
 
-The token is also available in the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+The token is also available in the `github.token` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)."
 
 ## Using the `GITHUB_TOKEN` in a workflow
 
@@ -73,11 +73,11 @@ jobs:
 
 ## Permissions for the `GITHUB_TOKEN`
 
-For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/rest/reference/permissions-required-for-github-apps)."
+For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
 
-The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories<sup>[†]</sup> |
+| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories [1] |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
@@ -93,7 +93,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
 
-[†] Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+[1] Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
@@ -101,7 +101,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 
 You can modify the permissions for the `GITHUB_TOKEN` in individual workflow files. If the default permissions for the `GITHUB_TOKEN` are restrictive, you may have to elevate the permissions to allow some actions and commands to run successfully. If the default permissions are permissive, you can edit the workflow file to remove some permissions from the `GITHUB_TOKEN`. As a good security practice, you should grant the `GITHUB_TOKEN` the least required access.
 
-You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "Set up job" section of the workflow run log. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "Set up job" section of the workflow run log. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
 You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
 
@@ -109,7 +109,7 @@ You can use the `permissions` key in your workflow file to modify permissions fo
 
 The two workflow examples earlier in this article show the `permissions` key being used at the workflow level, and at the job level. In [Example 1](#example-1-passing-the-github_token-as-an-input) the two permissions are specified for the entire workflow. In [Example 2](#example-2-calling-the-rest-api) write access is granted for one scope for a single job.
 
-For full details of the `permissions` key, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#permissions)."
+For full details of the `permissions` key, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#permissions)."
 
 #### How the permissions are calculated for a workflow job
 
@@ -119,9 +119,9 @@ The permissions for the `GITHUB_TOKEN` are initially set to the default setting 
 
 If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.pat_generic %} and set it as a secret in your repository:
 
-1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
-1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+1. Use or create a token with the appropriate permissions for that repository. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Further reading
 
-- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"
+- "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)"

@@ -36,7 +36,7 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 * In your codespace, create a new branch to work on.
 * Make your changes and save them.
 * Commit the change.
@@ -75,7 +75,7 @@ When you have made some changes, you can push them to a feature branch of your f
 $ git push origin my-feature-branch
 ```
 
-For more information, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 {% webui %}
 

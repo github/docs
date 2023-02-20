@@ -83,4 +83,4 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
 
 ## Updating a TLS certificate
 
-You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
+You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."

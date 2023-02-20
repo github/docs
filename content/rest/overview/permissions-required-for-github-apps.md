@@ -11,13 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 shortTitle: GitHub App permissions
 ---
 
 ## About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
+{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
 
 ## Actions
 
@@ -154,10 +153,10 @@ shortTitle: GitHub App permissions
 - [`GET /user/repository_invitations`](/rest/collaborators/invitations#list-repository-invitations-for-the-authenticated-user) (read)
 - [`PATCH /user/repository_invitations/{invitation_id}`](/rest/collaborators/invitations#accept-a-repository-invitation) (write)
 - [`DELETE /user/repository_invitations/{invitation_id}`](/rest/collaborators/invitations#decline-a-repository-invitation) (write)
-- [`GET /repos/{owner}/{repo}/autolinks`](/v3/repos#list-autolinks) (read)
-- [`POST /repos/{owner}/{repo}/autolinks`](/v3/repos#create-an-autolink) (write)
-- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#get-autolink) (read)
-- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#delete-autolink) (write)
+- [`GET /repos/{owner}/{repo}/autolinks`](/rest/repos#list-autolinks) (read)
+- [`POST /repos/{owner}/{repo}/autolinks`](/rest/repos#create-an-autolink) (write)
+- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos#get-autolink) (read)
+- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos#delete-autolink) (write)
 {% ifversion fpt or ghec or ghes %}- [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository) (write){% endif %}
 {% ifversion fpt or ghec or ghes %}- [`PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (write){% endif %}
@@ -287,7 +286,7 @@ shortTitle: GitHub App permissions
 
 ## Contents
 
-- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (read)
+- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/repos#list-codeowners-errors) (read)
 - [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches) (read)
 - [`GET /repos/{owner}/{repo}/branches/{branch}`](/rest/branches/branches#get-a-branch) (read)
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/branches/{branch}/rename`](/rest/branches/branches#rename-a-branch) (write){% endif %}
@@ -432,7 +431,7 @@ shortTitle: GitHub App permissions
 ## Gists
 
 - [`POST /gists`](/rest/gists#create-a-gist) (write)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (write)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (write)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (write)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (write)
 - [`PATCH /gists/{gist_id}/comments/{comment_id}`](/rest/gists#update-a-gist-comment) (write)
@@ -558,7 +557,7 @@ shortTitle: GitHub App permissions
 ## Metadata
 
 - [`POST /gists`](/rest/gists#create-a-gist) (read)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (read)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (read)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (read)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (read)
 - [`GET /gists/{gist_id}/comments/{comment_id}`](/rest/gists#get-a-gist-comment) (read)
@@ -587,7 +586,7 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/events`](/rest/activity#list-repository-events) (read)
 - [`GET /repos/{owner}/{repo}/forks`](/rest/repos#list-forks) (read)
 - [`GET /repos/{owner}/{repo}/languages`](/rest/repos#list-repository-languages) (read)
-- [`GET /repos/{owner}/{repo}/license`](/rest/licenses/#get-the-license-for-a-repository) (read)
+- [`GET /repos/{owner}/{repo}/license`](/rest/licenses#get-the-license-for-a-repository) (read)
 - [`GET /repos/{owner}/{repo}/stargazers`](/rest/activity#list-stargazers) (read)
 - [`GET /repos/{owner}/{repo}/stats/code_frequency`](/rest/metrics/statistics#get-the-weekly-commit-activity) (read)
 - [`GET /repos/{owner}/{repo}/stats/commit_activity`](/rest/metrics/statistics#get-the-last-year-of-commit-activity) (read)
@@ -857,7 +856,7 @@ shortTitle: GitHub App permissions
 
 ## Profile
 
-- [`PATCH /user`](/rest/users/#update-the-authenticated-user) (write)
+- [`PATCH /user`](/rest/users#update-the-authenticated-user) (write)
 
 ## Pull requests
 
@@ -905,7 +904,7 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#create-reaction-for-a-pull-request-review-comment) (write)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-pull-request-comment-reaction) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) (read)
-- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/#update-a-pull-request) (write)
+- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#update-a-pull-request) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#list-review-comments-on-a-pull-request) (read)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#create-a-review-comment-for-a-pull-request) (write)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies`](/rest/pulls#create-a-reply-for-a-review-comment) (write)

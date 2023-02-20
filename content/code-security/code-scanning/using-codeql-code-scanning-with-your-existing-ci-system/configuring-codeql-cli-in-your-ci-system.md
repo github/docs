@@ -3,7 +3,6 @@ title: Configuring CodeQL CLI in your CI system
 shortTitle: Configure CodeQL CLI
 intro: 'You can configure your continuous integration system to run the {% data variables.product.prodname_codeql_cli %}, perform {% data variables.product.prodname_codeql %} analysis, and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 versions:
@@ -46,7 +45,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
 1. Check out the code that you want to analyze:
     - For a branch, check out the head of the branch that you want to analyze.
     - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
-2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-compiled-languages)."
+2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-non-compiled-languages)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-compiled-languages)."
 3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 4. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
@@ -73,9 +72,9 @@ You can display the command-line help for any command using the <nobr>`--help`</
 | <nobr>`--db-cluster`</nobr> | | Optional. Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>.
 | <nobr>`--no-run-unnecessary-builds`</nobr> | | Recommended. Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript).
 | <nobr>`--source-root`</nobr> | | Optional. Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |
-| <nobr>`--codescanning-config`</nobr> | | Optional (Advanced). Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" and "[database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config)." |
+| <nobr>`--codescanning-config`</nobr> | | Optional (Advanced). Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" and "[database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/#cmdoption-codeql-database-create-codescanning-config)." |
 
-For more information, see "[Creating {% data variables.product.prodname_codeql %} databases](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases/)."
+For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases)."
 
 ### Single language example
 
@@ -149,19 +148,19 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 | Option | Required | Usage |
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the path for the directory that contains the {% data variables.product.prodname_codeql %} database to analyze. |
-| `<packs,queries>` | | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in `/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites`. For information about creating your own query suite, see [Creating CodeQL query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
-| <nobr>`--format`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the format for the results file generated by the command. For upload to {% data variables.product.company_short %} this should be: {% ifversion fpt or ghae or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %}. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
+| `<packs,queries>` | | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in `/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites`. For information about creating your own query suite, see [Creating CodeQL query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
+| <nobr>`--format`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the format for the results file generated by the command. For upload to {% data variables.product.company_short %} this should be: {% ifversion fpt or ghae or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)."
 | <nobr>`--output`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify where to save the SARIF results file.
 | <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository. Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|
-| <nobr>`--sarif-add-query-help`</nobr> | | Optional. Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
+| <nobr>`--sarif-add-query-help`</nobr> | | Optional. Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
 | `<packs>` | | Optional. Use if you want to include CodeQL query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](#downloading-and-using-codeql-query-packs)."
 | <nobr>`--download`</nobr> | | Optional. Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
 | <nobr>`--threads`</nobr> | | Optional. Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
 | <nobr>`--verbose`</nobr> | | Optional. Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
 
-For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli/)."
+For more information, see [Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli)."
 
-### Basic example
+### Basic example of analyzing a CodeQL database
 
 This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
@@ -181,7 +180,7 @@ $ codeql database analyze /codeql-dbs/example-repo  \
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created earlier to the {% data variables.product.prodname_codeql_cli %} (see [Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)). We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
+Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created earlier to the {% data variables.product.prodname_codeql_cli %} (see [Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)). We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
 
 - Passing the token to the CLI via standard input using the `--github-auth-stdin` option (recommended).
 - Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
@@ -196,7 +195,7 @@ When you have decided on the most secure and reliable method for your CI server,
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`--repository`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the *OWNER/NAME* of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+| <nobr>`--repository`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the *OWNER/NAME* of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 | <nobr>`--ref`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
 | <nobr>`--commit`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
 | <nobr>`--sarif`</nobr> | {% octicon "check-circle-fill" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
@@ -205,7 +204,7 @@ When you have decided on the most secure and reliable method for your CI server,
 
 For more information, see [github upload-results](https://codeql.github.com/docs/codeql-cli/manual/github-upload-results/) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 
-### Basic example
+### Basic example of uploading results to {% data variables.product.product_name %}
 
 This example uploads results from the SARIF file `temp/example-repo-js.sarif` to the repository `my-org/example-repo`. It tells the {% data variables.product.prodname_code_scanning %} API that the results are for the commit `deb275d2d5fe9a522a0b7bd8b6b6a1c939552718` on the `main` branch.
 
@@ -216,14 +215,14 @@ $ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-
     {% endif %}--github-auth-stdin
 ```
 
-There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)" and "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)."
+There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
 {% ifversion codeql-packs %}
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[About code scanning with CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
+The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
 
 Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)" above.
 
@@ -237,12 +236,12 @@ Before you can use a {% data variables.product.prodname_codeql %} pack to analyz
 
 **Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql %} CLI you're using.
 
-For more information about pack compatibility, see "[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
+For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
 {% endnote %}
 {% endif %}
 
-### Basic example
+### Basic example of downloading and using query packs
 
 This example runs the `codeql database analyze` command with the `--download` option to:
 
@@ -282,7 +281,7 @@ echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&g
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
 
-If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
+If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
 {% endif %}
 
 ## Example CI configuration for {% data variables.product.prodname_codeql %} analysis
@@ -327,7 +326,7 @@ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-re
 
 When you analyze a {% data variables.product.prodname_codeql %} database using a {% data variables.product.prodname_code_scanning %} query suite, in addition to generating detailed information about alerts, the CLI reports diagnostic data from the database generation step and summary metrics. For repositories with few alerts, you may find this information useful for determining if there are genuinely few problems in the code, or if there were errors generating the {% data variables.product.prodname_codeql %} database. For more detailed output from `codeql database analyze`, use the `--verbose` option.
 
-For more information about the type of diagnostic information available, see "[Viewing {% data variables.product.prodname_code_scanning %} logs](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)".
+For more information about the type of diagnostic information available, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)".
 
 ### {% data variables.product.prodname_code_scanning_capc %} only shows analysis results from one of the analyzed languages
 
@@ -346,6 +345,6 @@ If you use the {% data variables.product.prodname_codeql_cli %} to run {% data v
 
 ## Further reading
 
-- [Creating CodeQL databases](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases/)
-- [Analyzing databases with the CodeQL CLI](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli/){% ifversion codeql-packs %}
+- [Creating CodeQL databases](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases)
+- [Analyzing databases with the CodeQL CLI](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli){% ifversion codeql-packs %}
 - [Publishing and using CodeQL packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs){% endif %}

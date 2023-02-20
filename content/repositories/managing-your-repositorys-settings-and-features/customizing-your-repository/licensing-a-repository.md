@@ -21,7 +21,7 @@ You're under no obligation to choose a license. However, without a license, the 
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 
 {% endnote %}
 
@@ -74,17 +74,17 @@ License | License keyword
 | The Unlicense | `unlicense` |
 | zLib License | `zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-by-license)."
+When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-license)."
 
 ## Detecting a license
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
 
 ## Applying a license to a repository with an existing license
 
-The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)."
+The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)."
 
 ![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
 

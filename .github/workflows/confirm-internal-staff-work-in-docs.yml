@@ -23,7 +23,7 @@ jobs:
     if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
@@ -31,7 +31,7 @@ jobs:
           script: |
             // Only perform this action with GitHub employees
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: context.payload.sender.login,
@@ -45,7 +45,7 @@ jobs:
 
             // Don't perform this action with Docs team members
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'docs',
                 username: context.payload.sender.login,
@@ -62,7 +62,7 @@ jobs:
             const issueNo = context.number || context.issue.number
 
             // Create an issue in our private repo
-            await github.issues.create({
+            await github.rest.issues.create({
               owner: 'github',
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,

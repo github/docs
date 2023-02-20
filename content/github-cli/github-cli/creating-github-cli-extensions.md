@@ -12,7 +12,7 @@ topics:
 
 ## About {% data variables.product.prodname_cli %} extensions
 
-{% data reusables.cli.cli-extensions %} For more information about how to use {% data variables.product.prodname_cli %} extensions, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} For more information about how to use {% data variables.product.prodname_cli %} extensions, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)."
 
 You need a repository for each extension that you create. The repository name must start with `gh-`. The rest of the repository name is the name of the extension. The repository must have an executable file at its root with the same name as the repository or a set of precompiled binary executables attached to a release.
 
@@ -108,7 +108,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
    gh repo create gh-EXTENSION-NAME --source=. --public --push
    ```
 
-1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
+1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
 
 ## Tips for writing interpreted {% data variables.product.prodname_cli %} extensions
 

@@ -42,7 +42,7 @@ export const DefaultLayout = (props: Props) => {
         </Head>
 
         {/* For local site search indexing */}
-        <div data-search="breadcrumbs">
+        <div className="d-none d-xl-block" data-search="breadcrumbs">
           <Breadcrumbs />
         </div>
 
@@ -116,7 +116,7 @@ export const DefaultLayout = (props: Props) => {
         <SidebarNav />
         {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
-        <div className="flex-column flex-1">
+        <div className="flex-column flex-1 min-width-0">
           <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
             <DeprecationBanner />
             <RestBanner />

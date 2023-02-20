@@ -8,14 +8,14 @@ intro: |
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
     - heading: Instance administration
       notes:
         # https://github.com/github/releases/issues/2407
         - |
-         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
 
         # https://github.com/github/releases/issues/2407
         - |

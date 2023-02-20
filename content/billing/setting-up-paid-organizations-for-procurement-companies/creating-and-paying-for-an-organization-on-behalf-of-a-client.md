@@ -21,8 +21,8 @@ Before you start, make sure you know:
 - The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
 - The name your client would like to use for the organization
 - The email address where you would like receipts to be sent
-- The [product](/articles/github-s-products) your client would like to purchase
-- The number of [paid seats](/articles/about-per-user-pricing/) your client would like you to purchase for the organization
+- The [product](/get-started/learning-about-github/githubs-products) your client would like to purchase
+- The number of [paid seats](/billing/managing-billing-for-your-github-account/about-per-user-pricing) your client would like you to purchase for the organization
 
 ## Step 1: Create your personal {% data variables.product.prodname_dotcom %} account
 
@@ -31,8 +31,7 @@ You will use your personal account to set up the organization. You'll also need 
 If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 1. Go to the [Join GitHub](https://github.com/join) page.
-2. Under "Create your personal account," type your username, email address, and password, then click **Create an account**.
-![Create personal account entry form](/assets/images/help/billing/billing_create_your_personal_account_form.png)
+2. Complete the form, then click **Create account**.
 3. Select {% data variables.product.prodname_free_user %} for your personal account.
 4. Click **Finish sign up**.
 
@@ -57,7 +56,6 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (You can add more seats to the organization in the next step.)
 6. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
-![Radio button for yearly billing](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
@@ -97,12 +95,12 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 ## Next steps
 
-1. Contact your client and ask them to [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
+1. Contact your client and ask them to [add you to the organization as a billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
 2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-3. When it's time to renew your client's paid subscription, see "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)."
+3. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)."
 
 ## Further reading
 
-- "[About organizations for procurement companies](/articles/about-organizations-for-procurement-companies)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization)"
+- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)"

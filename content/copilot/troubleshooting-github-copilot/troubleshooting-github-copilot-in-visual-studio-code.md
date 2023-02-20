@@ -57,5 +57,5 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-- "[Configuring {% data variables.product.prodname_copilot%} proxy support](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)"
+- "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)"
 - "[Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)" in the {% data variables.product.prodname_vscode %} documentation

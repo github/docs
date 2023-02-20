@@ -33,7 +33,7 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
    ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
-1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -52,7 +52,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
-1. Open the pull request in a codespace, as described in "[Opening a pull request](/codespaces/developing-in-codespaces/using-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
+1. Open the pull request in a codespace, as described in "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
 1. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
@@ -69,7 +69,7 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
 
-For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[Using {% data variables.product.prodname_github_codespaces %} for pull requests](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
+For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
 {% endcodespaces %}
 {% endif %}
@@ -77,7 +77,7 @@ For more information on reviewing pull requests in {% data variables.product.pro
 {% ifversion fpt or ghes or ghec %}
 ## Reviewing dependency changes
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 {% data reusables.repositories.changed-files %}
 
@@ -117,5 +117,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ## Further reading
 
-- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
-- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
+- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

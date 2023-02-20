@@ -1,6 +1,6 @@
 If you have set the JetBrains Gateway as your default editor, then the Gateway will launch automatically when you open a codespace from {% data variables.product.prodname_dotcom_the_website %}. 
 
-If the JetBrains Gateway is not your default editor, you can still open a codespace in JetBrains by going to the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces) and clicking the ellipsis (...) to the right of the codespace you want to open. For more information, see "[Opening an existing codespace](/codespaces/developing-in-codespaces/opening-an-existing-codespace?tool=webui)."
+If the JetBrains Gateway is not your default editor, you can still open a codespace in JetBrains by going to the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces) and clicking the ellipsis (...) to the right of the codespace you want to open. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace?tool=webui)."
 
 Alternatively, you can also open the JetBrains Gateway and select an existing codespace, as described in the following procedure.
 

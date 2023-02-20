@@ -8,12 +8,11 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 3. Pilot programs
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 2: Preparing to enable at scale](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
 
 {% endnote %}
 
@@ -27,41 +26,41 @@ Before you start your pilot projects, we recommend that you schedule some meetin
 
 {% ifversion ghes %}
 
-If you haven't already enabled GHAS for your {% data variables.product.prodname_ghe_server %} instance, see "[Enabling GitHub Advanced Security for your enterprise](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
+If you haven't already enabled GHAS for your {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."
 
 {% endif %}
 
-You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
 
 ## Piloting {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}
 
-To enable {% data variables.product.prodname_code_scanning %} on your {% data variables.product.prodname_ghe_server %} instance, see "[Configuring {% data variables.product.prodname_code_scanning %} for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+To enable {% data variables.product.prodname_code_scanning %} on your {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
 
 {% elsif ghae %}
 
-To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
+To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
 
 {% endif %}
 
-You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners)."{% endif %}
+You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners)."{% endif %}
 
 For more information about {% data variables.product.prodname_actions %}, see:
-  - "[Learn GitHub Actions](/actions/learn-github-actions)"
-  - "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)"
-  - "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)"
-  - "[Filter Pattern Cheat Sheet](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+  - "[AUTOTITLE](/actions/learn-github-actions)"
+  - "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
+  - "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
+  - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
-We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 
 If you want to enable code scanning for many repositories, you may want to script the process.
 
 For an example of a script that opens pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
 
-When running initial code scans, you may find that no results are found or that an unusual number of results are returned. You may want to adjust what is flagged in future scans. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+When running initial code scans, you may find that no results are found or that an unusual number of results are returned. You may want to adjust what is flagged in future scans. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
-If your company wants to use other third-party code analysis tools with GitHub code scanning, you can use actions to run those tools within GitHub. Alternatively, you can upload results, which are generated by third-party tools as SARIF files, to code scanning. For more information, see "[Integrating with code scanning](/code-security/code-scanning/integrating-with-code-scanning)."
+If your company wants to use other third-party code analysis tools with GitHub code scanning, you can use actions to run those tools within GitHub. Alternatively, you can upload results, which are generated by third-party tools as SARIF files, to code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning)."
 
 ## Piloting {% data variables.product.prodname_secret_scanning %}
 
@@ -69,18 +68,18 @@ GitHub scans repositories for known types of secrets, to prevent fraudulent use 
 
 {% ifversion ghes %}
 
-To enable secret scanning for your {% data variables.product.prodname_ghe_server %} instance, see "[Configuring secret scanning for your appliance](/admin/advanced-security/configuring-secret-scanning-for-your-appliance)."
+To enable secret scanning for your {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."
 
 {% endif %}
 
-You need to enable secret scanning for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+You need to enable secret scanning for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
-If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
-To learn how to view and close alerts for secrets checked into your repository, see "[Managing alerts from secret scanning](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+To learn how to view and close alerts for secrets checked into your repository, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 {% note %}
 
-For the next article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
 
 {% endnote %}

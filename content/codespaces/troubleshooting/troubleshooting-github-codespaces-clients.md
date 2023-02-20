@@ -2,7 +2,6 @@
 title: Troubleshooting GitHub Codespaces clients
 shortTitle: Codespaces clients
 intro: 'This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.'
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -75,7 +74,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ### Performance issues
 
-A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
 If you are using a machine with 4 or more cores and the performance you are experiencing in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size.
 
@@ -139,7 +138,7 @@ To work around this problem with older versions of the Gateway:
 
 ### SSH connection issues
 
-To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
 
 If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 

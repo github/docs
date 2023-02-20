@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Security advisories
   - Vulnerabilities
@@ -20,7 +19,7 @@ Anyone with admin permissions to a repository can create and edit a security adv
 
 ## About security advisories for repositories
 
-{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
 
 ## Best practices
 
@@ -31,15 +30,15 @@ If you follow the syntax for the {% data variables.product.prodname_advisory_dat
 - {% data variables.product.prodname_dependabot %} will have the information to accurately identify repositories that are affected and send them {% data variables.product.prodname_dependabot_alerts %} to notify them.
 - Community members are less likely to suggest edits to your advisory to fix missing or incorrect information.
 
-You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)." 
+You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)." 
 
-You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database)."
+You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
 ### Ecosystem
 
-You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories)."
+You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories)."
 
-![Screenshot highlighting the Ecosystem field on the form](/assets/images/help/security/security-advisory-ecosystem.png)
+![Screenshot of the "Affected products" area of the security advisory form. The "Ecosystem" field is highlighted with a dark orange outline.](/assets/images/help/security/security-advisory-ecosystem.png)
 
 ### Package name
 
@@ -48,8 +47,6 @@ We recommend that you use the **Package name** field to specify which packages a
 ### Affected versions
 
 We recommend that you use the **Affected versions** field to specify which versions are affected because this information is required for "{% data variables.product.company_short %}-reviewed" advisories in the {% data variables.product.prodname_advisory_database %}. Version information is optional for repository-level security advisories, but including this information early simplifies the review process when you publish your security advisory.
-
-![Screenshot highlighting the Affected versions field](/assets/images/help/security/security-advisory-affected-versions.png)
 
 - A valid affected version string consists of one of the following:
    - A lower bound operator sequence.
@@ -79,7 +76,7 @@ We recommend that you use the **Affected versions** field to specify which versi
 
 - You cannot specify multiple affected version ranges in the same field, such as `> 2.0, < 2.3, > 3.0, < 3.2`.To specify more than one range, you must create a new **Affected products** section for each range, by clicking the **+ Add another affected product** button.
 
-  ![Screenshot highlighting the button to use to add multiple affected version ranges](/assets/images/help/security/security-advisory-add-another-affected-product.png)
+  ![Screenshot of the "Affected products" area of the security advisory form. A link, labeled "Add another affected product", is highlighted with a dark orange outline.](/assets/images/help/security/security-advisory-add-another-affected-product.png)
  - If the affected version range includes only a single upper or lower bound:
    - The implicit value is always `> 0` if the lower bound is not explicitly specified.
    - The implicit value is always infinity if the upper bound is not explicitly specified.

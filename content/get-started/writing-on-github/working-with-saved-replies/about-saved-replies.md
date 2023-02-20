@@ -23,7 +23,7 @@ You can also use the {% data variables.product.product_name %}-provided "Duplica
 
 ## Further reading
 
-- "[Creating a saved reply](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
-- "[Using saved replies](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
-- "[Editing a saved reply](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
-- "[Deleting a saved reply](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"

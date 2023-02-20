@@ -40,7 +40,7 @@ You'll receive a notification when:
 
 {% ifversion fpt or ghes or ghec %}
 
-You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
+You can pin gists to your profile so other people can see them easily. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 
 {% endif %}
 
@@ -52,7 +52,7 @@ You can download a ZIP file of a gist by clicking the **Download ZIP** button at
 
 {% ifversion fpt or ghec %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
 {% endif %}
 

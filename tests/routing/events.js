@@ -416,23 +416,6 @@ describe('POST /events', () => {
       checkEvent({ ...experimentExample, experiment_success: undefined }, 200))
   })
 
-  describe('redirect', () => {
-    const redirectExample = {
-      ...baseExample,
-      type: 'redirect',
-      redirect_from: 'http://example.com/a',
-      redirect_to: 'http://example.com/b',
-    }
-
-    it('should record an redirect event', () => checkEvent(redirectExample, 200))
-
-    it('redirect_from is required url', () =>
-      checkEvent({ ...redirectExample, redirect_from: ' ' }, 400))
-
-    it('redirect_to is required url', () =>
-      checkEvent({ ...redirectExample, redirect_to: undefined }, 400))
-  })
-
   describe('clipboard', () => {
     const clipboardExample = {
       ...baseExample,

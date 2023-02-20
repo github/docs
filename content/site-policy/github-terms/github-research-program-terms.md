@@ -36,7 +36,7 @@ All Confidential Information remains the sole and exclusive property of GitHub. 
 
 By participating in this Program, you consent to our use of your personal information for research purposes, and not for any other purposes. As part of the Program, we may use your personal information to contact you, or retain your information, to contact you at a later date. Personal information does not include aggregated, non-personally identifying information. We may use aggregated or other non-personally identifying information collected through the program to operate, analyze, and improve our products and services.
 
-You can withdraw your consent at any time, and request access to or the deletion of the personal information that we hold about you. For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
+You can withdraw your consent at any time, and request access to or the deletion of the personal information that we hold about you. For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) or contact us through our {% data variables.contact.contact_privacy %}.
 
 ## E. GitHub Services and Software Terms
 

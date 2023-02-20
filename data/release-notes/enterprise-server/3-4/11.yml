@@ -5,7 +5,7 @@ sections:
     - "**MEDIUM**: Scoped user-to-server tokens from GitHub Apps could bypass authorization checks in GraphQL API requests when accessing non-repository resources. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2022-23739](https://www.cve.org/CVERecord?id=CVE-2022-23739)."
     - "**MEDIUM**: Pull request preview links did not properly sanitize URLs, allowing a malicious user to embed dangerous links in the instances web UI. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com)."
     - |
-      **MEDIUM**: An incorrect authorization vulnerability was identified in GitHub Enterprise Server that allowed a repository-scoped token with read/write access to modify GitHub Actions workflow files without a workflow scope. The "[Create or Update file contents API](/rest/repos/contents#create-or-update-file-contents)" should enforce workflow scope. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com) and has been assigned [CVE-2022-46258](https://www.cve.org/CVERecord?id=CVE-2022-46258).
+      **MEDIUM**: An incorrect authorization vulnerability was identified in GitHub Enterprise Server that allowed a repository-scoped token with read/write access to modify GitHub Actions workflow files without a workflow scope. The "[AUTOTITLE](/rest/repos/contents#create-or-update-file-contents)" should enforce workflow scope. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com) and has been assigned [CVE-2022-46258](https://www.cve.org/CVERecord?id=CVE-2022-46258).
   bugs:
     - If GitHub Actions was configured with S3 blob storage for the instance, content like logs and artifacts from deleted or expired workflow runs would remain in blob storage indefinitely. The instance will delete this content automatically the next time a regular background cleanup job runs.
     - Setting the maintenance mode with an IP Exception List would not persist across upgrades.
@@ -27,4 +27,3 @@ sections:
       After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
     - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
     - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
-    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'

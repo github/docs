@@ -11,5 +11,5 @@ children:
   - /troubleshooting-github-copilot-in-a-jetbrains-ide
   - /troubleshooting-github-copilot-in-neovim
   - /troubleshooting-certificate-errors-for-github-copilot
+  - /troubleshooting-common-issues-with-github-copilot
 ---
-

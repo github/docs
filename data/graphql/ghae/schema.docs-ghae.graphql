@@ -34378,6 +34378,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   visibility: RepositoryVisibility!
 
   """
+  Returns a single vulnerability alert from the current repository by number.
+  """
+  vulnerabilityAlert(
+    """
+    The number for the vulnerability alert to be returned.
+    """
+    number: Int!
+  ): RepositoryVulnerabilityAlert
+
+  """
   A list of vulnerability alerts that are on this repository.
   """
   vulnerabilityAlerts(

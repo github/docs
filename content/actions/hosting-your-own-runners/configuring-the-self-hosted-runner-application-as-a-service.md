@@ -24,7 +24,7 @@ defaultPlatform: linux
 {% note %}
 
 **Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
-For more information, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 {% endnote %}
 {% endcapture %}
@@ -47,7 +47,7 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script that is cr
 
 **Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
 
-For more information, see "[Removing self-hosted runners](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" and "[Adding self-hosted runners](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 {% endnote %}
 
@@ -134,7 +134,7 @@ Get-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
 ## Stopping the service
 

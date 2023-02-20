@@ -168,5 +168,5 @@ You can download logs for the remote JetBrains IDE and the local client applicat
 
 ## Further reading
 
-- "[Reviewing your organization's audit logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
-- "[Reviewing your security logs for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"

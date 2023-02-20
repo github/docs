@@ -111,11 +111,11 @@ This procedure demonstrates how to create the service account for your GKE integ
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Storing your project name
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### (Optional) Configuring kustomize
 Kustomize is an optional tool used for managing YAML specs. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).

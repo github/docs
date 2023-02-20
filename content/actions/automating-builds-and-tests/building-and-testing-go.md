@@ -21,12 +21,12 @@ This guide shows you how to build, test, and publish a Go package.
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
 {% endif %}
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
 
@@ -150,7 +150,7 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
           cache-dependency-path: subdir/go.sum
 ```
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 {% endif %}
 
@@ -184,7 +184,7 @@ jobs:
 
 After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-For more information, see "[Storing workflow data as artifacts](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ```yaml{:copy}
 name: Upload Go test results

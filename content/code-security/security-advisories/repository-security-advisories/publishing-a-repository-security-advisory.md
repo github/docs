@@ -26,9 +26,9 @@ Anyone with admin permissions to a security advisory can publish the security ad
 
 ## Prerequisites
 
-Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+Before you can publish a security advisory or request a CVE identification number, you must create a draft security advisory and provide information about the versions of your project affected by the security vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
 
-If you've created a security advisory but haven't yet provided details about the versions of your project that the security vulnerability affects, you can edit the security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+If you've created a security advisory but haven't yet provided details about the versions of your project that the security vulnerability affects, you can edit the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## About publishing a security advisory
 
@@ -36,7 +36,7 @@ When you publish a security advisory, you notify your community about the securi
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
 
 {% warning %}
 
@@ -63,7 +63,7 @@ When you publish a draft advisory from a public repository, everyone is able to 
 
 After you publish a security advisory, the URL for the security advisory will remain the same as before you published the security advisory. Anyone with read access to the repository can see the security advisory. Collaborators on the security advisory can continue to view past conversations, including the full comment stream, in the security advisory unless someone with admin permissions removes the collaborator from the security advisory. 
 
-If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+If you need to update or correct information in a security advisory that you've published, you can edit the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
 
 ## Publishing a security advisory
 
@@ -72,10 +72,16 @@ Publishing a security advisory deletes the temporary private fork for the securi
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to publish.
-  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
-5. At the bottom of the page, click **Publish advisory**.
-  ![Publish advisory button](/assets/images/help/security/publish-advisory-button.png)
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to publish.
+5. Scroll to the bottom of the advisory form and click **Publish advisory**.
+
+  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
+
+  {% note %}
+
+  **Note:** If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see "[Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional)" below.
+
+  {% endnote %}
   
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
@@ -83,16 +89,16 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Requesting a CVE identification number (Optional)
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories#cve-identification-numbers)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for.
-  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
-5. Use the **Publish advisory** drop-down menu, and click **Request CVE**.
-6. Click **Request CVE**.
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to request a CVE identification number for.
+6. Scroll to the bottom of the advisory form and click **Request CVE**.
+
+  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Request CVE" button is outlined in dark orange.](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Further reading
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory)"

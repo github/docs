@@ -12,7 +12,7 @@ redirect_from:
 
 ## About searching for discussions
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -38,7 +38,7 @@ To search discussions in all repositories owned by a certain user or organizatio
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | :- | :- |{% ifversion fpt or ghes or ghec %}
@@ -82,7 +82,7 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
 
 | Qualifier | Example |
 | :- | :- |
@@ -104,4 +104,4 @@ Both qualifiers take a date as a parameter. {% data reusables.time_date.date_for
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

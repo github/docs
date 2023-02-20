@@ -39,7 +39,7 @@ jobs:
           # need to use a token from a user with access to github/github for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
         run: |
-          script/graphql/update-files.js
+          src/graphql/scripts/update-files.js
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04

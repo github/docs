@@ -18,7 +18,7 @@ Once you have an active {% data variables.product.prodname_copilot %} {% ifversi
 
 {% data reusables.copilot.telemetry-setting-org %}
 
-You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
+You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}

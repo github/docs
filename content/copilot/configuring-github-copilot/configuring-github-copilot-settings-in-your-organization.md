@@ -2,10 +2,9 @@
 title: Configuring GitHub Copilot settings in your organization
 intro: 'You can configure {% data variables.product.prodname_copilot %} in your organization, including granting and revoking access to individuals and teams, and determining whether to block suggestions that match public code.'
 product: '{% data reusables.gated-features.copilot %}'
-miniTocMaxHeadingLevel: 3
 permissions: 'Organization owners and members with admin permissions can configure {% data variables.product.prodname_copilot %} in their organization.'
 versions:
-  ghec: '*'
+  feature: copilot
 topics:
   - Copilot
 shortTitle: Organization settings
@@ -16,13 +15,13 @@ shortTitle: Organization settings
 
 {% data reusables.copilot.about-copilot %}
 
-To configure {% data variables.product.prodname_copilot %} use in your organization, the organization must be owned by a {% data variables.product.prodname_ghe_cloud %} account, and an enterprise admin must first enable {% data variables.product.prodname_copilot_business_short %} for your organization. Organization admins will then be able to manage seat assignment within the organization. 
+{% ifversion ghec %}To configure {% data variables.product.prodname_copilot %} use in your organization, the organization must be owned by a {% data variables.product.prodname_ghe_cloud %} account, and an enterprise admin must first enable {% data variables.product.prodname_copilot_business_short %} for your organization. Organization admins will then be able to manage seat assignment within the organization.
 
-Depending on the policy settings configured at the enterprise level, an organization admin may also be able to determine whether to allow or block {% data variables.product.prodname_copilot %} suggestions that match public code. For more information, see "[Enforcing policies for {% data variables.product.prodname_copilot %} in your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."
+Depending on the policy settings configured at the enterprise level, an organization admin may also be able to determine whether to allow or block {% data variables.product.prodname_copilot %} suggestions that match public code. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."{% endif %}
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
-Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization.
+{% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization.{% endif %}
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
@@ -60,8 +59,8 @@ Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data v
 
    ![Screenshot of the add people or add teams button](/assets/images/help/copilot/add-people-add-teams.png)
 
-1. If you selected **Add people**, in the "Enable GitHub Copilot access for selected members of ORGANIZATION" dialog, you can either search for individual members, or you can add members in bulk by uploading a CSV file.
- 
+1. If you selected **Add people**, in the "Enable {% data variables.product.prodname_copilot %} access for selected members of ORGANIZATION" dialog, you can either search for individual members, or you can add members in bulk by uploading a CSV file.
+
    ![Screenshot of the enable access for selected members dialog](/assets/images/help/copilot/enable-access-for-selected-members.png)
 
     - To search for members, type the member's username, full name, or email address in the search bar.
@@ -91,16 +90,7 @@ Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data v
 
 ### Disabling access to {% data variables.product.prodname_copilot %} for your whole organization
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions," to disable {% data variables.product.prodname_copilot %} for all users in your organization, select **Disabled**.
-
-   ![Screenshot of {% data variables.product.prodname_copilot %} disabled user permissions](/assets/images/help/copilot/disable-access.png)
-
-1. To save your changes, click **Save**.
-   
-   ![Screenshot of the {% data variables.product.prodname_copilot %} user permissions save button](/assets/images/help/copilot/save-disabled.png)
+{% data reusables.copilot.disable-copilot-organization %}
 
 ### Disabling access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
@@ -109,14 +99,14 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions,", select **Selected teams/users** and then click **Save**. 
+1. Under "User permissions,", select **Selected teams/users** and then click **Save**.
 
    ![Screenshot of {% data variables.product.prodname_copilot %} selected users/teams permissions](/assets/images/help/copilot/selected-users-teams.png)
 
     - In the "Confirm seat assignment" pop-up dialog, select **Keep all users**.
 
       ![Screenshot of the confirm seat assignment dialog](/assets/images/help/copilot/confirm-seat-assignment-selected.png)
-  
+
 1. Under "Manage access," in the search bar, type the member's username, full name, or email address.
 
    ![Screenshot of the search bar](/assets/images/help/copilot/manage-access-search.png)
@@ -127,10 +117,9 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 
 ## Configuring suggestion matching policies for {% data variables.product.prodname_copilot %} in your organization
 
-{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions matching public code on {% data variables.product.prodname_dotcom %}. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
+{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown to you.
 
-If your enterprise admin has selected **No policy (let each organization decide)** for suggestion matching at the enterprise level, you can set a suggestion matching policy for your organization. If an organization member is assigned a seat by multiple organizations with different suggestion matching policies under the same enterprise, {% data variables.product.prodname_copilot %} will use the most restrictive policy.
-
+{% ifversion ghec %}If your enterprise admin has selected **No policy (let each organization decide)** for suggestion matching at the enterprise level, you can set a suggestion matching policy for your organization. If an organization member is assigned a seat by multiple organizations with different suggestion matching policies under the same enterprise, {% data variables.product.prodname_copilot %} will use the most restrictive policy.{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -141,4 +130,4 @@ If your enterprise admin has selected **No policy (let each organization decide)
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot_for_business %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"

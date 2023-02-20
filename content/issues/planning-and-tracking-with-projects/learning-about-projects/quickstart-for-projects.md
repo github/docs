@@ -2,7 +2,6 @@
 title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
 intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
@@ -18,9 +17,9 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 ## Prerequisites
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 ## Creating a project
 
@@ -46,7 +45,7 @@ Next, add a few issues to your project.
 
 Repeat the above steps a few times to add multiple issues to your project.
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+For more information and other ways to add issues to your project, or about other items you can add to your project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
 
 ## Adding draft issues to your project
 
@@ -194,5 +193,5 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 
 ## Further reading
 
-- "[Adding items to your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[Customizing a view](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"

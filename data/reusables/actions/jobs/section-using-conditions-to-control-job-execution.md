@@ -1,6 +1,6 @@
 You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
 ### Example: Only run job for specific repository
 

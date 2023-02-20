@@ -13,7 +13,6 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
 shortTitle: Amazon S3 storage
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-storage-about %}
@@ -173,11 +172,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
 {% indented_data_reference reusables.actions.enterprise-s3-storage-credential-fields spaces=3 %}
 {%- else %}
-1. Under "Artifact & Log Storage", select **Amazon S3**, and enter your storage bucket's details:
+1. Under "Artifact & Log Storage", select **Amazon S3**, then enter your storage bucket's details:
 
 {% indented_data_reference reusables.actions.enterprise-s3-storage-credential-fields spaces=3 %}
-
-   ![Radio button for selecting Amazon S3 Storage and fields for S3 configuration](/assets/images/enterprise/management-console/actions-aws-s3-storage.png)
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

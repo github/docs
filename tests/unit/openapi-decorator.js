@@ -1,6 +1,6 @@
 import { describe, expect } from '@jest/globals'
 
-import { getOpenApiSchemaFiles } from '../../script/rest/utils/decorator.js'
+import { getOpenApiSchemaFiles } from '../../src/rest/scripts/utils/decorator.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 const supportedReleases = Object.keys(allVersions).map(

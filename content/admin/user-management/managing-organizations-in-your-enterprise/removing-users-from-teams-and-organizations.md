@@ -19,7 +19,7 @@ Only owners or team admins can remove organization members. When a user is remov
 
 {% warning %}
 
-**Warning**: When you remove a user from an organization, they will lose access to any private forks they have of your organization's **private repositories**. They may still have local copies of those forks. However, they will be unable to sync them with your organization's repositories. You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property. If the user removed from your organization was an organization member, their access to private forks of organization repositories can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from an organization.
+**Warning**: When you remove a user from an organization, they will lose access to any private forks they have of your organization's **private repositories**. They may still have local copies of those forks. However, they will be unable to sync them with your organization's repositories. You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property. If the user removed from your organization was an organization member, their access to private forks of organization repositories can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from an organization.
 
 {% endwarning %}
 

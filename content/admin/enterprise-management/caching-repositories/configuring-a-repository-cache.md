@@ -33,7 +33,7 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 
 ## Configuring a repository cache
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your desired platform. This instance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your desired platform. This instance will be your repository cache. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the repository cache's IP address using SSH.
 
@@ -57,8 +57,8 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
    ```
 {% else %}
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
-    - Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.  The *CACHE-LOCATION* value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[Enabling subdomain isolation](/enterprise/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)."
-    - Set a `cache-domain` for the repository cache, replacing *EXTERNAL-CACHE-DOMAIN* with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the *CACHE-LOCATION* value as a subdomain to the hostname configured for your instance. For more information, see "[Configuring a hostname](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+    - Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.  The *CACHE-LOCATION* value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
+    - Set a `cache-domain` for the repository cache, replacing *EXTERNAL-CACHE-DOMAIN* with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the *CACHE-LOCATION* value as a subdomain to the hostname configured for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
     - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing *REPLICA-DC-NAME* with the name of the datacenter where you're deploying the node.
 
     ```shell
@@ -78,7 +78,7 @@ Data location policies affect only Git content. Content in the database, such as
 
 {% note %}
 
-**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% endnote %} 
 

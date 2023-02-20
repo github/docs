@@ -8,12 +8,11 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 5. Rollout code scanning
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 4: Create internal documentation](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
 
 {% endnote %}
 
@@ -21,9 +20,9 @@ This article is part of a series on adopting {% data variables.product.prodname_
 
 Using the data you collated in [Phase 2](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale), you can begin to enable GHAS and then {% data variables.product.prodname_code_scanning %} on your repositories, one language at a time. The step-by-step process for enabling GHAS should look like this:
 
-1. Enable GHAS on the repository. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
-1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
-1. Create an issue in the repository to explain why a pull request has been raised. The issue you create can contain a link to the previous communication sent to all users, but can also explain what changes the pull request introduces, what next steps the team have to take, what the team's responsibilities are, and how the team should be using {% data variables.product.prodname_code_scanning %}. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."
+1. Enable GHAS on the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+1. Create a pull request against the repository's default branch with a `codeql-analysis.yml` file containing an example of how to run CodeQL for that language. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+1. Create an issue in the repository to explain why a pull request has been raised. The issue you create can contain a link to the previous communication sent to all users, but can also explain what changes the pull request introduces, what next steps the team have to take, what the team's responsibilities are, and how the team should be using {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 There is a publicly available tool that completes the first two steps called the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement). You can re-run the ghas-enablement tool in batches of languages where it makes sense. For example, JavaScript, TypeScript, Python, and Go likely have a similar build process and could therefore use a similar CodeQL analysis file. The ghas-enablement tool can also be used for languages such as Java, C, and C++, but due to the varied nature of how these languages build and compile you may need to create more targeted CodeQL analysis files.
 
@@ -51,6 +50,6 @@ You can use the data you have collected about the distribution of different lang
 
 {% note %}
 
-For the next article in this series, see "[Phase 6: Rollout and scale secret scanning](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
+For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
 
 {% endnote %}
