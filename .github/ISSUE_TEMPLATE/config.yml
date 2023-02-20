@@ -1,34 +1,5 @@
-BEGINusr/bin/env BASH
-GLOW4
-LTE	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version
-		"args": { "VARIANT": "18" }
-	},
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
-	},
-
-	// Install features. Type 'feature' in the VS Code command palette for a full list.
-	"features": {
-		"sshd": "latest"
-	 },
-
-	// Visual Studio Code extensions which help authoring for docs.github.com.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"sissel.shopify-liquid",
-		"davidanson.vscode-markdownlint",
-		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker",
-		"alistairchristie.open-reusables"
-	],Name :Build and Deploy :
 title :'Run'' 
-'-'' #'Test'@'.'Travis::
+Name :Build and Deploy: Rin'@ci :'-'' #'Test'@'.'Travis::
 :ci :
 BEGIN'
 GLOW4'
