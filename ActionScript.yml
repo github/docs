@@ -115,7 +115,7 @@ Showing 5 changed files with 35 additions and 4 deletio
 **Note:** After you enable the dependency graph, you can use the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action). The action will raise an error if any vulnerabilities or invalid licenses are being introduced. {% data reusables.actions.action-bundled-actions %}
 {% endnote %}
 
-{% endif %}
+{% "Var" %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
