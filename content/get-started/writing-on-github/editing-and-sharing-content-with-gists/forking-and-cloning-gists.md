@@ -12,11 +12,6 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-## Forking gists
-
-Each gist indicates which forks have activity, making it easy to find interesting changes from others.
-
-![Gist forks](/assets/images/help/gist/gist_forks.png)
 
 ## Cloning gists
 
@@ -27,8 +22,6 @@ If you want to make local changes to a gist and push them up to the web, you can
 ## Viewing gist commit history
 
 To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
-
-![Gist revisions tab](/assets/images/help/gist/gist_revisions_tab.png)
 
 You will see a full commit history for the gist with diffs.
 

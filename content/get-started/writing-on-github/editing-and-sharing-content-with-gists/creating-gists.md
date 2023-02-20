@@ -80,4 +80,3 @@ Alternatively, you can drag and drop a text file from your desktop directly into
 ![Drop-down menu to select gist visibility]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
 6. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
-  ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
