@@ -1,4 +1,81 @@
-**ISSUE*.tmp*/*.ecex**
+BEGIN\
+GLOW4\
+#!/USer/bin/Bash ENV 
+posetd\
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// Name :Build and Deploy :
+title :'Run'' 
+'-'' #'Test'@'.'Travis::
+:ci :
+BEGIN'
+GLOW4'
+checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+https://github.com/mowjoejoejoejoe/WORKSFLOW.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+git pull origin main
+Step 2: Switch to the head branch of the pull request.
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+git merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+"dockerfile"::':Build::Publish ::
+ github / docs Public Fork your own copy of github/docs Code Issues 96 Pull requests 55 Discussions Actions Projects 4 Security Insights Bitore #23912  Open mowjoejoejoejoe wants to merge 24 commits into github:main from mowjoejoejoejoe:BITORE +2,620 −292   Conversation 0  Commits 24  Checks 0  Files changed 14 Conversation mowjoejoejoejoe mowjoejoejoejoe commented last week Why: Closes ISSUE  What's being changed (if available, include any code snippets, screenshots, or gifs): Check off the following:  I have reviewed my changes in staging (look for the "Automatically generated comment" and click the links in the "Preview" column to view your latest changes).  For content changes, I have completed the self-review checklist. mowjoejoejoejoe and others added 23 commits 3 weeks ago @mowjoejoejoejoe Rename .vscode/launch.json to ZachryTylerWood b1418bb @mowjoejoejoejoe Rename .devcontainer/Dockerfile to dev/null/unsigned.blank.yml d81673b @mowjoejoejoejoe Update unsigned.blank.yml d7ac1ae @mowjoejoejoejoe Update devcontainer.json 8c65416 @mowjoejoejoejoe Update devcontainer.json dfe74f5 @mowjoejoejoejoe Update devcontainer.json 5ffd6e7 @mowjoejoejoejoe Update and rename .github/workflows/no-response.yaml to GitHub/Docs/.…  5515f65 @mowjoejoejoejoe Merge pull request #2 from mowjoejoejoejoe/paradice  ad956e1 @mowjoejoejoejoe Update and rename main-preview-docker-cache.yml to runners.ixios 3a047c1 @mowjoejoejoejoe Update and rename unsigned.blank.yml to bitore.sig 7a4cb36 @mowjoejoejoejoe BITORE (#3) 4d9df51 @mowjoejoejoejoe Create astro.yml d20cfb8 @mowjoejoejoejoe Update confirm-internal-staff-work-in-docs.yml 8f65b3a @mowjoejoejoejoe Update confirm-internal-staff-work-in-docs.yml c66ecfd @mowjoejoejoejoe @TingluoHuang Update runner linux support platforms to include redhat/centos 8. (#8)  ff338ed @mowjoejoejoejoe Update and rename .husky/.gitignore to Husky.sh/bitore.sig d6f72e8 @mowjoejoejoejoe Update bitore.sig 93434b9 @mowjoejoejoejoe Rename Husky.sh/bitore.sig to Kite.u ba7217f @mowjoejoejoejoe Update Dockerfile fca0d75 @mowjoejoejoejoe Rename Dockerfile to docker ee50ea2 @mowjoejoejoejoe Update docker (#9) 3d70258 @mowjoejoejoejoe Update docker 121a3f6 @mowjoejoejoejoe Update and rename docker to bitore.sig 431636f @mowjoejoejoejoe mowjoejoejoejoe requested a review from a team as a code owner last week @mowjoejoejoejoe Update config.yml 5f3657c Merge state Add more commits by pushing to the BITORE branch on mowjoejoejoejoe/docs.  Review required At least 1 approving review is required by reviewers with write access.  1 pending reviewer Some checks haven’t completed yet 8 expected checks Build and deploy Azure preview environment Expected — Waiting for status to be reported Required Prevent merging during deployment freezes Expected — Waiting for status to be reported Required test (content) Expected — Waiting for status to be reported Required test (graphql) Expected — Waiting for status to be reported Required test (meta) Expected — Waiting for status to be reported Required test (rendering) Expected — Waiting for status to be reported Required test (routing) Expected — Waiting for status to be reported Required test (unit) Expected — Waiting for status to be reported Required This branch has conflicts that must be resolved Only those with write access to this repository can merge pull requests. Conflicting files .github/workflows/main-preview-docker-cache.yml Dockerfile
+{
+	"name": "docs.github.com",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version
+		"args": { "VARIANT": "18" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"cSpell.language": ",en"
+	},
+
+	// Install features. Type 'feature' in the VS Code command palette for a full list.
+	"features": {
+		"sshd": "latest"
+	 },
+
+	// Visual Studio Code extensions which help authoring for docs.github.com.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sissel.shopify-liquid",
+		"davidanson.vscode-markdownlint",
+		"bierner.markdown-preview-github-styles",
+		"streetsidesoftware.code-spell-checker",
+		"alistairchristie.open-reusables"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [4000],
+		
+	"portsAttributes": {
+		"4000": {
+        		"label": "Preview",
+        		"onAutoForward": "openPreview"
+      		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm ci",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+,
+	"hostRequirements": {
+		"memory": "8gb"
+	 }
+}
+
+***.tmp*/*.ecex**
 ai & it :
 macro/flakeys'@debian-artifact/'@nazt/V8/dinosouar.yml :
 ci :C:\I :
