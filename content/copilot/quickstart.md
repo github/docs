@@ -31,7 +31,7 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 
 ## Signing up for {% data variables.product.prodname_copilot %} for your organization{% ifversion ghec %} or enterprise{% endif %} account
 
-{% ifversion ghec%}
+{% ifversion ghec %}
 ### Signing up for {% data variables.product.prodname_copilot %} for your enterprise account
 
 {% data reusables.copilot.signup-procedure-enterprise %}
