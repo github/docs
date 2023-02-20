@@ -61,7 +61,8 @@ children:
   - codespaces
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks-and-events
   - rest
   - graphql
   - github-cli
@@ -120,9 +121,10 @@ childGroups:
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks-and-events
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -152,4 +154,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

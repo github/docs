@@ -8,16 +8,15 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 6. Rollout secret scanning
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
 
 {% endnote %}
 
-You can enable secret scanning for individual repositories or for all repositories in an organization. For more information, see "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+You can enable secret scanning for individual repositories or for all repositories in an organization. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
 
@@ -27,7 +26,7 @@ When you enable {% data variables.product.prodname_secret_scanning %}, you shoul
 
 There are a few approaches for tackling newly committed credentials, but one example approach would be:
 
-1. **Notify**: Use webhooks to ensure that any new secret alerts are seen by the right teams as quickly as possible. A webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload, and integrate it into any tools you and your team use such Slack, Teams, Splunk, or email. For more information, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert)."
+1. **Notify**: Use webhooks to ensure that any new secret alerts are seen by the right teams as quickly as possible. A webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload, and integrate it into any tools you and your team use such Slack, Teams, Splunk, or email. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert)."
 2. **Follow Up**: Create a high-level remediation process that works for all secret types. For example, you could contact the developer who committed the secret and their technical lead on that project, highlighting the dangers of committing secrets to GitHub, and asking the them to revoke, and update the detected secret.
 
   {% note %}
@@ -65,7 +64,7 @@ Once you have decided on the secret types, you can do the following:
 
   {% ifversion not ghae %}
 
-  You can use the security overview to collect this information. For more information about using the security overview, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
+  You can use the security overview to collect this information. For more information about using the security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
 
   {% endif %}
 
@@ -79,7 +78,7 @@ Once you have decided on the secret types, you can do the following:
 
   {% note %}
 
-  **Note:** Use the UI if you have few secrets leaked of that type. If you have hundreds of leaked secrets, use the API to collect information. For more information, see "[Secret scanning REST API](/rest/reference/secret-scanning)."
+  **Note:** Use the UI if you have few secrets leaked of that type. If you have hundreds of leaked secrets, use the API to collect information. For more information, see "[AUTOTITLE](/rest/secret-scanning)."
 
   {% endnote %}
 
@@ -89,11 +88,11 @@ Once you have decided on the secret types, you can do the following:
 
 You can now expand beyond the five most critical secret types into a more comprehensive list, with an additional focus on education. You can repeat the previous step, remediating previously committed secrets, for the different secret types you have targeted.
 
-You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 {% ifversion secret-scanning-push-protection %}
 
-You can also enable push protection with secret scanning. Once enabled, secret scanning checks pushes for high-confidence secrets and blocks the push. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-command-line)."
+You can also enable push protection with secret scanning. Once enabled, secret scanning checks pushes for high-confidence secrets and blocks the push. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-command-line)."
 
 {% endif %}
 
@@ -101,6 +100,6 @@ As you continue to build your remediation processes for other secret types, star
 
 {% note %}
 
-This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %} in "[Introduction to adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)."
+This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %} in "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)."
 
 {% endnote %}

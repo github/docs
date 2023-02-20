@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Security advisories
   - Vulnerabilities
@@ -20,7 +19,7 @@ Anyone with admin permissions to a repository can create and edit a security adv
 
 ## About security advisories for repositories
 
-{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About repository security advisories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+{% data reusables.security-advisory.security-advisory-overview %} For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
 
 ## Best practices
 
@@ -31,13 +30,13 @@ If you follow the syntax for the {% data variables.product.prodname_advisory_dat
 - {% data variables.product.prodname_dependabot %} will have the information to accurately identify repositories that are affected and send them {% data variables.product.prodname_dependabot_alerts %} to notify them.
 - Community members are less likely to suggest edits to your advisory to fix missing or incorrect information.
 
-You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)." 
+You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)." 
 
-You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database)."
+You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
 ### Ecosystem
 
-You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see "[Browsing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories)."
+You need to assign the advisory to one of our supported ecosystems using the **Ecosystem** field. For more information about the ecosystems we support, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database#github-reviewed-advisories)."
 
 ![Screenshot highlighting the Ecosystem field on the form](/assets/images/help/security/security-advisory-ecosystem.png)
 

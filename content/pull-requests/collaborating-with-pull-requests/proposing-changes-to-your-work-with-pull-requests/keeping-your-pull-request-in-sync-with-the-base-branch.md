@@ -22,9 +22,9 @@ You can update a pull request's head branch from the command line or the pull re
 * The pull request branch is not up to date with the base branch.
 * The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} or the setting to always suggest updating branches is enabled{% endif %}.
 
-For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}" and "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
+For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}" and "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
 
-If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
+If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 From the pull request page you can update your pull request's branch using a traditional merge or by rebasing. A traditional merge results in a merge commit that merges the base branch into the head branch of the pull request. Rebasing applies the changes from _your_ branch onto the latest version of the base branch. The result is a branch with a linear history, since no merge commit is created.
@@ -51,6 +51,6 @@ Updating your branch from the pull request page performs a traditional merge. Th
 
 ## Further reading
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
-- "[Committing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

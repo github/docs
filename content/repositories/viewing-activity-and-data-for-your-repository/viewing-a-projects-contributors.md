@@ -43,10 +43,10 @@ If you don't appear in a repository's contributors graph, it may be because:
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[List repository contributors](/rest/repos/repos#list-repository-contributors)."
+**Tip:** To list all commit contributors in a repository, see "[AUTOTITLE](/rest/repos/repos#list-repository-contributors)."
 
 {% endtip %}
 
-If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% ifversion not ghae %}" and "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address){% ifversion not ghae %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account){% endif %}."

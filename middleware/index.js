@@ -16,7 +16,6 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
-import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
@@ -210,8 +209,7 @@ export default function (app) {
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
-  app.use(reqUtils) // Must come before record-redirect and events
-  app.use(recordRedirect)
+  app.use(reqUtils) // Must come before events
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands

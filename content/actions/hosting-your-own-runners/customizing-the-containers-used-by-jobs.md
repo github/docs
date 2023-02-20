@@ -4,7 +4,6 @@ intro: You can customize how your self-hosted runner invokes a container for a j
 versions:
   feature: container-hooks
 type: reference
-miniTocMaxHeadingLevel: 4
 shortTitle: Customize containers used by jobs
 ---
 
@@ -16,7 +15,7 @@ shortTitle: Customize containers used by jobs
 
 ## About container customization
 
-{% data variables.product.prodname_actions %} allows you to run a job within a container, using the `container:` statement in your workflow file. For more information, see "[Running jobs in a container](/actions/using-jobs/running-jobs-in-a-container)." To process container-based jobs, the self-hosted runner creates a container for each job.
+{% data variables.product.prodname_actions %} allows you to run a job within a container, using the `container:` statement in your workflow file. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container)." To process container-based jobs, the self-hosted runner creates a container for each job.
 
 {% data variables.product.prodname_actions %} supports commands that let you customize the way your containers are created by the self-hosted runner. For example, you can use these commands to manage the containers through Kubernetes or Podman, and you can also customize the `docker run` or `docker create` commands used to invoke the container. The customization commands are run by a script, which is automatically triggered when a specific environment variable is set on the runner. For more information, see "[Triggering the customization script](#triggering-the-customization-script)" below.
 
@@ -48,7 +47,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 - Start the service containers.
 - Write to the response file any information that {% data variables.product.prodname_actions %} will need:
   - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
-  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[`job` context](/actions/learn-github-actions/contexts#job-context)."
+  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
 - Return `0` when the health checks have succeeded and the job/service containers are started.
 
 #### Arguments for `prepare_job`
@@ -56,9 +55,9 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 - `jobContainer`: **Optional**. An object containing information about the specified job container.
   - `image`: **Required**. A string containing the Docker image.
   - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
   - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
     - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
     - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
     - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
@@ -74,7 +73,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 - `services`: **Optional**. An array of service containers to spin up.
   - `contextName`: **Required**. The name of the service in the Job context.
   - `image`: **Required**. A string containing the Docker image.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
   - `environmentVariables`: **Optional**. Sets a map of key environment variables.
   - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
     - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
@@ -254,10 +253,10 @@ The `run_container_step` command is called once for each container action in you
 - `entryPointArgs`: **Optional**. A list containing the entry point args.
 - `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
 - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
 - `environmentVariables`: **Optional**. Sets a map of key environment variables.
 - `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[Example: Running a job within a container](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
   - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
   - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
   - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
@@ -527,4 +526,4 @@ There is currently no timeout setting available for the script executed by `ACTI
 
 ### Reviewing the workflow run log
 
-To confirm whether your scripts are executing, you can review the logs for that job. For more information on checking the logs, see "[Viewing logs to diagnose failures](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+To confirm whether your scripts are executing, you can review the logs for that job. For more information on checking the logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."

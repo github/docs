@@ -18,7 +18,7 @@ topics:
 
 You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
 
-Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
+Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/using-git)".
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
@@ -59,7 +59,7 @@ gh repo clone https://github.com/PATH-TO/REPOSITORY
 {% data reusables.repositories.open-with-github-desktop %}
 4. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
-For more information, see "[Cloning a repository from {% data variables.product.prodname_dotcom %} to {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)."
+For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% enddesktop %}
 
@@ -85,13 +85,13 @@ When cloning a repository it's possible that you might encounter some errors.
 
 If you're unable to clone a repository, check that:
 
-- You can connect using HTTPS. For more information, see "[HTTPS cloning errors](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
-- You have permission to access the repository you want to clone. For more information, see "[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)."
-- The default branch you want to clone still exists. For more information, see "[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
+- You can connect using HTTPS. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+- You have permission to access the repository you want to clone. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
+- The default branch you want to clone still exists. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)."
 
 {% ifversion fpt or ghec %}
 
 ## Further reading
 
-- "[Troubleshooting connectivity problems](/articles/troubleshooting-connectivity-problems)"
+- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
 {% endif %}

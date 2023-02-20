@@ -27,7 +27,7 @@ shortTitle: Container registry
 
 {% ifversion ghes > 3.4 %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[Enabling subdomain isolation](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
 {% endif %}
 
@@ -73,7 +73,7 @@ This example pushes the `2.5` version of the image.
   $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
   ```
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 ## Pulling container images
 
@@ -170,7 +170,7 @@ The following annotation keys are supported in the {% data variables.product.pro
 
 Key | Description
 ------|------------
-| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
+| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
 | `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
 | `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
 

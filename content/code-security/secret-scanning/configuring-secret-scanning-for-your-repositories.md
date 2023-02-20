@@ -39,7 +39,7 @@ You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifver
 {% ifversion secret-scanning-enterprise-level %}
 {% note %}
 
-**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 {% endnote %}
 {% endif %}
@@ -57,7 +57,7 @@ You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifver
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-alerts-fpt.png){% endif %}
 
 {% ifversion secret-scanning-push-protection %}
-1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
    ![Enable push protection for your repository](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}
@@ -92,11 +92,11 @@ You can configure a *secret_scanning.yml* file to exclude directories from {% da
     
     {% endnote %}
 
-You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
+You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
 {% ifversion not fpt %}
 ## Further reading
 
-- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
-- "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+- "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)"
 {% endif %}

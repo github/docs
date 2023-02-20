@@ -7,13 +7,13 @@ shortTitle: Docs versions
 
 ## About versions of {% data variables.product.prodname_docs %}
 
-{% data variables.product.company_short %} offers different products for storing and collaborating on code. The product you use determines which features are available to you. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+{% data variables.product.company_short %} offers different products for storing and collaborating on code. The product you use determines which features are available to you. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
 
 This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s products. If the content you're reading applies to more than one product, you can choose the version of the documentation that's relevant to you by selecting the product you're currently using.
 
 At the top of a page on {% data variables.product.prodname_docs %}, select the dropdown menu and click a product. If your browser window is not wide enough to display the full navigation bar, you may need to click {% octicon "three-bars" aria-label="The three bars icon" %} first.
 
-![Screenshot of the dropdown menu for picking a version of {% data variables.product.prodname_docs %} to view](/assets/images/help/docs/version-picker.png)
+![Screenshot of the header of {% data variables.product.prodname_docs %}. The "Version" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/docs/version-picker.png)
 
 {% note %}
 
@@ -33,11 +33,11 @@ If you access {% data variables.product.prodname_dotcom %} at https://github.com
 
 In a wide browser window, there is no text that immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
-![Screenshot of the address bar and the {% data variables.product.prodname_dotcom_the_website %} header in a browser](/assets/images/help/docs/header-dotcom.png)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo is highlighted with an orange outline.](/assets/images/help/docs/header-dotcom.png)
 
-On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom_the_website %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom_the_website %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[Viewing people's roles in an organization](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
+If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
 
 ### {% data variables.product.prodname_ghe_server %}
 
@@ -45,11 +45,11 @@ If you access {% data variables.product.prodname_dotcom %} at a URL other than h
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
-![Screenshot of address bar and {% data variables.product.prodname_ghe_server %} header in a browser](/assets/images/help/docs/header-ghes.png)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "{% data variables.product.prodname_ghe_managed %}" are highlighted with an orange outline.](/assets/images/help/docs/header-ghes.png)
 
 You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
 
-![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}, with the version highlighted](/assets/images/help/docs/ghes-version-in-footer.png)
+![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}. "{% data variables.product.prodname_ghe_server %} 3.7.5" is highlighted with an orange outline.](/assets/images/help/docs/ghes-version-in-footer.png)
 
 ### {% data variables.product.prodname_ghe_managed %}
 
@@ -57,4 +57,4 @@ If you access {% data variables.product.prodname_dotcom %} at `https://*.ghe.com
 
 In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
 
-![Address bar and {% data variables.product.prodname_ghe_managed %} header in a browser](/assets/images/help/docs/header-ghae.png)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "Enterprise" are highlighted with an orange outline.](/assets/images/help/docs/header-ghae.png)

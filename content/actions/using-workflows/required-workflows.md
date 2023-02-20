@@ -2,7 +2,6 @@
 title: Required workflows
 shortTitle: Required workflows
 intro: You can specify which workflows will run as required status checks in all repositories or selected repositories in your organization.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: required-workflows
 type: how_to
@@ -52,4 +51,4 @@ After a required workflow has run at least once in a repository, you can view it
 
 ## Adding a required workflow to an organization
 
-Organization owners can configure required workflows in their organization. For more information, see "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization)."
+Organization owners can configure required workflows in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization)."

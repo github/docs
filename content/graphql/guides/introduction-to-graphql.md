@@ -65,7 +65,7 @@ In the reference docs, you'll find that:
 
 ## Connection
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
 
 It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
 
@@ -75,7 +75,7 @@ Edges represent connections between nodes. When you query a connection, you trav
 
 ## Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
+_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[AUTOTITLE](/graphql/guides/using-global-node-ids)."
 
 ## Discovering the GraphQL API
 
@@ -121,7 +121,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)." 
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." 
 
   {% endnote %}
   
@@ -140,4 +140,4 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+  For more information about performing queries, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."

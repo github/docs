@@ -40,7 +40,5 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 ### Changing the duration of a legacy per-repository plan
 
 {% data reusables.organizations.billing-settings %}
-4. Under "Billing overview", click **Change plan**.
-  ![Billing overview change plan button](/assets/images/help/billing/billing_overview_change_plan.png)
+4. Under "Billing overview", next to your plan, click **Change plan**.
 5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
-  ![Billing information section](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

@@ -23,6 +23,6 @@ Every app in {% data variables.product.prodname_marketplace %} includes a link t
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
-- "[Purchasing and installing apps in {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
-- "[Managing billing for {% data variables.product.prodname_marketplace %} apps](/articles/managing-billing-for-github-marketplace-apps)"
+- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
+- "[AUTOTITLE](/apps/using-github-apps)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"

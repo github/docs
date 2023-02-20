@@ -16,8 +16,6 @@ on:
       - 'Dockerfile*'
       - 'src/**'
       - 'lib/redirects/**'
-      - 'lib/rest/**'
-      - 'lib/webhooks/**'
       - 'package*.json'
       - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -36,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
-        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
         id: filter
         with:
           # Base branch used to get changed files
@@ -49,7 +47,7 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             openapi:
-              - 'lib/rest/static/**'
+              - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
               - '.github/actions-scripts/**'
@@ -60,8 +58,6 @@ jobs:
               - 'Dockerfile*'
               - 'src/**'
               - 'lib/redirects/**'
-              - 'lib/rest/**'
-              - 'lib/webhooks/**'
               - 'package*.json'
               - 'scripts/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -83,8 +79,6 @@ jobs:
               'Dockerfile*',
               'src/**',
               'lib/redirects/**',
-              'lib/rest/**',	
-              'lib/webhooks/**',
               'package*.json',
               'scripts/**',
               'content/actions/deployment/security-hardening-your-deployments/**',

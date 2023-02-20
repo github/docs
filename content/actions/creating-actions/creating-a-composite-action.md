@@ -29,9 +29,9 @@ Once you complete this project, you should understand how to build your own comp
 
 Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
-1. Create a new public repository on {% data variables.location.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.location.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
-1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
+1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
 1. From your terminal, change directories into your new repository.
 
@@ -60,7 +60,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 ## Creating an action metadata file
 
-1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
+1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
 
     {% raw %}
     **action.yml**
@@ -96,9 +96,9 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
     {% endraw %}
   This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 
-  For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+  For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
-  For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+  For more information about how to use `github.action_path`, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
 
 1. From your terminal, check in your `action.yml` file.
 
@@ -108,7 +108,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[About actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -117,7 +117,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 ## Testing out your action in a workflow
 
-The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
+The following workflow code uses the completed hello world action that you made in "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 

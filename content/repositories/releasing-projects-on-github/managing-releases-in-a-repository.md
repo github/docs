@@ -22,12 +22,12 @@ shortTitle: Manage releases
 ---
 ## About release management
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[Releases](/rest/releases/releases)" in the REST API documentation.
+You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[AUTOTITLE](/rest/releases/releases)" in the REST API documentation.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 ## Creating a release
@@ -88,7 +88,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
    {%- ifversion fpt or ghec or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[Screenshot of your repository's releases and tags](/github/administering-a-repository/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
    ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)

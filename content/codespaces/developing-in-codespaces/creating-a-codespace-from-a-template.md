@@ -10,7 +10,6 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Create a codespace from a template
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About templates for {% data variables.product.prodname_github_codespaces %}
@@ -19,11 +18,11 @@ If you're starting a new project, you can get started with development work quic
 
 {% note %}
 
-**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+**Note**: Codespaces created from a template, rather than from a repository, are always billed to your personal account. For more information, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% endnote %}
 
-You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+You can start from a blank template, choose from templates maintained by {% data variables.product.company_short %} for popular technologies such as React or Jupyter Notebook, or launch a codespace from any template repository on {% data variables.product.prodname_dotcom %}. With a blank template, you'll start with an empty directory, with access to cloud-based compute resources and the tools, languages, and runtime environments that come preinstalled with the default codespace image. With other templates, you'll get starter files for the technology you're working with, plus typically some extra files such as a README file, a `.gitignore` file, and dev container configuration files containing some custom environment configuration. For more information on dev containers and the default image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 As an example, if you create a codespace from {% data variables.product.company_short %}'s React template, you'll arrive in a workspace containing template files for a simple application, such as `index.js`, `app.js`, and `package.json`. Shortly after the codespace opens, a development server will start up automatically, and you will be able to view the running application in a simple browser tab within the {% data variables.product.prodname_vscode_shortname %} web client.
 
@@ -33,7 +32,7 @@ The files and configuration included in templates are defined in template reposi
 
 {% tip %}
 
-**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[Setting up a template repository for {% data variables.product.prodname_github_codespaces %}](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
+**Tip:** To help people get started with your framework, library, or other project, you can set up a template repository for use with {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
 {% endtip %}
 
@@ -55,14 +54,14 @@ Templates maintained by {% data variables.product.company_short %}, including th
 
 ## Creating a codespace from a template repository
 
-You can create a codespace from any template repository, then publish your work to a new repository when you are ready. For more information on template repositories, see "[Creating a repository from a template](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)."
+You can create a codespace from any template repository, then publish your work to a new repository when you are ready. For more information on template repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#about-repository-templates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.codespaces.use-this-template %}
 
    {% note %}
 
-   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-label="The code icon" %} Code** dropdown. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   **Note:** If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-label="The code icon" %} Code** dropdown. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
    {% endnote %}
 
@@ -78,9 +77,9 @@ You can create a codespace from any template repository, then publish your work 
 
 When a codespace is published, you have access to a greater range of options to customize your {% data variables.product.prodname_github_codespaces %} experience. For example, you can:
 
-- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
-- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share encrypted secrets with your codespace (see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
+- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
+- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
+- Share encrypted secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
 
 ### Publishing from {% data variables.product.prodname_dotcom_the_website %}
 
@@ -97,6 +96,6 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 
 ## Further reading
 
-- "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)"
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
-- "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)"
+- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"

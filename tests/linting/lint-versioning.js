@@ -7,7 +7,6 @@ import { getLiquidConditionals } from '../../script/helpers/get-liquid-condition
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
 /*
@@ -27,12 +26,7 @@ const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVers
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
   test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
-    let { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
-
-    // TODO temporary kludge! See notes in the module.
-    if (errors.length) {
-      errors = cleanUpDeprecatedGhaeFlagErrors(errors)
-    }
+    const { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
 
     const errorMessage = errors
       .map((error) => {
@@ -98,22 +92,7 @@ describe('lint Liquid versioning', () => {
 
 // Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
 function validateVersion(version) {
-  return (
-    allowedVersionNames.includes(version) ||
-    // TODO - REMOVE THE FOLLOWING 'OR' WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
-    /ghae-issue-\d{4}/.test(version)
-  )
-}
-
-// TODO: Temporary check for presence of deprecated GHAE feature flags in FM.
-// See details in docs-internal#29178.
-// We can remove this after semantic versioning has been in place for a while.
-function checkForDeprecatedGhaeVersioning(version, errors) {
-  if (/ghae-issue-\d+/.test(version)) {
-    errors.push(`
-      Lightweight feature flags ('${version}') are no longer supported in content. Use semantic versioning instead (ghae > 3.x or ghae: '> 3.x').
-    `)
-  }
+  return allowedVersionNames.includes(version)
 }
 
 function validateIfversionConditionals(conds) {
@@ -133,9 +112,6 @@ function validateIfversionConditionals(conds) {
       // if length = 1, this should be a valid short version or feature version name.
       if (strParts.length === 1) {
         const version = strParts[0]
-        // TODO: This is temporary, see comment on the function.
-        checkForDeprecatedGhaeVersioning(version, errors)
-        // END TODO.
         const isValidVersion = validateVersion(version)
         if (!isValidVersion) {
           errors.push(`"${version}" is not a valid short version or feature version name`)
@@ -145,9 +121,6 @@ function validateIfversionConditionals(conds) {
       // if length = 2, this should be 'not' followed by a valid short version name.
       if (strParts.length === 2) {
         const [notKeyword, version] = strParts
-        // TODO: This is temporary, see comment on the function.
-        checkForDeprecatedGhaeVersioning(version, errors)
-        // END TODO.
         const isValidVersion = validateVersion(version)
         const isValid = notKeyword === 'not' && isValidVersion
         if (!isValid) {

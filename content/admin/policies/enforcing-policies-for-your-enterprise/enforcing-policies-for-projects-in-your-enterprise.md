@@ -26,8 +26,8 @@ shortTitle: Project board policies
 
 You can enforce policies to control how enterprise members manage {% data variables.projects.projects_v2_and_v1 %}, or you can allow organization owners to manage policies for {% data variables.projects.projects_v2_and_v1 %} at the organization level.{% ifversion project-visibility-policy %}
 
-Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" and "[About {% data variables.product.prodname_projects_v1 %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
-{% else %}For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."{% endif %}
+Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+{% else %}For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."{% endif %}
 
 ## Enforcing a policy for organization-wide projects
 

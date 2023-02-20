@@ -19,9 +19,9 @@ To make your repositories easier to reference in academic literature, you can cr
 {% tip %}
 
 **Tips:**
-- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/articles/making-a-private-repository-public).
-- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/articles/approving-oauth-apps-for-your-organization) for the Zenodo application.
-- Make sure to include a [license](/articles/open-source-licensing) in your repository so readers know how they can reuse your work.
+- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) for the Zenodo application.
+- Make sure to include a [license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) in your repository so readers know how they can reuse your work.
 
 {% endtip %}
 
@@ -32,7 +32,7 @@ To make your repositories easier to reference in academic literature, you can cr
 5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
 6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
+Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/repositories/releasing-projects-on-github/about-releases). Follow the steps at "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)" to create a new one.
 
 ## Publicizing and citing research material with Figshare
 

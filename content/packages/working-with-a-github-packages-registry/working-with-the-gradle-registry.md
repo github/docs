@@ -25,7 +25,7 @@ shortTitle: Gradle registry
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
+{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[AUTOTITLE](/actions/publishing-packages/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
@@ -43,7 +43,7 @@ Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} userna
 
 {% note %}
 
-**Note:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)."
+**Note:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} For an example, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)."
 
 {% endnote %}
 
@@ -215,5 +215,5 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
 ## Further reading
 
-- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
+- "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"

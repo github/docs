@@ -29,7 +29,7 @@ $ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 
 If you specify a version that does not exist, you will receive a `400` error.
 
-For more information, see "[API Versions](/rest/overview/api-versions)."
+For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
 
 {% endif %}
 
@@ -40,7 +40,7 @@ You might expect to see a `403 Forbidden` in these cases. However, since we don'
 want to provide _any_ information about private repositories, the API returns a
 `404` error instead.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+To troubleshoot, ensure [you're authenticating correctly](/rest/quickstart), [your OAuth access token has the required scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ## Not all results returned
 
@@ -51,7 +51,7 @@ in order to get more results.
 
 It's important to *not* try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
-the link header, which is returned with every request. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
+the link header, which is returned with every request. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
@@ -68,13 +68,13 @@ If you're using `username` and `password` for API calls, then they are no longer
 curl -u my_user:my_password https://api.github.com/user/repos
 ```
 
-Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
+Instead, use a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) when testing endpoints or doing local development:
 
 ```bash
 curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
 ```
 
-For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
+For OAuth Apps, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
 curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos

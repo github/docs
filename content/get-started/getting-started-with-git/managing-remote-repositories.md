@@ -45,7 +45,7 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/USER/REPO.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
+For more information on which URL to use, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ### Troubleshooting: Remote origin already exists
 
@@ -67,7 +67,7 @@ The `git remote set-url` command changes an existing remote repository URL.
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)."
+**Tip:** For information on the difference between HTTPS and SSH URLs, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 {% endtip %}
 

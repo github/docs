@@ -34,4 +34,4 @@ shortTitle: Subscriptions & billing date
 
 ## Further reading
 
-- "[About billing for {% data variables.product.prodname_dotcom %} accounts](/articles/about-billing-for-github-accounts)"
+- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)"

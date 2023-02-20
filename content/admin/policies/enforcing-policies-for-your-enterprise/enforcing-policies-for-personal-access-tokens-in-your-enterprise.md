@@ -35,7 +35,7 @@ Enterprise owners can require that all organizations owned by the enterprise mus
 
 {% note %}
 
-**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization or enterprise has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information about restricting {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page and "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
+**Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization or enterprise has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information about restricting {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page and "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."
 
 {% endnote %}
 

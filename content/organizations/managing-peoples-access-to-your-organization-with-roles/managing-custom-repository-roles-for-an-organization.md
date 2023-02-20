@@ -16,7 +16,7 @@ redirect_from:
 
 ## About custom repository roles
 
-{% data reusables.organizations.about-custom-repo-roles %} For more information, see "[About custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)."
+{% data reusables.organizations.about-custom-repo-roles %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)."
 
 ## Creating a repository role
 

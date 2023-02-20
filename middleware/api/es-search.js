@@ -41,9 +41,18 @@ export async function getSearchResults({
   includeTopics,
   usePrefixSearch,
   highlights,
+  include,
 }) {
   if (topics && !Array.isArray(topics)) {
     throw new Error("'topics' has to be an array")
+  }
+  if (include) {
+    if (!Array.isArray(include)) {
+      throw new Error("'include' has to be an array")
+    }
+    if (!include.every((value) => typeof value === 'string')) {
+      throw new Error("Every entry in the 'include' must be a string")
+    }
   }
   const t0 = new Date()
   const client = getClient()
@@ -146,7 +155,13 @@ export async function getSearchResults({
 
   // const hitsAll = result.hits  // ES >7.11
   const hitsAll = result.body // ES <=7.11
-  const hits = getHits(hitsAll.hits.hits, { indexName, debug, includeTopics, highlightFields })
+  const hits = getHits(hitsAll.hits.hits, {
+    indexName,
+    debug,
+    includeTopics,
+    highlightFields,
+    include,
+  })
   const t1 = new Date()
 
   const meta = {
@@ -350,7 +365,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   return matchQueries
 }
 
-function getHits(hits, { indexName, debug, includeTopics, highlightFields }) {
+function getHits(hits, { indexName, debug, includeTopics, highlightFields, include }) {
   return hits.map((hit) => {
     // Return `hit.highlights[...]` based on the highlight fields requested.
     // So if you searched with `&highlights=headings&highlights=content`
@@ -381,7 +396,9 @@ function getHits(hits, { indexName, debug, includeTopics, highlightFields }) {
         result.es_url = `http://localhost:9200/${indexName}/_doc/${hit._id}`
       }
     }
-
+    for (const field of include || []) {
+      result[field] = hit._source[field]
+    }
     return result
   })
 }

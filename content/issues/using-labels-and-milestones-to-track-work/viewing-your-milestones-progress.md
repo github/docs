@@ -23,9 +23,9 @@ shortTitle: View progress to milestone
 
 ![Issues Milestone overview](/assets/images/help/issues/issues_milestone_overview.png)
 
-To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[About milestones](/articles/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
+To better manage your project, you can prioritize issues or pull requests within a milestone. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones#prioritizing-issues-and-pull-requests-in-milestones)."
 
 ## Further reading
 
-* "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
-* "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"

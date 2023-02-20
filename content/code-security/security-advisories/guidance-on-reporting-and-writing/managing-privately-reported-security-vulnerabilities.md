@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Security advisories
   - Vulnerabilities
@@ -25,7 +24,7 @@ When a security researcher reports a vulnerability privately, you are notified a
 
 ## Managing security vulnerabilities that are privately reported
 
-{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -39,7 +38,7 @@ When a security researcher reports a vulnerability privately, you are notified a
    - Accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}, by clicking **Accept and open as draft**. If you choose this option:
       - This doesn't make the report public.
       - The report becomes a draft repository security advisory and you can work on it in the same way as any draft advisory that you create.
-     For more information on security advisories, see "[About repository security advisories](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+     For more information on security advisories, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
    - Reject the report by clicking **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
 
      ![Screenshot showing the options available to the repository maintainer when reviewing an externally submitted vulnerability report](/assets/images/help/security/advisory-maintainer-options.png)

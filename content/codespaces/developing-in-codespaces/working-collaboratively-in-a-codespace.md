@@ -57,7 +57,7 @@ To stop sharing your codespace, click the stop icon in the Live Share panel.
 
 If you, as the person who started the Live Share session, close the codespace the sharing session ends, even if the codespace remains active on the remote host.
 
-The idle timeout, which automatically stops a codespace after a period of inactivity, only applies to the person who started the codespace. It does not apply to people who are working on the codespace via Live Share. The codespace may therefore time out while collaborators are using the codespace if the person who started the codespace remains inactive for the configured period of time. For more information, see "[Setting your timeout period for GitHub Codespaces](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+The idle timeout, which automatically stops a codespace after a period of inactivity, only applies to the person who started the codespace. It does not apply to people who are working on the codespace via Live Share. The codespace may therefore time out while collaborators are using the codespace if the person who started the codespace remains inactive for the configured period of time. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
 ## Working collaboratively in someone else's codespace
 

@@ -10,7 +10,7 @@ The entire conversation will be collapsed and marked as resolved, making it easi
 
 ![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
 
-If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 #### Discovering and navigating conversations
 

@@ -2,7 +2,6 @@
 title: Enforcing policies for GitHub Actions in your enterprise
 intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -30,9 +29,9 @@ shortTitle: GitHub Actions policies
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
-{% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
 ## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
@@ -48,7 +47,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
    {%- ifversion ghes or ghae %}
    {% note %}
 
-   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+   **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
    {% endnote %}
    {%- endif %}
@@ -75,7 +74,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
-{% data variables.product.prodname_actions %} can store artifact and log files. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% data variables.product.prodname_actions %} can store artifact and log files. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -194,8 +193,8 @@ However, you can set an enterprise policy to customize both the default total ca
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
-* To view the current enterprise policy settings, see "[Get GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-* To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+* To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+* To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
 
 {% data reusables.actions.cache-no-org-policy %}
 

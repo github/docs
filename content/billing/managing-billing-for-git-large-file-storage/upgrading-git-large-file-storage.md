@@ -37,7 +37,7 @@ shortTitle: Upgrade Git LFS storage
 
 ## Further reading
 
-- "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
-- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
-- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Versioning large files](/articles/versioning-large-files)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"

@@ -70,7 +70,7 @@ $ svn commit -m 'Added more_awesome topic branch'
 
 You can confirm that the new branch exists in the repository's branch dropdown:
 
-![branch-snapshot](/assets/images/help/branch/svnflow-branch-snapshot.png)
+![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
 
 You can also confirm the new branch via the command line:
 
@@ -133,4 +133,4 @@ With this commit SHA, you can, for example, look up the corresponding Git commit
 
 ## Further reading
 
-* "[Subversion properties supported by GitHub](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github)"
+* "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github)"

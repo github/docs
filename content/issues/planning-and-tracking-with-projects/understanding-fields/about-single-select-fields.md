@@ -1,8 +1,7 @@
 ---
 title: About single select fields
 shortTitle: About single select fields
-intro: "You can create single select fields with multiple options{% ifversion projects-v2-colorful-selects %}, each with a description and a color,{% endif %} that can be selected from a dropdown menu."
-miniTocMaxHeadingLevel: 3
+intro: 'You can create single select fields with multiple options{% ifversion projects-v2-colorful-selects %}, each with a description and a color,{% endif %} that can be selected from a dropdown menu.'
 versions:
   feature: projects-v2
 type: tutorial
@@ -12,7 +11,7 @@ redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-single-select-fields
 ---
 
-You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
 Single select fields can contain up to 50 options. 
 

@@ -27,6 +27,6 @@ topics:
 
 ## Further reading
 
-  - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
-  - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-  - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

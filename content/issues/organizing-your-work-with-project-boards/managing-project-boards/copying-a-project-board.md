@@ -18,9 +18,9 @@ Copying a {% data variables.projects.projects_v1_board %} allows you to reuse a 
 
 You must have read access to a {% data variables.projects.projects_v1_board %} to copy it to a repository or organization where you have write access.
 
-When you copy a {% data variables.projects.projects_v1_board %} to an organization, the {% data variables.projects.projects_v1_board %}'s visibility will default to private, with an option to change the visibility. For more information, see "[Changing {% data variables.product.prodname_project_v1 %} visibility](/articles/changing-project-board-visibility/)."
+When you copy a {% data variables.projects.projects_v1_board %} to an organization, the {% data variables.projects.projects_v1_board %}'s visibility will default to private, with an option to change the visibility. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
 
-A {% data variables.projects.projects_v1_board %}'s automation is also enabled by default. For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards/)."
+A {% data variables.projects.projects_v1_board %}'s automation is also enabled by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to copy.
 {% data reusables.project-management.click-menu %}
@@ -32,7 +32,7 @@ A {% data variables.projects.projects_v1_board %}'s automation is also enabled b
 ![Field to type a name for the copied project board](/assets/images/help/projects/copied-project-board-name.png)
 6. Optionally, under "Description", type a description of the copied project board that other people will see.
 ![Field to type a description for the copied project board](/assets/images/help/projects/copied-project-board-description.png)
-7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)."
+7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 ![Select automation settings for copied project board](/assets/images/help/projects/copied-project-board-automation-settings.png)
 {% data reusables.project-management.choose-visibility %}
 9. Click **Copy project**.

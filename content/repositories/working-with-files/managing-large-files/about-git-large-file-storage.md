@@ -32,7 +32,7 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 
 {% data reusables.repositories.git-lfs %}
 
-You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[Cloning a repository from GitHub to GitHub Desktop](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
+You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -58,4 +58,4 @@ It tracks the `version` of {% data variables.large_files.product_name_short %} y
 
 ## Further reading
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"

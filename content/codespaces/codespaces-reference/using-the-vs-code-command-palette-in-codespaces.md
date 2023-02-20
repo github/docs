@@ -70,4 +70,4 @@ To retrieve the logs for {% data variables.product.prodname_github_codespaces %}
 
 ## Further reading
 
-- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"

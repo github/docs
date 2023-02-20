@@ -48,7 +48,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
 Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines){% endif %}.
 
 Sometimes it may make sense to clearly indicate edits and their justification.
 
@@ -58,7 +58,7 @@ That said, anyone with read access to a repository can view a comment's edit his
 
 ## Redacting sensitive information
 
-Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
+Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
 
 1. Navigate to the comment you'd like to edit.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
@@ -75,7 +75,7 @@ Anyone with write access to a repository can delete comments on issues, pull req
 
 If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
 
-Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines){% endif %}.
 
 Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
@@ -96,5 +96,5 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 
 {% ifversion fpt or ghec %}
 ## Further reading
-- "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
 {% endif %} 

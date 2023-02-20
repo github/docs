@@ -32,7 +32,7 @@ For a full list of available Xamarin SDK versions on the {% data variables.produ
 
 We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 - "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 

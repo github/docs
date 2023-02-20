@@ -2,7 +2,6 @@
 title: About Tracks and Tracked by fields
 shortTitle: About Tracks and Tracked by fields
 intro: You can view the subtasks of the issues in your projects.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-tasklists
 type: tutorial
@@ -12,9 +11,9 @@ topics:
 
 {% data reusables.projects.tasklists-release-stage %}
 
-You can enable the Tracks and Tracked by fields on your projects to see the relationships between your issues as you add subtasks in Tasklists. For more information about creating issue hierarchies in Tasklists, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can enable the Tracks and Tracked by fields on your projects to see the relationships between your issues as you add subtasks in Tasklists. For more information about creating issue hierarchies in Tasklists, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
-The Tracked by field can be used to group items, creating a view that clearly shows the subtasks of each issue and the work required to complete them. For more information, see "[Grouping by field values in table layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view#grouping-by-field-values-in-table-layout)."
+The Tracked by field can be used to group items, creating a view that clearly shows the subtasks of each issue and the work required to complete them. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#grouping-by-field-values-in-table-layout)."
 
 You can also filter by the Tracked by field to display only items that are tracked by specific issues. Either start typing "tracked-by" and select an issue from the list or, if you know the repository and issue number, you can type the filter below in full.
 
@@ -22,7 +21,7 @@ You can also filter by the Tracked by field to display only items that are track
 tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"
 ```
 
-To use the filter, replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+To use the filter, replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
 ## Enabling the Tracked by field
 

@@ -17,7 +17,7 @@ topics:
   - Teams
   - User account
 ---
-Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).
+Each team has its own individually defined [access permissions for repositories owned by your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 
 - Members with the owner role can add or remove existing organization members from all teams.
 - Members of teams that give admin permissions can only modify team membership and repositories for that team.
