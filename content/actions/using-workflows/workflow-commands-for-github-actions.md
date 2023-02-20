@@ -784,6 +784,13 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 {% endraw %}
 
 {% endpowershell %}
+
+{% note %}
+
+**Note:** Multi-line output values can be set in the same way Multi-line environment variables are. For more information, see "[Multiline strings](#multiline-strings)."
+
+{% endnote %}
+
 {% endif %}
 
 {% ifversion actions-job-summaries %}
