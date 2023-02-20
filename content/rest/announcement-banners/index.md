@@ -5,7 +5,6 @@ versions:
   ghec: '*'
   ghes: '>=3.8'
   ghae: '>=3.8'
-miniTocMaxHeadingLevel: 3
 children:
   - /enterprises
   - /organizations

@@ -1,7 +1,6 @@
 ---
 title: Reviewing your security log
 intro: You can review the security log for your personal account to better understand actions you've performed and actions others have performed that involve you.
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
   - /github/authenticating-to-github/reviewing-your-security-log

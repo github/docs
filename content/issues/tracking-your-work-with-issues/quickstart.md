@@ -2,7 +2,6 @@
 title: Quickstart for GitHub Issues
 intro: 'Follow this brief interactive guide to learn about {% data variables.product.prodname_github_issues %}.'
 allowTitleToDifferFromFilename: true
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'

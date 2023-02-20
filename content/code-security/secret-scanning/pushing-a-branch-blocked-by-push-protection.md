@@ -2,7 +2,6 @@
 title: Pushing a branch blocked by push protection
 intro: 'The push protection feature of {% data variables.product.prodname_secret_scanning %} proactively protects you against leaked secrets in your repositories. You can resolve blocked pushes and, once the detected secret is removed, you can push changes to your working branch from the command line or the web UI.'
 product: '{% data reusables.gated-features.secret-scanning %}'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: secret-scanning-push-protection
 type: how_to

@@ -5,7 +5,6 @@ shortTitle: Installations
 intro: 'Use the REST API to get information about {% data variables.product.prodname_github_app %} installations and perform actions within those installations.'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'

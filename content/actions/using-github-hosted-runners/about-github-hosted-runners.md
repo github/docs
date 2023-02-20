@@ -10,7 +10,6 @@ redirect_from:
   - /actions/reference/virtual-environments-for-github-hosted-runners
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'

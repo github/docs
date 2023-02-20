@@ -161,20 +161,27 @@ Every image must include alt text providing a textual equivalent of the visual i
 
 #### Alt text for screenshots
 
-Follow this format:
+Alt text provides a short description of a screenshot's content to benefit people who cannot see it.
 
-> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, along with its `keyboard shortcut XYZ`, are highlighted with `visual highlight mechanism`.
+- Alt text only needs to include the most relevant elements of an image, not every detail.
+- Alt text is not intended to provide instructions for using the GitHub interface. These should be included in accompanying article text.
+
+##### Format
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
 
 - For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
   - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
 
-##### Example
+##### Examples
 
-> Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.
+> Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-![Screenshot of file options on a GitHub repository. A green button with an arrow indicating a dropdown menu, labeled "Code," is highlighted with an orange outline.](./images/repository-code-button.png)
+> Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 

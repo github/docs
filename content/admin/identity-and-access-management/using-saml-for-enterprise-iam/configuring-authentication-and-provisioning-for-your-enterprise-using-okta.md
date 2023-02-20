@@ -15,7 +15,6 @@ topics:
   - Enterprise
   - Identity
   - SSO
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.saml.okta-ae-sso-beta %}

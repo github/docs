@@ -5,7 +5,6 @@ redirect_from:
   - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/security-advisories/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'

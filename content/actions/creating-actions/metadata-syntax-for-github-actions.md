@@ -13,7 +13,6 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -13,7 +13,6 @@ versions:
 topics:
   - API
 shortTitle: Pagination
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About pagination

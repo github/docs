@@ -11,7 +11,6 @@ topics:
   - Infrastructure
   - Storage
 shortTitle: Google Cloud Storage
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

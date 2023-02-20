@@ -2,7 +2,6 @@
 title: About date fields
 shortTitle: About date fields
 intro: You can create custom date fields that can be set by typing a date or using a calendar.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial

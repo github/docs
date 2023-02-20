@@ -5,7 +5,6 @@ permissions: 'Enterprise owners can sign up for {% data variables.product.prodna
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
   - Advanced Security

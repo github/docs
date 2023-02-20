@@ -16,7 +16,6 @@ versions:
 topics:
   - Pull requests
   - Fundamentals
-miniTocMaxHeadingLevel: 3
 ---
 ## Introduction
 

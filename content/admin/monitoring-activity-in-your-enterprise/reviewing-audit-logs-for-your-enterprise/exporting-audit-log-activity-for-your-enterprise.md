@@ -3,7 +3,6 @@ title: Exporting audit log activity for your enterprise
 intro: You can export audit and Git events data to a file for offline analysis.
 shortTitle: Export audit logs
 permissions: Enterprise owners can export the audit log.
-miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
 type: tutorial

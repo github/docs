@@ -10,7 +10,6 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Create a codespace from a template
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About templates for {% data variables.product.prodname_github_codespaces %}

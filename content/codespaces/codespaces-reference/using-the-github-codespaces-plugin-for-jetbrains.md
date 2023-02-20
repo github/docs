@@ -14,7 +14,7 @@ topics:
 
 ## About the {% data variables.product.prodname_github_codespaces %} plugin
 
-The JetBrains client application is launched when you connect to a codespace from the JetBrains Gateway application. It allows you to use {% data variables.product.prodname_github_codespaces %} with you favorite JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+The JetBrains client application is launched when you connect to a codespace from the JetBrains Gateway application. It allows you to use {% data variables.product.prodname_github_codespaces %} with your favorite JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
 
 The {% data variables.product.prodname_github_codespaces %} plugin is already installed in the JetBrains client when you connect to a codespace from the JetBrains Gateway. The plugin adds the {% data variables.product.prodname_github_codespaces %} tool window to the user interface.
 

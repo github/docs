@@ -2,7 +2,6 @@
 title: Configuring GitHub Copilot settings in your organization
 intro: 'You can configure {% data variables.product.prodname_copilot %} in your organization, including granting and revoking access to individuals and teams, and determining whether to block suggestions that match public code.'
 product: '{% data reusables.gated-features.copilot %}'
-miniTocMaxHeadingLevel: 3
 permissions: 'Organization owners and members with admin permissions can configure {% data variables.product.prodname_copilot %} in their organization.'
 versions:
   feature: copilot

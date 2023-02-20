@@ -2,7 +2,6 @@
 title: Using the built-in automations
 shortTitle: Using built-in automations
 intro: You can use built-in workflows to automate your projects.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-workflows
 type: tutorial

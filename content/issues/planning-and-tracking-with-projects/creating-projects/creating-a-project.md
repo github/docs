@@ -1,7 +1,6 @@
 ---
 title: 'Creating a {% data variables.projects.project_v2 %}'
 intro: Learn how to create an organization or user project.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:

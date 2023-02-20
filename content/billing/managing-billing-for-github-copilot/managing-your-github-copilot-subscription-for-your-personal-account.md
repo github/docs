@@ -4,6 +4,7 @@ intro: 'Set up your {% data variables.product.prodname_copilot_for_individuals %
 product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription
 versions:
   feature: copilot
 type: how_to

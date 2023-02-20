@@ -50,15 +50,14 @@ To view people who were automatically removed from your organization for non-com
 {% data reusables.audit_log.octicon_icon %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
-4. Enter your search query using `reason:two_factor_requirement_non_compliance`.
- ![Staff tools audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png)
+1. Enter your search query using `reason:two_factor_requirement_non_compliance`.
  To narrow your search for:
     - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
     - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
 
   You can also view people removed from a particular organization by using the organization name in your search:
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
-5. Click **Search**.  
+1. Click **Search**.
 
 ## Helping removed members and outside collaborators rejoin your organization
 
