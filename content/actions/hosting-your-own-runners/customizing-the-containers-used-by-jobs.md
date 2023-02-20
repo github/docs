@@ -508,12 +508,12 @@ The custom script must be located on the runner, but should not be stored in the
 
 The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
 
-- `ACTIONS_RUNNER_CONTAINER_HOOK`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_CONTAINER_HOOKS`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
 
 To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
 
 ```bash
-ACTIONS_RUNNER_CONTAINER_HOOK=/Users/octocat/runner/index.js
+ACTIONS_RUNNER_CONTAINER_HOOKS=/Users/octocat/runner/index.js
 ```
 
 If you want to ensure that your job always runs inside a container, and subsequently always applies your container customizations, you can set the `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` variable on the self hosted runner to `true`. This will fail jobs that do not specify a job container.
