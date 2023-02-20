@@ -27,7 +27,7 @@ shortTitle: Manage Dependabot PRs
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository. 
+When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository.
 {% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."{% endif %}
 
 If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates)."
@@ -36,7 +36,7 @@ If you have many dependencies to manage, you may want to customize the configura
 
 {% note %}
 
-**Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic deactivation-of-dependabot-updates)" and "[About {% data variables.product.prodname_dependabot_security_updates %}]((/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic deactivation-of-dependabot-updates)."
+**Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)."
 
 {% endnote %}
 
