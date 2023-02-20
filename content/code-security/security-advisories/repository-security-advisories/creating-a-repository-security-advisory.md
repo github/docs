@@ -27,14 +27,14 @@ Anyone with admin permissions to a repository can create a security advisory.
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
 1. Click **New draft security advisory** to open the draft advisory form. The fields marked with an asterisk are required.
-2. Type a title for your security advisory.
+1. In the **Title** field, type a title for your security advisory.
 {% data reusables.repositories.security-advisory-edit-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 {% data reusables.repositories.security-advisory-edit-details %}
 {% data reusables.repositories.security-advisory-edit-severity %}
 {% data reusables.repositories.security-advisory-edit-cwe %}
 1.  Optionally, under "Credits", use the search box to type the username, full name or email of a person you want to credit on the security advisory, then click on their username to add them.
-1. Click **Create draft security advisory**.
+1. Click **Create draft security advisory** to create a draft security advisory.
 {% data reusables.repositories.security-advisory-credits-notification %}
 
 ## Next steps

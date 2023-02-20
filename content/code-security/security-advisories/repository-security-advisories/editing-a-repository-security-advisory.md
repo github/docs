@@ -32,7 +32,7 @@ If you believe you should be credited for a security advisory, please contact th
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to edit.
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to edit.
 5. In the upper-right corner of the details for the security advisory, click **Edit advisory**. This will open the security advisory form in edit mode.
 {% data reusables.repositories.security-advisory-edit-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
@@ -40,7 +40,7 @@ If you believe you should be credited for a security advisory, please contact th
 {% data reusables.repositories.security-advisory-edit-severity %}
 {% data reusables.repositories.security-advisory-edit-cwe %}
 1.  Optionally, under "Credits", remove existing credits, or use the search box to find additional people you want to credit on the security advisory, then click on their username to add them. 
-1.  Click **Update security advisory**.
+1.  Click **Update security advisory** to save your changes to the security advisory.
 {% data reusables.repositories.security-advisory-credits-notification %}
 
 ## Further reading
