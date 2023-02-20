@@ -31,8 +31,7 @@ Dependency review is available in all public repositories in all products and ca
 Dependency review is included in {% data variables.product.product_name %} for public repositories. To use dependency review in private repositories owned by organizations, you must have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) and have the dependency graph enabled.
 
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
-1. If "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
-   ![Screenshot of GitHub Advanced Security feature with "Enable" button emphasized](/assets/images/help/security/enable-ghas-private-repo.png)
+1. Scroll down the page and if "{% data variables.product.prodname_GH_advanced_security %}" is not enabled, click **Enable** next to the feature.
 
 {% elsif ghes or ghae %}
 
