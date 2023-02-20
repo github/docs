@@ -522,7 +522,7 @@ If you want to ensure that your job always runs inside a container, and subseque
 
 ### No timeout setting
 
-There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOK`. As a result, you could consider adding timeout handling to your script.
+There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOKS`. As a result, you could consider adding timeout handling to your script.
 
 ### Reviewing the workflow run log
 
