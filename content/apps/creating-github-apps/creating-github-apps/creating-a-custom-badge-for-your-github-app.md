@@ -37,11 +37,16 @@ To create a custom badge:
 {% data reusables.user-settings.modify_github_app %}
 5. In "Display information", drag-and-drop an image from a local folder or click **Upload a logo** to select an image from your computer.
 ![Upload a logo](/assets/images/github-apps/github_apps_upload_logo.png)
-6. Crop your picture. When you're done, click **Set new avatar**.
-![Crop and set logo ](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% ifversion fpt or ghec %}**Note:** The "Badge background color" input field will only appear after you upload an application logo.{% endif %}
-![Badge background color](/assets/images/github-apps/github_apps_badge_background_color.png)
+6. Optionally, crop your image. When you're done, click **Set new avatar**.
+7. Under "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge.
 
+{% ifversion fpt or ghec %}
+   {% note %}
+
+   **Note:** The "Badge background color" input field will only appear after you upload an application logo.
+
+   {% endnote %}
+{% endif %}
 {% ifversion fpt or ghec %}
 
 ## Next steps
