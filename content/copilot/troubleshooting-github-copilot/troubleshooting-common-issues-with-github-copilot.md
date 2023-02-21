@@ -41,4 +41,5 @@ This is a known issue and our team is working towards a fix. For more informatio
 
 ## Further reading
 
+- [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)
 - [AUTOTITLE](/copilot/troubleshooting-github-copilot)
