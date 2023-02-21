@@ -218,7 +218,7 @@ You can make any changes to a fork, including:
 - **Opening pull requests:** If you want to contribute back to the upstream repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Find another repository to fork
-Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
+Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %} For more information about when you can fork a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
 {% ifversion fpt or ghec %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."
 
