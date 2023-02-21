@@ -12,6 +12,8 @@ topics:
   - Code scanning
   - CodeQL
 ---
+<!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
+make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
 
@@ -240,6 +242,9 @@ The following examples are designed to give you an idea of some of the build com
 This command runs a custom script that contains all of the commands required to build the project.
 
 ### Using indirect build tracing
+
+<!--The CodeQL CLI man pages include a link to this section of the article. If you rename this section,
+make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
 
 If the {% data variables.product.prodname_codeql_cli %} autobuilders for compiled languages do not work with your CI workflow and you cannot wrap invocations of build commands with `codeql database trace-command`, you can use indirect build tracing to create a {% data variables.product.prodname_codeql %} database. To use indirect build tracing, your CI system must be able to set custom environment variables for each build action.
 

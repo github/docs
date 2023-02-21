@@ -24,7 +24,8 @@ topics:
   - Python
 shortTitle: Customize code scanning
 ---
-
+<!--The CodeQL CLI man pages include a link to a section of the article. If you rename this article,
+make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/config-file.-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
@@ -403,6 +404,9 @@ In the following example, the `+` symbol ensures that the specified additional {
 ```
 
 ## Using a custom configuration file
+
+<!--The CodeQL CLI man pages include a link to this section of the article. If you rename this section,
+make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/config-file.-->
 
 A custom configuration file is an alternative way to specify additional {% ifversion codeql-packs %}packs and {% endif %}queries to run. You can also use the file to disable the default queries{% ifversion code-scanning-exclude-queries-from-analysis %}, exclude or include specific queries,{% endif %} and to specify which directories to scan during analysis.
 
