@@ -31,12 +31,9 @@ Your capabilities in the {% data variables.contact.support_portal %} depend on t
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top.
-
-   ![Screenshot of support ticket comment history, with the most recent response at the top](/assets/images/help/support/support-recent-response.png)
-
 1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
 
-   ![Screenshot of a support ticket with the dropdown menu showing the options for translation emphasized](/assets/images/help/support/support-ticket-translation-options.png)
+   ![Screenshot of a support ticket with the dropdown menu showing the options for translation highlighted with a dark orange outline](/assets/images/help/support/support-ticket-translation-options.png)
 
 {% ifversion ghec or ghes or ghae %}
 
@@ -58,11 +55,9 @@ You can only view archived tickets for an enterprise account.
 
 {% data reusables.support.view-open-tickets %}
 1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-![Screenshot showing location of the "Close ticket" button.](/assets/images/help/support/close-ticket.png)
-1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
+2. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
 ![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
-1. To add your comment to the ticket, click **Comment**.
-![Screenshot of the "Comment" button.](/assets/images/help/support/add-comment.png)
+1. To add your comment to the ticket, under the text box, click **Comment**.
 
 {% ifversion ghec or ghes %}
 ## Collaborating on support tickets
