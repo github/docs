@@ -103,7 +103,7 @@
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@graphql-inspector/core": "^3.1.2",
+    "@graphql-inspector/core": "^4.0.0",
     "@graphql-tools/load": "^7.5.14",
     "@jest/globals": "29.4.1",
     "@octokit/graphql": "5.0.4",
