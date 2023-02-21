@@ -44,6 +44,15 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
       bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
       oidc_discovery_url="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}"
     ```
+
+   {% ifversion ghec %}
+   {% note %}
+
+   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[Switching to a unique token URL](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
+
+   {% endnote %}
+   {% endif %}
+
 2. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
     ```sh{:copy}
@@ -77,6 +86,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 - To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
 
 For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
+
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
