@@ -12,12 +12,14 @@ import { program } from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
+import { fileURLToPath } from 'url'
 
 import { decorate } from './utils/decorator.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
 import { allVersions } from '../../../lib/all-versions.js'
 
-const TEMP_DOCS_DIR = path.join('openapiTmp')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const TEMP_DOCS_DIR = path.join(__dirname, 'openapiTmp')
 const DOCS_DEREF_OPENAPI_DIR = path.join('src/rest/data/dereferenced')
 const GITHUB_REP_DIR = path.join('../github')
 
