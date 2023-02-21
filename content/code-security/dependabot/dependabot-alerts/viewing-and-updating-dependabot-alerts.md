@@ -69,11 +69,11 @@ You can select a filter in a dropdown menu at the top of the list, then click th
 
 Alerts for packages listed as development dependencies are marked with the `Development` label on the {% data variables.product.prodname_dependabot_alerts %} page and are also available for filtering via the `scope` filter.
 
-![Screenshot showing the "Development" label in the list of alerts](/assets/images/help/repository/dependabot-alerts-development-label.png)
+![Screenshot showing the "Development" label assigned to an alert in the list of alerts. The label is highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-development-label.png)
 
 The alert details page of alerts on development-scoped packages shows a "Tags" section containing a `Development` label.
 
-![Screenshot showing the "Tags" section in the alert details page](/assets/images/help/repository/dependabot-alerts-tags-section.png)
+![Screenshot showing the "Tags" section in the alert details page. The label is highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
 {% endif %}
 
@@ -206,16 +206,11 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 1. To just view closed alerts, click **Closed**.
 
    {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
+   ![Screenshot showing the list of Dependabot alerts with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
    {%- else %}
-   ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
+   ![Screenshot showing the list of Dependabot alerts with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed.png)
    {%- endif %}
 1. Click the alert that you would like to view or update.
-
-   {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert-checkbox.png)
-   {%- else %}
-   ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)   {%- endif %}
 2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
 
    {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
@@ -228,8 +223,7 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 ### Reopening multiple alerts at once
 
 1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen.
-   ![Screenshot of closed alerts with checkboxes emphasized](/assets/images/help/repository/dependabot-alerts-open-checkbox.png)
+2. To the left of each alert title, select the alerts that you want to reopen by clicking the checkbox adjacent to each alert.
 3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
    ![Screenshot of closed alerts with all alerts selected](/assets/images/help/graphs/select-all-closed-alerts.png)
 4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
