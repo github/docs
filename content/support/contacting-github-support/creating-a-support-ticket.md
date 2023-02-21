@@ -24,6 +24,14 @@ topics:
   - Support
 ---
 
+{% ifversion ghec or ghes %}
+## Prerequisites
+
+Before using the support portal for the first time, review the following.
+
+1. "[AUTOTITLE](/support/contacting-github-support/getting-started-with-the-support-portal.md)" 
+{% endif%}
+
 {% ifversion fpt or ghec or ghes %}
 
 ## About support tickets
