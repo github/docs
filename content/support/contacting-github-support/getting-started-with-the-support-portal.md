@@ -8,8 +8,6 @@ versions:
   ghes: '*'
   ghae: ''
 redirect_from:
-children:
-  - getting-started-with-the-support-portal
 topics:
   - Enterprise
   - Support
