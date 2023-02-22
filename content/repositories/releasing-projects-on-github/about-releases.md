@@ -19,12 +19,6 @@ topics:
 ---
 ## About releases
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-![An overview of releases](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-{% else %}
-![An overview of releases](/assets/images/help/releases/releases-overview.png)
-{% endif %}
-
 Releases are deployable software iterations you can package and make available for a wider audience to download and use.
 
 Releases are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging), which mark a specific point in your repository's history. A tag date may be different than a release date since they can be created at different times. For more information about viewing your existing tags, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."

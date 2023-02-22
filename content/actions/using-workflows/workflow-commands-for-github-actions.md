@@ -699,7 +699,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 #### Example of a multiline string
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+This example selects a random value for `$EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -708,9 +708,10 @@ steps:
   - name: Set the value in bash
     id: step_one
     run: |
-      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+      echo "JSON_RESPONSE<<$EOF" >> $GITHUB_ENV
       curl https://example.com >> $GITHUB_ENV
-      echo 'EOF' >> $GITHUB_ENV
+      echo "$EOF" >> $GITHUB_ENV
 ```
 
 {% endbash %}
@@ -722,9 +723,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
+      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
+      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
       (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
-      "EOF" >> $env:GITHUB_ENV
+      "$EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 

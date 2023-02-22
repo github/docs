@@ -108,7 +108,7 @@ export const DefaultLayout = (props: Props) => {
           </>
         )}
       </Head>
-      <a href="#main-content" className="sr-only">
+      <a href="#main-content" className="sr-only color-bg-accent-emphasis color-fg-on-emphasis">
         Skip to main content
       </a>
       <Header />
