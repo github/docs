@@ -158,15 +158,21 @@ The following rules apply to configuration variable names:
 
 ### Limits for configuration variables
 
-You can store up to 1,000 organization variables, 100 repository variables, and 100 environment variables.
+You can store up to 1,000 organization variables, 500 repository variables, and 100 environment variables (per environment). The total size limit for organization and repository variables is 256 KB.
 
 A workflow created in a repository can access the following number of variables:
 
-* All 100 repository variables.
-* If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
+* All 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* All 1,000 environment variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
 * All 100 environment variables.
 
 Variables are limited to 48 KB in size.
+
+{% note %}
+
+**Note**: Environment variables do not count toward the 256 KB total size limit. If you exceed the size limit for repository and organization variables and still need additional variables, you can create an environment and define additional variables there.
+
+{% endnote %}
 
 {% endif %}
 
