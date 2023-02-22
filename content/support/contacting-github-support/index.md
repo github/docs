@@ -15,5 +15,6 @@ children:
   - creating-a-support-ticket
   - viewing-and-updating-support-tickets
   - providing-data-to-github-support
+  - getting-started-with-the-support-portal
 ---
 
