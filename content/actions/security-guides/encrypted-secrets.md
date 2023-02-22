@@ -48,6 +48,8 @@ The following rules apply to secret names:
 
 To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
 
+Lastly, if your secret contains a special character such as `$` ensure you utilize an escaped character beforehand to avoid any parsing issues.
+
 ### Accessing your secrets
 
 To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv)."
