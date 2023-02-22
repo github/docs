@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
@@ -36,31 +35,41 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
               !isLast && 'border-bottom'
             )}
           >
-            <ul className={cx(withReleaseNoteLabel)}>
-              <h3 id={sectionSlug}>
+            <div>
+              <h3 className="pl-4" id={sectionSlug}>
                 <LinkIconHeading slug={sectionSlug} />
                 {SectionToLabelMap[key] || 'INVALID SECTION'}
               </h3>
-              {sectionItems.map((item) => {
-                if (typeof item === 'string') {
-                  return <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
-                }
+              <ul>
+                {sectionItems.map((item) => {
+                  if (typeof item === 'string') {
+                    return (
+                      <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
+                    )
+                  }
 
-                const headingSlug = item.heading ? slug(item.heading) : ''
-                return (
-                  <Fragment key={headingSlug}>
-                    <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
-                      <Link href={`#${headingSlug}`}>{item.heading}</Link>
-                    </h4>
-                    {item.notes.map((note) => {
-                      return (
-                        <li key={note} className="f4" dangerouslySetInnerHTML={{ __html: note }} />
-                      )
-                    })}
-                  </Fragment>
-                )
-              })}
-            </ul>
+                  const headingSlug = item.heading ? slug(item.heading) : ''
+                  return (
+                    <>
+                      <li className="list-style-none" key={headingSlug}>
+                        <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
+                          <Link href={`#${headingSlug}`}>{item.heading}</Link>
+                        </h4>
+                      </li>
+                      {item.notes.map((note) => {
+                        return (
+                          <li
+                            key={note}
+                            className="f4"
+                            dangerouslySetInnerHTML={{ __html: note }}
+                          />
+                        )
+                      })}
+                    </>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
         )
       })}
