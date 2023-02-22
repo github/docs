@@ -15,6 +15,7 @@ coverage/
 .eslintcache
 *.tsbuildinfo
 translations/
+.node-version
 
 # blc: broken link checker
 blc_output.log
