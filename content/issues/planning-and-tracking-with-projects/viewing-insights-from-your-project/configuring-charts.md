@@ -1,24 +1,16 @@
 ---
 title: Configuring charts
 intro: Learn how to configure your charts and filter data from your project.
-miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  feature: projects-v2-insights
 type: tutorial
 product: '{% data reusables.gated-features.historical-insights-for-projects %}'
+permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects
 ---
 
-{% ifversion fpt %}
-
-{% note %}
-
-**Note:** Historical charts are currently available as a feature preview.
-
-{% endnote %}
-
-{% endif %}
+{% data reusables.projects.insights-release-note %}
 
 {% data reusables.projects.access-insights %}
 1. In the menu on the left, click on the chart you would like to configure.

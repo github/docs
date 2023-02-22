@@ -36,11 +36,46 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 * In your codespace, create a new branch to work on.
 * Make your changes and save them.
 * Commit the change.
 * Raise a pull request.
+
+## About automatic forking
+
+You can create a codespace for any repository to which you have write access. If you only have read access to a repository, you can create a codespace for the repository as long as you can fork it. 
+
+You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it. 
+
+If you make a commit from the codespace, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
+
+{% note %}
+
+**Note:** If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+
+{% endnote %}
+
+If you make a commit from the command line, you will see a prompt asking if you would like to proceed with linking your codespace to a new or existing fork. Enter `y` to proceed. If you commit changes from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}, or from the navigation bar in a JetBrains IDE, your codespace is automatically linked to a fork without you being prompted.
+
+When {% data variables.product.prodname_github_codespaces %} creates a fork, or links your codespace to an existing fork, the following things happen.
+
+- The access token associated with your codespace is updated to include `read` and `write` permission to your fork, in addition to `read` permission to the upstream repository.
+- In your Git settings, the upstream repository is reassigned to the name `upstream`, and the fork is added as a new remote repository under the name `origin`.
+
+By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
+
+```Shell
+$ git fetch upstream
+```
+
+When you have made some changes, you can push them to a feature branch of your fork.
+
+```Shell
+$ git push origin my-feature-branch
+```
+
+For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 {% webui %}
 

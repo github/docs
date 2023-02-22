@@ -12,18 +12,18 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
 ---
 
-# Migrating from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
-
-The {% data variables.code-scanning.codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
+On April 1, 2022, the {% data variables.code-scanning.codeql_runner %} was fully deprecated. You should use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
 This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 
 ## Installation
 
 Download the **{% data variables.product.prodname_codeql %} bundle** from the [`github/codeql-action` repository](https://github.com/github/codeql-action/releases). This bundle contains the {% data variables.product.prodname_codeql_cli %} and the standard {% data variables.product.prodname_codeql %} queries and libraries.
 
-For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 ## Overview of workflow changes
 
@@ -41,7 +41,7 @@ A typical workflow that uses the {% data variables.product.prodname_codeql_cli %
 
 The {% data variables.code-scanning.codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.code-scanning.codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
 
-For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
 
 ## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
 

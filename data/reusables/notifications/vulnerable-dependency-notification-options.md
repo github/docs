@@ -5,7 +5,7 @@
 - in the user interface, a warning is shown in your repository's file and code views if there are any insecure dependencies (**UI alerts** option).{% endif %}
 - on the command line, warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**CLI** option).
 {% ifversion not ghae %}
-- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with {% data variables.product.prodname_mobile %}](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
+- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
 
 {% note %}
 

@@ -30,7 +30,7 @@ topics:
 
 ## Further reading
 
-- "[Viewing your repository's tags](/articles/viewing-your-repositorys-tags)"
-- "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-- "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-- "[Signing commits](/articles/signing-commits)"
+- "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"

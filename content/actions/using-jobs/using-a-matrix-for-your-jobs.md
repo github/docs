@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
 ---

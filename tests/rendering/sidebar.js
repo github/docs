@@ -27,22 +27,19 @@ describe('sidebar', () => {
     ])
   })
 
-  test('highlights active product on Enterprise pages', async () => {
-    expect($enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Enterprise administrators')
+  test('highlights active product on Enterprise pages on xl viewport', async () => {
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').text().trim()).toBe(
+      'Enterprise administrators'
+    )
   })
 
-  test('highlights active product on GitHub pages', async () => {
-    expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Get started')
+  test('highlights active product on GitHub pages on xl viewport', async () => {
+    expect($githubPage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($githubPage('[data-testid=sidebar-product-xl]').text().trim()).toBe('Get started')
   })
 
-  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
+  test('includes links to external products like Electron and CodeQL', async () => {
     expect(
       $homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs/latest"]')
     ).toHaveLength(1)
@@ -129,7 +126,7 @@ describe('sidebar', () => {
 
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
-      const renderOpts = { textOnly: true, encodeEntities: true }
+      const renderOpts = { textOnly: true }
 
       for (const filename of contentFiles) {
         const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))

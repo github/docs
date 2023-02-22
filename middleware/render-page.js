@@ -17,9 +17,7 @@ async function buildRenderedPage(req) {
 
   const pageRenderTimed = statsd.asyncTimer(page.render, 'middleware.render_page', [`path:${path}`])
 
-  const renderedPage = await pageRenderTimed(context)
-
-  return renderedPage
+  return await pageRenderTimed(context)
 }
 
 async function buildMiniTocItems(req) {
@@ -31,7 +29,7 @@ async function buildMiniTocItems(req) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel, '')
+  return getMiniTocItems(context.renderedPage, '')
 }
 
 export default async function renderPage(req, res) {
@@ -83,7 +81,7 @@ export default async function renderPage(req, res) {
   if (isConnectionDropped(req, res)) return
 
   // Create string for <title> tag
-  page.fullTitle = page.titlePlainText
+  page.fullTitle = page.title
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(path)) {

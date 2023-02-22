@@ -8,6 +8,9 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import renderContent from '../../lib/render-content/index.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import contextualize from '../../middleware/context.js'
+import shortVersions from '../../middleware/contextualizers/short-versions.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const slugger = new GithubSlugger()
@@ -96,9 +99,18 @@ describe('category pages', () => {
             return fileExists && fs.statSync(mdPath).isFile()
           })
 
+          const next = () => {}
+          const res = {}
+          const req = {
+            language: 'en',
+            pagePath: '/en',
+          }
+          await contextualize(req, res, next)
+          await shortVersions(req, res, next)
+
           // Save the index title for later testing
           indexTitle = data.title.includes('{')
-            ? await renderContent(data.title, { currentLanguage: 'en' }, { textOnly: true })
+            ? await renderContent(data.title, req.context, { textOnly: true })
             : data.title
 
           publishedArticlePaths = (

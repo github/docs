@@ -19,13 +19,13 @@ To direct people to specific support resources, you can add a SUPPORT file to yo
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default support resources for your organization or personal account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default support resources for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/articles/about-readmes/).
+**Tip:** To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
 {% endtip %}
 

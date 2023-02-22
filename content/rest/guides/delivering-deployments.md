@@ -16,12 +16,9 @@ topics:
  
   
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
-the capability to launch them on a server that you own. Combined with
-[the Status API][status API], you'll be able to coordinate your deployments
-the moment your code lands on the default branch.
+You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[AUTOTITLE](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[AUTOTITLE](/rest/guides/building-a-ci-server)."
 
-This guide will use that API to demonstrate a setup that you can use.
+This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
 
 * Merge a pull request.
@@ -39,7 +36,7 @@ applications to the internet.
 {% ifversion cli-webhook-forwarding %}
 {% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
 
 {% endnote %}
 {% endif %}

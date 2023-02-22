@@ -10,7 +10,7 @@ introLinks:
   overview: /copilot/overview-of-github-copilot/about-github-copilot
   quickstart: /copilot/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
     - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
     - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
@@ -28,6 +28,7 @@ children:
   - /overview-of-github-copilot
   - /getting-started-with-github-copilot
   - /configuring-github-copilot
+  - /troubleshooting-github-copilot
 topics:
   - Copilot
 ---

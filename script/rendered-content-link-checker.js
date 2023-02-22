@@ -12,6 +12,7 @@ import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
 import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
+import { allVersions } from '../lib/all-versions.js'
 import github from './helpers/github.js'
 
 const STATIC_PREFIXES = {
@@ -34,6 +35,23 @@ program
     ).choices(['all', 'warning', 'critical'])
   )
   .option('-f, --filter <FILTER...>', 'Search filter(s) on the paths')
+  .option(
+    '-V, --version <VERSION...>',
+    "Specific versions to only do (e.g. 'free-pro-team@latest')",
+    (version) => {
+      if (!(version in allVersions)) {
+        for (const [key, data] of Object.entries(allVersions)) {
+          if (version === data.miscVersionName) {
+            return key
+          }
+        }
+        throw new InvalidArgumentError(
+          `'${version}' is not a recognized version. (not one of ${Object.keys(allVersions)})`
+        )
+      }
+      return version
+    }
+  )
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--create-report',

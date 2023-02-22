@@ -8,7 +8,7 @@ redirect_from:
 changelog:
   label: wikis
 featuredLinks:
-  guides:
+  startHere:
     - /communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors
     - /communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project
     - /communities/moderating-comments-and-conversations/managing-disruptive-comments

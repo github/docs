@@ -17,7 +17,7 @@ shortTitle: Compare branches
 ---
 {% note %}
 
-**Note:** When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[Creating a pull request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+**Note:** When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
 {% endnote %}
 
@@ -44,13 +44,13 @@ You can also choose to ignore whitespace changes to get a more accurate view of 
 
 ![Diff viewing options menu](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
+- You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
+- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
 
 ## Three-dot and two-dot Git diff comparisons
 
@@ -88,5 +88,5 @@ To avoid getting confused, merge the base branch (for example, `main`) into your
 
 ## Further reading
 
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

@@ -62,11 +62,11 @@ The new code view also includes updates to the ways in which you work with files
 
   ![Screenshot of the file editor in the new code view with emphasis on the edit icon](/assets/images/help/repository/code-view-edit-icon.png)
 
-1. To edit a file on the github.dev {% data variables.codespaces.serverless %} or {% data variables.product.prodname_desktop %}, select {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} next to {% octicon "pencil" aria-label="The pencil icon" %}, then click either **github.dev** or **{% data variables.product.prodname_desktop %}**.
+1. To edit a file on the {% data variables.codespaces.serverless %} web-based editor or {% data variables.product.prodname_desktop %}, select {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} next to {% octicon "pencil" aria-label="The pencil icon" %}, then click either **github.dev** or **{% data variables.product.prodname_desktop %}**.
 
   {% note %}
 
-  **Note:** The github.dev {% data variables.codespaces.serverless %} is currently in beta preview. You can provide feedback [in our discussions](https://github.com/community/community/discussions/categories/general).
+  **Note:** The {% data variables.codespaces.serverless %} editor is currently in beta preview. You can provide feedback [in our discussions](https://github.com/community/community/discussions/categories/general).
 
   {% endnote %}
 
@@ -97,7 +97,7 @@ The new code view also includes updates to the ways in which you work with files
 ## Using the symbols pane
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
-Symbol search is a feature of the new code search (beta). For more information, see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+Symbol search is a feature of the new code search (beta). For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
 
 1. Select a repository, then navigate to a file containing symbols.
 2. To bring up the symbols pane, click {% octicon "code-square" aria-label="The code square icon" %}.
@@ -157,5 +157,5 @@ Rather than losing file context when you enter the blame view, you can now use t
 
 ## Further reading
 
-- "[Moving a file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)"
-- "[About GitHub Code Search (beta)](/search-github/github-code-search/about-github-code-search)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)"
+- "[AUTOTITLE](/search-github/github-code-search/about-github-code-search)"

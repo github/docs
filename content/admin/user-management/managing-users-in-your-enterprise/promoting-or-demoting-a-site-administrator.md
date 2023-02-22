@@ -18,11 +18,11 @@ shortTitle: Manage administrators
 ---
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) and the `Administrators group` attribute is set when [configuring LDAP access for users](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), those users will automatically have site administrator access to your instance. In this case, you can't manually promote users with the steps below; you must add them to the LDAP administrators group.
+**Note:** If [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) and the `Administrators group` attribute is set when [configuring LDAP access for users](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), those users will automatically have site administrator access to your instance. In this case, you can't manually promote users with the steps below; you must add them to the LDAP administrators group.
 
 {% endtip %}
 
-For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-admin-promote)."
+For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote)."
 
 ## Promoting a user from the enterprise settings
 
@@ -30,9 +30,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. In the upper-right corner of the page, click **Add owner**.
-  ![Button to add an admin](/assets/images/help/business-accounts/business-account-add-admin-button.png)
-6. In the search field, type the name of the user and click **Add**.
-  ![Search field to add an admin](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
+6. In the search field, type the name of the user, then click **Add**.
 
 ## Demoting a site administrator from the enterprise settings
 
@@ -40,23 +38,26 @@ For information about promoting a user to an organization owner, see the `ghe-or
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. In the upper-left corner of the page, in the "Find an administrator" search field, type the username of the person you want to demote.
-  ![Search field to find an administrator](/assets/images/help/business-accounts/business-account-search-for-admin.png)
+{%- ifversion ghes > 3.6 %}
+1. In the search results, find the username of the person you want to demote, then select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu and click **Convert to member**.
 
+   ![Screenshot of a user in the enterprise administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
+{%- else %}
 1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**.
-  ![Remove from enterprise option](/assets/images/help/business-accounts/demote-admin-button.png)
+{%- endif %}
 
 ## Promoting a user from the command line
 
-1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-promote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-promote) with the username to promote.
+1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
+2. Run [ghe-user-promote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-promote) with the username to promote.
   ```shell
   $ ghe-user-promote USERNAME
   ```
 
 ## Demoting a site administrator from the command line
 
-1. [SSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/) into your appliance.
-2. Run [ghe-user-demote](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-demote) with the username to demote.
+1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
+2. Run [ghe-user-demote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-demote) with the username to demote.
   ```shell
   $ ghe-user-demote USERNAME
   ```

@@ -28,17 +28,17 @@ shortTitle: Manage a payment method
 ---
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-We don't provide invoicing or support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can also [add extra information](/articles/adding-information-to-your-personal-account-s-receipts) to your receipts.
+We don't provide invoicing or support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can also [add extra information](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts) to your receipts.
 
 ## Updating your personal account's payment method
 
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has existing billing information that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-information-edit-button.png)
+![Screenshot of the "Payment information" section. Next to "Billing information", a link, labeled "Edit", is highlighted with an orange outline.](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
 1. If your account has an existing payment method that you want to update, click **Edit**.
-![Billing New Card button](/assets/images/help/billing/billing-payment-method-edit-button.png)
+![Screenshot of the "Payment method" section. Next to "Payment method", a link, labeled "Edit", is highlighted with an orange outline.](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ## Updating your organization's payment method
@@ -50,5 +50,5 @@ If your organization is outside of the US or if you're using a corporate checkin
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has an existing credit card that you want to update, click **New Card**.
-![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

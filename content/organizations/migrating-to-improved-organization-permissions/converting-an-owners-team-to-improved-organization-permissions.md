@@ -25,7 +25,7 @@ You have a few options to convert your legacy Owners team:
 
 {% tip %}
 
-   **Note:** Because "admin" is a term for organization members with specific [access to certain repositories](/articles/repository-permission-levels-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+   **Note:** Because "admin" is a term for organization members with specific [access to certain repositories](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
 
 {% endtip %}
 
@@ -35,11 +35,11 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.organizations.convert-owners-team-confirm %}
 5. In the team name field, choose a new name for the Owners team. For example:
     - If very few members of your organization were members of the Owners team, you might name the team "Core".
-    - If all members of your organization were members of the Owners team so that they could [@mention teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), you might name the team "Employees".
+    - If all members of your organization were members of the Owners team so that they could [@mention teams](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), you might name the team "Employees".
   ![The team name field, with the Owners team renamed to Core](/assets/images/help/teams/owners-team-new-name.png)
 6. Under the team description, click **Save and continue**.
 ![The Save and continue button](/assets/images/help/teams/owners-team-save-and-continue.png)
-7. Optionally, [make the team *public*](/articles/changing-team-visibility).
+7. Optionally, [make the team *public*](/organizations/organizing-members-into-teams/changing-team-visibility).
 
 ## Delete the legacy Owners team
 

@@ -8,7 +8,7 @@ redirect_from:
 introLinks:
   overview: '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/about-billing-on-github{% elsif ghes%}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
 featuredLinks:
-  guides:
+  startHere:
     - '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method{% endif %}'
     - '{% ifversion fpt %}/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription{% endif %}'
     - '{% ifversion ghec %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
@@ -22,7 +22,7 @@ featuredLinks:
     - '{% ifversion ghec %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-billing-for-github-actions/about-billing-for-github-actions{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces{% endif %}'
     - '{% ifversion ghes %}/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security{% endif %}'
     - '{% ifversion ghes %}/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server{% endif %}'

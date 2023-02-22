@@ -8,6 +8,7 @@ import warmServer from '../lib/warm-server.js'
 import searchVersions from '../lib/search/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
+
 const activeProducts = Object.values(productMap).filter(
   (product) => !product.wip && !product.hidden
 )
@@ -16,6 +17,7 @@ const {
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
+  getPathWithoutVersion,
 } = pathUtils
 
 // This doesn't change just because the request changes, so compute it once.
@@ -43,6 +45,10 @@ export default async function contextualize(req, res, next) {
   req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
+
+  // define property for writers to link to the current page in a different version
+  // includes any type of rendered page not just "articles"
+  req.context.currentArticle = getPathWithoutVersion(req.context.currentPathWithoutLanguage)
   req.context.currentPath = req.pagePath
   req.context.query = req.query
   req.context.languages = languages
@@ -65,5 +71,31 @@ export default async function contextualize(req, res, next) {
 
   const restDate = new Date(req.context.initialRestVersioningReleaseDate)
   req.context.initialRestVersioningReleaseDateLong = restDate.toUTCString().split(' 00:')[0]
+
+  // Conditionally add this for non-English pages so what inside the
+  // `Page.render` method, when it calls out to `renderContentWithFallback`
+  // it can be able to fall back get original content from English if there's
+  // some runtime rendering error from the translation.
+  if (req.language !== 'en') {
+    // The reason this is a function is because most of the time, we don't
+    // need to know the English equivalent. It only comes into play if a
+    // translated
+    req.context.getEnglishPage = (context) => {
+      if (!context.enPage) {
+        const { page } = context
+        if (!page) {
+          throw new Error("The 'page' has not been put into the context yet.")
+        }
+        const enPath = context.currentPath.replace(`/${page.languageCode}`, '/en')
+        const enPage = context.pages[enPath]
+        if (!enPage) {
+          throw new Error(`Unable to find equivalent English page by the path '${enPath}'`)
+        }
+        context.enPage = enPage
+      }
+      return context.enPage
+    }
+  }
+
   return next()
 }

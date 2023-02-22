@@ -27,7 +27,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 ## Creating your first workflow
 
 1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 1. Copy the following YAML contents into the `github-actions-demo.yml` file:
 
    ```yaml{:copy}
@@ -78,7 +78,7 @@ Committing the workflow file to a branch in your repository triggers the `push` 
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
 ## More starter workflows
 

@@ -11,12 +11,12 @@ For runner groups in an enterprise, you can change what organizations in the ent
 
 ### Changing what organizations or repositories can access a runner group
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
 
-{% elsif ghae < 3.4 or ghes < 3.4 %}
+{% elsif ghae < 3.4 %}
 {% data reusables.actions.configure-runner-group-access %}
 {% endif %}
 

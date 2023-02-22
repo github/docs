@@ -21,6 +21,8 @@ children:
   - /roles-in-an-enterprise
   - /best-practices-for-user-security
   - /inviting-people-to-manage-your-enterprise
+  - /managing-invitations-to-organizations-within-your-enterprise
+  - /managing-organization-members-in-your-enterprise
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise

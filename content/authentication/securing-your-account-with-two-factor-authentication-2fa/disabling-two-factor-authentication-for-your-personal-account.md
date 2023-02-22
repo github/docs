@@ -24,16 +24,23 @@ We strongly recommend using two-factor authentication to secure your account. If
 If your organization requires two-factor authentication and you're a member, owner, or an outside collaborator on a private repository of your organization, you must first leave your organization before you can disable two-factor authentication.
 
 To remove yourself from your organization:
- - As an organization member or owner, see "[Removing yourself from an organization](/articles/removing-yourself-from-an-organization/)."
- - As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[Viewing people's roles in an organization](/articles/viewing-people-s-roles-in-an-organization)" and "[Removing an outside collaborator from an organization repository](/articles/removing-an-outside-collaborator-from-an-organization-repository/)."
+ - As an organization member or owner, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)."
+ - As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-3. Click **Disable**.
-  ![Disable two-factor authentication button](/assets/images/help/2fa/disable-two-factor-authentication.png)
+{% ifversion 2fa-reconfiguration-inline-update %}
+1. Hover over **Enabled**, then click **Disable**.
+
+  ![Screenshot of an account's 2FA settings. A green button labeled "Enabled" is outlined in orange.](/assets/images/help/2fa/disable-two-factor-authentication.png)
+
+1. If necessary, enter your password or perform 2FA once more to disable 2FA for your {% data variables.product.prodname_dotcom %} account.
+{% else %}
+1. Click **Disable**.
+{% endif %}
 
 ## Further reading
 
-- "[About two-factor authentication](/articles/about-two-factor-authentication)"
-- "[Configuring two-factor authentication](/articles/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"

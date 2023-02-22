@@ -15,7 +15,7 @@ topics:
   - Profiles
 shortTitle: Show an overview
 ---
-{% data reusables.profile.activity-overview-summary %} For more information, see "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)."
 
 ![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
 

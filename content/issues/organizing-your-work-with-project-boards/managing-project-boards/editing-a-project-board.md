@@ -17,7 +17,7 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)."
+**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endtip %}
 
@@ -29,6 +29,6 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"

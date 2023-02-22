@@ -35,18 +35,16 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Select **Public Pages**.
-  ![Checkbox to enable Public Pages](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-1. Unselect **Enable Pages**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
+1. Deselect **Enable Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
@@ -77,10 +75,9 @@ You can add or override response headers for {% data variables.product.prodname_
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-1. Type the headers settings, then click **Add headers**.
-   - In the **Http Header Name** field, type the header name. The length of header name should less than 128 characters.
-   - In the **Http Header Value** field, type the header value. The length of header value should less than 300 characters.
-![The {% data variables.product.prodname_pages %} response header name and value fields in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
+1. Under "Http Header Name," type the header name. The length of header name should less than 128 characters.
+1. Under "Http Header Value," type the header value. The length of header value should less than 300 characters.
+1. Click **Add headers**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
@@ -88,5 +85,5 @@ You can add or override response headers for {% data variables.product.prodname_
 {% ifversion ghes %}
 ## Further reading
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
 {% endif %}

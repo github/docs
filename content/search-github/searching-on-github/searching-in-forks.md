@@ -28,5 +28,5 @@ The `fork:true` qualifier finds all results that match your search query, includ
 
 ## Further reading
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

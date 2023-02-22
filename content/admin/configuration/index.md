@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 children:
+  - /administering-your-instance-from-the-management-console
   - /configuring-your-enterprise
   - /configuring-network-settings
   - /configuring-github-connect
@@ -18,7 +19,7 @@ children:
 {% ifversion ghes %}
 {% note %}
 
-**Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[Managing GitHub Actions for your enterprise](/admin/github-actions)" or "[Managing GitHub Packages for your enterprise](/admin/packages)."
+**Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[AUTOTITLE](/admin/github-actions)" or "[AUTOTITLE](/admin/packages)."
 
 {% endnote %}
 {% endif %}
