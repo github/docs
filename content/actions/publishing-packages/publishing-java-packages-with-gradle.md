@@ -33,7 +33,7 @@ For more information about creating a CI workflow for your Java project with Gra
 
 You may also find it helpful to have a basic understanding of the following:
 
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "[AUTOTITLE](/actions/learn-github-actions/variables)"
 - "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
 - "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
