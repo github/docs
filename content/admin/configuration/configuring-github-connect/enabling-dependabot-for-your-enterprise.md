@@ -1,7 +1,6 @@
 ---
 title: Enabling Dependabot for your enterprise
 intro: 'You can allow users of {% data variables.location.product_location %} to find and fix vulnerabilities in code dependencies by enabling {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
-miniTocMaxHeadingLevel: 3
 shortTitle: Dependabot
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -108,6 +107,16 @@ After you enable {% data variables.product.prodname_dependabot_alerts %} for you
 {% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
 {% endif %}
 
+{% ifversion ghes > 3.4 %}
+
+{% note %}
+
+**Note:** After you enable the dependency graph, you can use the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action). The action will raise an error if any vulnerabilities or invalid licenses are being introduced. {% data reusables.actions.action-bundled-actions %}
+
+{% endnote %}
+
+{% endif %}
+
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -115,7 +124,7 @@ After you enable {% data variables.product.prodname_dependabot_alerts %} for you
 1. Under "Security", select **{% data variables.product.prodname_dependabot_security_updates %}**.
 {% data reusables.enterprise_management_console.save-settings %}
 1. Click **Visit your instance**.
-1. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
+2. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates)."
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can easily upgrade to non-vulnerable open source code dependencies", click **Enable**.

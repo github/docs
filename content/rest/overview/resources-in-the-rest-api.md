@@ -8,7 +8,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 topics:
   - API
 ---

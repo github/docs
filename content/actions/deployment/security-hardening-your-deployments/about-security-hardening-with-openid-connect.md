@@ -2,7 +2,6 @@
 title: About security hardening with OpenID Connect
 shortTitle: Security hardening with OpenID Connect
 intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
-miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
   ghec: '*'
@@ -377,7 +376,7 @@ For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:
 
 #### Example: Granting access to a specific repository
 
-This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. To help improve security, combine this template with the custom issuer URL described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-url-for-an-enterprise)."
+This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. {% ifversion ghec %}To further improve security, you can combine this template with a unique issuer URL for your enterprise, as described in "[Switching to a unique token URL](#switching-to-a-unique-token-url)."{% endif %}
 
 {% data reusables.actions.use-request-body-api %}
 

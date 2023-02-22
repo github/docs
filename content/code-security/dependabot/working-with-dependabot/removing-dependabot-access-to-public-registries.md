@@ -2,7 +2,6 @@
 title: Removing Dependabot access to public registries
 intro: 'Examples of how you can configure {% data variables.product.prodname_dependabot %} to only access private registries by removing calls to public registries.'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: dependabot-private-registries
 type: how_to

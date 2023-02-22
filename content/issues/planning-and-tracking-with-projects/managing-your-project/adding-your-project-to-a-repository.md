@@ -2,7 +2,6 @@
 title: 'Adding your {% data variables.projects.project_v2 %} to a repository'
 shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a repo'
 intro: 'You can add your {% data variables.projects.project_v2 %} to a repository to make it accessible from that repository.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial

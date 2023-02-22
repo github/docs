@@ -2,7 +2,6 @@
 title: About text and number fields
 shortTitle: About text and number fields
 intro: You can add custom text and number fields to your project.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial

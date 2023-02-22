@@ -68,6 +68,7 @@ const PUBLIC_REPOS = new Set([
   'tweetsodium',
   'VisualStudio',
   'codespaces-getting-started-ml',
+  'dependabot-action',
 ])
 
 const ALLOW_DOCS_PATHS = [

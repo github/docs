@@ -1,15 +1,86 @@
 # Creating and updating screenshots
 
-Screenshots complement text instructions for using GitHub. Use a screenshot when one or both of the following apply:
+Screenshots complement text instructions for using GitHub. 
 
-- The relevant **area of the interface has multiple choices**, which would cause confusion without a visual cue.
-- A key **interface element is small, subtle**, or otherwise hard to find.
+**Use a screenshot when a user interface element is hard to find:** 
+
+- The UI element is small or visually subtle.
+- The UI element is not immediately visible. For example, it is contained in a dropdown menu.
+- The interface has multiple competing choices that can cause confusion.
 
 Don't use screenshots for simple steps where text does the job, or to show code commands or outputs.
 
+## Examples of screenshots that meet and don't meet criteria
+
+<details>
+
+<summary>✅ Screenshots to include</summary>
+
+- [The UI element is small or visually subtle](#the-ui-element-is-small-or-visually-subtle)
+- [The UI element is not immediately visible](#the-ui-element-is-not-immediately-visible)
+- [The interface has multiple choices that can cause confusion](#the-interface-has-multiple-choices-that-can-cause-confusion)
+
+### The UI element is small or visually subtle
+
+The edit button for a repository's social media preview image is small and visually unobtrusive. It may be hard to find in the sea of repository settings.
+
+The screenshot is helpful to locate the button, as well as to understand the options it presents.
+
+As a bonus, the screenshot gives a visual reference for the aspect ratio required.
+
+![Screenshot of an article showing text instructions and a UI screenshot for editing a social media image on a GitHub repository.](./images/screenshot-yes-social-preview.png)
+
+### The UI element is not immediately visible
+
+Options to clone a gist are contained under a dropdown menu labeled "Embed."
+
+The screenshot is helpful to locate the correct option in the menu, which is not visible until the dropdown is opened.
+
+![Screenshot of an article showing instructions and a UI screenshot for cloning a gist on GitHub.](./images/screenshot-yes-clone-gist.png)
+
+### The interface has multiple choices that can cause confusion
+
+There are fully three settings options on a repository page: the repository settings menu itself, the floating gear icon by "About" to edit repository info, and the account settings accessed via the profile picture.
+
+The screenshot is helpful to find the correct option.
+
+![Screenshot of an article showing instructions and a UI screenshot for locating the Settings page in a GitHub repository.](./images/screenshot-yes-repository-settings.png)
+
+</details>
+
+<details>
+
+<summary>❌ Screenshots to omit</summary>
+
+- [The UI element is easy to find](#the-ui-element-is-easy-to-find)
+- [The UI has few, straightforward choices](#the-ui-has-few-straightforward-choices)
+
+### The UI element is easy to find
+
+GitHub's "Create repository" button is visually prominent through size, color, and placement. There are few duelling choices.
+
+Text instructions are adequate to help the user complete the step.
+
+![Screenshot of an article showing instructions and a UI screenshot for the final step in creating a new repository on GitHub.](./images/screenshot-no-create-repository.png)
+
+### The UI has few, straightforward choices
+
+Simple and straightforward options, such as checking or unchecking a box, do not need a visual support.
+
+Text instructions are adequate to help the user complete the step.
+
+There are also two accessibility implications of including the full sentence of text below the checkbox in the screenshot:
+
+1. It's hard to read for low-sighted users because it's small and not as crisp as HTML text.
+2. A person using a screen reader won't have access to the information, because it will not fit within alt text character limits. Including the text in the instructions would remedy this, but be unnecessarily wordy.
+
+![Screenshot of an article showing instructions and a UI screenshot for requiring GitHub contributors to sign off on web-based commits.](./images/screenshot-no-require-signoff.png)
+
+</details>
+
 ## Pros and cons of screenshots
 
-Consider these in your decision-making.
+Consider these factors when planning the screenshot strategy for an article or set of content.
 
 ### Pros of screenshots
 
@@ -29,7 +100,7 @@ Consider these in your decision-making.
 ### Technical specs
 
 - PNG file format
-- 144 dpi (equivalent to 2x on a Mac)
+- 144 dpi
 - 750–1000 pixels wide for full-column images
 - 250KB or less in file size
 - Descriptive file names: `gist-embed-link.png` instead of `right_side_page_03.png`
@@ -40,7 +111,7 @@ To be inclusive of all users, screenshots must:
 
 - **Be accompanied by complete instructions** on the webpage, with no information conveyed entirely in visual form.
 - **Be full contrast** as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-- **Have alt text** that describes the meaning of the image and the appearance of its highlighting, if any. [See alt text guidelines in our style guide.](./content-style-guide.md#alt-text)
+- **Have alt text** that describes the content of the image and the appearance of its highlighting, if any. [See alt text guidelines in our style guide.](./content-style-guide.md#alt-text)
 - **Be clear and crisp**, with text and UI elements as legible as possible.
 
 ### Visual style
@@ -53,7 +124,7 @@ To be inclusive of all users, screenshots must:
   - If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
 - Replace your username and avatar, if they appear, with **[Octocat's](https://github.com/octocat) username and avatar**. You can do this using the developer tools in your browser to edit the rendered page.
 
- ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is highlighted with an orange outline.](./images/issue-comment-close-button.png)
+ ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is outlined in dark orange.](./images/issue-comment-close-button.png)
 
 ## Adding highlighting in Snagit
 
@@ -61,7 +132,7 @@ Use [Snagit](https://www.techsmith.com/screen-capture.html) to apply a contrasti
 
 The stroke is GitHub Primer color `fg.severe` (HEX #BC4C00 or RGB 188, 76, 0). This dark orange has good color contrast on both white and black. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
 
-![Screenshot of four options menus on a GitHub repository. The menu labeled "Fork" shows a fork count of 58.5k and is highlighted with an orange outline.](./images/repository-fork-button.png)
+![Screenshot of four options menus on a GitHub repository. The menu labeled "Fork" shows a fork count of 58.5k and is outlined in dark orange.](./images/repository-fork-button.png)
 
 ### Importing the GitHub Docs theme into Snagit
 
@@ -74,11 +145,11 @@ The stroke is GitHub Primer color `fg.severe` (HEX #BC4C00 or RGB 188, 76, 0). T
 ### Adding a highlight to a screenshot
 
 1. Open a screenshot in Snagit.
-2. Open the "**Resize image**" dialog below the image canvas to set pixel depth (resolution) and pixel width. On Windows, you may need to select **Advanced** to change the resolution.
-   - pixel depth: 144dpi on Windows, 2x on Mac
+2. Open the "**Resize image**" dialog below the image canvas to set pixel depth (resolution) and pixel width. On Windows, you may need to select **Advanced** to change the resolution. Ensure **Use resampling** is off.
+   - pixel depth: 144dpi (equivalent to "2x" on Snagit for Mac)
    - pixel width: 1000 pixels maximum
-3. With the GitHub Docs theme open in the Shapes sidebar, select the orange rectangle.
-4. Drag and drop across the image to create a rectangle. Adjust height and width by dragging edges.
+3. With the GitHub Docs theme open in the Shapes sidebar, select the dark orange rectangle.
+4. Drag and drop across the image to create a rectangle. Adjust height and width by dragging edges. Do not adjust the corner rounding, which should remain 4 px.
 5. Adjust the space between the UI element and the stroke so it's about the width of the stroke itself.
 6. Export image to PNG.
 

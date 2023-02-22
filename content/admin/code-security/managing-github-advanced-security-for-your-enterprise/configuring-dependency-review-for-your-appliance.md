@@ -3,7 +3,6 @@ title: Configuring dependency review for your appliance
 shortTitle: Configuring dependency review
 intro: 'To help users understand dependency changes when reviewing pull requests, you can enable, configure, and disable dependency review for {% data variables.location.product_location %}.'
 product: '{% data reusables.gated-features.dependency-review %}'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: dependency-review-action-ghes
 type: how_to

@@ -7,7 +7,6 @@ redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -69,7 +68,15 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes > 3.4 %}
+
+{% note %}
+
+**Note:** Enterprise owners can download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action) to get the best ecosystem coverage. {% data reusables.actions.action-bundled-actions %}
+
+{% endnote %}
+
+{% endif %}
 
 {% data reusables.dependabot.supported-package-managers %}
 

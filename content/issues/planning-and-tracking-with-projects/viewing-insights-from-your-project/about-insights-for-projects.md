@@ -1,7 +1,6 @@
 ---
 title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
 intro: You can view and customize charts that are built from your project's data.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-insights
 redirect_from:

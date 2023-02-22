@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
-miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'
 type: reference

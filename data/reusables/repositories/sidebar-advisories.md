@@ -1,1 +1,1 @@
-1. In the left sidebar, under "Reporting", click **{% octicon "shield" aria-label="The shield symbol" %} Advisories**.
+1. In the left sidebar, under "Reporting", click **{% octicon "shield" aria-label="" %} Advisories**.

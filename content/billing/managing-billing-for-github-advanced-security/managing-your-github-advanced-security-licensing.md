@@ -5,7 +5,6 @@ permissions: 'Enterprise owners can manage licensing for {% data variables.produ
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 type: how_to
 topics:
   - Advanced Security

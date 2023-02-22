@@ -3,7 +3,6 @@ title: Audit log events for your enterprise
 intro: Learn about audit log events recorded for your enterprise.
 shortTitle: Audit log events
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
-miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/articles/audited-actions
   - /enterprise/admin/installation/audited-actions

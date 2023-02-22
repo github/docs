@@ -8,7 +8,6 @@ type: overview
 topics:
   - Enterprise
   - GitHub Connect
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About {% data variables.product.prodname_github_connect %}

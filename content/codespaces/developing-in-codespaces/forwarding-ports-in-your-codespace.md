@@ -2,7 +2,6 @@
 title: Forwarding ports in your codespace
 shortTitle: Forward ports
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'

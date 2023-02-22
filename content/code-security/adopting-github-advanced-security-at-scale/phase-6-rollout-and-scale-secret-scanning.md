@@ -8,7 +8,6 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 6. Rollout secret scanning
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}

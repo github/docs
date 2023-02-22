@@ -5,7 +5,6 @@ intro: 'You can use the {% data variables.codespaces.serverless %} web-based edi
 versions:
   feature: githubdev-editor
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Codespaces
   - Visual Studio Code

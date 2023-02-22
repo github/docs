@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
