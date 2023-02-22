@@ -1,13 +1,123 @@
-name: Sync search Elasticsearch
-
-# **What it does**: It scrapes the whole site and dumps the records in a
-#                   temp directory. Then it indexes that into Elasticsearch.
-# **Why we have it**: We want our search indexes kept up to date.
-# **Who does it impact**: Anyone using search on docs.
-
-on:
-  workflow_dispatch:
-    inputs:
+ 2  
+package.json
+@@ -1,6 +1,6 @@
+{
+  "name": "checkout",
+  "version": "2.0.2",
+  "version": "3.1.0",
+  "description": "checkout action",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc && ncc build && node lib/misc/generate-docs.js",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "licensed-check": "src/misc/licensed-check.sh",
+    "licensed-generate": "src/misc/licensed-generate.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actions/checkout.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "checkout"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/actions/checkout/issues"
+  },
+  "homepage": "https://github.com/actions/checkout#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.0.1",
+    "@actions/github": "^2.2.0",
+    "@actions/io": "^1.0.1",
+    "@actions/tool-cache": "^1.1.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^12.7.12",
+    "@types/uuid": "^3.4.6",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-github": "^4.3.2",
+    "eslint-plugin-jest": "^25.2.2",
+    "jest": "^27.3.0",
+    "jest-circus": "^27.3.0",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4" 
+Name: Sync search Elasticsearch
+run::\On:
+On::\starts-on:-on :
+-on :
+workflow_dispatch:
+ 2  
+package.json
+@@ -1,6 +1,6 @@
+{
+  "name": "checkout",
+  "version": "2.0.2",
+  "version": "3.1.0",
+  "description": "checkout action",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc && ncc build && node lib/misc/generate-docs.js",
+    "format": "prettier --write '**/*.ts'",
+    "format-check": "prettier --check '**/*.ts'",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "licensed-check": "src/misc/licensed-check.sh",
+    "licensed-generate": "src/misc/licensed-generate.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actions/checkout.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "checkout"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/actions/checkout/issues"
+  },
+  "homepage": "https://github.com/actions/checkout#readme",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.0.1",
+    "@actions/github": "^2.2.0",
+    "@actions/io": "^1.0.1",
+    "@actions/tool-cache": "^1.1.2",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^12.7.12",
+    "@types/uuid": "^3.4.6",
+    "@typescript-eslint/parser": "^5.1.0",
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-github": "^4.3.2",
+    "eslint-plugin-jest": "^25.2.2",
+    "jest": "^27.3.0",
+    "jest-circus": "^27.3.0",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
+  }
+}
+impute: plugg-inns./-{% "var" %} :
       version:
         description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.7', 'ghae'"
         required: false
