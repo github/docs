@@ -2871,6 +2871,40 @@
       ]
     },
     {
+      "name": "createProjectV2Field",
+      "kind": "mutations",
+      "id": "createprojectv2field",
+      "href": "/graphql/reference/mutations#createprojectv2field",
+      "description": "<p>Create a new project field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2FieldInput!",
+          "id": "createprojectv2fieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createprojectv2fieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2Field",
+          "type": "ProjectV2FieldConfiguration",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration",
+          "description": "<p>The new field.</p>"
+        }
+      ]
+    },
+    {
       "name": "createPullRequest",
       "kind": "mutations",
       "id": "createpullrequest",
@@ -3689,6 +3723,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2",
           "description": "<p>The deleted Project.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteProjectV2Field",
+      "kind": "mutations",
+      "id": "deleteprojectv2field",
+      "href": "/graphql/reference/mutations#deleteprojectv2field",
+      "description": "<p>Delete a project field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2FieldInput!",
+          "id": "deleteprojectv2fieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteprojectv2fieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2Field",
+          "type": "ProjectV2FieldConfiguration",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration",
+          "description": "<p>The deleted field.</p>"
         }
       ]
     },
@@ -77220,6 +77288,31 @@
       ]
     },
     {
+      "name": "ProjectV2CustomFieldType",
+      "kind": "enums",
+      "id": "projectv2customfieldtype",
+      "href": "/graphql/reference/enums#projectv2customfieldtype",
+      "description": "<p>The type of a project field.</p>",
+      "values": [
+        {
+          "name": "DATE",
+          "description": "<p>Date.</p>"
+        },
+        {
+          "name": "NUMBER",
+          "description": "<p>Number.</p>"
+        },
+        {
+          "name": "SINGLE_SELECT",
+          "description": "<p>Single Select.</p>"
+        },
+        {
+          "name": "TEXT",
+          "description": "<p>Text.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2FieldOrderField",
       "kind": "enums",
       "id": "projectv2fieldorderfield",
@@ -77378,6 +77471,47 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SingleSelectFieldOptionColor",
+      "kind": "enums",
+      "id": "projectv2singleselectfieldoptioncolor",
+      "href": "/graphql/reference/enums#projectv2singleselectfieldoptioncolor",
+      "description": "<p>The display color of a single-select field option.</p>",
+      "values": [
+        {
+          "name": "BLUE",
+          "description": "<p>BLUE.</p>"
+        },
+        {
+          "name": "GRAY",
+          "description": "<p>GRAY.</p>"
+        },
+        {
+          "name": "GREEN",
+          "description": "<p>GREEN.</p>"
+        },
+        {
+          "name": "ORANGE",
+          "description": "<p>ORANGE.</p>"
+        },
+        {
+          "name": "PINK",
+          "description": "<p>PINK.</p>"
+        },
+        {
+          "name": "PURPLE",
+          "description": "<p>PURPLE.</p>"
+        },
+        {
+          "name": "RED",
+          "description": "<p>RED.</p>"
+        },
+        {
+          "name": "YELLOW",
+          "description": "<p>YELLOW.</p>"
         }
       ]
     },
@@ -85307,6 +85441,56 @@
       ]
     },
     {
+      "name": "CreateProjectV2FieldInput",
+      "kind": "inputObjects",
+      "id": "createprojectv2fieldinput",
+      "href": "/graphql/reference/input-objects#createprojectv2fieldinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2Field.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The data type of the field.</p>",
+          "type": "ProjectV2CustomFieldType!",
+          "id": "projectv2customfieldtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2customfieldtype"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to create the field in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "singleSelectOptions",
+          "description": "<p>Options for a single select field. At least one value is required if data_type is SINGLE_SELECT.</p>",
+          "type": "[ProjectV2SingleSelectFieldOptionInput!]",
+          "id": "projectv2singleselectfieldoptioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2singleselectfieldoptioninput"
+        }
+      ]
+    },
+    {
       "name": "CreateProjectV2Input",
       "kind": "inputObjects",
       "id": "createprojectv2input",
@@ -86336,6 +86520,32 @@
         {
           "name": "projectId",
           "description": "<p>The Project ID to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteProjectV2FieldInput",
+      "kind": "inputObjects",
+      "id": "deleteprojectv2fieldinput",
+      "href": "/graphql/reference/input-objects#deleteprojectv2fieldinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2Field.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the field to delete.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -88470,6 +88680,39 @@
           "id": "projectv2orderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectv2orderfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2SingleSelectFieldOptionInput",
+      "kind": "inputObjects",
+      "id": "projectv2singleselectfieldoptioninput",
+      "href": "/graphql/reference/input-objects#projectv2singleselectfieldoptioninput",
+      "description": "<p>Represents a single select field option.</p>",
+      "inputFields": [
+        {
+          "name": "color",
+          "description": "<p>The display color of the option.</p>",
+          "type": "ProjectV2SingleSelectFieldOptionColor!",
+          "id": "projectv2singleselectfieldoptioncolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2singleselectfieldoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description text of the option.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the option.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

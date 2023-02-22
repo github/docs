@@ -115,6 +115,20 @@ jobs:
         if: ${{ matrix.test-group == 'rendering-fixtures' }}
         run: ./script/copy-fixture-data.js --check
 
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/data
+
       - name: Clone all translations
         if: ${{ matrix.test-group == 'translations' }}
         uses: ./.github/actions/clone-translations
