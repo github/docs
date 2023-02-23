@@ -105,13 +105,24 @@
 ------------------------------------------------------------------------------*/
 .sr-only {
   position: absolute;
-  left: -10000px;
-  top: auto;
+  top: -100px;
+  left: 0;
   width: 1px;
   height: 1px;
+  padding: 12px;
   overflow: hidden;
-}
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+  z-index: 101;
 
-.keyboard-focus:focus {
-  outline: 1px auto -webkit-focus-ring-color;
+  &:focus {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
 }

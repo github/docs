@@ -59,7 +59,7 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% ifversion ghas-billing-table-ui-update %}
    - On the "Code security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see an overview of your organization's license usage, as well as a detailed breakdown of usage by repository for this organization.
 
-      For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+      For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% else %}
    - On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.

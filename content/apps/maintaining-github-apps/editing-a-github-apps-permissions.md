@@ -25,14 +25,9 @@ shortTitle: Edit permissions
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Select the GitHub App whose permissions you want to change.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
-5. In the left sidebar, click **Permissions & webhooks**.
-![Permissions and webhooks](/assets/images/github-apps/github_apps_permissions_and_webhooks.png)
+5. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Permissions & webhooks**.
 6. Modify the permissions you'd like to change. For each type of permission, select either "Read-only", "Read & write", or "No access" from the dropdown.
 ![Permissions selections for your GitHub App](/assets/images/github-apps/github_apps_permissions_post2dot13.png)
-7. In "Subscribe to events", select any events to which you'd like to subscribe your app.
-![Permissions selections for subscribing your GitHub App to events](/assets/images/github-apps/github_apps_permissions_subscribe_to_events.png)
-8. Optionally, in "Add a note to users", add a note telling your users why you are changing the permissions that your GitHub App requests.
-![Input box to add a note to users explaining why your GitHub App permissions have changed](/assets/images/github-apps/github_apps_permissions_note_to_users.png)
+7. Under "Subscribe to events", select any events to which you'd like to subscribe your app.
+8. Optionally, under "Add a note to users", add a note telling your users why you are changing the permissions that your GitHub App requests.
 9. Click **Save changes**.
-![Button to save permissions changes](/assets/images/github-apps/github_apps_save_changes.png)

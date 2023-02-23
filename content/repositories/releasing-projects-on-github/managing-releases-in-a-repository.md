@@ -36,66 +36,15 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-1. Click **Draft a new release**.
-
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-1. Click **Choose a tag**, type a version number for your release, and press **Enter**. Alternatively, select an existing tag.
-
-   ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-1. If you are creating a new tag, click **Create new tag**.
-
-   ![Screenshot of confirming you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
-   
-1. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-
-   
-   ![Screenshot of dropdown to choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-
-   
-
-{%- data reusables.releases.previous-release-tag %}
-1. Type a title and description for your release.
+{% data reusables.releases.create-release %}
+{% data reusables.releases.previous-release-tag %}
+{% data reusables.releases.release-title %}
+1. In the "Describe this release" field, type a description for your release.
    {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
    {%- endif %}
-   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}{% ifversion previous-release-tag %}
-
-   ![Screenshot of the releases description](/assets/images/help/releases/releases_description_auto.png){% else %}
-
-   ![Screenshot of the releases description](/assets/images/enterprise/3.5/releases/releases_description_auto.png){% endif %}
-
-1. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
-
-   ![Animated GIF of Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-
-1. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
-
-   ![Screenshot of the checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-
-{%- ifversion releases-set-latest-release %} 
-1. Optionally, you can select **Set as latest release**. If you do not select this option, the latest release label will automatically be assigned based on semantic versioning.
-
-   ![Screenshot of the checkbox to mark a release as the latest release](/assets/images/help/releases/latest-release-checkbox.png)
-
-{%- endif %}  
-{%- ifversion discussions %}
-1. Optionally, if {% data variables.product.prodname_discussions %} are enabled in the repository, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
-
-   ![Screenshot of the checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
-
-{%- endif %}
-1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
-   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
-
-   {%- ifversion fpt or ghec or ghae > 3.3 %}
-   You can then view your published or draft releases in the releases feed for your repository. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
-
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-   ![Published release with @mentioned contributors](/assets/images/help/releases/refreshed-releases-overview-with-contributors.png)
-   {% else %}
-   ![Published release with @mentioned contributors](/assets/images/help/releases/releases-overview-with-contributors.png)
-   {% endif %}
-   {%- endif %}
+   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}
+{% data reusables.releases.finish-release %}
 
 {% endwebui %}
 
@@ -126,15 +75,12 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-3. On the right side of the page, next to the release you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-  ![Edit a release](/assets/images/help/releases/edit-release-pencil.png)
-{% else %}
-3. On the right side of the page, next to the release you want to edit, click **Edit release**.
-  ![Edit a release](/assets/images/help/releases/edit-release.png)
-{% endif %}
-4. Edit the details for the release in the form, then click **Update release**.{% ifversion fpt or ghec or ghes or ghae > 3.3 %} If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.{% endif %}
-  ![Update a release](/assets/images/help/releases/update-release.png)
+{% data reusables.releases.edit-release %}
+4. Edit the details for the release in the form, then click **Update release**.
+
+   {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
+   If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
+   {%- endif %}
 
 {% endwebui %}
 
@@ -151,16 +97,14 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
-3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
-  ![Delete a release](/assets/images/help/releases/delete-release-trash.png)
+3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="Delete" %}.
+
+   ![Screenshot of a release in the releases list. A trash icon is highlighted with an orange outline.](/assets/images/help/releases/delete-release-trash.png)
 {% else %}
 3. Click the name of the release you wish to delete.
-  ![Link to view release](/assets/images/help/releases/release-name-link.png)
 4. In the upper-right corner of the page, click **Delete**.
-  ![Delete release button](/assets/images/help/releases/delete-release.png)
 {% endif %}
 5. Click **Delete this release**.
-  ![Confirm delete release](/assets/images/help/releases/confirm-delete-release.png)
 
 {% endwebui %}
 

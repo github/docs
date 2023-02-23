@@ -32,13 +32,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can also 
 {% endif %}
 ## Viewing people with access to your repository
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)." 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.accessing-repository-people %}
-{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 ## Exporting a list of people with access to your repository

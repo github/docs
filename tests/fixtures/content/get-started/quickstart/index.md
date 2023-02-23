@@ -8,4 +8,5 @@ versions:
   ghec: '*'
 children:
   - /hello-world
+  - /link-rewriting
 ---
