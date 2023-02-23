@@ -168,7 +168,7 @@
     "typescript": "^4.7.3"
   },
   "engines": {
-    "node": ">=16.x"
+    "node": "^16 || ^18"
   },
   "exports": "./server.js",
   "license": "(MIT AND CC-BY-4.0)",
