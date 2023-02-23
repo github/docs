@@ -48,7 +48,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    {% ifversion ghec %}
    {% note %}
 
-   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
+   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[Switching to a unique token URL](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
 
    {% endnote %}
    {% endif %}
