@@ -41,12 +41,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select an option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
-
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -55,14 +49,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}
