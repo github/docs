@@ -110,7 +110,7 @@ Once this is initialized, you can reconfigure any settings after the initializat
 
 1. To the right of "Configure email settings", click **Configure**.
   !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
-2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[AUTOTITLE](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
   !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Complete your email server settings:
     - In the **Server address** field, type the address of your SMTP server.

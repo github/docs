@@ -81,10 +81,10 @@ When generating credentials, we recommend that you grant the minimum permissions
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Repository secrets tab](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
 1. Click **New repository secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
+1. In the **Name** field, type a name for your secret.
+1. In the **Secret** field, enter the value for your secret.
 1. Click **Add secret**.
 
 If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.

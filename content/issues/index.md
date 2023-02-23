@@ -26,15 +26,6 @@ featuredLinks:
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
-  videos:
-    - title: Planning at scale with Issues – Mario Rodriguez
-      href: 'https://www.youtube-nocookie.com/embed/ha1KHcPMAEk'
-    - title: Planning at GitHub (Projects + Issues) – Matt Butler
-      href: 'https://www.youtube-nocookie.com/embed/HwpVvDURHKw'
-    - title: Issue Forms for open source – Luke Hefson
-      href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
-  videosHeading: Videos
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
@@ -74,4 +65,3 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
-

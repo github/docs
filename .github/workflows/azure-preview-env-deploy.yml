@@ -201,7 +201,7 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
+        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}

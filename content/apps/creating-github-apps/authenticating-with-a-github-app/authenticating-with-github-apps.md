@@ -204,8 +204,7 @@ To generate a private key:
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 {% data reusables.user-settings.modify_github_app %}
-5. In "Private keys", click **Generate a private key**.
-![Generate private key](/assets/images/github-apps/github_apps_generate_private_keys.png)
+5. Under "Private keys", click **Generate a private key**.
 6. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key.
 
 {% note %}
