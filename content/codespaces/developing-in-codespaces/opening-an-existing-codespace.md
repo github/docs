@@ -18,22 +18,22 @@ shortTitle: Open an existing codespace
 
 {% endjetbrains %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)."
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
 - Open, stop, or delete your codespaces.
-- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 - See the machine type, size, and status of your codespaces.
-- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-- Prevent automatic deletion of a codespace. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
+- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 ## Opening an existing codespace
 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
    To open the codespace in an editor other than your default:
 
@@ -41,7 +41,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Open in" dialog box, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
    * Your browser
@@ -59,7 +59,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 {% note %}
 
-**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 {% endnote %}
 

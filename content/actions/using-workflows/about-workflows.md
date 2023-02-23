@@ -13,7 +13,6 @@ redirect_from:
   - /actions/using-workflows/advanced-workflow-features
 topics:
   - Workflows
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About workflows
@@ -28,7 +27,7 @@ A workflow must contain the following basic components:
 1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
 1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
 
@@ -36,21 +35,21 @@ For more information on these basic components, see "[Understanding GitHub Actio
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
 
 ## Workflow syntax
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[AUTOTITLE](/actions/managing-workflow-runs)."
 
 ## Using starter workflows
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+For more information on using and creating starter workflows, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 
 ## Advanced workflow features
 
@@ -76,7 +75,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Creating dependent jobs
 
@@ -102,7 +101,7 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+For more information, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 
 ### Using a matrix
 
@@ -121,7 +120,7 @@ jobs:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion actions-caching %}
 ### Caching dependencies
@@ -145,7 +144,7 @@ jobs:
             {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 {% endif %}
 
 ### Using databases and service containers
@@ -172,7 +171,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+For more information, see "[AUTOTITLE](/actions/using-containerized-services)."
 
 ### Using labels to route workflows
 
@@ -188,17 +187,15 @@ jobs:
 
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 ### Using environments
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
+You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."

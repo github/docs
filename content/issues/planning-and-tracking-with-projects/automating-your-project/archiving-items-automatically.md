@@ -2,7 +2,6 @@
 title: Archiving items automatically
 shortTitle: Archiving automatically
 intro: You can configure your project's built-in workflows to automatically archive items that meet specific criteria.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-auto-archive
 type: tutorial
@@ -24,8 +23,7 @@ You can use the `is`, `reason`, and `last-updated` filters to specify when an it
 
 When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
 
-Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items. For more information on permanently deleting items, see "[Deleting items
-](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items)."
+Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items. For more information on permanently deleting items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items)."
 
 ## Configuring automatic archiving in your project
 
@@ -38,7 +36,7 @@ Projects also have a limit on the number of archived items they can contain. You
    
    ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when-archive.png)
 
-1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
    
    ![Screenshot showing filter text area](/assets/images/help/projects-v2/auto-archive-filter.png)
    
@@ -49,5 +47,5 @@ Projects also have a limit on the number of archived items they can contain. You
 
 ## Further reading
 
-* "[Archiving items from your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-* "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"

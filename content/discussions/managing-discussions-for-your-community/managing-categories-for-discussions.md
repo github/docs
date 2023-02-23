@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.discussions.about-announcement-format %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
 ## Default categories
 
@@ -36,7 +36,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 {% data reusables.discussions.edit-categories %}
 1. Click **New category**.
   !["New category" button above list of discussion categories for a repository](/assets/images/help/discussions/click-new-category-button.png)
-1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
   ![Emoji, title, description, and discussion format for new category](/assets/images/help/discussions/edit-category-details.png)
 1. Click **Create**.
   !["Create" button for new category](/assets/images/help/discussions/new-category-click-create-button.png)

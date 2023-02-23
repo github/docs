@@ -15,19 +15,19 @@ shortTitle: About custom roles
 
 To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
 
-Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+You can have more granular control over the permissions you grant at the repository level by creating up to {% ifversion authz-increased-custom-repo-roles %}five {% else %}three {% endif %} custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 
-After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
 {% ifversion custom-repo-role-api %}
 
-You can also use the REST API to create and manage custom repository roles. For more information, see "[Custom Repository Roles](/rest/orgs/custom-roles)."
+You can also use the REST API to create and manage custom repository roles. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
 
 {% else %}
 
-You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[Custom Repository Roles API](/rest/orgs/custom-roles)."
+You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
 
 {% endif %}
 
@@ -70,7 +70,7 @@ You can only choose an additional permission if it's not already included in the
 - Hide or unhide discussion comments 
 - Convert issues to discussions 
 
-For more information, see "[{% data variables.product.prodname_discussions %}](/discussions)."
+For more information, see "[AUTOTITLE](/discussions)."
 {% endif %}
 
 ### Issue and Pull Requests
@@ -97,7 +97,7 @@ For more information, see "[{% data variables.product.prodname_discussions %}](/
 - Manage wiki settings 
 - Manage project settings
 - Manage pull request merging settings 
-- Manage {% data variables.product.prodname_pages %} settings (see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+- Manage {% data variables.product.prodname_pages %} settings (see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
 - Manage webhooks 
 - Manage deploy keys 
 - Edit repository metadata
@@ -132,6 +132,6 @@ If a person is given different levels of access through different avenues, such 
 {% data reusables.organizations.mixed-roles-warning %}
 
 To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
-  - "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
-  - "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+  - "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
+  - "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
   - "[Editing a repository role](#editing-a-repository-role)"

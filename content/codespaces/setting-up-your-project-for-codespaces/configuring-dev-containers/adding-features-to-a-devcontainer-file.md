@@ -22,14 +22,14 @@ redirect_from:
 
 1. Navigate to your repository on {% data variables.product.prodname_dotcom_the_website %}, find your `devcontainer.json` file, and click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
 
-   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+   If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
 
-   ![Screenshot of the Terraform feature in the Marketplace tab, with "Terra" in the search bar](/assets/images/help/codespaces/feature-marketplace.png)
+   ![Screenshot of the Marketplace tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
 
 3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
 
-   ![Screenshot of a code block in the Installation section of the Marketplace tab](/assets/images/help/codespaces/feature-installation-code.png)
+   ![Screenshot of the Marketplace tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
@@ -40,7 +40,7 @@ redirect_from:
     ```
 1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
 
-   ![Screenshot of the Options section of the Marketplace tab, with "version" and "tflint" expanded](/assets/images/help/codespaces/feature-options.png)
+   ![Screenshot of the "Options" section of the Marketplace tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -54,7 +54,7 @@ redirect_from:
     ```
 1. Commit the changes to your `devcontainer.json` file.
 
-The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
 
 {% endwebui %}
 
@@ -67,20 +67,14 @@ To add features in {% data variables.product.prodname_vscode_shortname %} while 
 {% endnote %}
 
 {% data reusables.codespaces.command-palette %}
-2. Start typing "configure" and click **Codespaces: Configure Dev Container**.
+1. Start typing "configure" and click **Codespaces: Configure Dev Container**.
 
-   ![Screenshot of the 'Configure Dev Container' option in the Command Palette](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Screenshot of the "Codespaces: Configure Dev Container" option in the Command Palette.](/assets/images/help/codespaces/codespaces-configure-features.png)
 
 1. Click **Modify your active configuration**.
+1. Update your feature selections, then click **OK**.
+1. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
 
-   ![Screenshot of the 'Modify your active configuration' option in the Command Palette](/assets/images/help/codespaces/modify-active-configuration.png)
-
-3. Update your feature selections, then click **OK**.
-
-   ![Screenshot of the additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
-
-4. If you're working in a codespace, a prompt will appear in the lower-right corner. To rebuild the container and apply the changes to the codespace you're working in, click **Rebuild Now**.
-
-   ![Screenshot of the 'Codespaces: Rebuild Container' option in the Command Palette](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of the message: "We've noticed a change to the dev container configuration." Below this is the "Rebuild Now" button.](/assets/images/help/codespaces/rebuild-prompt.png)
 
 {% endvscode %}

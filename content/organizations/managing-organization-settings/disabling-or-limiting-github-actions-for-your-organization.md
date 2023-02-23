@@ -12,7 +12,6 @@ topics:
   - Organizations
   - Teams
 shortTitle: Disable or limit actions
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
 
@@ -32,7 +31,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endnote %}
 
@@ -42,12 +41,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select an option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
-
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -56,14 +49,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}
@@ -87,7 +72,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.actions.workflows.required-workflow-beta %}
 
-You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[Required workflows](/actions/using-workflows/required-workflows)."
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
 
 ### Prerequisites
 
@@ -219,7 +204,7 @@ Organization administrators can view {% ifversion actions-cache-admin-ui %}and m
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 
-For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

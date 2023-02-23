@@ -63,7 +63,7 @@ export const LandingHero = () => {
         <div className="col-12 col-lg-6">
           <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
             <iframe
-              title={`${shortTitle} Video`}
+              title={`${shortTitle || title} Video`}
               className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
               src={renderIFrame ? productVideo : ''}
               frameBorder="0"

@@ -68,6 +68,7 @@ const PUBLIC_REPOS = new Set([
   'tweetsodium',
   'VisualStudio',
   'codespaces-getting-started-ml',
+  'dependabot-action',
 ])
 
 const ALLOW_DOCS_PATHS = [
@@ -79,8 +80,6 @@ const ALLOW_DOCS_PATHS = [
   'contributing/search.md',
   'docs/index.yaml',
   'lib/excluded-links.js',
-  'lib/rest/**/*.json',
-  'lib/webhooks/**/*.json',
   'ownership.yaml',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
@@ -111,7 +110,7 @@ const IGNORE_PATHS = [
   '.linkinator/full.log', // Only present if you've run linkinator
   'lib/search/popular-pages.json', // used to build search indexes
   'tests/**/*.json',
-
+  'src/**/*.json', // OpenAPI schema files
   'content/early-access', // Not committed to public repository.
   'data/early-access', // Not committed to public repository.
   'data/release-notes', // These include links to many internal issues in Liquid comments.

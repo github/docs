@@ -22,15 +22,15 @@ shortTitle: Import to your enterprise
 ---
 ## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
-Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
+Before you can migrate data to your enterprise, you must prepare the data and resolve any conflicts. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/preparing-to-migrate-data-to-your-enterprise)."
 
 After you prepare the data and resolve conflicts, you can apply the imported data on {% data variables.product.product_name %}.
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Using the `ghe-migrator import` command, start the import process. You'll need:
-    * Your Migration GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
-    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."
+    * Your Migration GUID. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/preparing-to-migrate-data-to-your-enterprise)."
+    * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
     ```shell
     $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -48,7 +48,7 @@ By default, `ghe-migrator audit` returns every record. It also allows you to fil
   * The types of records.
   * The state of the records.
 
-The record types match those found in the [migrated data](/enterprise/admin/guides/migrations/about-migrations/#migrated-data).
+The record types match those found in the [migrated data](/admin/user-management/migrating-data-to-and-from-your-enterprise/about-migrations#migrated-data).
 
 ## Record type filters
 
@@ -141,7 +141,7 @@ curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
 
 ### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/#delete-a-repository). You'll need your access token for authentication:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos#delete-a-repository). You'll need your access token for authentication:
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
   https://api.github.com/repos/ORG-NAME/REPO_NAME

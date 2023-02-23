@@ -15,7 +15,7 @@ describe('frame', () => {
 
   test.each(langs)('breadcrumbs link to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}/get-started/learning-about-github`)
-    const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+    const $breadcrumbs = $('[data-testid=breadcrumbs-in-article] a')
     expect($breadcrumbs[0].attribs.href).toBe(`/${lang}/get-started`)
   })
 

@@ -30,7 +30,7 @@ Repository admins can add any topics they'd like to a repository. Helpful topics
 
 {% ifversion fpt %}Public and private{% elsif ghec or ghes %}Public, private, and internal{% elsif ghae %}Private and internal{% endif %} repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
-You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/search-github/searching-on-github/searching-topics)."
+You can search for repositories that are associated with a particular topic. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-topics)."
 
 When creating a topic:
 - use lowercase letters, numbers, and hyphens.
@@ -46,9 +46,13 @@ When creating a topic:
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To the right of "About", click {% octicon "gear" aria-label="The Gear icon" %}.
-  ![Gear icon on main page of a repository](/assets/images/help/repository/edit-repository-details-gear.png)
-3. Under "Topics", type the topic you want to add to your repository, then type a space.
-  ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
-4. After you've finished adding topics, click **Save changes**.
-  !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
+2. In the top right corner of the page, to the right of "About", click {% octicon "gear" aria-label="Edit repository metadata" %}.
+  
+  ![Screenshot of the top right of the main page for a repository. The "Edit repository metadata" button, shown as a gear icon, is outlined in orange.](/assets/images/help/repository/edit-repository-details-gear.png)
+  
+3. Under "Topics", start to type the topic you want to add to your repository to display a dropdown menu of any matching topics. Click the topic you want to add or continue typing to create a new topic.
+  
+  ![Screenshot of the "Topics" field showing example topics: "docs" and "works-with-codespaces." A "Suggested" topic "documentation" is shown below.](/assets/images/help/repository/add-topic-form.png)
+  
+4. Optional, if there are "Suggested" topics displayed under the "Topics" field, click {% octicon "plus" aria-label="Add this topic" %} to add or {% octicon "dash" aria-label="Decline this topic" %} to decline the suggested topic.
+5. After you've finished adding topics, click **Save changes**.

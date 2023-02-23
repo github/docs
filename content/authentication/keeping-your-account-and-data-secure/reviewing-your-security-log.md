@@ -1,7 +1,6 @@
 ---
 title: Reviewing your security log
 intro: You can review the security log for your personal account to better understand actions you've performed and actions others have performed that involve you.
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /articles/reviewing-your-security-log
   - /github/authenticating-to-github/reviewing-your-security-log
@@ -39,17 +38,17 @@ The events listed in your security log are triggered by your actions. Actions ar
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
 | [`billing`](#billing-category-actions) | Contains all activities related to your billing information.
-| [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_github_codespaces %}. For more information, see "[About {% data variables.product.prodname_codespaces %}](/codespaces/overview)."
+| [`codespaces`](#codespaces-category-actions) | Contains all activities related to {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/overview)."
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
 | [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
+| [`oauth_access`](#oauth_access-category-actions) | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}{% ifversion pat-v2%}
-| [`personal_access_token`](#personal_access_token-category-actions) | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
+| [`personal_access_token`](#personal_access_token-category-actions) | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
 | [`public_key`](#public_key-category-actions) | Contains all activities related to [your public SSH keys](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 | [`repo`](#repo-category-actions) | Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
 | [`team`](#team-category-actions) | Contains all activities related to teams you are a part of.{% endif %}{% ifversion not ghae %}
 | [`two_factor_authentication`](#two_factor_authentication-category-actions) | Contains all activities related to [two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
 | [`user`](#user-category-actions) | Contains all activities related to your account.
@@ -108,8 +107,8 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps).
+| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/apps/using-github-apps/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 {% ifversion fpt or ghec %}
 
@@ -135,7 +134,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `destroy` | Triggered when you delete a {% data variables.product.pat_v2 %}.
 | `request_cancelled` | Triggered when you cancel a pending request for your {% data variables.product.pat_v2 %} to access organization resources.
 | `request_created` | Triggered when you create a {% data variables.product.pat_v2 %} to access organization resources and the organization requires approval before a {% data variables.product.pat_v2 %} can access organization resources.
-| `request_denied` | Triggered when your request for a {% data variables.product.pat_v2 %} to access organization resources is denied. For more information, see "[Managing requests for {% data variables.product.pat_generic %} in your organization](/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization)."
+| `request_denied` | Triggered when your request for a {% data variables.product.pat_v2 %} to access organization resources is denied. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization)."
 
 {% endif %}
 
@@ -195,23 +194,23 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `custom_amount_settings_change` | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
-| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)")
-| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)")
-| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_payment_complete` | Triggered after you sponsor an account and your payment has been processed (see "[Sponsoring an open source contributor](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
-| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")
-| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)")
-| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
-| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
+| `custom_amount_settings_change` | Triggered when you enable or disable custom amounts, or when you change the suggested custom amount (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
+| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)")
+| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)")
+| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_payment_complete` | Triggered after you sponsor an account and your payment has been processed (see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored developer (see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)")
+| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" and "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)")
+| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
+| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
 | `sponsored_developer_disable` | Triggered when your {% data variables.product.prodname_sponsors %} account is disabled
 | `sponsored_developer_redraft` | Triggered when your {% data variables.product.prodname_sponsors %} account is returned to draft state from approved state
-| `sponsored_developer_profile_update` | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")
-| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
-| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
-| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")
-| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
-| `waitlist_join` | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
+| `sponsored_developer_profile_update` | Triggered when you edit your sponsored developer profile (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/editing-your-profile-details-for-github-sponsors)")
+| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)")
+| `sponsored_developer_update_newsletter_send` | Triggered when you send an email update to your sponsors (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors)")
+| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
+| `waitlist_join` | Triggered when you join the waitlist to become a sponsored developer (see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)")
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -219,11 +218,11 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `accept` | Triggered when you accept a succession invitation (see "[Maintaining ownership continuity of your personal account's repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
-| `cancel` | Triggered when you cancel a succession invitation (see "[Maintaining ownership continuity of your personal account's repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
-| `create` | Triggered when you create a succession invitation (see "[Maintaining ownership continuity of your personal account's repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
-| `decline` | Triggered when you decline a succession invitation (see "[Maintaining ownership continuity of your personal account's repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
-| `revoke` | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your personal account's repositories](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
+| `accept` | Triggered when you accept a succession invitation (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
+| `cancel` | Triggered when you cancel a succession invitation (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
+| `create` | Triggered when you create a succession invitation (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
+| `decline` | Triggered when you decline a succession invitation (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
+| `revoke` | Triggered when you revoke a succession invitation (see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories)")
 {% endif %}
 
 {% ifversion ghes or ghae %}
@@ -262,7 +261,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `forgot_password` | Triggered when you ask for [a password reset](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials).{% endif %}
 | `hide_private_contributions_count` | Triggered when you [hide private contributions on your profile](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
 | `login` | Triggered when you log in to {% data variables.location.product_location %}.{% ifversion ghes or ghae %}
-`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
 | `failed_login` | Triggered when you failed to log in successfully.
 | `remove_email` | Triggered when you remove an email address.
 | `rename` | Triggered when you rename your account.{% ifversion fpt or ghec %}
@@ -274,5 +273,5 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |--------------------|---------------------
-| `update` | Triggered when you set or change the status on your profile. For more information, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+| `update` | Triggered when you set or change the status on your profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
 | `destroy` | Triggered when you clear the status on your profile.

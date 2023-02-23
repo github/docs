@@ -2,7 +2,6 @@
 title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %}'
 shortTitle: Automating with the API
 intro: You can use the GraphQL API to automate your projects.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
@@ -13,13 +12,13 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[Automating {% data variables.product.prodname_projects_v2 %} using Actions](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[Reference](/graphql/reference)."
+This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[AUTOTITLE](/graphql/reference)."
 
 ## Authentication
 
 {% curl %}
 
-In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app)."
+In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app)."
 
 {% endcurl %}
 
@@ -50,13 +49,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-For more information, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql#working-with-variables)."
+For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#working-with-variables)."
 
 {% endcli %}
 
 ## Finding information about projects
 
-Use queries to get data about projects. For more information, see "[About queries](/graphql/guides/forming-calls-with-graphql#about-queries)."
+Use queries to get data about projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-queries)."
 
 ### Finding the node ID of an organization project
 
@@ -428,7 +427,7 @@ A project may contain items that a user does not have permission to view. In thi
 
 ## Updating projects 
 
-Use mutations to update projects. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+Use mutations to update projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
 {% note %}
 
@@ -717,7 +716,7 @@ gh api graphql -f query='
 
 ### Creating projects
 
-You can use a mutation to create a new project. For more information, see "[About mutations](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+You can use a mutation to create a new project. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
 To create a new project using the API, you'll need to provide a name for the project and the node ID of a {% data variables.product.product_name %} user or organization who will become the project's owner.
 
@@ -771,6 +770,6 @@ gh api graphql -f query='
 
 ## Using webhooks
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[About webhooks](/developers/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
+You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
 
 {% endif %}

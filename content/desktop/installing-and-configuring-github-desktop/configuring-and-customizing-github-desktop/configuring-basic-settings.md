@@ -28,4 +28,4 @@ shortTitle: Configure basic settings
 
 ## Further reading
 
-- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"
+- "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"

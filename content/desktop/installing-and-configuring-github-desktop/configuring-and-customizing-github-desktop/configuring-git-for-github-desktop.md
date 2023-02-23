@@ -20,7 +20,7 @@ If the email address that has been set in your Git configuration does not match 
 
 {% tip %}
 
-**Tip**: Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address/)."
+**Tip**: Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
 
 {% endtip %}
 
@@ -85,7 +85,7 @@ You can change the name and email address used to author commits in a specific r
 
 ## Configuring your default branch for new repositories
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[About the default branch](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% mac %}
 
@@ -113,6 +113,6 @@ You can configure the default branch that will be used when you create a new rep
 
 ## Further reading
 
-- "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account/)"
-- "[Setting your commit email address](/articles/setting-your-commit-email-address/)"
-- "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"

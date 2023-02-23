@@ -9,7 +9,7 @@ redirect_from:
 ---
 ## About {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_vscode %} is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+{% data variables.product.prodname_vscode %} is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 ### Your student's editor of choice 
 The GitHub Classroom integration with {% data variables.product.prodname_vscode_shortname %} provides students with an extension pack which contains:
@@ -19,7 +19,7 @@ The GitHub Classroom integration with {% data variables.product.prodname_vscode_
 3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor. 
 
 ### How to launch the assignment in {% data variables.product.prodname_vscode_shortname %}
-When creating an assignment, {% data variables.product.prodname_vscode_shortname %} can be added as the preferred editor for an assignment. For more details, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+When creating an assignment, {% data variables.product.prodname_vscode_shortname %} can be added as the preferred editor for an assignment. For more details, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 This will include an "Open in {% data variables.product.prodname_vscode_shortname %}" badge in all student repositories. This badge handles installing {% data variables.product.prodname_vscode_shortname %}, the Classroom extension pack, and opening to the active assignment with one click.
 
@@ -37,7 +37,7 @@ When the student launches the extension for the first time, they are automatical
 ![GitHub Classroom Active Assignment View](/assets/images/help/classroom/vs-code-active-assignment.png)
 
 The student can push their commits to the latest version of remote, by clicking the **sync changes** button, displayed when hovering over the "Active Assignment" line. This abstracts away source control with Git, allowing instructors to teach Git at their own pace.
-Synching changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.
+Syncing changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.
 
 The "Group" node under "Active Assignment" will show members of a group, if the assignment is a group project. It will also show the admin members of the repository who can help when a student is stuck. To collaborate on the project, a student can start a Live Share session with anyone in the group node, and they will immediately share the entire context of the repository with them. You can learn more about Live Share and collaborating with it [here](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
 

@@ -14,8 +14,6 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
 ---
 
-
-
 ## About secrets
 
 Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
@@ -63,7 +61,9 @@ When creating a secret in an organization, you can use a policy to limit which r
 3. Type a name for your secret in the **Name** input box.
 4. Enter the **Value** for your secret.
 5. From the **Repository access** dropdown list, choose an access policy.
-    ![Repository Access list with private repositories selected](/assets/images/help/codespaces/secret-repository-access.png)
+
+   <img src="/assets/images/help/codespaces/secret-repository-access.png" alt='Screenshot of the "Repository access" dropdown menu with the options "All repositories," "Private repositories," and "Selected repositories."' style="width:400px;"/>
+
 6. Click **Add secret**.
 
 ## Reviewing access to organization-level secrets
@@ -75,9 +75,11 @@ You can check which access policies are applied to a secret in your organization
 {% data reusables.codespaces.sidebar-secret %}
 
 1. The list of secrets includes any configured permissions and policies. For example:
-![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
+
+   ![Screenshot showing a list of two secrets. To the right of each is an edit button and a delete button.](/assets/images/help/codespaces/org-secrets-list.png)
+
 1. For more details on the configured permissions for each secret, click **Update**.
 
 ## Further reading
 
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"

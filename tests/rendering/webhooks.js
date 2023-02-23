@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import { getDOM } from '../helpers/e2etest.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { getWebhooks } from '../../lib/webhooks/index.js'
+import { getWebhooks } from '../../src/webhooks/lib/index.js'
 
 describe('webhooks events and payloads', () => {
   jest.setTimeout(300 * 1000)
@@ -10,15 +10,16 @@ describe('webhooks events and payloads', () => {
     for (const version in allVersions) {
       const webhooks = await getWebhooks(version)
       const webhookNames = Object.keys(webhooks)
-      const $ = await getDOM(
-        `/en/${version}/developers/webhooks-and-events/webhooks/webhook-events-and-payloads`
-      )
+      const versionedWebhooksPage = `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
+      const $ = await getDOM(versionedWebhooksPage)
       const domH2Ids = $('h2')
         .map((i, h2) => $(h2).attr('id'))
         .get()
 
       webhookNames.forEach((webhookName) => {
-        expect(domH2Ids.includes(webhookName))
+        if (!domH2Ids.includes(webhookName)) {
+          throw new Error(`Webhook '${webhookName}' not on the ${versionedWebhooksPage} page`)
+        }
       })
     }
   })
@@ -31,7 +32,7 @@ describe('webhooks events and payloads', () => {
     for (const version in allVersions) {
       if (!version.includes('enterprise-server') && !version.includes('github-ae')) {
         const $ = await getDOM(
-          `/en/${version}/developers/webhooks-and-events/webhooks/webhook-events-and-payloads`
+          `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
         )
         const domH2Ids = $('h2')
           .map((i, h2) => $(h2).attr('id'))
@@ -44,9 +45,7 @@ describe('webhooks events and payloads', () => {
   })
 
   test('Webhooks events and payloads page has DOM markers needed for extracting search content', async () => {
-    const $ = await getDOM(
-      '/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads'
-    )
+    const $ = await getDOM('/en/webhooks-and-events/webhooks/webhook-events-and-payloads')
     const rootSelector = '[data-search=article-body]'
     const $root = $(rootSelector)
     expect($root.length).toBe(1)
@@ -70,7 +69,7 @@ describe('webhooks events and payloads', () => {
       // usually but not always the next sibling element, which is why
       // `nextUntil` is used.
       for (const version of versions) {
-        const page = `/${version}/developers/webhooks-and-events/webhooks/webhook-events-and-payloads`
+        const page = `/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
         const $ = await getDOM(page)
         const payloadExampleElem = $('[id^=webhook-payload-example]')
 

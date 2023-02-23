@@ -8,18 +8,17 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 2. Preparation
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 1: Align on your rollout strategy and goals](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals)."
 
 {% endnote %}
 
 ## Preparing to enable {% data variables.product.prodname_code_scanning %}
  
-{% data reusables.code-scanning.about-code-scanning %} For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %} For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
 Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful. As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}. 
 
@@ -83,7 +82,7 @@ query {
 }
 ```
 
-For more information about running GraphQL queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+For more information about running GraphQL queries, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
 Then, convert the data from the GraphQL query into a readable format, such as a table.
 
@@ -112,7 +111,7 @@ An understanding of which repositories are using which languages will help you i
 
 ### Enabling {% data variables.product.prodname_code_scanning %} for your appliance
 
-Before you can proceed with pilot programs and rolling out {% data variables.product.prodname_code_scanning %} across your enterprise, you must first enable {% data variables.product.prodname_code_scanning %} for your appliance. For more information, see "[Configuring code scanning for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+Before you can proceed with pilot programs and rolling out {% data variables.product.prodname_code_scanning %} across your enterprise, you must first enable {% data variables.product.prodname_code_scanning %} for your appliance. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
 
 {% endif %}
 
@@ -122,11 +121,11 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 **Note:** When {% data variables.product.prodname_secret_scanning %} detects a secret in repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
 
-Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."{% endif %}
+Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."{% endif %}
 
 {% endnote %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
+If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 
 ### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
 
@@ -137,7 +136,7 @@ If a project communicates with an external service, it might use a token or priv
 - **Initial high volume of detected secrets**  
   If you are enabling {% data variables.product.prodname_secret_scanning %} on a large organization, be prepared to see a high number of secrets found. Sometimes this comes as a shock to organizations and the alarm is raised. If you would like to turn on {% data variables.product.prodname_secret_scanning %} across all repositories at once, plan for how you will respond to multiple alerts across the organization.
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
 
@@ -149,13 +148,13 @@ If a project communicates with an external service, it might use a token or priv
 {% endnote %}
 {% endif %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)." 
+{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)." 
 
-As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 
 {% note %}
 
-For the next article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
 
 {% endnote %}

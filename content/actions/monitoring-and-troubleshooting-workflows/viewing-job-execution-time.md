@@ -24,6 +24,6 @@ Billable job execution minutes are only shown for jobs run on private repositori
 
    {% note %}
 
-   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[Viewing your {% data variables.product.prodname_actions %} usage](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
+   **Note:** The billable time shown does not include any minute multipliers. To view your total {% data variables.product.prodname_actions %} usage, including minute multipliers, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage)."
 
    {% endnote %}

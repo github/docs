@@ -31,5 +31,5 @@ shortTitle: Add members to a team
 
 ## Further reading
 
-- "[About teams](/articles/about-teams)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"

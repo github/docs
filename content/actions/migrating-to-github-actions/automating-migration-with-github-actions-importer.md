@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghae: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Migration
   - CI
@@ -54,7 +53,7 @@ Once you are granted access to the preview, you will be able to access further r
 {%- ifversion ghes < 3.5 or ghae %}
 - Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
 {%- else %}
-- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
+- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
 {% endif %}
 - An environment where you can run Linux-based containers, and can install the necessary tools.
   - Docker is [installed](https://docs.docker.com/get-docker/) and running.

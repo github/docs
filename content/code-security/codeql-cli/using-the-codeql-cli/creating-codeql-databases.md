@@ -12,6 +12,8 @@ topics:
   - Code scanning
   - CodeQL
 ---
+<!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
+make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
 
@@ -28,7 +30,7 @@ You can also create {% data variables.product.prodname_codeql %} databases yours
 - Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see “[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
 - Check out the version of your codebase you want to analyze. The directory should be ready to build, with all dependencies already installed.
 
-For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see [Setting up code scanning for a repository](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository).
+For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see [Setting up code scanning for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository).
 
 ## Running `codeql database create`
 
@@ -240,6 +242,9 @@ The following examples are designed to give you an idea of some of the build com
 This command runs a custom script that contains all of the commands required to build the project.
 
 ### Using indirect build tracing
+
+<!--The CodeQL CLI man pages include a link to this section of the article. If you rename this section,
+make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
 
 If the {% data variables.product.prodname_codeql_cli %} autobuilders for compiled languages do not work with your CI workflow and you cannot wrap invocations of build commands with `codeql database trace-command`, you can use indirect build tracing to create a {% data variables.product.prodname_codeql %} database. To use indirect build tracing, your CI system must be able to set custom environment variables for each build action.
 

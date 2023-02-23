@@ -1,7 +1,6 @@
 ---
 title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
 intro: You can view and customize charts that are built from your project's data.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-insights
 redirect_from:
@@ -24,11 +23,11 @@ You can use insights for {% data variables.product.prodname_projects_v2 %} to vi
 
 You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
  ![Screenshot showing an stacked column chart showing item types for each iteration](/assets/images/help/issues/column-chart-example.png)
 
-For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
+For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
 
 ## About historical charts
 
@@ -38,9 +37,9 @@ The default "Burn up" chart shows item status over time, allowing you to visuali
 
 ![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
 
-To create a historical chart, set your chart's X-axis to "Time." For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[Configuring charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+To create a historical chart, set your chart's X-axis to "Time." For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-- "[Disabling insights for {% data variables.product.prodname_projects_v2 %} in your organization](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"

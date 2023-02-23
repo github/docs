@@ -13,7 +13,6 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -43,7 +42,7 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ### Example: Specifying inputs
 
-This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of '1'; `octocat-eye-color` is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
+This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of '1'; `octocat-eye-color` is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
 
 ```yaml
 inputs:
@@ -60,7 +59,7 @@ When you specify an input in a workflow file or use a default input value, {% da
 
 If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[Creating a Docker container action](/articles/creating-a-docker-container-action#creating-an-action-metadata-file)."
+To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
 For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUM-OCTOCATS` and `INPUT_OCTOCAT-EYE-COLOR` environment variables.
 
@@ -90,7 +89,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 {% data reusables.actions.output-limitations %}
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
+If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)."
 
 ### Example: Declaring outputs for Docker container and JavaScript actions
 
@@ -139,7 +138,7 @@ runs:
 
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
-For more information on how to use context syntax, see "[Contexts](/actions/learn-github-actions/contexts)."
+For more information on how to use context syntax, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 ## `runs`
 
@@ -149,11 +148,11 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion fpt or ghes or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
+### Example: Using Node.js v16
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   main: 'main.js'
 ```
 
@@ -161,22 +160,21 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- Use `node16` for Node.js v16.
 
 ### `runs.main`
 
-**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing) executes this file.
+**Required** The file that contains your action code. The runtime specified in [`using`](#runsusing-for-javascript-actions) executes this file.
 
 ### `runs.pre`
 
-**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing-for-javascript-actions) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -197,13 +195,13 @@ In this example, `cleanup.js` only runs on Linux-based runners:
 
 ### `runs.post`
 
-**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+**Optional** Allows you to run a script at the end of a job, once the `main:` action has completed. For example, you can use `post:` to terminate certain processes or remove unneeded files. The runtime specified with the [`using`](#runsusing-for-javascript-actions) syntax will execute this file.
 
 In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -257,18 +255,17 @@ runs:
       shell: bash
 ```
 
-For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
 **Example: Using contexts**
 
@@ -282,7 +279,7 @@ steps:
 
 **Example: Using status check functions**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
@@ -292,7 +289,6 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
-{% endif %}
 
 #### `runs.steps[*].name`
 
@@ -300,7 +296,7 @@ steps:
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 #### `runs.steps[*].env`
 
@@ -319,7 +315,7 @@ We strongly recommend that you include the version of the action you are using b
 - Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
 - Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
-Some actions require inputs that you must set using the [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
+Some actions require inputs that you must set using the [`with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
 ```yaml
 runs:
@@ -395,7 +391,7 @@ runs:
 
 **Optional** Allows you to run a script before the `entrypoint` action begins. For example, you can use `pre-entrypoint:` to run a prerequisite setup script. {% data variables.product.prodname_actions %} uses `docker run` to launch this action, and runs the script inside a new container that uses the same base image. This means that the runtime state is different from the main `entrypoint` container, and any states you require must be accessed in either the workspace, `HOME`, or as a `STATE_` variable. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
-The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+The runtime specified with the [`using`](#runsusing-for-docker-container-actions) syntax will execute this file.
 
 In this example, the `pre-entrypoint:` action runs a script called `setup.sh`:
 
@@ -421,7 +417,7 @@ runs:
 
 **Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
 
-For more information about how the `entrypoint` executes, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)."
+For more information about how the `entrypoint` executes, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#entrypoint)."
 
 ### `runs.post-entrypoint`
 
@@ -447,7 +443,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 
 If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)."
+For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#cmd)."
 
 #### Example: Defining arguments for the Docker container
 

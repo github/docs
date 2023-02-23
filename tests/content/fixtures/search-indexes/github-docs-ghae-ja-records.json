@@ -5,6 +5,7 @@
         "title": "フー",
         "headings": "",
         "content": "これは、ばかげた foo ワードのフィクスチャです。 GHAE専用。",
-        "topics": ["Test", "Fixture"]
+        "topics": ["Test", "Fixture"],
+        "intro": "サンプル紹介"
     }
 }

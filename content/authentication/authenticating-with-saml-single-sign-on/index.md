@@ -5,7 +5,6 @@ redirect_from:
   - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
   - /articles/authenticating-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on
-  - /authentication/authenticating-with-saml-single-sign-on
 versions:
   ghae: '*'
   ghec: '*'
@@ -18,4 +17,3 @@ children:
   - /viewing-and-managing-your-active-saml-sessions
 shortTitle: Authenticate with SAML
 ---
-

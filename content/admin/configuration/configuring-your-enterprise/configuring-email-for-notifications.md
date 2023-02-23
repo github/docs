@@ -25,21 +25,18 @@ shortTitle: Configure email notifications
 
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
+4. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
-![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Type the settings for your SMTP server.
       - In the **Server address** field, type the address of your SMTP server.
       - In the **Port** field, type the port that your SMTP server uses to send email.
       - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
       - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.      
+      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-![Checkbox to discard emails addressed to the no-reply email address](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Under **Support**, choose a type of link to offer additional support to your users.
+7. Under **Support**, select a type of link to offer additional support to your users.
     - **Email:** An internal email address.
     - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
-  ![Support email or URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Test email delivery](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -67,11 +64,8 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 ## Testing email delivery
 
 1. At the top of the **Email** section, click **Test email settings**.
-![Test email settings](/assets/images/enterprise/management-console/test-email.png)
-2. In the **Send test email to** field, type an address to send the test email to.
-![Test email address](/assets/images/enterprise/management-console/test-email-address.png)
+2. Under "Send test email to," type an address to send the test email to.
 3. Click **Send test email**.
-![Send test email](/assets/images/enterprise/management-console/test-email-address-send.png)
 
   {% tip %}
 
@@ -80,8 +74,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
   {% endtip %}
 
 4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
-5. When the test email succeeds, at the bottom of the page, click **Save settings**.
-![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
+5. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}
@@ -111,13 +104,13 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 ## Troubleshooting email delivery
 
 ### Create a support bundle
 
-If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in `enterprise-manage-logs/unicorn.log` for the entire SMTP conversation log and any related errors.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/support/contacting-github-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in `enterprise-manage-logs/unicorn.log` for the entire SMTP conversation log and any related errors.
 
 The unicorn log should show a transaction similar to the following:
 
@@ -200,5 +193,5 @@ If {% data variables.location.product_location %} is behind a firewall or is bei
 {% ifversion ghes %}
 If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
 {% elsif ghae %}
-You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
+You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 {% endif %}

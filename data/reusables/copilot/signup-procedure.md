@@ -12,4 +12,4 @@
 
    ![Screenshot of GitHub Copilot settings with Save and get started button](/assets/images/help/copilot/copilot-signup-preferences.png)
 
-   You can change these preferences at a later time by returning to your {% data variables.product.prodname_copilot %} settings. For more information, see "[Configuring GitHub Copilot in Visual Studio Code](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)."
+   You can change these preferences at a later time by returning to your {% data variables.product.prodname_copilot %} settings. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)."

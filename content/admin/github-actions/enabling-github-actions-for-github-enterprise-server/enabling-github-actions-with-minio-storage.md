@@ -50,12 +50,8 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 1. Under "Artifact & Log Storage", select **Amazon S3**, and enter your storage bucket's details:
 
 {% indented_data_reference reusables.actions.enterprise-minio-storage-credential-fields spaces=3 %}
-
-   ![Radio button for selecting Amazon S3 Storage and fields for MinIO configuration](/assets/images/enterprise/management-console/actions-minio-s3-storage.png)
 {% endif %}
 1. Under "Artifact & Log Storage", select **Force path style**.
-
-   ![Checkbox to Force path style](/assets/images/enterprise/management-console/actions-minio-force-path-style.png)
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 

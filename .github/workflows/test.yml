@@ -33,7 +33,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-matrix
         with:
           script: |
@@ -114,6 +114,20 @@ jobs:
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.test-group == 'rendering-fixtures' }}
         run: ./script/copy-fixture-data.js --check
+
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/data
 
       - name: Clone all translations
         if: ${{ matrix.test-group == 'translations' }}

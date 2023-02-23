@@ -27,14 +27,14 @@ To reduce noise for your team and clarify individual responsibility for pull req
 
 ## About team notifications
 
-When you choose to only notify requested team members, you disable sending notifications to the entire team when the team is requested to review a pull request if a specific member of that team is also requested for review. This is especially useful when a repository is configured with teams as code owners, but contributors to the repository often know a specific individual that would be the correct reviewer for their pull request. For more information, see "[About code owners](/github/creating-cloning-and-archiving-repositories/about-code-owners)."
+When you choose to only notify requested team members, you disable sending notifications to the entire team when the team is requested to review a pull request if a specific member of that team is also requested for review. This is especially useful when a repository is configured with teams as code owners, but contributors to the repository often know a specific individual that would be the correct reviewer for their pull request. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
 
 ## About auto assignment
 {% endif %}
 
 When you enable auto assignment, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. Code review assignments allow you to decide whether the whole team or just a subset of team members are notified when a team is requested for review.
 
-When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
+When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition to the team. Once the individual completes their review, the team is removed.
 
 ### Routing algorithms
 
@@ -44,7 +44,7 @@ The round robin algorithm chooses reviewers based on who's received the least re
 
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
-Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
 
 {% ifversion only-notify-requested-members %}
 ## Configuring team notifications
@@ -83,12 +83,9 @@ Any team members that have set their status to "Busy" will not be selected for r
 ![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
 1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- endif %}
 1. Click **Save changes**.
 
 ## Disabling auto assignment

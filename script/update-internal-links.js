@@ -2,209 +2,191 @@
 
 // [start-readme]
 //
-// Run this script to find internal links in all content and data Markdown files, check if either the title or link
-// (or both) are outdated, and automatically update them if so.
+// Run this script to update content's internal links.
+// It can correct the title part or the URL part or both.
 //
-// Exceptions:
-// * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment
-// and title will be unchanged (e.g., [Bar](/noo#bar)).
-// * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if
-// necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)).
-// * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
+// Best way to understand how to use it is to run it with `--help`.
 //
 // [end-readme]
 
-import { fileURLToPath } from 'url'
-import path from 'path'
 import fs from 'fs'
-import cheerio from 'cheerio'
-import walk from 'walk-sync'
-import { fromMarkdown } from 'mdast-util-from-markdown'
-import visit from 'unist-util-visit'
-import { loadPages, loadPageMap } from '../lib/page-data.js'
-import loadRedirects from '../lib/redirects/precompile.js'
-import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
-import { allVersionKeys } from '../lib/all-versions.js'
+import path from 'path'
+
+import { program } from 'commander'
+import chalk from 'chalk'
+
+import { updateInternalLinks } from '../lib/update-internal-links.js'
 import frontmatter from '../lib/read-frontmatter.js'
-import renderContent from '../lib/render-content/index.js'
-import patterns from '../lib/patterns.js'
-import getRedirect from '../lib/get-redirect.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import walkFiles from './helpers/walk-files.js'
 
-const walkFiles = (pathToWalk) => {
-  return walk(path.posix.join(__dirname, '..', pathToWalk), {
-    includeBasePath: true,
-    directories: false,
-  })
-    .filter((file) => file.endsWith('.md') && !file.endsWith('README.md'))
-    .filter((file) => !file.includes('/early-access/')) // ignore EA for now
-}
+program
+  .description('Update internal links in content files')
+  .option('-v, --verbose', 'Verbose outputs')
+  .option('--debug', "Don't hide any errors")
+  .option('--dry-run', "Don't actually write changes to disk")
+  .option('--dont-set-autotitle', "Do NOT transform the link text to 'AUTOTITLE' (if applicable)")
+  .option('--dont-fix-href', 'Do NOT fix the link href value (if necessary)')
+  .option('--check', 'Exit and fail if it found something to fix')
+  .option('--aggregate-stats', 'Display aggregate numbers about all possible changes')
+  .option('--strict', "Throw an error (instead of a warning) if a link can't be processed")
+  .option('--exclude [paths...]', 'Specific files to exclude')
+  .arguments('[files-or-directories...]', '')
+  .parse(process.argv)
 
-const allFiles = walkFiles('content').concat(walkFiles('data'))
+main(program.args, program.opts())
 
-// The script will throw an error if it finds any markup not represented here.
-// Hacky but it captures the current rare edge cases.
-const linkInlineMarkup = {
-  emphasis: '*',
-  strong: '**',
-}
+async function main(files, opts) {
+  const { debug } = opts
 
-const currentVersionWithSpacesRegex = /\/enterprise\/{{ currentVersion }}/g
-const currentVersionWithoutSpaces = '/enterprise/{{currentVersion}}'
+  const excludeFilePaths = new Set(opts.exclude || [])
 
-main()
+  try {
+    if (opts.check && !opts.dryRun) {
+      throw new Error("Can't use --check without --dry-run")
+    }
 
-async function main() {
-  console.log('Working...')
-  const pageList = await loadPages()
-  const pageMap = await loadPageMap(pageList)
-  const redirects = await loadRedirects(pageList)
-
-  const context = {
-    pages: pageMap,
-    redirects,
-    currentLanguage: 'en',
-  }
-
-  for (const file of allFiles) {
-    const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
-    let newContent = content
-
-    // Do a blanket find-replace for /enterprise/{{ currentVersion }}/ to /enterprise/{{currentVersion}}/
-    // so that the AST parser recognizes the link as a link node. The spaces prevent it from doing so.
-    newContent = newContent.replace(currentVersionWithSpacesRegex, currentVersionWithoutSpaces)
-
-    const ast = fromMarkdown(newContent)
-
-    // We can't do async functions within visit, so gather the nodes upfront
-    const nodesPerFile = []
-
-    visit(ast, (node) => {
-      if (node.type !== 'link') return
-      if (!node.url.startsWith('/')) return
-      if (node.url.startsWith('/assets')) return
-      if (node.url.startsWith('/public')) return
-      if (node.url.includes('/11.10.340/')) return
-      if (node.url.includes('/2.1/')) return
-      if (node.url === '/') return
-
-      nodesPerFile.push(node)
-    })
-
-    // For every Markdown link...
-    for (const node of nodesPerFile) {
-      const oldLink = node.url
-
-      // Find and preserve any inline markup in link titles, like [*Foo*](/foo)
-      let inlineMarkup = ''
-      if (node.children[0].children) {
-        inlineMarkup = linkInlineMarkup[node.children[0].type]
-
-        if (!inlineMarkup) {
-          console.error(`Cannot find an inline markup entry for ${node.children[0].type}!`)
-          process.exit(1)
-        }
-      }
-
-      const oldTitle = node.children[0].value || node.children[0].children[0].value
-      const oldMarkdownLink = `[${inlineMarkup}${oldTitle}${inlineMarkup}](${oldLink})`
-
-      // As a blanket rule, only update titles in links that begin with quotes. (Many links
-      // have punctuation before the closing quotes, so we'll only check for opening quotes.)
-      // Update: "[Foo](/foo)
-      // Do not update: [Bar](/bar)
-      const hasQuotesAroundLink = newContent.includes(`"${oldMarkdownLink}`)
-
-      let foundPage, fragmentMatch, versionMatch
-
-      // Run through all supported versions...
-      for (const version of allVersionKeys) {
-        context.currentVersion = version
-        // Render the link for each version using the renderContent pipeline, which includes the rewrite-local-links plugin.
-        const html = await renderContent(oldMarkdownLink, context)
-        const $ = cheerio.load(html, { xmlMode: true })
-        let linkToCheck = $('a').attr('href')
-
-        // We need to preserve fragments and hardcoded versions if any are found.
-        fragmentMatch = oldLink.match(/(#.*$)/)
-        versionMatch = oldLink.match(/(enterprise-server(?:@.[^/]*?)?)\//)
-
-        // Remove the fragment for now.
-        linkToCheck = linkToCheck.replace(/#.*$/, '').replace(patterns.trailingSlash, '$1')
-
-        // Try to find the rendered link in the set of pages!
-        foundPage = findPage(linkToCheck, pageMap, redirects)
-
-        // Once a page is found for a particular version, exit immediately; we don't need to check the other versions
-        // because all we care about is the page title and path.
-        if (foundPage) {
-          break
-        }
-      }
-
-      if (!foundPage) {
-        console.error(
-          `Can't find link in pageMap! ${oldLink} in ${file.replace(process.cwd(), '')}`
+    const actualFiles = []
+    if (!files.length) {
+      files.push('content', 'data')
+    }
+    for (const file of files) {
+      if (
+        !(
+          file.startsWith('content') ||
+          file.startsWith('data') ||
+          file.startsWith('tests/fixtures')
         )
-        process.exit(1)
+      ) {
+        throw new Error(`${file} must be a content or data filepath`)
       }
+      if (!fs.existsSync(file)) {
+        throw new Error(`${file} does not exist`)
+      }
+      if (fs.lstatSync(file).isDirectory()) {
+        actualFiles.push(
+          ...walkFiles(file, ['.md', '.yml']).filter((p) => {
+            return !excludeFilePaths.has(p)
+          })
+        )
+      } else if (!excludeFilePaths.has(file)) {
+        actualFiles.push(file)
+      }
+    }
+    if (!actualFiles.length) {
+      throw new Error(`No files found in ${files}`)
+    }
 
-      // If the original link includes a fragment OR the original title includes Liquid, do not change;
-      // otherwise, use the found page title. (We don't want to update the title if a fragment is found because
-      // the title likely points to the fragment section header, not the page title.)
-      const newTitle =
-        fragmentMatch || oldTitle.includes('{%') || !hasQuotesAroundLink
-          ? oldTitle
-          : foundPage.title
+    // The updateInternalLinks doesn't use "negatives" for certain options
+    const options = {
+      setAutotitle: !opts.dontSetAutotitle,
+      fixHref: !opts.dontFixHref,
+      verbose: !!opts.verbose,
+      strict: !!opts.strict,
+    }
 
-      // If the original link includes a fragment, append it to the found page path.
-      // Also remove the language code because Markdown links don't include language codes.
-      let newLink = getPathWithoutLanguage(
-        fragmentMatch ? foundPage.path + fragmentMatch[1] : foundPage.path
+    // Remember, updateInternalLinks() doesn't actually change the files
+    // on disk. That's the responsibility of the caller, i.e. this CLI script.
+    // The reason why is that updateInternalLinks() can then see if ALL
+    // improvements are going to work. For example, if you tried run
+    // it across 10 links and the 7th one had a corrupt broken link that
+    // can't be corrected, it needs to fail there and then instead of
+    // leaving 6 of the 10 files changed.
+    const results = await updateInternalLinks(actualFiles, options)
+
+    let exitCheck = 0
+    for (const { file, content, newContent, replacements, data } of results) {
+      if (content !== newContent) {
+        if (opts.verbose || opts.check) {
+          if (opts.check) {
+            exitCheck++
+          }
+          if (opts.verbose) {
+            console.log(
+              opts.dryRun ? 'Would change...' : 'Will change...',
+              chalk.bold(file),
+              chalk.dim(`${replacements.length} change${replacements.length !== 1 ? 's' : ''}`)
+            )
+            for (const { asMarkdown, newAsMarkdown, line, column } of replacements) {
+              console.log('  ', chalk.red(asMarkdown))
+              console.log('  ', chalk.green(newAsMarkdown))
+              console.log('  ', chalk.dim(`line ${line} column ${column}`))
+              console.log('')
+            }
+          }
+        }
+        if (!opts.dryRun) {
+          // Remember the `content` and `newContent` is the "meat" of the
+          // Markdown page. To save it you need the frontmatter data too.
+          fs.writeFileSync(
+            file,
+            frontmatter.stringify(newContent, data, { lineWidth: 10000 }),
+            'utf-8'
+          )
+        }
+      }
+    }
+
+    if (opts.aggregateStats) {
+      const countFiles = results.length
+      const countChangedFiles = new Set(results.filter((result) => result.replacements.length > 0))
+        .size
+      const countReplacements = results.reduce((prev, next) => prev + next.replacements.length, 0)
+      console.log('Number of files checked:'.padEnd(30), chalk.bold(countFiles.toLocaleString()))
+      console.log(
+        'Number of files changed:'.padEnd(30),
+        chalk.bold(countChangedFiles.toLocaleString())
+      )
+      console.log(
+        'Sum number of replacements:'.padEnd(30),
+        chalk.bold(countReplacements.toLocaleString())
       )
 
-      // If the original link includes a hardcoded version, preserve it; otherwise, remove versioning
-      // because Markdown links don't include versioning.
-      newLink = versionMatch
-        ? `/${versionMatch[1]}${getPathWithoutVersion(newLink)}`
-        : getPathWithoutVersion(newLink)
-
-      let newMarkdownLink = `[${inlineMarkup}${newTitle}${inlineMarkup}](${newLink})`
-
-      // Handle a few misplaced quotation marks.
-      if (oldMarkdownLink.includes('["')) {
-        newMarkdownLink = `"${newMarkdownLink}`
-      }
-
-      // Stream the results to console as we find them.
-      if (oldMarkdownLink !== newMarkdownLink) {
-        console.log('old link', oldMarkdownLink)
-        console.log('new link', newMarkdownLink)
-        console.log('-------')
-      }
-
-      newContent = newContent.replace(oldMarkdownLink, newMarkdownLink)
+      countByTree(results)
     }
 
-    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+    if (exitCheck) {
+      console.log(chalk.yellow(`More than one file would become different. Unsuccessful check.`))
+      process.exit(exitCheck)
+    } else if (opts.check) {
+      console.log(chalk.green('No changes needed or necessary. 🌈'))
+    }
+  } catch (err) {
+    if (debug) {
+      throw err
+    }
+    console.error(chalk.red(err.toString()))
+    process.exit(1)
   }
-
-  console.log('Done!')
 }
 
-function findPage(tryPath, pageMap, redirects) {
-  if (pageMap[tryPath]) {
-    return {
-      title: pageMap[tryPath].title,
-      path: tryPath,
+function countByTree(results) {
+  const files = {}
+  const changes = {}
+  for (const { file, replacements } of results) {
+    const split = path.dirname(file).split(path.sep)
+    while (split.length > 1) {
+      const parent = split.slice(1).join(path.sep)
+      files[parent] = (replacements.length > 0 ? 1 : 0) + (files[parent] || 0)
+      changes[parent] = replacements.length + (changes[parent] || 0)
+      split.pop()
     }
   }
-
-  const redirect = getRedirect(tryPath, { redirects, pages: pageMap })
-  if (pageMap[redirect]) {
-    return {
-      title: pageMap[redirect].title,
-      path: redirect,
-    }
+  const longest = Math.max(...Object.keys(changes).map((x) => x.split(path.sep).at(-1).length))
+  const padding = longest + 10
+  const col0 = 'TREE'
+  const col1 = 'FILES '
+  console.log('\n')
+  console.log(`${col0.padEnd(padding)}${col1} CHANGES`)
+  for (const each of Object.keys(changes).sort()) {
+    if (!changes[each]) continue
+    const split = each.split(path.sep)
+    const last = split.at(-1)
+    const indentation = split.length - 1
+    const indentationPad = indentation ? `${'   '.repeat(indentation)} ↳ ` : ''
+    console.log(
+      `${indentationPad}${last.padEnd(padding - indentationPad.length)} ${String(
+        files[each]
+      ).padEnd(col1.length)} ${changes[each]}`
+    )
   }
 }

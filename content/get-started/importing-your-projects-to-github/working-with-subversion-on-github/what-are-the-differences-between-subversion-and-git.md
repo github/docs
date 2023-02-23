@@ -66,7 +66,7 @@ SVN is configured to assume that the history of a project never changes. Git all
 
 ## Further reading
 
-- "[Subversion properties supported by GitHub](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github)"
 - ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[Importing source code to GitHub](/get-started/importing-your-projects-to-github/importing-source-code-to-github)"
-- "[Source code migration tools](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github)"
+- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/source-code-migration-tools)"

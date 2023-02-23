@@ -7,15 +7,14 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 ---
 
 ## actions
-{% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/actions/permissions`](/rest/actions#get-github-actions-permissions-for-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions`](/rest/actions#set-github-actions-permissions-for-an-enterprise){% endif %}{% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#list-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#enable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
-- [`DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#disable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}{% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#get-allowed-actions-for-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`GET /enterprises/{enterprise}/actions/permissions`](/rest/actions#get-github-actions-permissions-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /enterprises/{enterprise}/actions/permissions`](/rest/actions#set-github-actions-permissions-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`GET /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#list-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /enterprises/{enterprise}/actions/permissions/organizations`](/rest/actions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#enable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}`](/rest/actions#disable-a-selected-organization-for-github-actions-in-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`GET /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#get-allowed-actions-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /enterprises/{enterprise}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-enterprise){% endif %}
 - [`GET /orgs/{org}/actions/permissions`](/rest/actions#get-github-actions-permissions-for-an-organization)
 - [`PUT /orgs/{org}/actions/permissions`](/rest/actions#set-github-actions-permissions-for-an-organization)
 - [`GET /orgs/{org}/actions/permissions/repositories`](/rest/actions#list-selected-repositories-enabled-for-github-actions-in-an-organization)
@@ -23,20 +22,20 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PUT /orgs/{org}/actions/permissions/repositories/{repository_id}`](/rest/actions#enable-a-selected-repository-for-github-actions-in-an-organization)
 - [`DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}`](/rest/actions#disable-a-selected-repository-for-github-actions-in-an-organization)
 - [`GET /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#get-allowed-actions-for-an-organization)
-- [`PUT /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-organization){% ifversion ghec %}
-- [`GET /orgs/{org}/actions/runner-groups`](/rest/actions#list-self-hosted-runner-groups-for-an-organization){% endif %}{% ifversion ghec %}
-- [`POST /orgs/{org}/actions/runner-groups`](/rest/actions#create-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#get-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#update-a-self-hosted-runner-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#delete-a-self-hosted-runner-group-from-an-organization){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#list-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#set-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#remove-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#list-self-hosted-runners-in-a-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#add-a-self-hosted-runner-to-a-group-for-an-organization){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization){% endif %}
+- [`PUT /orgs/{org}/actions/permissions/selected-actions`](/rest/actions#set-allowed-actions-for-an-organization)
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/actions/runner-groups`](/rest/actions#list-self-hosted-runner-groups-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`POST /orgs/{org}/actions/runner-groups`](/rest/actions#create-a-self-hosted-runner-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#get-a-self-hosted-runner-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#update-a-self-hosted-runner-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}`](/rest/actions#delete-a-self-hosted-runner-group-from-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#list-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories`](/rest/actions#set-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}`](/rest/actions#remove-repository-access-to-a-self-hosted-runner-group-in-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#list-self-hosted-runners-in-a-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners`](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#add-a-self-hosted-runner-to-a-group-for-an-organization){% endif %}
+{% ifversion ghec or ghes %}- [`DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}`](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization){% endif %}
 - [`GET /orgs/{org}/actions/runners`](/rest/actions#list-self-hosted-runners-for-an-organization)
 - [`GET /orgs/{org}/actions/runners/downloads`](/rest/actions#list-runner-applications-for-an-organization)
 - [`POST /orgs/{org}/actions/runners/registration-token`](/rest/actions#create-a-registration-token-for-an-organization)
@@ -105,22 +104,26 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository)
 - [`PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository)
 - [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#remove-all-custom-labels-from-a-self-hosted-runner-for-a-repository)
-- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository){% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-an-enterprise){% endif %}
+- [`DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}/labels/{name}`](/rest/actions#remove-a-custom-label-from-a-self-hosted-runner-for-a-repository)
+{% ifversion ghec or ghes > 3.4 %}- [`GET /enterprises/{enterprise}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-an-enterprise){% endif %}
+{% ifversion ghes > 3.4 %}- [`GET /enterprises/{enterprise}/actions/cache/usage-policy`](/rest/actions#get-github-actions-cache-usage-policy-for-an-enterprise){% endif %}
+{% ifversion ghes > 3.4 %}- [`PATCH /enterprises/{enterprise}/actions/cache/usage-policy`](/rest/actions#set-github-actions-cache-usage-policy-for-an-enterprise){% endif %}
 - [`GET /orgs/{org}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-an-organization)
 - [`GET /orgs/{org}/actions/cache/usage-by-repository`](/rest/actions#list-repositories-with-github-actions-cache-usage-for-an-organization)
 - [`GET /orgs/{org}/actions/permissions/workflow`](/rest/actions#get-default-workflow-permissions)
 - [`PUT /orgs/{org}/actions/permissions/workflow`](/rest/actions#set-default-workflow-permissions)
 - [`GET /repos/{owner}/{repo}/actions/cache/usage`](/rest/actions#get-github-actions-cache-usage-for-a-repository)
+{% ifversion ghes > 3.4 %}- [`GET /repos/{owner}/{repo}/actions/cache/usage-policy`](/rest/actions#get-github-actions-cache-usage-policy-for-a-repository){% endif %}
+{% ifversion ghes > 3.4 %}- [`PATCH /repos/{owner}/{repo}/actions/cache/usage-policy`](/rest/actions#set-github-actions-cache-usage-policy-for-a-repository){% endif %}
 - [`POST /repos/{owner}/{repo}/actions/jobs/{job_id}/rerun`](/rest/actions#re-run-job-for-workflow-run)
 - [`GET /repos/{owner}/{repo}/actions/permissions/access`](/rest/actions#get-workflow-access-level-to-a-repository)
 - [`PUT /repos/{owner}/{repo}/actions/permissions/access`](/rest/actions#set-workflow-access-to-a-repository)
 - [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}`](/rest/actions#get-a-workflow-run-attempt)
 - [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs`](/rest/actions#list-jobs-for-a-workflow-run-attempt)
 - [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs`](/rest/actions#download-workflow-run-attempt-logs)
-- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs`](/rest/actions#re-run-workflow-failed-jobs){% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/actions/permissions/workflow`](/rest/actions#get-default-workflow-permissions-for-an-enterprise){% endif %}{% ifversion ghec %}
-- [`PUT /enterprises/{enterprise}/actions/permissions/workflow`](/rest/actions#set-default-workflow-permissions-for-an-enterprise){% endif %}
+- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs`](/rest/actions#re-run-workflow-failed-jobs)
+{% ifversion ghec or ghes > 3.5 %}- [`GET /enterprises/{enterprise}/actions/permissions/workflow`](/rest/actions#get-default-workflow-permissions-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes > 3.5 %}- [`PUT /enterprises/{enterprise}/actions/permissions/workflow`](/rest/actions#set-default-workflow-permissions-for-an-enterprise){% endif %}
 - [`GET /repos/{owner}/{repo}/actions/permissions/workflow`](/rest/actions#get-default-workflow-permissions-for-a-repository)
 - [`PUT /repos/{owner}/{repo}/actions/permissions/workflow`](/rest/actions#set-default-workflow-permissions-for-a-repository)
 - [`GET /orgs/{org}/actions/oidc/customization/sub`](/rest/actions/oidc#get-the-customization-template-for-an-oidc-subject-claim-for-an-organization)
@@ -130,42 +133,41 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /repos/{owner}/{repo}/actions/caches/{cache_id}`](/rest/actions/cache#delete-a-github-actions-cache-for-a-repository-using-a-cache-id)
 - [`GET /repos/{owner}/{repo}/actions/oidc/customization/sub`](/rest/actions/oidc#get-the-customization-template-for-an-oidc-subject-claim-for-a-repository)
 - [`PUT /repos/{owner}/{repo}/actions/oidc/customization/sub`](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)
-- [`GET /orgs/{org}/actions/required_workflows`](/rest/actions#list-required-workflows)
-- [`POST /orgs/{org}/actions/required_workflows`](/rest/actions#create-a-required-workflow)
-- [`GET /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#get-a-required-workflow)
-- [`PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#update-a-required-workflow)
-- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#delete-a-required-workflow)
-- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/actions#set-selected-repositories-for-a-required-workflow)
-- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow)
-- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow)
-- [`GET /orgs/{org}/actions/variables`](/rest/actions/variables#list-organization-variables)
-- [`POST /orgs/{org}/actions/variables`](/rest/actions/variables#create-an-organization-variable)
-- [`GET /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#get-an-organization-variable)
-- [`PATCH /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#update-an-organization-variable)
-- [`DELETE /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#delete-an-organization-variable)
-- [`GET /orgs/{org}/actions/variables/{name}/repositories`](/rest/actions/variables#list-selected-repositories-for-an-organization-variable)
-- [`PUT /orgs/{org}/actions/variables/{name}/repositories`](/rest/actions/variables#set-selected-repositories-for-an-organization-variable)
-- [`PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id}`](/rest/actions/variables#add-selected-repository-to-an-organization-variable)
-- [`GET /repos/{org}/{repo}/actions/required_workflows`](/rest/actions#list-repository-required-workflows)
-- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}`](/rest/actions#get-repository-required-workflow)
-- [`GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs`](/rest/actions#list-required-workflow-runs)
-- [`GET /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#list-repository-variables)
-- [`POST /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#create-a-repository-variable)
-- [`GET /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#get-a-repository-variable)
-- [`PATCH /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#update-a-repository-variable)
-- [`DELETE /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#delete-a-repository-variable)
-- [`GET /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/actions/variables#list-environment-variables)
-- [`POST /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/actions/variables#create-an-environment-variable)
-- [`GET /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#get-an-environment-variable)
-- [`PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#update-an-environment-variable)
-- [`DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#delete-an-environment-variable)
-- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing`](/rest/actions#get-workflow-run-usage)
-- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/actions#get-workflow-usage)
-- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions#get-repository-required-workflow-usage)
-- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve`](/rest/actions#approve-a-workflow-run-for-a-fork-pull-request)
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/actions/required_workflows`](/rest/actions#list-required-workflows){% endif %}
+{% ifversion fpt or ghec %}- [`POST /orgs/{org}/actions/required_workflows`](/rest/actions#create-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#get-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#update-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}`](/rest/actions#delete-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories`](/rest/actions#set-selected-repositories-for-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}`](/rest/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/actions/variables`](/rest/actions/variables#list-organization-variables){% endif %}
+{% ifversion fpt or ghec %}- [`POST /orgs/{org}/actions/variables`](/rest/actions/variables#create-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#get-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#update-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/actions/variables/{name}`](/rest/actions/variables#delete-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/actions/variables/{name}/repositories`](/rest/actions/variables#list-selected-repositories-for-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/variables/{name}/repositories`](/rest/actions/variables#set-selected-repositories-for-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/actions/variables/{name}/repositories/{repository_id}`](/rest/actions/variables#add-selected-repository-to-an-organization-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{org}/{repo}/actions/required_workflows`](/rest/actions#list-repository-required-workflows){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}`](/rest/actions#get-repository-required-workflow){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs`](/rest/actions#list-required-workflow-runs){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#list-repository-variables){% endif %}
+{% ifversion fpt or ghec %}- [`POST /repos/{owner}/{repo}/actions/variables`](/rest/actions/variables#create-a-repository-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#get-a-repository-variable){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#update-a-repository-variable){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/actions/variables/{name}`](/rest/actions/variables#delete-a-repository-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/actions/variables#list-environment-variables){% endif %}
+{% ifversion fpt or ghec %}- [`POST /repositories/{repository_id}/environments/{environment_name}/variables`](/rest/actions/variables#create-an-environment-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#get-an-environment-variable){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#update-an-environment-variable){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repositories/{repository_id}/environments/{environment_name}/variables/{name}`](/rest/actions/variables#delete-an-environment-variable){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/actions/runs/{run_id}/timing`](/rest/actions#get-workflow-run-usage){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/timing`](/rest/actions#get-workflow-usage){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing`](/rest/actions#get-repository-required-workflow-usage){% endif %}
+{% ifversion fpt or ghec %}- [`POST /repos/{owner}/{repo}/actions/runs/{run_id}/approve`](/rest/actions#approve-a-workflow-run-for-a-fork-pull-request){% endif %}
 
 ## activity
-
 - [`GET /events`](/rest/activity#list-public-events)
 - [`GET /feeds`](/rest/activity#get-feeds)
 - [`GET /networks/{owner}/{repo}/events`](/rest/activity#list-public-events-for-a-network-of-repositories)
@@ -189,32 +191,32 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 {% ifversion ghec %}
 
 ## announcement-banners
-{% ifversion ghec %}
-- [`GET /orgs/{org}/announcement`](/rest/announcement-banners#get-enterprise-announcement-banner-for-org){% endif %}{% ifversion ghec %}
-- [`PATCH /orgs/{org}/announcement`](/rest/announcement-banners/organizations#set-announcement-banner-for-organization){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/announcement`](/rest/announcement-banners/organizations#remove-announcement-banner-from-organization){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/announcement`](/rest/announcement-banners#get-enterprise-announcement-banner-for-org){% endif %}
+{% ifversion ghec %}- [`PATCH /orgs/{org}/announcement`](/rest/announcement-banners/organizations#set-announcement-banner-for-organization){% endif %}
+{% ifversion ghec %}- [`DELETE /orgs/{org}/announcement`](/rest/announcement-banners/organizations#remove-announcement-banner-from-organization){% endif %}
 
 {% endif %}
 
 ## apps
-
-- [`GET /apps/{app_slug}`](/rest/apps/#get-an-app)
+- [`GET /apps/{app_slug}`](/rest/apps#get-an-app)
 - [`GET /user/installations/{installation_id}/repositories`](/rest/apps#list-repositories-accessible-to-the-user-access-token)
-- [`GET /user/marketplace_purchases`](/rest/apps#list-subscriptions-for-the-authenticated-user)
-- [`GET /user/marketplace_purchases/stubbed`](/rest/apps#list-subscriptions-for-the-authenticated-user-stubbed)
+{% ifversion fpt or ghec %}- [`GET /user/marketplace_purchases`](/rest/apps#list-subscriptions-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/marketplace_purchases/stubbed`](/rest/apps#list-subscriptions-for-the-authenticated-user-stubbed){% endif %}
+
+{% ifversion ghec or ghes > 3.3 %}
 
 ## billing
-{% ifversion ghec %}
-- [`GET /orgs/{org}/settings/billing/advanced-security`](/rest/billing#get-github-advanced-security-active-committers-for-an-organization){% endif %}
-- [`GET /orgs/{org}/settings/billing/actions`](/rest/billing#get-github-actions-billing-for-an-organization)
-- [`GET /orgs/{org}/settings/billing/packages`](/rest/billing#get-github-packages-billing-for-an-organization)
-- [`GET /orgs/{org}/settings/billing/shared-storage`](/rest/billing#get-shared-storage-billing-for-an-organization)
-- [`GET /users/{username}/settings/billing/actions`](/rest/billing#get-github-actions-billing-for-a-user)
-- [`GET /users/{username}/settings/billing/packages`](/rest/billing#get-github-packages-billing-for-a-user)
-- [`GET /users/{username}/settings/billing/shared-storage`](/rest/billing#get-shared-storage-billing-for-a-user)
+{% ifversion ghec or ghes > 3.3 %}- [`GET /orgs/{org}/settings/billing/advanced-security`](/rest/billing#get-github-advanced-security-active-committers-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/settings/billing/actions`](/rest/billing#get-github-actions-billing-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/settings/billing/packages`](/rest/billing#get-github-packages-billing-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/settings/billing/shared-storage`](/rest/billing#get-shared-storage-billing-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/settings/billing/actions`](/rest/billing#get-github-actions-billing-for-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/settings/billing/packages`](/rest/billing#get-github-packages-billing-for-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/settings/billing/shared-storage`](/rest/billing#get-shared-storage-billing-for-a-user){% endif %}
+
+{% endif %}
 
 ## branches
-
 - [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches)
 - [`GET /repos/{owner}/{repo}/branches/{branch}`](/rest/branches/branches#get-a-branch)
 - [`GET /repos/{owner}/{repo}/branches/{branch}/protection`](/rest/branches/branch-protection#get-branch-protection)
@@ -255,7 +257,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/merge-upstream`](/rest/branches/branches#sync-a-fork-branch-with-the-upstream-repository)
 
 ## code-scanning
-
 - [`GET /repos/{owner}/{repo}/code-scanning/alerts`](/rest/code-scanning#list-code-scanning-alerts-for-a-repository)
 - [`GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}`](/rest/code-scanning#get-a-code-scanning-alert)
 - [`PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}`](/rest/code-scanning#update-a-code-scanning-alert)
@@ -266,70 +267,67 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/code-scanning/sarifs`](/rest/code-scanning#upload-a-sarif-file)
 - [`GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}`](/rest/code-scanning#list-recent-code-scanning-analyses-for-a-repository)
 - [`GET /orgs/{org}/code-scanning/alerts`](/rest/code-scanning#list-code-scanning-alerts-by-organization)
-- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/code-scanning#list-codeql-databases)
-- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/code-scanning#get-codeql-database)
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases`](/rest/code-scanning#list-codeql-databases){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}`](/rest/code-scanning#get-codeql-database){% endif %}
 
 ## codes-of-conduct
-
 - [`GET /codes_of_conduct`](/rest/codes-of-conduct#get-all-codes-of-conduct)
 - [`GET /codes_of_conduct/{key}`](/rest/codes-of-conduct#get-a-code-of-conduct)
 
 {% ifversion fpt or ghec %}
 
 ## codespaces
-
-- [`GET /orgs/{org}/codespaces`](/rest/codespaces#list-in-organization)
-- [`PUT /orgs/{org}/codespaces/billing`](/rest/codespaces#set-codespaces-billing)
-- [`POST /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#set-codespaces-billing-users)
-- [`DELETE /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#delete-codespaces-billing-users)
-- [`GET /orgs/{org}/codespaces/secrets`](/rest/codespaces#list-organization-secrets)
-- [`GET /orgs/{org}/codespaces/secrets/public-key`](/rest/codespaces#get-an-organization-public-key)
-- [`GET /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#get-an-organization-secret)
-- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-an-organization-secret)
-- [`DELETE /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-an-organization-secret)
-- [`GET /orgs/{org}/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#list-selected-repositories-for-an-organization-secret)
-- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#set-selected-repositories-for-an-organization-secret)
-- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#add-selected-repository-to-an-organization-secret)
-- [`DELETE /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#remove-selected-repository-from-an-organization-secret)
-- [`GET /orgs/{org}/members/{username}/codespaces`](/rest/codespaces#get-codespaces-for-user-in-org)
-- [`DELETE /orgs/{org}/members/{username}/codespaces/{codespace_name}`](/rest/codespaces)
-- [`POST /orgs/{org}/members/{username}/codespaces/{codespace_name}/stop`](/rest/codespaces)
-- [`GET /repos/{owner}/{repo}/codespaces`](/rest/codespaces#list-codespaces-in-a-repository-for-the-authenticated-user)
-- [`POST /repos/{owner}/{repo}/codespaces`](/rest/codespaces#create-a-codespace-in-a-repository)
-- [`GET /repos/{owner}/{repo}/codespaces/devcontainers`](/rest/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user)
-- [`GET /repos/{owner}/{repo}/codespaces/machines`](/rest/codespaces#list-available-machine-types-for-a-repository)
-- [`GET /repos/{owner}/{repo}/codespaces/new`](/rest/codespaces#preview-attributes-for-a-new-codespace)
-- [`GET /repos/{owner}/{repo}/codespaces/secrets`](/rest/codespaces#list-repository-secrets)
-- [`GET /repos/{owner}/{repo}/codespaces/secrets/public-key`](/rest/codespaces#get-a-repository-public-key)
-- [`GET /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#get-a-repository-secret)
-- [`PUT /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-a-repository-secret)
-- [`DELETE /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-a-repository-secret)
-- [`POST /repos/{owner}/{repo}/pulls/{pull_number}/codespaces`](/rest/codespaces#create-a-codespace-from-a-pull-request)
-- [`GET /user/codespaces`](/rest/codespaces#list-codespaces-for-the-authenticated-user)
-- [`POST /user/codespaces`](/rest/codespaces#create-a-codespace-for-the-authenticated-user)
-- [`GET /user/codespaces/secrets`](/rest/codespaces#list-secrets-for-the-authenticated-user)
-- [`GET /user/codespaces/secrets/public-key`](/rest/codespaces#get-public-key-for-the-authenticated-user)
-- [`GET /user/codespaces/secrets/{secret_name}`](/rest/codespaces#get-a-secret-for-the-authenticated-user)
-- [`PUT /user/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-a-secret-for-the-authenticated-user)
-- [`DELETE /user/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-a-secret-for-the-authenticated-user)
-- [`GET /user/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#list-selected-repositories-for-a-user-secret)
-- [`PUT /user/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#set-selected-repositories-for-a-user-secret)
-- [`PUT /user/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#add-a-selected-repository-to-a-user-secret)
-- [`DELETE /user/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#remove-a-selected-repository-from-a-user-secret)
-- [`GET /user/codespaces/{codespace_name}`](/rest/codespaces#get-a-codespace-for-the-authenticated-user)
-- [`PATCH /user/codespaces/{codespace_name}`](/rest/codespaces#update-a-codespace-for-the-authenticated-user)
-- [`DELETE /user/codespaces/{codespace_name}`](/rest/codespaces#delete-a-codespace-for-the-authenticated-user)
-- [`POST /user/codespaces/{codespace_name}/exports`](/rest/codespaces/codespaces#export-a-codespace-for-the-authenticated-user)
-- [`GET /user/codespaces/{codespace_name}/exports/{export_id}`](/rest/codespaces/codespaces#get-details-about-a-codespace-export)
-- [`GET /user/codespaces/{codespace_name}/machines`](/rest/codespaces#list-machine-types-for-a-codespace)
-- [`POST /user/codespaces/{codespace_name}/publish`](/rest/codespaces/codespaces#create-a-repository-from-an-unpublished-codespace)
-- [`POST /user/codespaces/{codespace_name}/start`](/rest/codespaces#start-a-codespace-for-the-authenticated-user)
-- [`POST /user/codespaces/{codespace_name}/stop`](/rest/codespaces#stop-a-codespace-for-the-authenticated-user)
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces`](/rest/codespaces#list-in-organization){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/codespaces/billing`](/rest/codespaces#set-codespaces-billing){% endif %}
+{% ifversion fpt or ghec %}- [`POST /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#set-codespaces-billing-users){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/codespaces/billing/selected_users`](/rest/codespaces#delete-codespaces-billing-users){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces/secrets`](/rest/codespaces#list-organization-secrets){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces/secrets/public-key`](/rest/codespaces#get-an-organization-public-key){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#get-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#list-selected-repositories-for-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#set-selected-repositories-for-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#add-selected-repository-to-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#remove-selected-repository-from-an-organization-secret){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/members/{username}/codespaces`](/rest/codespaces#get-codespaces-for-user-in-org){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/members/{username}/codespaces/{codespace_name}`](/rest/codespaces){% endif %}
+{% ifversion fpt or ghec %}- [`POST /orgs/{org}/members/{username}/codespaces/{codespace_name}/stop`](/rest/codespaces){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces`](/rest/codespaces#list-codespaces-in-a-repository-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`POST /repos/{owner}/{repo}/codespaces`](/rest/codespaces#create-a-codespace-in-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/devcontainers`](/rest/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/machines`](/rest/codespaces#list-available-machine-types-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/new`](/rest/codespaces#preview-attributes-for-a-new-codespace){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/secrets`](/rest/codespaces#list-repository-secrets){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/secrets/public-key`](/rest/codespaces#get-a-repository-public-key){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#get-a-repository-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-a-repository-secret){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-a-repository-secret){% endif %}
+{% ifversion fpt or ghec %}- [`POST /repos/{owner}/{repo}/pulls/{pull_number}/codespaces`](/rest/codespaces#create-a-codespace-from-a-pull-request){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces`](/rest/codespaces#list-codespaces-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`POST /user/codespaces`](/rest/codespaces#create-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/secrets`](/rest/codespaces#list-secrets-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/secrets/public-key`](/rest/codespaces#get-public-key-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/secrets/{secret_name}`](/rest/codespaces#get-a-secret-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /user/codespaces/secrets/{secret_name}`](/rest/codespaces#create-or-update-a-secret-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/codespaces/secrets/{secret_name}`](/rest/codespaces#delete-a-secret-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#list-selected-repositories-for-a-user-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /user/codespaces/secrets/{secret_name}/repositories`](/rest/codespaces#set-selected-repositories-for-a-user-secret){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /user/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#add-a-selected-repository-to-a-user-secret){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/codespaces/secrets/{secret_name}/repositories/{repository_id}`](/rest/codespaces#remove-a-selected-repository-from-a-user-secret){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/{codespace_name}`](/rest/codespaces#get-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /user/codespaces/{codespace_name}`](/rest/codespaces#update-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/codespaces/{codespace_name}`](/rest/codespaces#delete-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`POST /user/codespaces/{codespace_name}/exports`](/rest/codespaces/codespaces#export-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/{codespace_name}/exports/{export_id}`](/rest/codespaces/codespaces#get-details-about-a-codespace-export){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/codespaces/{codespace_name}/machines`](/rest/codespaces#list-machine-types-for-a-codespace){% endif %}
+{% ifversion fpt or ghec %}- [`POST /user/codespaces/{codespace_name}/publish`](/rest/codespaces/codespaces#create-a-repository-from-an-unpublished-codespace){% endif %}
+{% ifversion fpt or ghec %}- [`POST /user/codespaces/{codespace_name}/start`](/rest/codespaces#start-a-codespace-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`POST /user/codespaces/{codespace_name}/stop`](/rest/codespaces#stop-a-codespace-for-the-authenticated-user){% endif %}
 
 {% endif %}
 
 ## collaborators
-
 - [`GET /repos/{owner}/{repo}/collaborators`](/rest/collaborators/collaborators#list-repository-collaborators)
 - [`GET /repos/{owner}/{repo}/collaborators/{username}`](/rest/collaborators/collaborators#check-if-a-user-is-a-repository-collaborator)
 - [`PUT /repos/{owner}/{repo}/collaborators/{username}`](/rest/collaborators/collaborators#add-a-repository-collaborator)
@@ -343,7 +341,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /user/repository_invitations/{invitation_id}`](/rest/collaborators/invitations#decline-a-repository-invitation)
 
 ## commits
-
 - [`GET /repos/{owner}/{repo}/comments`](/rest/commits/comments#list-commit-comments-for-a-repository)
 - [`GET /repos/{owner}/{repo}/comments/{comment_id}`](/rest/commits/comments#get-a-commit-comment)
 - [`PATCH /repos/{owner}/{repo}/comments/{comment_id}`](/rest/commits/comments#update-a-commit-comment)
@@ -360,7 +357,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/statuses/{sha}`](/rest/commits/statuses#create-a-commit-status)
 
 ## dependabot
-
 - [`GET /orgs/{org}/dependabot/secrets`](/rest/dependabot#list-organization-secrets)
 - [`GET /orgs/{org}/dependabot/secrets/public-key`](/rest/dependabot#get-an-organization-public-key)
 - [`GET /orgs/{org}/dependabot/secrets/{secret_name}`](/rest/dependabot#get-an-organization-secret)
@@ -375,25 +371,22 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/dependabot/secrets/{secret_name}`](/rest/dependabot#get-a-repository-secret)
 - [`PUT /repos/{owner}/{repo}/dependabot/secrets/{secret_name}`](/rest/dependabot#create-or-update-a-repository-secret)
 - [`DELETE /repos/{owner}/{repo}/dependabot/secrets/{secret_name}`](/rest/dependabot#delete-a-repository-secret)
-- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization)
-- [`GET /repos/{owner}/{repo}/dependabot/alerts`](/rest/dependabot#list-dependabot-alerts-for-a-repository)
-- [`GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#get-a-dependabot-alert)
-- [`PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#update-a-dependabot-alert)
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/dependabot/alerts`](/rest/dependabot/alerts#list-dependabot-alerts-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/dependabot/alerts`](/rest/dependabot#list-dependabot-alerts-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#get-a-dependabot-alert){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}`](/rest/dependabot#update-a-dependabot-alert){% endif %}
 
 ## dependency-graph
-
 - [`GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}`](/rest/dependency-graph#get-a-diff-of-the-dependencies-between-commits)
 - [`POST /repos/{owner}/{repo}/dependency-graph/snapshots`](/rest/dependency-graph#create-a-snapshot-of-dependencies-for-a-repository)
 
 ## deploy-keys
-
 - [`GET /repos/{owner}/{repo}/keys`](/rest/deploy-keys#list-deploy-keys)
 - [`POST /repos/{owner}/{repo}/keys`](/rest/deploy-keys#create-a-deploy-key)
 - [`GET /repos/{owner}/{repo}/keys/{key_id}`](/rest/deploy-keys#get-a-deploy-key)
 - [`DELETE /repos/{owner}/{repo}/keys/{key_id}`](/rest/deploy-keys#delete-a-deploy-key)
 
 ## deployments
-
 - [`GET /repos/{owner}/{repo}/deployments`](/rest/deployments/deployments#list-deployments)
 - [`POST /repos/{owner}/{repo}/deployments`](/rest/deployments/deployments#create-a-deployment)
 - [`GET /repos/{owner}/{repo}/deployments/{deployment_id}`](/rest/deployments/deployments#get-a-deployment)
@@ -412,26 +405,41 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`DELETE /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}`](/rest/deployments/branch-policies#delete-deployment-branch-policy)
 
 ## emojis
-
 - [`GET /emojis`](/rest/emojis#get-emojis)
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes %}
 
 ## enterprise-admin
-{% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/audit-log`](/rest/enterprise-admin#get-the-audit-log-for-an-enterprise){% endif %}{% ifversion ghec %}
-- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise){% endif %}
+{% ifversion ghes %}- [`GET /orgs/{org}/pre-receive-hooks`](/rest/enterprise-admin#list-pre-receive-hooks-for-an-organization){% endif %}
+{% ifversion ghes %}- [`GET /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}`](/rest/enterprise-admin#get-a-pre-receive-hook-for-an-organization){% endif %}
+{% ifversion ghes %}- [`DELETE /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}`](/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization){% endif %}
+{% ifversion ghes %}- [`GET /repos/{owner}/{repo}/pre-receive-hooks`](/rest/enterprise-admin#list-pre-receive-hooks-for-a-repository){% endif %}
+{% ifversion ghes %}- [`GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}`](/rest/enterprise-admin#get-a-pre-receive-hook-for-a-repository){% endif %}
+{% ifversion ghes %}- [`DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}`](/rest/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository){% endif %}
+{% ifversion ghec or ghes %}- [`GET /enterprises/{enterprise}/audit-log`](/rest/enterprise-admin#get-the-audit-log-for-an-enterprise){% endif %}
+{% ifversion ghec or ghes > 3.3 %}- [`GET /enterprises/{enterprise}/settings/billing/advanced-security`](/rest/billing#export-advanced-security-active-committers-data-for-enterprise){% endif %}
+{% ifversion ghes > 3.5 %}- [`GET /scim/v2/Groups`](/rest/enterprise-admin#list-provisioned-scim-groups-for-an-enterprise){% endif %}
+{% ifversion ghes > 3.5 %}- [`POST /scim/v2/Groups`](/rest/enterprise-admin#provision-a-scim-enterprise-group){% endif %}
+{% ifversion ghes > 3.5 %}- [`GET /scim/v2/Groups/{scim_group_id}`](/rest/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-group){% endif %}
+{% ifversion ghes > 3.5 %}- [`PUT /scim/v2/Groups/{scim_group_id}`](/rest/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-group){% endif %}
+{% ifversion ghes > 3.5 %}- [`PATCH /scim/v2/Groups/{scim_group_id}`](/rest/enterprise-admin#update-an-attribute-for-a-scim-enterprise-group){% endif %}
+{% ifversion ghes > 3.5 %}- [`DELETE /scim/v2/Groups/{scim_group_id}`](/rest/enterprise-admin#delete-a-scim-group-from-an-enterprise){% endif %}
+{% ifversion ghes > 3.5 %}- [`GET /scim/v2/Users`](/rest/enterprise-admin#list-scim-provisioned-identities-for-an-enterprise){% endif %}
+{% ifversion ghes > 3.5 %}- [`POST /scim/v2/Users`](/rest/enterprise-admin#provision-a-scim-enterprise-user){% endif %}
+{% ifversion ghes > 3.5 %}- [`GET /scim/v2/Users/{scim_user_id}`](/rest/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-user){% endif %}
+{% ifversion ghes > 3.5 %}- [`PUT /scim/v2/Users/{scim_user_id}`](/rest/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-user){% endif %}
+{% ifversion ghes > 3.5 %}- [`PATCH /scim/v2/Users/{scim_user_id}`](/rest/enterprise-admin#update-an-attribute-for-a-scim-enterprise-user){% endif %}
+{% ifversion ghes > 3.5 %}- [`DELETE /scim/v2/Users/{scim_user_id}`](/rest/enterprise-admin#delete-a-scim-user-from-an-enterprise){% endif %}
 
 {% endif %}
 
 ## gists
-
 - [`GET /gists`](/rest/gists#list-gists-for-the-authenticated-user)
 - [`POST /gists`](/rest/gists#create-a-gist)
 - [`GET /gists/public`](/rest/gists#list-public-gists)
 - [`GET /gists/starred`](/rest/gists#list-starred-gists)
 - [`GET /gists/{gist_id}`](/rest/gists#get-a-gist)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist)
 - [`GET /gists/{gist_id}/comments`](/rest/gists#list-gist-comments)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment)
@@ -448,7 +456,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /users/{username}/gists`](/rest/gists#list-gists-for-a-user)
 
 ## git
-
 - [`POST /repos/{owner}/{repo}/git/blobs`](/rest/git#create-a-blob)
 - [`GET /repos/{owner}/{repo}/git/blobs/{file_sha}`](/rest/git#get-a-blob)
 - [`POST /repos/{owner}/{repo}/git/commits`](/rest/git#create-a-commit)
@@ -464,28 +471,25 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/git/trees/{tree_sha}`](/rest/git#get-a-tree)
 
 ## gitignore
-
 - [`GET /gitignore/templates`](/rest/gitignore#get-all-gitignore-templates)
 - [`GET /gitignore/templates/{name}`](/rest/gitignore#get-a-gitignore-template)
 
 {% ifversion fpt or ghec %}
 
 ## interactions
-
-- [`GET /orgs/{org}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-an-organization)
-- [`PUT /orgs/{org}/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-an-organization)
-- [`DELETE /orgs/{org}/interaction-limits`](/rest/interactions#remove-interaction-restrictions-for-an-organization)
-- [`GET /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-a-repository)
-- [`PUT /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-a-repository)
-- [`DELETE /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#remove-interaction-restrictions-for-a-repository)
-- [`GET /user/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-your-public-repositories)
-- [`PUT /user/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-your-public-repositories)
-- [`DELETE /user/interaction-limits`](/rest/interactions#remove-interaction-restrictions-from-your-public-repositories)
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/interaction-limits`](/rest/interactions#remove-interaction-restrictions-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/interaction-limits`](/rest/interactions#remove-interaction-restrictions-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/interaction-limits`](/rest/interactions#get-interaction-restrictions-for-your-public-repositories){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /user/interaction-limits`](/rest/interactions#set-interaction-restrictions-for-your-public-repositories){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/interaction-limits`](/rest/interactions#remove-interaction-restrictions-from-your-public-repositories){% endif %}
 
 {% endif %}
 
 ## issues
-
 - [`GET /issues`](/rest/issues#list-issues-assigned-to-the-authenticated-user)
 - [`GET /orgs/{org}/issues`](/rest/issues#list-organization-issues-assigned-to-the-authenticated-user)
 - [`GET /repos/{owner}/{repo}/assignees`](/rest/issues#list-assignees)
@@ -528,50 +532,48 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /user/issues`](/rest/issues#list-user-account-issues-assigned-to-the-authenticated-user)
 
 ## licenses
-
 - [`GET /licenses`](/rest/licenses#get-all-commonly-used-licenses)
 - [`GET /licenses/{license}`](/rest/licenses#get-a-license)
-- [`GET /repos/{owner}/{repo}/license`](/rest/licenses/#get-the-license-for-a-repository)
+- [`GET /repos/{owner}/{repo}/license`](/rest/licenses#get-the-license-for-a-repository)
 
 ## markdown
-
 - [`POST /markdown`](/rest/markdown#render-a-markdown-document)
 - [`POST /markdown/raw`](/rest/markdown#render-a-markdown-document-in-raw-mode)
 
 ## meta
-
 - [`GET /`](/rest/overview/resources-in-the-rest-api#root-endpoint)
 - [`GET /meta`](/rest/meta#get-github-meta-information)
 - [`GET /octocat`](/rest/meta#get-octocat)
 - [`GET /zen`](/rest/meta#get-the-zen-of-github)
-- [`GET /versions`](/rest/meta#get-all-api-versions)
+{% ifversion fpt or ghec %}- [`GET /versions`](/rest/meta#get-all-api-versions){% endif %}
 
 ## metrics
-
 - [`GET /repos/{owner}/{repo}/stats/code_frequency`](/rest/metrics/statistics#get-the-weekly-commit-activity)
 - [`GET /repos/{owner}/{repo}/stats/commit_activity`](/rest/metrics/statistics#get-the-last-year-of-commit-activity)
 - [`GET /repos/{owner}/{repo}/stats/contributors`](/rest/metrics/statistics#get-all-contributor-commit-activity)
 - [`GET /repos/{owner}/{repo}/stats/participation`](/rest/metrics/statistics#get-the-weekly-commit-count)
-- [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day){% ifversion fpt or ghec %}
-- [`GET /repos/{owner}/{repo}/community/profile`](/rest/metrics/community#get-community-profile-metrics){% endif %}{% ifversion fpt or ghec %}
-- [`GET /repos/{owner}/{repo}/traffic/clones`](/rest/metrics/traffic#get-repository-clones){% endif %}{% ifversion fpt or ghec %}
-- [`GET /repos/{owner}/{repo}/traffic/popular/paths`](/rest/metrics/traffic#get-top-referral-paths){% endif %}{% ifversion fpt or ghec %}
-- [`GET /repos/{owner}/{repo}/traffic/popular/referrers`](/rest/metrics/traffic#get-top-referral-sources){% endif %}{% ifversion fpt or ghec %}
-- [`GET /repos/{owner}/{repo}/traffic/views`](/rest/metrics/traffic#get-page-views){% endif %}
+- [`GET /repos/{owner}/{repo}/stats/punch_card`](/rest/metrics/statistics#get-the-hourly-commit-count-for-each-day)
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/community/profile`](/rest/metrics/community#get-community-profile-metrics){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/traffic/clones`](/rest/metrics/traffic#get-repository-clones){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/traffic/popular/paths`](/rest/metrics/traffic#get-top-referral-paths){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/traffic/popular/referrers`](/rest/metrics/traffic#get-top-referral-sources){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/traffic/views`](/rest/metrics/traffic#get-page-views){% endif %}
+
+{% ifversion fpt or ghec %}
 
 ## migrations
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/import`](/rest/migrations#get-an-import-status){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/import`](/rest/migrations#start-an-import){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/import`](/rest/migrations#update-an-import){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/import`](/rest/migrations#cancel-an-import){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/import/authors`](/rest/migrations#get-commit-authors){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/migrations#map-a-commit-author){% endif %}
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/migrations#get-large-files){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/migrations#update-git-lfs-preference){% endif %}
 
-- [`GET /repos/{owner}/{repo}/import`](/rest/migrations#get-an-import-status)
-- [`PUT /repos/{owner}/{repo}/import`](/rest/migrations#start-an-import)
-- [`PATCH /repos/{owner}/{repo}/import`](/rest/migrations#update-an-import)
-- [`DELETE /repos/{owner}/{repo}/import`](/rest/migrations#cancel-an-import)
-- [`GET /repos/{owner}/{repo}/import/authors`](/rest/migrations#get-commit-authors)
-- [`PATCH /repos/{owner}/{repo}/import/authors/{author_id}`](/rest/migrations#map-a-commit-author)
-- [`GET /repos/{owner}/{repo}/import/large_files`](/rest/migrations#get-large-files)
-- [`PATCH /repos/{owner}/{repo}/import/lfs`](/rest/migrations#update-git-lfs-preference)
+{% endif %}
 
 ## orgs
-
 - [`GET /organizations`](/rest/orgs#list-organizations)
 - [`GET /orgs/{org}`](/rest/orgs#get-an-organization)
 - [`PATCH /orgs/{org}`](/rest/orgs#update-an-organization)
@@ -604,53 +606,50 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /user/memberships/orgs/{org}`](/rest/orgs#get-an-organization-membership-for-the-authenticated-user)
 - [`PATCH /user/memberships/orgs/{org}`](/rest/orgs#update-an-organization-membership-for-the-authenticated-user)
 - [`GET /user/orgs`](/rest/orgs#list-organizations-for-the-authenticated-user)
-- [`GET /users/{username}/orgs`](/rest/orgs#list-organizations-for-a-user){% ifversion ghec %}
-- [`GET /orgs/{org}/audit-log`](/rest/orgs#get-audit-log){% endif %}{% ifversion ghec %}
-- [`GET /organizations/{organization_id}/custom_roles`](/rest/orgs#list-custom-repository-roles-in-an-organization){% endif %}
+- [`GET /users/{username}/orgs`](/rest/orgs#list-organizations-for-a-user)
+{% ifversion ghec or ghes %}- [`GET /orgs/{org}/audit-log`](/rest/orgs#get-audit-log){% endif %}
+{% ifversion ghec or ghes > 3.3 %}- [`GET /organizations/{organization_id}/custom_roles`](/rest/orgs#list-custom-repository-roles-in-an-organization){% endif %}
 - [`GET /orgs/{org}/security-managers`](/rest/orgs#list-security-manager-teams)
 - [`PUT /orgs/{org}/security-managers/teams/{team_slug}`](/rest/orgs#add-a-security-manager-team)
 - [`DELETE /orgs/{org}/security-managers/teams/{team_slug}`](/rest/orgs#remove-a-security-manager-team)
-- [`POST /orgs/{org}/{security_product}/{enablement}`](/rest/orgs#enable-or-disable-security-product-on-all-org-repos){% ifversion ghec %}
-- [`POST /orgs/{org}/custom_roles`](/rest/orgs#create-a-custom-role){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs/#get-a-custom-role){% endif %}{% ifversion ghec %}
-- [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#update-a-custom-role){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#delete-a-custom-role){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/fine_grained_permissions`](/rest/orgs#list-repository-fine-grained-permissions-for-an-organization){% endif %}
-- [`GET /orgs/{org}/blocks`](/rest/orgs#list-users-blocked-by-an-organization)
-- [`GET /orgs/{org}/blocks/{username}`](/rest/orgs#check-if-a-user-is-blocked-by-an-organization)
-- [`PUT /orgs/{org}/blocks/{username}`](/rest/orgs#block-a-user-from-an-organization)
-- [`DELETE /orgs/{org}/blocks/{username}`](/rest/orgs#unblock-a-user-from-an-organization)
-- [`GET /orgs/{org}/failed_invitations`](/rest/orgs#list-failed-organization-invitations)
-- [`GET /orgs/{org}/invitations`](/rest/orgs#list-pending-organization-invitations)
-- [`POST /orgs/{org}/invitations`](/rest/orgs#create-an-organization-invitation)
-- [`DELETE /orgs/{org}/invitations/{invitation_id}`](/rest/orgs#cancel-an-organization-invitation)
-- [`GET /orgs/{org}/invitations/{invitation_id}/teams`](/rest/orgs#list-organization-invitation-teams)
+- [`POST /orgs/{org}/{security_product}/{enablement}`](/rest/orgs#enable-or-disable-security-product-on-all-org-repos)
+{% ifversion ghec %}- [`POST /orgs/{org}/custom_roles`](/rest/orgs#create-a-custom-role){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#get-a-custom-role){% endif %}
+{% ifversion ghec %}- [`PATCH /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#update-a-custom-role){% endif %}
+{% ifversion ghec %}- [`DELETE /orgs/{org}/custom_roles/{role_id}`](/rest/orgs#delete-a-custom-role){% endif %}
+{% ifversion ghec %}- [`GET /orgs/{org}/fine_grained_permissions`](/rest/orgs#list-repository-fine-grained-permissions-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/blocks`](/rest/orgs#list-users-blocked-by-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/blocks/{username}`](/rest/orgs#check-if-a-user-is-blocked-by-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /orgs/{org}/blocks/{username}`](/rest/orgs#block-a-user-from-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/blocks/{username}`](/rest/orgs#unblock-a-user-from-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/failed_invitations`](/rest/orgs#list-failed-organization-invitations){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/invitations`](/rest/orgs#list-pending-organization-invitations){% endif %}
+{% ifversion fpt or ghec %}- [`POST /orgs/{org}/invitations`](/rest/orgs#create-an-organization-invitation){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/invitations/{invitation_id}`](/rest/orgs#cancel-an-organization-invitation){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/invitations/{invitation_id}/teams`](/rest/orgs#list-organization-invitation-teams){% endif %}
 
 {% ifversion fpt or ghec %}
 
 ## packages
-
-{% ifversion fpt or ghec %}
-- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization){% endif %}{% ifversion fpt or ghec %}
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization){% endif %}{% ifversion fpt or ghec %}
-- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization){% endif %}{% ifversion fpt or ghec %}
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization){% endif %}{% ifversion fpt or ghec %}
-- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization){% endif %}{% ifversion fpt or ghec %}
-- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
-- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user){% endif %}{% ifversion fpt or ghec %}
-- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user){% endif %}{% ifversion fpt or ghec %}
-- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user){% endif %}
 
 {% endif %}
 
 ## pages
-
 - [`GET /repos/{owner}/{repo}/pages`](/rest/pages#get-a-github-pages-site)
 - [`POST /repos/{owner}/{repo}/pages`](/rest/pages#create-a-github-pages-site)
 - [`PUT /repos/{owner}/{repo}/pages`](/rest/pages#update-information-about-a-github-pages-site)
@@ -660,10 +659,9 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/pages/builds/latest`](/rest/pages#get-latest-pages-build)
 - [`GET /repos/{owner}/{repo}/pages/builds/{build_id}`](/rest/pages#get-github-pages-build)
 - [`POST /repos/{owner}/{repo}/pages/deployment`](/rest/pages#create-a-github-pages-deployment)
-- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages)
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages){% endif %}
 
 ## projects
-
 - [`GET /orgs/{org}/projects`](/rest/projects#list-organization-projects)
 - [`POST /orgs/{org}/projects`](/rest/projects#create-an-organization-project)
 - [`GET /projects/columns/cards/{card_id}`](/rest/projects#get-a-project-card)
@@ -689,7 +687,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`POST /repos/{owner}/{repo}/projects`](/rest/projects#create-a-repository-project)
 
 ## pulls
-
 - [`GET /repos/{owner}/{repo}/pulls`](/rest/pulls#list-pull-requests)
 - [`POST /repos/{owner}/{repo}/pulls`](/rest/pulls#create-a-pull-request)
 - [`GET /repos/{owner}/{repo}/pulls/comments`](/rest/pulls#list-review-comments-in-a-repository)
@@ -697,7 +694,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PATCH /repos/{owner}/{repo}/pulls/comments/{comment_id}`](/rest/pulls#update-a-review-comment-for-a-pull-request)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}`](/rest/pulls#delete-a-review-comment-for-a-pull-request)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request)
-- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/#update-a-pull-request)
+- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#update-a-pull-request)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#list-review-comments-on-a-pull-request)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#create-a-review-comment-for-a-pull-request)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies`](/rest/pulls#create-a-reply-for-a-review-comment)
@@ -719,7 +716,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`PUT /repos/{owner}/{repo}/pulls/{pull_number}/update-branch`](/rest/pulls#update-a-pull-request-branch)
 
 ## reactions
-
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-comment-reaction)
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-reaction)
 - [`GET /repos/{owner}/{repo}/comments/{comment_id}/reactions`](/rest/reactions#list-reactions-for-a-commit-comment)
@@ -734,12 +730,11 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
 - [`POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-pull-request-comment-reaction)
-- [`GET /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions/#list-reactions-for-a-release)
-- [`POST /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions/#create-reaction-for-a-release)
-- [`DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}`](/rest/reactions/#delete-a-release-reaction)
+- [`GET /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions#list-reactions-for-a-release)
+- [`POST /repos/{owner}/{repo}/releases/{release_id}/reactions`](/rest/reactions#create-reaction-for-a-release)
+- [`DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-release-reaction)
 
 ## repos
-
 - [`GET /orgs/{org}/repos`](/rest/repos#list-organization-repositories)
 - [`POST /orgs/{org}/repos`](/rest/repos#create-an-organization-repository)
 - [`GET /repos/{owner}/{repo}`](/rest/repos#get-a-repository)
@@ -774,23 +769,23 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /user/repos`](/rest/repos#list-repositories-for-the-authenticated-user)
 - [`POST /user/repos`](/rest/repos#create-a-repository-for-the-authenticated-user)
 - [`GET /users/{username}/repos`](/rest/repos#list-repositories-for-a-user)
-- [`GET /repos/{owner}/{repo}/autolinks`](/v3/repos#list-autolinks)
-- [`POST /repos/{owner}/{repo}/autolinks`](/v3/repos#create-an-autolink)
-- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#get-autolink)
-- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#delete-autolink)
+- [`GET /repos/{owner}/{repo}/autolinks`](/rest/repos/autolinks#list-all-autolinks-of-a-repository)
+- [`POST /repos/{owner}/{repo}/autolinks`](/rest/repos/autolinks#create-an-autolink-reference-for-a-repository)
+- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos/autolinks#get-an-autolink-reference-of-a-repository)
+- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos/autolinks#delete-an-autolink-reference-from-a-repository)
 - [`POST /repos/{owner}/{repo}/releases/generate-notes`](/rest/repos#generate-release-notes)
+{% ifversion ghes > 3.3 %}- [`GET /repos/{owner}/{repo}/replicas/caches`](/rest/repos#list-repository-cache-replication-status){% endif %}
 - [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/repos#list-codeowners-errors)
 - [`GET /repos/{owner}/{repo}/tags/protection`](/rest/repos#list-tag-protection-state-of-a-repository)
 - [`POST /repos/{owner}/{repo}/tags/protection`](/rest/repos#create-tag-protection-state-for-a-repository)
 - [`DELETE /repos/{owner}/{repo}/tags/protection/{tag_protection_id}`](/rest/repos#delete-tag-protection-state-for-a-repository)
-- [`GET /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository)
-- [`PUT /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#enable-vulnerability-alerts)
-- [`DELETE /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#disable-vulnerability-alerts)
-- [`PUT /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#enable-automated-security-fixes)
-- [`DELETE /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#disable-automated-security-fixes)
+{% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#check-if-vulnerability-alerts-are-enabled-for-a-repository){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#enable-vulnerability-alerts){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/vulnerability-alerts`](/rest/repos#disable-vulnerability-alerts){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#enable-automated-security-fixes){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /repos/{owner}/{repo}/automated-security-fixes`](/rest/repos#disable-automated-security-fixes){% endif %}
 
 ## search
-
 - [`GET /search/code`](/rest/search#search-code)
 - [`GET /search/commits`](/rest/search#search-commits)
 - [`GET /search/issues`](/rest/search#search-issues-and-pull-requests)
@@ -800,7 +795,6 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /search/users`](/rest/search#search-users)
 
 ## secret-scanning
-
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts`](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}`](/rest/secret-scanning#get-a-secret-scanning-alert)
 - [`PATCH /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}`](/rest/secret-scanning#update-a-secret-scanning-alert)
@@ -808,23 +802,21 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations`](/rest/secret-scanning#list-locations-for-a-secret-scanning-alert)
 
 ## teams
-
 - [`GET /orgs/{org}/teams`](/rest/teams#list-teams)
 - [`POST /orgs/{org}/teams`](/rest/teams#create-a-team)
 - [`GET /teams/{team_id}/members/{username}`](/rest/teams#get-team-member-legacy)
 - [`PUT /teams/{team_id}/members/{username}`](/rest/teams#add-team-member-legacy)
 - [`DELETE /teams/{team_id}/members/{username}`](/rest/teams#remove-team-member-legacy)
-- [`GET /user/teams`](/rest/teams#list-teams-for-the-authenticated-user){% ifversion ghec %}
-- [`GET /orgs/{org}/external-group/{group_id}`](/rest/teams#external-idp-group-info-for-an-organization){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/external-groups`](/rest/teams#list-external-idp-groups-for-an-organization){% endif %}{% ifversion ghec %}
-- [`GET /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#list-external-idp-group-team-connection){% endif %}{% ifversion ghec %}
-- [`PATCH /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#link-external-idp-group-team-connection){% endif %}{% ifversion ghec %}
-- [`DELETE /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#unlink-external-idp-group-team-connection){% endif %}
+- [`GET /user/teams`](/rest/teams#list-teams-for-the-authenticated-user)
+{% ifversion ghec or ghes > 3.5 %}- [`GET /orgs/{org}/external-group/{group_id}`](/rest/teams#external-idp-group-info-for-an-organization){% endif %}
+{% ifversion ghec or ghes > 3.5 %}- [`GET /orgs/{org}/external-groups`](/rest/teams#list-external-idp-groups-for-an-organization){% endif %}
+{% ifversion ghec or ghes > 3.5 %}- [`GET /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#list-external-idp-group-team-connection){% endif %}
+{% ifversion ghec or ghes > 3.5 %}- [`PATCH /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#link-external-idp-group-team-connection){% endif %}
+{% ifversion ghec or ghes > 3.5 %}- [`DELETE /orgs/{org}/teams/{team_slug}/external-groups`](/rest/teams#unlink-external-idp-group-team-connection){% endif %}
 
 ## users
-
 - [`GET /user`](/rest/users#get-the-authenticated-user)
-- [`PATCH /user`](/rest/users/#update-the-authenticated-user)
+- [`PATCH /user`](/rest/users#update-the-authenticated-user)
 - [`GET /user/emails`](/rest/users#list-email-addresses-for-the-authenticated-user)
 - [`POST /user/emails`](/rest/users#add-an-email-address-for-the-authenticated-user)
 - [`DELETE /user/emails`](/rest/users#delete-an-email-address-for-the-authenticated-user)
@@ -854,14 +846,13 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /user/ssh_signing_keys/{ssh_signing_key_id}`](/rest/users#get-a-ssh-signing-key-for-the-authenticated-user)
 - [`DELETE /user/ssh_signing_keys/{ssh_signing_key_id}`](/rest/users#delete-a-ssh-signing-key-for-the-authenticated-user)
 - [`GET /users/{username}/ssh_signing_keys`](/rest/users#list-ssh-signing-keys-for-a-user)
-- [`GET /user/blocks`](/rest/users#list-users-blocked-by-the-authenticated-user)
-- [`GET /user/blocks/{username}`](/rest/users#check-if-a-user-is-blocked-by-the-authenticated-user)
-- [`PUT /user/blocks/{username}`](/rest/users#block-a-user)
-- [`DELETE /user/blocks/{username}`](/rest/users#unblock-a-user)
-- [`PATCH /user/email/visibility`](/rest/users#set-primary-email-visibility-for-the-authenticated-user)
+{% ifversion fpt or ghec %}- [`GET /user/blocks`](/rest/users#list-users-blocked-by-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`GET /user/blocks/{username}`](/rest/users#check-if-a-user-is-blocked-by-the-authenticated-user){% endif %}
+{% ifversion fpt or ghec %}- [`PUT /user/blocks/{username}`](/rest/users#block-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`DELETE /user/blocks/{username}`](/rest/users#unblock-a-user){% endif %}
+{% ifversion fpt or ghec %}- [`PATCH /user/email/visibility`](/rest/users#set-primary-email-visibility-for-the-authenticated-user){% endif %}
 
 ## webhooks
-
 - [`GET /repos/{owner}/{repo}/hooks`](/rest/webhooks/repos#list-repository-webhooks)
 - [`POST /repos/{owner}/{repo}/hooks`](/rest/webhooks/repos#create-a-repository-webhook)
 - [`GET /repos/{owner}/{repo}/hooks/{hook_id}`](/rest/webhooks/repos#get-a-repository-webhook)

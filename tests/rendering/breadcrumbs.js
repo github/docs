@@ -7,53 +7,65 @@ describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
 
   describe('rendering', () => {
-    test('top-level product pages have breadcrumbs', async () => {
+    test('top-level product pages have breadcrumbs and breadcrumbs should exist regardles of header or in-article', async () => {
       const $ = await getDOM('/repositories')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs-in-article] a')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs-in-article] a')[0].attribs.class.includes('d-none')).toBe(
+        false
+      )
+      expect($('[data-testid=breadcrumbs-header] a')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs-header] a')[0].attribs.class.includes('d-none')).toBe(
+        false
+      )
     })
 
-    test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
+    test('article pages in xl viewports have breadcrumbs in article with product, category, maptopic, and article and last breadcrumb is not viewable', async () => {
       const $ = await getDOM(
         '/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
 
-      expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
-      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
-      expect($breadcrumbs[3].attribs.title).toBe('Add an email address')
-    })
+      expect($breadcrumbsInArticle).toHaveLength(4)
+      expect($breadcrumbsInArticle[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbsInArticle[1].attribs.title).toBe('Personal accounts')
+      expect($breadcrumbsInArticle[2].attribs.title).toBe('Manage email preferences')
+      expect($breadcrumbsInArticle[3].attribs.title).toBe('Add an email address')
+      expect($breadcrumbsInArticle[3].attribs.class.includes('d-none')).toBe(true)
 
-    test('maptopic pages include their own grayed-out breadcrumb', async () => {
-      const $ = await getDOM(
-        '/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences'
-      )
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-header] a')
 
-      expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
-      expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
-      expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
+      expect($breadcrumbsInHeader).toHaveLength(4)
+      expect($breadcrumbsInHeader[0].attribs.title).toBe('Account and profile')
+      expect($breadcrumbsInHeader[1].attribs.title).toBe('Personal accounts')
+      expect($breadcrumbsInHeader[2].attribs.title).toBe('Manage email preferences')
+      expect($breadcrumbsInHeader[3].attribs.title).toBe('Add an email address')
+      expect($breadcrumbsInHeader[3].attribs.class.includes('d-none')).toBe(false)
     })
 
     test('works for enterprise user pages', async () => {
       const $ = await getDOM(
         '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(4)
-      expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInArticle).toHaveLength(4)
+      expect($breadcrumbsInArticle[0].attribs.title).toBe('Account and profile')
+
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-header] a')
+      expect($breadcrumbsInHeader).toHaveLength(4)
+      expect($breadcrumbsInHeader[0].attribs.title).toBe('Account and profile')
     })
 
     test('works for ghec billing page', async () => {
       const $ = await getDOM(
         '/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise'
       )
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('Billing and payments')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInArticle).toHaveLength(3)
+      expect($breadcrumbsInArticle[0].attribs.title).toBe('Billing and payments')
+
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-header] a')
+      expect($breadcrumbsInHeader).toHaveLength(3)
+      expect($breadcrumbsInHeader[0].attribs.title).toBe('Billing and payments')
     })
 
     test('works for pages that have overlapping product names', async () => {
@@ -61,45 +73,64 @@ describe('breadcrumbs', () => {
         // article path has overlap with `/en/github`
         '/en/github-cli/github-cli/about-github-cli'
       )
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(3)
-      expect($breadcrumbs[0].attribs.title).toBe('GitHub CLI')
-      expect($breadcrumbs[1].attribs.title).toBe('GitHub CLI')
-      expect($breadcrumbs[2].attribs.title).toBe('About GitHub CLI')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInArticle).toHaveLength(3)
+      expect($breadcrumbsInArticle[0].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbsInArticle[1].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbsInArticle[2].attribs.title).toBe('About GitHub CLI')
+      expect($breadcrumbsInArticle[2].attribs.class.includes('d-none')).toBe(true)
+
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-header] a')
+      expect($breadcrumbsInHeader).toHaveLength(3)
+      expect($breadcrumbsInHeader[0].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbsInHeader[1].attribs.title).toBe('GitHub CLI')
+      expect($breadcrumbsInHeader[2].attribs.title).toBe('About GitHub CLI')
+      expect($breadcrumbsInHeader[2].attribs.class.includes('d-none')).toBe(false)
     })
 
     test('parses Liquid variables inside titles', async () => {
       const $ = await getDOM('/en/education/manage-coursework-with-github-classroom')
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs).toHaveLength(2)
-      expect($breadcrumbs[1].attribs.title).toBe('GitHub Classroom')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInArticle).toHaveLength(2)
+      expect($breadcrumbsInArticle[1].attribs.title).toBe('GitHub Classroom')
+      expect($breadcrumbsInArticle[1].attribs.class.includes('d-none')).toBe(true)
+
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-header] a')
+      expect($breadcrumbsInHeader).toHaveLength(2)
+      expect($breadcrumbsInHeader[1].attribs.title).toBe('GitHub Classroom')
+      expect($breadcrumbsInHeader[1].attribs.class.includes('d-none')).toBe(false)
     })
 
     test('English breadcrumbs link to English pages', async () => {
       const $ = await getDOM('/en/get-started/learning-about-github')
-      const $breadcrumbs = $('[data-testid=breadcrumbs] a')
-      expect($breadcrumbs[0].attribs.href).toBe('/en/get-started')
+      const $breadcrumbsInArticle = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInArticle[0].attribs.href).toBe('/en/get-started')
+
+      const $breadcrumbsInHeader = $('[data-testid=breadcrumbs-in-article] a')
+      expect($breadcrumbsInHeader[0].attribs.href).toBe('/en/get-started')
     })
   })
 
   describeIfDocsEarlyAccess('early access rendering', () => {
     test('top-level product pages have breadcrumbs', async () => {
       const $ = await getDOM('/early-access/github/articles/using-gist-playground')
-      expect($('[data-testid=breadcrumbs]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs-in-article]')).toHaveLength(1)
+      expect($('[data-testid=breadcrumbs-header]')).toHaveLength(1)
     })
 
     test('early access article pages have breadcrumbs with product, category, and article', async () => {
       const $ = await getDOM(
         '/early-access/enterprise-importer/understanding-github-enterprise-importer'
       )
-      const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
-      const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
+      const $breadcrumbTitles = $(
+        '[data-testid=breadcrumbs-in-article] [data-testid=breadcrumb-title]'
+      )
+      const $breadcrumbLinks = $('[data-testid=breadcrumbs-in-article] a')
 
       expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(2)
       expect($breadcrumbLinks[0].attribs.title).toBe('GitHub Enterprise Importer')
       expect($breadcrumbLinks[1].attribs.title).toBe('Understand the Importer')
-      expect($breadcrumbLinks[1].attribs.class.includes('color-fg-muted')).toBe(true)
     })
   })
 

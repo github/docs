@@ -67,7 +67,9 @@ The report includes both enterprise members and outside collaborators.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. To download your Dormant Users report as a CSV file, under "Other", click {% octicon "download" aria-label="The Download icon" %} **Download**.
-  ![Download button under "Other" on the Compliance page](/assets/images/help/business-accounts/dormant-users-download-button.png)
+1. Scroll to "Other."
+1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
+1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-label="" %} **Download**.
+
 
 {% endif %}

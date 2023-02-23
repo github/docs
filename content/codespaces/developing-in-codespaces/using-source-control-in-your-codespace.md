@@ -36,7 +36,7 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 * In your codespace, create a new branch to work on.
 * Make your changes and save them.
 * Commit the change.
@@ -44,9 +44,9 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 ## About automatic forking
 
-You can create a codespace for any repository to which you have write access. If you only have read access to a repository, you can create a codespace for the repository as long as you can fork it. 
+You can create a codespace for any repository to which you have write access. If you only have read access to a repository, you can create a codespace for the repository as long as you can fork it.
 
-You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it. 
+You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
 
 If you make a commit from the codespace, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
 
@@ -75,17 +75,17 @@ When you have made some changes, you can push them to a feature branch of your f
 $ git push origin my-feature-branch
 ```
 
-For more information, see "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 {% webui %}
 
-{% data reusables.codespaces.source-control %} 
+{% data reusables.codespaces.source-control %}
 
 {% endwebui %}
 
 {% vscode %}
 
-{% data reusables.codespaces.source-control %} 
+{% data reusables.codespaces.source-control %}
 
 {% endvscode %}
 
@@ -95,35 +95,35 @@ For more information, see "[About forks](/pull-requests/collaborating-with-pull-
 
 1. Click the branch name at the right side of the status bar.
 
-   ![Screenshot of the branch name in the status bar](/assets/images/help/codespaces/jetbrains-branch-button.png)
+   ![Screenshot of the status bar, with the tooltip for the branch name displayed. The branch icon and name, "main," are highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
 1. In the pop-up menu, do one of the following:
-   * To create a new branch based on the current branch, click the name of the current branch, then choose **New Branch**. 
+   - **To create a new branch based on the current branch**, click **New Branch**.
 
-     ![Screenshot of the new branch option](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
+     ![Screenshot of the branches pop-up menu with the "New Branch" option selected.](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
      Enter a name for the new branch and click **Create**.
 
-     ![Screenshot of the create branch dialog box](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
+     ![Screenshot of the "Create New Branch" dialog, with "Create" and "Cancel" buttons. "my-branch" has been entered as a branch name.](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
 
-   * To check out an existing branch, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+   - **To check out an existing branch**, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
 
-     ![Screenshot of the checkout option](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
+     ![Screenshot of the branches pop-up menu with the "origin/templates" branch selected and "Checkout" selected in the submenu.](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 
      {% tip %}
 
-     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace. 
+     **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
      {% endtip %}
 
 
-## Committing your changes 
+## Committing your changes
 
 1. At the right side of the navigation bar, click the check mark.
 
-   ![Screenshot of the commit check mark](/assets/images/help/codespaces/jetbrains-commit-button.png)
+   ![Screenshot of the navigation bar at the top of the JetBrains client. The check mark icon for committing your changes is highlighted.](/assets/images/help/codespaces/jetbrains-commit-button.png)
 
-1. In the Commit Changes dialog box, enter a commit message.
+1. In the Commit Changes dialog, enter a commit message.
 1. Click **Commit**.
 
    Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
@@ -136,11 +136,11 @@ You can pull changes from the same branch on the remote repository and apply tho
 
 1. At the right side of the navigation bar, click the downward pointing arrow.
 
-   ![Screenshot of the update project downward arrow button](/assets/images/help/codespaces/jetbrains-update-project-button.png)
+   ![Screenshot of the navigation bar at the top of the JetBrains client. The downward arrow icon is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-update-project-button.png)
 
-1. In the Update Project dialog box, choose whether you want to merge or rebase the incoming changes.
+1. In the Update Project dialog, choose whether you want to merge or rebase the incoming changes.
 
-   ![Screenshot of the Update Project dialog box](/assets/images/help/codespaces/jetbrains-update-options.png)
+   ![Screenshot of the "Update Project" dialog with options to merge or rebase, and a "Don't show again" check box.](/assets/images/help/codespaces/jetbrains-update-options.png)
 
 1. Click **OK**.
 
@@ -150,8 +150,8 @@ You can push changes you've saved and committed. This applies those changes to t
 
 1. At the right side of the navigation bar, click the upward pointing arrow.
 
-   ![Screenshot of the push commits upward arrow](/assets/images/help/codespaces/jetbrains-push-button.png)
+   ![Screenshot of the navigation bar at the top of the JetBrains client. The upward arrow icon is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-push-button.png)
 
-1. In the Push Commits dialog box, click **Push**.
+1. In the Push Commits dialog, click **Push**.
 
 {% endjetbrains %}

@@ -8,7 +8,7 @@ import revalidator from 'revalidator'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
-import frontmatter from '../../lib/frontmatter.js'
+import { frontmatter, deprecatedProperties } from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
 import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
@@ -597,6 +597,18 @@ describe('lint markdown content', () => {
 
       const errorMessage = formatLinkError(domainLinkErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('contains no deprecated frontmatter properties', async () => {
+      if (!isEarlyAccess) {
+        const usedDeprecateProps = deprecatedProperties.filter((prop) => {
+          return Object.keys(frontmatterData).includes(prop)
+        })
+        expect(
+          usedDeprecateProps,
+          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`
+        ).toEqual([])
+      }
     })
 
     test('contains valid Liquid', async () => {

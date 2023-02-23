@@ -2,7 +2,6 @@
 title: 'Adding items to your {% data variables.projects.project_v2 %}'
 shortTitle: Adding items
 intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
-miniTocMaxHeadingLevel: 4
 versions:
   feature: projects-v2
 type: tutorial
@@ -15,7 +14,7 @@ Your project can track draft issues, issues, and pull requests.
 
 {% note %}
 
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[Archiving items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
+**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
 
 {% endnote %}
 
@@ -39,7 +38,7 @@ When you add an issue or pull request to your project, an event will be added to
 
 ### Automatically adding issues and pull requests
 
-You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."
+You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."
 
 {% endif %}
 
@@ -121,7 +120,7 @@ Draft issues are useful to quickly capture ideas. Unlike issues and pull request
 
 {% data reusables.projects.add-draft-issue %}
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[Converting draft issues to issues](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
 
 {% note %}
 

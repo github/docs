@@ -102,17 +102,18 @@ For videos hosted on YouTube, see "[Add subtitles and captions](https://support.
 
 ### Creating video transcripts
 
-A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
+For every video linked or embedded in the docs, we must have a descriptive transcript of the video. Transcript articles are formatted like other articles, with YAML frontmatter and Markdown content. To add a transcript to the Docs site, create an article in [`content/video-transcripts`](https://github.com/github/docs/tree/main/content/video-transcripts), and include the transcript as the article's body text. Give the article a filename like `transcript-VIDEO-NAME.md` and a `title` frontmatter property of `Transcript - VIDEO NAME`. Add the article to the `index.md` file in the `video-transcripts` directory.
 
-Creating transcripts is part of the process of producing accessible videos, so the owner of a video being added to the docs site should provide the transcript.
+Do not use Liquid variables or reusables to replace things like product names in the transcript. The transcript should be faithful to the audio in the video, and we should not change any text in the transcript as a result of updating a variable or reusable after the video was produced.
 
-If you have captions, you can use them to create the transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. Create an article in [`content/video-transcripts`](https://github.com/github/docs/tree/main/content/video-transcripts) with the transcript. Title the article `Transcript - VIDEO NAME`.
+Creating transcripts is part of the process of producing accessible videos, so the owner of a video being added to the docs site should provide the content for a transcript.
+
+You can use captions as the foundation for a transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
 
 - If a video has multiple speakers, identify the speakers in the transcript
 - Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video
 - Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`
-- Add a `product_video_transcript` property below the `product_video` property in the article utilizing the video. The value of `product_video_transcript` is a link to the transcript article
-- Link to the YouTube URL of the video in the transcript article's `product_video` property. This will display in the transcript as an external link to the video.
+- Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article
 - At the end of the transcript, link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`
 
 See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.
@@ -120,6 +121,16 @@ See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspe
 #### Linking to transcripts from externally hosted videos
 
 Add a link to the article with a video's transcript in the description of the video on the platform where it is hosted. For more information, see "[Edit video settings](https://support.google.com/youtube/answer/57404?)" in the YouTube documentation.
+
+#### Linking to transcripts for embedded videos
+
+In any content with an embedded video, add a `product_video_transcript` property below the `product_video` property in the YAML frontmatter. The value of `product_video_transcript` is a link to the transcript article in the `video-transcripts` directory.
+
+```YAML
+title: Example product landing page
+product_video: 'https://www.youtube-nocookie.com/embed/URL'
+product_video_transcript: /content/video-transcripts/TRANSCRIPT-TITLE
+```
 
 ## Titles for videos
 
@@ -150,17 +161,6 @@ Versions: e.x. fpt, GHES > 3.2
 Date added: YYYY-MM-DD
 Location: /where/in/docs
 Transcript: ./content/video-transcripts/filename
-```
-
-```
-Title: GitHub Actions - Supercharge your GitHub Flow
-URL: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
-Description: A 3 minute overview of how GitHub Actions fits in the GitHub flow.
-Product: Actions
-Versions: All
-Date added: 2020-12-03
-Location: content/actions/index.md
-Transcript: TBD
 ```
 
 ```

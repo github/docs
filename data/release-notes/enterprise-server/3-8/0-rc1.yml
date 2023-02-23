@@ -8,7 +8,7 @@ intro: |
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
 sections:
   features:
@@ -16,7 +16,7 @@ sections:
       notes:
         # https://github.com/github/docs-content/issues/8857
         - |
-          Projects, the flexible tool for planning and tracking work on GitHub Enterprise Server, is now available as a beta. A project is an adaptable spreadsheet that integrates issues and pull requests to help users plan and track work effectively. Users can create and customize multiple views, and each view can filter, sort, and group issues and pull requests. Users can also define custom fields to track the unique metadata for a team or project, allowing customization for any needs or processes. This feature is subject to change. For more information, see "[About Projects](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+          Projects, the flexible tool for planning and tracking work on GitHub Enterprise Server, is now available as a beta. A project is an adaptable spreadsheet that integrates issues and pull requests to help users plan and track work effectively. Users can create and customize multiple views, and each view can filter, sort, and group issues and pull requests. Users can also define custom fields to track the unique metadata for a team or project, allowing customization for any needs or processes. This feature is subject to change. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
     - heading: Instance administration
       notes:
@@ -323,7 +323,7 @@ sections:
 
     # https://github.com/github/releases/issues/2640
     - |
-      On instances with a GitHub Advanced Security license, to ensure that secret scanning can always display a preview of a detected secret in the APIs or web UI, the detected secrets are now stored separately from source code. Detected secrets are stored using symmetric encryption.
+      On instances with a GitHub Advanced Security license, to ensure that future releases of GitHub Enterprise Server can always display a preview of a detected secret in the APIs or web UI, the detected secrets are now stored separately from source code. Detected secrets are stored using symmetric encryption. [Updated: 2023-02-15]
 
     # https://github.com/github/releases/issues/2696
     - |
@@ -457,6 +457,8 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections

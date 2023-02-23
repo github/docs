@@ -15,7 +15,6 @@ topics:
   - Enterprise
   - Identity
   - SSO
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.saml.okta-ae-sso-beta %}
@@ -27,7 +26,7 @@ You can use Okta as an Identity Provider (IdP) for {% data variables.product.pro
 To use Okta as your IdP for {% data variables.product.product_name %}, you can add the {% data variables.product.product_name %} app to Okta, configure Okta as your IdP in {% data variables.product.product_name %}, and provision access for your Okta users and groups.
 
 {% data reusables.saml.idp-saml-and-scim-explanation %}
-- "[Mapping Okta groups to teams](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
+- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)"
 
 After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.product_name %} application to in Okta.
 
@@ -42,7 +41,7 @@ The following provisioning features are available for all Okta users that you as
 | Push Profile Updates | When you update a user's profile in Okta, it will update the metadata for the user's membership in your enterprise on {% data variables.product.product_name %}. |
 | Reactivate Users | When you reactivate a user in Okta, it will unsuspend the user in your enterprise on {% data variables.product.product_name %}. |
 
-For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
+For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
 
 ## Prerequisites
 
@@ -81,10 +80,10 @@ To enable single sign-on (SSO) for {% data variables.product.product_name %}, yo
 {% data reusables.saml.okta-sign-on-tab %}
 {% data reusables.saml.okta-view-setup-instructions %}
 1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details.
-1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.product_name %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 {% elsif scim-for-ghes %}
 {% data reusables.saml.okta-sign-on-tab %}
-1. Use the details to enable SAML SSO for {% data variables.location.product_location %}. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+1. Use the details to enable SAML SSO for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 {%- endif %}
 
 {% note %}
@@ -97,7 +96,7 @@ To enable single sign-on (SSO) for {% data variables.product.product_name %}, yo
 
 The Okta app uses the REST API for {% data variables.product.product_name %} for SCIM provisioning. You can enable and test access to the API by configuring Okta with a {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
 
-1. In {% data variables.product.product_name %}, generate a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+1. In {% data variables.product.product_name %}, generate a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-click-on-the-app %}
 {% data reusables.saml.okta-ae-provisioning-tab %}
@@ -148,7 +147,7 @@ Before your Okta users can use their credentials to sign in to {% data variables
 {% ifversion ghae %}
 ### Provisioning access for Okta groups
 
-You can map your Okta group to a team in {% data variables.product.product_name %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.product_name %} team. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+You can map your Okta group to a team in {% data variables.product.product_name %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.product_name %} team. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 {% endif %}
 
 ## Further reading

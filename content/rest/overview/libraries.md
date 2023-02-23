@@ -21,7 +21,7 @@ Use the official Octokit library, or choose between any of the available third p
 
 - Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
 - .NET: [octokit.net](https://github.com/octokit/octokit.net)
-- JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+- JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 ## Third-party libraries
 

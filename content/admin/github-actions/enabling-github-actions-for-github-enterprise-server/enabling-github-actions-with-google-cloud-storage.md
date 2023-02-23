@@ -11,7 +11,6 @@ topics:
   - Infrastructure
   - Storage
 shortTitle: Google Cloud Storage
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
@@ -61,11 +60,9 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 1. Under "Create an identity pool", enter a name for the identity pool, and click **Continue**.
 1. Under "Add a provider to pool":
 
-   !["Add a provider to pool" screen when setting a new identity pool in Google Cloud Platform](/assets/images/enterprise/management-console/actions-gcp-idp-setup-1.png)
-
-   1. For "Select a provider", select **OpenID Connect (OIDC)**.
-   1. For "Provider name", enter a name for the provider.
-   1. For "Issuer (URL)", enter the following URL, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
+   - For "Select a provider", select **OpenID Connect (OIDC)**.
+   - For "Provider name", enter a name for the provider.
+   - For "Issuer (URL)", enter the following URL, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
       ```
       https://HOSTNAME/_services/token
@@ -76,15 +73,13 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
       ```
       https://my-ghes-host.example.com/_services/token
       ```
-    1. Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
-    1. Click **Continue**.
+    - Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
+    - Click **Continue**.
 1. Under "Configure provider attributes":
 
-   !["Configure provider attributes" screen when setting a new identity pool and provider in Google Cloud Platform](/assets/images/enterprise/management-console/actions-gcp-idp-setup-2.png)
-
-   1. For the "OIDC 1" mapping, enter `assertion.sub`.
-   1. Under "Attribute Conditions", click **Add condition**.
-   1. For "Condition CEL", enter the following condition, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
+   - For the "OIDC 1" mapping, enter `assertion.sub`.
+   - Under "Attribute Conditions", click **Add condition**.
+   - For "Condition CEL", enter the following condition, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
       ```
       google.subject == "HOSTNAME"
@@ -101,17 +96,14 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
       **Note:** The hostname of {% data variables.location.product_location_enterprise %} used here _must not_ include the protocol.
 
       {% endnote %}
-   1. Click **Save**.
+   - Click **Save**.
 1. After creating the identity pool, at the top of the identity pool's page, click **Grant access**.
-
-   !["Grant access to service account" screen when modifying an identity pool in Google Cloud Platform](/assets/images/enterprise/management-console/actions-gcp-idp-setup-3.png)
-
-   1. Under "Select service account", select the service account that you created in the previous procedure.
-   1. Under "Select principals (identities that can access the service account)", select **Only identities matching the filter**.
-   1. For "Attribute name", select **subject**.
-   1. For "Attribute value", enter your {% data variables.product.prodname_ghe_server %} hostname, without the protocol. For example, `my-ghes-host.example.com`.
-   1. Click **Save**.
-   1. You can dismiss the "Configure your application" dialog, as the configuration file is not needed.
+   - Under "Select service account", select the service account that you created in the previous procedure.
+   - Under "Select principals (identities that can access the service account)", select **Only identities matching the filter**.
+   - For "Attribute name", select **subject**.
+   - For "Attribute value", enter your {% data variables.product.prodname_ghe_server %} hostname, without the protocol. For example, `my-ghes-host.example.com`.
+   - Click **Save**.
+   - You can dismiss the "Configure your application" dialog, as the configuration file is not needed.
 
 ### 3. Configure {% data variables.product.prodname_ghe_server %} to connect to Google Cloud Storage using OIDC
 
@@ -162,8 +154,6 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 1. Under "Artifact & Log Storage", select **Google Cloud Storage**, and enter your bucket's details:
 
 {% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
-
-   ![Radio button for selecting Google Cloud Storage and fields for configuration](/assets/images/enterprise/management-console/actions-google-cloud-storage.png)
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

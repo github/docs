@@ -48,7 +48,7 @@ To suspend or stop your codespace's container, [access the {% data variables.pro
 
 To add a predefined dev container configuration, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-vs-code-command-palette), then start typing "dev container". Select **Codespaces: Configure Dev Container**.
 
-![Screenshot of the command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+![Screenshot of the Command Palette, filtered to show only the "Codespaces: Configure Dev Container" option.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
 ### Rebuilding a codespace
 
@@ -70,4 +70,4 @@ To retrieve the logs for {% data variables.product.prodname_github_codespaces %}
 
 ## Further reading
 
-- "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"

@@ -16,7 +16,7 @@ sections:
   changes:
     - Improved the reliability of the real time updates service (Alive) to make it more resilient against network issues with Redis.
     - |
-      The `ghe-support-bundle` and `ghe-cluster-support-bundle` commands were updated to include the `-p/--period` flag to generate a time constrained support bundle. The duration can be specified in days and hours, for example: `-p 2 hours`, `-p 1 day`, `-p 2 days 5 hours`.
+      The `ghe-support-bundle` and `ghe-cluster-support-bundle` commands were updated to include the `-p/--period` flag to generate a time constrained support bundle. The duration can be specified in days and hours, for example: `-p '2 hours'`, `-p '1 day'`, `-p '2 days 5 hours'`.
     - When upgrading an instance with a new root partition, running the `ghe-upgrade` command with the `-t/--target` option ensures the preflight check for the minimum disk storage size is executed against the target partition.
     - The performance of configuration runs started with `ghe-config-apply` has been improved.
     - When exporting account data, backing up a repository, or performing a migration, the link to a repository archive now expires after 1 hour. Previously the archive link expired after 5 minutes.
@@ -32,7 +32,6 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
     - |
       Following an upgrade to GitHub Enterprise Server 3.6 or later, existing inconsistencies in a repository such as broken refs or missing objects, may now be reported as errors like `invalid sha1 pointer 0000000000000000000000000000000000000000`, `Zero-length loose reference file`, or `Zero-length loose object file`. Previously, these indicators of repository corruption may have been silently ignored. GitHub Enterprise Server now uses an updated Git version with more diligent error reporting enabled. For more information, see this [upstream commit](https://github.com/git/git/commit/968f12fdac) in the Git project.
 

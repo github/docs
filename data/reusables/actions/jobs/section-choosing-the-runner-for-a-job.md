@@ -6,7 +6,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 - You can target runners based on the labels assigned to them.{% endif %}
 - You can provide `runs-on` as a single string or as an array of strings. 
 - If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values. 
-- If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+- If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -25,7 +25,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
@@ -40,7 +40,7 @@ For more information, see "[About {% data variables.product.prodname_dotcom %}-h
 runs-on: [self-hosted, linux]
 ```
 
-For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
 
 {% ifversion target-runner-groups %}
 

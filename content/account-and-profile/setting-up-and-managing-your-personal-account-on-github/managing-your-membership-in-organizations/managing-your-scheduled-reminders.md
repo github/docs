@@ -18,7 +18,7 @@ Scheduled reminders are used to make sure that users focus on the most important
 
 For certain events, you can also enable real-time alerts for scheduled reminders. Real-time alerts get sent to your Slack channel as soon as an important event, such as when you are assigned a review, takes place.
 
-You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
+You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
@@ -57,5 +57,5 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 ## Further reading
 
-- "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
-- "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

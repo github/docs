@@ -50,8 +50,8 @@ Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you
 
 ## Creating a permanent link to a code snippet
 
-You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[Creating a permanent link to a code snippet](/articles/creating-a-permanent-link-to-a-code-snippet/)."
+You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet)."
 
 ## Further reading
 
-- "[Archiving a GitHub repository](/articles/archiving-a-github-repository)"
+- "[AUTOTITLE](/repositories/archiving-a-github-repository)"

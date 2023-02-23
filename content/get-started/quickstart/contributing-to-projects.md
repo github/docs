@@ -20,7 +20,7 @@ If you want to contribute to someone else's project but don't have write access 
 
 {% data reusables.repositories.fork-definition-long %}
 
-You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo)."
 
 ## Forking a repository
 
@@ -42,7 +42,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
 {% endif %}
@@ -100,7 +100,7 @@ gh repo fork REPOSITORY --clone=true
 
 ## Creating a branch to work on
 
-Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[GitHub Flow](/get-started/quickstart/github-flow#following-github-flow)."
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow#following-github-flow)."
 
 {% webui %}
 
@@ -122,7 +122,7 @@ git checkout BRANCH-NAME
 
 {% desktop %}
 
-For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
 
 {% enddesktop %}
 
@@ -152,7 +152,7 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
 
 {% enddesktop %}
 
@@ -178,7 +178,7 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
 
 {% enddesktop %}
 
@@ -199,4 +199,4 @@ Pull Requests are an area for discussion. In this case, the Octocat is very busy
 ## Finding projects
 
 You've successfully forked and contributed back to a repository. Go forth, and
-contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+contribute some more!{% ifversion fpt %} For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}

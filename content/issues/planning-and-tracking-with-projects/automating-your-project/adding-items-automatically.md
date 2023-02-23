@@ -1,7 +1,6 @@
 ---
 title: Adding items automatically
 intro: You can configure your project to automatically add items from a repository that match a filter.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-auto-add
 type: tutorial
@@ -14,7 +13,7 @@ topics:
 
 You can configure your project's built-in workflows to automatically add new items as they are created or updated in a repository. You can define a filter to only add items that meet your criteria.
 
-When you enable the auto-add workflow, existing items matching your criteria will not be added. The workflow will add items when created or updated if the item matches your filter. For more information on manually adding items, see "[Bulk adding issues and pull requests](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#bulk-adding-issues-and-pull-requests)."
+When you enable the auto-add workflow, existing items matching your criteria will not be added. The workflow will add items when created or updated if the item matches your filter. For more information on manually adding items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project#bulk-adding-issues-and-pull-requests)."
 
 The auto-add workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
@@ -54,5 +53,5 @@ All filters, other than `no`, support negation. For example, you could use `-lab
 
 ## Further reading
 
-* "[Archiving items from your project](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-* "[Using the built-in automations](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"

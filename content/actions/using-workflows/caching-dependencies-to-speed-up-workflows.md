@@ -13,7 +13,6 @@ versions:
 type: tutorial
 topics:
   - Workflows
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About caching workflow dependencies
@@ -45,7 +44,7 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 
 {% data reusables.actions.comparing-artifacts-caching %}
 
-For more information on workflow run artifacts, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+For more information on workflow run artifacts, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Restrictions for accessing a cache
 
@@ -160,7 +159,7 @@ jobs:
 
 ### Using contexts to create cache keys
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Contexts](/actions/learn-github-actions/contexts)" and "[Expressions](/actions/learn-github-actions/expressions)."
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)" and "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies change.
 
@@ -250,11 +249,11 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 {% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
 
-{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+{% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
 {% elsif actions-cache-policy-apis %}
 
-For information on changing the policies for the repository cache size limit, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
+For information on changing the policies for the repository cache size limit, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-cache-storage-in-your-enterprise)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
 {% endif %}
 
@@ -274,14 +273,14 @@ To manage caches created from your workflows, you can:
 There are multiple ways to manage caches for your repositories:
 
 - Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
-- Using the REST API. For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+- Using the REST API. For more information, see the "[AUTOTITLE](/rest/actions/cache)" REST API documentation.
 - Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
 
 {% else %}
 
-You can use the {% data variables.product.product_name %} REST API to manage your caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[{% data variables.product.prodname_actions %} Cache](/rest/actions/cache)" REST API documentation.
+You can use the {% data variables.product.product_name %} REST API to manage your caches. {% ifversion actions-cache-list-delete-apis %}You can use the API to list and delete cache entries, and see your cache usage.{% elsif actions-cache-management %}At present, you can use the API to see your cache usage, with more functionality expected in future updates.{% endif %} For more information, see the "[AUTOTITLE](/rest/actions/cache)" REST API documentation.
 
-You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[Using GitHub CLI extensions](/github-cli/github-cli/using-github-cli-extensions)."
+You can also install a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information about the extension, see [the extension documentation](https://github.com/actions/gh-actions-cache#readme). For more information about {% data variables.product.prodname_cli %} extensions, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)."
 
 {% endif %}
 
@@ -299,7 +298,7 @@ You can use the web interface to view a list of cache entries for a repository. 
    * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
    * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-entry-list.png)
+   ![Screenshot of the list of cache entries.](/assets/images/help/repository/actions-cache-entry-list.png)
 
 ### Deleting cache entries
 
@@ -308,9 +307,9 @@ Users with `write` access to a repository can use the {% data variables.product.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.actions-cache-list %}
-1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. 
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}. 
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-delete.png)
+   ![Screenshot of the list of cache entries. A trash can icon, used to delete a cache, is highlighted with a dark orange outline.](/assets/images/help/repository/actions-cache-delete.png)
 
 {% endif %}
 
@@ -320,7 +319,7 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ### Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[Restrictions for accessing a cache](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
 
 For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
 
@@ -362,6 +361,6 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[Delete GitHub Actions caches for a repository](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
+Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
 
 {% endif %}

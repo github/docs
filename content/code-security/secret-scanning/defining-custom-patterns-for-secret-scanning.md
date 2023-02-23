@@ -18,11 +18,11 @@ topics:
 
 ## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 
 You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
 
-{% ifversion secret-scanning-push-protection-custom-patterns %}You can also enable push protection for custom patterns. For more information about push protection, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% endif %}
+{% ifversion secret-scanning-push-protection-custom-patterns %}You can also enable push protection for custom patterns. For more information about push protection, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% endif %}
 
 ## Regular expression syntax for custom patterns
 
@@ -39,7 +39,7 @@ For simple tokens you will usually only need to specify a secret format. The oth
 
 ## Defining a custom pattern for a repository
 
-Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[Configuring {% data variables.product.prodname_secret_scanning %} for your repositories](/code-security/secret-security/configuring-secret-scanning-for-your-repositories)."
+Before defining a custom pattern, you must ensure that {% data variables.product.prodname_secret_scanning %} is enabled on your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -58,14 +58,14 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 
    **Note:**
 
-   - Push protection for custom patterns will only apply to repositories that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-a-repository)."
+   - Push protection for custom patterns will only apply to repositories that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-a-repository)."
    - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
 
    {% endnote %}
 
    ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
-After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 ### Example of a custom pattern specified using additional requirements
 
@@ -98,7 +98,7 @@ aAAAe9
 
 ## Defining a custom pattern for an organization
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion ghes < 3.5 or ghae %}
 {% note %}
@@ -126,14 +126,14 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
    {% note %}
 
    **Note:**
-   - Push protection for custom patterns will only apply to repositories in your organization that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
+   - Push protection for custom patterns will only apply to repositories in your organization that have {% data variables.product.prodname_secret_scanning %} as push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
    - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
 
    {% endnote %}
 
    ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 ## Defining a custom pattern for an enterprise account
 
@@ -177,14 +177,14 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
    **Note:**
 
-   - To enable push protection for custom patterns, {% data variables.product.prodname_secret_scanning %} as push protection needs to be enabled at the enterprise level. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-your-enterprise)."
+   - To enable push protection for custom patterns, {% data variables.product.prodname_secret_scanning %} as push protection needs to be enabled at the enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-your-enterprise)."
    - Enabling push protection for commonly found custom patterns can be disruptive to contributors.
 
    {% endnote %}
 
    ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 ## Editing a custom pattern
 
