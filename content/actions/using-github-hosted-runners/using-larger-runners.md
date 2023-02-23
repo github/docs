@@ -15,15 +15,23 @@ When {% data variables.actions.hosted_runner %}s are enabled for your organizati
 
 When you add a {% data variables.actions.hosted_runner %} to an organization, you are defining a type of machine from a selection of available hardware specifications and operating system images. {% data variables.product.prodname_dotcom %} will then create multiple instances of this runner that scale up and down to match the job demands of your organization, based on the autoscaling limits you define.
 
-## Machine specs for {% data variables.actions.hosted_runner %}s 
+## Machine specs for {% data variables.actions.hosted_runner %}s
 
-|Size (vcpu) | Memory (GB) | Storage (SSD) |
+| Size (vcpu) | Memory (RAM) | Storage (SSD) |
 | ------------- | ------------- | ------------- |
-|4 cores | 16  RAM  | 150 GB|
-| 8 cores | 32 RAM | 300 GB |
-|16 cores| 64 RAM | 600 GB |
-|32 cores| 128 RAM| 1200 GB|
-|64 cores| 256 RAM | 2040 GB|
+| 4 cores | 16 GB | 150 GB|
+| 8 cores | 32 GB | 300 GB |
+| 16 cores | 64 GB | 600 GB |
+| 32 cores | 128 GB | 1200 GB |
+| 64 cores | 256 GB | 2040 GB |
+
+### Additional features for {% data variables.actions.hosted_runner %}s
+
+Compared to standard {% data variables.product.prodname_dotcom %}-hosted, {% data variables.actions.hosted_runner %}s have the following additional features:
+
+* For Ubuntu runners, hardware acceleration for the Android SDK tools is enabled. This makes running Android tests much faster and consume fewer minutes. For more information on Android hardware acceleration, see the [Android Developer documentation](https://developer.android.com/studio/run/emulator-acceleration).
+
+For a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 
 ## Architectural overview of {% data variables.actions.hosted_runner %}s
 
@@ -98,7 +106,13 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Running jobs on your runner
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run. 
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run.
+
+{% note %}
+
+**Note:** When you add a {% data variables.actions.hosted_runner %}, it is automatically assigned default labels that correspond to the runner name and its operating system. You cannot add custom labels to {% data variables.actions.hosted_runner %}s, but you can use the default labels or the runner's group to send jobs to specific types of runners.
+
+{% endnote %}
 
 Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group.
 
@@ -129,28 +143,6 @@ jobs:
 ### Using labels and groups to control where jobs are run
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
-
-### Using multiple labels
-
-You can specify multiple labels that need to be matched for a job to run on a runner. A runner will need to match all labels to be eligible to run the job.
-
-In this example, a runner will need to match all three of the labels to run the job:
-
-```yaml
-name: learn-github-actions
-on: [push]
-jobs:
-  check-bats-version:
-    runs-on:
-      labels: [ ubuntu-20.04-16core, gpu, qa ]
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-```
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 

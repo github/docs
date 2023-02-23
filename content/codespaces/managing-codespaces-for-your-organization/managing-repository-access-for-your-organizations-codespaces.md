@@ -31,9 +31,12 @@ To manage which users in your organization can use {% data variables.product.pro
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
 1. Under "Access and security", select the setting you want for your organization.
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
+
+   ![Screenshot fo the "Access and security" section, showing three options: "Disabled," "All repositories," and "Selected repositories."](/assets/images/help/codespaces/codespaces-org-access-and-security-radio-buttons.png)
+
 1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
-    !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+
+   ![Screenshot of the "Selected repositories" drop-down menu. Two repositories are listed in the drop-down menu.](/assets/images/help/codespaces/codespaces-access-and-security-repository-drop-down.png)
 
 ## Further reading
 

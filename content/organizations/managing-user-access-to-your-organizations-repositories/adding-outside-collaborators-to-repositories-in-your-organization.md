@@ -39,15 +39,4 @@ If your organization requires two-factor authentication, all outside collaborato
 
 ## Adding outside collaborators to a repository
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-You can give outside collaborators access to a repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)." 
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-5. In the left sidebar, click **Collaborators & teams**.
-  ![Repository settings sidebar with Collaborators & teams highlighted](/assets/images/help/repository/org-repo-settings-collaborators-and-teams.png)
-6. Under "Collaborators", type the name of the person you'd like to give access to the repository, then click **Add collaborator**.
-![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/repository/org-repo-collaborators-find-name.png)
-7. Next to the new collaborator's name, use the drop-down menu and select the appropriate access level.
-![The repository permissions picker](/assets/images/help/repository/org-repo-collaborators-choose-permissions.png)
-{% endif %}
+You can give outside collaborators access to a repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."

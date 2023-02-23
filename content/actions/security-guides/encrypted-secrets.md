@@ -81,10 +81,10 @@ When generating credentials, we recommend that you grant the minimum permissions
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Repository secrets tab](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
 1. Click **New repository secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
+1. In the **Name** field, type a name for your secret.
+1. In the **Secret** field, enter the value for your secret.
 1. Click **Add secret**.
 
 If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
@@ -223,11 +223,7 @@ You can check which access policies are being applied to a secret in your organi
 
 * {% data reusables.actions.forked-secrets %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 * Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
-
-{% endif %}
 
 {% endnote %}
 
@@ -426,7 +422,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-   
+
 {% note %}
 
 **Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.

@@ -13,7 +13,7 @@ shortTitle: Access a private registry
 
 ## About private registries and {% data variables.product.prodname_github_codespaces %}
 
-A registry is a secure space for storing, managing, and fetching container images or other packages. There are many examples of registries, such as: 
+A registry is a secure space for storing, managing, and fetching container images or other packages. There are many examples of registries, such as:
 - {% data variables.product.company_short %}'s {% data variables.product.prodname_container_registry %}, the Azure Container Registry, and DockerHub for container images
 - The {% data variables.product.prodname_npm_registry %} for Node.js packages.
 
@@ -63,9 +63,9 @@ You can define secrets to allow {% data variables.product.prodname_github_codesp
 
 You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
-If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.  
+If you are setting the secrets at the user or organization level, make sure to assign those secrets to the repository you'll be creating the codespace in by choosing an access policy from the dropdown list.
 
-![Image registry secret example](/assets/images/help/codespaces/secret-repository-access.png)
+<img src="/assets/images/help/codespaces/secret-repository-access.png" alt='Screenshot of the "Repository access" dropdown menu with the options "All repositories," "Private repositories," and "Selected repositories."' style="width:400px;"/>
 
 ### Example secrets
 
@@ -79,7 +79,7 @@ ACR_CONTAINER_REGISTRY_PASSWORD = <PERSONAL_ACCESS_TOKEN>
 
 For information on common image registries, see "[Common image registry servers](#common-image-registry-servers)." Note that accessing AWS Elastic Container Registry (ECR) is different.
 
-![Image registry secret example](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
+![Screenshot of the "Codespaces secrets" settings for a repository. Three secrets for ACR Container Registry are set.](/assets/images/help/codespaces/codespaces-image-registry-secret-example.png)
 
 Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
 
