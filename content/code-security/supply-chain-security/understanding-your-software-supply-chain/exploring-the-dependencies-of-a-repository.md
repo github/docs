@@ -31,7 +31,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
 4. Optionally, under "Dependency graph", click **Dependents**.
-![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+![Screenshot of the "Dependents" tab on the dependency graph page.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes %}
 Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
@@ -48,14 +48,10 @@ Dependencies submitted to a project using the Dependency submission API (beta), 
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph.png)
-
 {% endif %}
 
 {% ifversion ghes or ghae %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
-
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
 
 {% note %}
 
@@ -69,8 +65,6 @@ Any direct and indirect dependencies that are specified in the repository's mani
 ### Dependents view
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
-
-![Dependents graph](/assets/images/help/graphs/dependents_graph.png)
 
 ## Enabling and disabling the dependency graph for a private repository
 

@@ -31,4 +31,4 @@ Referring sites and popular content are ordered by views and unique visitors. Fu
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 3. In the left sidebar, click **Traffic**.
-![Traffic tab](/assets/images/help/graphs/traffic_tab.png)
+![Screenshot of the "Traffic" tab. The tab is highlighted with a dark orange outline.](/assets/images/help/graphs/traffic_tab.png)
