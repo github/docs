@@ -18,7 +18,7 @@ After a student accepts an assignment, on every push to the assignment repositor
 
 {% note %}
 
-For more information on workflows and {% data variables.product.prodname_actions %}, see "[About continuous integration](https://docs.github.com/en/actions/guides/about-continuous-integration).
+For more information on workflows and {% data variables.product.prodname_actions %}, see "[About continuous integration](/actions/guides/about-continuous-integration).
 
 {% endnote %}
 
