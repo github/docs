@@ -47,9 +47,9 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
+        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) 
          && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
-       )
+       ) 
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
        &&  github.actor != 'dependabot[bot]'
     timeout-minutes: 15
@@ -110,10 +110,48 @@ jobs:
           # Image tag is unique to each workflow run so that it always triggers a new deployment
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
-      - uses: ./.github/actions/get-docs-early-access
-        if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
+        name: Determine which docs-early-access branch to clone
+        id: 'check-early-access'
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        env:
+          BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
+          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          result-encoding: string
+          script: |
+            const { BRANCH_NAME } = process.env
+
+            try {
+              const { status } = await github.request('GET /repos/{owner}/{repo}/branches/{branch}', {
+                owner: 'github',
+                repo: 'docs-early-access',
+                branch: BRANCH_NAME,
+              })
+
+              if (status !== 200) {
+                throw new Error('Received non-200 response from branch GET request')
+              }
+
+              console.log(`Using docs-early-access branch '${BRANCH_NAME}'`)
+              return BRANCH_NAME
+            } catch (e) {
+              console.log(`Failed to get docs-early-access branch '${BRANCH_NAME}', 'main' will be used instead.`)
+              return 'main'
+            }
+
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
+        name: Clone docs-early-access
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.result }}
+
+      - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
+        name: Merge docs-early-access repo's folders
+        run: .github/actions-scripts/merge-early-access.sh
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
