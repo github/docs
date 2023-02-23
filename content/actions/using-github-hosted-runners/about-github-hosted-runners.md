@@ -79,7 +79,7 @@ jobs:
 
 While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
 
-![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+![Screenshot of a workflow run. The steps for the "Run PSScriptAnalyzer on Windows" job are displayed.](/assets/images/help/repository/actions-runner-output.png)
 
 {% data reusables.actions.runner-app-open-source %}
 

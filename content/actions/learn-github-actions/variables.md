@@ -123,7 +123,7 @@ The following rules apply to configuration variable names:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Repository variables tab](/assets/images/help/repository/actions-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is highlighted with a dark orange outline.](/assets/images/help/repository/actions-variables-tab.png)
 1. Click **New repository variable**.
 {% data reusables.actions.variable-fields %}
 1. Click **Add variable**.
