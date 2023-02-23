@@ -65,6 +65,11 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
 
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
       - name: Cache nextjs build
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:

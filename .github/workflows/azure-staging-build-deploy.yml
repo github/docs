@@ -79,16 +79,9 @@ jobs:
           node-version-file: 'package.json'
           cache: npm
 
-      - name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      - uses: ./.github/actions/get-docs-early-access
         with:
-          repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: main
-
-      - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
