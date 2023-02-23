@@ -13,11 +13,17 @@ versions:
   ghec: '*'
 ---
 
+## Forking gists
+
+Each gist indicates which forks have activity, making it easy to find interesting changes from others.
+
 ## Cloning gists
 
 If you want to make local changes to a gist and push them up to the web, you can clone a gist and make commits the same as you would with any Git repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
-![Gist clone button](/assets/images/help/gist/gist_clone_btn.png)
+To clone a gist, select the Embed dropdown menu, then click Clone via HTTPS or Clone via SSH.
+
+![Screenshot of the GitHub Gist Clone button dropdown. An option labeled “Clone via HTTPS” is outlined in dark orange.](/assets/images/help/gist/gist_clone_btn.png)
 
 ## Viewing gist commit history
 
@@ -25,4 +31,4 @@ To view a gist's full commit history, click the "Revisions" tab at the top of th
 
 You will see a full commit history for the gist with diffs.
 
-![Gist revisions page](/assets/images/help/gist/gist_history.png)
+![Screenshot of the GitHub Gist Revisions page. A tab labeled “Revisions” with dark orange underline is outlined in dark orange.](/assets/images/help/gist/gist_history.png)
