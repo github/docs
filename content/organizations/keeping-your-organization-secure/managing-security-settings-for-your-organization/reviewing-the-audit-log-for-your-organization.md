@@ -903,7 +903,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
-{%- endif %}

@@ -46,7 +46,8 @@ Organizations are shared accounts where groups of people can collaborate across 
 
 To use an organization account with {% data variables.product.prodname_ghe_cloud %}, you will first need to create an organization. When prompted to choose a plan, select "Enterprise". For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-Alternatively, if you have an existing organization account that you would like to upgrade, follow the steps in "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+Alternatively, if you have an existing organization account and would like to upgrade to {% data variables.product.prodname_ghe_cloud %} for additional security, compliance, and deployment controls, follow the steps in "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+
 #### 3. Setting up and managing billing
 
 When you choose to use an organization account with {% data variables.product.prodname_ghe_cloud %}, you'll first have access to a [30-day trial](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud). If you don't purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %} before your trial ends, your organization will be downgraded to {% data variables.product.prodname_free_user %} and lose access to any advanced tooling and features that are only included with paid products. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
@@ -63,8 +64,8 @@ An enterprise account allows you to centrally manage policy and settings for mul
 
 #### 2. Creating an enterprise account
 
- {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)." 
- 
+ {% data variables.product.prodname_ghe_cloud %} customers paying by invoice can create an enterprise account directly through {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)."
+
  {% data variables.product.prodname_ghe_cloud %} customers not currently paying by invoice can contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact) to create an enterprise account for you.
 
 #### 3. Adding organizations to your enterprise account
@@ -78,7 +79,7 @@ You can view your current subscription, license usage, invoices, payment history
 ## Part 3: Managing your organization or enterprise members and teams with {% data variables.product.prodname_ghe_cloud %}
 
 ### Managing members and teams in your organization
-You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization. 
+You can set permissions and member roles, create and manage teams, and give people access to repositories in your organization.
 #### 1. Managing members of your organization
 {% data reusables.getting-started.managing-org-members %}
 #### 2. Organization permissions and roles
@@ -131,7 +132,7 @@ Organization owners can enable team synchronization between your identity provid
 
 ### Managing security for an {% data variables.enterprise.prodname_emu_enterprise %}
 
-With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP. 
+With {% data variables.product.prodname_emus %}, access and identity is managed centrally through your identity provider. Two-factor authentication and other login requirements should be enabled and enforced on your IdP.
 
 #### 1. Enabling and SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
 
@@ -149,10 +150,10 @@ You can configure an allow list for specific IP addresses to restrict access to 
 {% data reusables.getting-started.enterprise-advanced-security %}
 
 ### Managing security for an enterprise account without {% data variables.enterprise.prodname_managed_users %}
-To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features. 
+To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization at an enterprise level, and sign up for and enforce GitHub Advanced Security features.
 
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
-Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise account use two-factor authentication to secure their personal accounts. Before doing so, we recommend notifying all who have access to organizations in your enterprise. You can also configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account.
 
 For more information on enforcing two-factor authentication and allowed IP address lists, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
 #### 2. Enabling and enforcing SAML single sign-on for organizations in your enterprise account
@@ -194,13 +195,13 @@ Members of your organization or enterprise can use tools from the {% data variab
 {% data reusables.getting-started.api %}
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 ### 5. Using {% data variables.product.prodname_pages %}
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes a website. You can manage the publication of {% data variables.product.prodname_pages %} sites at the organization level. For more information, see  "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" and "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
 ## Part 7: Participating in {% data variables.product.prodname_dotcom %}'s community
 
-Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community. 
+Members of your organization or enterprise can use GitHub's learning and support resources to get the help they need. You can also support the open source community.
 
 ### 1. Reading about {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_docs %}
 
