@@ -17,15 +17,15 @@ The community profile checklist checks to see if a project includes recommended 
 
 ## Using the community profile checklist as a repository maintainer
 
-As a repository maintainer, use the community profile checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[Building community](https://opensource.guide/building-community/)" in the Open Source Guides.
+As a repository maintainer, you can use the community standards checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[Building community](https://opensource.guide/building-community/)" in the Open Source Guides.
 
-If a project doesn't have a recommended file, you can click **Add** to draft and submit a file.
+If a project doesn't have one of the recommended files, you can click the associated **Add** button to draft and submit a file.
 
-{% data reusables.repositories.valid-community-issues %} For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
-
-![Community profile checklist with recommended community standards for maintainers](/assets/images/help/repository/add-button-community-profile.png)
+![Screenshot of the "Community Standards" maintainer checklist. Each item has an "Added" label (green checkmark) or a "Not added yet" label (orange circle).](/assets/images/help/repository/add-button-community-profile.png)
 
 {% data reusables.repositories.security-guidelines %}
+
+{% data reusables.repositories.valid-community-issues %} For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
 
 ## Using the community profile checklist as a community member or collaborator
 
@@ -33,7 +33,7 @@ As a potential contributor, use the community profile checklist to see if a proj
 
 If a project doesn't have a recommended file, you can click **Propose** to draft and submit a file to the repository maintainer for approval.
 
-![Community profile checklist with recommended community standards for contributors](/assets/images/help/repository/propose-button-community-profile.png)
+![Screenshot of the "Community Standards" contributor checklist. Each item has an "Added" label (green checkmark) or a "Not added yet" label (orange circle).](/assets/images/help/repository/propose-button-community-profile.png)
 
 ## Further reading
 

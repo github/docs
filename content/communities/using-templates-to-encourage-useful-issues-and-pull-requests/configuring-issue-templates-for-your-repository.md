@@ -25,16 +25,15 @@ shortTitle: Configure
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the "Features" section, under "Issues," click **Set up templates**.
-![Start template setup button](/assets/images/help/repository/set-up-templates.png)
-4. Use the Add template drop-down menu, and click on the type of template you'd like to create.
-![Add template drop-down menu](/assets/images/help/repository/add-template-drop-down-menu.png)
+3. In the "Features" section, under "Issues," click **Set up templates**. You may need to enable "Issues" and refresh the page before you can see the button.
+4. Use the Add template dropdown menu, and click on the type of template you'd like to create.
+
+![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. To preview or edit the template before committing it to the repository, click **Preview and edit**.
 ![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
 6. To edit the template, click {% octicon "pencil" aria-label="The edit icon" %}, and type in the fields to edit their contents.
 ![Issue template edit button](/assets/images/help/repository/issue-template-edit-button.png)
-7. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to your issue template, enter these details under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
-![Additional info for issue template](/assets/images/help/repository/additional-issue-template-info.png)
+7. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
 8. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
 ![Propose changes button](/assets/images/help/repository/propose-changes-button.png)
 9. Enter a commit message describing your changes.
