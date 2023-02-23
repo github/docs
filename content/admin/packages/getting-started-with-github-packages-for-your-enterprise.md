@@ -25,18 +25,18 @@ topics:
 
 If you plan to enable {% data variables.product.prodname_container_registry %} for the users of your instance, at least 10% more CPU resources are required.
 
-We recommend reviewing the levels of activity for users and automations on the instance to ensure that you have provisioned adequate CPU for your users. For more information, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+We recommend reviewing the levels of activity for users and automations on the instance to ensure that you have provisioned adequate CPU for your users. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)."
 
 For more information about minimum hardware requirements for {% data variables.location.product_location %}, see the hardware considerations for your instance's platform.
 
-- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
-- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
-- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
-- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
-- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
-- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [AWS](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Google Cloud Platform](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
 
-For more information about adjusting resources for an existing instance, see "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+For more information about adjusting resources for an existing instance, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
 
 ## Step 3: Enable {% data variables.product.prodname_registry %} and configure external storage
 
