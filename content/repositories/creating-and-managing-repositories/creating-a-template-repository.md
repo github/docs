@@ -25,7 +25,14 @@ To create a template repository, you must create a repository, then make the rep
 
 After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch. They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches. For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
 
+{% note %}
+
+**Note**: You can use a template repository on GitHub as starter code for an assignment on {data variables.product.prod_classroom}. For more information, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+
+{% endnote %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Select **Template repository**.
   ![Checkbox to make a repository a template](/assets/images/help/repository/template-repository-checkbox.png)
+

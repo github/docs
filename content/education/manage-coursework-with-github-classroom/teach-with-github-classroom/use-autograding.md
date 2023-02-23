@@ -16,6 +16,12 @@ redirect_from:
 
 After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
 
+{% note %}
+
+For more information on workflows and {% data variables.product.prodname_actions %}, see "[About continuous integration](https://docs.github.com/en/actions/guides/about-continuous-integration).
+
+{% endnote %}
+
 You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[Specifications for  {% data variables.product.company_short %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
 
 You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.

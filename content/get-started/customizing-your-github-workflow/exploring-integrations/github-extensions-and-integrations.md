@@ -15,6 +15,12 @@ shortTitle: Extensions & integrations
 
 {% ifversion fpt or ghec %}
 
+{% note %}
+
+You can configure an assignment in {data variables.product.prodname_education} to use an integrated development environment (IDE). This lets students collaborate and run programs without installing Git and a full development toolchain on their computer. For more information, see [Integrate {data variables.product.prodname_classroom} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide).
+
+{% endnote %}
+
 ## Editor tools
 
 You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
@@ -38,6 +44,7 @@ You can integrate your personal or organization account on {% data variables.loc
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
 You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+
 
 {% endif %}
 
