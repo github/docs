@@ -1,10 +1,8 @@
-name: Auto Merge Dependency Updates
+name: Auto Close Open Source Dependency Updates
 
 # **What it does**:
-#  - automerge-internal: Automatically merge dependabot's pull requests in the internal repository.
 #  - close-external: Automatically close dependabot's pull requests in the open-source repository.
 # **Why we have it**:
-#  - automerge-internal: To keep our dependencies up-to-date, to avoid security issues.
 #  - close-external: To avoid duplicating updates against the internal repository.
 # **Who does it impact**: It helps docs engineering focus on higher value work.
 
@@ -25,22 +23,6 @@ permissions:
   pull-requests: write
 
 jobs:
-  automerge-internal:
-    if: >-
-      ${{
-        github.repository == 'github/docs-internal' &&
-        github.event.pull_request.number &&
-        github.event.pull_request.base.ref == 'main' &&
-        github.event.pull_request.user.login == 'dependabot[bot]' &&
-        github.event.pull_request.state == 'open'
-      }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: tjenkinson/gh-action-auto-merge-dependency-updates@c47f6255e06f36e84201ee940466e731ffa6e885
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allowed-actors: dependabot[bot]
-
   close-external:
     if: >-
       ${{
