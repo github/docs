@@ -138,25 +138,22 @@ You can add a predefined dev container configuration either while working in a c
 
 1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Click **Codespaces: Configure Dev Container**.
 
-   ![Screenshot of the "Codespaces: Configure Dev Container" option](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   ![Screenshot of the Command Palette, filtered to show only the "Codespaces: Configure Dev Container" option.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
 1. Click **Start from scratch**.
-
-   ![Screenshot of the "Start from scratch" option](/assets/images/help/codespaces/start-from-scratch.png)
-
 1. Click **Show All Definitions**.
 
-   ![Screenshot of the "Show All Definitions" option](/assets/images/help/codespaces/show-all-definitions.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" menu with the dropdown showing various options, including "Show All Definitions."](/assets/images/help/codespaces/show-all-definitions.png)
 
 1. Click the definition you want to use.
 
-   ![Screenshot of a list of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+   ![Screenshot of the "Add Development Container Configuration Files" menu with the dropdown showing options such as "Alpine," "C# (.NET)," "C++," and "Debian."](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 
 1. Follow the prompts to customize your definition.
 1. Click **OK**.
 1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
-   ![Screenshot of a prompt to 'Rebuild now'](/assets/images/help/codespaces/rebuild-prompt.png)
+   ![Screenshot of the message: "We've noticed a change to the dev container configuration." Below this is the "Rebuild Now" button.](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ### Adding additional features to your `devcontainer.json` file
 
@@ -179,7 +176,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 
    If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-   ![Screenshot of a choice of configuration files](/assets/images/help/codespaces/configuration-file-choice.png)
+   ![Screenshot of the codespace creation options page, showing a dropdown listing a choice of configuration files.](/assets/images/help/codespaces/configuration-file-choice.png)
 
 ### Adding a `devcontainer.json` file
 
@@ -187,7 +184,7 @@ If you don't already have a `devcontainer.json` file in your repository, you can
 1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
-   ![Screenshot of the Code dropdown, with "Configure dev container" highlighted](/assets/images/help/codespaces/configure-dev-container.png)
+   ![Screenshot of the "Code" dropdown, and, within it, another dropdown with the "Configure dev container" option highlighted.](/assets/images/help/codespaces/configure-dev-container.png)
 
 A new `.devcontainer/devcontainer.json` file will open in the editor. The file will contain some initial properties, including a `features` object to which you can add new tools, libraries, or runtimes. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file?tool=webui)."
 
@@ -197,7 +194,7 @@ If your repository already contains one or more `devcontainer.json` files, then 
 
 If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default.
 
-![Screenshot of the default configuration choice selected](/assets/images/help/codespaces/configuration-file-choice-default.png)
+![Screenshot of the "Dev container configuration" dropdown with the default configuration choice selected.](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
 ### Editing the devcontainer.json file
 
@@ -213,9 +210,11 @@ The `devcontainer.json` file is written using the JSONC (JSON with comments) for
 
 ### Interface settings for {% data variables.product.prodname_vscode_shortname %}
 
-You can configure the interface settings for {% data variables.product.prodname_vscode_shortname %}, with three scopes: Workspace, Remote [Codespaces], and User. You can view these scopes in the {% data variables.product.prodname_vscode_shortname %} Settings editor.
+You can configure the interface settings for {% data variables.product.prodname_vscode_shortname %}, with three scopes: User, Remote [Codespaces], and Workspace. You can view these scopes in the {% data variables.product.prodname_vscode_shortname %} Settings editor.
 
-![Screenshot showing the choice of scopes in the Settings editor](/assets/images/help/codespaces/scopes-for-vscode.png)
+To display the Setting editor, use the keyboard shortcut <kbd>Command</kbd>+<kbd>,</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>,</kbd> (Linux/Windows).
+
+![Screenshot of the "Settings" editor with the tabs for the three scopes highlighted with an orange outline.](/assets/images/help/codespaces/scopes-for-vscode.png)
 
 If a setting is defined in multiple scopes, Workspace settings take priority, then Remote [Codespaces], then User.
 
@@ -233,7 +232,7 @@ Changes to a configuration will be applied the next time you create a codespace.
 {% data reusables.codespaces.rebuild-command %}
 1. {% data reusables.codespaces.recovery-mode %}
 
-   ![Screenshot of the error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
+   ![Screenshot of a message saying that the codespace is running in recovery mode. Below the message are buttons labeled "Cancel" and "View creation log."](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.

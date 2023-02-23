@@ -16,9 +16,6 @@ topics:
 shortTitle: Encrypted secrets
 ---
 
-
-
-
 ## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
 
 You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
@@ -49,9 +46,7 @@ Secrets are limited to 48 KB in size.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. To the right of "Codespaces secrets", click **New secret**.
-  !["New secret" button](/assets/images/help/settings/codespaces-new-secret-button.png)
 1. Under "Name", type a name for your secret.
-  !["Name" text box](/assets/images/help/settings/codespaces-secret-name-field.png)
 {% data reusables.user-settings.codespaces-secret-value %}
 {% data reusables.user-settings.codespaces-secret-repository-access %}
 1. Click **Add secret**.
@@ -63,13 +58,16 @@ You can update the value of an existing secret, and you can change which reposit
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**.
-  !["Update" button](/assets/images/help/settings/codespaces-secret-update-button.png)
-1. Under "Value", click **enter a new value**.
-  !["enter a new value" link](/assets/images/help/settings/codespaces-secret-update-value-text.png)
+1. Under "Value", click the link "**enter a new value**."
+
+   ![Screenshot of the "Codespaces / Update secret" page. The "enter a new value" link in highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-secret-update-value-text.png)
+
 {% data reusables.user-settings.codespaces-secret-value %}
 {% data reusables.user-settings.codespaces-secret-repository-access %}
 1. Optionally, to remove the secret's access to a repository, deselect the repository.
-  ![Checkboxes to remove access to repositories](/assets/images/help/settings/codespaces-secret-repository-checkboxes.png)
+
+   ![Screenshot showing a list of two repositories. Each has a selected checkbox.](/assets/images/help/codespaces/codespaces-secret-repository-checkboxes.png)
+
 1. Click **Save changes**.
 
 ## Deleting a secret
@@ -77,15 +75,13 @@ You can update the value of an existing secret, and you can change which reposit
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**.
-  !["Delete" button](/assets/images/help/settings/codespaces-secret-delete-button.png)
 1. Read the warning, then click **OK**.
-  ![Confirmation to delete secret](/assets/images/help/settings/codespaces-secret-delete-warning.png)
 
 ## Using secrets
 
 A secret is exported as an environment variable into the user's terminal session.
 
-  ![Displaying the value of an exported secret in the terminal](/assets/images/help/codespaces/exported-codespace-secret.png)
+![Screenshot of the Terminal in {% data variables.product.prodname_vscode_shortname %}. The command "echo $EXAMPLE_API_KEY" has returned "aBCdeFG1234567."](/assets/images/help/codespaces/exported-codespace-secret.png)
 
 You can use secrets in a codespace after the codespace is built and is running. For example, a secret can be used:
 

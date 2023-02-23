@@ -146,7 +146,7 @@ If you already use {% data variables.product.prodname_vscode_shortname %}, you c
 If you work on your codespaces in a JetBrains IDE, you can add plugins from the JetBrains Marketplace.
 
 1. Click **JetBrains Client**, then click **Preferences**.
-1. In the Preferences dialog box, click either **Plugins On Host** to install a plugin in the full JetBrains IDE that's running remotely, or **Plugins** to install a plugin on the local client, for example to change the user interface theme.
+1. In the Preferences dialog, click either **Plugins On Host** to install a plugin in the full JetBrains IDE that's running remotely, or **Plugins** to install a plugin on the local client, for example to change the user interface theme.
 1. Click the **Marketplace** tab.
 
    ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
