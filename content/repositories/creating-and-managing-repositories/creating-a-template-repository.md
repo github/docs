@@ -27,7 +27,7 @@ After you make your repository a template, anyone with access to the repository 
 
 {% note %}
 
-**Note**: You can use a template repository on GitHub as starter code for an assignment on {data variables.product.prod_classroom}. For more information, see "[Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+**Note**: You can use a template repository on GitHub as starter code for an assignment on {data variables.product.prod_classroom}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
 {% endnote %}
 

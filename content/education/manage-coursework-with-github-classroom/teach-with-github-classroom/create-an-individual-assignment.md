@@ -104,7 +104,7 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% note %}
 
-**Note:** For more information on how to leave feedbacks for your student in a special pull request within a repository for an assignment, see "[Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)".
+**Note:** For more information on how to leave feedbacks for your student in a special pull request within a repository for an assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)".
 
 {% endnote %}
 
