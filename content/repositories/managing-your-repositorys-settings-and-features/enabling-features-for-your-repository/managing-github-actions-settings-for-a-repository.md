@@ -138,7 +138,7 @@ By default, when you create a new repository in your personal account, workflows
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion ghes or ghae > 3.3 or ghec %}
+{% ifversion ghes or ghae or ghec %}
 ## Allowing access to components in an internal repository
 
 {% ifversion internal-actions %}Actions and reusable workflows in your internal repositories can be shared with internal and private repositories in the same organization or enterprise.{% else %}Members of your enterprise can use internal repositories to work on projects without sharing information publicly.{% endif %} For information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."

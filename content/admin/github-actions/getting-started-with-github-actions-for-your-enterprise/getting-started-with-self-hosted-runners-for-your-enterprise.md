@@ -99,18 +99,12 @@ You can create a runner group to manage access to the runner that you added to y
    {% endwarning %}
 {%- endif %}
 {% data reusables.actions.create-runner-group %}
-{%- ifversion ghec or ghes or ghae > 3.3 %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.
 1. Click **Runner groups {% octicon "gear" aria-label="The Gear icon" %}**.
 1. In the list of runner groups, click the name of the group that you previously created.
 1. Click **Save** to move the runner to the group.
-{%- elsif ghae %}
-1. To the right of "Default", click the number of runners in the group to show the runners.
-1. Select the runner that you deployed.
-1. To the right of "Runner groups", select the **Move to group** dropdown, and click the group that you previously created.
-{%- endif %}
 
 You've now deployed a self-hosted runner that can run jobs from {% data variables.product.prodname_actions %} within the organizations that you specified.
 

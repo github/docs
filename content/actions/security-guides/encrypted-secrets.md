@@ -223,11 +223,7 @@ You can check which access policies are being applied to a secret in your organi
 
 * {% data reusables.actions.forked-secrets %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 * Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
-
-{% endif %}
 
 {% endnote %}
 
@@ -426,7 +422,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-   
+
 {% note %}
 
 **Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
