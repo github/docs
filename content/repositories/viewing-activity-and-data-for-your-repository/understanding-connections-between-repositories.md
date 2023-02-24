@@ -37,7 +37,7 @@ The network graph displays the branch history of the entire repository network, 
 
 {% endtip %}
 
-## Accessing the network graph
+### Accessing the network graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -46,16 +46,44 @@ The network graph displays the branch history of the entire repository network, 
 
 ## Listing the forks of a repository
 
-The Members graph displays all the forks of a repository.
+The{% ifversion repositories-forks-page-improvement %} forks page {% else %} Members graph {% endif %} lists the forks of a repository. {% ifversion repositories-forks-page-improvement %}For each fork, you can see:
+ - how many times the fork has been starred
+ - the number of direct forks (of the fork)
+ - the number of open issues
+ - the number of open pull requests
+ - when the fork was last updated (that is, the last push to any branch)
+ - when the fork was created
+
+You can filter the list of forks to display active, inactive, starred, or archived forks, or to only display forks that have been updated within a specified time period (up to a period of five years). To view the most useful or most active forks, you can sort the list of forks by most starred forks or most recently updated forks, or by the number of open issues or open pull requests.
+
+{% else %}
 
 Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
-### Accessing the Members graph
+{% endif %}
+
+### Accessing the {% ifversion repositories-forks-page-improvement %}forks page {% else %}Members graph{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Forks**.
-![Screenshot of the left sidebar. The "Forks" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+1. In the left sidebar, click **Forks**.
+
+   ![Screenshot of the left sidebar. The "Forks" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)
+
+{% ifversion repositories-forks-page-improvement %}
+1. Optionally, to filter the list to display forks updated within a specified time period, click **Period**, then choose a time period from the dropdown menu. For example, to see forks that have been updated within the last two years, choose "2 years" from the dropdown menu.
+
+   ![Screenshot of the forks page with filter and sort options shown. The dropdown menu, titled "Period", is highlighted with an orange outline.](/assets/images/help/graphs/repository-forks-page-period-dropdown.png)
+
+1. Optionally, to filter the list to only display active, inactive, starred, or archived forks, click **Repository type**, then choose one or multiple options from the dropdown menu. To clear a filter, click **Repository type**, then click the applied filter again to remove it.
+
+   ![Screenshot of the forks page with filter and sort options shown. The dropdown menu, "Repository type", is highlighted with an orange outline.](/assets/images/help/graphs/repository-forks-page-repository-type-dropdown.png)
+
+1. Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click **Sort**, then choose an option from the dropdown menu.
+
+   ![Screenshot of the forks page with filter and sort options shown. The dropdown menu, titled "Sort", is highlighted with an orange outline.](/assets/images/help/graphs/repository-forks-page-sort-dropdown.png)
+
+{% endif %}
 
 ## Viewing the dependencies of a repository
 

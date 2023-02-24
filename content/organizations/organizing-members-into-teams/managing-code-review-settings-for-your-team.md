@@ -83,12 +83,9 @@ Any team members that have set their status to "Busy" will not be selected for r
 ![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
 1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
 ![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- endif %}
 1. Click **Save changes**.
 
 ## Disabling auto assignment

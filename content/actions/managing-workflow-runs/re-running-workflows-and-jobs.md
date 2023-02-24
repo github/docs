@@ -156,7 +156,7 @@ gh run rerun --job JOB_ID --debug
 {% ifversion fpt or ghes > 3.4 or ghae or ghec %}
 ## Reviewing previous workflow runs
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/actions#get-a-workflow-run).
+You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see "[AUTOTITLE](/rest/actions#get-a-workflow-run)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

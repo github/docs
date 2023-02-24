@@ -58,9 +58,7 @@ An organization administrator can only configure hook permissions for an organiz
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 4. In the left sidebar, click **Hooks**.
-![Hooks sidebar](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook, or allow it to be configured by the repository administrators.
-![Hook permissions](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
+5. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click an option.
 
 ## Configure pre-receive hooks for a repository
 
