@@ -19,12 +19,14 @@ shortTitle: Publish & install with Actions
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
-{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[About {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/about-github-actions)."
+{% data reusables.repositories.about-github-actions %} {% data reusables.repositories.actions-ci-cd %} For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% ifversion packages-registries-v2 %}
 ### Authenticating to package registries with granular permissions
+
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)." 
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
@@ -32,11 +34,11 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 
 {% endif %}
 
-{% ifversion packages-registries-v2 %}Some {% data variables.product.prodname_registry %} registries only support repository-scoped permissions, and do not support granular permissions. For a list of these registries, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
+{% ifversion packages-registries-v2 %}Some {% data variables.product.prodname_registry %} registries only support repository-scoped permissions, and do not support granular permissions. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 ## About permissions and package access
 
@@ -44,37 +46,37 @@ You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{
 
 ### Packages scoped to users or organizations
 
-Registries that support granular permissions allow users to create and administer packages as free-standing resources at the organization level. Packages can be owned by an organization or personal account and you can customize access to each of your packages separately from repository permissions.
+Registries that support granular permissions allow users to create and administer packages as free-standing resources at the organization level. Packages can be scoped to an organization or personal account and you can customize access to each of your packages separately from repository permissions.
 
-All workflows accessing registries that support granular permissions should use the `GITHUB_TOKEN` instead of a {% data variables.product.pat_generic %}. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+All workflows accessing registries that support granular permissions should use the `GITHUB_TOKEN` instead of a {% data variables.product.pat_generic %}. For more information about security best practices, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-secrets)."
 
 ### Packages scoped to repositories
 
 {% endif %}
 
-When you enable GitHub Actions, GitHub installs a GitHub App on your repository. The `GITHUB_TOKEN` secret is a GitHub App installation access token. You can use the installation access token to authenticate on behalf of the GitHub App installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#about-the-github_token-secret)."
+When you enable GitHub Actions, GitHub installs a GitHub App on your repository. The `GITHUB_TOKEN` secret is a GitHub App installation access token. You can use the installation access token to authenticate on behalf of the GitHub App installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
 
 {% data variables.product.prodname_registry %} allows you to push and pull packages through the `GITHUB_TOKEN` available to a {% data variables.product.prodname_actions %} workflow.
 
 {% ifversion packages-registries-v2 %}
 
-## Default permissions and access settings for containers modified through workflows
+## Default permissions and access settings for packages modified through workflows
 
-When you create, install, modify, or delete a container through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well.
+For packages in registries that support granular permissions, when you create, install, modify, or delete a package through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
-For example, by default if a workflow creates a container using the `GITHUB_TOKEN`, then:
-- The container inherits the visibility and permissions model of the repository where the workflow is run.
-- Repository admins where the workflow is run become the admins of the container once the container is created.
+For example, by default if a workflow creates a package using the `GITHUB_TOKEN`, then:
+- The package inherits the visibility and permissions model of the repository where the workflow is run.
+- Repository admins where the workflow is run become the admins of the package once the package is created.
 
 These are more examples of how default permissions work for workflows that manage packages.
 
 | {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
 |----|----|
-| Download an existing container | - If the container is public, any workflow running in any repository can download the container. <br> - If the container is internal, then all workflows running in any repository owned by the Enterprise account can download the container. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the container is private, only workflows running in repositories that are given read permission on that container can download the container. <br>
-| Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
-| Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
+| Download an existing  | - If the package is public, any workflow running in any repository can download the package. <br> - If the package is internal, then all workflows running in any repository owned by the Enterprise account can download the package. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the package is private, only workflows running in repositories that are given read permission on that package can download the package. <br>
+| Upload a new version to an existing package | - If the package is private, internal, or public, only workflows running in repositories that are given write permission on that package can upload new versions to the package.
+| Delete a package or versions of a package | - If the package is private, internal, or public, only workflows running in repositories that are given admin permission can delete existing versions of the package.
 
-You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+You can also adjust access to packages in a more granular way or adjust some of the default permissions behavior. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% endif %}
 
@@ -145,7 +147,7 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     needs: run-npm-test {% ifversion ghes or ghae %}
-    permissions: 
+    permissions:
       contents: read
       packages: write {% endif %}
     steps:
@@ -166,7 +168,7 @@ jobs:
 ```
 {% endif %}
 
-The relevant settings are explained in the following table. For full details about each element in a workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)."
+The relevant settings are explained in the following table. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 <table>
 <tr>
@@ -298,16 +300,16 @@ build-and-push-image:
 <td>
 {% raw %}
 ```yaml
-permissions: 
+permissions:
   contents: read
-  packages: write 
+  packages: write
 ```
 {% endraw %}
 </td>
 <td>
   Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
 </td>
-</tr> 
+</tr>
 
 {% ifversion fpt or ghec %}
 <tr>
@@ -324,7 +326,7 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
 </td>
 </tr>
 
@@ -360,7 +362,7 @@ permissions:
 {% endraw %}
 </td>
 <td>
-  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
 </td>
 </tr>
 {% endif %}
@@ -476,13 +478,13 @@ docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
 
 This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 
-A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[Viewing a repository's packages](/packages/publishing-and-managing-packages/viewing-packages#viewing-a-repositorys-packages)."
+A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages)."
 
 ## Installing a package using an action
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% ifversion fpt or ghec %} Data transfer is also free when an action installs a package. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."{% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
 
@@ -491,22 +493,22 @@ Installing packages hosted by {% data variables.product.prodname_registry %} thr
 
 {% data variables.product.prodname_registry %} supports the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If you're using a registry that supports granular permissions, and your workflow is using a {% data variables.product.pat_generic %} to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
 
-For more information about the `GITHUB_TOKEN`, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+For more information about the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)."
 
-Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#using-secrets)."
+Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-secrets)."
 
 1. Navigate to your package landing page.
 1. In the left sidebar, click **Actions access**.
   !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-1. To ensure your container package has access to your workflow, you must add the repository where the workflow is stored to your container. Click **Add repository** and search for the repository you want to add.
+1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. Click **Add repository** and search for the repository you want to add.
    !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
   {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **Note:** Adding a repository to your package through the **Actions access** menu option is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
   {% endnote %}
-1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.
-  ![Permission access levels to give to repositories](/assets/images/help/package-registry/repository-permission-options-for-package-access-through-actions.png)
+1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your package.
+  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
 For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
@@ -514,7 +516,7 @@ For example, this workflow publishes a Docker image to the {% data variables.pro
 ```yaml{:copy}
 name: Demo Push
 
-on:   
+on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:

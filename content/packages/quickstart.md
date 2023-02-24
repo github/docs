@@ -18,7 +18,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
 ## Publishing your package
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     ```shell
     $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
@@ -122,7 +122,7 @@ You can view all of the packages you have published.
 
 ## Installing a published package
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
 
 ## Next steps
 
@@ -130,6 +130,6 @@ The basic workflow you just added runs any time a new release is created in your
 
 Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
-- "[Learn {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+- "[AUTOTITLE](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
+- "[AUTOTITLE](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
+- "[AUTOTITLE](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples

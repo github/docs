@@ -23,11 +23,11 @@ When a proxy server is enabled for {% data variables.location.product_location %
 
 {% note %}
 
-**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_dotcom_the_website %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+**Note:**  To connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, your proxy configuration must allow connectivity to `github.com` and `api.github.com`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% endnote %}
 
-{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+{% data reusables.actions.proxy-considerations %} For more information about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 ## Configuring an outbound web proxy server
 
@@ -35,9 +35,6 @@ When a proxy server is enabled for {% data variables.location.product_location %
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 1. Under **HTTP Proxy Server**, type the URL of your proxy server.
-  ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
-  
-5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle`
-  ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix, such as `.octo-org.tentacle`.
 
 {% data reusables.enterprise_management_console.save-settings %}

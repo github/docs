@@ -3,9 +3,9 @@ title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
-    - /github/authenticating-to-github/connecting-to-github-with-ssh
+    - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
-    - /github/writing-on-github/basic-writing-and-formatting-syntax
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
@@ -61,7 +61,8 @@ children:
   - codespaces
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks-and-events
   - rest
   - graphql
   - github-cli
@@ -73,6 +74,8 @@ children:
   - desktop
   - early-access
   - support
+  # TODO 47F50CA3 uncomment when ready to add video transcripts
+  # - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -118,9 +121,10 @@ childGroups:
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks-and-events
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -150,4 +154,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

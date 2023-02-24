@@ -19,12 +19,10 @@ shortTitle: Integrate Jira with projects
 3. Under **Homepage URL**, type the full URL to your Jira instance.
 4. Under **Authorization callback URL**, type the full URL to your Jira instance.
 5. Click **Register application**.
-![Register application button](/assets/images/help/oauth/register-application-button.png)
 8. Under **Developer applications**, note the "Client ID" and "Client Secret" values.
-![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
 {% data reusables.user-settings.jira_help_docs %}
 
 ## Further reading
 
-- ["Integrating Jira with your organization project board"](/articles/integrating-jira-with-your-organization-project-board)
+- "[AUTOTITLE](/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board)"
 - <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Connect Jira Cloud to GitHub</a> (Atlassian documentation)

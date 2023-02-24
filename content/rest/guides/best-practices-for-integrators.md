@@ -24,8 +24,8 @@ It's very important that you secure [the payloads sent from GitHub][event-types]
 There are several steps you can take to secure receipt of payloads delivered by GitHub:
 
 1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
-1. You can add [the IP address we use when delivering hooks](/github/authenticating-to-github/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/reference/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks/securing/) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. You can add [the IP address we use when delivering hooks](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/meta#meta) to find the address we use.{% endif %}
+1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
 
 ## Favor asynchronous work over synchronous
 
@@ -61,7 +61,7 @@ Often, API responses contain data in the form of URLs. For example, when request
 
 For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
+For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Check the event type and action before processing the event
 
@@ -109,7 +109,7 @@ def receive
 end
 ```
 
-Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks/event-payloads/#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
+Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
 
 As with adding event types, we may add new actions to existing events. It is therefore again **not recommended to use any sort of catch-all else clause** when checking an event's action. Instead, we suggest explicitly checking event actions as we did with the event type. An example of this looks very similar to what we suggested for event types above:
 
@@ -135,15 +135,14 @@ In this example the `closed` action is checked first before calling the `process
 
 ## Dealing with rate limits
 
-The GitHub API [rate limit](/rest/overview/resources-in-the-rest-api#rate-limiting) ensures that the API is fast and available for everyone.
+The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
 
-If you hit a rate limit, it's expected that you back off from making requests and try again later when you're permitted to do so. Failure to do so may result in the banning of your app.
-
-You can always [check your rate limit status](/rest/reference/rate-limit) at any time. Checking your rate limit incurs no cost against your rate limit.
+If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ## Dealing with secondary rate limits
 
-[Secondary rate limits](/rest/overview/resources-in-the-rest-api#secondary-rate-limits) are another way we ensure the API's availability.
+{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
 * Make authenticated requests, or use your application's client ID and secret. Unauthenticated
@@ -152,15 +151,14 @@ To avoid hitting this limit, you should ensure your application follows the guid
   or client ID concurrently.
 * If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
   or client ID, wait at least one second between each request.
-* When you have been limited, use the `Retry-After` response header to slow down. The value of the
+* When you have been limited, wait before retrying your request.
+   * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
   `Retry-After` header will always be an integer, representing the number of seconds you should wait
   before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
   before sending more requests.
-* Requests that create content which triggers notifications, such as issues, comments and pull requests,
-  may be further limited and will not include a `Retry-After` header in the response. Please create this
-  content at a reasonable pace to avoid further limiting.
+   * Otherwise, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
-We reserve the right to change these guidelines as needed to ensure availability.
+{% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
 
 {% endif %}
 

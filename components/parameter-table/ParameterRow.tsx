@@ -60,11 +60,26 @@ export function ParameterRow({
             )}
           >
             <div>
-              <code className={`text-bold f5`}>{rowParams.name}</code>
-              <span className="color-fg-muted pl-2 f5">{rowParams.type}</span>
-              {rowParams.isRequired ? (
-                <span className="color-fg-attention f5 pl-3">{t('required')}</span>
-              ) : null}
+              {rowParams.name ? (
+                <>
+                  <code className={`text-bold f5`}>{rowParams.name}</code>
+                  <span className="color-fg-muted pl-2 f5">
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
+                  </span>
+                  {rowParams.isRequired ? (
+                    <span className="color-fg-attention f5 pl-3">{t('required')}</span>
+                  ) : null}
+                </>
+              ) : (
+                <>
+                  <span className="color-fg-muted pl-1 f5">
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
+                  </span>
+                  {rowParams.isRequired ? (
+                    <span className="color-fg-attention f5 pl-3">{t('required')}</span>
+                  ) : null}
+                </>
+              )}
             </div>
 
             <div className={cx('pl-1 f5', `${rowParams.description ? 'pt-2' : 'pt-0'}`)}>
@@ -120,7 +135,7 @@ export function ParameterRow({
         <ChildBodyParametersRows
           slug={slug}
           parentName={rowParams.name}
-          parentType={rowParams.type}
+          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
           childParamsGroups={rowParams.childParamsGroups}
           open={rowParams.name === clickedBodyParameterName}
         />

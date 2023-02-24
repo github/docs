@@ -14,7 +14,7 @@ redirect_from:
 
 Before you can initialize your enterprise, you must purchase {% data variables.product.product_name %}. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
-{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+{% data reusables.github-ae.initialize-enterprise %} Make sure the information you provide matches the intended enterprise owner's information in the IdP. For more information about enterprise owners, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% note %}
 
@@ -33,7 +33,7 @@ During initialization, the enterprise owner will name your enterprise, configure
 To begin initialization, you will receive an invitation email from {% data variables.product.company_short %}. Before you configure {% data variables.product.prodname_ghe_managed %}, review the following prerequisites.
 
 
-To initialize {% data variables.location.product_location %}, you must have a SAML identity provider (IdP). {% data reusables.saml.ae-uses-saml-sso %} To connect your IdP to your enterprise during initialization, you should have your IdP's Entity ID (SSO) URL, Issuer ID URL, and public signing certificate (Base64-encoded). For more information, see "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)."
+To initialize {% data variables.location.product_location %}, you must have a SAML identity provider (IdP). {% data reusables.saml.ae-uses-saml-sso %} To connect your IdP to your enterprise during initialization, you should have your IdP's Entity ID (SSO) URL, Issuer ID URL, and public signing certificate (Base64-encoded). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
 {% note %}
 
@@ -50,7 +50,7 @@ To initialize {% data variables.location.product_location %}, you must have a SA
 
 ## Connecting your IdP to your enterprise
 
-To configure authentication for {% data variables.product.product_name %}, you must provide {% data variables.product.product_name %} with the details for your SAML IdP. {% data variables.product.company_short %} recommends using Azure AD as your IdP. For more information, see "[Configuring authentication and provisioning with your identity provider](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider)."
+To configure authentication for {% data variables.product.product_name %}, you must provide {% data variables.product.product_name %} with the details for your SAML IdP. {% data variables.product.company_short %} recommends using Azure AD as your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
 
 1. To the right of "Set up your identity provider", click **Configure**.
   !["Configure" button for IdP configuration](/assets/images/enterprise/configuration/ae-idp-configure.png)
@@ -106,12 +106,11 @@ You can configure the method your users will use to contact your internal suppor
 
 ## Setting your email settings
 
-Once this is initialized, you can reconfigure any settings after the initialization process. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)."
+Once this is initialized, you can reconfigure any settings after the initialization process. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
 
 1. To the right of "Configure email settings", click **Configure**.
   !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
-2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[Configuring DNS and firewall
- settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+2. Select **Enable email**. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
   !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Complete your email server settings:
     - In the **Server address** field, type the address of your SMTP server.

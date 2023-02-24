@@ -33,7 +33,6 @@ You can manage a subset of security and analysis features for public repositorie
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
-  !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-public.png)
 {% endif %}
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
@@ -114,5 +113,5 @@ Organization owners and repository administrators can only grant access to view 
 
 ## Further reading
 
-- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
-- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"

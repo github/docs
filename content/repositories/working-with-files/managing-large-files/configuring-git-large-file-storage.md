@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Configure Git LFS
 ---
-If there are existing files in your repository that you'd like to use {% data variables.product.product_name %} with, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see "[Moving a file in your repository to {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)."
+If there are existing files in your repository that you'd like to use {% data variables.product.product_name %} with, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/moving-a-file-in-your-repository-to-git-large-file-storage)."
 
 {% data reusables.large_files.resolving-upload-failures %}
 
@@ -21,7 +21,7 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[Configuring Git Large File Storage on GitHub Enterprise Server](/enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)."
+**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
 
 {% endtip %}
 
@@ -66,5 +66,5 @@ If there are existing files in your repository that you'd like to use {% data va
 
 ## Further reading
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% ifversion fpt or ghec %}
-- "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

@@ -23,4 +23,4 @@ Each commit shows:
 
 ## Further reading
 
-- "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)"
+- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)"

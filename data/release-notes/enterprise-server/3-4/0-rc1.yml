@@ -8,7 +8,7 @@ intro: |
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
   > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
   >
@@ -20,7 +20,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1642
         - |
-          {% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve commit details of secrets detected in private repository scans. The new endpoint returns details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.
+          {% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve commit details of secrets detected in private repository scans. The new endpoint returns details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation.
 
     - heading: Export license data of committer-based billing for GitHub Advanced Security
       notes:
@@ -239,10 +239,10 @@ sections:
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 3.0
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 was discontinued on February 16, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) as soon as possible.'
     - heading: Deprecation of GitHub Enterprise Server 3.1
       notes:
-        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 will be discontinued on June 3, 2022**. This means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server) as soon as possible.'
 
     - heading: Deprecation of XenServer Hypervisor support
       notes:

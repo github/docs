@@ -35,20 +35,21 @@ This procedure demonstrates how to configure autolinks to reference external res
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="" %} Autolink references**.
 {% else %}
 1. In the left sidebar, click **Autolink references**.
-![Autolink references tab in the left sidebar.](/assets/images/help/repository/autolink-references-tab.png)
 {% endif %}
-1. Click **Add autolink reference**.
-![Button to fill out autolink reference information.](/assets/images/help/repository/add-autolink-reference-details.png)
+1. At the top right of the page, click **Add autolink reference**.
+
+  ![Screenshot of the "autolink references" page. The "Add autolink reference" button is highlighted by a dark orange outline.](/assets/images/help/repository/add-autolink-reference-details.png)
 {% ifversion autolink-reference-alphanumeric %}
-1. Select the format of the reference identifier used in the external resource, either alphanumeric or numeric.
-![Autolink format setting, alphanumeric or numeric.](/assets/images/help/repository/autolink-format-setting.png)
+1. Select the format of the reference identifier used in the external resource, either **Alphanumeric** or **Numeric**.
 {% endif %}  
-1. Under "Reference prefix", type a short, meaningful prefix you want collaborators to use to generate autolinks for the external resource.
-{% ifversion autolink-reference-alphanumeric %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field-alphanumeric.png){% else %}![Field to type abbreviation for external system.](/assets/images/help/repository/add-reference-prefix-field.png){% endif %}
-1. Under "Target URL", type the link to the external system you want to link to. Use the `<num>` variable as a placeholder for the reference identifier.
-{% ifversion autolink-reference-alphanumeric %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field-alphanumeric.png){% else %}![Field to type URL to external system.](/assets/images/help/repository/add-target-url-field.png){% endif %}
-1. Click **Add autolink reference**.
-{% ifversion autolink-reference-alphanumeric %}{% else %}![Button to add autolink reference.](/assets/images/help/repository/add-autolink-reference.png){% endif %}
+1. Under "Reference prefix", type a short, meaningful prefix. Collaborators will use this text to generate autolinks for the external resource.
+1. Under "Target URL", type the format of the link to the external system you want to create. Use the `<num>` variable as a placeholder for the reference identifier.
+1. Review the preview and verify that the autolink and external reference are both correct, then click **Add autolink reference** to define the link.
+
+For example, you might enter the following.
+- Reference prefix: `JIRA-`
+- Target URL: `https://jira.example.com/issue?query=<num>`
+- Preview: `JIRA-123` is converted to `https://jira.example.com/issue?query=123`

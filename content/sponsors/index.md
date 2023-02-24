@@ -11,12 +11,12 @@ changelog:
   label: sponsors
 examples_source: data/product-examples/sponsors/user-examples.yml
 featuredLinks:
-  guides:
+  startHere:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
     - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization
     - /sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors
   guideCards:
-    - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account
+    - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account
     - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
     - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
   popular:

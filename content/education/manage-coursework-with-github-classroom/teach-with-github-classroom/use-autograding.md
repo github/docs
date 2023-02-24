@@ -1,7 +1,6 @@
 ---
 title: Use autograding
 intro: You can automatically provide feedback on code submissions from your students by configuring tests to run in the assignment repository.
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
@@ -16,7 +15,7 @@ redirect_from:
 
 After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
 
-You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[Specifications for  {% data variables.product.company_short %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 
 You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
 
@@ -94,7 +93,7 @@ You can also download a CSV of your students' autograding scores via the "Downlo
 {% data reusables.classroom.click-assignment-in-list %}
 1. To the right of a submission, click **View test**.
   !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
-1. Review the test output. For more information, see "[Using workflow run logs](/actions/managing-workflow-runs/using-workflow-run-logs)."
+1. Review the test output. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
 ## Further reading
 

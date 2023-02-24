@@ -22,7 +22,7 @@ topics:
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
+**Note:** If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
 
 {% endnote %}
 {% endif %}
@@ -30,7 +30,7 @@ topics:
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
 {% note %}
 
-**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)."
+**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)."
 
 {% endnote %}
 {% endif %}
@@ -41,7 +41,7 @@ Once a repository is archived, you cannot add or remove collaborators or teams. 
 
 When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. To make changes in an archived repository, you must unarchive the repository first.
 
-You can search for archived repositories. For more information, see "[Searching for repositories](/search-github/searching-on-github/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
+You can search for archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived)."  
 
 ## Archiving a repository
 

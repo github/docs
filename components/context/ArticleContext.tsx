@@ -1,10 +1,13 @@
 import { createContext, useContext } from 'react'
 
 export type LearningTrack = {
-  trackName?: string
-  trackProduct?: string
+  trackTitle: string
+  trackName: string
+  trackProduct: string
   prevGuide?: { href: string; title: string }
   nextGuide?: { href: string; title: string }
+  numberOfGuides: number
+  currentGuideIndex: number
 }
 
 export type MiniTocItem = {
@@ -22,13 +25,13 @@ export type ArticleContextT = {
   effectiveDate: string
   renderedPage: string | JSX.Element[]
   miniTocItems: Array<MiniTocItem>
-  contributor: { name: string; URL: string } | null
   permissions?: string
   includesPlatformSpecificContent: boolean
   includesToolSpecificContent: boolean
   defaultPlatform?: string
   defaultTool?: string
   product?: string
+  productVideoUrl?: string
   currentLearningTrack?: LearningTrack
   detectedPlatforms: Array<string>
   detectedTools: Array<string>
@@ -59,18 +62,18 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   }
 
   return {
-    title: page.titlePlainText,
+    title: page.title,
     intro: page.intro,
     effectiveDate: page.effectiveDate || '',
     renderedPage: req.context.renderedPage || '',
     miniTocItems: req.context.miniTocItems || [],
-    contributor: page.contributor || null,
     permissions: page.permissions || '',
     includesPlatformSpecificContent: page.includesPlatformSpecificContent || false,
     includesToolSpecificContent: page.includesToolSpecificContent || false,
     defaultPlatform: page.defaultPlatform || '',
     defaultTool: page.defaultTool || '',
     product: page.product || '',
+    productVideoUrl: page.product_video || '',
     currentLearningTrack: req.context.currentLearningTrack,
     detectedPlatforms: page.detectedPlatforms || [],
     detectedTools: page.detectedTools || [],

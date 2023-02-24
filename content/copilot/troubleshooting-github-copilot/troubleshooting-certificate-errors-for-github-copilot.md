@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting certificate errors for GitHub Copilot
-intro: 'Troubleshooting help for certificate-related errors.'
+intro: Troubleshooting help for certificate-related errors.
 product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
@@ -19,7 +19,7 @@ Possible ways to resolve this issue are:
 * Properly install the proxy certificates on your machine in the OS trust chain.
   {% note %}
 
-  **Note:** This requires a {% data variables.product.prodname_copilot_for_business%} subscription. For more information about {% data variables.product.prodname_copilot_for_business%}, see "[About {% data variables.product.prodname_copilot_for_business%}](/enterprise-cloud@latest/copilot/overview-of-github-copilot/about-github-copilot-for-business)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+  **Note:** This requires a {% data variables.product.prodname_copilot_for_business%} subscription. For more information about {% data variables.product.prodname_copilot_for_business%}, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/overview-of-github-copilot/about-github-copilot-for-business)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
   {% endnote %}
 * Configure a different proxy that does not intercept secure connections.

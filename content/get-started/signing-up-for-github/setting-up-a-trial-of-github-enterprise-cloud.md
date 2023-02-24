@@ -19,46 +19,46 @@ shortTitle: Enterprise Cloud trial
 
 ## About {% data variables.product.prodname_ghe_cloud %}
 
-{% data reusables.enterprise.about-ghec %} For more information, see "[About {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
+{% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
 
-{% data reusables.organizations.about-organizations %} For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+You can set up a trial to evaluate the additional features that come with {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO), internal repositories, audit log streaming, and included {% data variables.product.prodname_actions %} minutes. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
 
-You can use organizations for free with {% data variables.product.prodname_free_team %}, which includes limited features. For additional features, such as SAML single sign-on (SSO), access control for {% data variables.product.prodname_pages %}, and included {% data variables.product.prodname_actions %} minutes, you can upgrade to {% data variables.product.prodname_ghe_cloud %}. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
-
-You can set up a trial of {% data variables.product.prodname_ghe_cloud %} to evaluate these additional features on a new or existing organization account.
-
-Trials are also available for {% data variables.product.prodname_ghe_server %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_server %}](/articles/setting-up-a-trial-of-github-enterprise-server)."
+Trials are also available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
 
 {% data reusables.products.which-product-to-use %}
 
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 
-You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. You do not need to provide a payment method during the trial unless you add {% data variables.product.prodname_marketplace %} apps to your organization that require a payment method. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/enterprise-cloud@latest/articles/about-billing-for-github-marketplace/)."
+You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 
-Your trial includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats.
+During the trial, you can add any number of new and existing organizations to your enterprise. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
+
+Your trial also includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats, up to 1,000.
+
+You do not need to provide a payment method during the trial.
 
 {% data reusables.saml.saml-accounts %}
 
-For more information, see "[About identity and access management with SAML single sign-on](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-
 {% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+
+## Features not included in the trial
+
+The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
+
+- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_sponsors %}
+- {% data variables.product.prodname_marketplace %} apps
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/free-pro-team@latest/articles/signing-up-for-a-new-github-account)."
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
-1. Navigate to [{% data variables.product.prodname_dotcom %} for enterprises](https://github.com/enterprise).
-1. Click **Start a free trial**.
-   !["Start a free trial" button](/assets/images/help/organizations/start-a-free-trial-button.png)
-1. Click **Enterprise Cloud**.
-   !["Enterprise Cloud" button](/assets/images/help/organizations/enterprise-cloud-trial-option.png)
+{% data reusables.enterprise.create-enterprise-account %}
 1. Follow the prompts to configure your trial.
 
 ## Exploring {% data variables.product.prodname_ghe_cloud %}
 
-After you set up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the suggested tasks on the "Overview" tab of your organization. If you've previously dismissed the tasks, you can access them again by clicking **Get started with suggested tasks** at the top of the page.
-
-!["Get started with suggested tasks" button](/assets/images/help/organizations/suggested-tasks-button.png)
+After you set up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the suggested tasks on the "Getting started" tab of your enterprise account.
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
@@ -68,17 +68,16 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 ## Finishing your trial
 
-You can buy {% data variables.product.prodname_enterprise %} at any time during your trial. Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
+You can finish your trial at any time by purchasing {% data variables.product.prodname_enterprise %} or canceling the trial. If you don't purchase {% data variables.product.prodname_enterprise %} or cancel your trial by the end of the 30 days, your trial will expire.
 
-If you don't purchase {% data variables.product.prodname_enterprise %}, the trial will continue until the end of the 30-day period. You cannot end the trial early. When the trial ends, your organization will be downgraded. If you used an existing organization for the trial, the organization will be downgraded to the product you were using before the trial. If you created a new organization for the trial, the organization will be downgraded to {% data variables.product.prodname_free_team %}. 
+Purchasing {% data variables.product.prodname_enterprise %} ends your trial, removing the 50-seat maximum and initiating payment.
 
-Your organization will lose access to any functionality that is not included in the new plan, such as advanced features like {% data variables.product.prodname_pages %} for private repositories. If you don't plan to upgrade, to avoid losing access to advanced features, consider making affected repositories public before your trial ends. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
+If you cancel your trial or your trial expires, any existing organizations that you added to the enterprise account during the trial will be removed and reverted to their previous plans and settings. For more information about the effects of downgrading an organization, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
-Downgrading also disables any SAML settings configured during the trial period. If you later purchase {% data variables.product.prodname_enterprise %}, your SAML settings will be enabled again for users in your organization to authenticate.
+If you cancel your trial, all enterprise owners and members also lose access to the enterprise account and any organizations that were created during the trial. If your trial expires, everyone retains access to the enterprise account and organizations created during the trial in a downgraded state, giving you a chance to either upgrade to {% data variables.product.prodname_enterprise %} or move your assets elsewhere.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-5. Under "{% data variables.product.prodname_ghe_cloud %} Free Trial", click **Buy Enterprise** or **Downgrade to Team**.
-  ![Buy Enterprise and Downgrade to Team buttons](/assets/images/help/organizations/finish-trial-buttons.png)
-6. Follow the prompts to enter your payment method, then click **Submit**.
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
+6. Follow the prompts.

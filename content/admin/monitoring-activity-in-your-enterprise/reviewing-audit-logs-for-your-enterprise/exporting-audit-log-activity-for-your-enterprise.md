@@ -3,7 +3,6 @@ title: Exporting audit log activity for your enterprise
 intro: You can export audit and Git events data to a file for offline analysis.
 shortTitle: Export audit logs
 permissions: Enterprise owners can export the audit log.
-miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
 type: tutorial
@@ -14,7 +13,7 @@ topics:
 ---
 ## About exports of audit log and Git events data
 
-You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[Search based on the action performed](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
+You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
 
 You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface. 
 
@@ -22,7 +21,7 @@ You can export Git events data by downloading a JSON file from your enterprise a
 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
-As an alternative to exporting log events, you can use the API to retrieve audit log events, or set up {% data variables.product.product_name %} to stream audit data as events are logged. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" and "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+As an alternative to exporting log events, you can use the API to retrieve audit log events, or set up {% data variables.product.product_name %} to stream audit data as events are logged. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 
 ## Exporting audit log data
 

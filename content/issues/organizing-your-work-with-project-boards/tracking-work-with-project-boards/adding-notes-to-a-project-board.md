@@ -18,9 +18,9 @@ allowTitleToDifferFromFilename: true
 {% tip %}
 
 **Tips:**
-- You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)."
+- You can format your note using Markdown syntax. For example, you can use headings, links, task lists, or emoji. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
 - You can drag and drop or use keyboard shortcuts to reorder notes and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-- Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes. For more information, see "[Creating a project board](/articles/creating-a-project-board)."
+- Your {% data variables.projects.projects_v1_board %} must have at least one column before you can add notes. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endtip %}
 
@@ -50,7 +50,7 @@ When you convert a note to an issue, the issue is automatically created using th
 
 {% tip %}
 
-**Tip:** You can add content in the body of your note to @mention someone, link to another issue or pull request, and add emoji. These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within {% data variables.projects.projects_v1_board %} notes, but once your note is converted to an issue, they'll appear correctly. For more information on using these features, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)."
+**Tip:** You can add content in the body of your note to @mention someone, link to another issue or pull request, and add emoji. These {% data variables.product.prodname_dotcom %} Flavored Markdown features aren't supported within {% data variables.projects.projects_v1_board %} notes, but once your note is converted to an issue, they'll appear correctly. For more information on using these features, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)."
 
 {% endtip %}
 
@@ -76,7 +76,7 @@ When you convert a note to an issue, the issue is automatically created using th
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)"
-- "[Editing a {% data variables.product.prodname_project_v1 %}](/articles/editing-a-project-board)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"

@@ -8,14 +8,14 @@ intro: |
 
   {% endnote %}
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
     - heading: IP exception list for validation testing after maintenance
       notes:
         # https://github.com/github/releases/issues/2109
         - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 
     - heading: Custom repository roles are generally available
       notes:
@@ -347,7 +347,7 @@ sections:
   changes:
     # https://github.com/github/releases/issues/2063
     - |
-      To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+      To use the device authorization flow for OAuth and GitHub Apps, you must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub Enterprise Server users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. If you own or manage an OAuth App or GitHub App and you want to use the device flow, you can enable it for your app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
 
     # https://github.com/github/releases/issues/2049
     - |

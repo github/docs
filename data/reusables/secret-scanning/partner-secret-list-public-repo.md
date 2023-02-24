@@ -22,10 +22,11 @@ Azure | Azure SQL Connection String
 Azure | Azure Storage Account Key
 Checkout.com | Checkout.com Production Secret Key
 Checkout.com | Checkout.com Test Secret Key
-Chief | Chief Tools Token
+Chief Tools | Chief Tools Token
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Contributed Systems | Contributed Systems Credentials
+Crates.io | Crates.io API Token
 Databricks | Databricks Access Token
 Datadog | Datadog API Key
 DevCycle | DevCycle Client API Key
@@ -66,6 +67,7 @@ Ionic | Ionic Refresh Token
 JD Cloud | JD Cloud Access Key
 Linear | Linear API Key
 Linear | Linear OAuth Access Token
+LocalStack | LocalStack API Key
 Mailchimp | Mailchimp API Key
 Mailchimp | Mandrill API Key
 Mailgun | Mailgun API Key
@@ -94,6 +96,7 @@ redirect.pizza | redirect.pizza API Token
 RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
+Segment | Segment Public API Token
 SendGrid | SendGrid API Key
 Sendinblue | Sendinblue API Key
 Sendinblue | Sendinblue SMTP Key
@@ -111,6 +114,7 @@ Stripe | Stripe Test API Secret Key
 Stripe | Stripe Live API Restricted Key
 Stripe | Stripe Test API Restricted Key
 Supabase | Supabase Service Key
+Telnyx | Telnyx API V2 Key
 Tencent Cloud | Tencent Cloud Secret ID
 Tencent WeChat | Tencent WeChat API App ID
 Twilio | Twilio Account String Identifier
@@ -118,6 +122,9 @@ Twilio | Twilio API Key
 Typeform | Typeform {% data variables.product.pat_generic_title_case %}
 Uniwise | WISEflow API Key 
 Valour | Valour Access Token
+WakaTime | WakaTime App Secret
+WakaTime | WakaTime OAuth Access Token
+WakaTime | WakaTime OAuth Refresh Token
 Yandex | Yandex.Cloud API Key	
 Yandex | Yandex.Cloud IAM Cookie	
 Yandex | Yandex.Cloud IAM Token	

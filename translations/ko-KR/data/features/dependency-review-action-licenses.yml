@@ -1,4 +1,0 @@
-# Reference: Issue #7486 Configuring the dependency review action - [Public Beta] for GHES
-versions:
-  fpt: '*'
-  ghec: '*'

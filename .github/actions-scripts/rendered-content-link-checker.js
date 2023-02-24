@@ -11,6 +11,7 @@ import { JSONFile } from 'lowdb/node'
 
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
+import features from '../../middleware/contextualizers/features.js'
 import getRedirect from '../../lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
 import liquid from '../../lib/render-content/liquid.js'
@@ -165,6 +166,8 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  patient {boolean} - Wait longer and retry more times for rate-limited external URLS
  *  bail {boolean} - Throw an error on the first page (not permalink) that has >0 flaws
  *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
+ *  filter {Array<string>} - strings to match the pages' relativePath
+ *  versions {Array<string>} - only certain pages' versions (e.g. )
  *
  */
 async function main(core, octokit, uploadArtifact, opts = {}) {
@@ -174,6 +177,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     random,
     language = 'en',
     filter,
+    version,
     max,
     verbose,
     checkExternalLinks = false,
@@ -203,8 +207,15 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 
   const filters = filter || []
-  if (!Array.isArray(filters)) {
-    core.warning(`filters, ${filters} is not an array`)
+  if (filters && !Array.isArray(filters)) {
+    throw new Error(`filters, ${filters} is not an array`)
+  }
+
+  let versions = version || []
+  if (versions && typeof versions === 'string') {
+    versions = [versions]
+  } else if (!Array.isArray(versions)) {
+    throw new Error(`versions, '${version}' is not an array`)
   }
 
   if (random) {
@@ -227,7 +238,9 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
-    pages.map((page) => processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB))
+    pages.map((page) =>
+      processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions)
+    )
   )
   const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
@@ -275,6 +288,12 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         )
       }
     }
+  } else {
+    // It might be that the PR got a comment about >0 flaws before,
+    // and now it can update that comment to say all is well again.
+    if (shouldComment) {
+      await commentOnPR(core, octokit, flaws, opts)
+    }
   }
 }
 
@@ -314,7 +333,7 @@ async function linkReports(core, octokit, newReport, opts) {
 
   const [owner, repo] = reportRepository.split('/')
 
-  core.debug('Attempting to link reports...')
+  core.info('Attempting to link reports...')
   // Find previous broken link report issue
   let previousReports
   try {
@@ -333,7 +352,7 @@ async function linkReports(core, octokit, newReport, opts) {
     core.setFailed('Error listing issues for repo')
     throw error
   }
-  core.debug(`Found ${previousReports.length} previous reports`)
+  core.info(`Found ${previousReports.length} previous reports`)
 
   if (previousReports.length <= 1) {
     core.info('No previous reports to link to')
@@ -409,10 +428,48 @@ async function commentOnPR(core, octokit, flaws, opts) {
     return
   }
 
+  const findAgainSymbol = '<!-- rendered-content-link-checker-comment-finder -->'
+
   const body = flawIssueDisplay(flaws, opts, false)
+
+  const { data } = await octokit.rest.issues.listComments({
+    owner,
+    repo,
+    issue_number: pullNumber,
+  })
+  let previousCommentId
+  for (const { body, id } of data) {
+    if (body.includes(findAgainSymbol)) {
+      previousCommentId = id
+    }
+  }
+
   // Since failed external urls aren't included in PR comment, body may be empty
   if (!body) {
     core.info('No flaws qualify for comment')
+
+    if (previousCommentId) {
+      const nothingComment = 'Previous broken links comment now moot. 👌😙'
+      await octokit.rest.issues.updateComment({
+        owner,
+        repo,
+        comment_id: previousCommentId,
+        body: `${nothingComment}\n\n${findAgainSymbol}`,
+      })
+      core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
+    }
+    return
+  }
+
+  if (previousCommentId) {
+    const noteComment = '(*The original automated comment was updated*)'
+    await octokit.rest.issues.updateComment({
+      owner,
+      repo,
+      comment_id: previousCommentId,
+      body: `${body}\n\n${noteComment}\n\n${findAgainSymbol}`,
+    })
+    core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
     return
   }
 
@@ -421,7 +478,7 @@ async function commentOnPR(core, octokit, flaws, opts) {
       owner,
       repo,
       issue_number: pullNumber,
-      body,
+      body: `${body}\n\n${findAgainSymbol}`,
     })
     core.info(`Created comment on PR: ${pullNumber}`)
   } catch (error) {
@@ -554,13 +611,16 @@ function getPages(pageList, languages, filters, files, max) {
     .slice(0, max ? Math.min(max, pageList.length) : pageList.length)
 }
 
-async function processPage(core, page, pageMap, redirects, opts, db) {
+async function processPage(core, page, pageMap, redirects, opts, db, versions) {
   const { verbose, verboseUrl, bail } = opts
-
   const allFlawsEach = await Promise.all(
-    page.permalinks.map((permalink) => {
-      return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
-    })
+    page.permalinks
+      .filter((permalink) => {
+        return !versions.length || versions.includes(permalink.pageVersion)
+      })
+      .map((permalink) => {
+        return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
+      })
   )
 
   const allFlaws = allFlawsEach.flat()
@@ -591,7 +651,13 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     patient,
     externalServerErrorsAsWarning,
   } = opts
-  const html = await renderInnerHTML(page, permalink)
+  let html = ''
+  try {
+    html = await renderInnerHTML(page, permalink)
+  } catch (error) {
+    console.warn(`The error happened trying to render ${page.relativePath}`)
+    throw error
+  }
   const $ = cheerio.load(html, { xmlMode: true })
   const flaws = []
   const links = []
@@ -776,9 +842,17 @@ async function checkHrefLink(
     }
   } else if (href.startsWith('#')) {
     if (checkAnchors) {
-      const countDOMItems = $(href).length
-      if (countDOMItems !== 1) {
-        return { WARNING: `Anchor is an empty string` }
+      // You don't need a DOM ID (or <a name="top">) for `<a href="#top">`
+      // to work in all modern browsers.
+      if (href !== '#top') {
+        // If the link is `#foo` it could either match `<element id="foo">`
+        // or it could match `<a name="foo">`.
+        const countDOMItems = $(href).length + $(`a[name="${href.slice(1)}"]`).length
+        if (countDOMItems === 0) {
+          return { WARNING: `Anchor on the same page can't be found by ID` }
+        } else if (countDOMItems > 1) {
+          return { WARNING: `Matches multiple points in the page` }
+        }
       }
     }
   } else if (href.startsWith('/')) {
@@ -795,6 +869,16 @@ async function checkHrefLink(
     // But, if that link was a redirect, that would have been left
     // untouched.
     if (pathname.endsWith('/')) {
+      const whatifPathname = pathname.slice(0, -1)
+      if (getRedirect(whatifPathname, { redirects, pages: pageMap })) {
+        return {
+          WARNING: `Redirect to ${getRedirect(whatifPathname, { redirects, pages: pageMap })}`,
+        }
+      } else if (!pageMap[whatifPathname]) {
+        if (!deprecatedVersionPrefixesRegex.test(whatifPathname)) {
+          return { CRITICAL: 'Broken link' }
+        }
+      }
       return { WARNING: 'Links with a trailing / will always redirect' }
     } else {
       if (pathname.split('/')[1] in STATIC_PREFIXES) {
@@ -1094,15 +1178,18 @@ async function renderInnerHTML(page, permalink) {
     pagePath,
     cookies: {},
   }
+  // This will create and set `req.context = {...}`
   await contextualize(req, res, next)
   await shortVersions(req, res, next)
-  const context = Object.assign({}, req.context, { page })
-  context.relativePath = page.relativePath
+  req.context.page = page
+  await features(req, res, next)
+
+  req.context.relativePath = page.relativePath
 
   // These lines do what the ubiquitous `renderContent` function does,
   // but at an absolute minimum to get a string of HTML.
-  const markdown = await liquid.parseAndRender(page.markdown, context)
-  const processor = createMinimalProcessor(context)
+  const markdown = await liquid.parseAndRender(page.markdown, req.context)
+  const processor = createMinimalProcessor(req.context)
   const vFile = await processor.process(markdown)
   return vFile.toString()
 }

@@ -17,7 +17,7 @@ shortTitle: Add or change parent team
 
 When you request to add or change your team's parent, a request is sent to the maintainers of the parent team. When a maintainer of the new parent team approves your request, your team is nested as a child team under the parent team in your organization's hierarchy.
 
-If you're an organization owner or you have team maintainer permissions in the child team and the parent team, you can add the parent team without requesting approval or change your team's parent from your team's settings page. For more information, see "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
+If you're an organization owner or you have team maintainer permissions in the child team and the parent team, you can add the parent team without requesting approval or change your team's parent from your team's settings page. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)."
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
@@ -36,6 +36,6 @@ If you're an organization owner or you have team maintainer permissions in the c
 
 ## Further reading
 
-- "[About teams](/articles/about-teams)"
-- "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)"
-- "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)"

@@ -20,7 +20,7 @@ If the email address that has been set in your Git configuration does not match 
 
 {% tip %}
 
-**Tip**: Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address/)."
+**Tip**: Anyone will be able to see the email address in your Git configuration if you make public commits. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
 
 {% endtip %}
 
@@ -31,14 +31,10 @@ Configuring your global author information in {% data variables.product.prodname
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-7. In the Preferences window, click **Git**.
-  ![The Git Pane in the Preferences menu](/assets/images/help/desktop/mac-select-git-pane.png)
+{% data reusables.desktop.preferences-git-pane %}
 {% data reusables.desktop.name-field-git-config %}
-  ![The name field of the Git configuration](/assets/images/help/desktop/mac-name-git-config.png)
 {% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/mac-email-git-config.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/mac-save-git-config.png)
 
 {% endmac %}
 
@@ -62,11 +58,15 @@ You can change the name and email address used to author commits in a specific r
 
 {% mac %}
 
+1.  To switch to the repository for which you want to set specific configuration, use the "Current Repository" dropdown menu.
+
+   ![Screenshot of the repository bar in GitHub Desktop. Next to "Current Repository", a dropdown icon is highlighted with an orange outline.](/assets/images/help/desktop/current-repo-dropdown.png)
+
 {% data reusables.desktop.mac-repository-settings-menu %}
 {% data reusables.desktop.select-git-config %}
 {% data reusables.desktop.use-local-git-config %}
 {% data reusables.desktop.local-config-name %}
-{% data reusables.desktop.local-config-email %}
+{% data reusables.desktop.select-email-git-config %}
 {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
@@ -77,7 +77,7 @@ You can change the name and email address used to author commits in a specific r
 {% data reusables.desktop.select-git-config %}
 {% data reusables.desktop.use-local-git-config %}
 {% data reusables.desktop.local-config-name %}
-{% data reusables.desktop.local-config-email %}
+{% data reusables.desktop.select-email-git-config %}
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}
@@ -85,17 +85,14 @@ You can change the name and email address used to author commits in a specific r
 
 ## Configuring your default branch for new repositories
 
-You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[About the default branch](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the Preferences window, click **Git**.
-  ![The Git Pane in the Preferences menu](/assets/images/help/desktop/mac-select-git-pane.png)
+{% data reusables.desktop.preferences-git-pane %}
 1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
-  ![Default branch name selection options](/assets/images/help/desktop/mac-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endmac %}
 
@@ -107,12 +104,11 @@ You can configure the default branch that will be used when you create a new rep
 1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
   ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/repository-settings-git-config-save.png)
 
 {% endwindows %}
 
 ## Further reading
 
-- "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account/)"
-- "[Setting your commit email address](/articles/setting-your-commit-email-address/)"
-- "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"

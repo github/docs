@@ -14,11 +14,11 @@ type: how_to
 
 ## About machine types
 
-{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace. 
+{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
-For information on choosing a machine type when you create a codespace, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
 ## Changing the machine type
 
@@ -42,8 +42,8 @@ For information on choosing a machine type when you create a codespace, see "[Cr
    !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
 
-   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
-1. Click **Update codespace**. 
+   ![Dialog showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+1. Click **Update codespace**.
 
 {% endwebui %}
 
@@ -58,12 +58,12 @@ For information on choosing a machine type when you create a codespace, see "[Cr
 You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
 
 1. To view your list of codespaces, in a terminal, enter the following command.
-   
+
    ```
    gh codespace list
    ```
 1. Optionally, to find the current machine type for a codespace, enter the following command.
-   
+
    ```
    gh api /user/codespaces/CODESPACE-NAME
    ```
@@ -74,7 +74,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
    Details for the current machine are listed under the `machine` field.
 1. To find the available machine types for a codespace, enter the following command.
-   
+
    ```
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
@@ -86,7 +86,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    gh codespace edit --machine MACHINE-TYPE-NAME
    ```
 
-   Replace `MACHINE-TYPE-NAME` with the name of an available machine type for your codespace, for example `standardLinux32gb`. 
+   Replace `MACHINE-TYPE-NAME` with the name of an available machine type for your codespace, for example `standardLinux32gb`.
 1. Using the arrow keys, navigate to the codespace you want to change, then press <kbd>Enter</kbd>.
 
 {% endcli %}
@@ -97,7 +97,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 ## Further reading
 
-- "[Codespaces machines](/rest/codespaces/machines)" in the REST API documentation
+- "[AUTOTITLE](/rest/codespaces/machines)" in the REST API documentation
 - [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
 
 {% endcli %}

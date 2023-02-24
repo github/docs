@@ -6,7 +6,7 @@ introLinks:
   quickstart: /packages/quickstart
   reference: /packages/manage-packages
 featuredLinks:
-  guides:
+  startHere:
     - /packages/learn-github-packages
     - /packages/managing-github-packages-using-github-actions-workflows
     - /packages/learn-github-packages/installing-a-package

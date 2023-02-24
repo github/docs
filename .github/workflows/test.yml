@@ -27,8 +27,37 @@ env:
   ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
-  test:
+  figureOutMatrix:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.result }}
+    steps:
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        id: set-matrix
+        with:
+          script: |
+            // We only want to run the 'translations' suite when we know
+            // we're on the private docs-internal repo because only that
+            // one has ability to clone the remote (private) translations
+            // repos.
+            const all = [
+              'content',
+              'graphql',
+              'meta',
+              'rendering',
+              'routing',
+              'unit',
+              'linting',
+              'rendering-fixtures',
+            ];
+            if (context.payload.repository.full_name === 'github/docs-internal') {
+              all.push('translations');
+            }
+            return all;
+
+  test:
+    needs: figureOutMatrix
     # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
@@ -36,12 +65,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, graphql, meta, rendering, routing, unit, linting]
+        test-group: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Install a local Elasticsearch for testing
         # For the sake of saving time, only run this step if the test-group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' }}
+        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
         uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
         with:
           # Make sure this matches production and `sync-search-pr.yml`
@@ -56,24 +85,8 @@ jobs:
       # Even if if doesn't do anything
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          # Not all test suites need the LFS files. So instead, we opt to
-          # NOT clone them initially and instead, include them manually
-          # only for the test groups that we know need the files.
-          lfs: ${{ matrix.test-group == 'content' }}
-          # Enables cloning the Early Access repo later with the relevant PAT
-          # persist-credentials: 'false'
-          # ->> Do we really need this? actions/checkout doesn't use it for the nested example:
-          # https://github.com/actions/checkout#checkout-multiple-repos-nested
 
-      - name: Setup node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -98,10 +111,29 @@ jobs:
           .github/actions-scripts/merge-early-access.sh
           rm -fr docs-early-access
 
-      # This is necessary when LFS files where cloned but does nothing
-      # if actions/checkout was run with `lfs:false`.
-      - name: Checkout LFS objects
-        run: git lfs checkout
+      - name: Check the test fixture data (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        run: ./script/copy-fixture-data.js --check
+
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/data
+
+      - name: Clone all translations
+        if: ${{ matrix.test-group == 'translations' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Gather files changed
         env:
@@ -148,11 +180,16 @@ jobs:
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the test-group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' }}
+        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
         run: npm run index-test-fixtures
 
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+          # By default, when `process.env.NODE_ENV === 'test'` it forces the
+          # tests run only in English. The exception is the
+          # `tests/translations/` suite which needs all languages to be set up.
+          ENABLED_LANGUAGES: ${{ matrix.test-group == 'translations' && 'all' || '' }}
+          ROOT: ${{ matrix.test-group == 'rendering-fixtures' && 'tests/fixtures' || ''}}
         run: npm test -- tests/${{ matrix.test-group }}/

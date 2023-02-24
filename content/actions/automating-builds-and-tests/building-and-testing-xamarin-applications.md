@@ -26,18 +26,13 @@ shortTitle: Build & test Xamarin apps
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Xamarin project. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy.
 
-For a full list of available Xamarin SDK versions on the {% data variables.product.prodname_actions %}-hosted macOS runners, see the documentation:
-
-* [macOS 10.15](https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
-* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
-
-{% data reusables.actions.macos-runner-preview %}
+For a full list of available Xamarin SDK versions on the {% data variables.product.prodname_actions %}-hosted macOS runners, see the README file for the version of macOS you want to use in the [{% data variables.product.prodname_actions %} Runner Images repository](https://github.com/actions/runner-images/tree/main/images/macos).
 
 ## Prerequisites
 
 We recommend that you have a basic understanding of Xamarin, .NET Core SDK, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[Getting started with .NET](https://dotnet.microsoft.com/learn)"
 - "[Learn Xamarin](https://dotnet.microsoft.com/learn/xamarin)"
 
