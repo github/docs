@@ -31,4 +31,4 @@ To view a gist's full commit history, click the "Revisions" tab at the top of th
 
 You will see a full commit history for the gist with diffs.
 
-![Screenshot of the GitHub Gist Revisions page. A tab labeled “Revisions” with dark orange underline is outlined in dark orange.](/assets/images/help/gist/gist_history.png)
+![Screenshot of the "Revisions" page in GitHub Gist. A tab, labeled “Revisions”, is outlined in dark orange.](/assets/images/help/gist/gist_history.png)
