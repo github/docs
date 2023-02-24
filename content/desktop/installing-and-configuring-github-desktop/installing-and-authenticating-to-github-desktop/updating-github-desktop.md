@@ -12,10 +12,12 @@ versions:
 
 ## Updating {% data variables.product.prodname_desktop %}
 
-1. In the **GitHub Desktop** menu, click **About GitHub Desktop**.
-![About GitHub Desktop menu option](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)
-2. Click **Check for Updates**.
-![Check for Updates button](/assets/images/help/desktop/check-for-updates.png)
+1. In the menu bar, select **{% data variables.product.prodname_desktop %}**, then click **About {% data variables.product.prodname_desktop %}**.
+   
+   ![Screenshot of the menu bar on a Mac. Under the open "GitHub Desktop" dropdown menu, a cursor hovers over "About GitHub Desktop", highlighted in blue.](/assets/images/help/desktop/desktop-menu-about-desktop-mac.png)
+
+2. In the modal window, click **Check for Updates**.
+   ![Screenshot of the "GitHub Desktop" window. Under version details and links to external resources, a button, labeled "Check for Updates", is outlined in orange.](/assets/images/help/desktop/check-for-updates.png)
 3. If an update is available, quit and relaunch {% data variables.product.prodname_desktop %} to install the update.
 
 ## Resolving a crash at launch by updating {% data variables.product.prodname_desktop %}
@@ -38,7 +40,7 @@ If you encounter a crash when attempting to launch {% data variables.product.pro
 1. In the **Help** menu, click **About GitHub Desktop**.
 ![About GitHub Desktop menu option](/assets/images/help/desktop/help-about-desktop-win.png)
 2. Click **Check for Updates**.
-![Check for Updates button](/assets/images/help/desktop/check-for-updates.png)
+![Screenshot of the "GitHub Desktop" window. Under version details and links to external resources, a button, labeled "Check for Updates", is outlined in orange.](/assets/images/help/desktop/check-for-updates.png)
 3. If an update is available, quit and relaunch {% data variables.product.prodname_desktop %} to install the update.
 
 {% endwindows %}

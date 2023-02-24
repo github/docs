@@ -107,7 +107,7 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% data reusables.desktop.commit-message %}
 
-  ![Commit message field](/assets/images/help/desktop/commit-message.png)
+  ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
   ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
