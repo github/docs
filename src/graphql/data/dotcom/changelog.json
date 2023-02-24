@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>expectedHeadOid</code> was added to input object type <code>EnablePullRequestAutoMergeInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'CreateProjectV2FieldInput' was added</p>",
           "<p>Type 'CreateProjectV2FieldPayload' was added</p>",
           "<p>Type 'DeleteProjectV2FieldInput' was added</p>",
