@@ -26,6 +26,8 @@ shortTitle: Configure default editor
 - [JetBrains RubyMine](https://www.jetbrains.com/rubymine/)
 - [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/)
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
+- [JetBrains Fleet](https://www.jetbrains.com/fleet/)
+- [JetBrains DataSpell](https://www.jetbrains.com/dataspell/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
   - To use Brackets with {% data variables.product.prodname_desktop %}, you must install the Command Line shortcut. To install the shortcut, open Brackets, click **File** in the menu bar, then click **Install Command Line Shortcut**.
@@ -37,7 +39,9 @@ shortTitle: Configure default editor
 - [Nova](https://nova.app/)
 - [Android Studio](https://developer.android.com/studio)
 - [Aptana Studio](http://www.aptana.com/)
-
+- [Neovide](https://neovide.dev/)
+- [Emacs](https://www.gnu.org/software/emacs/)
+- [Lite XL](https://lite-xl.com/)
 {% endmac %}
 
 {% windows %}
@@ -56,6 +60,8 @@ shortTitle: Configure default editor
 - [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)
 - [JetBrains RubyMine](https://www.jetbrains.com/rubymine/)
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
+- [JetBrains Fleet](https://www.jetbrains.com/fleet/)
+- [JetBrains DataSpell](https://www.jetbrains.com/dataspell/)
 - [Android Studio](https://developer.android.com/studio)
 - [Brackets](http://brackets.io/)
 - [Notepad++](https://notepad-plus-plus.org/)
@@ -72,7 +78,7 @@ shortTitle: Configure default editor
 3. In the Preferences window, select **Integrations**.
   ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
 4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
-5. Click **Save**.  
+5. Click **Save**.
 
 {% endmac %}
 
@@ -83,6 +89,6 @@ shortTitle: Configure default editor
   ![The Integrations pane in the Options window](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. Use the "External Editor" drop-down menu, and choose the editor you want to set as your default.
   ![The External editor menu in the Options menu bar](/assets/images/help/desktop/windows-editor-menu.png)
-5. Click **Save**.  
+5. Click **Save**.
 
 {% endwindows %}
