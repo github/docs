@@ -28,6 +28,10 @@ If someone with admin access to an organization's repository grants a member a h
 If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 {% endif %}
 
+{% note %}
+Note: All changes to base permissions will take effect on both new and existing members. 
+{% endnote %}
+
 ## Setting base permissions
 
 {% data reusables.profile.access_org %}
