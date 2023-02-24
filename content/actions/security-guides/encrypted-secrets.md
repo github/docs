@@ -380,7 +380,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
 ## Storing Base64 binary blobs as secrets
 
-You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#limits-for-secrets)."
 
 {% note %}
 

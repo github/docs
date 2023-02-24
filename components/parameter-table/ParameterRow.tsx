@@ -64,7 +64,7 @@ export function ParameterRow({
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
                   <span className="color-fg-muted pl-2 f5">
-                    {Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
@@ -73,7 +73,7 @@ export function ParameterRow({
               ) : (
                 <>
                   <span className="color-fg-muted pl-1 f5">
-                    {Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
@@ -135,7 +135,7 @@ export function ParameterRow({
         <ChildBodyParametersRows
           slug={slug}
           parentName={rowParams.name}
-          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
           childParamsGroups={rowParams.childParamsGroups}
           open={rowParams.name === clickedBodyParameterName}
         />
