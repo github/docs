@@ -70,7 +70,7 @@ Alternatively, you can drag and drop a text file from your desktop directly into
 
 1. Sign in to {% data variables.product.product_name %}.
 2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. In the "Gist description" field, type an optional description for your gist.
+3. Optionally, in the "Gist description" field, type a description for your gist.
 4. In the "Filename including extension" field, type a file name for your gist, including the file extensions.
 5. In the file contents field, type the text of your gist.
 6. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
