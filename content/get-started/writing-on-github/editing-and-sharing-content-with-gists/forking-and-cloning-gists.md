@@ -23,7 +23,7 @@ If you want to make local changes to a gist and push them up to the web, you can
 
 To clone a gist, select the Embed dropdown menu, then click Clone via HTTPS or Clone via SSH.
 
-![Screenshot of the Embed dropdown from GitHub Gist. The Embed dropdown is expanded and an option labeled “Clone via HTTPS” is outlined in dark orange.](/assets/images/help/gist/gist_clone_btn.png)
+![Screenshot of the "Embed" dropdown menu in GitHub Gist. The dropdown is expanded, and an option labeled “Clone via HTTPS” is outlined in dark orange.](/assets/images/help/gist/gist_clone_btn.png)
 
 ## Viewing gist commit history
 
