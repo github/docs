@@ -52,7 +52,7 @@ You can configure a {% data variables.product.prodname_actions %} _workflow_ to 
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."{% endif %}
+You can reference a workflow within another workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 For more information about workflows, see "[AUTOTITLE](/actions/using-workflows)."
 
