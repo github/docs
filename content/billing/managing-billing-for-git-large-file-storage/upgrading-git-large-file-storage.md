@@ -35,6 +35,22 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
+{% ifversion ghec %}
+## Purchasing additional storage and bandwidth for an enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. To the right of "Git LFS", click **Purchase more data packs**.
+1. Select the "Choose an organization" dropdown menu and click the organization you want to purchase a data pack for.
+{% data reusables.large_files.pack_selection %}
+{% data reusables.large_files.pack_confirm %}
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
