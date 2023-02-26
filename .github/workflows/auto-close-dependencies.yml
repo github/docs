@@ -1,4 +1,4 @@
-name: Auto Close Open Source Dependency Updates
+Open name: Auto Close Open Source Dependency Updates
 
 # **What it does**:
 #  - close-external: Automatically close dependabot's pull requests in the open-source repository.
