@@ -19,7 +19,7 @@ For more information about changing a view to use the roadmap layout, see "[AUTO
 
 ## Setting the start and target date fields
 
-You can set the date or iteration fields that your roadmap will use to position items. When you set a view to a roadmap layout, {% data variables.product.company_short %} will attempt to use existing date and iteration fields you have already set up. If you choose an iteration field, you cannot add or edit iterations directly in the roadmap layout. For more information on creating new fields, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-date-fields)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-iteration-fields)."
+You can set the date or iteration fields that your roadmap will use to position items. When you set a view to a roadmap layout, {% data variables.product.company_short %} will attempt to use existing date and iteration fields you have already set up. For more information on creating new fields, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-date-fields)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-iteration-fields)."
 
 1. In the top right of your roadmap, click {% octicon "calendar" aria-label="the calendar icon" %} **Date fields**.
 

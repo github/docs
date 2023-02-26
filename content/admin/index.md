@@ -66,6 +66,7 @@ redirect_from:
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
+  Try Enterprise Cloud for free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
