@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import Ajv from 'ajv'
 import httpStatusCodes from 'http-status-code'
 import { readFile } from 'fs/promises'
 import { get, isPlainObject } from 'lodash-es'
@@ -8,6 +7,7 @@ import { parseTemplate } from 'url-template'
 import renderContent from '../../../../lib/render-content/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
+import { validateData } from './validate-data.js'
 import { getBodyParams } from './get-body-params.js'
 
 const { operationUrls } = JSON.parse(
@@ -89,12 +89,7 @@ export default class Operation {
       this.renderPreviewNotes(),
     ])
 
-    const ajv = new Ajv()
-    const valid = ajv.validate(operationSchema, this)
-    if (!valid) {
-      console.error(JSON.stringify(ajv.errors, null, 2))
-      throw new Error('Invalid OpenAPI operation found')
-    }
+    validateData(this, operationSchema)
   }
 
   getExternalDocs() {

@@ -5,6 +5,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
+  - /billing/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,6 +16,7 @@ topics:
   - Upgrades
 shortTitle: On behalf of a client
 ---
+
 ## Requirements
 
 Before you start, make sure you know:
@@ -28,12 +30,7 @@ Before you start, make sure you know:
 
 You will use your personal account to set up the organization. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
 
-If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
-
-1. Go to the [Join GitHub](https://github.com/join) page.
-2. Complete the form, then click **Create account**.
-3. Select {% data variables.product.prodname_free_user %} for your personal account.
-4. Click **Finish sign up**.
+{% data reusables.billing.create-personal-account %}
 
 ## Step 2: Create the organization
 
@@ -97,10 +94,4 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 1. Contact your client and ask them to [add you to the organization as a billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
 2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-3. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)."
-
-## Further reading
-
-- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/about-organizations-for-procurement-companies)"
-- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization)"
-- "[AUTOTITLE](/billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization)"
+3. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/articles/renewing-your-client-s-paid-organization)."
