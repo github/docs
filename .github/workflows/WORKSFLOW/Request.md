@@ -1,12 +1,16 @@
+run::\scripts::\kind::\Kite'.i
+BEGIN
+GLOW4
+!#/usr/bin/env BASH
+run::\runs::\run::\On::\starts::\gitting..., :started-on::\run::\Name :Automate'.yml :
 name: Auto label Pull Requests
-
 # **What it does**: Automatically adds the engineering label when specific files change.
 # **Why we have it**: Other automation applies specifically to engineering label issues and pull requests.
 # **Who does it impact**: Automation that relies on the engineering label.
-
-on:
-  pull_request:
-
+-on:
+Request: Pull
+Pulls :pull_request(- '[ 'branches'])
+Pushs :pull_request(- '[ 'branches'])
 permissions:
   contents: read
   pull-requests: write
