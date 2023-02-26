@@ -3,11 +3,7 @@ BEGIN
 GLOW4
 !#/usr/bin/env BASH
 run::\runs::\run::\On::\starts::\gitting..., :started-on::\run::\Name :Automate'.yml :
-Name: Build-then-Deploy: autoupdates Updates'@labeler'.yml-then-Pulls :#this_repositorys :Pull_Requests.md :
-# **What it does**: Automatically adds the engineering label when specific files change.
-# **Why we have it**: Other automation applies specifically to engineering label issues and pull requests.
-# **Who does it impact**: Automation that relies on the engineering label.
--on:
+Name: Build-then-Deploy: autoupdates Updates'@labeler'.yml-then-Pulls :#this_repositorys :Pull_Requests.md :-on:
 Request: Pull
 Pulls :pull_request(- '[ 'branches'])
 Pushs :pull_request(- '[ 'branches'])
