@@ -16,12 +16,6 @@ shortTitle: Extensions & integrations
 
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-You can configure an assignment in {data variables.product.prodname_education} to use an integrated development environment (IDE). This lets students collaborate and run programs without installing Git and a full development toolchain on their computer. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide).
-
-{% endnote %}
-
 ## Editor tools
 
 You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
