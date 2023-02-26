@@ -53,7 +53,7 @@ By default, everyone in an enterprise is a member of the enterprise. There are a
 
 #### 2. Inviting people to manage your enterprise
 
-You can invite people to manage your enterprise as enterprise owners or billing managers or remove adminisrators who no longer need access. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+You can invite people to manage your enterprise as enterprise owners or billing managers or remove administrators who no longer need access. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
