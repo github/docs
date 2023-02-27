@@ -103,7 +103,7 @@ Now the checks will always pass whenever someone sends a pull request that doesn
 
 ![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
-In case someone sends a pull request that changes the files listed under `paths` and also changes a file that is not listed under `paths-ignore` in the other workflow, then both the workflows will be checked. Moreover, status checks associated with both the workflows must pass. Otherwise, pull request will not be allowed to merge. 
+In case someone sends a pull request that changes the files listed under `paths` and also changes a file that is not listed under `paths-ignore` in the other workflow, then both the workflows will be executed. Moreover, status checks associated with both the workflows must pass. Otherwise, pull request will not be allowed to merge. 
 
 {% note %}
 
