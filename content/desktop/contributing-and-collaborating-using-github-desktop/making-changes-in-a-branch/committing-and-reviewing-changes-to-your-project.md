@@ -12,7 +12,7 @@ shortTitle: Commit & review changes
 
 {% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
-{% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop)."
+{% data reusables.desktop.update-email-address %} For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop)."
 
 ## Choosing a branch and making changes
 

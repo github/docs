@@ -326,10 +326,10 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
-| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `delete` | Triggered when an environment is deleted. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
+| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 {% endif %}
 
 {% ifversion ghae %}
