@@ -47,7 +47,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 ### JetBrains license
 
-You must have a license to at least one of the supported JetBrains IDEs to connect to a codespace from the JetBrains Gateway.
+You must have a JetBrains license that supports the IDE you choose in the JetBrains Gateway.
 
 ### JetBrains Gateway
 
