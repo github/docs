@@ -46,14 +46,12 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 ## Supported secrets for {% ifversion fpt or ghec %}user {% endif %}alerts
 
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
-
 When {% data variables.secret-scanning.user_alerts %} {% ifversion fpt or ghec %}are{% else %}is{% endif %} enabled, {% data variables.product.prodname_dotcom %} scans repositories for secrets issued by the following service providers and generates {% data variables.secret-scanning.alerts %}. You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."{% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
- 
+
 {% ifversion ghes or ghae or ghec %}
 {% note %}
 

@@ -21,7 +21,6 @@ shortTitle: Manage secret alerts
 ---
 
 {% data reusables.secret-scanning.beta %}
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %}
 
 ## Managing {% data variables.secret-scanning.alerts %}
 
