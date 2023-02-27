@@ -59,7 +59,7 @@ sections:
         - |
           Users can dismiss Dependabot alerts via the GraphQL API. For more information, see "[Mutations](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" in the GraphQL API documentation.
 
-    - heading: 'Security & access management'
+    - heading: 'Code security'
       notes:
         - |
           Dependency graph detects Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml`  and `poetry.lock` manifest files. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
