@@ -44,3 +44,4 @@ If you encounter a crash when attempting to launch {% data variables.product.pro
 3. If an update is available, quit and relaunch {% data variables.product.prodname_desktop %} to install the update.
 
 {% endwindows %}
+ 
