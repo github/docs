@@ -17,7 +17,7 @@ shortTitle: Create custom badges
 By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
 An identicon badge looks something like this:
 
-![Identicon](/assets/images/identicon.png)
+![Screenshot of an identicon, which consists of white pixels in a random pattern on a circular yellow background.](/assets/images/help/apps/identicon.png)
 
 After you create an OAuth App, you can customize the app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can be used to visually distinguish your app.
 

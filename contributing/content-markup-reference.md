@@ -44,7 +44,7 @@ For example, this is the correct way to write list items with multiple paragraph
 1. This is the next item.
 ```
 
-![Image demonstrating how to write CommnMark-compliant Markdown lists](/assets/images/commonmark-lists.png)
+![Screenshot of a CommonMark-compliant Markdown list, annotated with explanations of the spacing and indentation.](/contributing/images/commonmark-lists.png)
 
 ## Callout tags
 
