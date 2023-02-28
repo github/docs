@@ -96,11 +96,12 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 ### Creating a pull request for feedback
 
-{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
+{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %} For more information on leaving feedback in a pull request, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
 {% data reusables.classroom.assignments-guide-create-review-pull-request %}
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
+
 
 ## Inviting students to an assignment
 

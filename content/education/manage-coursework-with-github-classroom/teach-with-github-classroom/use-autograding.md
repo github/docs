@@ -13,7 +13,7 @@ redirect_from:
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
+After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding. For more information on workflows and {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/guides/about-continuous-integration)."
 
 You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 
