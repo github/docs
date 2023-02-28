@@ -17,7 +17,7 @@ shortTitle: Custom badges
 By default, a new GitHub App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
 An identicon badge looks something like this:
 
-![Identicon](/assets/images/identicon.png)
+![An identicon, which consists of white pixels in a random pattern on a circular yellow background.](/assets/images/help/apps/identicon.png)
 
 After you create a GitHub App, you can customize your app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can visually distinguish your app.
 

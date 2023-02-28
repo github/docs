@@ -40,3 +40,4 @@ sections:
 
       If you suspect a problem like this exists in one of your repositories, [contact GitHub Enterprise Support](/support/contacting-github-support/creating-a-support-ticket) for assistance.
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'

@@ -50,7 +50,6 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endnote %}
 
-
 {% data reusables.organizations.billing-settings %}
 {% data reusables.user-settings.payment-info-link %}
 1. Under "Payment information", next to "Additional information click **Add information**.

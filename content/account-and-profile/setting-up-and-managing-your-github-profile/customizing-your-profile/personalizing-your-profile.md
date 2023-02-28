@@ -37,20 +37,21 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. Click **Upload a photo...**.{% ifversion not ghae %}
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
-3. Crop your picture. When you're done, click **Set new profile picture**.
-	![Crop uploaded photo](/assets/images/help/profile/avatar_crop_and_save.png)
+1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Upload a photo...**.
+
+   ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-photo.png)
+1. Select an image, then click **Upload**.
+1. Crop your picture.
+1. Click **Set new profile picture**.
 
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
-![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
-3. To revert to your identicon, click **Remove photo**. {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-![Update profile picture](/assets/images/help/profile/edit-profile-picture-options.png){% endif %}
+1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Remove photo** to revert to your identicon.
+
+   {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.{% endif %}
+
+   ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-photo.png)
 
 ## Changing your profile name
 
@@ -65,8 +66,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Name", type the name you want to be displayed on your profile.
-  ![Name field in profile settings](/assets/images/help/profile/name-field.png)
+2. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
 
 ## Adding a bio to your profile
 
@@ -86,8 +86,7 @@ For a longer-form and more prominent way of displaying customized information ab
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under **Bio**, add the content that you want displayed on your profile. The bio field is limited to 160 characters.
-	![Update bio on profile](/assets/images/help/profile/bio-field.png)
+2. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
 
   {% tip %}
 
@@ -102,30 +101,18 @@ For a longer-form and more prominent way of displaying customized information ab
 ## Setting your location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-- on your {% data variables.product.product_name %} profile page.
-- when people hover over your username or avatar on {% data variables.product.product_name %}.
+- On your {% data variables.product.product_name %} profile page.
+- When people hover over your username or avatar on {% data variables.product.product_name %}.
 
-When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated.
+![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
 
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and time zone fields.](/assets/images/help/profile/profile-location-and-time.png)
-
-When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
-
-  ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-relative-time.png)
+When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated. When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
 
 {% data reusables.user-settings.access_settings %}
-1. Under **Location**, type the location you want to be displayed on your profile.
-
-  ![Screenshot of the location and local time settings emphasizing the location field.](/assets/images/help/profile/location-field.png)
-
-1. Optionally, to display the current local time on your profile, select **Display current local time**.
-
-  ![Screenshot of the location and local time settings emphasizing the display current local time checkbox.](/assets/images/help/profile/display-local-time-checkbox.png)
-
+1. Under "Public profile", in the "Location" field, type the location you want to be displayed on your profile.
+1. Optionally, display the current local time on your profile.
+   - Select **Display current local time**.
    - Select the **Time zone** dropdown menu, then click your local time zone.
-
-     ![Screenshot of the location and local time settings emphasizing the time zone dropdown menu.](/assets/images/help/profile/time-zone-dropdown.png)
-   
 {% data reusables.profile.update-profile %}
 
 {% endif %}
@@ -136,19 +123,9 @@ When others view your profile, they will see your location, local time, and the 
 
 You can add up to four links to social accounts on your profile. These are visible to anyone who can view your profile.
 
-![Screenshot showing the @octocat profile using social links](/assets/images/help/profile/social-link-example.png)
-
 {% data reusables.user-settings.access_settings %}
-1. In the "Social accounts" section, select the dropdown menu next to one of the four links, and click the type of social account you want to add, or click **Other**.
-
-  ![Screenshot showing the social account type dropdown field](/assets/images/help/profile/social-link-platform.png)
-
-1. Next to the dropdown menu, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
-
-  ![Screenshot showing the social account URL field](/assets/images/help/profile/social-link-url.png)
-
+1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
 {% data reusables.profile.update-profile %}
-
 
 {% endif %}
 
@@ -162,26 +139,19 @@ You can set a status to display information about your current availability on {
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
-![At-mentioned username shows "busy" note next to username](/assets/images/help/profile/username-with-limited-availability-text.png)
-
-![Requested reviewer shows "busy" note next to username](/assets/images/help/profile/request-a-review-limited-availability-status.png)
-
 If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
 
+![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
+
 1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set status** or, if you already have a status set, click your current status.
-  ![Button on profile to set your status](/assets/images/help/profile/set-status-on-profile.png)
-2. To add custom text to your status, click in the text field and type a status message.
-  ![Field to type a status message](/assets/images/help/profile/type-a-status-message.png)
-3. Optionally, to set an emoji status, click the smiley icon and select an emoji from the list.
-  ![Button to select an emoji status](/assets/images/help/profile/select-emoji-status.png)
+
+   ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile.png)
+2. In the "What's happening" field, type a status message.
+3. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 4. Optionally, if you'd like to share that you have limited availability, select "Busy."
-  ![Busy option selected in Edit status options](/assets/images/help/profile/limited-availability-status.png)
-5. Use the **Clear status** drop-down menu, and select when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-  ![Drop down menu to choose when your status expires](/assets/images/help/profile/status-expiration.png)
-6. Use the drop-down menu and click the organization you want your status visible to. If you don't select an organization, your status will be public.
-  ![Drop down menu to choose who your status is visible to](/assets/images/help/profile/status-visibility.png)
+5. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
+6. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
 7. Click **Set status**.
-  ![Button to set status](/assets/images/help/profile/set-status-button.png)
 
 {% ifversion fpt or ghec %}
 ## Displaying badges on your profile

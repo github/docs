@@ -34,13 +34,13 @@ We recommend auditing and unsubscribing from your subscriptions as a part of a h
 When your inbox has too many notifications to manage, consider whether you have oversubscribed or how you can change your notification settings to reduce the subscriptions you have and the types of notifications you're receiving. For example, you may consider disabling the settings to automatically watch all repositories and all team discussions whenever you've joined a team or repository.
 
 {% ifversion update-notification-settings-22 %}
-![Screenshot of automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
+![Screenshot of the toggles for "Automatically watch repositories" and "Automatically watch teams".](/assets/images/help/notifications-v2/automatically-watch-repos-and-teams.png)
 {% else %}
 ![Screenshot of automatic watching options for teams and repositories](/assets/images/help/notifications-v2/automatic-watching-example.png){% endif %}
 
 For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#automatic-watching)."
 
-To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." 
+To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)."
 {% tip %}
 
 **Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
@@ -78,7 +78,7 @@ Many people forget about repositories that they've chosen to watch in the past. 
   {% tip %}
 
   **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
-  
+
   When you unwatch a repository, you can still be notified when you're @mentioned or participating in a thread. When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
 
   {% endtip %}

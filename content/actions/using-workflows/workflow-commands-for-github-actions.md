@@ -342,7 +342,7 @@ jobs:
 
 {% endpowershell %}
 
-![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
 ## Masking a value in log
 
@@ -832,7 +832,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Screenshot of the summary page of a workflow run. Under "example summary" is "Hello world!" and a rocket emoji.](/assets/images/help/actions/actions-job-summary-simple-example.png)
 
 ### Multiline Markdown content
 

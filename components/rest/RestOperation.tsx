@@ -67,7 +67,10 @@ export function RestOperation({ operation }: Props) {
             <ParameterTable
               slug={titleSlug}
               numPreviews={numPreviews}
-              heading={t('rest.reference.parameters')}
+              heading={t('rest.reference.parameters').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
               headers={headers}
               parameters={operation.parameters}
               bodyParameters={operation.bodyParameters}
@@ -75,16 +78,48 @@ export function RestOperation({ operation }: Props) {
           )}
 
           {hasStatusCodes && (
-            <RestStatusCodes statusCodes={operation.statusCodes} slug={titleSlug} />
+            <RestStatusCodes
+              statusCodes={operation.statusCodes}
+              slug={titleSlug}
+              heading={t('rest.reference.http_status_code').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
+            />
           )}
         </div>
         <div
           className="col-md-12 col-lg-6 position-sticky flex-self-start"
           style={{ top: '6.5em' }}
         >
-          {hasCodeSamples && <RestCodeSamples operation={operation} slug={titleSlug} />}
+          {hasCodeSamples && (
+            <RestCodeSamples
+              operation={operation}
+              slug={titleSlug}
+              heading={t('rest.reference.code_samples').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
+            />
+          )}
 
-          {numPreviews > 0 && <RestPreviewNotice slug={titleSlug} previews={operation.previews} />}
+          {numPreviews > 0 && (
+            <RestPreviewNotice
+              slug={titleSlug}
+              previews={operation.previews}
+              heading={
+                operation.previews.length > 1
+                  ? `${t('rest.reference.preview_notices').replace(
+                      '{{ RESTOperationTitle }}',
+                      operation.title
+                    )}`
+                  : `${t('rest.reference.preview_notice').replace(
+                      '{{ RESTOperationTitle }}',
+                      operation.title
+                    )}`
+              }
+            />
+          )}
         </div>
       </div>
     </div>
