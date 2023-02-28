@@ -41,7 +41,7 @@ To give you control over when CI tasks are executed, a {% data variables.product
 
 ### Using YAML syntax
 
-Travis CI and {% data variables.product.prodname_actions %} both use YAML to create jobs and workflows, and these files are stored in the code's repository. For more information on how {% data variables.product.prodname_actions %} uses YAML, see ["Creating a workflow file](/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow)."
+Travis CI and {% data variables.product.prodname_actions %} both use YAML to create jobs and workflows, and these files are stored in the code's repository. For more information on how {% data variables.product.prodname_actions %} uses YAML, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow)."
 
 ### Custom variables
 
@@ -58,7 +58,7 @@ Travis CI can use `stages` to run jobs in parallel. Similarly, {% data variables
 ### Status badges
 
 Travis CI and {% data variables.product.prodname_actions %} both support status badges, which let you indicate whether a build is passing or failing.
-For more information, see ["Adding a workflow status badge to your repository](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
+For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
 
 ### Using a matrix
 
@@ -196,7 +196,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Hosting your own runners
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
+If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners)."
 
 {% ifversion fpt or ghec %}
 

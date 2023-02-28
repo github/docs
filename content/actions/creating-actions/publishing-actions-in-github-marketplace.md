@@ -60,9 +60,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. On the Releases page, to the right of the release you want to edit, click **Edit**.
-![Release edit button](/assets/images/help/releases/release-edit-btn.png)
+{% data reusables.releases.edit-release %}
 4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
 ![Publish this action button](/assets/images/help/repository/actions-marketplace-unpublish.png)
 5. Click **Update release** at the bottom of the page.
-![Update release button](/assets/images/help/repository/actions-marketplace-update-release.png)

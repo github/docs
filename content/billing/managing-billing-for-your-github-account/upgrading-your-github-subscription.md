@@ -74,7 +74,7 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 
 If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ### Adding seats to your organization
 
@@ -96,6 +96,19 @@ If you'd like additional users to have access to your {% data variables.product.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
+
+{% ifversion ghec %}
+## Adding seats to your enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+If your enterprise account is invoiced, you cannot add seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.enterprise-accounts.manage-seats %}
+{% endif %}
 
 ## Troubleshooting a 500 error when upgrading
 

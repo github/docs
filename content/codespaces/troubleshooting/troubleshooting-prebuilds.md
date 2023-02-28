@@ -18,7 +18,7 @@ When you create a codespace, you can choose the type of the virtual machine you 
 
 ![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. 
+If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
 
 ![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
@@ -32,7 +32,7 @@ gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 
 This returns `true` if the codespace was created using a prebuild.
 
-Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild: 
+Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild:
 
 ```shell{:copy}
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
@@ -48,10 +48,10 @@ If your branch is not specifically enabled for prebuilds it may still benefit fr
 
 Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
 
-* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this. 
+* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
 * Confirm that the prebuild configuration includes your region.
 * Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch. 
+* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
 
 ## Some resources cannot be accessed in codespaces created using a prebuild
 
@@ -59,7 +59,7 @@ If the `devcontainer.json` configuration file for a prebuild configuration speci
 
 ## Troubleshooting failed workflow runs for prebuilds
 
-### Increasing the {% data variables.product.prodname_actions %} spending limit 
+### Increasing the {% data variables.product.prodname_actions %} spending limit
 
 Prebuilds are created and updated using {% data variables.product.prodname_actions %}. Your prebuild workflows will fail if you have used all of your {% data variables.product.prodname_actions %} minutes and have reached your spending limit. If this occurs you can increase your {% data variables.product.prodname_actions %} spending limit to allow the workflows to run. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
@@ -84,7 +84,7 @@ We recommend keeping prebuild optimization enabled, because it helps ensure that
    ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
 1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
 
-   ![Screenshot of the advanced option section and the "disable prebuild optmization" setting](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+   ![Screenshot of the bottom of the prebuilds configuration page. The link "Show advanced options" is highlighted with a dark orange outline.](/assets/images/help/codespaces/disable-prebuild-optimization.png)
 1. To save your change, click **Update**.
 
 ## Further reading

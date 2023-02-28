@@ -21,7 +21,7 @@ By default, whenever you push changes to your repository, {% data variables.prod
 
 When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-label="The history icon" %} Prebuild in progress" label. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![Screenshot of the dialog for choosing a machine type.](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
 When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 

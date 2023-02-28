@@ -326,10 +326,10 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
-| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `delete` | Triggered when an environment is deleted. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
+| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 {% endif %}
 
 {% ifversion ghae %}
@@ -678,7 +678,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | Action | Description
 |------------------|-------------------
 | `access` | Triggered when a user [changes the visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) of a repository in the organization.
-| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
+| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the audit log API](#using-the-audit-log-api)."
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 | `add_topic` | Triggered when a repository admin [adds a topic](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to a repository.
 | `advanced_security_disabled` | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
@@ -903,7 +903,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
-{%- endif %}

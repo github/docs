@@ -25,9 +25,7 @@ To learn about accessing your personal dashboard, see "[AUTOTITLE](/account-and-
 
 When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard.
 
-Click **Follow** on a person's profile page to follow them.
-
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+To follow someone, click **Follow** on a person's profile page.
 
 For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)."
 
@@ -65,7 +63,7 @@ From your dashboard, click the drop down menu of your username on the left side 
 
 To follow an organization, in the header of the organization's page, click **Follow**.
 
-![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+![Screenshot of @octo-org's profile page. A button, labeled "Follow", is outlined in dark orange.](/assets/images/help/profile/organization-profile-following.png)
 
 For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-organizations)."
 

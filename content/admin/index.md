@@ -66,19 +66,18 @@ redirect_from:
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
+  Try Enterprise Cloud for free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
   startHere:
     - '{% ifversion ghae %}/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise{% endif %}'
     - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
-    - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list{% endif %}'
-    - '{% ifversion ghes %}/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance{% endif %}'
-    - '{% ifversion ghes %}/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica{% endif %}'
-    - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
+    - '/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise'
+    - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
+    - '{% ifversion ghae %}/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies{% endif %}'
   guideCards:
     - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
@@ -89,6 +88,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
+    - '/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise'
   popular:
     - /admin/overview/about-github-enterprise-server
     - '{% ifversion ghae %}/admin/release-notes{% endif %}'
@@ -126,4 +126,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-
