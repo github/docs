@@ -158,8 +158,8 @@ For each language, upload the new file to Azure blob storage in the `enterprise`
 
 After uploading the new files, you will need to purge the Fastly cache for the single page. From Okta, go to Fastly and select `docs`. Click `Purge` then `Purge URL`. If you need to purge a whole path, just do a `Purge All`
 
-![](/assets/images/fastly_purge.jpg)
+![](/contributing/images/fastly_purge.jpg)
 
 Enter the URL or path and do a soft purge.
 
-![](/assets/images/fastly_purge_url.jpg)
+![](/contributing/images/fastly_purge_url.jpg)

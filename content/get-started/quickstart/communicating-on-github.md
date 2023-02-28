@@ -29,19 +29,19 @@ You can create and participate in issues, pull requests and team discussions, de
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
-- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
-- are specific to a repository, and usually have a clear owner. 
+- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
+- are specific to a repository, and usually have a clear owner.
 - are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
-  
+
 ### Pull requests
 - allow you to propose specific changes.
-- allow you to comment directly on proposed changes suggested by others. 
-- are specific to a repository. 
- 
+- allow you to comment directly on proposed changes suggested by others.
+- are specific to a repository.
+
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
--  may span many repositories. 
+-  are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
+-  may span many repositories.
 -  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
 -  often don’t have a clear owner.
 -  often do not result in an actionable task.
@@ -49,7 +49,7 @@ You can create and participate in issues, pull requests and team discussions, de
 
 ### Team discussions
 - can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
-- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %} 
+- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %}
 - provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
 - often don’t have a clear owner.
 - often do not result in an actionable task.{% endif %}
@@ -65,11 +65,11 @@ You can create and participate in issues, pull requests and team discussions, de
 
 #### Issue example
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix. 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix.
 
 ![Example of issue](/assets/images/help/issues/issue-example.png)
 
-- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable. 
+- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable.
 - The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
 - A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
 - A contributor can then create a pull request with the fix.
@@ -83,7 +83,7 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 
 #### Pull request example
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo.
 
 In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
@@ -109,7 +109,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 
 This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
 
-![Example of {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
+![Screenshot of an example of a discussion, with the title "Welcome to GitHub Docs Discussions."](/assets/images/help/discussions/github-discussions-example.png)
 
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 

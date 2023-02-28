@@ -33,7 +33,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Drop-down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
   ![New Branch option in the Branch menu](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
@@ -74,7 +74,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
 
 1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to publish.
-  ![Drop-down menu to select which branch to publish](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Click **Publish branch**.
   ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
@@ -88,7 +88,7 @@ You can view and make commits to any of your repository's branches. If you have 
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![List of branches in the repository](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. If you have saved, uncommitted changes, choose **Leave my changes** or **Bring my changes**, then click **Switch Branch**.
   ![Switch branch with changes options](/assets/images/help/desktop/stash-changes-options.png)
 
@@ -99,7 +99,7 @@ You can't delete a branch if it's currently associated with an open pull request
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
 
@@ -108,7 +108,7 @@ You can't delete a branch if it's currently associated with an open pull request
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
 

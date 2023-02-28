@@ -84,13 +84,12 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 ### Set up deploy keys
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
-{% data reusables.profile.navigating-to-profile %}
-
-   ![Navigation to profile](/assets/images/profile-page.png)
-1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. In the sidebar, click **Deploy Keys**.
+1. Click **Add deploy key**.
+4. In the "Title" field, provide a title.
+1. In the "Key" field, paste your public key.
 5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 6. Click **Add key**.
 

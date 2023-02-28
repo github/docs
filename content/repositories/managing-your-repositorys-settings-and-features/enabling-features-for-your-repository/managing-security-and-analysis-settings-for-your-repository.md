@@ -24,6 +24,17 @@ topics:
   - Repositories
 shortTitle: Security & analysis
 ---
+
+{% ifversion dependabot-alerts-enterprise-enablement %}
+
+{% note %}
+
+**Note:** When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the repository level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise)."
+
+{% endnote %}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 ## Enabling or disabling security and analysis features for public repositories
 
@@ -51,7 +62,7 @@ You can manage the security and analysis features for your {% ifversion fpt or g
   ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
   ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.6 or ghae > 3.6 %}<!--Insert screenshot for GHES 3.7 when available-->
   ![Screenshot of "Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
-  
+
   {% ifversion not fpt %}
   {% note %}
 
@@ -82,16 +93,16 @@ Organization owners and repository administrators can only grant access to view 
    {% ifversion fpt or ghec or ghes %}
    ![Search field for granting people or teams access to security alerts](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
    {% endif %}
-   
+
    {% ifversion ghae %}
    ![Search field for granting people or teams access to security alerts](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-person-or-team-search-ghae.png)
    {% endif %}
-   
+
 2. Click **Save changes**.
    {% ifversion fpt or ghes or ghec %}
    !["Save changes" button for changes to security alert settings](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
    {% endif %}
-   
+
    {% ifversion ghae %}
    !["Save changes" button for changes to security alert settings](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png)
    {% endif %}
@@ -101,13 +112,12 @@ Organization owners and repository administrators can only grant access to view 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.
-   {% ifversion fpt or ghec or ghes %}  
-   !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
-   {% endif %}
-   
-   {% ifversion ghae %}
-   !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
+4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}.{% ifversion fpt or ghec or ghes %}
+
+     !["x" button to remove someone's access to security alerts for your repository](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+   {% endif %}{% ifversion ghae %}
+
+     !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
    {% endif %}
   5. Click **Save changes**.
 

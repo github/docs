@@ -35,7 +35,7 @@ We recommend that you create and clone a tutorial repository as your first proje
 If you do not wish to create and clone a tutorial repository, you can create a new repository.
 
 1. Click **Create a New Repository on your Hard Drive...**.
-2. In the "Create a New Repository" wimdow, fill in the fields and select your preferred options.
+2. In the "Create a New Repository" window, fill in the fields and select your preferred options.
    - "Name" defines the name of your repository both locally and on {% data variables.product.product_name %}.
    - "Description" is an optional field that you can use to provide more information about the purpose of your repository.
    - "Local path" sets the location of your repository on your computer. By default, {% data variables.product.prodname_desktop %} creates a _GitHub_ folder inside your _Documents_ folder to store your repositories, but you can choose any location on your computer. Your new repository will be a folder inside the chosen location. For example, if you name your repository `Tutorial`, a folder named _Tutorial_ is created inside the folder you selected for your local path. {% data variables.product.prodname_desktop %} remembers your chosen location the next time you create or clone a new repository.

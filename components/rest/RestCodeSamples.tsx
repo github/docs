@@ -20,6 +20,7 @@ import { useVersion } from 'components/hooks/useVersion'
 type Props = {
   slug: string
   operation: Operation
+  heading: string
 }
 
 const GHCLIKEY = 'ghcli'
@@ -41,7 +42,7 @@ function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === JSKEY ? 'javascript' : 'curl'
 }
 
-export function RestCodeSamples({ operation, slug }: Props) {
+export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation('products')
   const { isEnterpriseServer } = useVersion()
 
@@ -228,7 +229,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
   return (
     <>
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
-        <a href={`#${slug}--code-samples`}>{`${t('rest.reference.code_samples')}`}</a>
+        <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
 
       {/* Display an example selector if more than one example */}
@@ -299,11 +300,12 @@ export function RestCodeSamples({ operation, slug }: Props) {
       </div>
 
       {/* Response section */}
-      <h5
+      <div
+        className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></h5>
+      ></div>
 
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
