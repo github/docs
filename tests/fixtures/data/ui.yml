@@ -133,15 +133,15 @@ products:
       in: In
       description: Description
       notes: Notes
-      parameters: Parameters
+      parameters: Parameters for "{{ RESTOperationTitle }}"
       response: Response
       example_response: Example response
       status_code: Status code
-      http_status_code: HTTP response status codes
+      http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
       code_sample: Code sample
-      code_samples: Code samples
-      preview_notice: Preview notice
-      preview_notices: Preview notices
+      code_samples: Code samples for "{{ RESTOperationTitle }}"
+      preview_notice: Preview notice for "{{ RESTOperationTitle }}"
+      preview_notices: Preview notices for "{{ RESTOperationTitle }}"
       preview_header_is_required: This header is <strong>required</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with

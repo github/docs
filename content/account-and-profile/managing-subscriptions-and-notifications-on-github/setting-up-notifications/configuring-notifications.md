@@ -159,7 +159,7 @@ Email notifications from {% data variables.location.product_location %} contain 
 By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
 
 {% ifversion update-notification-settings-22 %}
-![Automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
+![Screenshot of the toggles for "Automatically watch repositories" and "Automatically watch teams".](/assets/images/help/notifications-v2/automatically-watch-repos-and-teams.png)
 {% else %}
 ![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
 

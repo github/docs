@@ -49,7 +49,8 @@ You can upvote discussions to give more visibility to the topics that matter to 
 1. In the list of discussions, find the discussion you want to upvote.
 1. To the left of the discussion, click the upvote arrow.
 
-   ![Discussion list and upvote button for upvoting discussions](/assets/images/help/discussions/upvote-discussion-button.png)
+   ![Screenshot of the discussion list. A button, labeled with an upwards arrow and "5", is outlined in dark orange.](/assets/images/help/discussions/upvote-discussion-button.png)
+
 1. Optionally, click the upvote arrow again to remove your upvote.
 
 ## Upvoting a comment
@@ -59,8 +60,9 @@ You can upvote top-level comments in discussions, and sort top-level comments to
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the discussion, find a top-level comment you want to upvote. 
+1. In the discussion, find a top-level comment you want to upvote.
 1. Click on the upvote arrow at the bottom left of the comment.
 
-   ![Top-level comment and upvote button for upvoting comments](/assets/images/help/discussions/upvote-comment-button.png)
+   ![Screenshot of the top-level comment on a discussion. A button, labeled with an upwards arrow and "1", is outlined in dark orange.](/assets/images/help/discussions/upvote-comment-button.png)
+
 1. Optionally, click the upvote arrow again to remove your upvote.

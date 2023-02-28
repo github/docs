@@ -23,7 +23,15 @@ For an example of how to use the REST API with a {% data variables.product.prodn
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
 
-![Check suites workflow](/assets/images/check_suites.png)
+The `status` can be `queued`, `in_progress`, or `complete`.
+
+If the status is `complete`, the conclusion can be any of the following:
+- `action_required`
+- `cancelled`
+- `timed_out`
+- `failure`
+- `neutral`
+- `success`
 
 The check suite reports the highest priority check run `conclusion` in the check suite's `conclusion`. For example, if three check runs have conclusions of `timed_out`, `success`, and `neutral` the check suite conclusion will be `timed_out`.
 
@@ -41,13 +49,21 @@ To use the endpoints to manage check suites, the {% data variables.product.prodn
 
 A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
 
-![Check runs workflow](/assets/images/check_runs.png)
+The status can be  `queued`, `in_progress`, or `complete`.
+
+If the status is `completed`, the conclusion can be any of the following:
+- `action_required`
+- `cancelled`
+- `timed_out`
+- `failure`
+- `neutral`
+- `success`
 
 If a check run is in an incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/checks#create-a-check-run--parameters).
 
 As soon as you receive the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) webhook, you can create the check run, even if the check is not complete. You can update the `status` of the check run as it completes with the values `queued`, `in_progress`, or `completed`, and you can update the `output` as more details become available. A check run can contain timestamps, a link to more details on your external site, detailed annotations for specific lines of code, and information about the analysis performed.
 
-![Check run annotation](/assets/images/check_run_annotations.png)
+Annotations add information from your check run to specific lines of code. Each annotation includes an `annotation_level` property, which can be `notice`, `warning`, or `failure`. The annotation also includes `path`, `start_line`, and `end_line` to specify what location the annotation refers to. The annotation includes a `message` to describe the result. For more information, see "[AUTOTITLE](/rest/checks/runs)" in the REST API reference documentation.
 
 A check can also be manually re-run in the GitHub UI. See "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks#checks)" for more details. When this occurs, the GitHub App that created the check run will receive the [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhook requesting a new check run. If you create a check run without creating a check suite, GitHub creates the check suite for you automatically.
 

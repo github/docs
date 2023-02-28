@@ -23,12 +23,15 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
-![Public settings button](/assets/images/help/discussions/public-repo-settings.png)
-1. Under "Features", click **Set up discussions**.
-  ![Set up a discussion button under "Features" for enabling or disabling GitHub Discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
+
+   ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings.png)
+
+1. Scroll down to the "Features" section and click **Set up discussions**.
+
+   ![Screenshot of the "Discussions" option in the repository's settings. A green button, labeled "Set up discussions", is outlined in dark orange.](/assets/images/help/discussions/setup-discussions-button.png)
+
 1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.
 1. Click **Start discussion**.
-  !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
 ## Enabling {% data variables.product.prodname_discussions %} on your organization
 

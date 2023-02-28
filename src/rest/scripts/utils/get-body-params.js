@@ -177,7 +177,7 @@ async function getTransformedParam(param, paramType, props) {
   // In 3.1 a nullable type is part of the param.type array and
   // the property param.nullable does not exist.
   if (param.nullable) paramType.push('null')
-  paramDecorated.type = paramType.filter(Boolean).join(' or ')
+  paramDecorated.type = Array.from(new Set(paramType.filter(Boolean))).join(' or ')
   paramDecorated.name = paramKey
   if (topLevel) {
     paramDecorated.in = 'body'
