@@ -12,4 +12,5 @@ children:
   - /authenticating-with-github-apps
   - /identifying-and-authorizing-users-for-github-apps
   - /refreshing-user-to-server-access-tokens
+  - /managing-private-keys-for-github-apps
 ---
