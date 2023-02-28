@@ -51,17 +51,17 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
-  - /code-security/repository-security-advisories/about-github-security-advisories-for-repositories
+  - /code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
   - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
   - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
-  - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
-  - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
-  - /code-security/repository-security-advisories/creating-a-repository-security-advisory
-  - /code-security/repository-security-advisories/editing-a-repository-security-advisory
-  - /code-security/repository-security-advisories/permission-levels-for-repository-security-advisories
-  - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
-  - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-  - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+  - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory
   - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
@@ -69,24 +69,28 @@ includeGuides:
   - /code-security/security-overview/about-the-security-overview
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
   - /code-security/security-overview/viewing-the-security-overview
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
+  - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+  - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+  - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+  - /code-security/dependabot/dependabot-version-updates/customizing-dependency-updates
+  - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+  - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
+  - /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
   - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
-  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
+  - /code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries
+  - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+  - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
+  - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
+  - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+  - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
+  - /code-security/security-advisories/global-security-advisories/about-global-security-advisories
+  - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+  - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+  - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
+  - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+  - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api

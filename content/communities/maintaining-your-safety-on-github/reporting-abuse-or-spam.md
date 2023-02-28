@@ -26,9 +26,8 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
-3. Click **Report abuse**.
-  ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-report-abuse.png)
-4. Complete the contact form to tell {% data variables.contact.contact_support %} about the user's behavior, then click **Send request**.
+1. Click **Report abuse**.
+1. Complete the contact form to tell {% data variables.contact.contact_support %} about the user's behavior, then click **Send request**.
 
 ## Reporting an issue or pull request
 

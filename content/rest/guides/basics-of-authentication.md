@@ -91,9 +91,7 @@ Also, notice that the URL uses the `scope` query parameter to define the
 [scopes][oauth scopes] requested by the application. For our application, we're
 requesting `user:email` scope for reading private email addresses.
 
-Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you
-should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
-![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
+Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you should be taken to {% data variables.product.product_name %}, and presented with an "Authorize application" dialog.
 
 If you trust yourself, click **Authorize App**. Wuh-oh! Sinatra spits out a
 `404` error. What gives?!

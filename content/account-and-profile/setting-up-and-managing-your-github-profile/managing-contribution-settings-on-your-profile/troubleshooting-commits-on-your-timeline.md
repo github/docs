@@ -18,9 +18,9 @@ shortTitle: Troubleshoot commits
 
 ## Expected behavior to view commit details
 
-On your profile page's timeline, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
+In the "Contribution activity" section of your profile page, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
 
-![Commit link on profile timeline](/assets/images/help/profile/commit-link-on-profile-timeline.png)
+![Screenshot of the "Contribution activity" section of a user profile. A link, labeled "29 commits" is highlighted with an orange outline.](/assets/images/help/profile/commit-link-on-profile-timeline.png)
 
 ## Missing commit details from commits in your timeline
 
