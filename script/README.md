@@ -612,13 +612,6 @@ Run this script to pull openAPI files from github/github, dereference them, and 
 ---
 
 
-### [`rest/utils/rest-api-overrides.json`](rest/utils/rest-api-overrides.json)
-
-
-
----
-
-
 ### [`rest/utils/webhook-schema.js`](rest/utils/webhook-schema.js)
 
 
