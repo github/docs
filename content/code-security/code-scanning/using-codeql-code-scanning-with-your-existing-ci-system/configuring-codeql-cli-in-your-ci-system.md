@@ -279,6 +279,16 @@ If you want to download a {% data variables.product.prodname_codeql %} pack with
 echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
 ```
 
+{% note %}
+
+**Note:** The above command works if you do not specify a value for the env variable GITHUB_TOKEN. However, if you specify a value for GITHUB_TOKEN, use the modified version of the command as in the below example.
+
+```shell
+echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; echo $TOKEN --github-auth-stdin...
+```
+
+{% endnote %}
+
 ### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
 
 If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
