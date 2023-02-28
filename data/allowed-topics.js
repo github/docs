@@ -144,8 +144,7 @@ export default [
   'Support',
   'Swift',
   'Teams',
-  // TODO 47F50CA3 uncomment when transcripts are ready
-  // 'Transcripts',
+  'Transcripts',
   'Travis CI',
   'Trials',
   'Troubleshooting',
