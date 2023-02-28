@@ -44,7 +44,7 @@ For example, this is the correct way to write list items with multiple paragraph
 1. This is the next item.
 ```
 
-![Image demonstrating how to write CommnMark-compliant Markdown lists](/assets/images/commonmark-lists.png)
+![Screenshot of a CommonMark-compliant Markdown list, annotated with explanations of the spacing and indentation.](/contributing/images/commonmark-lists.png)
 
 ## Callout tags
 
@@ -74,7 +74,7 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name.
+Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 

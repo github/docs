@@ -124,20 +124,13 @@ Alternatively, you can use the advanced setup, which generates a workflow file y
 
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion fpt %}
-{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories in all products on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.secret-scanning.user_alerts_caps %} are available for public repositories, as well as repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
-
-{% ifversion ghec or ghes or ghae %}
-
-{% data variables.product.prodname_secret_scanning_caps %} is {% ifversion ghec %}enabled for all public repositories and is available for private repositories owned by organizations that are part of an enterprise with a license for {% else %}available for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-repository#configuring-secret-scanning).{% else %}{% data variables.product.prodname_secret_scanning_caps %} may already be enabled for your repository, depending upon your organization's settings.
+{% data reusables.gated-features.secret-scanning %}
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
-1. Click **Security & analysis**.
-1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
+1. Click **Code security & analysis**.
+{% ifversion ghec or ghes or ghae%}
+1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.{% endif %}
 1. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**.
-{% endif %}
-
-{% endif %}
 
 ## Setting a security policy
 
