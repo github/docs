@@ -1547,7 +1547,6 @@
       "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
     }
   ],
-  "gists": [],
   "git": [
     {
       "slug": "create-a-blob",
@@ -1958,8 +1957,6 @@
       "requestPath": "/repos/{owner}/{repo}/stats/punch_card"
     }
   ],
-  "migrations": [],
-  "oauth-authorizations": [],
   "orgs": [
     {
       "slug": "list-organizations",

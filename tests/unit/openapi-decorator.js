@@ -1,6 +1,6 @@
 import { describe, expect } from '@jest/globals'
 
-import { getOpenApiSchemaFiles } from '../../src/rest/scripts/utils/decorator.js'
+import { getOpenApiSchemaFiles } from '../../src/rest/scripts/utils/sync.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 const supportedReleases = Object.keys(allVersions).map(
@@ -13,23 +13,27 @@ describe('decorated static files are generated correctly from dereferenced opena
   // be listed in the status code table in the docs.
   test('webhook schema list should not include calendar date versions', async () => {
     const schemas = [
-      'api.github.com.2022-08-09.deref.json',
-      'api.github.com.2022-10-09.deref.json',
-      'api.github.com.2022-11-09.deref.json',
-      'ghec.2022-09-09.deref.json',
+      'fpt-2022-08-09.json',
+      'fpt-2022-10-09.json',
+      'fpt-2022-11-09.json',
+      'ghec-2022-09-09.json',
       ...supportedReleases,
     ]
 
     const expectedRestSchemas = [
-      'api.github.com.2022-08-09',
-      'api.github.com.2022-10-09',
-      'api.github.com.2022-11-09',
-      'ghec.2022-09-09',
-      ...supportedReleases.filter((release) => release !== 'ghec' && release !== 'api.github.com'),
+      'fpt-2022-08-09.json',
+      'fpt-2022-10-09.json',
+      'fpt-2022-11-09.json',
+      'ghec-2022-09-09.json',
+      ...supportedReleases
+        .filter((release) => release !== 'ghec' && release !== 'fpt')
+        .map((release) => `${release}.json`),
     ]
 
     const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(schemas)
     expect(restSchemas.sort()).toEqual(expectedRestSchemas.sort())
-    expect(webhookSchemas.sort()).toEqual(supportedReleases.sort())
+    expect(webhookSchemas.sort()).toEqual(
+      supportedReleases.sort().map((release) => `${release}.json`)
+    )
   })
 })

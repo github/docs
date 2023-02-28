@@ -1,10 +1,12 @@
 import express from 'express'
+import path from 'path'
 
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { defaultCacheControl } from './cache-control.js'
+import { REST_DATA_DIR } from '../src/rest/lib/index.js'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/client-side-rest-api-redirects.json'
+  path.join(REST_DATA_DIR, 'client-side-rest-api-redirects.json')
 )
 
 const router = express.Router()
