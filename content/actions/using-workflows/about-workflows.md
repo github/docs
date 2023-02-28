@@ -193,10 +193,8 @@ To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 ### Using environments
 

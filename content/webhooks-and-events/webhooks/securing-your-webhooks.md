@@ -24,8 +24,10 @@ You'll need to set up your secret token in two places: GitHub and your server.
 To set your token on GitHub:
 
 1. Navigate to the repository where you're setting up your webhook.
-2. Fill out the Secret textbox. Use a random string with high entropy (e.g., by taking the output of `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` at the terminal).
-![Webhook secret token field](/assets/images/webhook_secret_token.png)
+{% data reusables.repositories.sidebar-settings %}
+1. In the left sidebar, click **{% octicon "webhook" aria-label="" %} Webhooks**.
+1. Next to the webhook, click **Edit**.
+2. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
 3. Click **Update Webhook**.
 
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:

@@ -1,7 +1,7 @@
 ---
 title: About permissions and visibility of forks
 shortTitle: Permissions and visibility
-intro: The permissions and visibility of forks depend on whether the upstream repository is public or private, {% ifversion fpt %}and whether it is owned by an organization{% else %}whether it is owned by an organization, and the policies of your enterprise{% endif %}.
+intro: 'The permissions and visibility of forks depend on whether the upstream repository is public or private, {% ifversion fpt %}and whether it is owned by an organization{% else %}whether it is owned by an organization, and the policies of your enterprise{% endif %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endif %}
 

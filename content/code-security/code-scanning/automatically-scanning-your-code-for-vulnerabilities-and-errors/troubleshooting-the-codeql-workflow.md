@@ -39,16 +39,12 @@ allowTitleToDifferFromFilename: true
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging)."
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
 The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow.
 
 These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
-
-{% endif %}
 
 {% ifversion codeql-action-debug-logging %}
 
@@ -60,8 +56,6 @@ You need to ensure that you select **Enable debug logging** . This option enable
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 
 You can create {% data variables.product.prodname_codeql %} debugging artifacts by using a flag in your workflow. For this, you need to modify the `init` step of your {% data variables.code-scanning.codeql_workflow %} file and set `debug: true`.
@@ -72,8 +66,6 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
   with:
     debug: true
 ```
-
-{% endif %}
 
 {% ifversion code-scanning-without-workflow %}
 

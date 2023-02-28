@@ -29,6 +29,7 @@ program
   .option('--check', 'Exit and fail if it found something to fix')
   .option('--aggregate-stats', 'Display aggregate numbers about all possible changes')
   .option('--strict', "Throw an error (instead of a warning) if a link can't be processed")
+  .option('--exclude [paths...]', 'Specific files to exclude')
   .arguments('[files-or-directories...]', '')
   .parse(process.argv)
 
@@ -36,6 +37,8 @@ main(program.args, program.opts())
 
 async function main(files, opts) {
   const { debug } = opts
+
+  const excludeFilePaths = new Set(opts.exclude || [])
 
   try {
     if (opts.check && !opts.dryRun) {
@@ -47,15 +50,25 @@ async function main(files, opts) {
       files.push('content', 'data')
     }
     for (const file of files) {
-      if (!(file.startsWith('content') || file.startsWith('data'))) {
+      if (
+        !(
+          file.startsWith('content') ||
+          file.startsWith('data') ||
+          file.startsWith('tests/fixtures')
+        )
+      ) {
         throw new Error(`${file} must be a content or data filepath`)
       }
       if (!fs.existsSync(file)) {
         throw new Error(`${file} does not exist`)
       }
       if (fs.lstatSync(file).isDirectory()) {
-        actualFiles.push(...walkFiles(file, ['.md', '.yml']))
-      } else {
+        actualFiles.push(
+          ...walkFiles(file, ['.md', '.yml']).filter((p) => {
+            return !excludeFilePaths.has(p)
+          })
+        )
+      } else if (!excludeFilePaths.has(file)) {
         actualFiles.push(file)
       }
     }

@@ -148,11 +148,11 @@ For more information on how to use context syntax, see "[AUTOTITLE](/actions/lea
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion fpt or ghes or ghae > 3.3 or ghec %}v16{% else %}v12{% endif %}
+### Example: Using Node.js v16
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   main: 'main.js'
 ```
 
@@ -160,8 +160,7 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- Use `node16` for Node.js v16.
 
 ### `runs.main`
 
@@ -175,7 +174,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -202,7 +201,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -262,7 +261,6 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#gi
 
 **Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
@@ -291,7 +289,6 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
-{% endif %}
 
 #### `runs.steps[*].name`
 

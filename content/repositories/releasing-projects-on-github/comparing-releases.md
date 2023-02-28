@@ -15,6 +15,7 @@ redirect_from:
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
+
 1. Next to the release you want to use as your base, select the **Compare** dropdown menu, then click the tag you want to compare.
 
    ![Screenshot of a release in the releases list. A dropdown menu, labeled "Compare, is highlighted with an orange outline.](/assets/images/help/releases/refreshed-compare-tags.png)

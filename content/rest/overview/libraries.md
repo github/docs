@@ -13,8 +13,6 @@ topics:
   - API
 ---
 
-![The Gundamcat](/assets/images/gundamcat.png)
-
 ## Octokit comes in many flavors
 
 Use the official Octokit library, or choose between any of the available third party libraries.

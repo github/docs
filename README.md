@@ -1,20 +1,20 @@
-# GitHub Docs <!-- omit in toc --> 
- 
+# GitHub Docs <!-- omit in toc -->
+
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-Use the table of contents icon <img src="./assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
 
 ## Contributing
 
-See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project. 
+See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project.
 
 We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
 
 On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
-<img src="./assets/images/contribution_cta.png" width="400">
+<img src="./contributing/images/contribution_cta.png" width="400">
 
 For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 

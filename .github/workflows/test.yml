@@ -88,32 +88,28 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Figure out which docs-early-access branch to checkout, if internal repo
+      - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
-        id: check-early-access
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
-
-      - name: Check out docs-early-access too, if internal repo
-        if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.branch }}
-
-      - name: Merge docs-early-access repo's folders
-        if: ${{ github.repository == 'github/docs-internal' }}
-        run: |
-          .github/actions-scripts/merge-early-access.sh
-          rm -fr docs-early-access
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.test-group == 'rendering-fixtures' }}
         run: ./script/copy-fixture-data.js --check
+
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.test-group == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            tests/fixtures/data
 
       - name: Clone all translations
         if: ${{ matrix.test-group == 'translations' }}

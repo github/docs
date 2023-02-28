@@ -26,15 +26,13 @@ On top of the new code search engine, the code search (beta) includes new featur
 
 The new code search (beta) is tightly integrated with a redesigned code view (beta) on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.search.code-view-link %}
 
-To get access to the new code search (beta), along with the new code view, you can sign up for the [waitlist](https://github.com/features/code-search-code-view/signup). 
-
 ## Enabling and disabling the new code search and code view (beta)
 
 {% data reusables.search.enabling-and-disabling-code-search-and-view-beta %}
 
 ## Limitations
 
-We have indexed many public repositories for the new code search (beta), and continue to index more. Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed. 
+We have indexed many public repositories for the new code search (beta), and continue to index more. Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
    - Vendored and generated code is excluded (as determined by [Enry](https://github.com/go-enry/go-enry))

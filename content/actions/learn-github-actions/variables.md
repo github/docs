@@ -123,7 +123,7 @@ The following rules apply to configuration variable names:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Repository variables tab](/assets/images/help/repository/actions-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is highlighted with a dark orange outline.](/assets/images/help/repository/actions-variables-tab.png)
 1. Click **New repository variable**.
 {% data reusables.actions.variable-fields %}
 1. Click **Add variable**.
@@ -158,15 +158,15 @@ The following rules apply to configuration variable names:
 
 ### Limits for configuration variables
 
-You can store up to 1,000 organization variables, 500 repository variables, and 100 environment variables (per environment). The total size limit for organization and repository variables is 256 KB.
+You can store up to 1,000 organization variables, 500 variables per repository, and 100 variables per environment. The total size limit for each organization and repository is 256 KB.
 
 A workflow created in a repository can access the following number of variables:
 
-* All 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-* All 1,000 environment variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-* All 100 environment variables.
+* Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+* Up to 100 environment variables.
 
-Variables are limited to 48 KB in size.
+Individual variables are limited to 48 KB in size.
 
 {% note %}
 
@@ -259,11 +259,9 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_JOB` | The [job_id](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
-{%- endif %}
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
 {%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_REPOSITORY_ID` | {% data reusables.actions.repository_id-description %} |
@@ -333,4 +331,3 @@ In this example, the two `if` statements check the `os` property of the `runner`
  If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
 
  If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
-

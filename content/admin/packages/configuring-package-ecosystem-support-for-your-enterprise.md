@@ -22,7 +22,7 @@ You can choose which package ecosystems you'd like to enable, disable, or set to
 
 ## Prerequisites
 
-Before you can configure individual package ecosystems, {% data variables.product.prodname_registry %} must be enabled and configured for your instance. For more information, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+Before you can configure individual package ecosystems, {% data variables.product.prodname_registry %} must be enabled and configured for your instance. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 
 ## Enabling or disabling individual package ecosystems
 

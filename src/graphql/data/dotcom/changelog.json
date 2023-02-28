@@ -4,6 +4,40 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>expectedHeadOid</code> was added to input object type <code>EnablePullRequestAutoMergeInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'CreateProjectV2FieldInput' was added</p>",
+          "<p>Type 'CreateProjectV2FieldPayload' was added</p>",
+          "<p>Type 'DeleteProjectV2FieldInput' was added</p>",
+          "<p>Type 'DeleteProjectV2FieldPayload' was added</p>",
+          "<p>Type 'ProjectV2CustomFieldType' was added</p>",
+          "<p>Type 'ProjectV2SingleSelectFieldOptionColor' was added</p>",
+          "<p>Type 'ProjectV2SingleSelectFieldOptionInput' was added</p>",
+          "<p>Field 'createProjectV2Field<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'deleteProjectV2Field<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ROADMAP_LAYOUT<code>was added to enum</code>ProjectV2ViewLayout'</p>"
         ]
       }

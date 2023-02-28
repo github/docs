@@ -10,7 +10,7 @@ We recommend different hardware configurations depending on the number of user l
 
 {% data reusables.actions.more-resources-for-ghes %}
 
-If you plan to enable {% data variables.product.prodname_container_registry %} for the users of your instance, more resources are required. For more information about these requirements, see "[Getting started with GitHub Packages for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+If you plan to enable {% data variables.product.prodname_container_registry %} for the users of your instance, more resources are required. For more information about these requirements, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 

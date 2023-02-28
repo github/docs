@@ -40,7 +40,7 @@ The page that's displayed allows you to enable or disable all security and analy
 
 ## Enabling or disabling a feature for all existing repositories
 
-You can enable or disable features for all repositories. 
+You can enable or disable features for all repositories.
 {% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
 
 - **Private vulnerability reporting** - Your changes affect public repositories only.
@@ -48,9 +48,9 @@ You can enable or disable features for all repositories.
 - **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
 - **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
 {%- ifversion ghec %}
-- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
-{% endif %}
+- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.{% endif %}
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
+
 
 {% endif %}
 
@@ -61,6 +61,16 @@ You can enable or disable features for all repositories.
 
 **Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 {% endnote %}
+{% endif %}
+
+{% ifversion dependabot-alerts-enterprise-enablement %}
+
+{% note %}
+
+**Note:** When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization level settings for {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-enterprise)."
+
+{% endnote %}
+
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
@@ -74,27 +84,23 @@ You can enable or disable features for all repositories.
    {% ifversion ghes %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
-   
-   
    {% ifversion ghae %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
    {% endif %}
    {% ifversion fpt or ghec %}
 3. Optionally, enable the feature by default for new repositories in your organization.
    {% ifversion fpt or ghec %}
-   !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
+    !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
    {% endif %}
-   
    {% endif %}
    {% ifversion fpt or ghec %}
-4. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
+2. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
    {% ifversion fpt or ghec %}
    ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
    {% endif %}
-   
    {% endif %}
    {% ifversion ghae or ghes %}
-5. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
+3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
    ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
 
@@ -110,7 +116,6 @@ You can enable or disable features for all repositories.
   {% ifversion ghes %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
-   
    {% ifversion ghae %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
