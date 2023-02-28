@@ -91,16 +91,18 @@ Keep these ideas in mind when using {% data variables.product.pat_generic %}s:
 
 ## Determining which integration to build
 
-Before you get started creating integrations, you need to determine the best way to access, authenticate, and interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs. The following image offers some questions to ask yourself when deciding whether to use {% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_apps %} for your integration.
+Before you get started creating integrations, you need to determine the best way to access, authenticate, and interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs.
 
-![Intro to apps question flow](/assets/images/intro-to-apps-flow.png)
-
-Consider these questions about how your integration needs to behave and what it needs to access:
+To decide whether to use {% data variables.product.pat_generic %}s, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_apps %} for your integration, consider these questions about how your integration needs to behave and what it needs to access:
 
 * Will my integration act only as me, or will it act more like an application?
 * Do I want it to act independently of me as its own entity?
 * Will it access everything that I can access, or do I want to limit its access?
 * Is it simple or complex? For example, {% data variables.product.pat_generic %}s are good for simple scripts and `curl` commands, whereas an {% data variables.product.prodname_oauth_app %} can handle more complex scripting.
+
+If the integration will act only as you, but you want to limit its access, use a {% data variables.product.prodname_github_app %} or a {% data variables.product.pat_v2 %}.
+
+If the integration will act more like an application, consider whether you want the integration to act independently of you as its own entity. If so, use a {% data variables.product.prodname_github_app %}.
 
 ## Requesting support
 

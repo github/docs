@@ -9,4 +9,5 @@ versions:
 children:
   - /hello-world
   - /link-rewriting
+  - /dynamic-title
 ---

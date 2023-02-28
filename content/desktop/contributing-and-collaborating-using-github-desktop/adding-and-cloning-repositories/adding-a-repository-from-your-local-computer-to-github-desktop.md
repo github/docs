@@ -16,12 +16,11 @@ shortTitle: Add a repository
 
 {% mac %}
 
-1. In the **File** menu, click **Add Local Repository**.
-  ![Add Local Repository menu option](/assets/images/help/desktop/add-local-repository-mac.png)
-2. Click **Choose...** and, using the Finder window, navigate to the local repository you want to add.
-  ![The Local Path field in the Mac app](/assets/images/help/desktop/add-repo-choose-button-mac.png)
-4. Click **Add Repository**.
-  ![The Add repository button in the Mac app](/assets/images/help/desktop/add-repository-button-mac.png)
+1. In the menu bar, select **File**, then click **Add Local Repository**.
+  ![Screenshot of the menu bar on a Mac. The "File" dropdown menu is open, and an option labeled "Add Local Repository" is highlighted with an orange outline.](/assets/images/help/desktop/add-local-repository-mac.png)
+2. In the "Add Local Repository" window, click **Choose...**, then use the Finder window to navigate to the local repository you want to add.
+  ![Screenshot of the "Add Local Repository" window. Next to the "repository path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/add-repo-choose-button-mac.png)
+3. When you have chosen the local repository, in the "Add Local Repository" window, click **Add Repository**.
 
 {% endmac %}
 

@@ -53,7 +53,7 @@ Yes, the dependency graph has two categories of limits:
     Manifest files stored in directories with names that are typically used for vendored dependencies will not be processed. A directory whose name matches the following regular expressions is considered a vendored dependencies directory:
       - <code>(3rd|[Tt]hird)[-_]?[Pp]arty/</code>
       - <code>(^|/)vendors?/</code>
-      - <code>^|/)[Ee]xtern(als?)?/</code>
+      - <code>(^|/)[Ee]xtern(als?)?/</code>
       - <code>(^|/)[Vv]+endor/</code>
 
       Examples: 
