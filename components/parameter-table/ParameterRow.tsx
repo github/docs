@@ -106,24 +106,18 @@ export function ParameterRow({
                 )}
                 {rowParams.enum && rowParams.enum.length && (
                   <p>
-                    {rowParams.enum.length > 1 ? (
-                      <>
-                        <span>{t('enum_description_title')}: </span>
-                        {rowParams.enum.map((item, index, array) => (
-                          <span key={item + index}>
-                            <code>{item}</code>
-                            {index !== array.length - 1 && ','}{' '}
-                          </span>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <span>{t('single_enum_description')}: </span>
-                        <span key={rowParams.enum[0]}>
-                          <code>{rowParams.enum[0]}</code>
-                        </span>
-                      </>
-                    )}
+                    <span>
+                      {rowParams.enum.length === 1
+                        ? t('single_enum_description')
+                        : t('enum_description_title')}
+                      :{' '}
+                    </span>
+                    {rowParams.enum.map((item, index, array) => (
+                      <span key={`${item}${index}`}>
+                        <code>{item === null ? <i>null</i> : item}</code>
+                        {index !== array.length - 1 && ','}{' '}
+                      </span>
+                    ))}
                   </p>
                 )}
               </div>
