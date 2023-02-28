@@ -17,7 +17,7 @@ Additionally, download:
 
 **Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
 
-- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in the following files (in the `.github/ISSUE_TEMPLATE/` directory): [`release-tier-1-or-2-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-1-or-2-tracking.yml) and [`release-tier-3-or-tier-4.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tier-3-or-tier-4.yml).
+- [ ] In the `docs-content` repo, remove the deprecated GHES version number from the `options` list in [`release-tracking.yml`](https://github.com/github/docs-content/blob/main/.github/ISSUE_TEMPLATE/release-tracking.yml).
 - [ ] When the PR is approved, merge it in. This can be merged independently from all other steps.
 
 ## Step 1: Scrape the docs and archive the files
@@ -121,7 +121,7 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
 - [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
-- [ ] Re-generate the static files by running `script/rest/update-files.js --decorate-only`.
+- [ ] Re-generate the static files by running `src/rest/scripts/update-files.js --decorate-only`.
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
 
@@ -158,8 +158,8 @@ For each language, upload the new file to Azure blob storage in the `enterprise`
 
 After uploading the new files, you will need to purge the Fastly cache for the single page. From Okta, go to Fastly and select `docs`. Click `Purge` then `Purge URL`. If you need to purge a whole path, just do a `Purge All`
 
-![](/assets/images/fastly_purge.jpg)
+![](/contributing/images/fastly_purge.jpg)
 
 Enter the URL or path and do a soft purge.
 
-![](/assets/images/fastly_purge_url.jpg)
+![](/contributing/images/fastly_purge_url.jpg)

@@ -20,7 +20,7 @@ shortTitle: Troubleshoot a custom domain
 
 {% ifversion pages-custom-workflow %}If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, any _CNAME_ file is ignored and is not required.{% endif %}
 
-If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+If you are publishing from a branch, custom domains are stored in a _CNAME_ file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
 
 For your site to render at the correct domain, make sure your _CNAME_ file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the _CNAME_ file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.product_name %}, make sure to pull the commit that added the _CNAME_ file to your local repository first, so the file will be included in the build.
 
@@ -37,7 +37,7 @@ If you have trouble pointing the default domain for your site to your custom dom
 
 You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
-- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+- A CLI tool such as `dig`. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)".
 - An online DNS lookup tool.
 
 ## Custom domain names that are unsupported
@@ -49,23 +49,23 @@ Make sure your site does not:
 - Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
 - Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
-  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
+  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
+For a list of supported custom domains, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#supported-custom-domains)."
 
 ## HTTPS errors
 
-{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
+{% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with `CNAME`, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)."
 
-It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site's repository to trigger the process of enabling HTTPS. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
 
 If you're using Certification Authority Authorization (CAA) records, at least one CAA record must exist with the value `letsencrypt.org` for your site to be accessible over HTTPS. For more information, see "[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)" in the Let's Encrypt documentation.
 
 ## URL formatting on Linux
 
-If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username/)."
+If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)."
 
 ## Browser cache
 

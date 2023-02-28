@@ -18,9 +18,9 @@ When a student accepts a group assignment, the student can create a new team or 
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
-For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+For a video demonstration of the creation of a group assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)."
 
 {% data reusables.classroom.reuse-assignment-link %}
 
@@ -54,7 +54,7 @@ For a group assignment, {% data variables.product.prodname_classroom %} names re
 
 ### Choosing an assignment type
 
-Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
+Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
 
 ### Defining teams for an assignment
 
@@ -95,7 +95,7 @@ By default, a new assignment will create an empty repository for each team that 
 
 ### Choosing an integrated development environment (IDE)
 
-{% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-online-ides %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
 {% data reusables.classroom.classroom-codespaces-link %}
 
@@ -144,14 +144,13 @@ The assignment overview page displays information about your assignment acceptan
 
 ## Next steps
 
-- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Repositories](/repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- After you create the assignment and your students form teams, team members can start work on the assignment using Git and {% data variables.product.product_name %}'s features. Students can clone the repository, push commits, manage branches, create and review pull requests, address merge conflicts, and discuss changes with issues. Both you and the team can review the commit history for the repository. For more information, see "[AUTOTITLE](/get-started)," "[AUTOTITLE](/repositories)," "[AUTOTITLE](/get-started/using-git)," and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests)," and the free course on [resolving merge conflicts](https://github.com/skills/resolve-merge-conflicts) from {% data variables.product.prodname_learning %}.
 
-- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- When a team finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand how the team collaborated. For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository)."
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)." For more information about creating saved replies to provide feedback for common errors, see "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies)."
 
 ## Further reading
 
 - [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
-- "[Connect a learning management system course to a classroom](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"

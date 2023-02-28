@@ -19,6 +19,7 @@ topics:
   - User account
 shortTitle: View history & receipts
 ---
+
 ## Viewing receipts for your personal account
 
 {% data reusables.user-settings.access_settings %}
@@ -33,3 +34,18 @@ shortTitle: View history & receipts
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}
+
+{% ifversion ghec %}
+## Viewing receipts for your enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+You cannot view receipts if your enterprise account is invoiced.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.user-settings.payment-info-link %}
+{% data reusables.dotcom_billing.download_receipt %}
+
+{% endif %}

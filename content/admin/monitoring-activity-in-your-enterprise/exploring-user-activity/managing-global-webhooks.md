@@ -26,7 +26,7 @@ topics:
 
 ## About global webhooks
 
-You can use global webhooks to notify an external web server when events occur within your enterprise. You can configure the server to receive the webhook's payload, then run an application or code that monitors, responds to, or enforces rules for user and organization management for your enterprise. For more information, see "[Webhooks](/developers/webhooks-and-events/webhooks)."
+You can use global webhooks to notify an external web server when events occur within your enterprise. You can configure the server to receive the webhook's payload, then run an application or code that monitors, responds to, or enforces rules for user and organization management for your enterprise. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks)."
 
 For example, you can configure {% data variables.location.product_location %} to send a webhook when someone creates, deletes, or modifies a repository or organization within your enterprise. You can configure the server to automatically perform a task after receiving the webhook.
 
@@ -65,8 +65,7 @@ For example, you can configure {% data variables.location.product_location %} to
       {% elsif ghes or ghae %}
       ![Checkboxes for individual global webhook events](/assets/images/enterprise/site-admin-settings/add-global-webhook-select-individual-events-ghes-and-ae.png)
       {% endif %}
-12. Confirm that the **Active** checkbox is selected.
-  ![Selected Active checkbox](/assets/images/help/business-accounts/webhook-active.png)
+12. Confirm that **Active** is selected.
 13. Click **Add webhook**.
 
 ## Editing a global webhook

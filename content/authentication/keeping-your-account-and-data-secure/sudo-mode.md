@@ -9,7 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 topics:
   - Identity
   - Access management
@@ -54,7 +53,7 @@ To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge
 
 ### Confirming access using a security key
 
-You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+You must configure two-factor authentication (2FA) for your account using a security key to confirm access to your account for sudo mode using the security key. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
@@ -64,7 +63,7 @@ When prompted to authenticate for sudo mode, click **Use security key**, then fo
 
 ### Confirming access using {% data variables.product.prodname_mobile %}
 
-You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
+You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[AUTOTITLE](/get-started/using-github/github-mobile)."
 
 1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
 
@@ -78,7 +77,7 @@ You must install and sign into {% data variables.product.prodname_mobile %} to c
 
 ### Confirming access using a 2FA code
 
-You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or text messages{% endif %} to confirm access to your account for sudo mode using a 2FA code. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
 

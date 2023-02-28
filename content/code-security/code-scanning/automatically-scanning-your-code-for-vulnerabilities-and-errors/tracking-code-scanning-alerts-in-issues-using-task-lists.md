@@ -26,7 +26,7 @@ You can also create a new issue to track an alert:
 
 - Via the API as you normally would, and then provide the code scanning link within the body of the issue. You must use the task list syntax to create the tracked relationship: 
    - `- [ ] <full-URL- to-the-code-scanning-alert>`
-   - For example, if you add `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` to an issue, the issue will track the code scanning alert that has an ID number of 17 in the "Security" tab of the `octocat-repo` repository in the `octocat-org` organization.
+   - For example, if you add `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` to an issue, the issue will track the code scanning alert that has an ID number of 17 in the **Security** tab of the `octocat-repo` repository in the `octocat-org` organization.
 
 You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
 
@@ -66,7 +66,7 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% ifversion fpt or ghes or ghae %}
 {% data reusables.code-scanning.explore-alert %}
-1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
 {% endif %}
 1. Towards the top of the page, on the right side, click **Create issue**. 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}

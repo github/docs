@@ -18,6 +18,8 @@ on:
       - .eslintrc.cjs
       # In case something like eslint or tsc or prettier upgrades
       - 'package-lock.json'
+      # In case one of the script definitions changed
+      - 'package.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/code-lint.yml
 
@@ -32,19 +34,12 @@ concurrency:
 jobs:
   lint:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Run linter
         run: npm run lint

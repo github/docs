@@ -1,11 +1,16 @@
-import { Box, Pagination, Text, Heading } from '@primer/react'
+import { Box, Pagination, Text } from '@primer/react'
+import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
+import cx from 'classnames'
 
 import type { SearchResultsT, SearchResultHitT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { useNumberFormatter } from 'components/hooks/useNumberFormatter'
 import { Link } from 'components/Link'
 import { useQuery } from 'components/hooks/useQuery'
 import { sendEvent, EventType } from 'components/lib/events'
+
+import styles from './SearchResults.module.scss'
 
 type Props = {
   results: SearchResultsT
@@ -13,28 +18,20 @@ type Props = {
 }
 export function SearchResults({ results, query }: Props) {
   const { t } = useTranslation('search')
+  const { formatInteger } = useNumberFormatter()
 
   const pages = Math.ceil(results.meta.found.value / results.meta.size)
   const { page } = results.meta
 
   return (
     <div>
-      <p>
-        <Text>
-          {t('results_found')
-            .replace('{n}', results.meta.found.value.toLocaleString())
-            .replace('{s}', results.meta.took.total_msec.toFixed(0))}{' '}
-        </Text>
-        <br />
-        {pages > 1 && (
-          <Text>
-            {t('results_page').replace('{page}', page).replace('{pages}', pages.toLocaleString())}
-          </Text>
-        )}
-      </p>
-
+      <Text>
+        {results.meta.found.value === 1
+          ? t('one_result')
+          : t('n_results').replace('{n}', formatInteger(results.meta.found.value))}
+      </Text>
+      <br />
       <SearchResultHits hits={results.hits} query={query} />
-
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
@@ -62,10 +59,11 @@ function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: st
 function NoSearchResults() {
   const { t } = useTranslation('search')
   return (
-    <div className="my-6">
-      <Heading as="h2" sx={{ fontSize: 1 }}>
-        {t('nothing_found')}
-      </Heading>
+    <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
+      <div className="d-flex flex-items-center flex-column p-4">
+        <SearchIcon size={24} />
+        <Text className="f2 mt-3">{t('n_results').replace('{n}', 0)}</Text>
+      </div>
     </div>
   )
 }
@@ -87,7 +85,15 @@ function SearchResultHit({
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
 
   return (
-    <div className="my-6">
+    <div className={cx('my-6', styles.search_result)} data-testid="search-result">
+      <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
+        {hit.breadcrumbs.length > 1 && (
+          <>
+            <strong>{hit.breadcrumbs.split('/')[0]}</strong>
+            {hit.breadcrumbs.replace(hit.breadcrumbs.split('/')[0], '')} /
+          </>
+        )}
+      </p>
       <h2 className="f3">
         <Link
           href={hit.url}
@@ -105,12 +111,9 @@ function SearchResultHit({
           }}
         ></Link>
       </h2>
-      <h3 className="text-normal f4 mb-2">{hit.breadcrumbs}</h3>
-      <ul className="ml-3">
-        {(hit.highlights.content || []).map((highlight, i) => {
-          return <li key={highlight + i} dangerouslySetInnerHTML={{ __html: highlight }}></li>
-        })}
-      </ul>
+      {hit.highlights.content && hit.highlights.content.length > 0 && (
+        <div dangerouslySetInnerHTML={{ __html: hit.highlights.content[0] }}></div>
+      )}
       {debug && (
         <Text as="p" fontWeight="bold">
           score: <code style={{ marginRight: 10 }}>{hit.score}</code> popularity:{' '}
@@ -133,13 +136,13 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
     } else {
       params.set('page', `${page}`)
     }
-    return `/${router.locale}${asPathRoot}?${params.toString()}`
+    return `/${router.locale}${asPathRoot}?${params}`
   }
 
   return (
     <Box borderRadius={2} p={2}>
       <Pagination
-        pageCount={totalPages}
+        pageCount={Math.min(totalPages, 10)}
         currentPage={page}
         hrefBuilder={hrefBuilder}
         onPageChange={(event, page) => {
@@ -154,9 +157,9 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
           }
           let asPath = `/${router.locale}${asPathRoot}`
           if (params.toString()) {
-            asPath += `?${params.toString()}`
+            asPath += `?${params}`
           }
-          router.push(asPath, undefined, { shallow: true })
+          router.push(asPath)
         }}
       />
     </Box>

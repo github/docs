@@ -1,0 +1,5 @@
+# Issue 9539
+# Vertical markers on roadmaps, ability to move between iterations
+versions:
+  fpt: '*'
+  ghec: '*'

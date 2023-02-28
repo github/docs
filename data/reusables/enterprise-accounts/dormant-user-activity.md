@@ -1,4 +1,4 @@
-A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}.
+A user is considered active if the user has performed any of the following activities on {% ifversion fpt or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% elsif ghec %}your enterprise{% endif %}.
 
 - Signing into {% data variables.location.product_location %}
 - Creating a repository
@@ -20,7 +20,6 @@ A user is considered active if the user has performed any of the following activ
 - Watching a repository
 - Starring a repository
 - Deleting a repository
-- Accessing resources by using a {% data variables.product.pat_generic %} or SSH key
 - Joining an organization
 
 {% ifversion ghes %}

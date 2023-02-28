@@ -15,7 +15,7 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 

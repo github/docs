@@ -35,10 +35,10 @@ topics:
 {% data reusables.actions.concurrency-table-entry %}
 | Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
-| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
+| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Caching dependencies: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+| Caching dependencies: | [`actions/cache`](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)|
 | Running tests on the runner: | `npm test`|
 
 ## Example workflow
@@ -244,7 +244,7 @@ on:
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
@@ -256,7 +256,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
+Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
@@ -296,7 +296,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -310,7 +310,7 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
 </td>
 </tr>
 <tr>
@@ -611,7 +611,7 @@ This step runs the `npm ci` shell command to install the npm software packages f
 </td>
 <td>
 
-This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 </td>
 </tr>
 <tr>

@@ -39,7 +39,7 @@ sections:
       In some cases, on an instance with a GitHub Advanced Security license, some tokens detected by secret scanning were reported as "unknown tokens."
   changes:
     - |
-      To ensure that site administrators can successfully complete an upgrade, the instance will now execute a preflight check to ensure that the virtual machine meets minimum hardware requirements. The check also verifies Elasticsearch's health. You can review the current requirements for CPU, memory, and storage for GitHub Enterprise Server in the "Minimum requirements" section within each article in "[Setting up a GitHub Enterprise Server instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+      To ensure that site administrators can successfully complete an upgrade, the instance will now execute a preflight check to ensure that the virtual machine meets minimum hardware requirements. The check also verifies Elasticsearch's health. You can review the current requirements for CPU, memory, and storage for GitHub Enterprise Server in the "Minimum requirements" section within each article in "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -52,7 +52,7 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
-    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
     - |
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'

@@ -21,7 +21,7 @@ shortTitle: Export data from GitHub.com
 ---
 ## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 
-1. Ensure that you have [owner permissions](/articles/permission-levels-for-an-organization/) on the source organization's repositories.
+1. Ensure that you have [owner permissions](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) on the source organization's repositories.
 
 2. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -38,7 +38,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
-1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[About Migrations](/enterprise/admin/migrations/about-migrations#types-of-migrations)."
+1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/about-migrations#types-of-migrations)."
 
 2. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
     * Your access token for authentication.

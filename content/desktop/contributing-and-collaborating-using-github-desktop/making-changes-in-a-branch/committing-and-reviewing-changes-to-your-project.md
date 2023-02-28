@@ -12,11 +12,11 @@ shortTitle: Commit & review changes
 
 {% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
-{% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
+{% data reusables.desktop.update-email-address %} For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop)."
 
 ## Choosing a branch and making changes
 
-1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
+1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
   ![Drop down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
@@ -101,13 +101,13 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% note %}
 
-**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)."
 
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
 
-  ![Commit message field](/assets/images/help/desktop/commit-message.png)
+  ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
   ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
@@ -118,15 +118,15 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
     - To move your changes, click **switch branches**.
     - To commit your changes to the protected branch, click **Commit to _BRANCH_**.
 
-  For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
+  For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
 
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
 
-6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request. For more information about checks, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
  ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
 
- If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to create one. For more information, see "[Creating an issue or pull request](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+ If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
 
  ![Creating a pull request](/assets/images/help/desktop/mac-create-pull-request.png)

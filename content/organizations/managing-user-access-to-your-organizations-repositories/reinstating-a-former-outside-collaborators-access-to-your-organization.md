@@ -34,9 +34,9 @@ When you reinstate a former outside collaborator, you can restore:
 
 **Tips**:
 
- - Only organization owners can reinstate outside collaborators' access to an organization.{% ifversion prevent-org-admin-add-outside-collaborator %} Enterprise owners may further restrict the ability to reinstate outside collaborators' access to enterprise owners only.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - Only organization owners can reinstate outside collaborators' access to an organization.{% ifversion prevent-org-admin-add-outside-collaborator %} Enterprise owners may further restrict the ability to reinstate outside collaborators' access to enterprise owners only.{% endif %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
  - The reinstating a member flow on {% data variables.location.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% ifversion fpt or ghec %}
- - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."{% endif %}
+ - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."{% endif %}
 
 {% endtip %}
 
@@ -50,7 +50,7 @@ When you reinstate a former outside collaborator, you can restore:
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
 
@@ -60,7 +60,7 @@ When you reinstate a former outside collaborator, you can restore:
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
 
@@ -79,4 +79,4 @@ When you reinstate a former outside collaborator, you can restore:
 
 ## Further Reading
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

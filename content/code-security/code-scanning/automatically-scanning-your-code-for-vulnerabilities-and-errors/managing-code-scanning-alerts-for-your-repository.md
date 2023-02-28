@@ -9,7 +9,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
@@ -28,7 +27,7 @@ topics:
 
 ## Viewing the alerts for a repository
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
 
 You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
 
@@ -54,11 +53,11 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
    ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
-For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
 
 {% note %}
 
-**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository. 
+**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository.
 
 For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
   ![UI banner](/assets/images/help/repository/code-scanning-ui-banner.png)
@@ -67,7 +66,7 @@ For example, you can see when the last scan ran, the number of lines of code ana
 
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 
-You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed. 
+You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed.
 
 - To use a predefined filter, click **Filters**, or a filter shown in the header of the list of alerts, and choose a filter from the drop-down list.
   {% ifversion fpt or ghes or ghec %}![Predefined filters](/assets/images/help/repository/code-scanning-predefined-filters.png)
@@ -85,9 +84,9 @@ If you enter multiple filters, the view will show alerts matching _all_ these fi
 {% data reusables.code-scanning.filter-non-default-branches %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.3 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
-You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% ifversion codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
+You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% ifversion codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
 
 {% endif %}
 
@@ -114,11 +113,11 @@ You can search the list of alerts. This is useful if there is a large number of 
 | Multiple word search | `sql injection` | Returns all the alerts containing `sql` or `injection` |
 | Exact match search</br>(use double quotes) |  `"sql injection"` | Returns all the alerts containing the exact phrase `sql injection` |
 | OR search | `sql OR injection` | Returns all the alerts containing `sql` or `injection` |
-| AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` | 
+| AND search | `sql AND injection` | Returns all the alerts containing both words `sql` and `injection` |
 
 {% tip %}
 
-**Tips:** 
+**Tips:**
 - The multiple word search is equivalent to an OR search.
 - The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
@@ -144,11 +143,11 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 ## Fixing an alert
 
-Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
 
 If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
-You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
+You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
@@ -161,7 +160,7 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" f
 {% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% note %}
 
-**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
 
 {% endnote %}
 {% endif %}
@@ -176,7 +175,7 @@ When you dismiss an alert:
 - It's dismissed in all branches.
 - The alert is removed from the number of current alerts for your project.
 - The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-- The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %} 
+- The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
 - Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
 - Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
@@ -206,7 +205,7 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
 {%- ifversion comment-dismissed-code-scanning-alert %}
-1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert. 
+1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert.
   ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {%- else %}
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
@@ -222,6 +221,6 @@ If a project has multiple alerts that you want to dismiss for the same reason, y
 
 ## Further reading
 
-- "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"
-- "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"
-- "[About integration with {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-integration-with-code-scanning)"
+- "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)"
+- "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)"
+- "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"

@@ -22,7 +22,7 @@ shortTitle: Migrate from 11.10.x to 2.1.23
 ---
 Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
-To upgrade to the latest version of {% data variables.product.prodname_enterprise %}, you must first migrate to {% data variables.product.prodname_ghe_server %} 2.1, then you can follow the normal upgrade process. For more information, see "[Upgrading {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
+To upgrade to the latest version of {% data variables.product.prodname_enterprise %}, you must first migrate to {% data variables.product.prodname_ghe_server %} 2.1, then you can follow the normal upgrade process. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".
 
 ## Prepare for the migration
 
@@ -50,13 +50,10 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 2. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 3. Set an admin password.
 5. Click **Migrate**.
-![Choosing install type](/assets/images/enterprise/migration/migration-choose-install-type.png)
-6. Paste your backup host access SSH key into "Add new SSH key".
-![Authorizing backup](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
+6. In the "Add new SSH key" text field, paste your backup host access SSH key.
 7. Click **Add key** and then click **Continue**.
 8. Copy the `ghe-restore` command that you'll run on the backup host to migrate data to the new instance.
-![Starting a migration](/assets/images/enterprise/migration/migration-restore-start.png)
-9. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+9. Enable maintenance mode on the old instance and wait for all active processes to complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
   {% note %}
 
@@ -87,9 +84,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
   ```
 
 12. Return to the new instance's restore status screen to see that the restore completed.
-![Restore complete screen](/assets/images/enterprise/migration/migration-status-complete.png)
 13. Click **Continue to settings** to review and adjust the configuration information and settings that were imported from the previous instance.
-![Review imported settings](/assets/images/enterprise/migration/migration-status-complete.png)
 14. Click **Save settings**.
 
   {% note %}
@@ -99,4 +94,4 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
   {% endnote %}
 
 15. Switch user network traffic from the old instance to the new instance using either DNS or IP address assignment.
-16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Upgrade to the latest patch release of {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."

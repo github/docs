@@ -4,7 +4,6 @@ shortTitle: Manage access with runner groups
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +16,7 @@ type: tutorial
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% ifversion target-runner-groups %}
-For information on how to route jobs to runners in a specific group, see "[Choosing runners in a group](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
+For information on how to route jobs to runners in a specific group, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
 {% endif %}
 
 ## About runner groups

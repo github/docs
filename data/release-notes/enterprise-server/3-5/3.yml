@@ -15,8 +15,8 @@ sections:
     - The GitHub Enterprise Importer did not correctly migrate settings for projects within repositories. 
     - On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible. 
     - The site admin dashboard erroneously included an option to export a report listing dormant users. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
     - In the sidebar for an organization's settings, the **Archive** navigation item contained no children.
     - |
       VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]

@@ -13,11 +13,17 @@ topics:
 
 ## Overview
 
-{% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for a defined number of days. The retention period for each codespace is set when the codespace is created and does not change. 
+{% data reusables.codespaces.automatic-deletion %}
 
-Everyone who has access to {% data variables.product.prodname_github_codespaces %} can configure a retention period for the codespaces they create. The initial setting for this default retention period is 30 days. Individual users can set this period within the range 0-30 days. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." 
+{% data variables.product.prodname_dotcom %} users can set a personal retention period of less than 30 days for codespaces they create. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 
-As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization. 
+As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization.
+
+{% note %}
+
+**Note**: Setting a maximum retention policy for a repository prevents people from exempting a codespace from automatic deletion. The "Keep codespace" option will be unavailable for codespaces created for that repository. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
+
+{% endnote %}
 
 ### Setting organization-wide and repository-specific policies
 
@@ -46,7 +52,7 @@ If you add an organization-wide policy with a retention constraint, you should s
 
    {% note %}
 
-   **Notes**: 
+   **Notes**
    * A day, in this context, is a 24-hour period, beginning at the time of day when the codespace was stopped.
    * The valid range is 0-30 days.
    * Setting the period to `0` will result in codespaces being immediately deleted when they are stopped, or when they timeout due to inactivity.
@@ -55,10 +61,10 @@ If you add an organization-wide policy with a retention constraint, you should s
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[Restricting the base image for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
 1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy will be applied to all new codespaces that are billable to your organization. The retention period constraint is only applied on codespace creation.
@@ -74,7 +80,7 @@ The retention period constraint is only applied to codespaces when they are crea
 1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Retention period" constraint.
 1. Make the required changes then click **Save**.
 
-## Deleting a policy 
+## Deleting a policy
 
 You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
 

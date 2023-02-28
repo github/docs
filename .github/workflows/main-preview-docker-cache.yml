@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@66d2e78565ab7af265d2b627085bc34c73ce6abb
+        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
@@ -49,10 +49,6 @@ jobs:
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Clone docs-early-access
@@ -72,7 +68,7 @@ jobs:
         run: .github/actions-scripts/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@1cb9d22b932e4832bb29793b7777ec860fc1cde0
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true

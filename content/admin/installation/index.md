@@ -23,4 +23,4 @@ For more information, or to purchase {% data variables.product.prodname_enterpri
 
 {% data reusables.enterprise_installation.request-a-trial %}
 
-If you have questions about the installation process, see "[Working with {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)."
+If you have questions about the installation process, see "[AUTOTITLE](/support)."

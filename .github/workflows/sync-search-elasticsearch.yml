@@ -35,31 +35,20 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
 
-  # This might seem a bit strange, but it's clever. Since this action
-  # uses a matrix to deal with one language at a time, we can use this
-  # to pretend it's always the same directory.
-  TRANSLATIONS_ROOT_ES_ES: translation
-  TRANSLATIONS_ROOT_ZH_CN: translation
-  TRANSLATIONS_ROOT_JA_JP: translation
-  TRANSLATIONS_ROOT_PT_BR: translation
-  TRANSLATIONS_ROOT_FR_FR: translation
-  TRANSLATIONS_ROOT_RU_RU: translation
-  TRANSLATIONS_ROOT_KO_KR: translation
-  TRANSLATIONS_ROOT_DE_DE: translation
-
 jobs:
   figureOutMatrix:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-matrix
         with:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["ja", "es", "pt", "cn", "ru", "fr", "ko", "de"]
+            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -110,25 +99,16 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Checkout the non-English repo
+      - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.${{ fromJSON('{"cn":"zh-cn","es":"es-es","ru":"ru-ru","ja":"ja-jp","pt":"pt-br","de":"de-de","fr":"fr-fr","ko":"ko-kr"}')[matrix.language] }}
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translation
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -206,7 +186,7 @@ jobs:
         run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
