@@ -63,7 +63,7 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 
    {% endnote %}
 
-   ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
+   ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
 After your pattern is created, {% data reusables.secret-scanning.secret-scanning-process %} For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -131,7 +131,7 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 
    {% endnote %}
 
-   ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
+![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -182,7 +182,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
    {% endnote %}
 
-   ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
+![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png){% endif %}
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -200,7 +200,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 {% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
 1. Optionally, to disable push protection for your custom pattern, click **Disable**.
 
-   ![Screenshot of custom pattern page with the button to disable push protection emphasized](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png){% endif %}
+   ![Screenshot of the custom pattern page with the button to disable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png){% endif %}
 
 ## Removing a custom pattern
 
@@ -211,5 +211,3 @@ When you save a change to a custom pattern, this closes all the {% data variable
 1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.
-
-   ![Confirming deletion of a custom {% data variables.product.prodname_secret_scanning %} pattern ](/assets/images/help/repository/secret-scanning-confirm-deletion-custom-pattern.png)
