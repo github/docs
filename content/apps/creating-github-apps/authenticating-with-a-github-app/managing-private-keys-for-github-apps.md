@@ -13,7 +13,7 @@ topics:
 
 ## About private keys for {% data variables.product.prodname_github_apps %}
 
-After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.product_name %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token.
+After you create a {% data variables.product.prodname_github_app %}, you'll need to generate a private key in order to make requests to the {% data variables.product.product_name %} API as the application itself. For example, you need a private key to sign a JSON Web Token (JWT) in order to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)"
 
 You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see "[Verifying private keys](#verifying-private-keys)".
 
