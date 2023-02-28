@@ -23,14 +23,11 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 {% data reusables.discussions.discussions-tab %}
 1. In the list of discussions, click the discussion you want to lock.
 
-   ![Screenshot of the discussion to be locked](/assets/images/help/discussions/unanswered-discussion.png)
+   ![Screenshot of the list of discussions with an unanswered discussion.](/assets/images/help/discussions/unanswered-discussion.png)
 
 1. In the right margin of a discussion, click **Lock conversation**.
 1. Read the information about locking conversations.{% ifversion discussions-lock-allow-reactions %}
-1. Optionally, to allow emoji reactions while the discussion is locked, select **Allow reactions**.
-
-   ![Screenshot of the lock discussion modal with the allow reactions option emphasized](/assets/images/help/discussions/allow-reactions-locked-discussion.png){% endif %}
-
+1. Optionally, to allow emoji reactions while the discussion is locked, select **Allow reactions**.{% endif %}
 1. To lock the conversation, click **Lock conversation**.
 1. When you're ready to unlock the conversation, click **Unlock conversation** in the right margin of a discussion, then click **Unlock conversation**.
 
@@ -50,5 +47,5 @@ When you convert an issue to a discussion, the discussion is automatically creat
 
 Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
 
-{% data reusables.organizations.blocking-a-user %} 
+{% data reusables.organizations.blocking-a-user %}
 {% endif %}
