@@ -26,7 +26,7 @@ export interface ChildParameter {
   description: string
   type: string
   isRequired?: boolean
-  enum?: Array<string>
+  enum?: null | string[]
   default?: string | boolean | number | undefined | string[]
   childParamsGroups?: ChildParameter[]
 }
