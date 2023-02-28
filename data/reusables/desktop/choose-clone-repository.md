@@ -2,7 +2,7 @@
 
   {% mac %}
 
-  ![Clone menu option in the Mac app](/assets/images/help/desktop/clone-file-menu-mac.png)
+  ![Screenshot of the menu bar on a Mac. The "File" dropdown menu is expanded, and the "Clone Repository" option is highlighted with an orange outline.](/assets/images/help/desktop/clone-file-menu-mac.png)
 
   {% endmac %}
 
