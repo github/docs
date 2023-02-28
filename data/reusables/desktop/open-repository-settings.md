@@ -1,8 +1,8 @@
-1. Open the **Repository** menu, then click **Repository settings...**.
+1. In the menu bar, select **Repository**, then click **Repository settings...**.
 
   {% mac %}
 
-  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
+  ![Screenshot of the menu bar on a Mac. Under the expanded "Repository" dropdown menu, a cursor hovers over "Repository Settings", highlighted in blue.](/assets/images/help/desktop/repository-settings-mac.png)
 
   {% endmac %}
 

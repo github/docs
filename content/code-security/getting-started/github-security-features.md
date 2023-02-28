@@ -98,16 +98,8 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-{% ifversion fpt %}
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
-Limited to free public repositories.
-{% endif %}
 
-{% ifversion ghec %}
-Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
-{% endif %}
-
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)"{% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
 
 ### Dependency review
 

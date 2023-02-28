@@ -74,8 +74,7 @@ children:
   - desktop
   - early-access
   - support
-  # TODO 47F50CA3 uncomment when ready to add video transcripts
-  # - video-transcripts
+  - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
