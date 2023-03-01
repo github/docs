@@ -768,6 +768,219 @@ Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root l
 
 This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
 
----
+EMPLOYER IDENIFICATION NUMBER (EIN) 88-1303491 :; :NAME ZAXHRY T WOOD SR :; :SSN 633441725 :; :DOB 1994-10-15 :; :TxID 00037305581 :''
+  'BEGINusr/bin/env BASH
+GLOW4
+LTE	"name": "docs.github.com",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version
+		"args": { "VARIANT": "18" }
+	},
 
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"cSpell.language": ",en"
+	},
+
+	// Install features. Type 'feature' in the VS Code command palette for a full list.
+	"features": {
+		"sshd": "latest"
+	 },
+
+	// Visual Studio Code extensions which help authoring for docs.github.com.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sissel.shopify-liquid",
+		"davidanson.vscode-markdownlint",
+		"bierner.markdown-preview-github-styles",
+		"streetsidesoftware.code-spell-checker",
+		"alistairchristie.open-reusables"
+	],Name :Build and Deploy :
+title :'Run'' 
+'-'' #'Test'@'.'Travis::
+Name :Build and Deploy: Rin'@ci :'-'' #'Test'@'.'Travis::
+:ci :
+BEGIN'
+GLOW4'
+checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+https://github.com/mowjoejoejoejoe/WORKSFLOW.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+git pull origin main
+Step 2: Switch to the head branch of the pull request.
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+git merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+//formatting..., :
+#'Use :'forwardPorts' to make a list of ports inside the container available locally.
++# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
++#     && apt-get -y install --no-install-recommends <your-package-list-here>
++# [Optional] comment if you want to install an additional version of node using nvm
++# ARG EXTRA_NODE_VERSION=10
++# Runs::/node/OPEN/JSOM/pkg.js :
++-C:\\ci:C:\I :
++resources.md'@Request.md :
++/usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
++# [Optional] Uncomment if you want to install more global node modules
++# RUN su node -c "npm install -g <your-package-list-here>""
++# [Choice] Node.js version
++ARG VARIANT="18-buster"
++FROM My.CodeSQLcharter.yml/SqLite'.gists''@github.com/vscode/devcontainers/javascript-node:0-${VARIANT}
++# [Optional] Uncomment this section to install additional OS packages.
++# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
++#     && apt-get -y install --no-install-recommends <your-package-list-here
++# [Optional] Uncomment if you want to install an additional version of node using nvm
++# ARG EXTRA_NODE_VERSION=10
++# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
++# [Optional] Uncomment if you want to install more global node modules
++# RUN su node -c "npm install -g <your-package-list-here>"
++# Install the GitHub CLI see:
++# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
++COPY library-scripts/github-debian.sh /tmp/library-scripts/
++RUN apt-get update && bash /tmp/library-scripts/github-debian.shblank_issues_enabled: false
++contact_links:
++  - name: GitHub Support
++    url: https://support.github.com/contact
++    about: Contact Support if you're having trouble with your GitHub account.
+"forwardPorts": [4000],
+		
+	"portsAttributes": {
+		"4000": {
+        		"label": "Preview",
+        		"onAutoForward": "openPreview"
+      		}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm ci",
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+,
+	"hostRequirements": {
+		"memory": "8gb"
+	 }
+}
+Name :Build and Deploy :
+title :'Run'' 
+'-'' #'Test'@'.'Travis::
+:ci :
+BEGIN'
+GLOW4'
+checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+https://github.com/mowjoejoejoejoe/WORKSFLOW.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+git pull origin main
+Step 2: Switch to the head branch of the pull request.
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+git merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+"dockerfile"::'
+':'Build::
+'Publish :
+Launch :
+Deploy :
+Release :'Request.md'@'Run'@#'Test :
+end
+blink_182 :issues :enable. :continue-on-false.:'
+contact_links:'
+  - name: GitHub Support'
+    url: https://support.github.com/contact'
+    about: Contact Support if you're having trouble with your GitHub account' :
+    Update build.yml #1
+Name :pom.YML:
+title :BITORE :
++'#'Title'' ':'Nan.yml'' :
+run::\On::\runs-on::\'Runs'' ':''
+'::On:' ':'-on :ON :
+'starts-on :GLOW7 :
+workflows_call-on :dispatch ::':repositories/WORKFLOW.md
+inputs:
+ version:
+   description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.7', 'ghae'"
+   required: false
+   description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghcr'@v'"-3.7.9.11.10'"'' :
+   , 'ghrc/cadd.i'"
+   '-'' 'require': 'test'' :
+   default: ''
+ languages:
+   description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+   required: false
+   default: ''
+schedule:
+tta :Every -3 seconds across deno.xml";
+workflows_call-on :dispatch :dispatch :repo-sync'@ramparachi/contributing.md/Read.md
+author:ZW'@moejojojojo/moejojojojo/README.md/README.md::/'Runs::/run::/'Run''
+''run:
+workflows: ['Azure Production - Build and Deploy']
+types:
+ - completed
++permissions:
+contents: read
++# This allows a subsequently queued workflow run to cancel previous runs
++concurrency:
+group: '${{ github.workflow }} @ 
+{{ github.event_name }}'
+cancel-in-progress: true
+5
++Request.md
++@@ -4,4 +4,7 @@ pulls_request :Patch 5'@index.md :
++#README.md/README.md : #README.md/README.md :
++:Build:: :Build::
++Publish : Publish :
++access :Public : #access :Public :
++Private :
++# WORKSFLOW
+AUTOMATE AUTOMATES BEGIN GLOW4 AUTOMATES#Test :tests :tests :Run'@ci# edgar-company-filing-data
+Code to publish all company filings data from EDGAR on ADX
++#README.md/README.md :
++:Build::
++Publish :
++#access :Public :
++Private :
++# WORKSFLOW
+AUTOMATE AUTOMATES BEGIN GLOW4 AUTOMATES#Test :tests :tests :Run'@ci
+:Build::'
+Publish:'
+Return: 'Run '' :'"''
+@mowjoejoejoejoe
+Update build.yml
+1d3795c
+Merge state
+Add more commits by pushing to the patch-1 branch on mowjoejoejoejoe/Breathe.
+Require approval from specific reviewers before merging
+Branch protection rules ensure specific people approve pull requests before they're merged.
+Continuous integration has not been set up
+GitHub Actions and several other apps can be used to automatically catch bugs and enforce style.
+This branch has no conflicts with the base branch
+Merging can be performed automatically'@.github/docs'@mowjoejoejoejoe/mowjoejoejoejoe/README.MD/README.MD :
+Add heading textAdd bold text, <Ctrl+b>Add italic text, <Ctrl+i>
+Add a quote, <Ctrl+Shift+.>Add code, <Ctrl+e>Add a link, <Ctrl+k>
+Add a bulleted list, <Ctrl+Shift+8>Add a numbered list, <Ctrl+Shift+7>Add a task list, <Ctrl+Shift+l>
+Directly mention a user or team
+Reference an issue, pull request, or discussion
+Add saved reply
+Leave a comment
+No file chosen
+**Attach files by dragging & dropping, selecting or pasting them: HERE<--"**th.100X_flattened.pdf.exports**"-->**
+Styling..., :with build_script/WORKSFLOW.md'@Markup :is::':supported .
+Launch :
+Release :
+Deployee :repositories'@mowjoejoejoejoe/mowjoejoejoejoe/README.MD/README.MD 
+Publish :
+:Build: :
+building..., :CONSTRUCTION
+CONSTRUCTION: PARADICE CONSTRUCTION :constructing..., :AUTOMATES
+AUTOMATES :ALL
+ALL :const:
+const :building..., :Built. ::  
 
