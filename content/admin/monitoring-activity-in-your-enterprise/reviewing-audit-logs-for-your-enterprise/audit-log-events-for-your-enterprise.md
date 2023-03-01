@@ -446,14 +446,6 @@ Action                        | Description
 | `external_identity.update` | An Okta user's settings were updated. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 {%- endif %}
 
-## `gist` category actions
-
-| Action | Description
-|--------|-------------
-| `gist.create` | A gist is created.
-| `gist.destroy` | A gist is deleted.
-| `gist.visibility_change` | The visibility of a gist is changed.
-
 {% ifversion git-events-audit-log %}
 ## `git` category actions
 
