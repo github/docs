@@ -3,7 +3,6 @@ title: Dependency review
 intro: Use the REST API to interact with dependency changes.
 versions:
   fpt: '*'
-  ghae: '>= 3.6'
   ghec: '*'
   ghes: '>=3.6'
 topics:
