@@ -114,39 +114,6 @@ export default async function dynamicAssets(req, res, next) {
     }
   }
 
-  // From PNG to AVIF, if the PNG exists
-  if (req.path.endsWith('.avif')) {
-    const { url, maxWidth, error } = deconstructImageURL(req.path)
-    if (error) {
-      return res.status(400).type('text/plain').send(error.toString())
-    }
-    try {
-      const originalBuffer = await fs.readFile(url.slice(1).replace(/\.avif$/, '.png'))
-      const image = sharp(originalBuffer)
-
-      if (maxWidth) {
-        const { width } = await image.metadata()
-        if (width > maxWidth) {
-          image.resize({ width: maxWidth })
-        }
-      }
-      const buffer = await image
-        .avif({
-          // The default is 4 (max is 9). Because this is a dynamic thing
-          // and AVIF encoding is slow for large images, go for a smaller
-          // effort to be sure it can't take too long on a busy server.
-          effort: 2,
-        })
-        .toBuffer()
-      assetCacheControl(res)
-      return res.type('image/avif').send(buffer)
-    } catch (error) {
-      if (error.code !== 'ENOENT') {
-        throw error
-      }
-    }
-  }
-
   // Cache the 404 so it won't be re-attempted over and over
   defaultCacheControl(res)
 
