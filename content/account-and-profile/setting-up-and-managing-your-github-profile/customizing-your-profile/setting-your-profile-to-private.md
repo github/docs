@@ -26,6 +26,7 @@ When your profile is private, the following content is hidden from your profile 
 - Follow and Sponsor buttons.
 - Organization memberships.
 - Stars, projects, packages, and sponsoring tabs.
+- Your pronouns.
 
 {% note %}
 
