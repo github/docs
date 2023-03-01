@@ -1,6 +1,9 @@
 ---
 title: Team synchronization
-intro: 'Use the REST API to manage connections between {% data variables.product.product_name %} teams and external identity provider (IdP) groups.'
+intro: >-
+  Use the REST API to manage connections between {% data
+  variables.product.product_name %} teams and external identity provider (IdP)
+  groups.
 versions:
   ghec: '*'
 topics:

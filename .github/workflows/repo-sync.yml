@@ -31,7 +31,7 @@ jobs:
     steps:
       - name: Find pull request
         if: ${{ github.repository == 'github/docs' }}
-        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
         id: find-pull-request
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
@@ -138,7 +138,7 @@ jobs:
           pr_allow_empty: false
 
       - name: Find pull request
-        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
         id: find-pull-request
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

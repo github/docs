@@ -1389,7 +1389,6 @@
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
     }
   ],
-  "dependency-graph": [],
   "deploy-keys": [
     {
       "slug": "list-deploy-keys",
@@ -1644,7 +1643,6 @@
       "requestPath": "/scim/v2/Users/{scim_user_id}"
     }
   ],
-  "gists": [],
   "git": [
     {
       "slug": "create-a-blob",
@@ -2055,8 +2053,6 @@
       "requestPath": "/repos/{owner}/{repo}/stats/punch_card"
     }
   ],
-  "migrations": [],
-  "oauth-authorizations": [],
   "orgs": [
     {
       "slug": "list-organizations",

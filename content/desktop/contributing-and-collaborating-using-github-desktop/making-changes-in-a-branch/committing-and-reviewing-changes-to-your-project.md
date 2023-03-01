@@ -18,7 +18,7 @@ shortTitle: Commit & review changes
 
 1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
-  ![Drop down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
+  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ## Choosing how to display diffs
@@ -29,30 +29,28 @@ To change how you view diffs, in the top-right corner of the diff view, click {%
 - To change how the entire diff is displayed, under "Diff display", select  **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
 - To hide whitespace changes so you can focus on more substantive changes, select **Hide Whitespace Changes**.
 
-![Diff option menu](/assets/images/help/desktop/diff-selection.png)
+![Screenshot of the diff view of a "README" file. A gear icon is outlined in orange above an expanded dropdown displaying "Whitespace" and "Diff display" settings.](/assets/images/help/desktop/diff-selection.png)
 
 If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff.
 - To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers.
 - To see the entire file, right-click in the diff view and click **Expand Whole File**.
 
-![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
+![Screenshot of the diff view of a "README" file. Over a green "addition" line, in a context menu, the cursor hovers over "Expand Whole File".](/assets/images/help/desktop/expand-diff-view.png)
 
 ## Selecting changes to include in a commit
 
 As you make changes to files in your text editor and save them locally, you will also see the changes in {% data variables.product.prodname_desktop %}.
 
+In the "Changes" tab in the left sidebar:
+
 * The red {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} icon indicates removed files.
 * The yellow {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} icon indicates modified files.
 * The green {% octicon "diff-added" aria-label="The diff added icon color-green" %} icon indicates added files.
 * To access stashed changes, click **Stashed Changes**.
-
-  ![Stashed changes option](/assets/images/help/desktop/stashed-changes.png)
 * {% data reusables.desktop.commit-all-desc %}
 
-  ![Select checkbox to commit all changed files](/assets/images/help/desktop/commit-all.png)
+  ![Screenshot of the "Changes" tab. Above the list of changed files, next to the text "3 changed files", a selected checkbox is outlined in orange.](/assets/images/help/desktop/commit-all.png)
 * {% data reusables.desktop.commit-some-desc %}
-
-  ![Select checkboxes next to the files you want to commit](/assets/images/help/desktop/commit-some.png)
 
 ### Creating a partial commit
 
@@ -60,7 +58,7 @@ If one file contains multiple changes, but you only want some of those changes t
 
 To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
 
-  ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
+  ![Screenshot of the diff view of a text file. Next to the text "I don't want to include this line", the background color behind the line numbers is green, not blue.](/assets/images/help/desktop/partial-commit.png)
 
 ## Discarding changes
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
@@ -72,10 +70,8 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
 
-  ![Discard Changes option in context menu](/assets/images/help/desktop/discard-changes-mac.png)
+  ![Screenshot of the "Changes" tab. Two selected files are highlighted in blue. In a context menu, the cursor hovers over "Discard 2 Selected Changes".](/assets/images/help/desktop/discard-changes-mac.png)
 {% data reusables.desktop.confirm-discard-files %}
-
-  ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 ### Discarding changes in one or more lines
 You can discard one or more changed lines that are uncommitted.
@@ -86,13 +82,13 @@ You can discard one or more changed lines that are uncommitted.
 
 {% endnote %}
 
-To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
+To discard one added line, in the list of changed lines, right-click the line number of the line you want to discard, then select **Discard Added Line**.
 
-  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
+  ![Screenshot of the diff view of a file. In a context menu, a cursor hovers over "Discard Added Line", highlighted in blue.](/assets/images/help/desktop/discard-single-line.png)
 
-To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
+To discard a group of changed lines, right-click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
+  ![Screenshot of the diff view of a file. To the right of the line numbers, a narrow, darker blue line is highlighted with an orange outline.](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
 ## Write a commit message and push your changes
@@ -110,23 +106,17 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
-  ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
+  ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
-
-  ![Commit button](/assets/images/help/desktop/commit-button.png)
 4. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.
-    - To commit your changes to the protected branch, click **Commit to _BRANCH_**.
+    - To commit your changes to the protected branch, click **Commit to BRANCH**.
 
-  For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)".
-
-  ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
+  For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
 {% data reusables.desktop.push-origin %}
 
-6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
-
- ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
  If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
 
- ![Creating a pull request](/assets/images/help/desktop/mac-create-pull-request.png)
+ ![Screenshot of the "No local changes" view. A button, labeled "Create Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-create-pull-request.png)

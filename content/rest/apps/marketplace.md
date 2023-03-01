@@ -2,7 +2,9 @@
 title: GitHub Marketplace
 allowTitleToDifferFromFilename: true
 shortTitle: Marketplace
-intro: 'Use the REST API to interact with {% data variables.product.prodname_marketplace %}'
+intro: >-
+  Use the REST API to interact with {% data
+  variables.product.prodname_marketplace %}
 topics:
   - API
 versions:

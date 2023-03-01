@@ -20,6 +20,13 @@ shortTitle: Extensions & integrations
 
 You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
 
+{% ifversion fpt %}
+{% note %}
+
+**Note:** To see an example of how third-party editor tools connect to repositories for {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+
+{% endnote %}
+{% endif %}
 ### {% data variables.product.product_name %} for Unity
 
 With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
@@ -39,6 +46,7 @@ You can integrate your personal or organization account on {% data variables.loc
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
 You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+
 
 {% endif %}
 

@@ -1,11 +1,13 @@
 ---
 title: Licenses
-intro: Use the REST API to retrieve popular open source licenses and information about a particular project's license file.
+intro: >-
+  Use the REST API to retrieve popular open source licenses and information
+  about a particular project's license file.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:
