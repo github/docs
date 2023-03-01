@@ -77,7 +77,7 @@ export const ProductLanding = () => {
         )}
 
         <LandingSection
-          title={`All ${shortTitle || title} docs`}
+          title={t('all_docs').replace('{{ title }}', shortTitle || title)}
           sectionLink="all-docs"
           className="pt-9"
         >
