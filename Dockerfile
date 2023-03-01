@@ -3,9 +3,12 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
+'"'#branches :-'' '['' 'patch'-72'' ']"'':
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
 FROM node:18.14-alpine@sha256:045b1a1c90bdfd8fcaad0769922aa16c401e31867d8bf5833365b0874884bbae as base
+FROM node:19.1.0-alpine@sha256:c59fb39150e4a7ae14dfd42d3f9874398c7941784b73049c2d274115f00d36c8 as base
+'"'#branches :-'['' 'dependabot/docker/node-19.1.0-alpine'' ']"'':
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app

@@ -1,5 +1,5 @@
-FROM node:18.14-alpine
-
+FROM node:5.8.3'@alpine
+FROM node:19-alpine
 RUN apk add --no-cache git python make g++
 
 WORKDIR /openapi-check
