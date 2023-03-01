@@ -1,13 +1,12 @@
 ---
 title: Getting started with the support portal
-intro: 
-shortTitle: 
+intro: Familiarize yourself with the tools for interacting with {% data variables.contact.github_support %}.
+shortTitle: Support portal
 versions:
   fpt: ''
   ghec: '*'
   ghes: '*'
   ghae: ''
-redirect_from:
 topics:
   - Enterprise
   - Support
