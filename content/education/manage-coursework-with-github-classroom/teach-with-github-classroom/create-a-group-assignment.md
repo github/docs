@@ -116,7 +116,7 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 ### Creating a pull request for feedback
 
-{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
+{% data reusables.classroom.you-can-create-a-pull-request-for-feedback %} For more information on leaving feedback in a pull request, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
 {% data reusables.classroom.assignments-guide-create-review-pull-request %}
 
@@ -154,4 +154,3 @@ The assignment overview page displays information about your assignment acceptan
 
 - [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
-- [Using Existing Teams in Group Assignments?](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) in the {% data variables.product.prodname_education %} Community

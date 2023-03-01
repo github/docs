@@ -231,6 +231,10 @@ sections:
         - |
           Users can create a branch from a repository's **Branches** overview page by clicking the **New branch** button. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
+        # https://github.com/github/releases/issues/2233
+        - |
+          When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/). [Updated: 2023-02-10]
+
         # https://github.com/github/releases/issues/1964
         # https://github.com/github/releases/issues/1965
         # https://github.com/github/releases/issues/2170

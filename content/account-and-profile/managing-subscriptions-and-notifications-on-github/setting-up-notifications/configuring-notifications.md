@@ -81,7 +81,7 @@ Anytime you comment in a conversation or when someone @mentions your username, y
 
 {% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
-![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif) 
+![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif)
 
 {% else %}
 
@@ -151,19 +151,19 @@ Email notifications from {% data variables.location.product_location %} contain 
     - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
     - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
     - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
-    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-    - There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."{% endif %}
+    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
+    - There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."
 
 ## Automatic watching
 
-By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings. 
+By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
 
 {% ifversion update-notification-settings-22 %}
-![Automatic watching options for teams and repositories](/assets/images/automatically-watch-repos-and-teams.png)
+![Screenshot of the toggles for "Automatically watch repositories" and "Automatically watch teams".](/assets/images/help/notifications-v2/automatically-watch-repos-and-teams.png)
 {% else %}
 ![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
 
-If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option. 
+If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
 
 For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
@@ -181,14 +181,14 @@ You can choose whether to watch or unwatch an individual repository. You can als
 
 ## Choosing where your organization’s email notifications are sent
 
-If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.	
+If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 
-3. Under "Default notification email", select the email address you'd like notifications sent to.	
+3. Under "Default notification email", select the email address you'd like notifications sent to.
 {% ifversion update-notification-settings-22 %}
 
    ![Screenshot of the default notification email address setting](/assets/images/help/notifications/default-email-address-emphasized.png)
@@ -197,11 +197,11 @@ If you belong to an organization, you can choose the email account you want noti
 
    ![Screenshot of the default notification email address dropdown](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %}
 {% ifversion ghes or ghae %}
-4. Click **Save**.{% endif %}	
+4. Click **Save**.{% endif %}
 
-### Customizing email routes per organization	
+### Customizing email routes per organization
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %} 
+If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
@@ -218,24 +218,24 @@ If you are a member of more than one organization, you can configure each one to
 
    ![Screenshot of dropdown to pick organization](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
 
-6. Select one of your verified email addresses, then click **Save**. 
+6. Select one of your verified email addresses, then click **Save**.
 
    ![Screenshot of custom routing page with save button](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
 
 {% else %}
 3. Under "Custom routing," find your organization's name in the list.
 
-   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)	
+   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)
 
 4. Click **Edit** next to the email address you want to change.
 
-   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)	
+   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)
 
-5. Select one of your verified email addresses, then click **Save**.	
+5. Select one of your verified email addresses, then click **Save**.
 
    ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
 
-## {% data variables.product.prodname_dependabot_alerts %} notification options 
+## {% data variables.product.prodname_dependabot_alerts %} notification options
 
 The notification options for your user account are available at [https://github.com/settings/notifications](https://github.com/settings/notifications). You can configure notification settings for each repository, in the repository watch settings.
 
@@ -256,12 +256,9 @@ Choose how you want to receive workflow run updates for repositories that you ar
 {% ifversion ghes %}
   ![Screenshot of the notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-## Organization alerts notification options 
+## Organization alerts notification options
 
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**. 
-
-{% endif %}
+If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**.
 
 {% ifversion fpt or ghes or ghec %}
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
@@ -290,7 +287,7 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
 4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
-## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %} 
+## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %}
 
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghec %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 

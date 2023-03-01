@@ -15,8 +15,7 @@ shortTitle: Access community profiles
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Community**.
-![Community in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+3. In the left sidebar, click **Community Standards** to show the checklist for the community profile of the repository.
 
 ## Further reading
 

@@ -47,7 +47,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 ### JetBrains license
 
-You must have a license to at least one of the supported JetBrains IDEs to connect to a codespace from the JetBrains Gateway.
+You must have a JetBrains license that supports the IDE you choose in the JetBrains Gateway.
 
 ### JetBrains Gateway
 
@@ -57,7 +57,7 @@ You can install and update the JetBrains Gateway from the JetBrains Toolbox appl
 1. Open the JetBrains Toolbox.
 1. Find **Gateway** in the list of available tools and click **Install**.
 
-   ![Screenshot of the JetBrains Toolbox](/assets/images/help/codespaces/jetbrains-toolbox.png)
+   ![Screenshot of the JetBrains Toolbox with "Gateway" at the bottom of the list of applications. Each application has an "Install" button next to it.](/assets/images/help/codespaces/jetbrains-toolbox.png)
 
 ### {% data variables.product.prodname_cli %}
 
@@ -98,10 +98,7 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
    ![Screenshot of the Gateway with the 'Connect to Codespace' button](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
-1. In the "Welcome to JetBrains Gateway" dialog box, click **Sign In with {% data variables.product.prodname_dotcom %}**.
-
-   ![Screenshot of the sign in button](/assets/images/help/codespaces/jetbrains-gateway-sign-in.png)
-
+1. In the "Welcome to JetBrains Gateway" dialog, click **Sign In with {% data variables.product.prodname_dotcom %}**.
 1. Click the icon beside the one-time code to copy it, then click the login link.
 
    ![Screenshot of the one-time login code](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)

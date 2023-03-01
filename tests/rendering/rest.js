@@ -1,7 +1,7 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 import { readdirSync, readFileSync } from 'fs'
-import { join } from 'path'
+import path from 'path'
 
 import { get, getDOM } from '../helpers/e2etest.js'
 import getRest, {
@@ -20,13 +20,12 @@ describe('REST references docs', () => {
     // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
     // get a list of all categories across all versions.
     const freeProTeamVersion = readdirSync(REST_DATA_DIR)
-      .filter((file) => file.startsWith('api.github.com'))
+      .filter((file) => file.startsWith('fpt'))
       .shift()
     const freeProTeamSchema = JSON.parse(
-      readFileSync(join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
+      readFileSync(path.join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
     )
-    // One off edge case for secret-scanning Docs-content issue 6637
-    if ('secret-scanning' in freeProTeamSchema) delete freeProTeamSchema['secret-scanning']
+
     const restCategories = Object.entries(freeProTeamSchema)
       .map(([key, subCategory]) => {
         const subCategoryKeys = Object.keys(subCategory)
@@ -151,6 +150,36 @@ describe('REST references docs', () => {
         expect($('[data-testid=api-version-picker] button span').text()).toBe('')
       }
     }
+  })
+
+  describe('headings', () => {
+    test('rest pages do not render any headings with duplicate text', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingText = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).text())
+        .get()
+        .sort()
+
+      const dupes = headingText.filter((item, index) => headingText.indexOf(item) !== index)
+
+      const message = `The following duplicate heading texts were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
+
+    test('rest pages do not render any headings with duplicate ids', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingIDs = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).attr('id'))
+        .get()
+        .sort()
+
+      const dupes = headingIDs.filter((item, index) => headingIDs.indexOf(item) !== index)
+
+      const message = `The following duplicate heading IDs were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
   })
 })
 

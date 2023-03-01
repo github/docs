@@ -23,43 +23,27 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 ## Following a user on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
-
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **Follow** under their profile image.
-
-  ![Follow user button](/assets/images/help/profile/follow-user-button.png)
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **Follow**.
 
 ## Unfollowing a user on {% data variables.product.product_name %}
 
-1.  Click a user image to display that user's profile.
-
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2.  Click **Unfollow** under their profile image.
-
-  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png)
+{% data reusables.profile.navigate-to-user-profile %}
+1.  Under the user's profile picture, click **Unfollow**.
 
 ## Viewing followed users on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **following**.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **following** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+  ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 ## Viewing followers on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+{% data reusables.profile.navigate-to-user-profile %}
+1. Under the user's profile picture, click **followers**.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **followers** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-followers.png)
+   ![Screenshot of the sidebar of @octocat's profile page. A people icon and a link, labeled "8.4k followers", are outlined in dark orange.](/assets/images/help/profile/user-profile-followers.png)
 
 
 

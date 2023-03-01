@@ -25,7 +25,9 @@ When you view a forked repository on {% data variables.product.product_name %}, 
 
 In open source projects, forks are often used to iterate on ideas or changes before incorporating the changes into the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork, and there will be no effect on the upstream. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
+Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork, and there will be no effect on the upstream. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
+
+{% data reusables.repositories.forks-page %}
 
 ## About creating forks
 

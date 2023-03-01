@@ -16,7 +16,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 - Upvote discussions and comments to give higher visibility to ideas you find valuable
 - Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
-![Discussions tab for a repository](/assets/images/help/discussions/hero.png)
+![Screenshot of the "Discussions" page for a {% data variables.product.company_short %} repository.](/assets/images/help/discussions/hero.png)
 
 You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
 
@@ -32,7 +32,7 @@ For more information about management of discussions, see "[AUTOTITLE](/discussi
 
 You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results.{% ifversion fpt or ghec %} Signed out users can view the results of polls in public repositories.{% endif %}
 
-Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters. 
+Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters.
 
 Voters cannot change their vote. Editing a poll will reset any votes that have already been cast.
 

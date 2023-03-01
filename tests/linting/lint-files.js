@@ -434,10 +434,8 @@ describe('lint markdown content', () => {
     })
 
     //   TODO 47F50CA3 unskip the following tests (3 in total) when all the required videos are transcribed
-    //     'content/actions/index.md',
     //     'content/codespaces/index.md',
     //     'content/discussions/index.md',
-    //     'content/issues/index.md',
 
     // ---- START SKIPPED TRANSCRIPTION TESTS ----
 

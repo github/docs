@@ -1238,8 +1238,6 @@ on:
     types: [started]
 ```
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
-
 ### `workflow_call`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1253,8 +1251,6 @@ The example below only runs the workflow when it's called from another workflow:
 ```yaml
 on: workflow_call
 ```
-
-{% endif %}
 
 ### `workflow_dispatch`
 
@@ -1274,7 +1270,6 @@ You can configure custom-defined input properties, default input values, and req
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
 
 ```yaml
@@ -1324,36 +1319,6 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 ```
 
 For more information, see the {% data variables.product.prodname_cli %} information in "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
-
-{% else %}
-This example defines the `name` and `home` inputs and prints them using the {% ifversion actions-unified-inputs %}`inputs.name` and `inputs.home`{% else %}`github.event.inputs.name` and `github.event.inputs.home`{% endif %} contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
-
-```yaml
-name: Manually triggered workflow
-on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Person to greet'
-        required: true
-        default: 'Mona the Octocat'
-      home:
-        description: 'location'
-        required: false
-        default: 'The Octoverse'
-
-jobs:
-  say_hello:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo Hello $NAME!
-          echo -in $HOME
-        env:
-          NAME: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.name }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.name }}{% endraw %}{% endif %}
-          HOME: {% ifversion actions-unified-inputs %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.home }}{% endraw %}{% endif %}
-```
-{% endif %}
 
 ### `workflow_run`
 

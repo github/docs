@@ -22,8 +22,9 @@ sections:
     - Fixes a bug in which a GHES log file could get filled very quickly and cause the root drive to run out of free space.
     - When viewing code scanning results for Ruby, an erroneous beta label appeared.
   changes:
-    - After an enterprise owner enables Dependabot alerts, GitHub Enterprise Server enqueues the synchronization of advisory data to ensure hourly updates from GitHub.com.
+    - After an enterprise owner enables Dependabot alerts, GitHub Enterprise Server enqueues the synchronization of advisory data to ensure hourly updates from GitHub.com. 
     - A user's list of recently accessed repositories no longer includes deleted repositories.
+    - '{% data reusables.release-notes.scim-custom-mappings-supported-change %}'
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -42,6 +43,7 @@ sections:
       If you suspect a problem like this exists in one of your repositories, [contact GitHub Enterprise Support](/support/contacting-github-support/creating-a-support-ticket) for assistance.
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
+    - '{% data reusables.release-notes.scim-saml-tokens-known-issue %}'
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217
     - |

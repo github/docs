@@ -2,7 +2,7 @@
 
   {% mac %}
 
-  ![Location tabs in the Clone a repository menu](/assets/images/help/desktop/choose-repository-location-mac.png)
+  ![Screenshot of the "Clone a repository" window. At the top of the window, tabs labeled "GitHub.com", "GitHub Enterprise" and "URL" are highlighted with an orange outline.](/assets/images/help/desktop/choose-repository-location-mac.png)
   
   {% endmac %}
 

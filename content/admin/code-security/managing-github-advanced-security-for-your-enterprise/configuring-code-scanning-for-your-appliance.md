@@ -16,6 +16,9 @@ topics:
   - Enterprise
   - Security
 ---
+<!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
+make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->
+
 
 {% data reusables.code-scanning.beta %}
 
@@ -41,8 +44,8 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
 
-<!-- Note that the CodeQL CLI manual pages link to this heading: https://aka.ms/code-scanning-docs-configuring-ghes.
-If you edit this heading, update the short link too.-->
+<!--The CodeQL CLI man pages include a link to this section of the article. If you rename this section,
+make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->
 
 ### Setting up a self-hosted runner
 

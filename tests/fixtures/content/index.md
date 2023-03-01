@@ -17,6 +17,7 @@ children:
   # as if the URL had been `/en/free-pro-team@latest/get-started/anything`.
   - search
   - get-started
+  - early-access
   # - account-and-profile
   # - authentication
   # - repositories
@@ -42,7 +43,6 @@ children:
   # - pages
   # - education
   # - desktop
-  # - early-access
   # - support
 childGroups:
   - name: Get started
