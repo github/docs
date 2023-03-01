@@ -1,0 +1,248 @@
+github
+/
+docs
+Public
+Fork your own copy of github/docs
+Code
+Issues
+98
+Pull requests
+67
+Discussions
+Actions
+Projects
+4
+Security
+Insights
+You’re making changes in a project you don’t have write access to. Submitting a change will write it to a new branch in your fork mowjoejoejoejoe/docs, so you can send a pull request.
+docs
+/
+From dfae8583a97e96ac6dd912489c79e837b8b97eb1 Mon Sep 17 00:00:00 2001
+/
+diff --git a
+/
+build_script
+/
+orb
+/
+mana.yml b
+/
+build_script
+/
+orb
+/
+mana.yml index eef905c..ca9d4c3 100644 --- a
+/
+build_script
+/
+orb
+/
+mana.yml +++ b
+/
+build_script
+/
+orb
+/
+mana.yml @@ -4,7 +4,7 @@ run::\'Runs-on::\'Run'' 'World'?'
+/
+'#'
+/
+31
+/
+kite.u'@atom'
+/
+electron'.md')'['Pull']'(Request'.md')'['Re':view']'(https':'
+/
+'
+/
+www'.githubstatus'.com')'' '['@moejowjowjowjow
+/
+moejowjowjowjow
+/
+tez.yml
+/
+README.MD
+/
+README.MD'@peps2']'('&copy')'[2022'' 'GitHub']'('&')'[':'Push']'('Responses'.md')'['Code'' 'of'' 'Conduct']'' '(https':'
+/
+'
+/
+www'.contributor'-covenant'.org'
+/
+version'
+/
+2'
+/
+1'
+/
+code'_of'_conduct'
+/
+code'_of'_conduct'
+/
+Security'.md')'['C'C'-'B'Y'-'"4'.0 'License']'' -# ''*'*'' ''*'*'':'':'''Build''':''':'''' :'BEGIN : +# ''*'*'' ''*'*'':'':'''Build''':''':'''' ':'"'' : GLOW7 : **'# ''*'*'' ''*'*'':'''''#'''#'''B'E'G'I'N')'['
+/
+'
+/
+posted']'(curlee's')'[discussion'' 'board']'(https':'
+/
+'
+/
+github'.com'
+/
+skills'.yml'
+/
+'.github'
+/
+discussions'
+/
+help''*'*'' ''*'*''wanted'!'
+/
+'#
+/
+'Hello'-'' 'World'?'
+/
+'#'
+/
+31
+/
+kite.u'@atom'
+/
+electron'.md')'['Pull']'(Request'.md')'['Re':view']'(https':'
+/
+'
+/
+www'.githubstatus'.com')''
+/
+'# ''*'*'' ''*'*'':'''''#'''#'''B'E'G'I'N')'['
+/
+'
+/
+posted']'(curlee's')'[discussion'' 'board']'(https':'
+/
+'
+/
+github'.com'
+/
+skills'.yml'
+/
+'.github'
+/
+discussions'
+/
+help''*'*'' ''*'*''wanted'!'
+/
+'#
+/
+'Hello'-'' 'World'?'
+/
+'#'
+/
+31
+/
+kite.u'@atom'
+/
+electron'.md')'['Pull']'(Request'.md')'['Re':view']'(https':'
+/
+'
+/
+www'.githubstatus'.com')'' '['@moejowjowjowjow
+/
+moejowjowjowjow
+/
+tez.yml
+/
+README.MD
+/
+README.MD'@peps2']'('&copy')'[2022'' 'GitHub']'('&')'[':'Push']'('Responses'.md')'['Code'' 'of'' 'Conduct']'' '(https':'
+/
+'
+/
+www'.contributor'-covenant'.org'
+/
+version'
+/
+2'
+/
+1'
+/
+code'_of'_conduct'
+/
+code'_of'_conduct'
+/
+Security'.md')'['C'C'-'B'Y'-'"4'.0 'License']'' # ''*'*'' ''*'*'':'':'''Build''':''':'''' :'
+/
+build_script
+/
+Bitore.sigs
+/
+Test
+/
+tests
+/
+travis.yml
+in
+github:main
+ 
+
+Spaces
+
+2
+
+No wrap
+1
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/blob/main/containers/javascript-node/.devcontainer/base.Dockerfile
+2
+# [Choice] Node.js version
+3
+ARG VARIANT="18-buster"
+4
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+5
+# [Optional] Uncomment this section to install additional OS packages.
+6
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+7
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
+8
+# [Optional] Uncomment if you want to install an additional version of node using nvm
+9
+# ARG EXTRA_NODE_VERSION=10
+10
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+11
+# [Optional] Uncomment if you want to install more global node modules
+12
+# RUN su node -c "npm install -g <your-package-list-here>"
+13
+# Install the GitHub CLI see:
+14
+# https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
+15
+COPY library-scripts/github-debian.sh /tmp/library-scripts/
+16
+RUN yum install autoupdate Build-&-Deployee.yml'@User/bin/Bash/ :
+17
+& bash /tmp/library-scripts/github-debian-artifact :
+18
+​
+@mowjoejoejoejoe
+Propose changes
+Commit summary
+Create travis.yml
+Optional extended description
+Add an optional extended description…
+ 
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
