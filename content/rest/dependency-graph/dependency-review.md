@@ -3,9 +3,9 @@ title: Dependency review
 intro: Use the REST API to interact with dependency changes.
 versions:
   fpt: '*'
-  ghes: '>=3.6'
-  ghec: '*'
   ghae: '>= 3.6'
+  ghec: '*'
+  ghes: '>=3.6'
 topics:
   - API
 allowTitleToDifferFromFilename: true

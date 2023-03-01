@@ -1,6 +1,9 @@
 ---
 title: LDAP
-intro: 'Use the REST API to update account relationships between a {% data variables.product.product_name %} user or team and its linked LDAP entry or queue a new synchronization.'
+intro: >-
+  Use the REST API to update account relationships between a {% data
+  variables.product.product_name %} user or team and its linked LDAP entry or
+  queue a new synchronization.
 versions:
   ghes: '*'
 topics:

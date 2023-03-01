@@ -2,7 +2,9 @@
 title: GitHub Actions Cache
 allowTitleToDifferFromFilename: true
 shortTitle: Cache
-intro: 'Use the REST API to interact with the cache for repositories in {% data variables.product.prodname_actions %}.'
+intro: >-
+  Use the REST API to interact with the cache for repositories in {% data
+  variables.product.prodname_actions %}.
 topics:
   - API
 versions:

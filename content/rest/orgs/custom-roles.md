@@ -2,8 +2,8 @@
 title: Custom Repository Roles
 intro: Use the REST API to interact with custom repository roles.
 versions:
-  ghes: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true
