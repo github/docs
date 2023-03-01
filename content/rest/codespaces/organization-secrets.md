@@ -2,7 +2,9 @@
 title: Codespaces organization secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Organization secrets
-intro: 'Use the REST API to manage your organization-level {% data variables.product.prodname_codespaces %} secrets.'
+intro: >-
+  Use the REST API to manage your organization-level {% data
+  variables.product.prodname_codespaces %} secrets.
 versions:
   fpt: '*'
   ghec: '*'

@@ -91,7 +91,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 {% ifversion display-mandatory-message-again %} {% else %}
 {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message. 
+**Note:** If you change the mandatory message for {% data variables.location.product_location %}, users who have already acknowledged the message will not see the new message.
 
 {% endnote %}
 {% endif %}
@@ -103,7 +103,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
   ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
 1. Under "Mandatory message", in the text box, type your message.
   ![Screenshot of the mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
-{%- ifversion display-mandatory-message-again %} 
+{%- ifversion display-mandatory-message-again %}
 1. Optionally, select **Show updated message to all users even if they dismissed the previous one**.
 ![Screenshot of checkbox that when selected pushes mandatory messages to all users](/assets/images/enterprise/site-admin-settings/push-mandatory-message-checkbox.png)
    {% endif %}
@@ -132,12 +132,13 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
 
    ![Screenshot of the text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
 2. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-
+   {% ifversion ghe-announce-dismiss %}
    {% note %}
 
    **Note:** Announcements must either have an expiration date, be user dismissible, or both.
 
    {% endnote %}
+   {% endif %}
 
    ![Screenshot of the calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png){% ifversion ghe-announce-dismiss %}
 3. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.

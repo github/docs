@@ -2,7 +2,9 @@
 title: User interactions
 shortTitle: User
 allowTitleToDifferFromFilename: true
-intro: 'Use the REST API to temporarily restrict which type of user can comment, open issues, or create pull requests in your public repositories.'
+intro: >-
+  Use the REST API to temporarily restrict which type of user can comment, open
+  issues, or create pull requests in your public repositories.
 versions:
   fpt: '*'
   ghec: '*'

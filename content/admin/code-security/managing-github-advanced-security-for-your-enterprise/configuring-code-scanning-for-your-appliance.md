@@ -42,10 +42,11 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 - A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
 
-## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
+<!-- Anchor to maintain the CodeQL CLI manual pages link: https://aka.ms/code-scanning-docs/configuring-ghes -->
 
-<!--The CodeQL CLI man pages include a link to this section of the article. If you rename this section,
-make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->
+<a name="running-code-scanning-using-github-actions"></a>
+
+## Running {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %}
 
 ### Setting up a self-hosted runner
 

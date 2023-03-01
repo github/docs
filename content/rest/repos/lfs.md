@@ -1,11 +1,13 @@
 ---
 title: Git LFS
-intro: 'Use the REST API to enable or disable {% data variables.large_files.product_name_long %} (LFS) for a repository.'
+intro: >-
+  Use the REST API to enable or disable {% data
+  variables.large_files.product_name_long %} (LFS) for a repository.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

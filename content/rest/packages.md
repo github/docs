@@ -1,6 +1,8 @@
 ---
 title: Packages
-intro: 'Use the REST API to interact with {% data variables.product.prodname_registry %}.'
+intro: >-
+  Use the REST API to interact with {% data variables.product.prodname_registry
+  %}.
 versions:
   fpt: '*'
   ghec: '*'
