@@ -1821,6 +1821,11 @@ type BranchProtectionRule implements Node {
   requiredApprovingReviewCount: Int
 
   """
+  List of required deployment environments that must be deployed successfully to update matching branches
+  """
+  requiredDeploymentEnvironments: [String]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String]
@@ -1849,6 +1854,11 @@ type BranchProtectionRule implements Node {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean!
+
+  """
+  Does this branch require deployment to specific environments before merging
+  """
+  requiresDeployments: Boolean!
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -5779,6 +5789,11 @@ input CreateBranchProtectionRuleInput {
   requiredApprovingReviewCount: Int
 
   """
+  The list of required deployment environments
+  """
+  requiredDeploymentEnvironments: [String!]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String!]
@@ -5807,6 +5822,11 @@ input CreateBranchProtectionRuleInput {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean
+
+  """
+  Are successful deployments required before merging.
+  """
+  requiresDeployments: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -41132,6 +41152,11 @@ input UpdateBranchProtectionRuleInput {
   requiredApprovingReviewCount: Int
 
   """
+  The list of required deployment environments
+  """
+  requiredDeploymentEnvironments: [String!]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String!]
@@ -41160,6 +41185,11 @@ input UpdateBranchProtectionRuleInput {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean
+
+  """
+  Are successful deployments required before merging.
+  """
+  requiresDeployments: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -44726,6 +44756,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
     """
     last: Int
   ): DeploymentReviewConnection!
+
+  """
+  The event that triggered the workflow run
+  """
+  event: String!
   id: ID!
 
   """
