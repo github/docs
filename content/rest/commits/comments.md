@@ -3,9 +3,9 @@ title: Commit comments
 intro: Use the REST API to interact with commit comments.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

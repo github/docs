@@ -1,6 +1,8 @@
 ---
 title: Management Console
-intro: 'Use the REST API to manage your {% data variables.product.product_name %} installation.'
+intro: >-
+  Use the REST API to manage your {% data variables.product.product_name %}
+  installation.
 versions:
   ghes: '*'
 topics:

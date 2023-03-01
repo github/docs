@@ -1,11 +1,13 @@
 ---
 title: Search
-intro: 'Use the REST API to search for specific items on {% data variables.product.product_name %}.'
+intro: >-
+  Use the REST API to search for specific items on {% data
+  variables.product.product_name %}.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:
