@@ -96,6 +96,23 @@ For a longer-form and more prominent way of displaying customized information ab
 
 {% data reusables.profile.update-profile %}
 
+## Adding pronouns to your profile
+
+Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
+
+{% note %}
+
+**Note:**
+  Your pronouns will be visible to {% data variables.product.product_name %} users, including in regions where local laws restrict using pronouns other than those assigned at birth.
+
+{% endnote %}
+
+{% data reusables.user-settings.access_settings %}
+1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
+  ![Screenshot of selected pronouns showing "they/them" highlighted with a dark orange outline](/assets/images/help/profile/pronouns-field.png)
+
+{% data reusables.profile.update-profile %}
+
 {% ifversion profile-time-zone %}
 
 ## Setting your location and time zone
