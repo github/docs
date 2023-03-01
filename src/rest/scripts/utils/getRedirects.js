@@ -56,6 +56,7 @@ export async function getCategoryOverrideRedirects() {
 async function decorateRedirects(operation, clientSideRedirects) {
   // A handful of operations don't have external docs properties
   const externalDocs = operation.externalDocs
+  const { category, subcategory } = operation['x-github']
   if (!externalDocs) {
     return
   }
@@ -65,17 +66,17 @@ async function decorateRedirects(operation, clientSideRedirects) {
     // There are some operations that aren't nested in the sidebar
     // For these, don't need to add a client-side redirect, the
     // frontmatter redirect will handle it for us.
-    if (categoriesWithoutSubcategories.includes(operation.category)) {
+    if (categoriesWithoutSubcategories.includes(category)) {
       return
     }
     const anchor = oldUrl.split('#')[1]
-    const subcategory = operation.subcategory
+    const fragment = anchor ? `#${oldUrl.split('#')[1]}` : ''
 
     // If there is no subcategory, a new page with the same name as the
     // category was created. That page name may change going forward.
     const redirectTo = subcategory
-      ? `/rest/${operation.category}/${subcategory}#${anchor}`
-      : `/rest/${operation.category}/${operation.category}#${anchor}`
+      ? `/rest/${category}/${subcategory}${fragment}`
+      : `/rest/${category}/${category}${fragment}`
     clientSideRedirects[oldUrl] = redirectTo
   }
 
@@ -83,9 +84,9 @@ async function decorateRedirects(operation, clientSideRedirects) {
   // now that subcategories are on their own page. For example,
   // /rest/reference/actions#artifacts should redirect to
   // /rest/actions/artifacts
-  if (operation.subcategory) {
-    const sectionRedirectFrom = `/rest/${operation.category}#${operation.subcategory}`
-    const sectionRedirectTo = `/rest/${operation.category}/${operation.subcategory}`
+  if (subcategory) {
+    const sectionRedirectFrom = `/rest/${category}#${subcategory}`
+    const sectionRedirectTo = `/rest/${category}/${subcategory}`
     if (!(sectionRedirectFrom in clientSideRedirects)) {
       clientSideRedirects[sectionRedirectFrom] = sectionRedirectTo
     }
