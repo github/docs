@@ -3,9 +3,9 @@ title: Commit statuses
 intro: Use the REST API to interact with commit statuses.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

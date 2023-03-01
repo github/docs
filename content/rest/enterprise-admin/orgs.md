@@ -2,8 +2,8 @@
 title: Organizations
 intro: Use the REST API to create organizations on your enterprise.
 versions:
-  ghes: '*'
   ghae: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true
