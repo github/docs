@@ -66,7 +66,6 @@
 | `external_group` | Contains activities related to Okta groups.
 | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
-| `gist` | Contains activities related to Gists.
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
 | `integration_installation` | Contains activities related to integrations installed in an account.
