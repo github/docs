@@ -48,7 +48,7 @@ Organization members must also have an active SAML session to authorize an {% da
 
 Some IdPs support provisioning access to a {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
-{% data reusables.scim.enterprise-account-scim %} 
+{% data reusables.scim.enterprise-account-scim %}
 
 ## Adding members to an organization using SAML SSO
 
@@ -65,8 +65,6 @@ To provision new users without an invitation from an organization owner, you can
 If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can automatically invite members to join your organization when you grant access on your IdP. If you remove a member's access to your {% data variables.product.prodname_dotcom %} organization on your SAML IdP, the member will be automatically removed from the {% data variables.product.prodname_dotcom %} organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% data reusables.organizations.team-synchronization %}
-
-{% data reusables.saml.saml-single-logout-not-supported %}
 
 ## Further reading
 

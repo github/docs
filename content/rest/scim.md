@@ -1,6 +1,8 @@
 ---
 title: SCIM
-intro: Use the REST API to control and manage your GitHub organization members access with SCIM.
+intro: >-
+  Use the REST API to control and manage your GitHub organization members access
+  with SCIM.
 versions:
   ghec: '*'
 topics:

@@ -3,9 +3,9 @@ title: Rate limit
 intro: Use the REST API to check your current rate limit status.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:

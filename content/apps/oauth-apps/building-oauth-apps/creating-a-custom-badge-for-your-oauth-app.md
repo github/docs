@@ -36,11 +36,8 @@ To create a custom badge:
 {% data reusables.user-settings.oauth_apps %}
 {% data reusables.user-settings.modify_oauth_app %}
 1. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer.
-![Upload a logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
-6. Crop your picture. When you're done, click **Set new application logo**.
-![Crop and set logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% ifversion fpt or ghec %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
-![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+1. Crop your picture. When you're done, click **Set new application logo**.
+1. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% ifversion fpt or ghec %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
 {% data reusables.user-settings.update_oauth_app %}
 
 {% ifversion fpt or ghec %}

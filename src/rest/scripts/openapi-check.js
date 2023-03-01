@@ -10,7 +10,7 @@ import fs from 'fs'
 import path from 'path'
 import glob from 'glob'
 import { program } from 'commander'
-import getOperations from './utils/get-operations.js'
+import { createOperations, processOperations } from './utils/get-operations.js'
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
@@ -35,15 +35,15 @@ async function check(files) {
   console.log('Verifying OpenAPI files are valid with decorator')
   const documents = files.map((filename) => [
     filename,
-    JSON.parse(fs.readFileSync(path.join(process.cwd(), filename))),
+    JSON.parse(fs.readFileSync(path.join(filename))),
   ])
 
   for (const [filename, schema] of documents) {
     try {
       // munge OpenAPI definitions object in an array of operations objects
-      const operations = await getOperations(schema)
+      const operations = await createOperations(schema)
       // process each operation, asynchronously rendering markdown and stuff
-      await Promise.all(operations.map((operation) => operation.process()))
+      await processOperations(operations)
 
       console.log(`Successfully could decorate OpenAPI operations for document ${filename}`)
     } catch (error) {

@@ -3,9 +3,9 @@ title: Repository Webhooks
 intro: Use the REST API to manage repository webhooks.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

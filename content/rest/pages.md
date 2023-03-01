@@ -1,11 +1,13 @@
 ---
 title: Pages
-intro: 'Use the REST API to interact with {% data variables.product.prodname_pages %} sites and builds.'
+intro: >-
+  Use the REST API to interact with {% data variables.product.prodname_pages %}
+  sites and builds.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:

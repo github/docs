@@ -5,66 +5,53 @@ import { fileTypeFromBuffer } from 'file-type'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { get, head } from '../helpers/e2etest.js'
 
-const POSSIBLE_EXTENSIONS = ['webp', 'avif']
-
-const EXPECTED_MIMETYPES = {
-  webp: 'image/webp',
-  avif: 'image/avif',
-}
-
 describe('dynamic assets', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  test.each(POSSIBLE_EXTENSIONS)('GET PNG as a %s', async (extension) => {
-    const res = await get(`/assets/images/_fixtures/screenshot.${extension}`, {
+  test('GET PNG as a WebP', async () => {
+    const res = await get('/assets/images/_fixtures/screenshot.webp', {
       responseType: 'buffer',
     })
     expect(res.statusCode).toBe(200)
-    expect(res.headers['content-type']).toBe(EXPECTED_MIMETYPES[extension])
+    expect(res.headers['content-type']).toBe('image/webp')
     const { mime } = await fileTypeFromBuffer(res.text)
-    if (extension === 'webp') {
-      expect(mime).toBe('image/webp')
-    } else if (extension === 'avif') {
-      expect(mime).toBe('image/avif')
-    } else {
-      throw new Error('unrecognized test')
-    }
+    expect(mime).toBe('image/webp')
   })
 
-  test.each(POSSIBLE_EXTENSIONS)('HEAD PNG as a %s', async (extension) => {
-    const res = await head(`/assets/images/_fixtures/screenshot.${extension}`)
+  test('HEAD PNG as a WebP', async () => {
+    const res = await head('/assets/images/_fixtures/screenshot.webp')
     expect(res.statusCode).toBe(200)
-    expect(res.headers['content-type']).toBe(EXPECTED_MIMETYPES[extension])
+    expect(res.headers['content-type']).toBe('image/webp')
   })
 
-  test.each(POSSIBLE_EXTENSIONS)('get PNG as a %s with cache busting prefix', async (extension) => {
-    const res = await get(`/assets/cb-12345/images/_fixtures/screenshot.${extension}`)
+  test('get PNG as a WebP with cache busting prefix', async () => {
+    const res = await get('/assets/cb-12345/images/_fixtures/screenshot.webp')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
-  test.each(POSSIBLE_EXTENSIONS)('max-width=1000 as a %s', async (extension) => {
+  test('max-width=1000 as a WebP', async () => {
     // The _fixtures/screenshot.png is 2000(x1494) which is *more than 1000*
-    const res = await get(`/assets/images/mw-1000/_fixtures/screenshot.${extension}`, {
+    const res = await get('/assets/images/mw-1000/_fixtures/screenshot.webp', {
       responseType: 'buffer',
     })
     expect(res.statusCode).toBe(200)
-    expect(res.headers['content-type']).toBe(EXPECTED_MIMETYPES[extension])
+    expect(res.headers['content-type']).toBe('image/webp')
     const image = sharp(res.text)
     const { width, height } = await image.metadata()
     expect(width).toBe(1000)
     expect(height).toBe(747)
   })
 
-  test.each(POSSIBLE_EXTENSIONS)('max-width not necessary as a %s', async (extension) => {
+  test('max-width not necessary as a WebP', async () => {
     // The _fixtures/electrocat.png is 448(x448) which is *less than 1000*
-    const res = await get(`/assets/images/mw-1000/_fixtures/electrocat.${extension}`, {
+    const res = await get('/assets/images/mw-1000/_fixtures/electrocat.webp', {
       responseType: 'buffer',
     })
     expect(res.statusCode).toBe(200)
-    expect(res.headers['content-type']).toBe(EXPECTED_MIMETYPES[extension])
+    expect(res.headers['content-type']).toBe('image/webp')
     const image = sharp(res.text)
     const { width, height } = await image.metadata()
     expect(width).toBe(448)
@@ -76,25 +63,22 @@ describe('dynamic assets', () => {
     expect(res.statusCode).toBe(404)
   })
 
-  test.each(POSSIBLE_EXTENSIONS)(
-    'max-width has to be a valid number when converting to %s',
-    async (extension) => {
-      // 0 is too small
-      {
-        const res = await get(`/assets/images/mw-0/_fixtures/screenshot.${extension}`)
-        expect(res.statusCode).toBe(400)
-        expect(res.headers['content-type']).toMatch('text/plain')
-        expect(res.text).toMatch('Error: width number (0) is not a valid number')
-      }
-      // 1234 is not a number that is recognized
-      {
-        const res = await get(`/assets/images/mw-1234/_fixtures/screenshot.${extension}`)
-        expect(res.statusCode).toBe(400)
-        expect(res.headers['content-type']).toMatch('text/plain')
-        expect(res.text).toMatch('Error: width number (1234) is not a valid number')
-      }
+  test('max-width has to be a valid number when converting to WebP', async () => {
+    // 0 is too small
+    {
+      const res = await get('/assets/images/mw-0/_fixtures/screenshot.webp')
+      expect(res.statusCode).toBe(400)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.text).toMatch('Error: width number (0) is not a valid number')
     }
-  )
+    // 1234 is not a number that is recognized
+    {
+      const res = await get('/assets/images/mw-1234/_fixtures/screenshot.webp')
+      expect(res.statusCode).toBe(400)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.text).toMatch('Error: width number (1234) is not a valid number')
+    }
+  })
 
   test('unrecognized extensions get a 404', async () => {
     const res = await get('/assets/images/_fixtures/screenshot.xxx')

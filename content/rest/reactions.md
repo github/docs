@@ -1,11 +1,13 @@
 ---
 title: Reactions
-intro: 'Use the REST API to interact with reactions on {% data variables.product.prodname_dotcom %}.'
+intro: >-
+  Use the REST API to interact with reactions on {% data
+  variables.product.prodname_dotcom %}.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:

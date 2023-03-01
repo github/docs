@@ -3,9 +3,9 @@ title: Secret scanning
 intro: Use the REST API to retrieve and update secret alerts from a repository.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:
