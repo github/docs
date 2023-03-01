@@ -94,8 +94,10 @@ async function main(files, opts) {
     const results = await updateInternalLinks(actualFiles, options)
 
     let exitCheck = 0
-    for (const { file, content, newContent, replacements, data } of results) {
-      if (content !== newContent) {
+    for (const { file, rawContent, content, newContent, replacements, data, newData } of results) {
+      const differentContent = content !== newContent
+      const differentData = !equalObject(data, newData)
+      if (differentContent || differentData) {
         if (opts.verbose || opts.check) {
           if (opts.check) {
             exitCheck++
@@ -104,7 +106,10 @@ async function main(files, opts) {
             console.log(
               opts.dryRun ? 'Would change...' : 'Will change...',
               chalk.bold(file),
-              chalk.dim(`${replacements.length} change${replacements.length !== 1 ? 's' : ''}`)
+              differentContent
+                ? chalk.dim(`${replacements.length} change${replacements.length !== 1 ? 's' : ''}`)
+                : '',
+              differentData ? chalk.dim('different data') : ''
             )
             for (const { asMarkdown, newAsMarkdown, line, column } of replacements) {
               console.log('  ', chalk.red(asMarkdown))
@@ -112,6 +117,7 @@ async function main(files, opts) {
               console.log('  ', chalk.dim(`line ${line} column ${column}`))
               console.log('')
             }
+            printObjectDifference(data, newData, rawContent)
           }
         }
         if (!opts.dryRun) {
@@ -119,7 +125,7 @@ async function main(files, opts) {
           // Markdown page. To save it you need the frontmatter data too.
           fs.writeFileSync(
             file,
-            frontmatter.stringify(newContent, data, { lineWidth: 10000 }),
+            frontmatter.stringify(newContent, newData, { lineWidth: 10000 }),
             'utf-8'
           )
         }
@@ -157,6 +163,74 @@ async function main(files, opts) {
     console.error(chalk.red(err.toString()))
     process.exit(1)
   }
+}
+
+function printObjectDifference(objFrom, objTo, rawContent, parentKey = '') {
+  // Assume both object are of the same shape, but if a key's value is
+  // an array, and it's different, print that difference.
+  for (const [key, value] of Object.entries(objFrom)) {
+    const combinedKey = `${parentKey}.${key}`
+    if (Array.isArray(value) && !equalArray(value, objTo[key])) {
+      console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
+      value.forEach((entry, i) => {
+        if (entry !== objTo[key][i]) {
+          console.log(chalk.red(`- ${entry}`))
+          console.log(chalk.green(`+ ${objTo[key][i]}`))
+          const needle = new RegExp(`- ${entry}\\b`)
+          const index = rawContent.split(/\n/g).findIndex((line) => needle.test(line))
+          console.log('  ', chalk.dim(`line ${(index && index + 1) || 'unknown'}`))
+          console.log('')
+        }
+      })
+    } else if (typeof value === 'object' && value !== null) {
+      printObjectDifference(value, objTo[key], rawContent, combinedKey)
+    }
+  }
+}
+
+// This assumes them to be the same shape with possibly different node values
+function equalObject(obj1, obj2) {
+  if (!equalSet(new Set(Object.keys(obj1)), new Set(Object.keys(obj2)))) {
+    return false
+  }
+  for (const [key, value] of Object.entries(obj1)) {
+    if (Array.isArray(value)) {
+      // Can't easily compare two arrays because the entries might be objects.
+      if (value.length !== obj2[key].length) return false
+      let i = 0
+      for (const each of value) {
+        if (isObject(each)) {
+          if (!equalObject(each, obj2[key][i])) {
+            return false
+          }
+        } else {
+          if (each !== obj2[key][i]) {
+            return false
+          }
+        }
+        i++
+      }
+    } else if (isObject(value)) {
+      if (!equalObject(value, obj2[key])) {
+        return false
+      }
+    } else if (value !== obj2[key]) {
+      return false
+    }
+  }
+  return true
+}
+
+function isObject(thing) {
+  return typeof thing === 'object' && thing !== null && !Array.isArray(thing)
+}
+
+function equalSet(set1, set2) {
+  return set1.size === set2.size && [...set1].every((x) => set2.has(x))
+}
+
+function equalArray(arr1, arr2) {
+  return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
 
 function countByTree(results) {
