@@ -65,10 +65,10 @@ Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more info
 macOS Monterey 12
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-12</code>
+<code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 12 runner image.
+The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
 </td>
 </tr>
 <tr>
