@@ -29,7 +29,9 @@ If you've created a custom repository role with an inherited role that is lower 
 {% endif %}
 
 {% note %}
-Note: All changes to base permissions will take effect on both new and existing members. 
+
+**Note:** All changes to base permissions will affect both new and existing members. 
+
 {% endnote %}
 
 ## Setting base permissions
