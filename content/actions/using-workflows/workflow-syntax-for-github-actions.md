@@ -990,7 +990,7 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-### `jobs.<job_id>.with`
+## `jobs.<job_id>.with`
 
 When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
 
@@ -998,7 +998,7 @@ Any inputs that you pass must match the input specifications defined in the call
 
 Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
-#### Example of `jobs.<job_id>.with`
+### Example of `jobs.<job_id>.with`
 
 ```yaml
 jobs:
@@ -1014,13 +1014,13 @@ A pair consisting of a string identifier for the input and the value of the inpu
 
 Allowed expression contexts: `github`, and `needs`.
 
-### `jobs.<job_id>.secrets`
+## `jobs.<job_id>.secrets`
 
 When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
 
 Any secrets that you pass must match the names defined in the called workflow.
 
-#### Example of `jobs.<job_id>.secrets`
+### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
 ```yaml
