@@ -3,6 +3,7 @@ title: Migrating from CircleCI to GitHub Actions
 intro: 'GitHub Actions and CircleCI share several similarities in configuration, which makes migration to GitHub Actions relatively straightforward.'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

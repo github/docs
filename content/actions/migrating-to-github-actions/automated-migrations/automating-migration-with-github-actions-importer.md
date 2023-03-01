@@ -1,6 +1,8 @@
 ---
 title: Automating migration with GitHub Actions Importer
 intro: 'Use {% data variables.product.prodname_actions_importer %} to plan and automate your migration to {% data variables.product.prodname_actions %}.'
+redirect_from:
+  - /actions/migrating-to-github-actions/automating-migration-with-github-actions-importer
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,12 +20,6 @@ shortTitle: 'Automate migration with {% data variables.product.prodname_actions_
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 [Legal notice](#legal-notice)
-
-{% note %}
-
-**Note**: {% data variables.product.prodname_actions_importer %} is currently available as a public preview. Visit the [sign up page](https://github.com/features/actions-importer/signup) to request access to the preview. Once you are granted access you'll be able to use the `gh-actions-importer` CLI extension
-
-{% endnote %}
 
 ## About {% data variables.product.prodname_actions_importer %}
 
@@ -43,13 +39,10 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 - Jenkins
 - Travis CI
 
-Once you are granted access to the preview, you will be able to access further reference documentation for each of the supported platforms.
-
 ## Prerequisites
 
 {% data variables.product.prodname_actions_importer %} has the following requirements:
 
-- You must have been granted access to the public preview for the {% data variables.product.prodname_actions_importer %}.
 {%- ifversion ghes < 3.5 or ghae %}
 - Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
 {%- else %}
@@ -111,8 +104,6 @@ You must configure credentials that allow {% data variables.product.prodname_act
 $ gh actions-importer configure
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about using environment variables.
-
 ## Using the {% data variables.product.prodname_actions_importer %} CLI
 
 Use the subcommands of `gh actions-importer` to begin your migration to {% data variables.product.prodname_actions %}, including `audit`, `forecast`, `dry-run`, and `migrate`.
@@ -138,8 +129,6 @@ Commands:
   travis-ci     An audit will output a list of data used in a Travis CI instance.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running an audit.
-
 ### Forecasting usage
 
 The `forecast` subcommand reviews historical pipeline usage to create a forecast of {% data variables.product.prodname_actions %} usage.
@@ -162,8 +151,6 @@ Commands:
   github        Forecasts GitHub Actions usage from historical GitHub pipeline utilization.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a forecast.
-
 ### Testing the migration process
 
 The `dry-run` subcommand can be used to convert a pipeline to its {% data variables.product.prodname_actions %} equivalent, and then write the workflow to your local filesystem.
@@ -184,8 +171,6 @@ Commands:
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and output its yaml file.
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and output its yaml file.
 ```
-
-Once you are granted access to the preview, you will be able to access further reference documentation about performing a dry run.
 
 ### Migrating a pipeline to {% data variables.product.prodname_actions %}
 
@@ -208,32 +193,18 @@ Commands:
   travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and and open a pull request with the changes.
 ```
 
-Once you are granted access to the preview, you will be able to access further reference documentation about running a migration.
+## Performing self-serve migrations using IssueOps
+
+You can use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_issues %} to run CLI commands for {% data variables.product.prodname_actions_importer %}. This allows you to migrate your CI/CD workflows without installing software on your local machine. This approach is especially useful for organizations that want to enable self-service migrations to {% data variables.product.prodname_actions %}. Once IssueOps is configured, users can open an issue with the relevant template to migrate pipelines to {% data variables.product.prodname_actions %}.
+
+For more information about setting up self-serve migrations with IssueOps, see the [`actions/importer-issue-ops`](https://github.com/actions/importer-issue-ops) template repository.
+
+## Using the {% data variables.product.prodname_actions_importer %} labs repository
+
+The {% data variables.product.prodname_actions_importer %} labs repository contains platform-specific learning paths that teach you how to use {% data variables.product.prodname_actions_importer %} and how to approach migrations to {% data variables.product.prodname_actions %}. You can use this repository to learn how to use {% data variables.product.prodname_actions_importer %} to help plan, forecast, and automate your migration to {% data variables.product.prodname_actions %}. 
+
+To learn more, see the [GitHub Actions Importer labs repository](https://github.com/actions/importer-labs/tree/main#readme).
 
 ## Legal notice
 
-Portions have been adapted from https://github.com/github/gh-actions-importer/ under the MIT license:
-
-```
-MIT License
-
-Copyright (c) 2022 GitHub
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+{% data reusables.actions.actions-importer-legal-notice %}
