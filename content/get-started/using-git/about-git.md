@@ -169,10 +169,3 @@ The {% data variables.product.product_name %} team has created a library of educ
 
 - [Beginner projects to explore](https://github.com/showcases/great-for-new-contributors)
 - [{% data variables.product.product_name %} video guides](https://youtube.com/githubguides)
-
-For a detailed look at Git practices, the videos below show how to get the most out of some Git commands.
-
-- [Working locally](https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
-- [`git status`](https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3)
-- [Two-step commits](https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)
-- [`git pull` and `git push`](https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4)

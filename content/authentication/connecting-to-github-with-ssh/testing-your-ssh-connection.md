@@ -19,7 +19,7 @@ Before testing your SSH connection, you should have:
 - [Generated a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [Added a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
+When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Enter the following:
@@ -52,7 +52,7 @@ When you test your connection, you'll need to authenticate this action using you
   Permission denied (publickey).
   ```
 
-  This is a known problem with certain Linux distributions. For more information, see ["Error: Agent admitted failure to sign"](/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign).
+  This is a known problem with certain Linux distributions. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign)."
 
   {% endlinux %}
 
@@ -62,4 +62,4 @@ When you test your connection, you'll need to authenticate this action using you
 
    {% endnote %}
 
-4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)"](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
+4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."

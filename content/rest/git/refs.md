@@ -1,12 +1,14 @@
 ---
 title: Git references
 shortTitle: References
-intro: 'Use the REST API to interact with references in your Git database on {% data variables.product.product_name %}'
+intro: >-
+  Use the REST API to interact with references in your Git database on {% data
+  variables.product.product_name %}
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

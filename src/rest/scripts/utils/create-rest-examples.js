@@ -11,7 +11,7 @@ const DEFAULT_ACCEPT_HEADER = 'application/vnd.github.v3+json'
 // merge them to create matching request/response examples
 // The key used in the media type `examples` property is
 // used to match requests to responses.
-export default function getCodeSamples(operation) {
+export default async function getCodeSamples(operation) {
   const responseExamples = getResponseExamples(operation)
   const requestExamples = getRequestExamples(operation)
 

@@ -17,7 +17,7 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission). 
 
 ## Submitting dependencies at build-time
 
@@ -29,16 +29,14 @@ The simplest way to use the Dependency submission API is by adding a pre-made ac
 
 Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
 --- | --- | --- |
-Any [1] | [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | |
 Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | **✓** |
 Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/gradle-dependency-submission) | |
 Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | **✓** |
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | |
 
-[1] This action is ecosystem-agnostic.
 
-For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency Submission API. 
+For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency submission API. 
 
 ```yaml
 
@@ -82,6 +80,7 @@ jobs:
             go-build-target: go-example/cmd/octocat.go
 
 ```
+
 ### Creating your own action
 
 Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
@@ -91,3 +90,58 @@ Alternatively, you can write your own action to submit dependencies for your pro
   3. Submit the formatted list of dependencies to the Dependency submission API.
 
 {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[AUTOTITLE](/actions/creating-actions)".
+
+## Generating and submitting a software bill of materials (SBOM) 
+
+You can use {% data variables.product.prodname_actions %} to generate a software bill of materials (SBOM), a formal, machine-readable inventory of your dependencies and associated information. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+
+Action | Details | <nobr>Maintained by {% data variables.product.prodname_dotcom %}</nobr>
+--- | --- | ---
+[SBOM-generator-action](https://github.com/marketplace/actions/sbom-generator-action) | Uses the information in your dependency graph to generate an SPDX SBOM | **✓** |
+[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | |
+[sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM |  | 
+
+You can then upload and submit the SBOM to the dependency submission API using one of the following actions so that you can receive {% data variables.product.prodname_dependabot_alerts %} on any dependencies that have known vulnerabilities. Actions that appear in both tables can be configured to both generate and submit an SBOM. 
+
+Action | Details | <nobr>Maintained by {% data variables.product.prodname_dotcom %}</nobr>
+---  | --- | ---
+[SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) | **✓** |
+[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | |
+[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the dependency submission API | |
+
+For example, the following [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) workflow calculates the dependencies for a repository, generates an exportable SBOM in SPDX 2.2 format, and submits it to the dependency submission API. 
+
+```yaml
+
+name: SBOM upload
+
+on: 
+  workflow_dispatch:
+  push: 
+    branches: ["main"]
+
+jobs:
+  SBOM-upload:
+
+    runs-on: ubuntu-latest
+    permissions: 
+      id-token: write
+      contents: write
+      
+    steps:
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Generate SBOM
+      # generation command documentation: https://github.com/microsoft/sbom-tool#sbom-generation 
+      run: | 
+        curl -Lo $RUNNER_TEMP/sbom-tool https://github.com/microsoft/sbom-tool/releases/latest/download/sbom-tool-linux-x64
+        chmod +x $RUNNER_TEMP/sbom-tool
+        $RUNNER_TEMP/sbom-tool generate -b . -bc . -pn ${{ github.repository }} -pv 1.0.0 -ps OwnerName -nsb https://sbom.mycompany.com -V Verbose
+    - uses: {% data reusables.actions.action-upload-artifact %}
+      with:
+        name: sbom
+        path: _manifest/spdx_2.2
+    - name: SBOM upload 
+      uses: advanced-security/spdx-dependency-submission-action@v0.0.1
+      with:
+        filePath: "_manifest/spdx_2.2/"
+```

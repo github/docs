@@ -3,9 +3,9 @@ title: Release Assets
 intro: Use the REST API to manage release assets.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

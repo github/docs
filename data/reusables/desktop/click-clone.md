@@ -1,14 +1,2 @@
-1. Click **Clone**.
-
-  {% mac %}
-
-  ![The clone button](/assets/images/help/desktop/clone-button-mac.png)
-
-  {% endmac %}
-
-  {% windows %}
-
-  ![The clone button](/assets/images/help/desktop/clone-button-win.png)
-
-  {% endwindows %}
+1. At the bottom of the "Clone a Repository" window, click **Clone**.
   

@@ -446,14 +446,6 @@ Action                        | Description
 | `external_identity.update` | An Okta user's settings were updated. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 {%- endif %}
 
-## `gist` category actions
-
-| Action | Description
-|--------|-------------
-| `gist.create` | A gist is created.
-| `gist.destroy` | A gist is deleted.
-| `gist.visibility_change` | The visibility of a gist is changed.
-
 {% ifversion git-events-audit-log %}
 ## `git` category actions
 
@@ -776,6 +768,10 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- ifversion fpt or ghec %}
 | `org.runner_group_visiblity_updated` | The visibility of a self-hosted runner group was updated via the REST API. For more information, see "[AUTOTITLE](/rest/actions#update-a-self-hosted-runner-group-for-an-organization)."
 {%- endif %}
+{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+| `org.secret_scanning_custom_pattern_push_protection_disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org.secret_scanning_custom_pattern_push_protection_enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+{%- endif %}
 {%- ifversion code-security-audit-log-events %}
 | `org.secret_scanning_push_protection_custom_message_disabled` | The custom message triggered by an attempted push to a push-protected repository was disabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 | `org.secret_scanning_push_protection_custom_message_enabled` | The custom message triggered by an attempted push to a push-protected repository was enabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
@@ -840,16 +836,6 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
 | `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 {%- endif %}
-
-{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
-## `org_secret_scanning_custom_pattern_push_protection` category actions
-
-| Action | Description
-|--------|---------------
-| `org_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `org_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-{%- endif %}
-
 
 ## `organization_default_label` category actions
 

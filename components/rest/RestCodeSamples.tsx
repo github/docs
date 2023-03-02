@@ -14,17 +14,17 @@ import useClipboard from 'components/hooks/useClipboard'
 import { getShellExample, getGHExample, getJSExample } from 'components/lib/get-rest-code-samples'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
-import type { Operation, ExampleT, LanguageOptionT } from './types'
+import type { Operation, ExampleT } from './types'
+import { ResponseKeys, CodeSampleKeys } from './types'
 import { useVersion } from 'components/hooks/useVersion'
 
 type Props = {
   slug: string
   operation: Operation
+  heading: string
 }
 
-const GHCLIKEY = 'ghcli'
-const JSKEY = 'javascript'
-const CURLKEY = 'curl'
+const responseSelectOptions = Object.values(ResponseKeys)
 
 // Add as needed. It's pretty cheap to add but please don't use
 // highlight.js import that loads all and everything.
@@ -32,16 +32,11 @@ hljs.registerLanguage('json', json)
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('curl', hljsCurl)
 
-const responseSelectOptions = [
-  { key: 'example', text: 'Example response' },
-  { key: 'schema', text: 'Response schema' },
-]
-
 function getLanguageHighlight(selectedLanguage: string) {
-  return selectedLanguage === JSKEY ? 'javascript' : 'curl'
+  return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
 
-export function RestCodeSamples({ operation, slug }: Props) {
+export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation('products')
   const { isEnterpriseServer } = useVersion()
 
@@ -62,16 +57,16 @@ export function RestCodeSamples({ operation, slug }: Props) {
   }))
 
   // Menu options for the language selector
-  const languageSelectOptions: LanguageOptionT[] = [{ key: CURLKEY, text: 'cURL' }]
+  const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
   // Management Console operations are not supported by Octokit
   if (operation.subcategory !== 'management-console') {
-    languageSelectOptions.push({ key: JSKEY, text: 'JavaScript' })
+    languageSelectOptions.push(CodeSampleKeys.javascript)
 
     // Not all examples support the GH CLI language option. If any of
     // the examples don't support it, we don't show GH CLI as an option.
     if (!languageExamples.some((example) => example.ghcli === undefined)) {
-      languageSelectOptions.push({ key: GHCLIKEY, text: 'GitHub CLI' })
+      languageSelectOptions.push(CodeSampleKeys.ghcli)
     }
   }
 
@@ -94,11 +89,9 @@ export function RestCodeSamples({ operation, slug }: Props) {
     languageIndex: index,
   }))
 
-  const [selectedLanguage, setSelectedLanguage] = useState<keyof ExampleT>(
-    languageSelectOptions[0].key
-  )
+  const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])
-  const [selectedResponse, setSelectedResponse] = useState(responseSelectOptions[0].key)
+  const [selectedResponse, setSelectedResponse] = useState(responseSelectOptions[0])
   const [responseMaxHeight, setResponseMaxHeight] = useState(0)
 
   const isSingleExample = languageExamples.length === 1
@@ -108,11 +101,11 @@ export function RestCodeSamples({ operation, slug }: Props) {
     setSelectedExample(exampleSelectOptions[Number(event.currentTarget.value)])
   }
 
-  const handleResponseSelection = (responseKey: string) => {
+  const handleResponseSelection = (responseKey: ResponseKeys) => {
     setSelectedResponse(responseKey)
   }
 
-  const handleLanguageSelection = (languageKey: keyof ExampleT) => {
+  const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
     Cookies.set('codeSampleLanguagePreferred', languageKey, {
       sameSite: 'strict',
@@ -138,9 +131,9 @@ export function RestCodeSamples({ operation, slug }: Props) {
     // If the user previously selected a language preference and the language
     // is available in this component set it as the selected language
     const cookieValue = Cookies.get('codeSampleLanguagePreferred')
-    const preferredCodeLanguage = languageSelectOptions.find((item) => item.key === cookieValue)
+    const preferredCodeLanguage = languageSelectOptions.find((item) => item === cookieValue)
     if (cookieValue && preferredCodeLanguage) {
-      setSelectedLanguage(cookieValue as keyof ExampleT)
+      setSelectedLanguage(cookieValue as CodeSampleKeys)
     }
   }, [])
 
@@ -228,7 +221,7 @@ export function RestCodeSamples({ operation, slug }: Props) {
   return (
     <>
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
-        <a href={`#${slug}--code-samples`}>{`${t('rest.reference.code_samples')}`}</a>
+        <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
 
       {/* Display an example selector if more than one example */}
@@ -255,19 +248,19 @@ export function RestCodeSamples({ operation, slug }: Props) {
         <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center">
           <div className="d-inline-flex ml-2">
             <UnderlineNav aria-label="Example language selector">
-              {languageSelectOptions.map((option) => (
+              {languageSelectOptions.map((optionKey) => (
                 <UnderlineNav.Link
-                  key={option.key}
+                  key={optionKey}
                   onClick={() => {
-                    handleLanguageSelection(option.key)
+                    handleLanguageSelection(optionKey)
                   }}
-                  selected={option.key === selectedLanguage}
+                  selected={optionKey === selectedLanguage}
                   className="pr-3 mr-0"
                   sx={{
                     cursor: 'pointer',
                   }}
                 >
-                  {option.text}
+                  {t(`rest.reference.code_sample_options.${optionKey}`)}
                 </UnderlineNav.Link>
               ))}
             </UnderlineNav>
@@ -299,31 +292,32 @@ export function RestCodeSamples({ operation, slug }: Props) {
       </div>
 
       {/* Response section */}
-      <h5
+      <div
+        className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></h5>
+      ></div>
 
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
           <UnderlineNav aria-label="Example response format selector">
-            {responseSelectOptions.map((option) => {
+            {responseSelectOptions.map((optionKey) => {
               if (!displayedExample.response.schema) return null
 
               return (
                 <UnderlineNav.Link
-                  key={option.key}
+                  key={optionKey}
                   onClick={() => {
-                    handleResponseSelection(option.key)
+                    handleResponseSelection(optionKey)
                   }}
-                  selected={option.key === selectedResponse}
+                  selected={optionKey === selectedResponse}
                   className="pr-3 mr-0 ml-2"
                   sx={{
                     cursor: 'pointer',
                   }}
                 >
-                  {option.text}
+                  {t(`rest.reference.response_options.${optionKey}`)}
                 </UnderlineNav.Link>
               )
             })}
@@ -349,7 +343,9 @@ export function RestCodeSamples({ operation, slug }: Props) {
               style={{ maxHeight: responseMaxHeight }}
             >
               <code ref={responseCodeExample}>
-                {selectedResponse === 'example' ? displayedExampleResponse : displayedExampleSchema}
+                {selectedResponse === ResponseKeys.example
+                  ? displayedExampleResponse
+                  : displayedExampleSchema}
               </code>
             </div>
           )}

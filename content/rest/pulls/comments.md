@@ -4,9 +4,9 @@ shortTitle: Review comments
 intro: Use the REST API to interact with pull request review comments.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

@@ -1,11 +1,13 @@
 ---
 title: Search
-intro: 'Use the REST API to search for specific items on {% data variables.product.product_name %}.'
+intro: >-
+  Use the REST API to search for specific items on {% data
+  variables.product.product_name %}.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:
@@ -98,8 +100,6 @@ For example, if your search query searches for the `octocat/test` and `codertoca
 ### Text match metadata
 
 On {% data variables.product.prodname_dotcom %}, you can use the context provided by code snippets and highlights in search results. The endpoints for searching return additional metadata that allows you to highlight the matching search terms when displaying search results.
-
-![code-snippet-highlighting](/assets/images/text-match-search-api.png)
 
 Requests can opt to receive those text fragments in the response, and every fragment is accompanied by numeric offsets identifying the exact location of each matching search term.
 

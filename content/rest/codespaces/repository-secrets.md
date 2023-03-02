@@ -2,8 +2,12 @@
 title: Codespaces repository secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Repository secrets
-intro: Use the REST API to manage secrets for repositories that the user has access to in a codespace.
-permissions: 'Users with write access to a repository can manage {% data variables.product.prodname_codespaces %} repository secrets.'
+intro: >-
+  Use the REST API to manage secrets for repositories that the user has access
+  to in a codespace.
+permissions: >-
+  Users with write access to a repository can manage {% data
+  variables.product.prodname_codespaces %} repository secrets.
 versions:
   fpt: '*'
   ghec: '*'

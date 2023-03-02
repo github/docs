@@ -50,7 +50,7 @@ describe('rest example requests and responses', () => {
   })
 
   test('check example number and status code appear', async () => {
-    const mergedExamples = getCodeSamples(operation)
+    const mergedExamples = await getCodeSamples(operation)
     mergedExamples.forEach((example, index) => {
       expect(example.request.description).toBe(
         'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode

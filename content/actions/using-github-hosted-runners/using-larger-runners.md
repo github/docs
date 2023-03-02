@@ -39,17 +39,17 @@ The {% data variables.actions.hosted_runner %}s are managed at the organization 
 
 In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` has been defined with customized hardware and operating system configuration.
 
-![Diagram explaining {% data variables.actions.hosted_runner %}](/assets/images/hosted-runner.png)
+![Diagram showing a larger runner being used by a workflow because of the runner's label.](/assets/images/help/actions/hosted-runner.png)
 
-1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`. 
-2. The runners have been assigned the label `ubuntu-20.04-16core`. 
+1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`.
+2. The runners have been assigned the label `ubuntu-20.04-16core`.
 3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
 4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
 5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
 
 ## Autoscaling {% data variables.actions.hosted_runner %}s
 
-Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently. 
+Your {% data variables.actions.hosted_runner %}s can be configured to automatically scale to suit your needs. When jobs are submitted for processing, more machines can be automatically provisioned to run the jobs, until reaching a pre-defined maximum limit. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently.
 
 During the runner deployment process, you can configure the _Max_ option, which allows you to control your costs by setting the maximum parallel number of machines that are created in this set. A higher value here can help avoid workflows being blocked due to parallelism.
 
@@ -94,7 +94,7 @@ You can add {% data variables.actions.hosted_runner %}s to an enterprise, where 
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it. 
+You can add a {% data variables.actions.hosted_runner %} to an organization, where the organization admins can control which repositories can use it.
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
@@ -159,9 +159,9 @@ Runner groups are used to control which repositories can run jobs on your {% dat
 - **Runners at the enterprise level**: Configure the runner group to grant access to all the required organizations. In addition, for each organization, you must configure the group to specify which repositories are allowed access.
 - **Runners at the organization level**: Configure the runner group by specifying which repositories are allowed access.
 
-For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization; you must then configure the group at the organization level to allow access from `octo-repo`:
+For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access from the `octo-org` organization. You must then configure the group at the organization level to allow access from `octo-repo`.
 
-![Diagram explaining {% data variables.actions.hosted_runner %} groups](/assets/images/hosted-runner-mgmt.png)
+![Diagram that shows a lock between a runner group at the enterprise level and an organization, and between the organization and two repositories owned by the organization.](/assets/images/help/actions/hosted-runner-mgmt.png)
 
 ### Allowing repositories to access a runner group
 
