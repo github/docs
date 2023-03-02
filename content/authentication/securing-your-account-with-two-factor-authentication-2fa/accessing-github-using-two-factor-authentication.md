@@ -19,19 +19,19 @@ shortTitle: Access GitHub with 2FA
 
 {% ifversion 2fa-check-up-period %}
 
-With two-factor authentication (2FA) enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days, and 2FA will not be necessary in existing {% data variables.product.prodname_dotcom_the_website %} sessions. You can exit the check up period by successfully performing 2FA within 28 days. If you fail to authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom_the_website %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.product_name %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom_the_website %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll authenticate using a token, application, or SSH key. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
 {% else %}
 
-With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
+With two-factor authentication enabled, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in GitHub Mobile,{% endif %} or use a security key when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
 {% endif %}
 
-## Providing a 2FA code when signing in to the website
+## Performing 2FA when signing in to the website
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% ifversion fpt or ghec %}a text message or{% endif %} your TOTP app.
+After you sign in to {% data variables.product.product_name %} using your password, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in {% data variables.product.prodname_mobile %},{% endif %} or use a security key to perform 2FA.
 
 {% data variables.product.product_name %} will only ask you to provide your 2FA authentication code again if you've logged out, are using a new device, are performing a sensitive action, or your session expires. For more information on 2FA for sensitive actions, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
 
@@ -40,6 +40,15 @@ After you sign in to {% data variables.product.product_name %} using your passwo
 If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
 
 If you delete your authenticator application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
+
+### Using a security key 
+
+If you've set up a security key on your account, and your browser supports security keys, you can use it to complete your sign in. 
+
+1. Using your username and password, sign in to {% data variables.product.product_name %} through your browser.
+1. If you use a physical security key, ensure it's connected to your device. 
+1. To trigger the security key prompt from your operating system, select "Use security key".
+1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
 
 {% ifversion fpt or ghec %}
 
@@ -52,9 +61,6 @@ If you set up two-factor authentication via text messages, {% data variables.pro
 If you have installed and signed in to {% data variables.product.prodname_mobile %}, you may choose to authenticate with {% data variables.product.prodname_mobile %} for two-factor authentication.
 
 1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
-1. If you have added a security key to your account, you'll first be prompted to insert and use a security key. To skip using a security key, click **Authenticate with {% data variables.product.prodname_mobile %}**.
-
-   ![Screenshot of login options on the 2FA screen. A link, labeled "Authenticate with {% data variables.product.prodname_mobile %}", is outlined in orange.](/assets/images/help/2fa/2fa-select-mobile.png)
 1. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
   {% note %}
 
