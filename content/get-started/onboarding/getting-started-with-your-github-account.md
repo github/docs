@@ -6,7 +6,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
----
+----
 
 This guide will walk you through setting up your {% data variables.product.company_short %} account and getting started with {% data variables.product.product_name %}'s features for collaboration and community.
 
