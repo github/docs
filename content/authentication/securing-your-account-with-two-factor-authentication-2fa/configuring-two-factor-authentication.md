@@ -57,7 +57,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 {% tip %}
 
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure 2FA from your security settings.
+**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 {% endtip %}
 
@@ -88,7 +88,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 ## Configuring two-factor authentication using text messages
 
-If you're unable to authenticate using a TOTP mobile app, you can authenticate using SMS messages. You can also provide a second number for a fallback device. If you lose access to both your preferred device and your recovery codes, a backup SMS number can get you back in to your account.
+If you're unable to configure a TOTP mobile app, you can also register your phone number to receive SMS messages.
 
 Before using this method, be sure that you can receive text messages. Carrier rates may apply.
 
