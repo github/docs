@@ -3,7 +3,6 @@ title: Security Managers
 intro: Use the REST API to manage security managers in an organization.
 versions:
   fpt: '*'
-  ghae: '>= 3.7'
   ghec: '*'
   ghes: '>=3.7'
 topics:

@@ -163,7 +163,7 @@
     "rimraf": "^4.1.1",
     "robots-parser": "^3.0.0",
     "sass": "^1.52.3",
-    "start-server-and-test": "^1.14.0",
+    "start-server-and-test": "^2.0.0",
     "strip-ansi": "^7.0.1",
     "typescript": "^4.7.3"
   },

@@ -5,7 +5,6 @@ intro: >-
   The Organization Announcement Banners API allows you to get, set, and remove
   the announcement banner for your organization.
 versions:
-  ghae: '>=3.8'
   ghec: '*'
   ghes: '>=3.8'
 allowTitleToDifferFromFilename: true

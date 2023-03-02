@@ -10202,6 +10202,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>List of required deployment environments that must be deployed successfully to update matching branches.</p>",
+          "type": "[String]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String]",
@@ -10244,6 +10252,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Does this branch require deployment to specific environments before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -71020,6 +71036,14 @@
           ]
         },
         {
+          "name": "event",
+          "description": "<p>The event that triggered the workflow run.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "pendingDeploymentRequests",
           "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
           "type": "DeploymentRequestConnection!",
@@ -84444,6 +84468,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String!]",
@@ -84486,6 +84518,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -91255,6 +91295,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String!]",
@@ -91297,6 +91345,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
