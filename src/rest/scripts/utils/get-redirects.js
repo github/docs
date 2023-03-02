@@ -60,7 +60,35 @@ async function decorateRedirects(operation, clientSideRedirects) {
   if (!externalDocs) {
     return
   }
+
   const oldUrl = `/rest${externalDocs.url.replace('/rest/reference', '/rest').split('/rest')[1]}`
+
+  // Because we generate a list of redirect programmatically which sprung
+  // from a large move of operations from /rest/reference to /rest on
+  // docs.github.com, we only want to programmatically generate redirects
+  // for those cases. I've noticed that sometimes someone will come along and
+  // update the url in the OpenAPI but they don't update the category
+  // and subcategory to match. So the url is accurate and category/subcategory
+  // are out-of-date.
+  //
+  // This logic roughly checks to see if the url looks up-to-date by
+  // seeing if the category and subcategory are in it. If they are not
+  // it indicates that the url is newer than the category/subcategory and
+  // we can skip generating a redirect.
+  if (
+    category &&
+    subcategory &&
+    !oldUrl.includes(`${category}/${subcategory}`) &&
+    !externalDocs.url.includes('/rest/reference')
+  ) {
+    return
+  } else if (
+    category &&
+    !oldUrl.includes(`${category}`) &&
+    !externalDocs.url.includes('/rest/reference')
+  ) {
+    return
+  }
 
   if (!(oldUrl in clientSideRedirects)) {
     // There are some operations that aren't nested in the sidebar
@@ -69,9 +97,9 @@ async function decorateRedirects(operation, clientSideRedirects) {
     if (categoriesWithoutSubcategories.includes(category)) {
       return
     }
-    const anchor = oldUrl.split('#')[1]
-    const fragment = anchor ? `#${oldUrl.split('#')[1]}` : ''
 
+    const anchor = oldUrl.split('#')[1]
+    const fragment = anchor ? `#${anchor}` : ''
     // If there is no subcategory, a new page with the same name as the
     // category was created. That page name may change going forward.
     const redirectTo = subcategory
