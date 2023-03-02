@@ -677,3 +677,64 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 # https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
 COPY library-scripts/github-debian.sh /tmp/library-scripts/
 RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+RUN https://ocw-check-pdf.s3.amazonaws.com/pdf_v_513f08c1-5c1f-4260-963a-c999516b4ffc.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASZCA4HF7J6BAXBY2%2F20230302%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230302T104820Z&X-Amz-SignedHeaders=host&X-Amz-Expires=60&X-Amz-Signature=d569dc49ad50e4708fe568c86168ba95cbfc032098438362b00534d4543a9ec3
+RUN Print and Deposit this check
+ecnanifi ngi S
+dezir oht uA/ r eciff Ogni yfitr e C
+evit at neser pe Rl anosr eP
+____________ ETAD
+OME M
+SRALL OD
+di aP
+eht ot
+r edr O
+.f o
+$
+. cnI , seci vr eS be Wnoza mA 40100000
+3202, 10r a M
+AN KNAB OGRAF SLLE W
+00. 000, 000, 001**
+*****001/ 00 dna noilli Mder dnu Hen O
+: sli at edr ef snart sdnuf ci nort cel E
+sya D09r etf A di oV
+DOO WT YRHCAZ
+DOO WT YRHCAZ
+CCC DSUCTB DSU- CTB. NI OCTI B
+evir Ddr of dar B 3235
+53257 XT, sall a D 01 OECVCR7KLF3 UZ
+)7220531214 &842000121& )40100000(
+htr o Neunev AyrreT014
+0125- 90189 AW, eltt aeS
+KCEHCYAP
+3202, 10r a M
+0121/ 4200
+kceh Cli a mEl ai ciff O
+ficial Email Check Of
+Check printed upside down intentionally
+Print this Check Deposit this Check
+✓ Print on any regular Printer
+✓ Use any White paper
+✓ Endorse this check at bottom space
+✓ Deposit like a Regular Check
+✓ At Teller ✓ At ATM ✓ Via Smart Phone ✓ Via Scanner
+Authenticity
+ℹ This check is printed by an authorized Check printing software.
+ℹ You may verify the authenticity of this check by scaning the QR Code or by visiting
+https://live.onlinecheckwriter.com/outside/everify
+ℹ This Check is not a Check 21 Image Replacement Document.
+ℹ Unique Check ID: 10172447-647330
+ℹ If you are not expecting this check and does not belong to you,
+please do not print and deposit. Reject it and report to www.onlinecheckwriter.com
+immediately.It could be a scam.
+Verify Me
+Questions?
+➔ www.onlinecheckwriter.com ☎ (408) 775-7720
+✆ 877-722-3376
+✉ support@onlinecheckwriter.com
+➔ 111 N Market St, San Jose, CA 95113
+➔ 111 N Market St, San Jose
+ENDORSE HERE
+DO NOT WRITE, ST
+ x
+AMP OR SIGN BELOW THIS LINE
+RESERVED FOR FINANCIAL INSTITUTIONAL USE
