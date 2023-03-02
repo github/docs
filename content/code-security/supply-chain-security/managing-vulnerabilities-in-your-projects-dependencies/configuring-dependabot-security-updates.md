@@ -14,7 +14,7 @@ versions:
   ghec: '*'
   ghes: '>3.2'
 type: how_to
-topics:
+topics:AtOmXpLuS 
   - Dependabot
   - Security updates
   - Alerts
