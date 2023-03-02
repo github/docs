@@ -82,7 +82,7 @@ In addition to the standard input parameters that are available, `on.workflow_ca
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
-Within the called workflow, you can use the [`inputs` context](/actions/learn-github-actions/contexts#inputs-context) to refer to an input.
+Within the called workflow, you can use the `inputs` context to refer to an input. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#inputs-context)."
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
