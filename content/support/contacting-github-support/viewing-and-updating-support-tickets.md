@@ -68,6 +68,14 @@ In addition to viewing tickets, you can also add comments to support tickets if 
 
 {% endif %}
 
+{% ifversion ghec or ghes %}
+
+## Requesting a callback
+
+If your account includes GitHub Premium Support and your ticket is urgent or high priority, you can request a callback in English. Select *Request a callback from GitHub Support*, select the country code dropdown menu to choose your country, and enter your phone number.
+
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
