@@ -6,17 +6,20 @@ const section = {
       minItems: 1,
     },
     {
-      type: 'object',
-      properties: {
-        heading: {
-          type: 'string',
-          required: true,
-        },
-        notes: {
-          type: 'array',
-          items: { type: 'string' },
-          required: true,
-          minItems: 1,
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          heading: {
+            type: 'string',
+            required: true,
+          },
+          notes: {
+            type: 'array',
+            items: { type: 'string' },
+            required: true,
+            minItems: 1,
+          },
         },
       },
     },
