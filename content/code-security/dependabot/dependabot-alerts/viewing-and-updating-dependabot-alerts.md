@@ -147,7 +147,9 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
 1. View the details for an alert. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %}](#viewing-dependabot-alerts)" (above).
 {% ifversion fpt or ghec or ghes %}
 1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+
+  ![Screenshot of a {% data variables.product.prodname_dependabot %} alert with the "Create {% data variables.product.prodname_dependabot %} security update" button highlighted with a dark orange outline.](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+
 1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
 {% elsif ghae %}
 1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
@@ -201,12 +203,11 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 1. To just view closed alerts, click **Closed**.
 
    {%- ifversion dependabot-bulk-alerts %}
-   ![Screenshot showing the list of Dependabot alerts with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
-   {%- else %}
-   ![Screenshot showing the list of Dependabot alerts with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed.png)
+   ![Screenshot showing the list of {% data variables.product.prodname_dependabot_alerts %} with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
    {%- endif %}
+
 1. Click the alert that you would like to view or update.
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
+1. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
 
    {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
    ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)

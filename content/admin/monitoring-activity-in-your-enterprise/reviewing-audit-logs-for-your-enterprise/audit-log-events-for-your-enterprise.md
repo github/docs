@@ -1093,7 +1093,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- ifversion ghes %}
 | `repo.disk_archive`  | A repository was archived on disk. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
 {%- endif %}
-| `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file.
+| `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)."
 | `repo.pages_cname` | A {% data variables.product.prodname_pages %} custom domain was modified in a repository.
 | `repo.pages_create` | A {% data variables.product.prodname_pages %} site was created.
 | `repo.pages_destroy` | A {% data variables.product.prodname_pages %} site was deleted.

@@ -684,7 +684,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `create_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."{% endif %}
 | `destroy` | Triggered when [a repository is deleted](/repositories/creating-and-managing-repositories/deleting-a-repository).{% ifversion fpt or ghec %}
 | `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/billing/managing-your-github-billing-settings/unlocking-a-locked-account)).{% endif %}
-| `download_zip` | A source code archive of a repository was downloaded as a ZIP file.
+| `download_zip` | A source code archive of a repository was downloaded as a ZIP file.  For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)."
 | `enable` | Triggered when a repository is re-enabled.{% ifversion fpt or ghes or ghec %}
 | `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}
 | `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository).
