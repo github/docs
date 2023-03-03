@@ -55,8 +55,7 @@ Any member of an organization can create a new team and connect the team to an I
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
-1. To connect a team, select the "Identity Provider Groups" drop-down menu and click the team you want to connect.
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
+1. To connect a team, under "Identity Provider Groups", select the **Select Groups** dropdown menu and click the team you want to connect.
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 
