@@ -60,19 +60,20 @@ You can only view archived tickets for an enterprise account.
 1. To add your comment to the ticket, under the text box, click **Comment**.
 
 {% ifversion ghec or ghes %}
+
 ## Collaborating on support tickets
 
 You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
 In addition to viewing tickets, you can also add comments to support tickets if your email address that is associated with your GitHub.com account is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
-{% endif %}
-
-{% ifversion ghec or ghes %}
-
 ## Requesting a callback
 
 If your account includes GitHub Premium Support and your ticket is urgent or high priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+
+## Requesting an escalation
+
+If your account includes GitHub Premium Support and a ticket was opened with a lower priority, but the situation has become urgent, you can click the **Request an escalation** link.  Please refer to [AUTOTITLE](/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket) before requesting an escalation. 
 
 {% endif %}
 
