@@ -21,7 +21,7 @@ import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
 import { allVersions } from '../../../lib/all-versions.js'
 import { syncWebhookData } from '../../webhooks/scripts/sync.js'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
-import { syncRestRedirects } from './utils/getRedirects.js'
+import { syncRestRedirects } from './utils/get-redirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../openApiTemp')
