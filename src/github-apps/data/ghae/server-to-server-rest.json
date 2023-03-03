@@ -455,6 +455,12 @@
       "requestPath": "/app"
     },
     {
+      "slug": "list-installation-requests-for-the-authenticated-app",
+      "subcategory": "apps",
+      "verb": "get",
+      "requestPath": "/app/installation-requests"
+    },
+    {
       "slug": "list-installations-for-the-authenticated-app",
       "subcategory": "apps",
       "verb": "get",
