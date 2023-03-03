@@ -103,7 +103,7 @@ Add pronouns to your public user profile to share information about yourself wit
 {% note %}
 
 **Note:**
-  Your pronouns will be visible to {% data variables.product.product_name %} users, including in regions where local laws restrict using pronouns other than those assigned at birth.
+  Your pronouns will be visible to {% data variables.product.product_name %} users. It is important to consider that for transgender and non-binary people, covering demands in the workplace, at school, or in other contexts, may make it more comfortable not to share their pronouns. Please be aware of any applicable local laws, regulations, or cultural norms that may pose additional risks to transgender or non-binary people as you consider whether to leverage the pronouns feature.
 
 {% endnote %}
 
