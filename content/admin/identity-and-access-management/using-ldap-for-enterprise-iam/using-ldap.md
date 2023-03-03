@@ -28,6 +28,8 @@ LDAP is a popular application protocol for access and maintenance of directory i
 
 If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.location.product_location %}.
 
+{% data reusables.enterprise.saml-or-ldap %}
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 ## Supported LDAP services

@@ -3,6 +3,7 @@ title: Migrating from Azure Pipelines to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and Azure Pipelines share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

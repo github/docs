@@ -137,6 +137,8 @@ If you use an external directory or identity provider (IdP) to centralize access
 - "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
 - "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
+{% data reusables.enterprise.saml-or-ldap %}
+
 If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
 
 {% ifversion scim-for-ghes %}

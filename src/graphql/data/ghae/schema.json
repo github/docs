@@ -6219,7 +6219,7 @@
       "description": "<p>Creates, updates and/or deletes multiple refs in a repository.</p>\n<p>This mutation takes a list of <code>RefUpdate</code>s and performs these updates\non the repository. All updates are performed atomically, meaning that\nif one of them is rejected, no other ref will be modified.</p>\n<p><code>RefUpdate.beforeOid</code> specifies that the given reference needs to point\nto the given value before performing any updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to verify that\nthe references should not exist.</p>\n<p><code>RefUpdate.afterOid</code> specifies the value that the given reference\nwill point to after performing all updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to delete a\nreference.</p>\n<p>If <code>RefUpdate.force</code> is set to <code>true</code>, a non-fast-forward updates\nfor the given reference will be allowed.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Update refs preview",
+        "title": "Update refs preview update multiple refs in a single operation preview",
         "description": "This preview adds support for updating multiple refs in a single operation.",
         "toggled_by": "update-refs-preview",
         "toggled_on": [
@@ -6231,7 +6231,7 @@
           "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview"
+        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
       },
       "inputFields": [
         {
@@ -8161,6 +8161,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>List of required deployment environments that must be deployed successfully to update matching branches.</p>",
+          "type": "[String]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String]",
@@ -8203,6 +8211,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Does this branch require deployment to specific environments before merging.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -13937,7 +13953,7 @@
       "description": "<p>A dependency manifest entry.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -13954,7 +13970,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "fields": [
         {
@@ -14017,7 +14033,7 @@
       "description": "<p>The connection type for DependencyGraphDependency.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -14034,7 +14050,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "fields": [
         {
@@ -14079,7 +14095,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -14096,7 +14112,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "fields": [
         {
@@ -14125,7 +14141,7 @@
       "description": "<p>Dependency manifest for a repository.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -14142,7 +14158,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "implements": [
         {
@@ -14260,7 +14276,7 @@
       "description": "<p>The connection type for DependencyGraphManifest.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -14277,7 +14293,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "fields": [
         {
@@ -14322,7 +14338,7 @@
       "description": "<p>An edge in a connection.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Access to a repository s dependency graph preview",
+        "title": "Access to a repository's dependency graph preview",
         "description": "This preview adds support for reading a dependency graph for a repository.",
         "toggled_by": "hawkgirl-preview",
         "toggled_on": [
@@ -14339,7 +14355,7 @@
           "@github/dependency-graph"
         ],
         "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
       },
       "fields": [
         {
@@ -36561,7 +36577,7 @@
           "href": "/graphql/reference/scalars#boolean",
           "isDeprecated": false,
           "preview": {
-            "title": "Merge info preview",
+            "title": "Merge info preview more detailed information about a pull request's merge state preview",
             "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
             "toggled_by": "merge-info-preview",
             "toggled_on": [
@@ -36572,7 +36588,7 @@
               "@github/pe-pull-requests"
             ],
             "accept_header": "application/vnd.github.merge-info-preview+json",
-            "href": "/graphql/overview/schema-previews#merge-info-preview"
+            "href": "/graphql/overview/schema-previews#merge-info-preview-more-detailed-information-about-a-pull-requests-merge-state-preview"
           }
         },
         {
@@ -37191,7 +37207,7 @@
           "href": "/graphql/reference/enums#mergestatestatus",
           "isDeprecated": false,
           "preview": {
-            "title": "Merge info preview",
+            "title": "Merge info preview more detailed information about a pull request's merge state preview",
             "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
             "toggled_by": "merge-info-preview",
             "toggled_on": [
@@ -37202,7 +37218,7 @@
               "@github/pe-pull-requests"
             ],
             "accept_header": "application/vnd.github.merge-info-preview+json",
-            "href": "/graphql/overview/schema-previews#merge-info-preview"
+            "href": "/graphql/overview/schema-previews#merge-info-preview-more-detailed-information-about-a-pull-requests-merge-state-preview"
           }
         },
         {
@@ -46661,7 +46677,7 @@
           ],
           "isDeprecated": false,
           "preview": {
-            "title": "Access to a repository s dependency graph preview",
+            "title": "Access to a repository's dependency graph preview",
             "description": "This preview adds support for reading a dependency graph for a repository.",
             "toggled_by": "hawkgirl-preview",
             "toggled_on": [
@@ -46678,7 +46694,7 @@
               "@github/dependency-graph"
             ],
             "accept_header": "application/vnd.github.hawkgirl-preview+json",
-            "href": "/graphql/overview/schema-previews#access-to-a-repository-s-dependency-graph-preview"
+            "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
           }
         },
         {
@@ -59471,6 +59487,14 @@
           ]
         },
         {
+          "name": "event",
+          "description": "<p>The event that triggered the workflow run.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "pendingDeploymentRequests",
           "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
           "type": "DeploymentRequestConnection!",
@@ -69310,6 +69334,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String!]",
@@ -69352,6 +69384,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -72674,7 +72714,7 @@
       "description": "<p>A ref update.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Update refs preview",
+        "title": "Update refs preview update multiple refs in a single operation preview",
         "description": "This preview adds support for updating multiple refs in a single operation.",
         "toggled_by": "update-refs-preview",
         "toggled_on": [
@@ -72686,7 +72726,7 @@
           "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview"
+        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
       },
       "inputFields": [
         {
@@ -74231,6 +74271,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The list of required deployment environments.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "requiredStatusCheckContexts",
           "description": "<p>List of required status check contexts that must pass for commits to be accepted to matching branches.</p>",
           "type": "[String!]",
@@ -74273,6 +74321,14 @@
         {
           "name": "requiresConversationResolution",
           "description": "<p>Are conversations required to be resolved before merging.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresDeployments",
+          "description": "<p>Are successful deployments required before merging.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -75971,7 +76027,7 @@
       "description": "<p>Autogenerated input type of UpdateRefs.</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Update refs preview",
+        "title": "Update refs preview update multiple refs in a single operation preview",
         "description": "This preview adds support for updating multiple refs in a single operation.",
         "toggled_by": "update-refs-preview",
         "toggled_on": [
@@ -75983,7 +76039,7 @@
           "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview"
+        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
       },
       "inputFields": [
         {
@@ -76534,7 +76590,7 @@
       "description": "<p>A fully qualified reference name (e.g. <code>refs/heads/master</code>).</p>",
       "isDeprecated": false,
       "preview": {
-        "title": "Update refs preview",
+        "title": "Update refs preview update multiple refs in a single operation preview",
         "description": "This preview adds support for updating multiple refs in a single operation.",
         "toggled_by": "update-refs-preview",
         "toggled_on": [
@@ -76546,7 +76602,7 @@
           "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview"
+        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
       }
     },
     {

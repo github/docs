@@ -45,6 +45,7 @@ You do not need to provide a payment method during the trial.
 
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
 
+- {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}
 - {% data variables.product.prodname_marketplace %} apps
@@ -54,6 +55,7 @@ The following features are not included in the trial of {% data variables.produc
 Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
 {% data reusables.enterprise.create-enterprise-account %}
+
 1. Follow the prompts to configure your trial.
 
 ## Exploring {% data variables.product.prodname_ghe_cloud %}

@@ -3,6 +3,7 @@ title: Migrating from GitLab CI/CD to GitHub Actions
 intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 redirect_from:
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
