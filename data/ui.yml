@@ -166,8 +166,8 @@ products:
   webhooks:
     action_type_switch_error: There was an error switching webhook action types.
     action_type: Action type
-    availability: Availability
-    webhook_payload_object: Webhook payload object
+    availability: Availability for <code>{{ WebhookName }}</code>
+    webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
     webhook_payload_example: Webhook payload example
     rephrase_availability:
       repository: Repositories

@@ -147,12 +147,18 @@ export function Webhook({ webhook }: Props) {
     <div>
       <h2 id={webhookSlug}>
         <LinkIconHeading slug={webhookSlug} />
-        {currentWebhookAction.category}
+        <code>{currentWebhookAction.category}</code>
       </h2>
       <div>
         <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
-
-        <h3>{t('webhooks.availability')}</h3>
+        <h3
+          dangerouslySetInnerHTML={{
+            __html: t('webhooks.availability').replace(
+              '{{ WebhookName }}',
+              currentWebhookAction.category
+            ),
+          }}
+        />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
             // TODO: once 3.7 is the oldest supported version of GHES, we won't need this anymore.
@@ -172,7 +178,14 @@ export function Webhook({ webhook }: Props) {
             }
           })}
         </ul>
-        <h3>{t('webhooks.webhook_payload_object')}</h3>
+        <h3
+          dangerouslySetInnerHTML={{
+            __html: t('webhooks.webhook_payload_object').replace(
+              '{{ WebhookName }}',
+              currentWebhookAction.category
+            ),
+          }}
+        />
         {error && (
           <Flash className="mb-5" variant="danger">
             <p>{t('webhooks.action_type_switch_error')}</p>
@@ -185,11 +198,14 @@ export function Webhook({ webhook }: Props) {
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
-            <h4 className="border-bottom pt-2 pb-2 mb-3">{t('webhooks.action_type')}</h4>
             <div className="mb-3">
               <ActionMenu>
-                <ActionMenu.Button aria-label="Select a webhook action type" className="text-bold">
-                  {currentWebhookActionType}
+                <ActionMenu.Button
+                  aria-label="Select a webhook action type"
+                  className="text-normal"
+                >
+                  {t('webhooks.action_type')}:{' '}
+                  <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">
