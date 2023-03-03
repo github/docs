@@ -1,7 +1,10 @@
 ---
 title: OAuth Authorizations
 allowTitleToDifferFromFilename: true
-intro: 'Use the REST API to interact with {% data variables.product.prodname_oauth_apps %} and OAuth authorizations of {% data variables.product.prodname_github_apps %}'
+intro: >-
+  Use the REST API to interact with {% data
+  variables.product.prodname_oauth_apps %} and OAuth authorizations of {% data
+  variables.product.prodname_github_apps %}
 topics:
   - API
 versions:
