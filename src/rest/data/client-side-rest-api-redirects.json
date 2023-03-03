@@ -170,6 +170,7 @@
   "/rest/apps#list-deliveries-for-an-app-webhook": "/rest/apps/webhooks#list-deliveries-for-an-app-webhook",
   "/rest/apps#get-a-delivery-for-an-app-webhook": "/rest/apps/webhooks#get-a-delivery-for-an-app-webhook",
   "/rest/apps#redeliver-a-delivery-for-an-app-webhook": "/rest/apps/webhooks#redeliver-a-delivery-for-an-app-webhook",
+  "/rest/apps#list-installation-requests-for-the-authenticated-app": "/rest/apps/apps#list-installation-requests-for-the-authenticated-app",
   "/rest/apps#list-installations-for-the-authenticated-app": "/rest/apps/apps#list-installations-for-the-authenticated-app",
   "/rest/apps#get-an-installation-for-the-authenticated-app": "/rest/apps/apps#get-an-installation-for-the-authenticated-app",
   "/rest/apps#delete-an-installation-for-the-authenticated-app": "/rest/apps/apps#delete-an-installation-for-the-authenticated-app",
