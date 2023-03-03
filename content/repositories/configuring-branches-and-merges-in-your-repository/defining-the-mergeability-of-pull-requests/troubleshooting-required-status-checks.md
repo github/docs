@@ -92,7 +92,6 @@ on:
   pull_request:
     paths-ignore:
       - 'scripts/**'
-      - 'middleware/**'
 jobs:
   build:
     runs-on: ubuntu-latest
