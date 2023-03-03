@@ -109,7 +109,6 @@ Add pronouns to your public user profile to share information about yourself wit
 
 {% data reusables.user-settings.access_settings %}
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
-  ![Screenshot of selected pronouns showing "they/them" highlighted with a dark orange outline](/assets/images/help/profile/pronouns-field.png)
 
 {% data reusables.profile.update-profile %}
 
