@@ -1,6 +1,61 @@
----
+
+
+<dependencies>
+
+  <dependency>
+
+    <groupId>com.example</groupId>
+
+    <artifactId>test</artifactId>
+
+    <version>1.0.0-SNAPSHOT</version>
+
+  </dependency>
+
+</dependencies>
+
 title: Working with the Apache Maven registry
-intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+intro: 'You can configure Apache/4.0
+
+We received your QuickBooks subscription payment!
+I
+Intuit QuickBooks Team
+to me
+12 hours agoDetails
+QuickBooks logo
+Payment success
+Ci Ci, thank you for your payment.
+Invoice number: 10001213416022
+Invoice date: 03/05/2023
+Total: $125.35
+Routing number: 071921891
+Payment account ending: 0518
+Sign in to QuickBooks where you can see your billing history and view, save, and print your invoice.
+
+View billing history
+Account details
+Billed to:	ZACHRY T WOOD
+Company ID ending:	8216
+Items on this invoice:	QuickBooks Online Payroll Elite
+Payroll Elite Worker Charge
+
+(1) For subscriptions, your payment method on file will be automatically charged monthly/annually at the then-current list price until you cancel. If you have a discount it will apply to the then-current list price until it expires. Additional service fees may apply based on whether you add or remove services and your usage. See your Billing & Subscription page for additional pricing details. To cancel your subscription at any time, go to Account & Settings and cancel the subscription. (2) For one-time services, your payment method on file will reflect the charge in the amount referenced in this invoice. Terms, conditions, pricing, features, service, and support options are subject to change without notice.
+Help icon	
+Questions or concerns?
+Visit customer support.
+Brand logos
+You have received this business communication as part of our efforts to fulfill your request or service your account. You will receive this and other business communications from us even if you have opted out of marketing messages. All dates and times are Pacific Standard Time (PST).
+
+Read Intuit's Legal notice.
+
+Security - Privacy statement - Terms of Service
+
+© 2023 Intuit Inc. All rights reserved. Trademarks.
+Intuit Inc. 2800 E. Commerce Center Place, Tucson, AZ 85706
+
+hKey=OBILL|Notify|realmId=DPbLRmk9fRqDcfXlxjSVag+rINIVfK3DneqM1c9XbKw|locale=en_US,majorBrand=QuickBooks_Online,legalEntity=100,currency=USD,intuitTid=ada6e7a2-d32d-4c80-90cc-69d3ef26c5eb,environment=PRD,source=OINP
+
+Raven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -192,3 +247,28 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 - "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+
+<dependencies>
+  
+  require:','' 'test'
+  
+  <dependency>
+    
+    <groupId>com.example</groupId>
+    
+    
+    <artifactId>test</artifactId>
+    
+    
+    <version>
+      
+      1.0.0-SNAPSHOT
+    
+    </version>
+    
+  </dependency>
+
+  
+</dependencies>
+
+
