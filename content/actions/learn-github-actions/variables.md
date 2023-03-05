@@ -158,15 +158,15 @@ The following rules apply to configuration variable names:
 
 ### Limits for configuration variables
 
-You can store up to 1,000 organization variables, 500 variables per repository, and 100 variables per environment. The total size limit for each organization and repository is 256 KB.
+You can store up to 1,000 organization variables, 500 repository variables, and 100 environment variables (per environment). The total size limit for organization and repository variables is 256 KB.
 
 A workflow created in a repository can access the following number of variables:
 
-* Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-* Up to 100 environment variables.
+* All 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* All 1,000 environment variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+* All 100 environment variables.
 
-Individual variables are limited to 48 KB in size.
+Variables are limited to 48 KB in size.
 
 {% note %}
 
@@ -331,3 +331,4 @@ In this example, the two `if` statements check the `os` property of the `runner`
  If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
 
  If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+
