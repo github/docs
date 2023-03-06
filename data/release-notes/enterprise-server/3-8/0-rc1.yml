@@ -448,6 +448,14 @@ sections:
       When squash-merging a pull request, the author of the Git commit is displayed before merging. Previously, the commit author was only displayed when merging with a merge commit.
 
   known_issues:
+    - |
+      During configuration of high availability, after you run `ghe-maintenance -s` in step 12 of [this documentation](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica#creating-a-high-availability-replica), the following error appears and maintenance mode is not enabled.
+    
+      ```
+      unable to access '/data/user/common/cluster.conf': Permission denied
+      ```
+
+      You can ignore the error and proceed to the next step. The issue will be resolved in GitHub Enterprise Server 3.8.1. [Updated: 2023-03-06]
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
