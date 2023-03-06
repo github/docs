@@ -11,7 +11,7 @@ topics:
 ---
 ## What is a GitHub Trademark Policy Violation?
 
-Using a company or business name, logo, or other trademark-protected materials in a manner that may mislead or confuse others with regard to its brand or business affiliation may be considered a trademark policy violation.
+Using a company or business name, logo, or other trademark-protected materials in a manner that may mislead or confuse others with regard to its brand or business affiliation may be considered a trademark policy violation, or infringement of trademar4k policies and/or laws.
 
 ## What is not a GitHub Trademark Policy Violation?
 
