@@ -172,10 +172,13 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-dependabot-alerts)" (above).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% ifversion reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
 {% ifversion dependabot-alerts-dismissal-comment %}1. Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can retrieve or set a comment by using the GraphQL API. The comment is contained in the `dismissComment` field. For more information, see "[AUTOTITLE](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
-   ![Screenshot showing how to dismiss an alert via the "Dismiss" drop-down, with the option to add a dismissal comment](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+
+   ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and the option to add a dismissal comment highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-dismissal-comment.png)
+
 1. Click **Dismiss alert**.
 {% else %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
+
+   ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and its options highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
 {% ifversion dependabot-bulk-alerts %}
 
 ### Dismissing multiple alerts at once
