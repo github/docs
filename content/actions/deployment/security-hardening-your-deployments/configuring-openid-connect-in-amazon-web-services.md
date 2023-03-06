@@ -73,6 +73,16 @@ In the following example, `StringLike` is used with a wildcard operator (`*`) to
 }
 ```
 
+The `sub` will not contain the branch name if you are using a workflow with an environment. Here, the `ref:refs/heads/branchName` will not work. You need to update the `sub` to contain the reference to the environment's name. Detailed information in [OIDC - Filtering for a specific branch](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#filtering-for-a-specific-branch)
+
+```json{:copy}
+"Condition": {
+  "StringEquals": {
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:environment:prod"
+  }
+}
+```
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
