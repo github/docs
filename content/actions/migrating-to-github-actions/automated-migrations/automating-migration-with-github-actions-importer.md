@@ -43,11 +43,6 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 
 {% data variables.product.prodname_actions_importer %} has the following requirements:
 
-{%- ifversion ghes < 3.5 or ghae %}
-- Use a {% data variables.product.pat_generic %} with the `read:packages` scope enabled.
-{%- else %}
-- You must have credentials to authenticate to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
-{% endif %}
 - An environment where you can run Linux-based containers, and can install the necessary tools.
   - Docker is [installed](https://docs.docker.com/get-docker/) and running.
   - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
@@ -88,12 +83,6 @@ To ensure you're running the latest version of {% data variables.product.prodnam
 
 ```bash
 $ gh actions-importer update
-```
-
-You must be authenticated with the {% data variables.product.prodname_container_registry %} for this command to be successful. Alternatively, you can provide credentials using the `--username` and `--password-stdin` parameters:
-
-```bash
-$ echo $GITHUB_TOKEN | gh actions-importer update --username $GITHUB_HANDLE --password-stdin
 ```
 
 ### Authenticating at the command line
