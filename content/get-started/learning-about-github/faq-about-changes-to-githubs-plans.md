@@ -75,11 +75,11 @@ Now that {% data variables.product.prodname_team %} has no minimum seat requirem
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 
-If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community Support. Actions minutes and Packages storage are still free for your public repositories.
+If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub on Discussions. Actions minutes and Packages storage are still free for your public repositories.
 
-## What is GitHub Community Support?
+## What is GitHub Community on Discussions?
 
-GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
+[GitHub Community](https://github.com/community) is built to support all GitHub users on their educational journey, via Discussions. It is a resource hub, learning portal, and inspiration station, all in one. Regardless of how big or small your challenge is, all resources and information will be accessible in a true open source fashion. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
 
 ## How does this change affect education benefits?
 
