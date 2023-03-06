@@ -4,5 +4,4 @@
   {% else %}
   ![Teams tab](/assets/images/help/organizations/organization-teams-tab.png)
   {% endif %}
-1. On the Teams tab, click the name of the team.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+1. Click the name of the team.

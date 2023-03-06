@@ -784,11 +784,27 @@
       "category": "apps",
       "subcategory": "apps",
       "originalUrl": "/rest/apps/oauth-applications#create-a-scoped-access-token"
+    },
+    "secret-scanning/get-security-analysis-settings-for-enterprise": {
+      "category": "enterprise-admin",
+      "subcategory": "code-security-and-analysis",
+      "originalUrl": "/rest/enterprise-admin#get-code-security-analysis-features-for-an-enterprise"
+    },
+    "secret-scanning/patch-security-analysis-settings-for-enterprise": {
+      "category": "enterprise-admin",
+      "subcategory": "code-security-and-analysis",
+      "originalUrl": "/rest/enterprise-admin#update-code-security-and-analysis-features-for-an-enterprise"
+    },
+    "secret-scanning/post-security-product-enablement-for-enterprise": {
+      "category": "enterprise-admin",
+      "subcategory": "code-security-and-analysis",
+      "originalUrl": "/rest/enterprise-admin#enable-or-disable-a-security-feature"
     }
   },
   "sectionUrls": {
     "/rest/repos#deploy-keys": "/rest/deploy-keys",
     "/rest/deployments#deploy-keys": "/rest/deploy-keys",
-    "/rest/repos#statuses": "/rest/commits/statuses"
+    "/rest/repos#statuses": "/rest/commits/statuses",
+    "/rest/enterprise-admin#code-security-and-analysis": "/rest/enterprise-admin/code-security-and-analysis"
   }
 }

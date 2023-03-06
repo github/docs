@@ -10,8 +10,6 @@ describe('render Markdown image tags', () => {
     expect(pictures.length).toBe(1)
 
     const sources = $('source', pictures)
-    // Note: We might support AVIF too at some point, then
-    // this test needs to change.
     expect(sources.length).toBe(1)
     const srcset = sources.attr('srcset')
     expect(srcset).toBe('/assets/cb-914945/mw-1000/images/_fixtures/screenshot.webp')

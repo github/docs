@@ -96,6 +96,22 @@ For a longer-form and more prominent way of displaying customized information ab
 
 {% data reusables.profile.update-profile %}
 
+## Adding pronouns to your profile
+
+Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
+
+{% note %}
+
+**Note:**
+  Your pronouns will be visible to {% data variables.product.product_name %} users. It is important to consider that for transgender and non-binary people, covering demands in the workplace, at school, or in other contexts, may make it more comfortable not to share their pronouns. Please be aware of any applicable local laws, regulations, or cultural norms that may pose additional risks to transgender or non-binary people as you consider whether to leverage the pronouns feature.
+
+{% endnote %}
+
+{% data reusables.user-settings.access_settings %}
+1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
+
+{% data reusables.profile.update-profile %}
+
 {% ifversion profile-time-zone %}
 
 ## Setting your location and time zone

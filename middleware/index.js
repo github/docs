@@ -37,6 +37,7 @@ import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
+import secretScanning from './contextualizers/secret-scanning.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
@@ -263,6 +264,7 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(instrument(secretScanning, './contextualizers/secret-scanning')))
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
