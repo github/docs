@@ -26,9 +26,7 @@ You can access the {% data variables.product.prodname_vscode_command_palette_sho
 
   Note that this command is a reserved keyboard shortcut in Firefox.
 - <kbd>F1</kbd>
-- From the Application Menu, click **View > Command Palette…**.
-
-  ![Screenshot of the application menu](/assets/images/help/codespaces/codespaces-view-menu.png)
+- From the Application Menu, click **View > Command Palette**.
 
 ## Commands for {% data variables.product.prodname_codespaces %}
 
@@ -64,7 +62,7 @@ To rebuild your container, [access the {% data variables.product.prodname_vscode
 
 You can use the {% data variables.product.prodname_vscode_command_palette_shortname %} to access the codespace creation logs, or you can use it export all logs.
 
-To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-vs-code-command-palette), then start typing "log". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
+To retrieve the logs for {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette_shortname %}](#accessing-the-vs-code-command-palette), then start typing "export". Select **Codespaces: Export Logs** to export all logs related to {% data variables.product.prodname_github_codespaces %} or select **Codespaces: View Creation Logs** to view logs related to the setup.
 
 ![Screenshot of the command to access logs](/assets/images/help/codespaces/codespaces-logs.png)
 

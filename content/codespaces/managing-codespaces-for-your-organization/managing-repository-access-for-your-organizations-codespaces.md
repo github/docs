@@ -30,13 +30,14 @@ To manage which users in your organization can use {% data variables.product.pro
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "Access and security", select the setting you want for your organization.
+{% data reusables.organizations.click-general %}
+1. On the {% data variables.product.prodname_codespaces %} settings page, under "Access and security", select the setting you want for your organization:
 
-   ![Screenshot fo the "Access and security" section, showing three options: "Disabled," "All repositories," and "Selected repositories."](/assets/images/help/codespaces/codespaces-org-access-and-security-radio-buttons.png)
+   - **Disabled** - Limit the access of codespaces to only the repository they were created from.
+   - **All repositories** - All codespaces created from repositories in my organization can access other repositories owned by my organization.
+   - **Selected repositories** - Codespaces created for specific repositories in my organization can access other repositories owned by my organization.
 
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
-
-   ![Screenshot of the "Selected repositories" drop-down menu. Two repositories are listed in the drop-down menu.](/assets/images/help/codespaces/codespaces-access-and-security-repository-drop-down.png)
+1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat this step for all repositories whose codespaces you want to access other repositories.
 
 ## Further reading
 
