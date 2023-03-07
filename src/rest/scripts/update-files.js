@@ -167,7 +167,7 @@ async function getBundledFiles() {
 }
 
 async function getBundlerOptions() {
-  let includeParams = []
+  let includeParams = ['--generate_dref_json_only']
 
   if (versions) {
     includeParams = versions
