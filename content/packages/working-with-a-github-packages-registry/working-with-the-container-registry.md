@@ -181,6 +181,8 @@ LABEL org.opencontainers.image.description="My container image"
 LABEL org.opencontainers.image.licenses=MIT
 ```
 
+{% data reusables.package_registry.auto-inherit-permissions-note %}
+
 Alternatively, you can add labels to an image at buildtime with the `docker build` command.
 
 ```shell

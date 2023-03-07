@@ -11,17 +11,36 @@ versions:
   ghes: '*'
 shortTitle: Access control & visibility
 ---
-{% data reusables.package_registry.container-registry-ghes-beta %}{% ifversion packages-registries-v2 %}
-
-Packages with granular permissions are scoped to a personal account or organization. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
-
-Some registries only support repository-scoped permissions. For the list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
-
-{% else %}A package inherits the permissions and visibility of the repository in which the package is published.{% endif %} For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
+{% data reusables.package_registry.container-registry-ghes-beta %}
 
 {% ifversion packages-registries-v2 %}
 
-## Visibility and access permissions for packages
+A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
+
+For the list of registries that support granular permisions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
+
+{% else %}
+A package inherits the permissions and visibility of the repository in which the package is published. 
+
+For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
+
+{% endif %}
+
+{% ifversion packages-registries-v2 %}
+
+## About inheritance of access permissions and visibility
+
+In registries that support granular permissions, packages are scoped to a personal account or organization. In these registries, you can publish a package without linking the package to a repository, then determine who can access the package by setting access permissions and visibility in the package's settings.
+
+If you publish a package that is linked to a repository, the package automatically inherits the visibility of the linked repository. {% ifversion packages-inherit-permissions %}By default, the package also inherits the access permissions of the linked repository. For example, a user who has read access to the linked repository will also have read access to the package. When a package automatically inherits access permissions, {% data variables.product.prodname_actions %} workflows in the linked repository also automatically get access to the package.
+
+A package only inherits the access permissions of a linked repository automatically if you link the repository to the package before you publish the package, such as by adding the `org.opencontainers.image.source` Docker label to a container image. If you connect a published package to a repository from the package's settings page, the package will retain its existing access permissions, and will not inherit the access permissions of the repository unless you explicitly select this option. Additionally, organizations can disable automatic inheritance of access permissions for all new packages scoped to their organization. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
+
+When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions settings of the linked repository. If you want to set a package's access settings separately from the repository linked to the package, you must remove the inherited permissions from the package{% else %}You can also choose to have the package inherit the access permissions of the linked repository{% endif %}. For more information, see "[Selecting whether a package inherits permissions from a repository](#selecting-whether-a-package-inherits-permissions-from-a-repository)" below.
+
+If you publish a package in a registry that only supports repository-scoped permissions, the package is always linked to a repository, and always inherits the permissions of the linked repository.
+
+## About setting visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
@@ -53,23 +72,69 @@ If your package is private or internal and scoped to an organization, then you c
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
 
 {% ifversion packages-registries-v2 %}
-## Inheriting access for a package from a repository
+## Selecting whether a package inherits permissions from a repository
 
-For packages scoped to a personal account or an organization, to simplify package management through {% data variables.product.prodname_actions %} workflows, you can enable a package to inherit the access permissions of a repository.
+{% ifversion packages-inherit-permissions %}By default, if publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
 
-If you inherit the access permissions of the repository where your package's workflows are stored, then you can adjust access to your package through the repository's permissions.
+When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions of the linked repository.
 
-Once a repository is synced, you can't access the package's granular access settings. To customize the package's permissions through the granular package access settings, you must remove the synced repository first.
+{% ifversion packages-inherit-permissions %}If you want to configure a package's access settings on a granular level, separately from the linked repository, you must remove the inherited permissions from the package.{% endif %}
+
+{% note %}
+
+**Note:** If you change how a package gets its access permissions, any existing permissions for the package are overwritten.
+
+{% endnote %}
+
+### Selecting the inheritance setting for packages scoped to your personal account
+
+{% data reusables.package_registry.package-settings-from-user-level %}
+{% data reusables.package_registry.package-settings-option %}
+{% data reusables.package_registry.disable-auto-inheritance-step %}
+
+### Selecting the inheritance setting for packages scoped to an organization
+
+{% ifversion packages-inherit-permissions %}
+{% tip %}
+
+**Tip:** If you're the owner of an organization, you can prevent all new packages scoped to your organization from automatically inheriting permissions from a linked repository. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
+
+{% endtip %}
+{% endif %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-1. Under "Manage access" or "Inherited access", select the **Inherit access from repository (recommended)** checkbox.
+{% data reusables.package_registry.disable-auto-inheritance-step %}
+
+{% endif %}
+
+{% ifversion packages-inherit-permissions %}
+
+## Disabling automatic inheritance of access permissions in an organization
+
+By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions of the linked repository. As an organization owner, you can disable automatic inheritance for all packages scoped to your organization. 
+
+If you disable automatic inheritance of access permissions, new packages scoped to your organization will not automatically inherit the permissions of a linked repository. However, anyone with admin permissions to a package in your organization will be able to enable or disable inheritance of permissions for that package.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-label="" %} Packages**.
+1. Under "Default Package Settings", deselect **Inherit access from source repository**.
+1. Click **Save**.
+
+{% endif %}
+
+{% ifversion packages-registries-v2 %}
 
 ## Ensuring workflow access to your package
 
 For packages scoped to a personal account or an organization, to ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
 
 The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
+
+{% ifversion packages-inherit-permissions %}
+If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see "[About inheritance of access permissions and visibility](#about-inheritance-of-access-permissions-and-visibility)" above.
+{% endif %}
 
 {% note %}
 
