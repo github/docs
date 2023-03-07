@@ -1,10 +1,12 @@
 ---
-title: Basics of authentication
+title: Authenticating to the REST API with an OAuth App
+shortTitle: Authenticating with OAuth App
 intro: Learn about the different ways to authenticate with some examples.
 redirect_from:
   - /guides/basics-of-authentication
   - /v3/guides/basics-of-authentication
   - /rest/basics-of-authentication
+  - /rest/guides/basics-of-authentication
 versions:
   fpt: '*'
   ghes: '*'

@@ -14,7 +14,9 @@ topics:
   - OAuth Apps
 children:
   - /creating-an-oauth-app
+  - /authenticating-to-the-rest-api-with-an-oauth-app
   - /authorizing-oauth-apps
   - /scopes-for-oauth-apps
   - /creating-a-custom-badge-for-your-oauth-app
 ---
+
