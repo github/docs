@@ -5,6 +5,8 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
 import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
@@ -18,6 +20,7 @@ import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -344,6 +347,11 @@ if (
     test('void', () => {})
   })
 }
+
+// ajv for schema validation tests
+const ajv = new Ajv({ allErrors: true })
+addFormats(ajv)
+const ghesValidate = ajv.compile(releaseNotesSchema)
 
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
@@ -878,11 +886,14 @@ describe('lint GHES release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = ghesValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(ghesValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('contains valid liquid', () => {
