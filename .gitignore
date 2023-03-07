@@ -32,4 +32,9 @@ user-code/
 # Logs from scripts
 script/logs/
 external-link-checker-db.json
+
+# Automated content source
+rest-api-description
+
 .installed.package-lock.json
+

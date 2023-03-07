@@ -24,10 +24,10 @@ import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
 import { syncRestRedirects } from './utils/get-redirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../openApiTemp')
+const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
 const TEMP_BUNDLED_OPENAPI_DIR = path.join(TEMP_OPENAPI_DIR, 'bundled')
 const GITHUB_REP_DIR = '../github'
-const REST_DESCRIPTION_DIR = path.join('rest-api-description/descriptions-next')
+const REST_DESCRIPTION_DIR = 'rest-api-description/descriptions-next'
 const VERSION_NAMES = JSON.parse(await readFile('src/rest/data/meta.json', 'utf8')).versionMapping
 
 program
