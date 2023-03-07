@@ -29886,6 +29886,11 @@ type ProjectV2 implements Closable & Node & Updatable {
   ): TeamConnection!
 
   """
+  Returns true if this project is a template.
+  """
+  template: Boolean!
+
+  """
   The project's name.
   """
   title: String!
