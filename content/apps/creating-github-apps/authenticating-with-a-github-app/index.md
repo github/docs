@@ -1,5 +1,5 @@
 ---
-title: Authenticating with a {% data variables.product.prodname_github_app %}
+title: 'Authenticating with a {% data variables.product.prodname_github_app %}'
 intro: 'Learn how to set up authentication options for {% data variables.product.prodname_github_apps %}.'
 versions:
   fpt: '*'
@@ -9,7 +9,7 @@ versions:
 topics:
   - GitHub Apps
 children:
-  - /authenticating-with-github-apps
+  - /about-authentication-with-a-github-app
   - /authenticating-as-a-github-app
   - /authenticating-as-a-github-app-installation
   - /managing-private-keys-for-github-apps
@@ -18,3 +18,4 @@ children:
   - /identifying-and-authorizing-users-for-github-apps
   - /refreshing-user-to-server-access-tokens
 ---
+
