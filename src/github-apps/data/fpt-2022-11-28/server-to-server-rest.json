@@ -3731,6 +3731,18 @@
   ],
   "users": [
     {
+      "slug": "add-social-accounts-for-the-authenticated-user",
+      "subcategory": "social-accounts",
+      "verb": "post",
+      "requestPath": "/user/social_accounts"
+    },
+    {
+      "slug": "delete-social-accounts-for-the-authenticated-user",
+      "subcategory": "social-accounts",
+      "verb": "delete",
+      "requestPath": "/user/social_accounts"
+    },
+    {
       "slug": "list-users",
       "subcategory": "users",
       "verb": "get",
@@ -3771,6 +3783,12 @@
       "subcategory": "keys",
       "verb": "get",
       "requestPath": "/users/{username}/keys"
+    },
+    {
+      "slug": "list-social-accounts-for-a-user",
+      "subcategory": "social-accounts",
+      "verb": "get",
+      "requestPath": "/users/{username}/social_accounts"
     },
     {
       "slug": "list-ssh-signing-keys-for-a-user",

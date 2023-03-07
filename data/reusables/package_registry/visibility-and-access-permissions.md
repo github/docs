@@ -2,6 +2,14 @@ If a package belongs to a registry that supports granular permissions, anyone wi
 
 Anyone with admin permissions to the package can also grant access permissions for the package that are separate from the permissions set at the organization and repository levels.
 
+{% ifversion packages-inherit-permissions %}
+{% note %}
+
+**Note:** If you publish a package that is linked to a repository, the package inherits its permissions from the linked repository by default. To access the package's granular permissions settings, you must remove the package's inherited permissions. If you're the owner of an organization, you can disable the automatic inheritance of permissions for all new packages scoped to your organization. For more information, see "[Selecting whether a package inherits permissions from a repository](#selecting-whether-a-package-inherits-permissions-from-a-repository)" and "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)."
+
+{% endnote %}
+{% endif %}
+
 When you publish a package, you automatically get admin permissions to the package. If you publish a package to an organization, anyone with the `owner` role in the organization also gets admin permissions to the package.
 
 For packages scoped to a personal account, you can give any person an access role. For packages scoped to an organization, you can give any person or team in the organization an access role.
