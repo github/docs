@@ -42055,6 +42055,14 @@
           ]
         },
         {
+          "name": "template",
+          "description": "<p>Returns true if this project is a template.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "title",
           "description": "<p>The project's name.</p>",
           "type": "String!",
