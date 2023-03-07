@@ -176,7 +176,7 @@ You can help mitigate this risk by following these good practices:
 
 * **Pin actions to a full length commit SHA**
 
-  Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
+  Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
 
 * **Audit the source code of the action**
 

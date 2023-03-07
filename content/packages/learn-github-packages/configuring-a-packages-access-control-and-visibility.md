@@ -34,10 +34,8 @@ If you have admin permissions to a package that's scoped to a personal account, 
 If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
 
 {% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a package that is scoped to a personal account.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
+{% data reusables.package_registry.package-settings-manage-access-people %} Teams cannot be given access to a package that is scoped to a personal account.
+{% data reusables.package_registry.package-settings-user-access %}
 
 The selected users will automatically be given access and don't need to accept an invitation first.
 
@@ -49,10 +47,8 @@ If your package is private or internal and scoped to an organization, then you c
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
-  ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
-1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
-  {% ifversion packages-delete-with-github-token-api %}![Container access options](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Container access options](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
+{% data reusables.package_registry.package-settings-manage-access-people %} You can also enter a team name from the organization to give all team members access.
+{% data reusables.package_registry.package-settings-user-access %}
 
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
 
@@ -67,8 +63,7 @@ Once a repository is synced, you can't access the package's granular access sett
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-2. Under "Repository source", select **Inherit access from repository (recommended)**.
-  ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
+1. Under "Manage access" or "Inherited access", select the **Inherit access from repository (recommended)** checkbox.
 
 ## Ensuring workflow access to your package
 
@@ -78,19 +73,16 @@ The specified repository does not need to be the repository where the source cod
 
 {% note %}
 
-**Note:** Syncing your package with a repository through the **Actions access** menu option is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Note:** Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
 {% endnote %}
 
-### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts 
+### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts
 
 {% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. To ensure your workflow has access to your package, you must add the repository where the workflow is stored. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like the repository to have to your package.
-  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
+{% data reusables.package_registry.package-settings-actions-access %}
+1. To ensure your workflow has access to your package, you must add the repository where the workflow is stored. {% data reusables.package_registry.package-settings-add-repo %}
+{% data reusables.package_registry.package-settings-actions-access-role-repo %}
 
 To further customize access to your package, see "[Configuring access to packages for your personal account](#configuring-access-to-packages-for-your-personal-account)."
 
@@ -98,12 +90,9 @@ To further customize access to your package, see "[Configuring access to package
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-2. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
-3. Using the "role" drop-down menu, select the default access level that you'd like repository members to have to your package. Outside collaborators will not be included.
-  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
+{% data reusables.package_registry.package-settings-actions-access %}
+1. {% data reusables.package_registry.package-settings-add-repo %}
+{% data reusables.package_registry.package-settings-actions-access-role-repo %}
 
 To further customize access to your package, see "[Configuring access to packages for an organization](#configuring-access-to-packages-for-an-organization)."
 {% endif %}
@@ -119,23 +108,19 @@ The specified repository does not need to be the repository where the source cod
 
 Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
 
-1. In the right sidebar, click **Package settings**.
-
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+{% data reusables.package_registry.package-settings-option %}
 
 2. Under "Manage Codespaces access", click **Add repository**.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
+   ![Screenshot of the "Manage Codespaces access" section of the package settings page. The "Add repository" button is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
 3. Search for the repository you want to add.
 
-   !["Add repository" button](/assets/images/help/package-registry/manage-codespaces-access-search.png)
-
 4. Repeat for any additional repositories you would like to allow access.
 
-5. If the codespaces for a repository no longer need access to a package, you can remove access.
+5. If the codespaces for a repository no longer need access to a package, you can remove access. Click **{% octicon "trash" aria-label="remove access to repository from this package" %}**.
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   ![Screenshot of the "Manage Codespaces access" section of the package settings page. The trash icon is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 {% endif %}
 ## Configuring visibility of packages for your personal account
@@ -145,15 +130,16 @@ When you first publish a package that is scoped to your personal account, the de
 A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the package visible to anyone, click **Make public**.
-    {% warning %}
+1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
+1. Select a visibility setting:
+   - To make the package visible to anyone, select **Public**.
+     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+     **Warning:** Once you make a package public, you cannot make it private again.
 
-    {% endwarning %}
-    - To make the package visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+     {% endwarning %}
+   - To make the package visible to a custom selection of people, select **Private**.
+1. To confirm, type the name of the package, then click **I understand the consequences, change package visibility**.
 
 ## Package creation visibility for organization members
 
@@ -161,8 +147,8 @@ For registries that support granular permissions, you can choose the visibility 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. On the left, click **Packages**.
-6. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
+1. On the left, click **Packages**.
+1. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
     - To enable organization members to create public packages, click **Public**.
     - To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
     - To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
@@ -175,12 +161,12 @@ A public package can be accessed anonymously without authentication. Once you ma
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
-5. Under "Danger Zone", choose a visibility setting:
-    - To make the package visible to anyone, click **Make public**.
-    {% warning %}
+1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
+    - To make the package visible to anyone, click **Public**.
+     {% warning %}
 
-    **Warning:** Once you make a package public, you cannot make it private again.
+     **Warning:** Once you make a package public, you cannot make it private again.
 
-    {% endwarning %}
-    - To make the package visible to a custom selection of people, click **Make private**.
-  ![Container visibility options](/assets/images/help/package-registry/container-visibility-option.png)
+     {% endwarning %}
+    - To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
+    - To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

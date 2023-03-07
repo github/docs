@@ -17,13 +17,13 @@ When you publish a package that is scoped to a personal account or an organizati
 ## Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.repository_connection_steps %}
 
 ## Connecting a repository to an organization-scoped package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.repository_connection_steps %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}

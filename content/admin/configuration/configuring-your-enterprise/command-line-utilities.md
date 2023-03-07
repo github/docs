@@ -574,12 +574,12 @@ This utility creates a support bundle tarball containing important logs from eac
 
 By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
+
 To create a standard bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
-
-{% ifversion specify-period-for-support-bundle %}
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
@@ -596,9 +596,8 @@ To create a standard bundle including data from the last 4 days and 8 hours:
 $ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
 ```
 
-{% endif %}
+To create an extended bundle including data from the last 8 days:
 
-To create an extended bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
@@ -834,12 +833,12 @@ This utility creates a support bundle tarball containing important logs from you
 
 By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
+
 To create a standard bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
-
-{% ifversion specify-period-for-support-bundle %}
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
@@ -856,9 +855,7 @@ To create a standard bundle including data from the last 4 days and 8 hours:
 $ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
 ```
 
-{% endif %}
-
-To create an extended bundle:
+To create an extended bundle including data from the last 8 days:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```

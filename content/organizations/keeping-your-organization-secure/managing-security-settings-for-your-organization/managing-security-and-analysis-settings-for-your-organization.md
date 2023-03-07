@@ -95,9 +95,6 @@ You can enable or disable features for all repositories.
    {% endif %}
    {% ifversion fpt or ghec %}
 2. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
-   {% ifversion fpt or ghec %}
-   ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
-   {% endif %}
    {% endif %}
    {% ifversion ghae or ghes %}
 3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
