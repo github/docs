@@ -7,9 +7,9 @@ versions:
 ---
 ## About checks in {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} displays the status of checks that have run in your pull request branches. The checks badge next to the branch name will display the *pending, passing,* or *failing* state of the checks. You can also re-run all, failed, or individual checks when viewing the status of the checks in {% data variables.product.prodname_desktop %}. For more information on setting up checks in your repository, see "[About status checks](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+{% data variables.product.prodname_desktop %} displays the status of checks that have run in your pull request branches. The checks badge next to the branch name will display the *pending, passing,* or *failing* state of the checks. You can also re-run all, failed, or individual checks when viewing the status of the checks in {% data variables.product.prodname_desktop %}. For more information on setting up checks in your repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 
-{% data variables.product.prodname_desktop %} will also show a system notification when checks fail. For more information on enabling notifications, see "[Configuring notifications in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)."
+{% data variables.product.prodname_desktop %} will also show a system notification when checks fail. For more information on enabling notifications, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications-in-github-desktop)."
 
 ## Viewing and re-running checks
 

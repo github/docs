@@ -11,7 +11,7 @@ children:
   - /learning-about-projects
   - /creating-projects
   - /managing-items-in-your-project
-  - /understanding-field-types
+  - /understanding-fields
   - /customizing-views-in-your-project
   - /automating-your-project
   - /viewing-insights-from-your-project
@@ -21,3 +21,4 @@ redirect_from:
   - /issues/trying-out-the-new-projects-experience
 ---
 
+{% data reusables.projects.projects-beta %}

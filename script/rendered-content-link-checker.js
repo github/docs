@@ -10,8 +10,9 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '../.github/actions/rendered-content-link-checker.js'
+import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
+import { allVersions } from '../lib/all-versions.js'
 import github from './helpers/github.js'
 
 const STATIC_PREFIXES = {
@@ -34,6 +35,23 @@ program
     ).choices(['all', 'warning', 'critical'])
   )
   .option('-f, --filter <FILTER...>', 'Search filter(s) on the paths')
+  .option(
+    '-V, --version <VERSION...>',
+    "Specific versions to only do (e.g. 'free-pro-team@latest')",
+    (version) => {
+      if (!(version in allVersions)) {
+        for (const [key, data] of Object.entries(allVersions)) {
+          if (version === data.miscVersionName) {
+            return key
+          }
+        }
+        throw new InvalidArgumentError(
+          `'${version}' is not a recognized version. (not one of ${Object.keys(allVersions)})`
+        )
+      }
+      return version
+    }
+  )
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--create-report',
@@ -49,7 +67,7 @@ program
   )
   .option(
     '--report-author <AUTHOR>',
-    'Previous author of report PR for linking. (default: "docubot")'
+    'Previous author of report PR for linking. (default: "docs-bot")'
   )
   .option(
     '--report-label <LABEL>',
@@ -69,6 +87,7 @@ program
   .option('--bail', 'Exit on the first possible flaw')
   .option('--verbose-url <BASE_URL>', 'Print the absolute URL if set')
   .option('--fail-on-flaw', 'Throw error on link flaws (default: false)')
+  .option('--external-server-errors-as-warning', 'Treat server errors as warning (default: false)')
   .option('--max <number>', 'integer argument (default: none)', (value) => {
     const parsed = parseInt(value, 10)
     if (isNaN(parsed)) {

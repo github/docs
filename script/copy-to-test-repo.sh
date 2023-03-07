@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copies certain directories over to docs-internal-test and pushes. Useful for debugging actions
-# Doesn't copy over git lfs files (.json.br), content/, and data/ directories
+# Doesn't copy over content/ and data/ directories
 
 echo "Make sure to run this script in the root path of docs-internal!"
 
@@ -21,7 +21,7 @@ fi;
 
 if [[ "$REPO_NAME" == "docs-internal-test" ]]; then
   echo "Copying files to $TEST_PATH..."
-  rsync -r --exclude='.git' --exclude='.gitattributes' --exclude='node_modules' --exclude='data' --exclude='content' --exclude="lib/search/indexes" --exclude=".github/CODEOWNERS" . $TEST_PATH
+  rsync -r --exclude='.git' --exclude='.gitattributes' --exclude='node_modules' --exclude='data' --exclude='content' --exclude=".github/CODEOWNERS" . $TEST_PATH
   cd $TEST_PATH
   if [[ `git status --porcelain` ]]; then
     echo "Committing and pushing test files"

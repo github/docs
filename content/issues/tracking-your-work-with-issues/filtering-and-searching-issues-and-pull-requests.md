@@ -57,7 +57,7 @@ You can filter issues and pull requests to find:
 - All open issues and pull requests
 - Issues and pull requests that you've created
 - Issues and pull requests that are assigned to you
-- Issues and pull requests where you're [**@mentioned**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
+- Issues and pull requests where you're [**@mentioned**](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
@@ -68,7 +68,7 @@ You can filter issues and pull requests to find:
 
 ## Filtering issues and pull requests by assignees
 
-Once you've [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
+Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,7 +84,7 @@ To clear your filter selection, click **Clear current search query, filters, and
 
 ## Filtering issues and pull requests by labels
 
-Once you've [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.
+Once you've [applied labels to an issue or pull request](/issues/using-labels-and-milestones-to-track-work/managing-labels), you can find items based on their labels.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -104,7 +104,7 @@ You can use filters to list pull requests by review status and to find pull requ
 
 You can filter a repository's list of pull requests to find:
 - Pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet
-- Pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
+- Pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged
 - Pull requests that a reviewer has approved
 - Pull requests in which a reviewer has asked for changes
 - Pull requests that you have reviewed
@@ -126,7 +126,7 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 {% webui %}
 
-The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/articles/viewing-all-of-your-issues-and-pull-requests).
+The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests).
 
 ![The issues and pull requests search bar](/assets/images/help/issues/issues_search_bar.png)
 
@@ -163,7 +163,7 @@ gh pr list --search "team:octo-org/octo-team"
 With issue and pull request search terms, you can:
 
 - Filter issues and pull requests by author: `state:open type:issue author:octocat`
-- Filter issues and pull requests that involve, but don't necessarily [**@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), certain people: `state:open type:issue involves:octocat`
+- Filter issues and pull requests that involve, but don't necessarily [**@mention**](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), certain people: `state:open type:issue involves:octocat`
 - Filter issues and pull requests by assignee: `state:open type:issue assignee:octocat`
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
 - Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
@@ -182,12 +182,12 @@ For issues, you can also use search to:
 - Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
 
 For pull requests, you can also use search to:
-- Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
+- Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
 - Filter pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open type:pr review:none`
-- Filter pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
+- Filter pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
-- Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
+- Filter pull requests by [reviewer](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews): `state:open type:pr reviewed-by:octocat`
 - Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
 - Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`
 - Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/docs`
@@ -228,4 +228,4 @@ For example, if you filter on issues assigned to Hubot, and sort on the oldest o
 
 ## Further reading
 
-- "[Searching issues and pull requests](/articles/searching-issues)"
+- "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)"

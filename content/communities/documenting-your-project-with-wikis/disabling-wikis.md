@@ -23,4 +23,4 @@ When you turn off a wiki, the content is hidden, but not erased. If you choose t
 
 ## Further reading
 
-- "[Changing access permissions for wikis](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"
+- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)"

@@ -12,14 +12,6 @@ import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// This is temporary solution until we have certainty in that the
-// dedicated search results page works.
-// In a near future, we won't be needing this and assume it's always
-// true.
-const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(
-  JSON.parse(process.env.ENABLE_SEARCH_RESULTS_PAGE || 'false')
-)
-
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
 
@@ -60,27 +52,16 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        expect(res.statusCode).toBe(301)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        expect(res.statusCode).toBe(302)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        const expected = `/en/enterprise/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have faq= not converted to query=', async () => {
@@ -126,10 +107,14 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
-    test('trailing slash on languaged homepage should permantently redirect', async () => {
+    test('trailing slash on languaged homepage should permanently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/en')
@@ -484,21 +469,6 @@ describe('redirects', () => {
       const res = await get(`/en//`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en`)
-    })
-  })
-
-  describe('redirects from old Lunr search to ES legacy search', () => {
-    test('redirects even without query string', async () => {
-      const res = await get(`/search`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy`)
-    })
-
-    test('redirects with query string', async () => {
-      const params = new URLSearchParams({ foo: 'bar' })
-      const res = await get(`/search?${params}`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy?${params}`)
     })
   })
 })

@@ -25,10 +25,10 @@ You must resolve all merge conflicts before you can merge a pull request on {% d
 
 To resolve a merge conflict, you must manually edit the conflicted file to select the changes that you want to keep in the final merge. There are a couple of different ways to resolve a merge conflict:
 
-- If your merge conflict is caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository, you can resolve it on {% data variables.product.product_name %} using the conflict editor. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
-- For all other types of merge conflicts, you must resolve the merge conflict in a local clone of the repository and push the change to your branch on {% data variables.product.product_name %}. You can use the command line or a tool like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) to push the change. For more information, see  "[Resolving a merge conflict on the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
+- If your merge conflict is caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository, you can resolve it on {% data variables.product.product_name %} using the conflict editor. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)."
+- For all other types of merge conflicts, you must resolve the merge conflict in a local clone of the repository and push the change to your branch on {% data variables.product.product_name %}. You can use the command line or a tool like [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) to push the change. For more information, see  "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
 
-If you have a merge conflict on the command line, you cannot push your local changes to {% data variables.product.product_name %} until you resolve the merge conflict locally on your computer. If you try merging branches on the command line that have a merge conflict, you'll get an error message. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
+If you have a merge conflict on the command line, you cannot push your local changes to {% data variables.product.product_name %} until you resolve the merge conflict locally on your computer. If you try merging branches on the command line that have a merge conflict, you'll get an error message. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
 ```shell
 $ git merge BRANCH-NAME
 > Auto-merging styleguide.md
@@ -38,7 +38,7 @@ $ git merge BRANCH-NAME
 
 ## Further reading
 
-- "[About pull request merges](/articles/about-pull-request-merges/)"
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Resolving a merge conflict using the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)"
-- "[Resolving a merge conflict on GitHub](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github)"

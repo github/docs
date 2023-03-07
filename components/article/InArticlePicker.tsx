@@ -58,6 +58,8 @@ export const InArticlePicker = ({
     setCurrentValue(value)
   }, [query, fallbackValue, defaultValue, options])
 
+  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+
   useEffect(() => {
     // This will make the hook run this callback on mount and on change.
     // That's important because even though the user hasn't interacted
@@ -67,9 +69,54 @@ export const InArticlePicker = ({
     if (currentValue) {
       onValue(currentValue)
     }
-  }, [currentValue])
+  }, [
+    currentValue,
+    // This is important because we can't otherwise rely on the firing
+    // of this effect on initial mount. It also needs to fire when the
+    // URL (i.e. route) changes.
+    // Don't use `router.asPath` because that contains the query string
+    // which we handle in the other useEffect above.
+    asPathRoot,
+  ])
 
-  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
+  // This is exclusively for local development.
+  // If you're in local development, you have the <ClientSideRefresh>
+  // causing a XHR refresh of the content triggered by the Page Visibility
+  // API (implemented in the uswSWR hook). That means that on the pages that
+  // contain these `.extended-markdown` classes, any DOM changes we might
+  // have previously made are lost and started over.
+  useEffect(() => {
+    let mounted = true
+    const toggleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        // We don't need to track this timer, and possibly cancel it on
+        // dismount, because within the callback we use the `mounted`
+        // boolean which means we can know to do nothing if the parent
+        // component has been dismounted.
+        // The reason this is wrapped in a short timeout is because the
+        // React rendering might not actually have fully updated the DOM
+        // (from the XHR HTML it receives) so allow the DOM to refresh
+        // first before asking it to change. The number can be quite low
+        // (which is sufficient for human eyes) but must be at least
+        // in the lower hundreds of milliseconds.
+        setTimeout(() => {
+          if (mounted) {
+            onValue(currentValue)
+          }
+        }, 100)
+      }
+    }
+    if (process.env.NODE_ENV === 'development') {
+      document.addEventListener('visibilitychange', toggleVisibility)
+    }
+
+    return () => {
+      mounted = false
+      if (process.env.NODE_ENV === 'development') {
+        document.removeEventListener('visibilitychange', toggleVisibility)
+      }
+    }
+  }, [currentValue])
 
   function onClickChoice(value: string) {
     const params = new URLSearchParams(asPathQuery)

@@ -21,7 +21,7 @@ shortTitle: Commit signature verification
 
 You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
-![Verified commit](/assets/images/help/commits/verified-commit.png)
+![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
 {% ifversion ghes or ghae %}
 If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
@@ -32,11 +32,11 @@ For most individual users, GPG or SSH will be the best choice for signing commit
 {% endif %}
 
 {% ifversion fpt or ghec %}
-Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+Signing commits differs from signing off on a commit. For more information about signing off on commits, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
 
 ### Default statuses
 
@@ -49,7 +49,7 @@ Signing commits differs from signing off on a commit. For more information about
 ### Signature verification for rebase and merge
 {% data reusables.pull_requests.rebase_and_merge_verification %}
 
-For more information, see "[Rebasing and merging your commits](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
+For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
 ### Statuses with vigilant mode enabled
 
@@ -58,15 +58,15 @@ For more information, see "[Rebasing and merging your commits](/repositories/con
 {% endif %}
 
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits)."
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
-{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+{% ifversion ghes %}If a site administrator has enabled web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.product_name %} will have a verified status. You can verify the signature locally using the public key available at `https://HOSTNAME/web-flow.gpg`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
 {% else %}{% data variables.product.prodname_dotcom %} will automatically use GPG to sign commits you make using the web interface. Commits signed by {% data variables.product.prodname_dotcom %} will have a verified status. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. The full fingerprint of the key is `5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23`.
 
-You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
+You can optionally choose to have {% data variables.product.prodname_dotcom %} GPG sign commits you make in {% data variables.product.prodname_github_codespaces %}. For more information about enabling GPG verification for your codespaces, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."{% endif %}
 {% endif %}
 
 ## GPG commit signature verification
@@ -77,12 +77,12 @@ You can use GPG to sign commits with a GPG key that you generate yourself.
 
 To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Check for existing GPG keys](/articles/checking-for-existing-gpg-keys)
-2. [Generate a new GPG key](/articles/generating-a-new-gpg-key)
-3. [Add a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)
-4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
-5. [Sign commits](/articles/signing-commits)
-6. [Sign tags](/articles/signing-tags)
+1. [Check for existing GPG keys](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
+2. [Generate a new GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+3. [Add a GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+4. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+5. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% ifversion ssh-commit-verification %}
 ## SSH commit signature verification
@@ -96,12 +96,12 @@ you can also upload that same key again for use as a signing key. There's no lim
 
 To sign commits using SSH and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Check for existing SSH keys](/articles/checking-for-existing-ssh-keys)
-2. [Generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-3. [Add a SSH signing key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
-4. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
-5. [Sign commits](/articles/signing-commits)
-6. [Sign tags](/articles/signing-tags)
+1. [Check for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+2. [Generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+3. [Add a SSH signing key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+4. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+5. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% endif %}
 ## S/MIME commit signature verification
@@ -114,9 +114,9 @@ You can use S/MIME to sign commits with an X.509 key issued by your organization
 
 To sign commits using S/MIME and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
-1. [Tell Git about your signing key](/articles/telling-git-about-your-signing-key)
-2. [Sign commits](/articles/signing-commits)
-3. [Sign tags](/articles/signing-tags)
+1. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+2. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+3. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 You don't need to upload your public key to {% data variables.product.product_name %}.
 
@@ -130,6 +130,6 @@ Signature verification for bots will only work if the request is verified and au
 
 ## Further reading
 
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
-- "[Troubleshooting commit signature verification](/articles/troubleshooting-commit-signature-verification)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+- "[AUTOTITLE](/authentication/troubleshooting-commit-signature-verification)"

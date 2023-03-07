@@ -1,6 +1,7 @@
 import { getPathWithoutLanguage, getPathWithoutVersion } from '../lib/path-utils.js'
 import getLinkData from '../lib/get-link-data.js'
 import renderContent from '../lib/render-content/renderContent.js'
+import { getDeepDataByLanguage } from '../lib/get-data.js'
 
 export default async function learningTrack(req, res, next) {
   const noTrack = () => {
@@ -14,7 +15,8 @@ export default async function learningTrack(req, res, next) {
   if (!trackName) return noTrack()
 
   let trackProduct = req.context.currentProduct
-  let tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+  const allLearningTracks = getDeepDataByLanguage('learning-tracks', req.language)
+  let tracksPerProduct = allLearningTracks[trackProduct]
 
   // If there are no learning tracks for the current product, try and fall
   // back to the learning track product set as a URL parameter.  This handles
@@ -22,15 +24,18 @@ export default async function learningTrack(req, res, next) {
   // than the current learning track product.
   if (!tracksPerProduct) {
     trackProduct = req.query.learnProduct
-    tracksPerProduct = req.context.site.data['learning-tracks'][trackProduct]
+    tracksPerProduct = allLearningTracks[trackProduct]
   }
-
   if (!tracksPerProduct) return noTrack()
 
-  const track = req.context.site.data['learning-tracks'][trackProduct][trackName]
+  const track = allLearningTracks[trackProduct][trackName]
   if (!track) return noTrack()
 
-  const currentLearningTrack = { trackName, trackProduct }
+  // The trackTitle comes from a data .yml file and may use Liquid templating, so we need to render it
+  const renderOpts = { textOnly: true }
+  const trackTitle = await renderContent(track.title, req.context, renderOpts)
+
+  const currentLearningTrack = { trackName, trackProduct, trackTitle }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
 
   // The raw track.guides will return all guide paths, need to use getLinkData
@@ -63,6 +68,9 @@ export default async function learningTrack(req, res, next) {
 
   if (guideIndex < 0) return noTrack()
 
+  currentLearningTrack.numberOfGuides = trackGuidePaths.length
+  currentLearningTrack.currentGuideIndex = guideIndex
+
   if (guideIndex > 0) {
     const prevGuidePath = trackGuidePaths[guideIndex - 1]
     const result = await getLinkData(prevGuidePath, req.context, { title: true, intro: false })
@@ -93,11 +101,10 @@ export default async function learningTrack(req, res, next) {
 // return -1 if not found.
 async function indexOfLearningTrackGuide(trackGuidePaths, guidePath, context) {
   let guideIndex = -1
-  const renderOpts = { textOnly: true, encodeEntities: true }
 
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, renderOpts)
+    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, { textOnly: true })
 
     if (!renderedGuidePath) continue
 

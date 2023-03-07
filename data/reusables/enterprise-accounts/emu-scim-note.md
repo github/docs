@@ -1,7 +1,7 @@
 {% ifversion ghec%}
 {% note %}
 
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you cannot use team synchronization and must instead configure SCIM to manage membership with your identity provider. For more information, see "[Configuring SCIM provisioning for Enterprise Managed Users](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)."
+**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you do not need to use team synchronization. Instead, you can manage team membership via the SCIM configuration you created while setting up your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
 {% endnote %}
 {% endif %}

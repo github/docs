@@ -15,7 +15,7 @@ In this guide, you'll get started with {% data variables.product.product_name %}
 
 {% tip %}
 
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
 
 {% endtip %}
 
@@ -33,7 +33,7 @@ After you create your personal account, create a free organization account. You'
 {% data reusables.organizations.new-organization %}
 4. Follow the prompts to create a free organization.
 
-For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/github/getting-started-with-github/types-of-github-accounts)."
+For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
 ## Applying for teacher benefits
 
@@ -67,7 +67,7 @@ With your personal account and organization account, you're ready to get started
   
   {% tip %}
   
-  **Tip**: If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations)."
+  **Tip**: If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations)."
   
   {% endtip %}
   
@@ -86,9 +86,9 @@ With your personal account and organization account, you're ready to get started
 
 You've created a classroom, and you're ready to enrich your course with {% data variables.product.product_name %} and {% data variables.product.prodname_classroom %}!  🎉
 
-- Watch some videos about {% data variables.product.prodname_classroom %}. For more information, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
-- Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see "[Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)."
-- Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)."
+- Watch some videos about {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)."
+- Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
+- Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)."
 - Create an assignment for individual students or teams. {% data reusables.classroom.for-more-information-about-assignment-creation %}
-- Write and implement automated tests to provide immediate feedback to students directly in assignment repositories. For more information, see "[Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)."
+- Write and implement automated tests to provide immediate feedback to students directly in assignment repositories. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 - Participate in {% data variables.product.prodname_education_community_with_url %}.

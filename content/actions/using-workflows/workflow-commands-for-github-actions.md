@@ -27,7 +27,7 @@ Actions can communicate with the runner machine to set environment variables, ou
 
 Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see "[Environment files](#environment-files)."
 
-### Example
+### Example of a workflow command
 
 {% bash %}
 
@@ -167,7 +167,7 @@ Sets an action's output parameter.
 ::set-output name={name}::{value}
 ```
 
-Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
 You can escape multiline strings for setting an output parameter by creating an environment variable and using it in a workflow command. For more information, see "[Setting an environment variable](#setting-an-environment-variable)."
 
@@ -192,7 +192,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 ## Setting a debug message
 
-Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
+Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
 ```{:copy}
 ::debug::{message}
@@ -342,7 +342,7 @@ jobs:
 
 {% endpowershell %}
 
-![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
 ## Masking a value in log
 
@@ -492,7 +492,7 @@ Command echoing is disabled by default. However, a workflow command is echoed if
 
 The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
 
-You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
 
 ### Example: Toggling command echoing
 
@@ -540,14 +540,14 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
- 
+
 {% endif %}
 
 ## Sending values to the pre and post actions
 
 {% ifversion actions-save-state-set-output-envs %}You can create environment variables for sharing with your workflow's `pre:` or `post:` actions by writing to the file located at `GITHUB_STATE`{% else %}You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions{% endif %}. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where {% ifversion actions-save-state-set-output-envs %}it was written to `GITHUB_STATE`{% else %}`save-state` was used{% endif %}. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where {% ifversion actions-save-state-set-output-envs %}it was written to `GITHUB_STATE`{% else %}`save-state` was used{% endif %}. For more information on the `post:` action, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
 {% ifversion actions-save-state-set-output-envs %}The `GITHUB_STATE` file is only available within an action{% else %}The `save-state` command can only be run within an action, and is not available to YAML files{% endif %}. The saved value is stored as an environment value with the `STATE_` prefix.
 
@@ -641,9 +641,9 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
 
-### Example
+### Example of writing an environment variable to `GITHUB_ENV`
 
 {% bash %}
 
@@ -693,13 +693,13 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[Understanding the risk of script injections](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
 
 {% endwarning %}
 
-#### Example
+#### Example of a multiline string
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+This example selects a random value for `$EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -708,9 +708,10 @@ steps:
   - name: Set the value in bash
     id: step_one
     run: |
-      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://example.lab >> $GITHUB_ENV
-      echo 'EOF' >> $GITHUB_ENV
+      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+      echo "JSON_RESPONSE<<$EOF" >> $GITHUB_ENV
+      curl https://example.com >> $GITHUB_ENV
+      echo "$EOF" >> $GITHUB_ENV
 ```
 
 {% endbash %}
@@ -722,9 +723,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
-      "EOF" >> $env:GITHUB_ENV
+      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
+      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
+      "$EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
@@ -750,7 +752,7 @@ echo "{name}={value}" >> $GITHUB_OUTPUT
 
 {% endpowershell %}
 
-### Example
+### Example of setting an output parameter
 
 {% bash %}
 
@@ -812,7 +814,7 @@ Job summaries support [{% data variables.product.prodname_dotcom %} flavored Mar
 
 When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
 
-### Example
+### Example of adding a job summary
 
 {% bash %}
 
@@ -830,13 +832,13 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Screenshot of the summary page of a workflow run. Under "example summary" is "Hello world!" and a rocket emoji.](/assets/images/help/actions/actions-job-summary-simple-example.png)
 
 ### Multiline Markdown content
 
 For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
 
-#### Example
+#### Example of multiline Markdown content
 
 {% bash %}
 
@@ -870,7 +872,7 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 
 To clear all content for the current step, you can use `>` to overwrite any previously added content.
 
-#### Example
+#### Example of overwriting job summaries
 
 {% bash %}
 
@@ -898,7 +900,7 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 
 To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
 
-#### Example
+#### Example of removing job summaries
 
 {% bash %}
 
@@ -922,7 +924,7 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 
 {% endpowershell %}
 
-After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[AUTOTITLE](/actions/managing-workflow-runs/deleting-a-workflow-run)."
 
 ### Step isolation and limits
 
@@ -949,7 +951,7 @@ echo "{path}" >> $GITHUB_PATH
 
 {% endpowershell %}
 
-### Example
+### Example of adding a system path
 
 {% bash %}
 

@@ -9,12 +9,6 @@ shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
 ---
 
-{% note %}
-
-**Note:** Exporting membership information for an enterpirise is currently in beta and subject to change.
-
-{% endnote %}
-
 To perform an audit of people with access to your enterprise's resources, you can download a CSV report of membership information for your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -23,4 +17,3 @@ To perform an audit of people with access to your enterprise's resources, you ca
 
    - If your enterprise has less than 1,000 members, the report will download immediately.
    - If your enterprise has 1,000 or more members, you'll soon receive an email with a link to download the report.
-   ![Screenshot of the "CSV report" button](/assets/images/help/business-accounts/csv-report-button.png)

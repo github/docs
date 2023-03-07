@@ -1,0 +1,3 @@
+The roadmap layout provides a high-level visualization of your project across a configurable timespan, and allows you to drag items to affect their start and target dates{% ifversion projects-v2-roadmap-markers %} or selected iteration{% endif %}. Roadmaps use your custom date and iteration fields to position your issues, pull requests, and draft issues on a timeline, allowing you to track work over time and watch progress.
+
+{% ifversion projects-v2-roadmap-markers %}You can also display vertical lines to highlight key dates for your project, including iterations, milestones, and the dates of items in your project. These markers help you get a clear overview of your upcoming workload and how it's distributed across iterations or milestones.{% endif %}

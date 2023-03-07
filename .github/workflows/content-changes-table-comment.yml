@@ -26,7 +26,7 @@ jobs:
       filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
     steps:
       - name: Get files changed
-        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
         id: filter
         with:
           # Base branch used to get changed files
@@ -49,17 +49,17 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
         run: .github/actions-scripts/get-preview-app-info.sh
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.17.0'
+          node-version-file: 'package.json'
           cache: npm
 
       - name: Install temporary dependencies
@@ -75,7 +75,7 @@ jobs:
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@1769778a0c5bd330272d749d12c036d65e70d39d
+        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -83,7 +83,8 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
-        uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
+        if: ${{ steps.changes.outputs.changesTable != '' }}
+        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}

@@ -11,7 +11,7 @@ import {
 import { getAutomatedPageMiniTocItems } from 'lib/get-mini-toc-items.js'
 import { Changelog } from 'components/graphql/Changelog'
 import { ChangelogItemT } from 'components/graphql/types'
-import { getGraphqlChangelog } from 'lib/graphql/index.js'
+import { getGraphqlChangelog } from 'src/graphql/lib/index.js'
 
 type Props = {
   mainContext: MainContextT
@@ -33,7 +33,8 @@ export default function GraphqlChangelog({ mainContext, schema, automatedPageCon
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
   const res = context.res as any
-  const schema = getGraphqlChangelog() as ChangelogItemT[]
+  const currentVersion = context.query.versionId as string
+  const schema = getGraphqlChangelog(currentVersion) as ChangelogItemT[]
   if (!schema) throw new Error('No graphql free-pro-team changelog schema found.')
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems that exist in Markdown pages in
@@ -43,6 +44,28 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context.context, 2)
   // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
+
+  // All groups in the schema have a change.changes array of strings that are
+  // all the HTML output from a Markdown conversion. E.g.
+  // `<p>Field filename was added to object type <code>IssueTemplate</code></p>`
+  // Change these to just be the inside of the <p> tag.
+  // `Field filename was added to object type <code>IssueTemplate</code>`
+  // This makes the serialized state data smaller and it makes it possible
+  // to render it as...
+  //
+  //    <li>Field filename was added to object type <code>IssueTemplate</code></li>
+  //
+  // ...without the additional <p>.
+  schema.forEach((item) => {
+    for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {
+      group.forEach((change) => {
+        change.changes = change.changes.map((html) => {
+          if (html.startsWith('<p>') && html.endsWith('</p>')) return html.slice(3, -4)
+          return html
+        })
+      })
+    }
+  })
 
   return {
     props: {

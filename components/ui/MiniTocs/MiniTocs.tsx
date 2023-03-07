@@ -1,25 +1,36 @@
 import { Heading, NavList } from '@primer/react'
+import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
-import { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 import styles from './Minitocs.module.scss'
 
 export type MiniTocsPropsT = {
-  pageTitle: string
   miniTocItems: MiniTocItem[]
 }
 
 function RenderTocItem(item: MiniTocItem) {
+  const [currentAnchor, setCurrentAnchor] = useState('')
+
+  useEffect(() => {
+    const onHashChanged = () => {
+      setCurrentAnchor(window.location.hash)
+    }
+
+    window.addEventListener('hashchange', onHashChanged)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChanged)
+    }
+  }, [])
+
   return (
     <div className={cx(styles.nested, item.platform)}>
       <NavList.Item
+        aria-current={item.contents.href === currentAnchor && 'location'}
         href={item.contents.href}
-        sx={{
-          padding: '4px 0 4px 0',
-          marginLeft: '7px',
-        }}
       >
         {item.contents.title}
       </NavList.Item>
@@ -39,16 +50,22 @@ function RenderTocItem(item: MiniTocItem) {
   )
 }
 
-export function MiniTocs({ pageTitle, miniTocItems }: MiniTocsPropsT) {
+export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
   const { t } = useTranslation('pages')
 
   return (
     <>
-      <Heading as="h2" id="in-this-article" className="mb-1 ml-3" sx={{ fontSize: 1 }}>
+      <Heading
+        as="h2"
+        id="in-this-article"
+        className="mb-1 ml-3"
+        sx={{ fontSize: 1 }}
+        aria-label={t('miniToc')}
+      >
         {t('miniToc')}
       </Heading>
 
-      <NavList className="my-2" key={pageTitle}>
+      <NavList className={cx(styles.miniToc, 'my-2')}>
         {miniTocItems.map((items, i) => {
           return (
             <RenderTocItem

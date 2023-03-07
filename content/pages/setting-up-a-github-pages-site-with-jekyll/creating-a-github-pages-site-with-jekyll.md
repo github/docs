@@ -20,7 +20,7 @@ shortTitle: Create site with Jekyll
 
 ## Prerequisites
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -91,7 +91,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
 1. From the command line, run `bundle install`.
-1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[Splitting a subfolder out into a new repository](/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)."
+1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[AUTOTITLE](/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository)."
    ```yml
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
    url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
@@ -127,6 +127,6 @@ $ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
 
 ## Next steps
 
-To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
+To add a new page or post to your site, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll)."
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data reusables.pages.add-jekyll-theme %} For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."

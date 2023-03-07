@@ -16,7 +16,7 @@ topics:
   - Repositories
 shortTitle: Manage the forking policy
 ---
-An organization owner must allow forks of private{% ifversion ghae or ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+An organization owner must allow forks of private{% ifversion ghae or ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -25,5 +25,5 @@ An organization owner must allow forks of private{% ifversion ghae or ghes or gh
 
 ## Further reading
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

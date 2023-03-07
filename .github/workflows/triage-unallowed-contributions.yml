@@ -14,14 +14,10 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'lib/graphql/**'
+      - 'src/**'
       - 'lib/redirects/**'
-      - 'lib/rest/**'
-      - 'lib/webhooks/**'
-      - 'lib/search/indexes/**'
       - 'package*.json'
       - 'script/**'
-      - 'translations/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
@@ -38,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
-        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
         id: filter
         with:
           # Base branch used to get changed files
@@ -50,10 +46,8 @@ jobs:
 
           # Returns list of changed files matching each filter
           filters: |
-            translation:
-              - 'translations/**'
             openapi:
-              - 'lib/rest/static/**'
+              - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
               - '.github/actions-scripts/**'
@@ -62,21 +56,17 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'lib/graphql/**'
+              - 'src/**'
               - 'lib/redirects/**'
-              - 'lib/rest/**'
-              - 'lib/webhooks/**'
-              - 'lib/search/indexes/**'
               - 'package*.json'
               - 'scripts/**'
-              - 'translations/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
       - name: "Comment about changes we can't accept"
         if: ${{ steps.filter.outputs.notAllowed }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
             const badFilesArr = [
@@ -87,14 +77,10 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'lib/graphql/**',
+              'src/**',
               'lib/redirects/**',
-              'lib/rest/**',
-              'lib/webhooks/**',
-              'lib/search/indexes/**',
               'package*.json',
               'scripts/**',
-              'translations/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 
@@ -104,7 +90,7 @@ jobs:
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
-               createdComment = await github.issues.createComment({
+               createdComment = await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.number,

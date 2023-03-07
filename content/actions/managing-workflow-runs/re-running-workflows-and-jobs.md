@@ -3,7 +3,6 @@ title: Re-running workflows and jobs
 shortTitle: Re-run workflows and jobs
 intro: 'You can re-run a workflow run{% ifversion re-run-jobs %}, all failed jobs in a workflow run, or specific jobs in a workflow run{% endif %} up to 30 days after its initial run.'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/managing-workflow-runs/re-running-a-workflow
 versions:
@@ -18,7 +17,7 @@ versions:
 
 ## About re-running workflows and jobs
 
-Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[Usage limits, billing, and administration](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[Enabling debug logging](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
 
 ## Re-running all the jobs in a workflow
 
@@ -157,7 +156,7 @@ gh run rerun --job JOB_ID --debug
 {% ifversion fpt or ghes > 3.4 or ghae or ghec %}
 ## Reviewing previous workflow runs
 
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see ["Get a workflow run"](/rest/reference/actions#get-a-workflow-run).
+You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see "[AUTOTITLE](/rest/actions#get-a-workflow-run)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

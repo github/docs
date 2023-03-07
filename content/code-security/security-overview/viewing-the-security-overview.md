@@ -3,6 +3,7 @@ title: Viewing the security overview
 intro: Navigate to the different views available in the security overview
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
+allowTitleToDifferFromFilename: true
 versions:
   ghae: '>= 3.4'
   ghes: '*'
@@ -25,46 +26,45 @@ shortTitle: View the security overview
 
 ## Viewing the security overview for an organization
 
+{% data reusables.security-overview.beta-org-risk-coverage %}
+
+{% ifversion security-overview-org-risk-coverage %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. To display a summary view, in the sidebar, click **{% octicon "shield" %} Risk** or **{% octicon "meter" %} Coverage**.
+1. Optionally, to focus on the information of greatest interest, select the **Teams** dropdown filter and search box.
+1. Optionally, use links in the "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning %}", and "{% data variables.product.prodname_secret_scanning %}" header summaries to filter results further.
+  ![Screenshot of the "Security Risk" view on the "Security" tab for an organization. Illustrates information and filter options available in the view.](/assets/images/help/security-overview/security-risk-interactive-header.png)
+{% data reusables.organizations.security-overview-feature-specific-page %}
+
+{% else %}
+
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. To view aggregate information about alert types, click **Show more**.
-  ![Show more button](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
-{% ifversion security-overview-views %}
+{% ifversion security-overview-alert-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+  ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page on the "Security" tab. Features apart from filters, dropdown menus, and sidebar are grayed out.](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
+{% endif %}
 
-## Viewing alerts across your organization
-
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.security-overview %}
-1. In the security sidebar, select the subset of alerts you want to view.
-![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
-2. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-  ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+{% endif %}
 
 {% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+
 ## Viewing the security overview for an enterprise
 
+{% data reusables.security-overview.security-coverage-single-repo-enablement %}
+
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
+1. In the left sidebar, click **{% octicon "shield" aria-label="" %} Code Security**.
 {% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}
-{% endif %}
-
-## Viewing alerts for a repository
-
-{% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Security**.
-  ![Repository security tab](/assets/images/help/repository/security-tab.png)
-2. In the security sidebar, select the view you want to open.
-  ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
-3. Optionally, filter the list of alerts. Each view has its own selection of available filters. You can click multiple filters in the drop-down filter menus to narrow your search. You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)."
-  ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 
+{% ifversion ghes < 3.7 or ghae < 3.7 %}
 ## Viewing the security overview for a team
 
 {% data reusables.profile.access_org %}
@@ -72,3 +72,4 @@ shortTitle: View the security overview
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}
+{% endif %}

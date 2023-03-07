@@ -13,14 +13,14 @@ type Props = {
 export function Object({ item }: Props) {
   const { locale } = useRouter()
   const { t } = useTranslation('products')
-  const heading1 = t('graphql.reference.implements')
-  const heading2 = t('graphql.reference.fields')
+  const heading1 = t('graphql.reference.implements').replace('{{ GraphQLItemTitle }}', item.name)
+  const heading2 = t('graphql.reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item}>
       {item.implements && (
         <>
-          <h3>{heading1}</h3>
+          <h3 dangerouslySetInnerHTML={{ __html: heading1 }} />
           <ul>
             {item.implements.map((implement: ImplementsT) => (
               <li key={`${implement.id}-${implement.href}-${implement.name}`}>
@@ -37,7 +37,7 @@ export function Object({ item }: Props) {
 
       {item.fields && (
         <>
-          <h3>{heading2}</h3>
+          <h3 dangerouslySetInnerHTML={{ __html: heading2 }} />
           <Table fields={item.fields} />
         </>
       )}

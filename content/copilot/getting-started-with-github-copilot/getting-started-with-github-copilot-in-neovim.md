@@ -9,17 +9,19 @@ topics:
   - Copilot
 ---
 
+{% data reusables.copilot.copilot-cta-button %}
+
 ## About {% data variables.product.prodname_copilot %} and Neovim
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use a Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
+If you use Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
 
 ## Prerequisites
 
-- To use {% data variables.product.prodname_copilot %} you must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+{% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
+- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
 ## Installing the Neovim extension
 
@@ -41,7 +43,7 @@ If you use a Neovim, you can view and incorporate suggestions from {% data varia
 {% data reusables.copilot.install-copilot-in-neovim %}
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash.
 
-           git clone https://github.com/github/copilot.vim.git `
+           git clone https://github.com/github/copilot.vim.git \
             $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-neovim %}

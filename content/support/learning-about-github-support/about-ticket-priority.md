@@ -76,4 +76,4 @@ The target eight-hour response time:
 
 ## Further reading
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"

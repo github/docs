@@ -36,9 +36,9 @@ You can configure a retention period for audit log data for {% data variables.lo
 {% ifversion enable-git-events %}
 ## Managing Git events in the audit log
 
-You can enable or disable Git-related events, such as `git.clone` and `git.push`, from appearing in your audit log. For a list of the Git events are are logged, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)."
+You can enable or disable Git-related events, such as `git.clone` and `git.push`, from appearing in your audit log. For a list of the Git events are are logged, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)."
 
-If you do enable Git events, due to the large number of Git events that are logged, we recommend monitoring your instance's file storage and reviewing your related alert configurations. For more information, see "[Monitoring storage](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)."
+If you do enable Git events, due to the large number of Git events that are logged, we recommend monitoring your instance's file storage and reviewing your related alert configurations. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds#monitoring-storage)."
 
 Before you can enable Git events in the audit log, you must configure a retention period for audit log data other than "infinite." For more information, see "[Configuring a retention period for audit log data](#configuring-a-retention-period-for-audit-log-data)."
 

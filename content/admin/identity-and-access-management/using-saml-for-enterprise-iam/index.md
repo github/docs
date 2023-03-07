@@ -9,7 +9,6 @@ versions:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise
-  - /admin/identity-and-access-management/managing-iam-for-your-enterprise
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider
   - /enterprise/admin/articles/configuring-saml-authentication
   - /enterprise/admin/articles/about-saml-authentication

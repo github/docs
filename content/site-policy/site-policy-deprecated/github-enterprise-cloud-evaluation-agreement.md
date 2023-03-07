@@ -9,13 +9,13 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
 THANK YOU FOR CHOOSING GITHUB FOR YOUR COMPANY'S BUSINESS NEEDS. PLEASE READ THESE TERMS CAREFULLY AS IT GOVERNS YOUR EVALUATION USE OF THE SERVICE, UNLESS GITHUB HAS EXECUTED A SEPARATE WRITTEN AGREEMENT WITH YOU FOR THAT PURPOSE. BY CLICKING ON THE "I AGREE" OR SIMILAR BUTTON OR BY ACCESSING THE SERVICE ON A TRIAL BASIS, YOU ACCEPT ALL THE TERMS AND CONDITIONS OF THIS EVALUATION AGREEMENT. IF YOU ARE ENTERING INTO THIS EVALUATION AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY (HEREINAFTER REFERRED TO AS "**CUSTOMER**"), CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE COMPANY OR OTHER LEGAL ENTITY TO THIS EVALUATION AGREEMENT. ALSO, BY ACCEPTING THESE TERMS, CUSTOMER AGREES THAT IT HAS READ GITHUB'S PRIVACY STATEMENT.
 
 ## 1. Corporate Terms of Service
 
-Customer must have a Corporate Account on GitHub.com in order to have evaluation access. Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). However, any supplemental terms associated with [Enterprise Cloud Addendum](/articles/github-enterprise-cloud-addendum) **will not** apply until Customer upgrades its purchase to a paid subscription to Enterprise Cloud.   Any capitalized terms not defined in this Evaluation Agreement are defined in the Corporate Terms of Service.
+Customer must have a Corporate Account on GitHub.com in order to have evaluation access. Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/site-policy/github-terms/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). However, any supplemental terms associated with [Enterprise Cloud Addendum](/site-policy/site-policy-deprecated/github-enterprise-service-level-agreement) **will not** apply until Customer upgrades its purchase to a paid subscription to Enterprise Cloud.   Any capitalized terms not defined in this Evaluation Agreement are defined in the Corporate Terms of Service.
 
 ## 2. Term and Termination
 
@@ -37,7 +37,7 @@ IN NO EVENT WILL GITHUB BE LIABLE TO CUSTOMER OR TO ANY THIRD PARTY FOR ANY INDI
 
 5.1 As part of the development and evaluation of our evaluation programs, GitHub needs to collect information about how Customer uses services and programs and how GitHub can improve them. GitHub may collect certain additional personal information from Customer. For example, GitHub may invite Customer to provide Feedback (as explained in Section 6 below). GitHub might ask questions about Customer's  experiences, familiarity with the product, or demographic information. GitHub uses this information to improve its products and services and does not sell Feedback to third parties or advertisers. Customer may decline to provide Feedback, decline to answer specific questions, or contact GitHub to delete or alter the information it has collected about Customer.
 
-5.2 GitHub's servers are located in the United States. GitHub processes Customer's data in the United States. However, Customer is responsible for determining what personal data it submits to GitHub. Please see the [Privacy Statement](/articles/github-privacy-statement) for more information.
+5.2 GitHub's servers are located in the United States. GitHub processes Customer's data in the United States. However, Customer is responsible for determining what personal data it submits to GitHub. Please see the [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) for more information.
 
 ## 6. Feedback
 

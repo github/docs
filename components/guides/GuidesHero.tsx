@@ -11,6 +11,7 @@ export const GuidesHero = () => {
   const { title, intro, featuredTrack } = useProductGuidesContext()
   const { t } = useTranslation('product_guides')
   const cardWidth = 280
+  const firstCardWidth = cardWidth + 10 // so the english text doesn't wrap
 
   const guideItems = featuredTrack?.guides?.map((guide) => (
     <li className="px-2 d-flex flex-shrink-0" key={guide.href} style={{ width: cardWidth }}>
@@ -49,13 +50,13 @@ export const GuidesHero = () => {
           {intro && <Lead data-search="lead">{intro}</Lead>}
         </div>
       </header>
-      {featuredTrack && (
+      {featuredTrack && featuredTrack.guides && featuredTrack.guides.length > 0 && (
         <div className="mb-6 position-relative overflow-hidden mr-n3 ml-n3 px-3">
           <ul
             data-testid="feature-track"
             className="list-style-none d-flex flex-nowrap overflow-x-scroll px-2"
           >
-            <li className="px-2 d-flex flex-shrink-0" style={{ width: cardWidth }}>
+            <li className="px-2 d-flex flex-shrink-0" style={{ width: firstCardWidth }}>
               <div className="d-inline-block Box p-5 color-bg-subtle">
                 <div
                   className="d-inline-flex flex-items-center flex-justify-center circle border"
@@ -65,17 +66,15 @@ export const GuidesHero = () => {
                 </div>
                 <h2 className="text-semibold my-4 f3">{featuredTrack.title}</h2>
                 <div className="f5 my-4">{featuredTrack.description}</div>
-                {featuredTrack.guides && (
-                  <Link
-                    {...{ 'aria-label': `${featuredTrack.title} - ${t('start_path')}` }}
-                    className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
-                    role="button"
-                    href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
-                  >
-                    {t(`start_path`)}
-                    <ArrowRightIcon size={20} className="ml-2" />
-                  </Link>
-                )}
+                <Link
+                  {...{ 'aria-label': `${featuredTrack.title} - ${t('start_path')}` }}
+                  className="d-inline-flex flex-items-center flex-justify-center btn ws-normal px-4 py-2 f5 no-underline text-bold"
+                  role="button"
+                  href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}
+                >
+                  {t(`start_path`)}
+                  <ArrowRightIcon size={20} className="ml-2" />
+                </Link>
               </div>
             </li>
             {guideItems}

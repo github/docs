@@ -5,7 +5,7 @@ import { ActionList } from '@primer/react'
 import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import styles from './LearningTrack.module.scss'
 import { Link } from 'components/Link'
 
@@ -17,7 +17,7 @@ const DEFAULT_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
   const [numVisible, setNumVisible] = useState(DEFAULT_VISIBLE_GUIDES)
   const { t } = useTranslation('product_guides')
-  const slug = track?.title ? slugger.slug(track?.title) : ''
+  const titleSlug = track?.title ? slug(track?.title) : ''
   const showAll = () => {
     setNumVisible(track?.guides?.length || 0)
   }
@@ -28,8 +28,11 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-7 col-md-7 col-xl-7">
             <div className="my-xl-0 mr-xl-3">
-              <h3 id={slug} className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}>
-                <a className="color-unset" href={`#${slug}`}>
+              <h3
+                id={titleSlug}
+                className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}
+              >
+                <a className="color-unset" href={`#${titleSlug}`}>
                   {track?.title}
                 </a>
               </h3>

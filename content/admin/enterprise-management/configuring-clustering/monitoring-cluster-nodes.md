@@ -87,7 +87,8 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
   ```
 
 6. Create a command definition in your Nagios configuration.
-  ###### Example definition
+
+  **Example definition**
 
   ```
   define command {
@@ -97,7 +98,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
   ```
 7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
-  ###### Example definition
+  **Example definition**
 
   ```
   define host{

@@ -17,8 +17,8 @@ learningTracks:
   - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
-  - '{% ifversion ghes > 2.22 %}configure_github_advanced_security{% endif %}'
+  - '{% ifversion ghes %}configure_github_actions{% endif %}'
+  - '{% ifversion ghes %}configure_github_advanced_security{% endif %}'
 includeGuides:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/authentication/changing-authentication-methods
@@ -63,7 +63,7 @@ includeGuides:
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
   - /admin/configuration/initializing-github-ae
   - /admin/configuration/network-ports
-  - /admin/configuration/restricting-network-traffic-to-your-enterprise
+  - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/troubleshooting-ssl-errors
   - /admin/configuration/using-github-enterprise-server-with-a-load-balancer
@@ -147,5 +147,9 @@ includeGuides:
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
+  - /admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
+  - /admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console
 ---
 

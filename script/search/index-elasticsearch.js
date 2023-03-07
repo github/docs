@@ -18,7 +18,6 @@ import dotenv from 'dotenv'
 import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { decompress } from '../../lib/search/compress.js'
 import statsd from '../../lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
@@ -137,12 +136,40 @@ async function main(opts, args) {
 async function indexAll(node, sourceDirectory, opts) {
   const client = new Client({ node })
 
-  const { version, language, verbose, notLanguage, indexPrefix } = opts
+  const { language, verbose, notLanguage, indexPrefix } = opts
+
+  let version
+  if ('version' in opts) {
+    version = opts.version
+    if (process.env.VERSION) {
+      console.warn(
+        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`
+      )
+    }
+  } else {
+    if (process.env.VERSION && process.env.VERSION !== 'all') {
+      version = process.env.VERSION
+      if (!allVersionKeys.includes(version)) {
+        throw new Error(
+          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`
+        )
+      }
+    }
+  }
+  let versionKeys = allVersionKeys
+  // If it came from the `--version` argument parsing, it might be a string
+  // or an array of strings because it uses `--version [VERSION...]`.
+  if (version) {
+    if (Array.isArray(version)) {
+      versionKeys = version
+    } else {
+      versionKeys = [version]
+    }
+  }
 
   // This will throw if it can't ping
   await client.ping()
 
-  const versionKeys = version || allVersionKeys
   const languages =
     language || languageKeys.filter((lang) => !notLanguage || !notLanguage.includes(lang))
   if (verbose) {
@@ -209,8 +236,8 @@ async function indexVersion(
   verbose = false
 ) {
   // Note, it's a bit "weird" that numbered releases versions are
-  // called the number but that's how the lib/search/indexes
-  // files are named at the moment.
+  // called the number but that's the convention the previous
+  // search backend used
   const indexVersion = shortNames[version].hasNumberedReleases
     ? shortNames[version].currentRelease
     : shortNames[version].miscBaseName
@@ -276,8 +303,8 @@ async function indexVersion(
           headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
           headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           breadcrumbs: { type: 'text' },
-          topics: { type: 'keyword' },
           popularity: { type: 'float' },
+          intro: { type: 'text' },
         },
       },
       settings,
@@ -287,7 +314,7 @@ async function indexVersion(
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
-    const { title, objectID, content, breadcrumbs, headings, topics } = doc
+    const { title, objectID, content, breadcrumbs, headings, intro } = doc
     const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
@@ -298,13 +325,13 @@ async function indexVersion(
       breadcrumbs,
       headings,
       headings_explicit: headings,
-      topics: topics.filter(Boolean),
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular
       // one of all is 1.0.
       // By making it >=1.0 when we multiply a relevance score,
       // you never get a product of 0.0.
       popularity: doc.popularity + 1,
+      intro,
     }
     return [{ index: { _index: thisAlias } }, record]
   })
@@ -386,21 +413,9 @@ function escapeHTML(content) {
 }
 
 async function loadRecords(indexName, sourceDirectory) {
-  // First try looking for the `$indexName-records.json.br` file.
-  // If that doens't work, look for the `$indexName-records.json` one.
-  try {
-    const filePath = path.join(sourceDirectory, `${indexName}-records.json.br`)
-    // Do not set to 'utf8' on file reads
-    const payload = await fs.readFile(filePath).then(decompress)
-    return JSON.parse(payload)
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
-      const payload = await fs.readFile(filePath)
-      return JSON.parse(payload)
-    }
-    throw error
-  }
+  const filePath = path.join(sourceDirectory, `${indexName}-records.json`)
+  const payload = await fs.readFile(filePath)
+  return JSON.parse(payload)
 }
 
 function getSnowballLanguage(language) {

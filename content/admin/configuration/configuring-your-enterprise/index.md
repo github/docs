@@ -18,7 +18,6 @@ children:
   - /about-enterprise-configuration
   - /deploying-github-ae
   - /initializing-github-ae
-  - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh
   - /enabling-and-scheduling-maintenance-mode
   - /configuring-backups-on-your-appliance
@@ -33,7 +32,7 @@ children:
   - /troubleshooting-tls-errors
   - /configuring-time-synchronization
   - /command-line-utilities
-  - /restricting-network-traffic-to-your-enterprise
+  - /restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /configuring-github-pages-for-your-enterprise
   - /configuring-host-keys-for-your-instance
   - /configuring-the-referrer-policy-for-your-enterprise

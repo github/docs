@@ -11,13 +11,16 @@ import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
-import { setDefaultFastlySurrogateKey } from './set-fastly-surrogate-key.js'
+import {
+  setDefaultFastlySurrogateKey,
+  setLanguageFastlySurrogateKey,
+} from './set-fastly-surrogate-key.js'
 import reqUtils from './req-utils.js'
-import recordRedirect from './record-redirect.js'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
 import detectLanguage from './detect-language.js'
+import reloadTree from './reload-tree.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
@@ -35,14 +38,15 @@ import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
+import secretScanning from './contextualizers/secret-scanning.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
-import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
+import glossaries from './contextualizers/glossaries.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import productGroups from './contextualizers/product-groups.js'
@@ -56,9 +60,9 @@ import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
-import fastRootRedirect from './fast-root-redirect.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
+import dynamicAssets from './dynamic-assets.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -108,13 +112,16 @@ export default function (app) {
     app.use(datadog)
   }
 
+  // Put this early to make it as fast as possible because it's used,
+  // and used very often, by the Azure load balancer to check the
+  // health of each node.
+  app.use('/healthz', instrument(healthz, './healthz'))
+
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
 
-  // It can come before `rateLimit` because if it's a
-  // 200 OK, the rate limiting won't matter anyway.
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
@@ -150,12 +157,11 @@ export default function (app) {
       // URLs with a cache busting prefix.
       maxAge: '7 days',
       immutable: process.env.NODE_ENV !== 'development',
-      // This means, that if you request a file that starts with /assets/
-      // any file doesn't exist, don't bother (NextJS) rendering a
-      // pretty HTML error page.
-      fallthrough: false,
+      // The next middleware will try its luck and send the 404 if must.
+      fallthrough: true,
     })
   )
+  app.use(asyncMiddleware(instrument(dynamicAssets, './dynamic-assets')))
   app.use(
     '/public/',
     express.static('data/graphql', {
@@ -189,7 +195,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.get('/', fastRootRedirect)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
@@ -206,9 +211,9 @@ export default function (app) {
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
-  app.use(reqUtils) // Must come before record-redirect and events
-  app.use(recordRedirect)
+  app.use(reqUtils) // Must come before events
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
 
@@ -231,10 +236,13 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/healthz', instrument(healthz, './healthz'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
+
+  // Things like `/api` sets their own Fastly surrogate keys.
+  // Now that the `req.language` is known, set it for the remaining endpoints
+  app.use(setLanguageFastlySurrogateKey)
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -258,17 +266,18 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(instrument(secretScanning, './contextualizers/secret-scanning')))
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
-  app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
+  app.use(instrument(features, './contextualizers/features')) // needs to come before product tree
   app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
-  app.use(instrument(features, './contextualizers/features'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
+  app.use(instrument(glossaries, './contextualizers/glossaries'))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

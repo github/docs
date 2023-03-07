@@ -18,12 +18,10 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
     <div className="d-flex">
       <article className="min-width-0 flex-1">
         <div className="d-flex flex-items-center flex-justify-between color-bg-default px-5 py-2">
-          <div></div>
           <h1 className="f4 py-3 m-0">{currentVersion.planTitle} release notes</h1>
-          <div></div>
         </div>
 
-        <MarkdownContent data-search="article-content">
+        <MarkdownContent data-search="article-body">
           {releaseNotes.map((patch) => {
             return (
               <GHAEReleaseNotePatch
@@ -44,7 +42,7 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
         )}
       >
         <nav className="height-full overflow-auto">
-          <MarkdownContent data-search="article-content">
+          <MarkdownContent>
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
                 return (

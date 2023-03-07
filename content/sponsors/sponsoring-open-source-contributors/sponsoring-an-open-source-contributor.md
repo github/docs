@@ -17,6 +17,8 @@ topics:
 shortTitle: Sponsor a contributor
 ---
 
+{% data reusables.sponsors.paypal-deprecation %}
+
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
 ## About sponsorships
@@ -29,9 +31,9 @@ You can sponsor an account on behalf of your personal account to invest in proje
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice).
+You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice).
 
-{% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
 
 When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
@@ -39,17 +41,17 @@ We may share certain limited tax information with sponsored accounts. For more i
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month. 
+You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)."
+If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" and "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."
 
-If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
+**Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms).
 
 {% endnote %}
 
@@ -66,12 +68,13 @@ This information is necessary to enable payment and reporting of any taxes arisi
 
 ## Sponsoring an account
 
-Before you can sponsor an account, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
+Before you can sponsor an account, you must have a verified email address. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
 
 1. On {% data variables.product.product_name %}, navigate to the profile of the user or organization you want to sponsor.
 1. Navigate to your sponsorship dashboard for the account.
    - To sponsor a developer, under the developer's name, click **Sponsor**.
-     ![Sponsor button](/assets/images/help/profile/sponsor-button.png)
+
+      ![Screenshot of the sidebar of @octocat's profile page. A button, labeled with a heart icon and "Sponsor", is outlined in dark orange.](/assets/images/help/profile/sponsor-button.png)
    - To sponsor an organization, to the right of the organization's name, click **Sponsor**.
      ![Sponsor button](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization.

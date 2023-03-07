@@ -27,14 +27,14 @@ This guide shows you how to create a workflow that performs continuous integrati
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
 {% endif %}
 
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 
 We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
 
@@ -44,7 +44,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
 
 {% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[AUTOTITLE](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
@@ -63,11 +63,11 @@ jobs:
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: {% data reusables.actions.action-setup-java %}
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17'
+          distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
@@ -79,7 +79,7 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
 3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
 4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
@@ -102,8 +102,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
@@ -124,7 +124,7 @@ Caching is enabled by default when using the `gradle/gradle-build-action` action
 
 ## Packaging workflow data as artifacts
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 Gradle will usually create output files like JARs, EARs, or WARs in the `build/libs` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
@@ -133,8 +133,8 @@ steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: '17'
+      distribution: 'temurin'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle

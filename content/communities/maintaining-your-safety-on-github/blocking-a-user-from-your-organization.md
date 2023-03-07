@@ -14,11 +14,11 @@ shortTitle: Block from your org
 
 You can block non-members from within your organization's settings or from a specific comment made by a user. When you block a user in a comment, you can choose to send the user a notification explaining that they were blocked and why. Otherwise, the user is not directly notified that you've blocked them. Blocked users can still delete their existing content.
 
-When you block a user, you can choose to block them indefinitely or for a specific amount of time. If you block someone for a specific amount of time, they are automatically unblocked after the chosen time expires. If you block someone indefinitely, you can unblock them manually at any time. For more information, see "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)."
+{% data reusables.organizations.blocking-a-user %}
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 {% endtip %}
 
@@ -28,7 +28,7 @@ At the time that you block a user from your organization:
 - The user's votes on discussions or comments in your organization's repositories are deleted
 - The user is removed as a collaborator on your organization's repositories
 - The user's contributions to your organization's repositories are no longer counted as contributions for them
-- Any pending repository or organization invitations to the blocked user are cancelled
+- Any pending repository or organization invitations to the blocked user are canceled
 
 After you've blocked a user from your organization, they cannot:
 - Cross-reference your organization's repositories in comments
@@ -56,7 +56,7 @@ In your organization's repositories, blocked users also cannot:
 
 ## Blocking a user in the organization settings
 
-1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
+1. To block an organization member, first [remove the user](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) from the organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -70,8 +70,8 @@ In your organization's repositories, blocked users also cannot:
 
 ## Further reading
 
-- "[Viewing users who are blocked from your organization](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
-- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

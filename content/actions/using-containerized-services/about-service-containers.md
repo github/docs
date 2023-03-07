@@ -43,11 +43,11 @@ You don't need to configure any ports for service containers. By default, all co
 
 When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
 
-When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[Mapping Docker host and service container ports](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
 ## Creating service containers
 
-You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+You can use the `services` keyword to create service containers that are part of a job in your workflow. For more information, see [`jobs.<job_id>.services`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservices).
 
 This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
@@ -77,7 +77,7 @@ jobs:
 
 If your job runs in a Docker container, you do not need to map ports on the host or the service container. If your job runs directly on the runner machine, you'll need to map any required service container ports to ports on the host runner machine.
 
-You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
+You can map service containers ports to the Docker host using the `ports` keyword. For more information, see [`jobs.<job_id>.services`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idservices).
 
 | Value of `ports` |	Description |
 |------------------|--------------|
@@ -87,7 +87,7 @@ You can map service containers ports to the Docker host using the `ports` keywor
 
 When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#job-context)."
+When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
 
 ### Example mapping Redis ports
 
@@ -119,5 +119,5 @@ jobs:
 
 ## Further reading
 
-- "[Creating Redis service containers](/actions/automating-your-workflow-with-github-actions/creating-redis-service-containers)"
-- "[Creating PostgreSQL service containers](/actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers)"
+- "[AUTOTITLE](/actions/using-containerized-services/creating-redis-service-containers)"
+- "[AUTOTITLE](/actions/using-containerized-services/creating-postgresql-service-containers)"

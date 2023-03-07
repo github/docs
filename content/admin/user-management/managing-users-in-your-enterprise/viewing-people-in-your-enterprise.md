@@ -18,7 +18,7 @@ shortTitle: View people in your enterprise
 
 ## About the list of people in your enterprise
 
-To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise. 
+To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise.
 
 You can see all current enterprise members and enterprise administrators{% ifversion ghec %}, as well as pending invitations to become members and administrators{% endif %}. To make it easier to consume this information, you can search and filter the lists.
 
@@ -31,13 +31,13 @@ If {% data variables.product.prodname_github_connect %} is configured for your e
 
 For more information about {% data variables.product.prodname_github_connect %}, see the following articles.
 
-- "[About {% data variables.product.prodname_github_connect %}](/enterprise-server/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-- "[About {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+- "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[AUTOTITLE](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
 
 {% endif %}
 
 {% ifversion enterprise-member-csv %}
-You can also export membership information for your enterprise. For more information, see "[Exporting membership information for your enterprise](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+You can also export membership information for your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
 {% endif %}
 
 ## Viewing enterprise administrators
@@ -45,11 +45,11 @@ You can also export membership information for your enterprise. For more informa
 You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
 
 {% ifversion ghes > 3.5 %}
-Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[Promoting or demoting a site administrator](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
+Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
 {% endif %}
 
 {% ifversion not ghae %}
-You can also remove an administrator. For more information. see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
+You can also remove an administrator. For more information. see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -63,14 +63,13 @@ You can see all the current members {% ifversion enterprise-membership-view-impr
 You can view more information about the person's access to your enterprise, such as the organizations the person belongs to, by clicking on the person's name.
 
 {% ifversion remove-enterprise-members %}
-You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
+You can also remove any enterprise member from all organizations owned by the enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)."
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}{% else %}
-1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
-
-   ![Outside collaborators tab on the enterprise members page](/assets/images/help/business-accounts/outside-collaborators-tab.png){% endif %}
+1. Optionally, to view a list of outside collaborators rather than the list of members, under "Members", click **Outside collaborators**.
+{% endif %}
 
 {% ifversion enterprise-membership-view-improvements %}
 ## Viewing outside collaborators
@@ -82,9 +81,6 @@ You can view more information about the person's access to your enterprise, such
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. Under "People", click **Outside collaborators**.
-
-  ![Outside collaborators tab in the enterprise settings sidebar]{% ifversion ghec%}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% else %}(/assets/images/help/business-accounts/outside-collaborators-tab-sidebar-dotcom.png){% endif %}
-  
 {% endif %}
 
 {% ifversion ghec %}
@@ -92,7 +88,7 @@ You can view more information about the person's access to your enterprise, such
 
 You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
 
-In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator. 
+In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
 
 {% note %}
 
@@ -100,7 +96,7 @@ In the list of pending members, for any individual account, you can cancel all i
 
 {% endnote %}
 
-If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[Setting up {% data variables.visual_studio.prodname_vss_ghe %}](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
+If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pending invitations includes all {% data variables.product.prodname_vs %} subscribers that haven't joined any of your organizations on {% data variables.product.prodname_dotcom %}, even if the subscriber does not have a pending invitation to join an organization. For more information about how to get {% data variables.product.prodname_vs %} subscribers access to {% data variables.product.prodname_enterprise %}, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -116,7 +112,7 @@ If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pend
 
 ## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
+If your enterprise uses {% data variables.product.prodname_emus %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -127,12 +123,12 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 
 ## Viewing dormant users
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
 
 {% ifversion filter-by-enterprise-member-type %}
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations," in the search bar, begin typing the organization's name until the organization appears in the search results, then click the name of the organization.
@@ -157,4 +153,4 @@ You can view a list of members in your enterprise who don't have an email addres
 
 ## Further reading
 
-- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+- "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
