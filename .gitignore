@@ -32,3 +32,4 @@ user-code/
 # Logs from scripts
 script/logs/
 external-link-checker-db.json
+.installed.package-lock.json
