@@ -45,7 +45,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Upload a photo...**.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Upload a photo...**.
 
    ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-photo.png)
 1. Select an image, then click **Upload**.
@@ -55,7 +55,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Remove photo** to revert to your identicon.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Remove photo** to revert to your identicon.
 
    {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.{% endif %}
 
