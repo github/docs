@@ -83,7 +83,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
+    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader} ${apiVersionHeader}`,
     contentTypeHeader,
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
