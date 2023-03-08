@@ -13,7 +13,6 @@ topics:
   - API
 children:
   - /getting-started-with-the-rest-api
-  - /basics-of-authentication
   - /scripting-with-the-rest-api-and-javascript
   - /discovering-resources-for-a-user
   - /delivering-deployments

@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "law" aria-label="" %} **Policies**.
+1. In the enterprise account sidebar, click {% octicon "law" aria-hidden="true" %} **Policies**.

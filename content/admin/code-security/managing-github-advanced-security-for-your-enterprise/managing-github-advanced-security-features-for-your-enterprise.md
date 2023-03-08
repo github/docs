@@ -43,7 +43,7 @@ When you enable one or more security and analysis features for existing reposito
 
    - To confirm the change, click **Enable/Disable all** or **Enable/Disable for eligible repositories**.
    
-     ![Screenshot of button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/security/enterprise-security-and-analysis-enable-secret-scanning.png)
+     ![Screenshot of the dialog that is displayed when a user enables {% data variables.product.prodname_secret_scanning %} for an organization. The dialog asks the user for confirmation that the feature will be enabled for all the eligible repositories in the organization.](/assets/images/enterprise/security/enterprise-security-and-analysis-enable-secret-scanning.png)
 
 1. Optionally, to enable or disable a feature automatically when new repositories are added, select the checkbox below the feature.
    

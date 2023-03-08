@@ -10,7 +10,7 @@ type Props = {
 
 export function Enum({ item }: Props) {
   const { t } = useTranslation('products')
-  const heading = t('graphql.reference.values')
+  const heading = t('graphql.reference.values').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item} heading={heading}>

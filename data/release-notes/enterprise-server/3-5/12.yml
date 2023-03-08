@@ -1,6 +1,7 @@
 date: '2023-02-02'
 sections:
   security_fixes:
+    - "**MEDIUM**: A code injection vulnerability was identified in GitHub Enterprise Server that allowed setting arbitrary environment variables from a single environment variable value in GitHub Actions when using a Windows based runner due to improper sanitization of null bytes. To exploit this vulnerability, an attacker would need existing permission to control the value of environment variables for use with GitHub Actions. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-22381](https://www.cve.org/CVERecord?id=CVE-2023-22381)."
     - Packages have been updated to the latest security versions.
   bugs:
     - During the validation phase of a configuration run, a `No such object error` may have occurred for the Notebook and Viewscreen services. 

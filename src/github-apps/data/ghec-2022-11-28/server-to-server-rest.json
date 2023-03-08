@@ -979,6 +979,12 @@
       "requestPath": "/app"
     },
     {
+      "slug": "list-installation-requests-for-the-authenticated-app",
+      "subcategory": "apps",
+      "verb": "get",
+      "requestPath": "/app/installation-requests"
+    },
+    {
       "slug": "list-installations-for-the-authenticated-app",
       "subcategory": "apps",
       "verb": "get",
@@ -2387,7 +2393,7 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "list-custom-repository-roles-in-an-organization",
+      "slug": "deprecated---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/organizations/{organization_id}/custom_roles"
@@ -2447,25 +2453,55 @@
       "requestPath": "/orgs/{org}/credential-authorizations/{credential_id}"
     },
     {
-      "slug": "create-a-custom-role",
+      "slug": "list-custom-repository-roles-in-an-organization",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/custom-repository-roles"
+    },
+    {
+      "slug": "create-a-custom-repository-role",
+      "subcategory": "custom-roles",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/custom-repository-roles"
+    },
+    {
+      "slug": "get-a-custom-repository-role",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/custom-repository-roles/{role_id}"
+    },
+    {
+      "slug": "update-a-custom-repository-role",
+      "subcategory": "custom-roles",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/custom-repository-roles/{role_id}"
+    },
+    {
+      "slug": "delete-a-custom-repository-role",
+      "subcategory": "custom-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/custom-repository-roles/{role_id}"
+    },
+    {
+      "slug": "deprecated---create-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "post",
       "requestPath": "/orgs/{org}/custom_roles"
     },
     {
-      "slug": "get-a-custom-role",
+      "slug": "deprecated---get-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
     },
     {
-      "slug": "update-a-custom-role",
+      "slug": "deprecated---update-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "patch",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
     },
     {
-      "slug": "delete-a-custom-role",
+      "slug": "deprecated---delete-a-custom-role",
       "subcategory": "custom-roles",
       "verb": "delete",
       "requestPath": "/orgs/{org}/custom_roles/{role_id}"
@@ -2477,7 +2513,7 @@
       "requestPath": "/orgs/{org}/failed_invitations"
     },
     {
-      "slug": "list-repository-fine-grained-permissions-for-an-organization",
+      "slug": "deprecated---list-fine-grained-permissions-for-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/orgs/{org}/fine_grained_permissions"
@@ -2643,6 +2679,12 @@
       "subcategory": "members",
       "verb": "get",
       "requestPath": "/orgs/{org}/public_members/{username}"
+    },
+    {
+      "slug": "list-repository-fine-grained-permissions-for-an-organization",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/repository-fine-grained-permissions"
     },
     {
       "slug": "list-security-manager-teams",
@@ -3971,6 +4013,18 @@
   ],
   "users": [
     {
+      "slug": "add-social-accounts-for-the-authenticated-user",
+      "subcategory": "social-accounts",
+      "verb": "post",
+      "requestPath": "/user/social_accounts"
+    },
+    {
+      "slug": "delete-social-accounts-for-the-authenticated-user",
+      "subcategory": "social-accounts",
+      "verb": "delete",
+      "requestPath": "/user/social_accounts"
+    },
+    {
       "slug": "list-users",
       "subcategory": "users",
       "verb": "get",
@@ -4011,6 +4065,12 @@
       "subcategory": "keys",
       "verb": "get",
       "requestPath": "/users/{username}/keys"
+    },
+    {
+      "slug": "list-social-accounts-for-a-user",
+      "subcategory": "social-accounts",
+      "verb": "get",
+      "requestPath": "/users/{username}/social_accounts"
     },
     {
       "slug": "list-ssh-signing-keys-for-a-user",

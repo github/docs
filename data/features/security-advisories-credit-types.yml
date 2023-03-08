@@ -1,0 +1,6 @@
+# Reference: #9112.
+# Documentation for Advisory Credit types
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

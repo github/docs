@@ -63,7 +63,6 @@ jobs:
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
-          rm -rf openApiTemp
 
       - name: Create pull request
         env:

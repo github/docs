@@ -36,7 +36,6 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 6. Optionally, enable the feature by default for new repositories that you own.
   {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
 7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
-  {% ifversion ghes %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 

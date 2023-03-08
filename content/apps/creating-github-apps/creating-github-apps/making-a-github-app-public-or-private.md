@@ -18,7 +18,7 @@ topics:
   - GitHub Apps
 shortTitle: Manage app visibility
 ---
-For authentication information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation)."
+For authentication information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
 ## Public installation flow
 
