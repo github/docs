@@ -27,7 +27,7 @@ concurrency:
 jobs:
   generate-decorated-files:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
     steps:
       - if: ${{ env.FREEZE == 'true' }}
         run: |
@@ -49,20 +49,23 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Get the rest-api-description SHA being synced
-        id: rest-api-description
-        run: |
-          cd rest-api-description
-          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
-          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
-          echo "Copied files from github/rest-api-description repo. Commit SHA: $OPENAPI_COMMIT_SHA"
-
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
         run: |
           src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
+
+      - name: Get the rest-api-description SHA being synced
+        id: rest-api-description
+        run: |
+          OPENAPI_COMMIT_SHA=$(cat src/rest/lib/config.json | jq -r '.sha')
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/rest-api-description repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+          if [ -z $OPENAPI_COMMIT_SHA ]; then
+            echo "OpenAPI commit SHA is empty!"
+            exit 1
+          fi
 
       - name: Create pull request
         env:
