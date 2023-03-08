@@ -106,6 +106,15 @@ env:
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
 
+{% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
+
+#### Example
+```
+env:
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' ? 'value_for_main_branch' : 'value_for_other_branches' }}
+```
+In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the % data variables.product.prodname_dotcom %} reference is set to 'refs/heads/main' or not. If it is, the variable is set to 'value_for_main_branch'. Otherwise, it is set to 'value_for_other_branches'.
+
 ## Functions
 
 {% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
