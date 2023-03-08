@@ -20,7 +20,7 @@ A package can inherit its visibility and access permissions from a repository, o
 For the list of registries that support granular permisions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% else %}
-A package inherits the permissions and visibility of the repository in which the package is published. 
+A package inherits the permissions and visibility of the repository in which the package is published.
 
 For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
@@ -112,13 +112,13 @@ When a package inherits permissions from a repository, to grant or remove access
 
 ## Disabling automatic inheritance of access permissions in an organization
 
-By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions of the linked repository. As an organization owner, you can disable automatic inheritance for all packages scoped to your organization. 
+By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions of the linked repository. As an organization owner, you can disable automatic inheritance for all packages scoped to your organization.
 
 If you disable automatic inheritance of access permissions, new packages scoped to your organization will not automatically inherit the permissions of a linked repository. However, anyone with admin permissions to a package in your organization will be able to enable or disable inheritance of permissions for that package.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-label="" %} Packages**.
+1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" %} Packages**.
 1. Under "Default Package Settings", deselect **Inherit access from source repository**.
 1. Click **Save**.
 

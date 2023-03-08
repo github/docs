@@ -31,7 +31,7 @@ shortTitle: About the security overview
 {% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 
+The security overview shows which security features are enabled for repositories and consolidate alerts for each feature.
 
 - Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. {% ifversion ghes or ghae %}
 - Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %} and for public repositories.
@@ -88,7 +88,7 @@ This view shows data about which security features are used by repositories in t
 - Click **NUMBER Archived** to show only repositories that are archived.
 - Click in the search box to show a list of the full set of available filters.
 
-In addition, you can click **{% octicon "gear" aria-label="" %} Security settings** for any repository to enable the security features that have a one-click setup.
+In addition, you can click **{% octicon "gear" aria-hidden="true" %} Security settings** for any repository to enable the security features that have a one-click setup.
 
 ![Screenshot of the "Security Coverage" view on the "Security" tab for an organization. Illustrates information and filter options available in view.](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
 
