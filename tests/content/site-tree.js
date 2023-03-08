@@ -1,11 +1,15 @@
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import { jest } from '@jest/globals'
 import schema from '../helpers/schemas/site-tree-schema.js'
 import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { loadSiteTree } from '../../lib/page-data.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import { jest } from '@jest/globals'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 const latestEnterpriseRelease = EnterpriseServerReleases.latest
+
+const ajv = new Ajv({ allErrors: true })
+const siteTreeValidate = ajv.compile(schema.childPage)
 
 describe('siteTree', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -54,9 +58,14 @@ describe('siteTree', () => {
 
 function validate(currentPage) {
   ;(currentPage.childPages || []).forEach((childPage) => {
-    const { valid, errors } = revalidator.validate(childPage, schema.childPage)
-    const expectation = JSON.stringify(errors, null, 2)
-    expect(valid, expectation).toBe(true)
+    const valid = siteTreeValidate(childPage)
+    let errors
+
+    if (!valid) {
+      errors = `file ${childPage.page.fullPath}: ${formatAjvErrors(siteTreeValidate.errors)}`
+    }
+
+    expect(valid, errors).toBe(true)
 
     // Run recurisvely until we run out of child pages
     validate(childPage)
