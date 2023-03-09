@@ -190,6 +190,12 @@ You can help mitigate this risk by following these good practices:
 
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
+{% ifversion not ghae %}
+## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
+
+You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
+{% endif %}
+
 {% ifversion required-workflows %}
 
 ## Required workflows
