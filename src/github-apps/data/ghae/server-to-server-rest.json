@@ -49,6 +49,18 @@
       "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
     },
     {
+      "slug": "get-default-workflow-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
+      "slug": "set-default-workflow-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
       "subcategory": "self-hosted-runner-groups",
       "verb": "get",

@@ -31,10 +31,10 @@ You can use {% data variables.product.prodname_github_connect %} to allow {% dat
 Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using `v1` of the `actions/checkout` action, and you need to use `{% data reusables.actions.action-checkout %}` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
 
 1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the *actions* organization (in this example `checkout`).
-1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page in that repository.
-  ![Rocketship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
-1. Click {% octicon "shield-lock" %} **Security** to see the security overview for the repository.
-  ![Security header the repository](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
+1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-hidden="true" %} in the upper-right corner of any page in that repository.
+1. Click {% octicon "shield-lock" aria-hidden="true" %} **Security** to see the security overview for the repository.
+
+   ![Screenshot of the site admin details for a repository. The "Security" link is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
 1. Under "Privileged access", click **Unlock**.
   ![Unlock button](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
 1. Under **Reason**, type a reason for unlocking the repository, then click **Unlock**.
