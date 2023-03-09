@@ -36,17 +36,16 @@ The report includes both enterprise members and outside collaborators.
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
-4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
-![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
+1. In the left sidebar, click **Dormant users**.{% ifversion ghes %}
+1. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
+{% endif %}
 
 ## Determining whether a user account is dormant
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
+1. In the **User info** section, any users labeled with "{% octicon "hourglass" aria-hidden="true" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" %} "Active" are not.
 ![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
 ![Active user account](/assets/images/enterprise/stafftools/active-user.png)
 
@@ -57,8 +56,7 @@ The report includes both enterprise members and outside collaborators.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
-![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+1. Under "Dormancy threshold", select the dropdown menu, and click the desired dormancy threshold.
 
 {% endif %}
 
