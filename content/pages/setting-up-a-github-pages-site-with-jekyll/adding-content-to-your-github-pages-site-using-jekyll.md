@@ -35,7 +35,7 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-3. In the root of your publishing source, create a new file for your page called PAGE-NAME.md, replacing PAGE-NAME with a meaningful filename for the page.
+3. In the root of your publishing source, create a new file for your page called `PAGE-NAME.md`, replacing PAGE-NAME with a meaningful filename for the page.
 4. Add the following YAML frontmatter to the top of the file, replacing PAGE TITLE with the page's title and URL-PATH with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your URL-PATH is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
   ```shell
   layout: page
