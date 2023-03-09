@@ -70,7 +70,8 @@ The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe 
 
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally on Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
-The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
+The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, see the integration's [README](https://github.com/integrations/slack/blob/master/README.md) in the `integrations/slack` repository.
+
 
 ### Microsoft Teams and {% data variables.product.product_name %} integration
 
@@ -86,6 +87,6 @@ The {% data variables.product.prodname_dotcom %} for Teams app lets you subscrib
 
 You can also open and close issues, comment on your issues and pull requests, approve deployments, and see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally on Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
-For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.
+For more information, see the integration's [README](https://github.com/integrations/microsoft-teams/blob/master/Readme.md) in the `integrations/microsoft-teams` repository.
 
 {% endif %}
