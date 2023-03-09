@@ -79,19 +79,19 @@ You can customize notifications for a repository. For example, you can choose to
 ### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
-{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+{% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
 ![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif)
 
 {% else %}
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
-![Screenshot of participating and watching notifications options](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
+![Screenshot of the "Notification settings" page. The "Participating" and "Watching" settings are shown, each with two checkbox options, titled "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
-For example:
-  - If you don't want notifications to be sent to your email, unselect **email** for participating and watching notifications.
-  - If you want to receive notifications by email when you've participated in a conversation, then you can select **email** under "Participating".
+For example, on your "Notification settings" page:
+  - If you don't want notifications to be sent to your email, deselect **email** for participating and watching notifications.
+  - If you want to receive notifications by email when you've participated in a conversation, then select **email** under "Participating".
 
 {% ifversion update-notification-settings-22 %}If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
 
@@ -161,7 +161,7 @@ By default, anytime you gain access to a new repository, you will automatically 
 {% ifversion update-notification-settings-22 %}
 ![Screenshot of the toggles for "Automatically watch repositories" and "Automatically watch teams".](/assets/images/help/notifications-v2/automatically-watch-repos-and-teams.png)
 {% else %}
-![Automatic watching options](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
+![Screenshot of "Automatic watching" options for teams and repositories.](/assets/images/help/notifications-v2/automatic-watching-options.png){% endif %}
 
 If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
 
@@ -172,12 +172,11 @@ For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptio
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In the upper-right corner, select the "Watch" drop-down menu to click a watch option.
-   ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+1. In the upper-right corner, select the "Watch" drop-down menu, then click a watch option.
 
-   The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
-   If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+   If you want to further customize notifications, click **Custom**, then select specific events that you want to be notified of, such as Issues or Pull Requests, in addition to participating and @mentions.
+
+   For example, if you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
 
 ## Choosing where your organization’s email notifications are sent
 
@@ -248,13 +247,13 @@ For more information about the notification delivery methods available to you, a
 {% ifversion update-notification-settings-22 or ghes %}
 ## {% data variables.product.prodname_actions %} notification options
 
-Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.{% endif %}
+For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates via the "Notification settings" page. You can choose to receive {% ifversion ghes %}email or web notifications{% endif %}{% ifversion update-notification-settings-22 %} notifications by email or on {% data variables.product.prodname_dotcom %}{% endif %}, and to only receive notifications for failed workflow runs.{% endif %}
 
 {% ifversion update-notification-settings-22 %}
 ![Animated GIF of notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}
 
 {% ifversion ghes %}
-  ![Screenshot of the notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
+![Screenshot of the "Actions" section on the "Notification settings" page. Three checkboxes, titled "Email", "Web", and "Send notifications for failed workflows only", are shown.](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
 
 ## Organization alerts notification options
 
@@ -292,9 +291,7 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% ifversion fpt or ghec %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
 1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
-2. Tap **Watch**.
-   ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
-3. To choose what activities you receive notifications for, tap your preferred watch settings.
-   ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
+1. Tap **Watch**.
+1. To choose what activities you receive notifications for, tap your preferred watch settings. For example, choose to only be notified when you are participating or @mentioned, or use the "Custom" option to select specific events that you want to be notified of.
 
 {% endif %}
