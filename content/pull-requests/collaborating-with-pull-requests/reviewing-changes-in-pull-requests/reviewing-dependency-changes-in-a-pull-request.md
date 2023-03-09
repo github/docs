@@ -32,7 +32,7 @@ shortTitle: Review dependency changes
 
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+{% ifversion fpt or ghec or ghes > 3.5 %}
 
 You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 

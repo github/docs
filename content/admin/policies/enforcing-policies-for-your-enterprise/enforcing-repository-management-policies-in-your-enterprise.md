@@ -247,9 +247,8 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Force pushes", use the drop-down menu, and click **Allow**, **Block** or **Block to the default branch**.
-![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
-5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
+1. Under "Force pushes", select the dropdown menu, and click **Allow**, **Block**, or **Block to the default branch**.
+1. Optionally, to override organization and repository level settings for force pushes, select **Enforce on all repositories**.
 
 ### Blocking force pushes to a specific repository
 
@@ -260,9 +259,7 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise_site_admin_settings.repository-search %}
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Select **Block** or **Block to the default branch** under **Push and Pull**.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
+1. Under "Push and Pull", to the right of "Force pushes", select the dropdown menu, and click **Block** or **Block to the default branch**.
 
 ### Blocking force pushes to repositories owned by a user account or organization
 
@@ -275,13 +272,11 @@ You can override the default inherited settings by configuring the settings for 
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Repository default settings" in the "Force pushes" section, select
-    - **Block** to block force pushes to all branches.
-    - **Block to the default branch** to only block force pushes to the default branch.
-  ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an enterprise-wide policy.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+1. Under "Repository default settings" in the "Force pushes" section, select a policy.
+    - To block force pushes to all branches, select **Block**.
+    - To only block force pushes to the default branch, select **Block to the default branch**.
+6. Optionally, to override repository-specific settings, select **Enforce on all repositories**. Note that this will **not** override an enterprise-wide policy.
+   ![Screenshot of the "Repository default settings" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 {% endif %}
 
