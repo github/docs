@@ -234,7 +234,7 @@ You can set a total cache storage size for your repository up to the maximum siz
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit  %}
 
-{% else %}
+{% elsif ghes < 3.8 %}
 
 The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 

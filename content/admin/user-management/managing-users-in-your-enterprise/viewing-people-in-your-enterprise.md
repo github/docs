@@ -86,7 +86,7 @@ You can view more information about the person's access to your enterprise, such
 {% ifversion ghec %}
 ## Viewing pending invitations
 
-You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
+You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by license, by organization, or by source. You can find a specific person by searching for their username or display name.
 
 In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
 
@@ -100,15 +100,14 @@ If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pend
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Pending invitations**.
-
-   ![Screenshot of the "Pending invitations" tab in the sidebar](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. Under "People", click **Invitations**.
 1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
-1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Pending members", click **Administrators** or **Outside collaborators**.
+   ![Screenshot of a single invitation on the "Invitations" page. A button, titled "Cancel invitation", is highlighted with an orange outline.](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Invitations", click **Administrators** or **Outside collaborators**.
+1. Optionally, to filter the list of pending invitations by license, by organization, or by source, use the dropdown menus at the top of the list.
 
-   ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
+   ![Screenshot of the "Invitations" page. Three dropdown menus, titled "License", "Organizations", and "Source" are highlighted with an orange outline.](/assets/images/help/enterprises/enterprise-filter-pending-invitations.png)
 
 ## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 
