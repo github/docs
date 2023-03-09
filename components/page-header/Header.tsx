@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { AnchoredOverlay, Dialog, IconButton } from '@primer/react'
+import { AnchoredOverlay, Button, Dialog, IconButton } from '@primer/react'
 import {
   KebabHorizontalIcon,
   LinkExternalIcon,
@@ -204,16 +204,27 @@ export const Header = () => {
                 icon={SearchIcon}
               />
               <IconButton
-                className={cx(
-                  isSearchOpen
-                    ? styles.closeSearchButtonWithOpenSearch
-                    : styles.closeSearchButtonWithClosedSearch
-                )}
+                className="px-3"
                 data-testid="mobile-search-button"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 aria-label="Close Search Bar"
                 aria-expanded={isSearchOpen ? 'true' : 'false'}
                 icon={XIcon}
+                sx={
+                  isSearchOpen
+                    ? {
+                        // The x button to close the small width search UI when search is open, as the
+                        // browser width increases to md and above we no longer show that search UI so
+                        // the close search button is hidden as well.
+                        // breakpoint(md)
+                        '@media (min-width: 768px)': {
+                          display: 'none',
+                        },
+                      }
+                    : {
+                        display: 'none',
+                      }
+                }
               />
 
               {/* The ... navigation menu at medium and smaller widths */}
@@ -221,17 +232,47 @@ export const Header = () => {
                 <AnchoredOverlay
                   anchorRef={menuButtonRef}
                   renderAnchor={(anchorProps) => (
-                    <IconButton
+                    <Button
                       data-testid="mobile-menu"
-                      className={cx(
-                        isSearchOpen
-                          ? styles.menuButtonWithOpenSearch
-                          : styles.menuButtonWithClosedSearch
-                      )}
+                      className="px-2"
                       {...anchorProps}
                       icon={KebabHorizontalIcon}
                       aria-label="Open Menu Bar"
-                    />
+                      sx={
+                        isSearchOpen
+                          ? // The ... menu button when the smaller width search UI is open.  Since the search
+                            // UI is open, we don't show the button at smaller widths but we do show it as
+                            // the browser width increases to md, and then at lg and above widths we hide
+                            // the button again since the pickers and sign-up button are shown in the header.
+                            {
+                              marginLeft: '8px',
+                              display: 'none',
+                              // breakpoint(md)
+                              '@media (min-width: 768px)': {
+                                display: 'inline-block',
+                                marginLeft: '4px',
+                              },
+                              // breakpoint(lg)
+                              '@media (min-width: 1012px)': {
+                                display: 'none',
+                              },
+                            }
+                          : // The ... menu button when the smaller width search UI is closed, the button is
+                            // shown up to md.  At lg and above we don't show the button since the pickers
+                            // and sign-up button are shown in the header.
+                            {
+                              marginLeft: '16px',
+                              '@media (min-width: 768px)': {
+                                marginLeft: '0',
+                              },
+                              '@media (min-width: 1012px)': {
+                                display: 'none',
+                              },
+                            }
+                      }
+                    >
+                      {}
+                    </Button>
                   )}
                   open={isMenuOpen}
                   onOpen={openMenuOverlay}
@@ -252,7 +293,7 @@ export const Header = () => {
                       <LanguagePicker mediumOrLower={true} />
                     </span>
                     {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
-                      <span className="pb-2 m-2 d-block">
+                      <span className="px-2 pb-2 m-2 d-block">
                         <ApiVersionPicker />
                       </span>
                     )}

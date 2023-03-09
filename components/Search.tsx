@@ -82,7 +82,7 @@ export function Search() {
           <IconButton
             aria-label="Search"
             icon={SearchIcon}
-            sx={{ 'border-top-left-radius': 'unset', 'border-bottom-left-radius': 'unset' }}
+            sx={{ borderTopLeftRadius: 'unset', borderBottomLeftRadius: 'unset' }}
           />
         </form>
       </div>
