@@ -1,0 +1,1 @@
+You must follow this step from a computer that can access the API for {% data variables.location.product_location_enterprise %}. If you can access your instance from the browser, then the computer has the correct access.
