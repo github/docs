@@ -64,7 +64,7 @@ export function ParameterRow({
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
                   <span className="color-fg-muted pl-2 f5">
-                    {Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
@@ -73,7 +73,7 @@ export function ParameterRow({
               ) : (
                 <>
                   <span className="color-fg-muted pl-1 f5">
-                    {Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+                    {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
@@ -106,24 +106,18 @@ export function ParameterRow({
                 )}
                 {rowParams.enum && rowParams.enum.length && (
                   <p>
-                    {rowParams.enum.length > 1 ? (
-                      <>
-                        <span>{t('enum_description_title')}: </span>
-                        {rowParams.enum.map((item, index, array) => (
-                          <span key={item + index}>
-                            <code>{item}</code>
-                            {index !== array.length - 1 && ','}{' '}
-                          </span>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <span>{t('single_enum_description')}: </span>
-                        <span key={rowParams.enum[0]}>
-                          <code>{rowParams.enum[0]}</code>
-                        </span>
-                      </>
-                    )}
+                    <span>
+                      {rowParams.enum.length === 1
+                        ? t('single_enum_description')
+                        : t('enum_description_title')}
+                      :{' '}
+                    </span>
+                    {rowParams.enum.map((item, index, array) => (
+                      <span key={`${item}${index}`}>
+                        <code>{item === null ? <i>null</i> : item}</code>
+                        {index !== array.length - 1 && ','}{' '}
+                      </span>
+                    ))}
                   </p>
                 )}
               </div>
@@ -135,7 +129,7 @@ export function ParameterRow({
         <ChildBodyParametersRows
           slug={slug}
           parentName={rowParams.name}
-          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(', ') : rowParams.type}
+          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
           childParamsGroups={rowParams.childParamsGroups}
           open={rowParams.name === clickedBodyParameterName}
         />

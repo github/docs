@@ -84,13 +84,12 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 ### Set up deploy keys
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
-{% data reusables.profile.navigating-to-profile %}
-
-   ![Navigation to profile](/assets/images/profile-page.png)
-1. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
-2. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
-3. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
-4. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. In the sidebar, click **Deploy Keys**.
+1. Click **Add deploy key**.
+4. In the "Title" field, provide a title.
+1. In the "Key" field, paste your public key.
 5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 6. Click **Add key**.
 
@@ -144,10 +143,10 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
 1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
 1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#generating-a-private-key).
+1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation).
+1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app).
+1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app), and [Authenticating as an installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
 1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
 
 ## Machine users

@@ -37,19 +37,19 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.command-palette-container %}
 1. Type `java` and click the **Java** option. Other options are available if your project uses particular tools. For example, Java & PostgreSQL.
 
-   ![Screenshot of the 'Java' option](/assets/images/help/codespaces/add-java-prebuilt-container.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown with "java" entered in the search field and three Java options listed below.](/assets/images/help/codespaces/add-java-prebuilt-container.png)
 
 1. Choose the version of Java you want to use for your project. In this case, select the version marked "(default)."
 
-   ![Screenshot of the Java version selection](/assets/images/help/codespaces/add-java-version.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown listing a variety of Java versions.](/assets/images/help/codespaces/add-java-version.png)
 
 1. Select the option to **Install Maven** and click **OK**.
 
-   ![Screenshot of the Maven option](/assets/images/help/codespaces/add-maven.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown with the option "Install Maven, a management tool for Java" selected.](/assets/images/help/codespaces/add-maven.png)
 
 1. A list of additional features you can install is displayed. We'll install Ant, the Java library and command-line tool for building applications. To install this feature, type `ant`, select `Ant (via SDKMAN)`, then click **OK**.
 
-   ![Screenshot of additional features for 'ant'](/assets/images/help/codespaces/add-ant-feature.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown with "ant" in the search field and the option "Ant (via SDKMAN)" selected.](/assets/images/help/codespaces/add-ant-feature.png)
 
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
@@ -186,11 +186,11 @@ With your dev container configuration added and a basic understanding of what ev
 1. Run the application by pressing `F5`.
 1. If a "toast" notification message is displayed at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, asking whether you want to switch to standard mode, click **Yes**.
 
-   ![Screenshot of the 'standard mode' prompt](/assets/images/help/codespaces/switch-to-standard-mode.png)
+   ![Screenshot of a popup message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
 
 1. When the project files have been imported, click the **Debug Console** tab to see the program output.
 
-   ![Screenshot of program output in the Debug Console](/assets/images/help/codespaces/java-debug-output.png)
+   ![Screenshot of program output "Hello Remote World!" in the "Debug Console."](/assets/images/help/codespaces/java-debug-output.png)
 
 ## Step 5: Commit your changes
 

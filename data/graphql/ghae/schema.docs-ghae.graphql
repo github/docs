@@ -1821,6 +1821,11 @@ type BranchProtectionRule implements Node {
   requiredApprovingReviewCount: Int
 
   """
+  List of required deployment environments that must be deployed successfully to update matching branches
+  """
+  requiredDeploymentEnvironments: [String]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String]
@@ -1849,6 +1854,11 @@ type BranchProtectionRule implements Node {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean!
+
+  """
+  Does this branch require deployment to specific environments before merging
+  """
+  requiresDeployments: Boolean!
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -5779,6 +5789,11 @@ input CreateBranchProtectionRuleInput {
   requiredApprovingReviewCount: Int
 
   """
+  The list of required deployment environments
+  """
+  requiredDeploymentEnvironments: [String!]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String!]
@@ -5807,6 +5822,11 @@ input CreateBranchProtectionRuleInput {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean
+
+  """
+  Are successful deployments required before merging.
+  """
+  requiresDeployments: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -9993,6 +10013,11 @@ input EnablePullRequestAutoMergeInput {
   value for commit headline is ignored.
   """
   commitHeadline: String
+
+  """
+  The expected head OID of the pull request.
+  """
+  expectedHeadOid: GitObjectID
 
   """
   The merge method to use. If omitted, defaults to `MERGE`. NOTE: when merging
@@ -37209,6 +37234,121 @@ type SmimeSignature implements GitSignature {
 }
 
 """
+Social media profile associated with a user.
+"""
+type SocialAccount {
+  """
+  Name of the social media account as it appears on the profile.
+  """
+  displayName: String!
+
+  """
+  Software or company that hosts the social media account.
+  """
+  provider: SocialAccountProvider!
+
+  """
+  URL of the social media account.
+  """
+  url: URI!
+}
+
+"""
+The connection type for SocialAccount.
+"""
+type SocialAccountConnection {
+  """
+  A list of edges.
+  """
+  edges: [SocialAccountEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SocialAccount]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SocialAccountEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SocialAccount
+}
+
+"""
+Software or company that hosts social media accounts.
+"""
+enum SocialAccountProvider {
+  """
+  Social media and networking website.
+  """
+  FACEBOOK
+
+  """
+  Catch-all for social media providers that do not yet have specific handling.
+  """
+  GENERIC
+
+  """
+  Fork of Mastodon with a greater focus on local posting.
+  """
+  HOMETOWN
+
+  """
+  Social media website with a focus on photo and video sharing.
+  """
+  INSTAGRAM
+
+  """
+  Professional networking website.
+  """
+  LINKEDIN
+
+  """
+  Open-source federated microblogging service.
+  """
+  MASTODON
+
+  """
+  Social news aggregation and discussion website.
+  """
+  REDDIT
+
+  """
+  Live-streaming service.
+  """
+  TWITCH
+
+  """
+  Microblogging website.
+  """
+  TWITTER
+
+  """
+  Online video platform.
+  """
+  YOUTUBE
+}
+
+"""
 The possible default commit messages for squash merges.
 """
 enum SquashMergeCommitMessage {
@@ -41127,6 +41267,11 @@ input UpdateBranchProtectionRuleInput {
   requiredApprovingReviewCount: Int
 
   """
+  The list of required deployment environments
+  """
+  requiredDeploymentEnvironments: [String!]
+
+  """
   List of required status check contexts that must pass for commits to be accepted to matching branches.
   """
   requiredStatusCheckContexts: [String!]
@@ -41155,6 +41300,11 @@ input UpdateBranchProtectionRuleInput {
   Are conversations required to be resolved before merging.
   """
   requiresConversationResolution: Boolean
+
+  """
+  Are successful deployments required before merging.
+  """
+  requiresDeployments: Boolean
 
   """
   Are merge commits prohibited from being pushed to this branch.
@@ -44095,6 +44245,31 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   ): SavedReplyConnection
 
   """
+  The user's social media accounts, ordered as they appear on the user's profile.
+  """
+  socialAccounts(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): SocialAccountConnection!
+
+  """
   Repositories the user has starred.
   """
   starredRepositories(
@@ -44721,6 +44896,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
     """
     last: Int
   ): DeploymentReviewConnection!
+
+  """
+  The event that triggered the workflow run
+  """
+  event: String!
   id: ID!
 
   """

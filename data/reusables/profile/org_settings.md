@@ -1,2 +1,3 @@
 2. Next to the organization, click **Settings**.
-  ![The settings button](/assets/images/help/organizations/settings-button.png)
+
+  ![Screenshot of the "octo-org" organization with the "Settings" button highlighted with a dark orange outline.](/assets/images/help/organizations/settings-button.png)

@@ -44,18 +44,11 @@ jobs:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
 
-      - name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: main
-
-      - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
-
       - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Build server
         run: npm run build

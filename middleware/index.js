@@ -20,6 +20,7 @@ import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
 import detectLanguage from './detect-language.js'
+import reloadTree from './reload-tree.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
@@ -37,6 +38,7 @@ import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from './trigger-error.js'
+import secretScanning from './contextualizers/secret-scanning.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
@@ -211,6 +213,7 @@ export default function (app) {
   // *** Config and context for redirects ***
   app.use(reqUtils) // Must come before events
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
 
@@ -263,6 +266,7 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(instrument(secretScanning, './contextualizers/secret-scanning')))
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
   app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))

@@ -44,7 +44,7 @@ For example, this is the correct way to write list items with multiple paragraph
 1. This is the next item.
 ```
 
-![Image demonstrating how to write CommnMark-compliant Markdown lists](/assets/images/commonmark-lists.png)
+![Screenshot of a CommonMark-compliant Markdown list, annotated with explanations of the spacing and indentation.](/contributing/images/commonmark-lists.png)
 
 ## Callout tags
 
@@ -74,7 +74,7 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name.
+Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 
@@ -86,7 +86,13 @@ You can also add a header that includes the name of the language and a button to
 
 ## Octicons
 
-Octicons are icons used across GitHub’s interface. We reference Octicons when documenting the user interface. Find the name of the Octicon on the [Octicons site](https://primer.style/octicons). For accessibility purposes, use [the `aria-label` option](https://primer.style/octicons/packages/javascript#aria-label) to describe the meaning of the Octicon, not its visual characteristics. For example "Required", not "Check mark."
+Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons). 
+
+If you're referencing an octicon that appears in the UI, use your browser's developer tools to check whether the octicon is hidden to screen readers with the `aria-hidden=true` attribute.  For example, when a button is labeled "+ Add message" for sighted users, the plus icon is decorative and therefore hidden to screen readers, which instead read only "Add message."
+- If the octicon is hidden with `aria-hidden="true"`, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`). 
+- If the octicon is not hidden, the screen reader will read the octicon's `aria-label`, and we should use that same `aria-label` in the docs for consistency. For example, a button may be labeled with _only_ the "plus" icon for sighted users, while a screen reader will read "Add file." We should reflect this experience in the docs with `{% octicon "plus" aria-label="Add file" %}`.
+
+If you're using the octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [Tables](./content-style-guide.md#use-clear-consistent-symbols-and-labels) in the style guide.
 
 ### Usage
 
@@ -94,6 +100,7 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 {% octicon "<name of octicon>" %}
 {% octicon "plus" %}
 {% octicon "plus" aria-label="Add file" %}
+"{% octicon "plus" aria-hidden="true" %} Add file"
 ```
 
 ## Operating system tags

@@ -24,7 +24,7 @@ Here are some useful endpoints available for Marketplace listings:
 See these pages for details on how to authenticate when using the {% data variables.product.prodname_marketplace %} API:
 
 * [Authorization options for OAuth Apps](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
-* [Authentication options for GitHub Apps](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps)
+* [Authentication options for GitHub Apps](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)
 
 {% note %}
 

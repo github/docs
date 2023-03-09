@@ -20,7 +20,7 @@ You can use a draft {% data variables.product.prodname_marketplace %} listing to
 
 ### Using a development app with a draft listing to test changes
 
-A {% data variables.product.prodname_marketplace %} listing can only be associated with a single app registration, and each app can only access its own {% data variables.product.prodname_marketplace %} listing. For these reasons, we recommend configuring a separate development app, with the same configuration as your production app, and creating a _draft_ {% data variables.product.prodname_marketplace %} listing that you can use for testing. The draft {% data variables.product.prodname_marketplace %} listing allows you to test changes without affecting the active users of your production app. You will never have to submit your development {% data variables.product.prodname_marketplace %} listing, since you will only use it for testing.
+A {% data variables.product.prodname_marketplace %} listing can only be associated with a single app registration, and each app can only access its own {% data variables.product.prodname_marketplace %} listing. For these reasons, we recommend configuring a separate development app, with the same configuration as your production app, and creating a draft {% data variables.product.prodname_marketplace %} listing that you can use for testing. The draft {% data variables.product.prodname_marketplace %} listing allows you to test changes without affecting the active users of your production app. You will never have to submit your development {% data variables.product.prodname_marketplace %} listing, since you will only use it for testing.
 
 Because you can only create draft {% data variables.product.prodname_marketplace %} listings for public apps, you must make your development app public. Public apps are not discoverable outside of published {% data variables.product.prodname_marketplace %} listings as long as you don't share the app's URL. A Marketplace listing in the draft state is only visible to the app's owner.
 
@@ -34,9 +34,7 @@ Do not make test purchases with an app that is live in {% data variables.product
 
 ### Simulating Marketplace purchase events
 
-Your testing scenarios may require setting up listing plans that offer free trials and switching between free and paid subscriptions. Because downgrades and cancellations don't take effect until the next billing cycle, GitHub provides a developer-only feature to "Apply Pending Change" to force `changed` and `cancelled` plan actions to take effect immediately. You can access **Apply Pending Change** for apps with _draft_ Marketplace listings in https://github.com/settings/billing#pending-cycle:
-
-![Apply pending change](/assets/images/github-apps/github-apps-apply-pending-changes.png)
+Your testing scenarios may require setting up listing plans that offer free trials and switching between free and paid subscriptions. Because downgrades and cancellations don't take effect until the next billing cycle, {% data variables.product.company_short %} provides a developer-only feature to "Apply Pending Change" to force `changed` and `cancelled` plan actions to take effect immediately. You can access **Apply Pending Change** for apps with draft Marketplace listings in https://github.com/settings/billing#pending-cycle:
 
 ## Testing APIs
 

@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
@@ -38,20 +39,20 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             <div>
               <h3 className="pl-4" id={sectionSlug}>
                 <LinkIconHeading slug={sectionSlug} />
-                {SectionToLabelMap[key] || 'INVALID SECTION'}
+                {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
               </h3>
               <ul>
-                {sectionItems.map((item) => {
+                {sectionItems.map((item, i) => {
                   if (typeof item === 'string') {
                     return (
                       <li key={item} className="f4" dangerouslySetInnerHTML={{ __html: item }} />
                     )
                   }
 
-                  const headingSlug = item.heading ? slug(item.heading) : ''
+                  const headingSlug = item.heading ? slug(item.heading) : `heading${i}`
                   return (
-                    <>
-                      <li className="list-style-none" key={headingSlug}>
+                    <Fragment key={headingSlug}>
+                      <li className="list-style-none">
                         <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
                           <Link href={`#${headingSlug}`}>{item.heading}</Link>
                         </h4>
@@ -65,7 +66,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
                           />
                         )
                       })}
-                    </>
+                    </Fragment>
                   )
                 })}
               </ul>

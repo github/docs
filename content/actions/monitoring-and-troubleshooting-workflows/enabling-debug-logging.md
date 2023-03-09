@@ -43,4 +43,4 @@ Runner diagnostic logging provides additional log files that contain information
 Step debug logging increases the verbosity of a job's logs during and after a job's execution.
 
 1. To enable step debug logging, set the following secret{% ifversion actions-configuration-variables %} or variable{% endif %} in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`.{% ifversion actions-configuration-variables %} If both the secret and variable are set, the value of the secret takes precedence over the variable.{% endif %}
-1. After setting the secret{% ifversion actions-configuration-variables %} or variable{% endif %}, more debug events are shown in the step logs. For more information, see ["Viewing logs to diagnose failures"](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+1. After setting the secret{% ifversion actions-configuration-variables %} or variable{% endif %}, more debug events are shown in the step logs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."

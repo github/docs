@@ -19,18 +19,6 @@
       "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
     },
     {
-      "slug": "get-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
-      "slug": "set-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -991,6 +979,12 @@
       "requestPath": "/app"
     },
     {
+      "slug": "list-installation-requests-for-the-authenticated-app",
+      "subcategory": "apps",
+      "verb": "get",
+      "requestPath": "/app/installation-requests"
+    },
+    {
       "slug": "list-installations-for-the-authenticated-app",
       "subcategory": "apps",
       "verb": "get",
@@ -1923,7 +1917,6 @@
       "requestPath": "/scim/v2/Users/{scim_user_id}"
     }
   ],
-  "gists": [],
   "git": [
     {
       "slug": "create-a-blob",
@@ -2334,8 +2327,6 @@
       "requestPath": "/repos/{owner}/{repo}/stats/punch_card"
     }
   ],
-  "migrations": [],
-  "oauth-authorizations": [],
   "orgs": [
     {
       "slug": "list-organizations",

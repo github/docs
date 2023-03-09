@@ -65,10 +65,8 @@ Think about how your enterprise can use features of {% data variables.product.pr
 
 {% data reusables.actions.internal-actions-summary %}
 
-{% ifversion ghec or ghes or ghae > 3.3 %}
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
-{% endif %}
 
 To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 

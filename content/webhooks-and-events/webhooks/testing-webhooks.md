@@ -24,7 +24,7 @@ Every webhook has its own "Recent Deliveries" section, which lists, at a glance 
 
 {% data variables.product.product_name %} keeps a log of each webhook delivery for {% ifversion fpt or ghec %} 30 {% else %} 8 {% endif %} days.
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
 
 ## Digging into results
 
@@ -37,7 +37,7 @@ both the HTTP Request and Response.
 The webhook delivery view provides information on which Headers were sent by GitHub.
 It also includes details about the JSON payload.
 
-![Viewing a payload request](/assets/images/payload_request_tab.png)
+![Screenshot of the "Request" tab of a webhook delivery, including the "Headers" and "Payload" sections.](/assets/images/help/webhooks/payload_request_tab.png)
 
 ### Response
 
@@ -45,4 +45,4 @@ The response tab lists how your server replied once it received the payload from
 GitHub. This includes the status code, the headers, and any additional data
 within the response body.
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)

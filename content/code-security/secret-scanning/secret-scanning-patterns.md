@@ -41,19 +41,25 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-{% data reusables.secret-scanning.partner-secret-list-public-repo %}
+<!-- PUBLIC TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/partner-secret-list-public-repo.md -->
+Partner | Supported secret
+--- | ---
+{%- for entry in secretScanning.isPublic %}
+{{ entry.provider }} | {{ entry.supportedSecret }}
+{%- endfor %}
+<!-- PUBLIC TABLE ENDS HERE -->
+
 {% endif %}
 
 ## Supported secrets for {% ifversion fpt or ghec %}user {% endif %}alerts
-
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
 
 When {% data variables.secret-scanning.user_alerts %} {% ifversion fpt or ghec %}are{% else %}is{% endif %} enabled, {% data variables.product.prodname_dotcom %} scans repositories for secrets issued by the following service providers and generates {% data variables.secret-scanning.alerts %}. You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."{% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
- 
+
 {% ifversion ghes or ghae or ghec %}
 {% note %}
 
@@ -62,7 +68,14 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% endnote %}
 {% endif %}
 
-{% data reusables.secret-scanning.partner-secret-list-private-repo %}
+<!-- PRIVATE TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/partner-secret-list-private-repo.md. -->
+Provider | Supported secret | Secret type
+--- | --- | ---
+{%- for entry in secretScanning.isPrivateWithGhas %}
+{{ entry.provider }} | {{ entry.supportedSecret }} | {{ entry.secretType }} |
+{%- endfor %}
+<!-- PRIVATE TABLE ENDS HERE -->
 
 {% ifversion secret-scanning-push-protection %}
 ## Supported secrets for push protection
@@ -73,7 +86,14 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 
 {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+<!-- PUSH PROTECTION TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/secret-list-private-push-protection.md -->
+Provider | Supported secret | Secret type
+--- | --- | ---
+{%- for entry in secretScanning.hasPushProtection %}
+{{ entry.provider }} | {{ entry.supportedSecret }} | {{ entry.secretType }}
+{%- endfor %}
+<!-- PRIVATE TABLE ENDS HERE -->
 
 {% endif %}
 ## Further reading

@@ -12,11 +12,13 @@ shortTitle: Remove member
 
 ## About removal of enterprise members
 
-When you remove an enterprise member from your enterprise, the member is removed from all organizations owned by your enterprise.
+If you enterprise does not use {% data variables.product.prodname_emus %}, you can remove an enterprise member from {% data variables.product.prodname_dotcom %}. When you remove a member from your enterprise, the member is removed from all organizations owned by your enterprise.
 
 If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
 
 If your enterprise or any of the organizations owned by your enterprise uses an identity provider (IdP) to manage organization membership, the member may be added back to the organization by the IdP. Make sure to also make any necessary changes in your IdP.
+
+If your enterprise does use {% data variables.product.prodname_emus %}, you must remove the enterprise members through your identity provider (IdP) and the SCIM integration instead. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."
 
 ## Removing a member from your enterprise
 

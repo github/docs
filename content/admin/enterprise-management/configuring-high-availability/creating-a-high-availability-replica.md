@@ -18,7 +18,7 @@ shortTitle: Create HA replica
 
 ## Creating a high availability replica
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 1. Ensure that the new appliance can communicate with all other appliances in this high availability environment over ports 122/TCP and 1194/UDP. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
 1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 {% data reusables.enterprise_installation.replica-steps %}
@@ -92,9 +92,9 @@ Configure Geo DNS using the IP addresses of the primary and replica nodes. You c
 For testing, you can add entries to the local workstation's `hosts` file (for example, `/etc/hosts`). These example entries will resolve requests for `HOSTNAME` to `replica2`. You can target specific hosts by commenting out different lines.
 
 ```
-# <primary IP>      HOSTNAME 
-# <replica1 IP>     HOSTNAME 
-<replica2 IP>     HOSTNAME 
+# <primary IP>      HOSTNAME
+# <replica1 IP>     HOSTNAME
+<replica2 IP>     HOSTNAME
 ```
 
 ## Further reading

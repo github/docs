@@ -25,7 +25,7 @@ After you create a custom role, anyone with admin access to a repository can ass
 
 You can also use the REST API to create and manage custom repository roles. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
 
-{% else %}
+{% elsif ghes < 3.8 %}
 
 You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
 

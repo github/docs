@@ -189,8 +189,6 @@ Accept: application/xml
 
 Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
 
-  ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
-
 ### Step 3: App polls GitHub to check if the user authorized the device
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
