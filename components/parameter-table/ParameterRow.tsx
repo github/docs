@@ -146,26 +146,26 @@ export function ParameterRow({
           an API request to get the nested parameter data.
        */}
       {rowParams.type &&
-        (rowParams.type === 'object' || rowParams.type.includes('array of')) &&
-        rowParams.childParamsGroups &&
-        rowParams.childParamsGroups.length === 0 &&
-        !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) && (
-          <tr className="border-top-0">
-            <td colSpan={4} className="has-nested-table">
-              <details
-                data-nested-param-id={rowParams.name}
-                className="box px-3 ml-1 mb-0"
-                onToggle={bodyParamExpandCallback}
-              >
-                <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
-                  <span id={`${slug}-${rowParams.name}`}>
-                    Properties of <code>{rowParams.name}</code>
-                  </span>
-                </summary>
-              </details>
-            </td>
-          </tr>
-        )}
+      (rowParams.type === 'object' || rowParams.type.includes('array of')) &&
+      rowParams.childParamsGroups &&
+      rowParams.childParamsGroups.length === 0 &&
+      !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
+        <tr className="border-top-0">
+          <td colSpan={4} className="has-nested-table">
+            <details
+              data-nested-param-id={rowParams.name}
+              className="box px-3 ml-1 mb-0"
+              onToggle={bodyParamExpandCallback}
+            >
+              <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
+                <span id={`${slug}-${rowParams.name}`}>
+                  Properties of <code>{rowParams.name}</code>
+                </span>
+              </summary>
+            </details>
+          </td>
+        </tr>
+      ) : null}
     </>
   )
 }
