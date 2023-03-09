@@ -1,19 +1,13 @@
 ---
 title: Archiving items automatically
-shortTitle: Archiving automatically
-intro: You can configure your project's built-in workflows to automatically archive items that meet specific criteria.
+shortTitle: Archiving items automatically
+intro: You can configure your project's built-in workflows to automatically archive items that match a filter.
 versions:
   feature: projects-v2-auto-archive
 type: tutorial
 topics:
   - Projects
 ---
-
-{% note %}
-
-**Note:** Built-in workflows are available as part of a limited beta.
-
-{% endnote %}
 
 ## About automatically archiving items
 
