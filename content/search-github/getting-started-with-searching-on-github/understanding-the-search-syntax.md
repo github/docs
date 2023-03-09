@@ -35,7 +35,7 @@ Query  | Example
 
 ## Query for values between a range
 
-You can use the range syntax <code><em>n</em>..<em>n</em></code> to search for values within a range, where the first number NUMBER is the lowest value and the second is the highest value.
+You can use the range syntax <code><em>n</em>..<em>n</em></code> to search for values within a range, where the first number N is the lowest value and the second is the highest value.
 
 Query  | Example
 ------------- | -------------
