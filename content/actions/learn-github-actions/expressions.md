@@ -109,11 +109,17 @@ env:
 {% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
 
 #### Example
-```
+
+{% raw %}
+
+```yaml
 env:
-  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' ? 'value_for_main_branch' : 'value_for_other_branches' }}
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
 ```
-In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the % data variables.product.prodname_dotcom %} reference is set to 'refs/heads/main' or not. If it is, the variable is set to 'value_for_main_branch'. Otherwise, it is set to 'value_for_other_branches'.
+
+{% endraw %}
+
+In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to 'refs/heads/main' or not. If it is, the variable is set to 'value_for_main_branch'. Otherwise, it is set to 'value_for_other_branches'.
 
 ## Functions
 
