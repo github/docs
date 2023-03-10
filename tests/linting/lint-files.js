@@ -4,12 +4,13 @@ import slash from 'slash'
 import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import revalidator from 'revalidator'
 import Ajv from 'ajv'
+import addErrors from 'ajv-errors'
 import addFormats from 'ajv-formats'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
+import semver from 'semver'
 import { frontmatter, deprecatedProperties } from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
@@ -349,9 +350,16 @@ if (
 }
 
 // ajv for schema validation tests
-const ajv = new Ajv({ allErrors: true })
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
 addFormats(ajv)
+addErrors(ajv)
+// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
+ajv.addFormat('semver', {
+  validate: (x) => semver.validRange(x),
+})
+// *** End TODO ***
 const ghesValidate = ajv.compile(releaseNotesSchema)
+const learningTracksValidate = ajv.compile(learningTracksSchema)
 
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
@@ -945,11 +953,14 @@ describe('lint GHAE release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = ghesValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(ghesValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('does not have more than one yaml file with currentWeek set to true', () => {
@@ -1009,11 +1020,14 @@ describe('lint learning tracks', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, learningTracksSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = learningTracksValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(learningTracksValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('has one and only one featured track per supported version', async () => {
