@@ -1,5 +1,5 @@
 ---
-title: GitHub REST API
+title: GitHub REST API documentation
 shortTitle: REST API
 intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
