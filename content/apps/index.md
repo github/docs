@@ -11,7 +11,6 @@ featuredLinks:
     - /apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps
     - /apps/creating-github-apps/creating-github-apps/creating-a-github-app
     - /apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app
-    - /apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps
   popular:
     - /apps/creating-github-apps/creating-github-apps/creating-a-github-app
     - /apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app

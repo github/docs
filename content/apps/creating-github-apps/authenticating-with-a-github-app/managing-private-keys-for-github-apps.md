@@ -1,6 +1,6 @@
 ---
 title: Managing private keys for GitHub Apps
-shortTitle: Private keys
+shortTitle: Manage private keys
 intro: 'You can manage private keys to authenticate with your {% data variables.product.prodname_github_app %}.'
 versions:
   fpt: '*'

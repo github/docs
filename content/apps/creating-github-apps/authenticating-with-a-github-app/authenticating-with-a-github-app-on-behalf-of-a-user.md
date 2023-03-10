@@ -1,5 +1,6 @@
 ---
-title: Identifying and authorizing users for GitHub Apps
+title: Authenticating with a GitHub App on behalf of a user
+shortTitle: Authenticate on behalf of users
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
   - /early-access/integrations/user-identification-authorization
@@ -7,6 +8,7 @@ redirect_from:
   - /apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/identifying-and-authorizing-users-for-github-apps
   - /developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps
+  - /apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +16,6 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Identify & authorize users
 ---
 
 Your app can make API requests on behalf of a user. API requests made by an app on behalf of a user will be attributed to that user. For example, if your app posts a comment on behalf of a user, the {% data variables.product.company_short %} UI will show the user's avatar photo along with the app's identicon badge as the author of the issue.
