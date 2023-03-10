@@ -75,7 +75,7 @@ Now that {% data variables.product.prodname_team %} has no minimum seat requirem
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 
-If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub on Discussions. Actions minutes and Packages storage are still free for your public repositories.
+If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community on Discussions. Actions minutes and Packages storage are still free for your public repositories.
 
 ## What is GitHub Community on Discussions?
 
