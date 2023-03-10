@@ -599,6 +599,56 @@ Follow standard American English punctuation rules. For more guidance, see “[P
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
+## Sectional TOCs
+
+If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in "[Streaming the audit log for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3)" people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
+
+Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in "[About authentication for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)," people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
+
+Format sectional TOCs as a list. Include all subsections in the order that they appear in the article and refer to them using the full header title.
+
+Sectional TOCs must be introduced with a sentence or paragraph that helps people understand how the content is organized and select the section that is most relevant to them. Do not include a sectional TOC directly beneath a header.
+
+### Example of sectional TOCs
+
+```
+## Setting up the application
+
+Set up your application according to your operating system.
+
+- [Setting up for macOS](#setting-up-for-macOS)
+- [Setting up for Windows](#setting-up-for-windows)
+- [Setting up for Linux](#setting-up-for-linux)
+
+### Setting up for macOS
+
+TEXT
+
+### Setting up for Windows
+
+The application is supported for all versions of Windows, but the set up steps differ.
+
+- [Windows 98](#windows-98)
+- [Windows Vista](#windows-vista)
+- [Windows 11](#windows-11)
+
+#### Windows 98
+
+TEXT
+
+#### Windows Vista
+
+TEXT
+
+#### Windows 11
+
+TEXT
+
+### Setting up for Linux
+
+TEXT
+```
+
 ## Tables
 
 ### Use tables only for presenting tabular information
