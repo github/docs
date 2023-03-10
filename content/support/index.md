@@ -1,5 +1,5 @@
 ---
-title: Working with GitHub Support
+title: Working with GitHub Support documentation
 shortTitle: GitHub Support
 layout: product-landing
 intro: 'GitHub offers different levels of support with each product, including community forum support and limited email support for everyone, full email support for all paid products, and 24/7 email and callback support with a service level agreement (SLA) if your account includes {% data variables.contact.premium_support %}.'
