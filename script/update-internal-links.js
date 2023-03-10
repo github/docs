@@ -94,7 +94,16 @@ async function main(files, opts) {
     const results = await updateInternalLinks(actualFiles, options)
 
     let exitCheck = 0
-    for (const { file, rawContent, content, newContent, replacements, data, newData } of results) {
+    for (const {
+      file,
+      rawContent,
+      content,
+      newContent,
+      replacements,
+      data,
+      newData,
+      warnings,
+    } of results) {
       const differentContent = content !== newContent
       const differentData = !equalObject(data, newData)
       if (differentContent || differentData) {
@@ -130,6 +139,14 @@ async function main(files, opts) {
           )
         }
       }
+      if (warnings.length) {
+        console.log('Warnings...', chalk.bold(file))
+        for (const { warning, asMarkdown, line, column } of warnings) {
+          console.log('  ', chalk.yellow(asMarkdown))
+          console.log('  ', chalk.dim(`line ${line} column ${column}, ${warning}`))
+          console.log('')
+        }
+      }
     }
 
     if (opts.aggregateStats) {
@@ -147,7 +164,22 @@ async function main(files, opts) {
         chalk.bold(countReplacements.toLocaleString())
       )
 
-      countByTree(results)
+      const countWarnings = results.reduce((prev, next) => prev + next.warnings.length, 0)
+      const countWarningFiles = new Set(results.filter((result) => result.warnings.length > 0)).size
+      console.log(
+        'Number of files with warnings:'.padEnd(30),
+        chalk.bold(countWarningFiles.toLocaleString())
+      )
+      console.log('Sum number of warnings:'.padEnd(30), chalk.bold(countWarnings.toLocaleString()))
+
+      if (countWarnings > 0) {
+        console.log(chalk.yellow('\nNote! Warnings can currently not be automatically fixed.'))
+        console.log('Manually edit heeded warnings and run the script again to update.')
+      }
+
+      if (countChangedFiles > 0) {
+        countByTree(results)
+      }
     }
 
     if (exitCheck) {

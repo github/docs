@@ -11,5 +11,7 @@ children:
   - /automating-migration-with-github-actions-importer
   - /extending-github-actions-importer-with-custom-transformers
   - /supplemental-arguments-and-settings
+  - /migrating-from-circleci-with-github-actions-importer
+  - /migrating-from-jenkins-with-github-actions-importer
 ---
 

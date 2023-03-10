@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "person" aria-label="" %} **People**.
+1. In the enterprise account sidebar, click {% octicon "person" aria-hidden="true" %} **People**.

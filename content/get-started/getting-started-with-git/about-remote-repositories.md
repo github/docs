@@ -90,7 +90,7 @@ You can also install {% data variables.product.prodname_cli %} to use {% data va
 
 {% data reusables.subversion.sunset %}
 
-You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)"
+You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)"
 
-You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients)."
+You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients)."
 {% endif %}

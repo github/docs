@@ -4,8 +4,7 @@ import { get, getDOM } from '../helpers/e2etest.js'
 import { describeIfDocsEarlyAccess } from '../helpers/conditional-runs.js'
 import languages from '../../lib/languages.js'
 
-const VALID_EARLY_ACCESS_URI =
-  '/early-access/enterprise-importer/understanding-github-enterprise-importer'
+const VALID_EARLY_ACCESS_URI = '/early-access/github/save-time-with-slash-commands'
 
 describeIfDocsEarlyAccess('early access rendering', () => {
   jest.setTimeout(60 * 1000)

@@ -20,6 +20,7 @@ import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
 import detectLanguage from './detect-language.js'
+import reloadTree from './reload-tree.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'
 import languageCodeRedirects from './redirects/language-code-redirects.js'
@@ -212,6 +213,7 @@ export default function (app) {
   // *** Config and context for redirects ***
   app.use(reqUtils) // Must come before events
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
 

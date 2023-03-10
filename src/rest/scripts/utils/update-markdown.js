@@ -11,7 +11,7 @@ import { allVersions, getDocsVersion } from '../../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 
 const frontmatterDefaults = JSON.parse(
-  await readFile(path.join(REST_DATA_DIR, 'meta.json'), 'utf-8')
+  await readFile('src/rest/lib/config.json', 'utf-8')
 ).frontmatterDefaults
 
 export async function updateMarkdownFiles() {

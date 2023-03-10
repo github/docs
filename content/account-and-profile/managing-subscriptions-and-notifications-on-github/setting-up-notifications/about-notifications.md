@@ -25,7 +25,7 @@ You can choose to receive ongoing updates about specific activity on {% data var
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. 
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
 - Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
@@ -66,13 +66,9 @@ You can customize and schedule push notifications in the {% data variables.produ
 
 Your inbox is configured with default filters, which represent the most common reasons that people need to follow-up on their notifications. For more information about inbox filters, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#default-notification-filters)."
 
-Your inbox shows the `reasons` you're receiving notifications as a label.
+Your inbox shows the `reason` you're receiving a notification as a label, such as, `mention`, `subscribed`, or `review requested`.
 
-![Reasons labels in inbox](/assets/images/help/notifications-v2/reasons-as-labels-in-inbox.png)
-
-You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `review-requested` query filter.
-
-![Filter notifications by review requested reason](/assets/images/help/notifications-v2/review-requested-reason.png)
+You can filter your inbox by the reason you're subscribed to notifications. For example, to only see pull requests where someone requested your review, you can use the `reason:review-requested` query filter.
 
 If you've configured notifications to be sent by email and believe you're receiving notifications that don't belong to you, consider troubleshooting with email headers, which show the intended recipient. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications)."
 

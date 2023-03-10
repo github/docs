@@ -39,14 +39,8 @@ topics:
 
 After a Docker image has been migrated to the {% data variables.product.prodname_container_registry %}, you'll see the following changes to the details for the package.
 
-- The icon will be the {% data variables.product.prodname_container_registry %} logo instead of the Docker logo.
+- The package icon will be the {% data variables.product.prodname_container_registry %} logo (a {% octicon "container" aria-label="The container icon" %} icon) instead of the Docker logo.
 - The domain in the pull URL will be {% data variables.product.prodname_container_registry_namespace %} instead of {% data variables.product.prodname_docker_registry_namespace %}.
-
-{% ifversion fpt or ghec %}
-
-![Screenshot of a Docker image migrated to the {% data variables.product.prodname_container_registry %}](/assets/images/help/package-registry/container-registry-details-page.png)
-
-{% endif %}
 
 {% data reusables.package_registry.container-registry-migration-namespaces %}
 
