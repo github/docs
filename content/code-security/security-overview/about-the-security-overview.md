@@ -98,15 +98,15 @@ In addition, you can click **{% octicon "gear" aria-hidden="true" %} Security se
 
 ![Screenshot of the security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+Each repository in the security overview includes an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
 
-| Icon | Meaning |
+| Indicator | Meaning |
 | -------- | -------- |
 | {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)." |
 | {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." |
 | {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
-| {% octicon "check" aria-label="Check" %} | The security feature is enabled, but does not raise alerts in this repository. |
-| {% octicon "x" aria-label="x" %} | The security feature is not supported in this repository. |
+| {% octicon "check" aria-label="Enabled" %} | The security feature is enabled, but does not raise alerts in this repository. |
+| {% octicon "x" aria-label="Not supported" %} | The security feature is not supported in this repository. |
 
 {% endif %}
 
