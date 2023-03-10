@@ -17,6 +17,6 @@ children:
   - /generating-a-json-web-token-jwt-for-a-github-app
   - /generating-an-installation-access-token-for-a-github-app
   - /generating-a-user-access-token-for-a-github-app
-  - /refreshing-user-to-server-access-tokens
+  - /refreshing-user-access-tokens
 ---
 
