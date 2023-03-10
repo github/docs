@@ -4,7 +4,6 @@ intro: 'The Announcement Banners API enables you to view, create, and remove an 
 versions:
   ghec: '*'
   ghes: '>=3.8'
-  ghae: '>=3.8'
 children:
   - /enterprises
   - /organizations
