@@ -77,3 +77,23 @@ jobs:
 
       - name: Run browser-test
         run: npm run browser-test
+Checkout via command line
+If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
+
+https://github.com/mowjoejoejoejoe/docs.git
+Step 1: Clone the repository or update your local repository with the latest changes.
+
+git pull origin Main.yml
+Step 2: Switch to the head branch of the pull request.
+
+git checkout Granite-Maul
+Step 3: Merge the base branch into the head branch.
+
+git merge Main.yml
+Step 4: Fix the conflicts and commit the result.
+
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+
+git push -u origin Granite-Maul
+
