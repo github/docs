@@ -574,12 +574,12 @@ This utility creates a support bundle tarball containing important logs from eac
 
 By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
+
 To create a standard bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
-
-{% ifversion specify-period-for-support-bundle %}
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
@@ -596,9 +596,8 @@ To create a standard bundle including data from the last 4 days and 8 hours:
 $ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
 ```
 
-{% endif %}
+To create an extended bundle including data from the last 8 days:
 
-To create an extended bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
@@ -764,7 +763,7 @@ All Storage tests passed
 
 `ghe-migrator` is a hi-fidelity tool to help you migrate from one GitHub instance to another. You can consolidate your instances or move your organization, users, teams, and repositories from GitHub.com to {% data variables.product.prodname_enterprise %}.
 
-For more information, please see our guides on [migrating data to and from your enterprise](/admin/user-management/migrating-data-to-and-from-your-enterprise).
+For more information, please see our guides on [migrating data to and from your enterprise](/migrations/using-ghe-migrator).
 
 ### git-import-detect
 
@@ -775,28 +774,28 @@ git-import-detect
 
 ### git-import-hg-raw
 
-This utility imports a Mercurial repository to this Git repository. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/importing-data-from-third-party-version-control-systems)."
+This utility imports a Mercurial repository to this Git repository. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/importing-data-from-third-party-version-control-systems)."
+This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/importing-data-from-third-party-version-control-systems)."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[AUTOTITLE](/admin/user-management/migrating-data-to-and-from-your-enterprise/importing-data-from-third-party-version-control-systems)."
+This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-rewrite
 ```
@@ -834,12 +833,12 @@ This utility creates a support bundle tarball containing important logs from you
 
 By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
+
 To create a standard bundle:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
-
-{% ifversion specify-period-for-support-bundle %}
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
@@ -856,9 +855,7 @@ To create a standard bundle including data from the last 4 days and 8 hours:
 $ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
 ```
 
-{% endif %}
-
-To create an extended bundle:
+To create an extended bundle including data from the last 8 days:
 ```shell
 $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```

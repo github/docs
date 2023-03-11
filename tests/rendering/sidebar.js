@@ -50,7 +50,8 @@ describe('sidebar', () => {
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
+    const url =
+      '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)

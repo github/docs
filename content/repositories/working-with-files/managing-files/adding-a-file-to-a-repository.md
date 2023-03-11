@@ -71,6 +71,8 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
   ```
 {% data reusables.git.git-push %}
 
+{% ifversion fpt or ghec %}
 ## Further reading
 
-- "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+{% endif %}

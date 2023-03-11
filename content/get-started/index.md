@@ -1,5 +1,5 @@
 ---
-title: Getting started with GitHub
+title: Getting started with GitHub documentation
 shortTitle: Get started
 intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
@@ -56,11 +56,10 @@ children:
   - /signing-up-for-github
   - /using-github
   - /writing-on-github
-  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
+  - /working-with-subversion-on-github
   - /exploring-integrations
   - /privacy-on-github
 ---
-

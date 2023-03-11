@@ -93,7 +93,7 @@ When a user clicks the button, {% data variables.product.prodname_dotcom %} send
 
 For a detailed example of how to set up requested actions with the REST API, see "[AUTOTITLE](/apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api#part-2-creating-the-octo-rubocop-ci-test)."
 
-{% ifversion fpt or ghec %}
+{% ifversion status-check-retention %}
 ## Retention of checks data
 
 {% data reusables.pull_requests.retention-checks-data %}

@@ -2,6 +2,9 @@
 import eventToPromise from 'event-to-promise'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
+import boxen from 'boxen'
+import { HTTPError } from 'got'
+
 import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
 import getPopularPages from './popular-pages.js'
 import languages from '../../lib/languages.js'
@@ -72,7 +75,19 @@ export default async function buildRecords(
       records.push(newRecord)
     })
     .on('error', (err) => {
-      console.error(err)
+      if (err instanceof HTTPError && !err.response.ok) {
+        console.log(
+          '\n' +
+            boxen(chalk.bold(err.request.requestUrl.pathname), {
+              title: chalk.red('The URL it failed on was'),
+              padding: 1,
+              borderColor: 'red',
+            }) +
+            '\n'
+        )
+      } else {
+        console.error(err)
+      }
     })
 
   return eventToPromise(waiter, 'done').then(() => {

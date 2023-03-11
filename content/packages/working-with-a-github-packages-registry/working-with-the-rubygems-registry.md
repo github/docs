@@ -89,6 +89,8 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
 {% ifversion packages-rubygems-v2 %}{% data reusables.package_registry.publishing-user-scoped-packages %}{% else %}By default, GitHub publishes the package to an existing repository with the same name as the package. For example, when you publish `GEM_NAME` to the `octo-org` organization, GitHub Packages publishes the gem to the `octo-org/GEM_NAME` repository.{% endif %} For more information on creating your gem, see "[Make your own gem](http://guides.rubygems.org/make-your-own-gem/)" in the RubyGems documentation.
 
+{% data reusables.package_registry.auto-inherit-permissions-note %}
+
 {% data reusables.package_registry.authenticate-step %}
 1. Build the package from the *gemspec* to create the *.gem* package. Replace `GEM_NAME` with the name of your gem.
   ```

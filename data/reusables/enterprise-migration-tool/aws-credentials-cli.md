@@ -1,0 +1,1 @@
+When you're ready to run your migration, you can either pass your bucket name, access key, and secret key into the {% data variables.product.prodname_cli %} as arguments, or pass them in using environment variables called `AWS_BUCKET_NAME`, `AWS_ACCESS_KEY`, and `AWS_SECRET_KEY`.
