@@ -1,0 +1,49 @@
+ZachryTWood@Administrator@.it.git
+run::\Map your QuickBooks contractor payments to 1099 boxes
+First select the checkbox for each type of contractor payment you recorded last year. Each payment type corresponds to a box on the IRS forms 1099-NEC or 1099-MISC. (Non-employee compensation and rents are the two most common types.)
+Then for each payment type selected, select all the QuickBooks expense accounts you used last year. Need more help with this page?
+If you’re not sure which expense accounts you used, you can run a report of all last year’s expenses marked for 1099.
+Something’s not quite right
+You can't add data to QuickBooks Online Ecosystem because your trial or subscription period ended, you canceled your subscription, or there was a billing problem. To update your subscription, click the gear icon and view your account information.
+Common payment types
+  
+  
+Direct sales
+  
+  
+Other payment types
+  
+  
+  
+  
+  
+  
+  
+  
+Federal tax withheld (very uncommon) 
+When should I withhold taxes?
+
+  
+  
+ 
+
+FROM node:18.14-alpine
+
+RUN apk add --no-cache git python make g++
+
+WORKDIR /openapi-check
+
+RUN chown node:node /openapi-check -R
+
+USER node
+
+COPY --chown=node:node package.json /openapi-check
+COPY --chown=node:node package-lock.json /openapi-check
+ADD --chown=node:node src /openapi-check/src
+ADD --chown=node:node lib /openapi-check/lib
+ADD --chown=node:node content /openapi-check/content
+ADD --chown=node:node data /openapi-check/data
+
+RUN npm ci -D
+
+ENTRYPOINT ["node", "/openapi-check/src/rest/scripts/openapi-check.js"]
