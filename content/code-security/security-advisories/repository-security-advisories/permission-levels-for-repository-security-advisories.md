@@ -25,17 +25,17 @@ This article applies only to repository-level security advisories. Anyone can co
 
 Action | Write permissions | Admin permissions |
 ------ | ----------------- | ----------------- |
-See a draft security advisory | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Add collaborators to the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)") | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-Edit and delete any comments in the security advisory | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Create a temporary private fork in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-Add changes to a temporary private fork in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Create pull requests in a temporary private fork (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Merge changes in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-Add and edit metadata in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)") | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Add and remove credits for a security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)") | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
-Close the draft security advisory | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-Publish the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)") | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
+See a draft security advisory | X | X |
+Add collaborators to the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)") | | X |
+Edit and delete any comments in the security advisory | X | X |
+Create a temporary private fork in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | | X |
+Add changes to a temporary private fork in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | X | X |
+Create pull requests in a temporary private fork (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | X | X |
+Merge changes in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)") | | X |
+Add and edit metadata in the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)") | X | X |
+Add and remove credits for a security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)") | X | X |
+Close the draft security advisory | | X |
+Publish the security advisory (see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)") | | X |
 
 ## Further reading
 

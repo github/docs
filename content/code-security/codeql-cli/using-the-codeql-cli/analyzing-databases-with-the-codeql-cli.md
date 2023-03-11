@@ -90,7 +90,7 @@ is a list of arguments, where each argument can be:
   * a path to a query file
   * a path to a directory containing query files
   * a path to a query suite file
-  * the name of a {% data variables.product.prodname_codeql %} query pack
+  * the name of a {% data variables.product.prodname_codeql %} query pack 
        * with an optional version range
         * with an optional path to a query, directory, or query suite inside the pack
 
@@ -399,10 +399,10 @@ The SARIF format is designed to represent the output of a broad range of static
 analysis tools. For more information, see [SARIF output](/code-security/codeql-cli/codeql-cli-reference/sarif-output).
 
 If you choose to generate results in CSV format, then each line in the output file
-corresponds to an alert. Each line is a comma-separated list with the following information.
+corresponds to an alert. Each line is a comma-separated list with the following information:
 
 **Property**|**Description**|**Example**
------|-----|-----
+:-----:|:-----:|:-----:
 Name | Name of the query that identified the result. | `Inefficient regular expression`
 Description | Description of the query.| `A regular expression that requires exponential time to match certain inputs can be a performance bottleneck, and may be vulnerable to denial-of-service attacks.`
 Severity | Severity of the query.| `error`

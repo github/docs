@@ -67,13 +67,24 @@ jobs:
       matrix:
         test-group: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
+      - name: Install a local Elasticsearch for testing
+        # For the sake of saving time, only run this step if the test-group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
+        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+        with:
+          # Make sure this matches production and `sync-search-pr.yml`
+          elasticsearch version: '7.11.1'
+          host port: 9200
+          container port: 9200
+          host node port: 9300
+          node port: 9300
+          discovery type: 'single-node'
+
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-
-      - uses: ./.github/actions/setup-elasticsearch
-        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
 
       - uses: ./.github/actions/node-npm-setup
 
