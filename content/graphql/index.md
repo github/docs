@@ -1,5 +1,5 @@
 ---
-title: GitHub GraphQL API
+title: GitHub GraphQL API documentation
 intro: 'To create integrations, retrieve data, and automate your workflows, use the {% data variables.product.prodname_dotcom %} GraphQL API. The {% data variables.product.prodname_dotcom %} GraphQL API offers more precise and flexible queries than the {% data variables.product.prodname_dotcom %} REST API.'
 shortTitle: GraphQL API
 introLinks:

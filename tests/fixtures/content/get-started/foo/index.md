@@ -13,4 +13,5 @@ children:
   - /typo-autotitling
   - /cross-version-linking
   - /single-image
+  - /for-playwright
 ---

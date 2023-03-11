@@ -18,16 +18,14 @@ The log files for the {% data variables.product.prodname_copilot%} extension are
 1. Click **Output**.
 1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
 
-![Screenshot of {% data variables.product.prodname_copilot%} Output pane](/assets/images/help/copilot/vsc-output-pane.png)
-
-Alternatively, you can open the log folder for {% data variables.product.prodname_vscode %} extensions in your system's file explorer. This is useful if you need to forward the log files to the support team. 
+Alternatively, you can open the log folder for {% data variables.product.prodname_vscode %} extensions in your system's file explorer. This is useful if you need to forward the log files to the support team.
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    - For Mac:
-      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>   
+      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
-      - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>  
-1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
+      - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
+2. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
 ## Viewing network connectivity diagnostics logs
 
@@ -35,9 +33,9 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    - For Mac:
-      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>   
+      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
-      - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> 
+      - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot%}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
 1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can actually access the necessary services.
 
@@ -47,13 +45,13 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    - For Mac:
-      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>   
+      - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
       - Use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 1. Type "Toggle", and then select **Developer: Toggle Developer Tools** from the list.
 1. In the Developer Tools window, select the **Console** tab to see any errors or warnings.
 
-![Screenshot of {% data variables.product.prodname_vscode %} Developer Console](/assets/images/help/copilot/vsc-electron-logs.png)
+   ![Screenshot of the Developer Tools window in {% data variables.product.prodname_vscode %}. The console tab is outlined in dark orange.](/assets/images/help/copilot/vsc-electron-logs.png)
 
 ## Further reading
 

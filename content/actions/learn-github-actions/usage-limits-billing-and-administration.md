@@ -57,7 +57,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
-  | Enterprise | 180 | 50 |
+  | Enterprise | 500 | 50 |
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 
@@ -70,7 +70,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
 
   {% endnote %}
-  
+
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
@@ -89,7 +89,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 For more information see, "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 {% endif %}

@@ -23,27 +23,23 @@ shortTitle: Manage wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. In the upper-right corner of the page, click **New Page**.
-  ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format.
-  ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Use the text editor to add your page's content.
-  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing the new file you’re adding.
-  ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+1. In the upper-right corner of the page, click **New Page**.
+1. Optionally, to write in a format other than Markdown, use the "Edit mode" dropdown to choose a different format.
+
+   ![Screenshot of the "Create new page" page. The "Edit mode" dropdown is outlined in dark orange.](/assets/images/help/wiki/wiki-edit-mode-dropdown.png)
+
+1. Use the text editor to add your page's content.
+1. In the "Edit message" field, type a commit message describing the new file you’re adding.
+1. To commit your changes to the wiki, click **Save Page**.
 
 ## Editing wiki pages
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
-   ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor to edit the page's content.
-   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing your changes.
-   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+1. Using the wiki sidebar on the right, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
+1. Use the text editor to edit the page's content.
+1. In the "Edit message" field, type a commit message describing the new file you’re adding.
+1. To commit your changes to the wiki, click **Save Page**.
 
 ## Adding or editing wiki pages locally
 
