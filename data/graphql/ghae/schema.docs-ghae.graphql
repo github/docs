@@ -33152,6 +33152,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     last: Int
 
     """
+    The login of one specific collaborator.
+    """
+    login: String
+
+    """
     Filters users with query on user name and login
     """
     query: String
