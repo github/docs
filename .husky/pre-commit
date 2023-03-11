@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/User/bin/Bash
 . "$(dirname "$0")/_/husky.sh"
-
+author: ZACHRY T WOOD EIN 881303491
 node script/prevent-translation-commits.js
