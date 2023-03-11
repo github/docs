@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -68,14 +68,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 pytest
+          pip install ruff pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with flake8
+      - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          ruff --format=github --select=E9,F63,F7,F82 .
+          # default set of ruff rules with GitHub Annotations
+          ruff --format=github .
       - name: Test with pytest
         run: |
           pytest
@@ -112,9 +112,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% ifversion actions-node16-action %}pypy-2.7 and pypy-3.8{% else %}pypy2 and pypy3{% endif %}
+      # For example, {% ifversion actions-node16-action %}pypy2.7 and pypy3.9{% else %}pypy2 and pypy3{% endif %}
       matrix:
-        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10"]
+        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -129,7 +129,7 @@ jobs:
 
 ### Using a specific Python version
 
-You can configure a specific version of python. For example, 3.9. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
+You can configure a specific version of Python. For example, 3.10. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 ```yaml{:copy}
 name: Python package
@@ -157,7 +157,7 @@ jobs:
 
 ### Excluding a version
 
-If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.4 with arch x64 not found`. The error message includes the available versions.
+If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.6 with arch x64 not found`. The error message includes the available versions.
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
@@ -173,7 +173,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", {% ifversion actions-node16-action %}pypy-2.7, pypy-3.8{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", {% ifversion actions-node16-action %}pypy2.7, pypy3.9{% else %}pypy2, pypy3{% endif %}]
         exclude:
           - os: macos-latest
             python-version: "3.7"
@@ -238,7 +238,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
   with:
-    python-version: '3.10'
+    python-version: '3.11'
     cache: 'pip'
 - run: pip install -r requirements.txt
 - run: pip test
@@ -271,14 +271,13 @@ steps:
     pip install -r requirements.txt
 - name: Test with pytest
   run: |
-    pip install pytest
-    pip install pytest-cov
+    pip install pytest pytest-cov
     pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 ```
 
-### Using Flake8 to lint code
+### Using Ruff to lint code
 
-The following example installs or upgrades `flake8` and uses it to lint all files. For more information, see [Flake8](http://flake8.pycqa.org/en/latest/).
+The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs).
 
 ```yaml{:copy}
 steps:
@@ -291,10 +290,10 @@ steps:
   run: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-- name: Lint with flake8
+- name: Lint with Ruff
   run: |
-    pip install flake8
-    flake8 .
+    pip install ruff
+    ruff --format=github .
   continue-on-error: true
 ```
 
@@ -315,7 +314,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: ["3.8", "3.9", "3.10"]
+        python: ["3.9", "3.10", "3.11"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -347,7 +346,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
