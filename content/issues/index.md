@@ -1,5 +1,5 @@
 ---
-title: GitHub Issues
+title: GitHub Issues documentation
 shortTitle: GitHub Issues
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:

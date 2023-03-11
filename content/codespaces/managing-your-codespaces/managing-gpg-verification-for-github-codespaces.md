@@ -28,12 +28,12 @@ After you enable GPG verification, {% data variables.product.company_short %} wi
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "GPG verification", select the setting you want for GPG verification.
+1. Under "GPG verification", select the setting you want for GPG verification:
 
-   ![Screenshot of the "GPG verification" section, with radio buttons to manage GPG verification.](/assets/images/help/codespaces/codespaces-gpg-verification-radio-buttons.png)
+   - **Disabled** - GPG will not be available in your codespaces.
+   - **All repositories** - GPG will be available for codespaces for all repositories.
+   - **Selected repositories** - GPG will be available for codespace created from the selected repositories.
 
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
-
-   ![Screenshot of the "Selected repositories" dropdown menu.](/assets/images/help/codespaces/codespaces-gpg-verification-repository-drop-down.png)
+1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository you want enable GPG verification for. Repeat this step for all repositories you want to enable GPG verification for.
 
 {% data reusables.codespaces.gpg-in-active-codespaces %}

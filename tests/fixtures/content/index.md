@@ -2,7 +2,7 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Fixture Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/foo/hello-world
+    - /get-started/quickstart/hello-world
   popular:
     - get-started
 redirect_from:

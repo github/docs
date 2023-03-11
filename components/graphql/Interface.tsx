@@ -14,8 +14,8 @@ type Props = {
 export function Interface({ item, objects }: Props) {
   const { locale } = useRouter()
   const { t } = useTranslation('products')
-  const heading = t('graphql.reference.implemented_by')
-  const heading2 = t('graphql.reference.fields')
+  const heading = t('graphql.reference.implemented_by').replace('{{ GraphQLItemTitle }}', item.name)
+  const heading2 = t('graphql.reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
 
   const implementedBy = objects.filter(
     (object) =>
@@ -38,7 +38,11 @@ export function Interface({ item, objects }: Props) {
       </ul>
       {item.fields && (
         <>
-          <h4>{heading2}</h4>
+          <h4
+            dangerouslySetInnerHTML={{
+              __html: heading2,
+            }}
+          />
           <Table fields={item.fields} />
         </>
       )}

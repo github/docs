@@ -7,4 +7,4 @@
 
 1. Click **Show All Definitions**.
 
-   ![Screenshot of the "Add Dev Container Configuration Files" menu with the dropdown showing various options, including "Show All Definitions."](/assets/images/help/codespaces/show-all-definitions.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing various options, including "Show All Definitions."](/assets/images/help/codespaces/show-all-definitions.png)

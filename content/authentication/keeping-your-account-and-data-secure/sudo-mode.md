@@ -33,6 +33,15 @@ After you authenticate to perform a sensitive action, your session is temporaril
 {% endnote %}
 
 {% endif %}
+{% ifversion ghec %}
+
+{% note %}
+
+**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you will not receive prompts to enter sudo mode, as your account doesn't have credentials stored on {% data variables.product.product_name %}. 
+
+{% endnote %}
+
+{% endif %}
 
 "sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
 

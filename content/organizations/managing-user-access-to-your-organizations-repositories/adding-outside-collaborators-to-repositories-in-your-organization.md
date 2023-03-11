@@ -19,7 +19,7 @@ permissions: People with admin access to a repository can add an outside collabo
 
 ## About outside collaborators
 
-An outside collaborator is a person who is not a member of your organization, but has access to one or more of your organization's repositories. You can choose the level of access to grant for each outside collaborator. {% data reusables.organizations.outside_collaborator_forks %}
+{% data reusables.organizations.about-outside-collaborators %} You can choose the level of access to grant for each outside collaborator. {% data reusables.organizations.outside_collaborator_forks %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

@@ -1,15 +1,17 @@
 import path from 'path'
+import mkdirp from 'mkdirp'
+import rimraf from 'rimraf'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'
 import matter from 'gray-matter'
 import { difference } from 'lodash-es'
-import { readFile, writeFile, unlink } from 'fs/promises'
+import { readFile, writeFile, unlink, readdir } from 'fs/promises'
 
 import { allVersions, getDocsVersion } from '../../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 
 const frontmatterDefaults = JSON.parse(
-  await readFile(path.join(REST_DATA_DIR, 'meta.json'), 'utf-8')
+  await readFile('src/rest/lib/config.json', 'utf-8')
 ).frontmatterDefaults
 
 export async function updateMarkdownFiles() {
@@ -40,7 +42,16 @@ export async function updateMarkdownFiles() {
   // Markdown files that need to be deleted
   for (const file of filesToRemove) {
     await unlink(file)
-    await updateIndexFile(file, 'remove')
+    // If after removing the file, the directory only contains an index.md file,
+    // the whole directory can be removed and the index.md file one level up
+    // needs to be updated to remove the deleted directory from its children
+    const directoryFiles = await readdir(path.dirname(file))
+    if (directoryFiles.length === 1 && directoryFiles[0] === 'index.md') {
+      rimraf.sync(path.dirname(file))
+      await updateIndexFile(path.dirname(file), 'remove')
+    } else {
+      await updateIndexFile(file, 'remove')
+    }
   }
 
   // Markdown files that need to be added or updated
@@ -52,21 +63,40 @@ export async function updateMarkdownFiles() {
       data.versions = newFrontmatter.versions
       await writeFile(file, matter.stringify(content, data))
     } else {
-      // create a new file placeholder metadata
+      // When a new category is added with more than one subcategory,
+      // a new directory with the category name needs to be created
+      // and added to the content/rest/index.md file
+      if (!existsSync(path.dirname(file))) {
+        await mkdirp(path.dirname(file))
+        updateIndexFile(path.dirname(file), 'add')
+      }
       await writeFile(file, matter.stringify('', newFrontmatter))
-      updateIndexFile(file, 'add')
+      updateIndexFile(file, 'add', newFrontmatter.versions)
     }
   }
 }
 
 // Adds or removes children properties from index.md pages
-async function updateIndexFile(file, changeType) {
+async function updateIndexFile(file, changeType, versions = null) {
   const filename = path.basename(file, '.md')
   const indexDirectory = path.basename(path.dirname(file))
-  const rootDir = file.split(indexDirectory)[0]
-  const indexFilePath = path.join(rootDir, indexDirectory, 'index.md')
+  const indexFilePath = path.join(path.dirname(file), 'index.md')
 
-  const { data, content } = matter(await readFile(indexFilePath, 'utf-8'))
+  // A default index file to use as a placeholder when one doesn't exist
+  const newIndexFile = {
+    data: {
+      title: indexDirectory,
+      shortTitle: indexDirectory,
+      intro: '',
+      versions,
+      ...frontmatterDefaults,
+      children: [],
+    },
+    content: '',
+  }
+  const { data, content } = existsSync(indexFilePath)
+    ? matter(await readFile(indexFilePath, 'utf-8'))
+    : newIndexFile
 
   if (changeType === 'remove') {
     const index = data.children.indexOf(`/${filename}`)

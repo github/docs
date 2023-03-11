@@ -1068,10 +1068,13 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.advanced_security_policy_selected_member_disabled` | A repository administrator prevented {% data variables.product.prodname_GH_advanced_security %} features from being enabled for a repository.
 | `repo.advanced_security_policy_selected_member_enabled` | A repository administrator allowed {% data variables.product.prodname_GH_advanced_security %} features to be enabled for a repository.
 | `repo.archived`       | A repository was archived. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository)."
-| `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[AUTOTITLE](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 | `repo.change_merge_setting` | Pull request merge options were changed for a repository.
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
-| `repo.config`         | A repository administrator blocked force pushes. For more information, see [Blocking force pushes to a repository](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise) to a repository.
+| `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[AUTOTITLE](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
+{%- ifversion remove-code-scanning-configurations %}
+| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+{%- endif %}
+| `repo.config`         | A repository administrator blocked force pushes. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 {%- ifversion fpt or ghec %}
 | `repo.config.disable_collaborators_only` | The interaction limit for collaborators only was disabled. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 | `repo.config.disable_contributors_only` | The interaction limit for prior contributors only was disabled in a repository. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
@@ -1093,7 +1096,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- ifversion ghes %}
 | `repo.disk_archive`  | A repository was archived on disk. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
 {%- endif %}
-| `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file.
+| `repo.download_zip` | A source code archive of a repository was downloaded as a ZIP file. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)."
 | `repo.pages_cname` | A {% data variables.product.prodname_pages %} custom domain was modified in a repository.
 | `repo.pages_create` | A {% data variables.product.prodname_pages %} site was created.
 | `repo.pages_destroy` | A {% data variables.product.prodname_pages %} site was deleted.

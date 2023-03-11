@@ -15,8 +15,8 @@ type Props = {
 export function Mutation({ item }: Props) {
   const { locale } = useRouter()
   const { t } = useTranslation('products')
-  const heading = t('graphql.reference.input_fields')
-  const heading2 = t('graphql.reference.return_fields')
+  const heading = t('graphql.reference.input_fields').replace('{{ GraphQLItemTitle }}', item.name)
+  const heading2 = t('graphql.reference.return_fields').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item} heading={heading}>
@@ -36,7 +36,7 @@ export function Mutation({ item }: Props) {
 
           {input.preview && <Notice item={input} variant="preview" />}
           {input.isDeprecated && <Notice item={input} variant="deprecation" />}
-          <h4>{heading2}</h4>
+          <h4 dangerouslySetInnerHTML={{ __html: heading2 }} />
           <Table fields={item.returnFields} />
         </React.Fragment>
       ))}

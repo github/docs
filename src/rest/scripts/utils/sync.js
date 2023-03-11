@@ -49,7 +49,7 @@ export async function syncRestData(sourceDirectory, restSchemas) {
     })
   )
   await updateMarkdownFiles()
-  await updateRestMetaData(restSchemas)
+  await updateRestConfigData(restSchemas)
 }
 
 /*
@@ -105,11 +105,11 @@ async function formatRestData(operations) {
 }
 
 // Every time we update the REST data files, we'll want to make sure the
-// meta.json file is updated with the latest api versions.
-async function updateRestMetaData(schemas) {
-  const restMetaFilename = `${REST_DATA_DIR}/meta.json`
-  const restMetaData = JSON.parse(await readFile(restMetaFilename, 'utf8'))
-  const restApiVersionData = restMetaData['api-versions']
+// config.json file is updated with the latest api versions.
+async function updateRestConfigData(schemas) {
+  const restConfigFilename = 'src/rest/lib/config.json'
+  const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8'))
+  const restApiVersionData = restConfigData['api-versions']
   // If the version isn't one of the OpenAPI version,
   // then it's an api-versioned schema
   for (const schema of schemas) {
@@ -124,9 +124,9 @@ async function updateRestMetaData(schemas) {
         restApiVersionData[openApiVer] = dates
       }
     }
-    restMetaData['api-versions'] = restApiVersionData
-    await writeFile(restMetaFilename, JSON.stringify(restMetaData, null, 2))
+    restConfigData['api-versions'] = restApiVersionData
   }
+  await writeFile(restConfigFilename, JSON.stringify(restConfigData, null, 2))
 }
 
 export async function getOpenApiSchemaFiles(schemas) {

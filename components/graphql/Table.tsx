@@ -58,7 +58,15 @@ export function Table({ fields }: Props) {
 
               {field.arguments && (
                 <div className="border rounded-1 mt-3 mb-3 p-3 color-bg-subtle f5">
-                  <h4 className="pt-0 mt-0">{t('graphql.reference.arguments')}</h4>
+                  <p
+                    className="pt-0 mt-0 h5"
+                    dangerouslySetInnerHTML={{
+                      __html: t('graphql.reference.arguments').replace(
+                        '{{ GraphQLItemTitle }}',
+                        field.name
+                      ),
+                    }}
+                  />
                   {field.arguments.map((argument, index) => (
                     <ul
                       key={`${index}-${argument.type.name}-${argument.type.href}`}

@@ -29,6 +29,6 @@ children:
   - /explore-the-benefits-of-teaching-and-learning-with-github-education
   - /contribute-with-github-community-exchange
   - /manage-coursework-with-github-classroom
+  - /explore-internship-projects-with-github-octernships
   - /guides
 ---
-

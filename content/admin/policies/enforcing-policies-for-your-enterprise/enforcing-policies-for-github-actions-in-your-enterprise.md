@@ -177,7 +177,7 @@ However, you can set an enterprise policy to customize both the default total ca
 1. In the "Artifact, log, and cache settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
 1. In the "Artifact, log, and cache settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
 
-{% else %}
+{% elsif ghes < 3.8 %}
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
