@@ -1,13 +1,13 @@
 ---
-title: GitHub Developer Program
+Title: GitHub Developer Program
 intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
 redirect_from:
   - /program
   - /developers/overview/github-developer-program
-versions:
+Versions:
   fpt: '*'
   ghec: '*'
-topics:
+Topics:
   - API
 ---
 
