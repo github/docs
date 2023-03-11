@@ -103,17 +103,18 @@ parameter_table:
 products:
   graphql:
     reference:
-      implements: Implements
-      fields: Fields
-      arguments: Arguments
+      implements: <code>{{ GraphQLItemTitle }}</code> Implements
+      fields: Fields for <code>{{ GraphQLItemTitle }}</code>
+      arguments: Arguments for <code>{{ GraphQLItemTitle }}</code>
       name: Name
       type: Type
       description: Description
-      input_fields: Input fields
-      return_fields: Return fields
-      implemented_by: Implemented by
-      values: Values
-      possible_types: Possible types
+      input_fields: Input fields for <code>{{ GraphQLItemTitle }}</code>
+      return_fields: Return fields for <code>{{ GraphQLItemTitle }}</code>
+      implemented_by: |
+        <code>{{ GraphQLItemTitle }}</code> is implemented by
+      values: Values for <code>{{ GraphQLItemTitle }}</code>
+      possible_types: Possible types for <code>{{ GraphQLItemTitle }}</code>
       preview_notice: Preview notice
       deprecation_notice: Deprecation notice
       preview_period: During the preview period, the API may change without notice.
@@ -166,8 +167,8 @@ products:
   webhooks:
     action_type_switch_error: There was an error switching webhook action types.
     action_type: Action type
-    availability: Availability
-    webhook_payload_object: Webhook payload object
+    availability: Availability for <code>{{ WebhookName }}</code>
+    webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
     webhook_payload_example: Webhook payload example
     rephrase_availability:
       repository: Repositories

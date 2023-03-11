@@ -29,8 +29,6 @@ The spending information will display the total spending for each organization f
     - Under "Seat usage" you can view the total number of seats currently assigned per organization, with a decimal number representing seats assigned partway through the current billing cycle.
     - Under "Spending" you can view the total cost of {% data variables.product.prodname_copilot_for_business %} for the current billing cycle per organization.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} usage page](/assets/images/help/copilot/monthly-usage-enterprise.png)
-
 ### At the organization-level
 {% endif %}
 {% data reusables.profile.access_org %}

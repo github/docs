@@ -46,9 +46,7 @@ Templates maintained by {% data variables.product.company_short %}, including th
 
    ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
 
-1. Under the template you want to launch, click **Use this template**.
-
-   ![Screenshot of the quick start templates, with the "Use this template" button highlighted under the React template](/assets/images/help/codespaces/react-template-button.png)
+1. Under the name of the template you want to launch, click **Use this template**.
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
@@ -88,10 +86,12 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.
 
-   ![Screenshot of the "Publish to a new repository" button](/assets/images/help/codespaces/publish-to-new-repository.png)
+   ![Screenshot of the dropdown menu for a codespace, showing the "Publish to a new repository" option.](/assets/images/help/codespaces/publish-to-new-repository.png)
+
 1. Choose a name for your new repository, set it as **Public** or **Private**, and click **Create repository**.
 
-   ![Screenshot of the "Publish to a new repository" dropdown](/assets/images/help/codespaces/template-new-repository-settings.png)
+   ![Screenshot of the "Publish to a new repository" dropdown, with the "Name" field, "Public" and "Private" options, and "Create repository" button.](/assets/images/help/codespaces/template-new-repository-settings.png)
+
 1. Optionally, to view the new repository, click **See repository**.
 
 ## Further reading

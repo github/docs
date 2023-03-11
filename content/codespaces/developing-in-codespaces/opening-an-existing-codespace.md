@@ -28,7 +28,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 - Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 - Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
-## Opening an existing codespace
+## Reopening a codespace
 
 {% webui %}
 
@@ -110,6 +110,12 @@ You can also access the commands listed above by navigating to the Remote Explor
      **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
      {% endnote %}
+
+   - To access a codespace from the command line, over SSH, enter:
+
+     ```shell{:copy}
+     gh codespace ssh
+     ```
 
 1. Using the arrow keys, navigate to the codespace that you want to open.
 1. To open the codespace, press <kbd>Enter</kbd>.

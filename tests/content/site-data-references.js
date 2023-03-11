@@ -6,13 +6,28 @@ import { isEqual, uniqWith } from 'lodash-es'
 import { jest } from '@jest/globals'
 
 import { loadPages } from '../../lib/page-data.js'
-import getDataReferences from '../../lib/get-liquid-data-references.js'
+import patterns from '../../lib/patterns.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getDataByLanguage, getDeepDataByLanguage } from '../../lib/get-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const pages = (await loadPages()).filter((page) => page.languageCode === 'en')
+
+// Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
+// the following regex returns just the dotted path: foo.bar
+
+// Note this regex allows nonstandard whitespace between terms; it does not enforce a single space.
+// In other words, it will allow {%data foo.bar %} or {%   data foo.bar   %}.
+// We should enforce a single space someday, but the content will need a lot of cleanup first, and
+// we should have a more purpose-driven validation test for that instead of enforcing it here.
+const getDataPathRegex =
+  /{%\s*?(?:data|indented_data_reference)\s+?(\S+?)\s*?(?:spaces=\d\d?\s*?)?%}/
+
+const getDataReferences = (content) => {
+  const refs = content.match(patterns.dataReference) || []
+  return refs.map((ref) => ref.replace(getDataPathRegex, '$1'))
+}
 
 describe('data references', () => {
   jest.setTimeout(60 * 1000)
@@ -25,7 +40,7 @@ describe('data references', () => {
       const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
       pageRefs.forEach((key) => {
-        const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
+        const value = getDataByLanguage(key, 'en')
         if (typeof value !== 'string') errors.push({ key, value, file })
       })
     })
@@ -45,7 +60,7 @@ describe('data references', () => {
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
-          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
+          const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') errors.push({ key, value, metadataFile })
         })
       })
@@ -73,7 +88,7 @@ describe('data references', () => {
         const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
         reusableRefs.forEach((key) => {
-          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
+          const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') errors.push({ key, value, reusableFile })
         })
       })
@@ -101,7 +116,7 @@ describe('data references', () => {
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
         variableRefs.forEach((key) => {
-          const value = getDataByLanguage(key.replace('site.data.', ''), 'en')
+          const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') errors.push({ key, value, variableFile })
         })
       })

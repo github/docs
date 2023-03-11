@@ -33,8 +33,15 @@ prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities
 # GitHub Connect (enterprise accounts, other unified features)
 prodname_github_connect: 'GitHub Connect'
 
-# GitHub Enterprise migration tool
+# GitHub Enterprise Importer
 prodname_importer_proper_name: 'GitHub Enterprise Importer'
+prodname_importer_secondary_name: Importer
+prodname_gei_cli_short: GEI extension
+prodname_gei_cli: GEI extension of the GitHub CLI
+prodname_ado2gh_cli: ADO2GH extension of the GitHub CLI
+prodname_ado2gh_cli_short: ADO2GH extension
+prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
+prodname_bbs2gh_cli_short: BBS2GH extension
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -49,6 +56,8 @@ prodname_global_campus: 'GitHub Global Campus'
 prodname_community_exchange: 'GitHub Community Exchange'
 prodname_student_leader_program: 'GitHub Campus Experts'
 prodname_student_leader_program_singular: 'GitHub Campus Expert'
+prodname_octernships: 'GitHub Octernships'
+prodname_octernship_singular: 'GitHub Octernship'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'

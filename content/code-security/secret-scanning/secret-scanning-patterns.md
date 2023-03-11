@@ -41,7 +41,15 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-{% data reusables.secret-scanning.partner-secret-list-public-repo %}
+<!-- PUBLIC TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/partner-secret-list-public-repo.md -->
+Partner | Supported secret
+--- | ---
+{%- for entry in secretScanning.isPublic %}
+{{ entry.provider }} | {{ entry.supportedSecret }}
+{%- endfor %}
+<!-- PUBLIC TABLE ENDS HERE -->
+
 {% endif %}
 
 ## Supported secrets for {% ifversion fpt or ghec %}user {% endif %}alerts
@@ -60,7 +68,14 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% endnote %}
 {% endif %}
 
-{% data reusables.secret-scanning.partner-secret-list-private-repo %}
+<!-- PRIVATE TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/partner-secret-list-private-repo.md. -->
+Provider | Supported secret | Secret type
+--- | --- | ---
+{%- for entry in secretScanning.isPrivateWithGhas %}
+{{ entry.provider }} | {{ entry.supportedSecret }} | {{ entry.secretType }} |
+{%- endfor %}
+<!-- PRIVATE TABLE ENDS HERE -->
 
 {% ifversion secret-scanning-push-protection %}
 ## Supported secrets for push protection
@@ -71,7 +86,14 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 
 {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
-{% data reusables.secret-scanning.secret-list-private-push-protection %}
+<!-- PUSH PROTECTION TABLE STARTS HERE -->
+<!-- This recreates the table in the now deleted data/reusables/secret-scanning/secret-list-private-push-protection.md -->
+Provider | Supported secret | Secret type
+--- | --- | ---
+{%- for entry in secretScanning.hasPushProtection %}
+{{ entry.provider }} | {{ entry.supportedSecret }} | {{ entry.secretType }}
+{%- endfor %}
+<!-- PRIVATE TABLE ENDS HERE -->
 
 {% endif %}
 ## Further reading

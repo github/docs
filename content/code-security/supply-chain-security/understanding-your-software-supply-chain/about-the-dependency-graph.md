@@ -86,7 +86,7 @@ The recommended formats explicitly define which versions are used for all direct
 {%- ifversion github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows [1] | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
+| Go modules | Go | `go.mod`| `go.mod`{% ifversion ghes < 3.9 or ghae < 3.9 %}, `go.sum`{% endif %} |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`[2] |

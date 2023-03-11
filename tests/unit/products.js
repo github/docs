@@ -1,8 +1,9 @@
 import Ajv from 'ajv'
 import { productMap } from '../../lib/all-products.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 import schema from '../helpers/schemas/products-schema.js'
 
-const ajv = new Ajv()
+const ajv = new Ajv({ allErrors: true })
 const validate = ajv.compile(schema)
 
 describe('products module', () => {
@@ -17,14 +18,8 @@ describe('products module', () => {
       let errors
 
       if (!valid) {
-        errors = validate.errors
-          .map((errorObj) => {
-            return errorObj.message
-          })
-          .join(', ')
-        errors = `'${product.name}' product schema errors: ${errors}`
+        errors = formatAjvErrors(valid.errors)
       }
-
       expect(valid, errors).toBe(true)
     })
   })
