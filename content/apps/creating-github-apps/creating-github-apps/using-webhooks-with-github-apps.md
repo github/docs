@@ -33,7 +33,7 @@ While you develop and test your app, you can use a webhook payload delivery serv
 
 You can use Smee to create a unique domain where {% data variables.product.prodname_dotcom %} can send webhook payloads, without exposing your local development to the internet. Smee calls this unique domain a "Webhook Proxy URL." You can use Smee's Webhook Proxy URL as the webhook URL for your {% data variables.product.prodname_github_app %}.
 
-1. To use Smee to create a unique domain, go to https://smee.io and click **Start a new channel**.
+1. To use Smee to create a unique domain, go to <https://smee.io> and click **Start a new channel**.
 1. On the Smee channel page, follow the instructions under "Use the CLI" to install and run the Smee client.
 1. To connect your Smee webhook URL to your {% data variables.product.prodname_github_app %}, enter your unique Smee domain in the "Webhook URL" field of your app settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
@@ -46,7 +46,7 @@ To handle a higher volume of webhook traffic for a large app in production, cons
 
 ## Securing your webhooks with a webhook secret
 
-Once you've configured your server to recieve payloads, it will listen for any payload sent to the server. For security reasons, you should limit incoming requests to only those originating from {% data variables.product.prodname_dotcom %}. You can do that by creating a webhook secret for your app.
+Once you've configured your server to receive payloads, it will listen for any payload sent to the server. For security reasons, you should limit incoming requests to only those originating from {% data variables.product.prodname_dotcom %}. You can do that by creating a webhook secret for your app.
 
 To create a webhook secret for your GitHub App, type a secret token in your app settings under "Webhook secret." You should choose a random string of text with high entropy. For more information about how to create a webhook secret in your app settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
