@@ -8,7 +8,7 @@ index 0000000..8b13789
 diff --git a/README.md b/BITCORE
 similarity index 86%
 rename from README.md
-rename to BITCORE
+rename to BITORE
 index f3eacef..6132d65 100644
 --- a/README.md
 +++ b/BITCORE
