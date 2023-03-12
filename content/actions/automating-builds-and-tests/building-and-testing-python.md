@@ -73,9 +73,9 @@ jobs:
       - name: Lint with ruff
         run: |
           # stop the build if there are Python syntax errors or undefined names
-          ruff --format=github --select=E9,F63,F7,F82 .
+          ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
           # default set of ruff rules with GitHub Annotations
-          ruff --format=github .
+          ruff --format=github --target-version=py37 .
       - name: Test with pytest
         run: |
           pytest
@@ -277,7 +277,7 @@ steps:
 
 ### Using Ruff to lint code
 
-The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs).
+The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs/docs).
 
 ```yaml{:copy}
 steps:
@@ -293,7 +293,7 @@ steps:
 - name: Lint with Ruff
   run: |
     pip install ruff
-    ruff --format=github .
+    ruff --format=github --target-version=py37 .
   continue-on-error: true
 ```
 
