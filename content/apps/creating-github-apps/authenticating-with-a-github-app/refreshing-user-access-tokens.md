@@ -36,6 +36,7 @@ When you create your app, expiration of user access tokens is enabled unless you
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
+
 1. Next to the {% data variables.product.prodname_github_app %} that you want to modify, click **Edit**.
 1. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Optional Features**.
 1. Next to "User-to-server token expiration", click **Opt-in** or **Opt-out**. This setting may take a couple of seconds to apply.
@@ -50,7 +51,7 @@ If you opt into user access tokens that expire after you have already generated 
 
    Query parameter | Type | Description
    -----|------|------------
-   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.<br><br>For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.<br><br>For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.<br><br>Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.<br><br>For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.<br><br>For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.<br><br>Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
    `client_secret` | `string` | **Required.** The client secret for your {% data variables.product.prodname_github_app %}. You can generate a client secret on the settings page for your app.
    `grant_type` | `string` | **Required.** The value must be "refresh_token".
    `refresh_token` | `string` | **Required.** The refresh token that you received when you generated a user access token.
