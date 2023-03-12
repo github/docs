@@ -69,6 +69,7 @@ const PUBLIC_REPOS = new Set([
   'VisualStudio',
   'codespaces-getting-started-ml',
   'dependabot-action',
+  'gh-migration-analyzer',
 ])
 
 const ALLOW_DOCS_PATHS = [

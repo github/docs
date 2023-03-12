@@ -47,14 +47,15 @@ By default, a codespace can only access the repository from which it was created
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select one of the following options:
+{% data reusables.organizations.click-general %}
+1. On the {% data variables.product.prodname_codespaces %} settings page, under "Billing," select one of the following options:
 
-   * **Disabled** - Your organization will not be charged for codespace usage. {% data variables.product.prodname_codespaces %} created for your organization's repositories will be billed to the individual users who create them.
-   * **Selected members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by selected members will be billed to the organization.
-   * **All members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by members of your organization will be billed to the organization.
-   * **All members and outside collaborators** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by organization members and outside collaborators will be billed to the organization.
+   - **Disabled** - Your organization will not be charged for codespace usage. {% data variables.product.prodname_codespaces %} created for your organization's repositories will be billed to the individual users who create them.
+   - **Selected members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by selected members will be billed to the organization.
+   - **All members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by members of your organization will be billed to the organization.
+   - **All members and outside collaborators** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by organization members and outside collaborators will be billed to the organization.
 
-   ![Radio buttons for "Billing"](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
+   ![Screenshot of the "Billing" section. Radio buttons for the options described above are displayed.](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
 
    {% note %}
 
@@ -76,10 +77,11 @@ You can prevent the creation and use of codespaces billable to your organization
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "Billing," select **Disabled**.
+{% data reusables.organizations.click-general %}
+1. On the {% data variables.product.prodname_codespaces %} settings page, under "Billing," select **Disabled**.
 
 ## Setting a spending limit
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %} 
+{% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
 For information on managing and changing your account's spending limit, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."

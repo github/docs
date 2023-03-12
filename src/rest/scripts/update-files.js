@@ -7,7 +7,7 @@
 //
 // [end-readme]
 
-import { stat, readdir, copyFile, readFile, rename } from 'fs/promises'
+import { readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
 import path from 'path'
 import { program, Option } from 'commander'
 import { execSync } from 'child_process'
@@ -15,6 +15,7 @@ import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
 import { fileURLToPath } from 'url'
 import walk from 'walk-sync'
+import { existsSync } from 'fs'
 
 import { syncRestData, getOpenApiSchemaFiles } from './utils/sync.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
@@ -24,11 +25,13 @@ import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
 import { syncRestRedirects } from './utils/get-redirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../openApiTemp')
+const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
 const TEMP_BUNDLED_OPENAPI_DIR = path.join(TEMP_OPENAPI_DIR, 'bundled')
 const GITHUB_REP_DIR = '../github'
-const REST_DESCRIPTION_DIR = path.join('rest-api-description/descriptions-next')
-const VERSION_NAMES = JSON.parse(await readFile('src/rest/data/meta.json', 'utf8')).versionMapping
+const REST_API_DESCRIPTION_ROOT = 'rest-api-description'
+const REST_DESCRIPTION_DIR = path.join(REST_API_DESCRIPTION_ROOT, 'descriptions-next')
+const VERSION_NAMES = JSON.parse(await readFile('src/rest/lib/config.json', 'utf8')).versionMapping
+const noConfig = ['rest-redirects']
 
 program
   .description('Update rest, webhooks, and github-apps automated pipeline data files.')
@@ -43,9 +46,9 @@ program
   .addOption(
     new Option(
       '-s, --source-repo <repo>',
-      'The source repository to get the dereferenced files from. When the source repo is rest-api-description, the bundler is not run to generate the source dereferenced OpenAPI files because the rest-api-description repo already contains them.'
+      `The source repository to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`
     )
-      .choices(['github', 'rest-api-description'])
+      .choices(['github', REST_API_DESCRIPTION_ROOT])
       .default('github', 'github')
   )
   .option(
@@ -73,8 +76,9 @@ async function main() {
   }
 
   // When we get the dereferenced OpenAPI files from the open-source
-  // github/rest-api-description repo, we need to remove any versions
-  // that are deprecated because that repo contains all past versions.
+  // rest description repo (REST_API_DESCRIPTION_ROOT), we need to
+  // remove any versions that are deprecated because that repo contains
+  // all past versions.
   const sourceDirectory = sourceRepo === 'github' ? TEMP_BUNDLED_OPENAPI_DIR : REST_DESCRIPTION_DIR
 
   const dereferencedFiles = walk(sourceDirectory, {
@@ -90,10 +94,10 @@ async function main() {
   rimraf.sync(TEMP_BUNDLED_OPENAPI_DIR)
   await normalizeDataVersionNames(TEMP_OPENAPI_DIR)
 
-  // The rest-api-description repo contains all current and deprecated versions
-  // We need to remove the deprecated versions so that we don't spend time
-  // generating data files for them.
-  if (sourceRepo === 'rest-api-description') {
+  // The REST_API_DESCRIPTION_ROOT repo contains all current and
+  // deprecated versions. We need to remove the deprecated versions
+  // so that we don't spend time generating data files for them.
+  if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
     derefDir.forEach((schema) => {
@@ -124,6 +128,26 @@ async function main() {
   if (output.includes('rest-redirects')) {
     console.log(`\n▶️  Generating REST redirect data files...\n`)
     await syncRestRedirects(TEMP_OPENAPI_DIR, restSchemas)
+  }
+
+  // If the source repo is REST_API_DESCRIPTION_ROOT, we want to update
+  // the pipeline config files with the SHA of the synced commit.
+  if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
+    const syncedSha = execSync('git rev-parse HEAD', {
+      cwd: REST_API_DESCRIPTION_ROOT,
+      encoding: 'utf8',
+    }).trim()
+    if (!syncedSha) {
+      throw new Error(`Could not get the SHA of the synced ${REST_API_DESCRIPTION_ROOT} repo.`)
+    }
+
+    const pipelinesWithConfigs = output.filter((pipeline) => !noConfig.includes(pipeline))
+    for (const pipeline of pipelinesWithConfigs) {
+      const configFilepath = `src/${pipeline}/lib/config.json`
+      const configData = JSON.parse(await readFile(configFilepath, 'utf8'))
+      configData.sha = syncedSha
+      await writeFile(configFilepath, JSON.stringify(configData, null, 2))
+    }
   }
 
   console.log(
@@ -167,7 +191,7 @@ async function getBundledFiles() {
 }
 
 async function getBundlerOptions() {
-  let includeParams = []
+  let includeParams = ['--generate_dref_json_only']
 
   if (versions) {
     includeParams = versions
@@ -190,15 +214,14 @@ async function validateInputParameters() {
     throw new Error(errorMsg)
   }
 
-  // Check that the github/github repo exists. If the files are only being
-  // decorated, the github/github repo isn't needed.
-  if (sourceRepo === 'github') {
-    try {
-      await stat(GITHUB_REP_DIR)
-    } catch (error) {
-      const errorMsg = `🛑 The ${GITHUB_REP_DIR} does not exist. Make sure you have a codespace with a checkout of \`github/github\` at the same level as your \`github/docs-internal \`repo before running this script. See this documentation for details: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs.`
-      throw new Error(errorMsg)
-    }
+  // Check that the source repo exists.
+  const sourceRepoDirectory = sourceRepo === 'github' ? GITHUB_REP_DIR : REST_API_DESCRIPTION_ROOT
+  if (!existsSync(sourceRepoDirectory)) {
+    const errorMsg =
+      sourceRepo === 'github'
+        ? `🛑 The ${GITHUB_REP_DIR} does not exist. Make sure you have a codespace with a checkout of \`github/github\` at the same level as your \`github/docs-internal \`repo before running this script. See this documentation for details: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs.`
+        : `🛑 You must have a clone of the ${REST_API_DESCRIPTION_ROOT} repo in the root of this repo.`
+    throw new Error(errorMsg)
   }
   if (versions && versions.length) {
     await validateVersionsOptions(versions)
@@ -207,8 +230,8 @@ async function validateInputParameters() {
 
 // Version names in the data consumed by the docs site varies depending on the
 // team that owns the data we consume. This function translates the version
-// names to use the names in the src/<pipeline>/data/meta.json file.
-// The names in the meta.json file maps the incoming version name to
+// names to use the names in the src/<pipeline>/lib/config.json file.
+// The names in the config.json file maps the incoming version name to
 // the short name of the version defined in lib/allVersions.js.
 export async function normalizeDataVersionNames(sourceDirectory) {
   const schemas = await readdir(sourceDirectory)

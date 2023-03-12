@@ -104,7 +104,6 @@ includeGuides:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
   - /admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
-  - /admin/user-management/about-migrations
   - /admin/user-management/adding-people-to-teams
   - /admin/user-management/auditing-ssh-keys
   - /admin/user-management/auditing-users-across-your-enterprise
@@ -113,9 +112,6 @@ includeGuides:
   - /admin/user-management/continuous-integration-using-jenkins
   - /admin/user-management/creating-teams
   - /admin/user-management/disabling-git-ssh-access-on-your-enterprise
-  - /admin/user-management/exporting-migration-data-from-githubcom
-  - /admin/user-management/exporting-migration-data-from-your-enterprise
-  - /admin/user-management/importing-data-from-third-party-version-control-systems
   - /admin/user-management/managing-dormant-users
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
@@ -136,10 +132,8 @@ includeGuides:
   - /admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
-  - /admin/user-management/migrating-data-to-your-enterprise
   - /admin/user-management/migrating-to-internal-repositories
   - /admin/user-management/placing-a-legal-hold-on-a-user-or-organization
-  - /admin/user-management/preparing-to-migrate-data-to-your-enterprise
   - /admin/user-management/preventing-users-from-creating-organizations
   - /admin/user-management/rebuilding-contributions-data
   - /admin/user-management/removing-users-from-teams-and-organizations
@@ -152,4 +146,3 @@ includeGuides:
   - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
   - /admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console
 ---
-

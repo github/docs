@@ -23,8 +23,8 @@ To help you troubleshoot issues with a {% data variables.product.prodname_ghe_se
 | Data | File format | Description |
 | :- | :- | :- |
 | Diagnostic file | Plaintext | Contains information about the instance's settings and environment. |
-| Support bundle | Archive | Contains a diagnostics file and sanitized log files from the past two days{% ifversion specify-period-for-support-bundle %} by default{% endif %}. |
-| Extended support bundle | Archive | Contains a diagnostics file and sanitized log files from the past seven days. |
+| Support bundle | Archive | Contains a diagnostics file and sanitized log files from the past two days by default. |
+| Extended support bundle | Archive | Contains a diagnostics file and sanitized log files from the past eight days. |
 
 ## About log file sanitization
 
@@ -96,7 +96,7 @@ After you submit your support request, we may ask you to share a support bundle 
 
 For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-Support bundles include logs from the past two days{% ifversion specify-period-for-support-bundle %} by default. You can specify an exact duration in hours or days{% endif %}. To provide logs from the past seven days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
+Support bundles include logs from the past two days by default. You can specify an exact duration in hours or days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
 {% tip %}
 
@@ -157,7 +157,7 @@ You can directly upload a support bundle to our server if:
 
 ## Creating and sharing extended support bundles
 
-Support bundles include logs from the past two days{% ifversion specify-period-for-support-bundle %} by default{% endif %}, while _extended_ support bundles include logs from the past seven days. If the events that {% data variables.contact.github_support %} is investigating occurred more than two days ago, we may ask you to share an extended support bundle. You will need SSH access to download an extended bundle - you cannot download an extended bundle from the {% data variables.enterprise.management_console %}.
+Support bundles include logs from the past two days by default, while _extended_ support bundles include logs from the past eight days. If the events that {% data variables.contact.github_support %} is investigating occurred more than two days ago, we may ask you to share an extended support bundle. You will need SSH access to download an extended bundle - you cannot download an extended bundle from the {% data variables.enterprise.management_console %}.
 
 To prevent bundles from becoming too large, bundles only contain logs that haven't been rotated and compressed. Log rotation on {% data variables.product.prodname_ghe_server %} happens at various frequencies (daily or weekly) for different log files, depending on how large we expect the logs to be.
 

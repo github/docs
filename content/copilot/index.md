@@ -1,5 +1,5 @@
 ---
-title: GitHub Copilot
+title: GitHub Copilot documentation
 shortTitle: GitHub Copilot
 intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
 redirect_from:

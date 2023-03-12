@@ -28,7 +28,7 @@ These endpoints are used by SCIM-enabled Identity Providers (IdPs) to automate p
 
 ### Authentication
 
-You must authenticate as an owner of a {% data variables.product.product_name %} organization to use these endpoints. The REST API expects an [OAuth 2.0 Bearer](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps) token to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+You must authenticate as an owner of a {% data variables.product.product_name %} organization to use these endpoints. The REST API expects an OAuth 2.0 Bearer token (for example, a {% data variables.product.prodname_github_app %} user access token) to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
 ### Mapping of SAML and SCIM data
 

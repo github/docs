@@ -58,19 +58,18 @@ To use {% data variables.product.prodname_copilot %} in a codespace in your JetB
 
 1. In the left-side menu of the Settings/Preferences dialog, click **Plugins On Host**. Then click the **Marketplace** tab.
 
-   ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
+   ![Screenshot of the "Preferences" dialog, with the "Marketplace" tab displayed. The "Plugins On Host" option is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
 1. In the search box, type "copilot" then click the **Install** button for the {% data variables.product.prodname_copilot %} plugin.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} plugin](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
+   ![Screenshot of the "Preferences" dialog, with the GitHub Copilot plugin displayed. The "Install" button is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-copilot-plugin.png)
 
 1. Click **Accept** in the "Third-Party Plugins Privacy Note" dialog.
 1. Click **Restart IDE**.
 1. Click **Restart** when prompted to confirm that you want to restart the backend IDE that's running remotely. The JetBrains client application will close when you do this.
-1. Open the codespace again from the JetBrains Gateway application. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide#opening-a-codespace-in-your-jetbrains-ide)."
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
 
-    ![Screenshot of the JetBrains Tools menu](/assets/images/help/codespaces/jetbrains-tools-menu.png)
+    ![Screenshot of the menu bar on a Mac. In the "Tools" menu, the "{% data variables.product.prodname_copilot %}" submenu is displayed, and "Login to {% data variables.product.prodname_dotcom %}" is selected.](/assets/images/help/codespaces/jetbrains-tools-menu.png)
 
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog, to copy the device code and open the device activation window, click **Copy and Open**.
 
@@ -82,8 +81,6 @@ To use {% data variables.product.prodname_copilot %} in a codespace in your JetB
    - To paste the code in macOS, press <kbd>command</kbd>+<kbd>v</kbd>.
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
-
-   ![Screenshot of the JetBrains IDE permissions confirmation](/assets/images/help/copilot/jetbrains-ide-confirmation.png)
 
 ## Further reading
 

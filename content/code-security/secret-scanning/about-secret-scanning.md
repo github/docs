@@ -40,6 +40,7 @@ If your project communicates with an external service, you might use a token or 
 
   Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
 
+{% data reusables.secret-scanning.audit-secret-scanning-events %}
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
 
