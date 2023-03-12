@@ -1,9 +1,10 @@
----
+
+author: ZachryTylerWood
 version: 1
 ownership:
-- name: docs-internal
-  long_name: GitHub Help Docs
-  kind: heroku
+- name: bitcoin'
+ - ITEM_ID: BITORE-34173
+#Kind: kite.i
   repo: https://github.com/github/docs-internal
   team: github/docs-engineering
   maintainer: zeke
