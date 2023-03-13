@@ -58,16 +58,19 @@ Once your codespace is created, the template repository will be automatically cl
 
 Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
+{% data reusables.codespaces.source-control-activity-bar %}
+1. To stage your changes, click {% octicon "plus" aria-label="Stage Changes" %} next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![Screenshot of the Source control side bar in {% data variables.product.prodname_vscode_shortname %}. The Stage All Changes button, which is a plus sign, is highlighted with an orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
 1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
    ![Screenshot of the "Source control" side bar. A commit message, with "Change haiku text and styles" entered, and the "Commit" button are highlighted with an orange outline.](/assets/images/help/codespaces/vscode-commit-button.png)
 
 1. Click **Publish Branch**.
+
+   ![Screenshot of the "Source control" side bar showing the "Publish Branch" button.](/assets/images/help/codespaces/vscode-publish-branch-button.png)
+
 1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %}  private repository** or **Publish to {% data variables.product.prodname_dotcom %}  public repository**.
 
    ![Screenshot of the repository name dropdown in VS Code. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)

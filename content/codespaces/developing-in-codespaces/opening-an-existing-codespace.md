@@ -69,11 +69,11 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    - To open a codespace in the web editor, select **Codespaces: Open in Browser**
 1. Click the codespace that you want to open.
 
-   ![Screenshot of a list of codespaces in Visual Studio Code](/assets/images/help/codespaces/open-codespace-from-vscode.png)
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Command Palette showing a list of codespaces available to connect to.](/assets/images/help/codespaces/open-codespace-from-vscode.png)
 
 You can also access the commands listed above by navigating to the Remote Explorer view in {% data variables.product.prodname_vscode_shortname %} and right-clicking the codespace that you want to open.
 
-![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
+![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
 {% endvscode %}
