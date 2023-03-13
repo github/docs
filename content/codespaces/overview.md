@@ -27,7 +27,7 @@ By default, codespaces are created from an Ubuntu Linux image that includes a se
 
 You can connect to your codespaces from your browser, from {% data variables.product.prodname_vscode %}, from the JetBrains Gateway application, or by using {% data variables.product.prodname_cli %}. When you connect, you are placed within the Docker container. You do not have access to the outer Linux virtual machine host.
 
-![A diagram showing how {% data variables.product.prodname_github_codespaces %} works](/assets/images/help/codespaces/codespaces-diagram.png)
+![A diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)
 
 ## Using {% data variables.product.prodname_github_codespaces %}
 
