@@ -48,7 +48,7 @@ You will need to create a new personal account and then use this account to crea
 {% ifversion ghec %}
 1. Click **Configure SSO** and authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
-   ![Screenshot of the "Personal access tokens (classic)" page. The "Configure SSO" button for a PAT is highlighted with a dark orange outline.](/assets/images/help/codespaces/configure-SSO-for-PAT.png) 
+   ![Screenshot of the "{% data variables.product.pat_v1_caps_plural %}" page. The "Configure SSO" button for a PAT is highlighted with a dark orange outline.](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
 
 {% endif %}
 1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
