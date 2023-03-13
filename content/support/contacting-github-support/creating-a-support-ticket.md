@@ -27,9 +27,7 @@ topics:
 {% ifversion ghec or ghes %}
 ## Prerequisites
 
-Before using the support portal for the first time, review the following.
-
-1. "[AUTOTITLE](/support/contacting-github-support/getting-started-with-the-support-portal.md)" 
+To create a support ticket, you will need to make sure the support portal is configured for use. For more information, see "[AUTOTITLE](/support/contacting-github-support/getting-started-with-the-support-portal)." 
 {% endif%}
 
 {% ifversion fpt or ghec or ghes %}
