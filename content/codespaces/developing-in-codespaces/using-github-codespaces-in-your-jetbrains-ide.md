@@ -125,5 +125,4 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
 - "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-- "[AUTOTITLE](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"
 - "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"
