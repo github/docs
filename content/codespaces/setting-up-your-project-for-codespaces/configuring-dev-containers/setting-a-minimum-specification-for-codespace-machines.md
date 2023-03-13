@@ -49,7 +49,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 
    Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
 
-   ![Dialog box showing a limited choice of machine types](/assets/images/help/codespaces/machine-types-limited-choice.png)
+   ![Screenshot of a list of machine types. The 2- and 4-core options are labeled "Below dev container requirements."](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
 ## Further reading
 

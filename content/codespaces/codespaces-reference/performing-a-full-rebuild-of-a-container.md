@@ -30,7 +30,7 @@ You can perform a full rebuild in {% data variables.product.prodname_vscode %}.
 {% data reusables.codespaces.command-palette %}
 1. Start typing "Rebuild" and select **Codespaces: Full Rebuild Container**.
 
-   ![Screenshot of Full Rebuild Container command in the Command Pallette](/assets/images/help/codespaces/codespaces-rebuild-full.png)
+   ![Screenshot of the "Codespaces: Full Rebuild Container" option in the Command Palette.](/assets/images/help/codespaces/codespaces-rebuild-full.png)
 
 ## Persisting data over a full rebuild
 

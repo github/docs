@@ -33,7 +33,7 @@ The default idle timeout, which stops a codespace after a period of inactivity, 
 
 You can see the storage usage for each of your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces).
 
-![Screenshot of codespaces listed on the 'Your codespaces' page](/assets/images/help/codespaces/click-name-codespace.png)
+![Screenshot of a list of two codespaces on GitHub. The codespaces are named "Document codespace navigation" and "Furious snibble."](/assets/images/help/codespaces/click-name-codespace.png)
 
 {% note %}
 
@@ -49,13 +49,13 @@ For billing purposes, {% data variables.product.prodname_codespaces %} storage i
 
 You can check the cumulative {% data variables.product.prodname_github_codespaces %} usage for your current monthly billing cycle in your {% data variables.product.prodname_dotcom %} settings. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
-![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
+![Screenshot of the "{% data variables.product.prodname_codespaces %}" section of the billing page showing figures for "Usage hours" and "Storage."](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
 For more specific information - for example, if you want to know which repositories have prebuilds that are consuming storage - you can generate a usage report. The usage report is a CSV file that's emailed to you. For more information on how to generate a usage report, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 To see your {% data variables.product.prodname_codespaces %} usage, filter the report to show only rows that mention "Codespaces" in the `Product` column.
 
-![A screenshot of a usage report in Microsoft Excel](/assets/images/help/codespaces/usage-report-personal-account.png)
+![Screenshot of a usage report in Microsoft Excel. All of the entries in the "Product" column read "Codespaces - Linux."](/assets/images/help/codespaces/usage-report-personal-account.png)
 
 ### Storage usage for your base dev container
 
