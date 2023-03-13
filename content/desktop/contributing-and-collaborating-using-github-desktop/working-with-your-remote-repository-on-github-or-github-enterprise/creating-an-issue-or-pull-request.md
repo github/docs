@@ -27,10 +27,10 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 {% mac %}
 
-1. In the menu bar, use the **Repository** drop-down menu, then click **Create Issue on {% data variables.product.prodname_dotcom %}**.
-    ![Repository value in the Branch menu](/assets/images/help/desktop/create-issue-mac.png)
+1. In the menu bar, select **Repository**, then click **Create Issue on {% data variables.product.prodname_dotcom %}**.
+
+   ![Screenshot of the menu bar on a Mac. In the expanded "Repository" dropdown menu, the cursor hovers over "Create Issue on GitHub".](/assets/images/help/desktop/create-issue-mac.png)
 2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
-    ![Create new issue options](/assets/images/help/desktop/create-new-issue.png)
 
 {% endmac %}
 
@@ -39,7 +39,6 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 1. In the menu bar, use the **Repository** drop-down menu, then click **Create issue on {% data variables.product.prodname_dotcom %}**.
     ![The Repository value in the Branch menu](/assets/images/help/desktop/create-issue-windows.png)
 2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
-    ![Create new issue options](/assets/images/help/desktop/create-new-issue.png)
 
 {% endwindows %}
 
@@ -53,20 +52,19 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 1. Click **Preview Pull Request**. {% data variables.product.prodname_desktop %} will open a preview dialog showing the diff of the changes between your current branch and the base branch.
 
-{% mac %}
+   {% mac %}
 
- ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
 
-{% endmac %}
+   {% endmac %}
 
-{% windows %}
+   {% windows %}
 
- ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/windows-preview-pull-request.png)
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/windows-preview-pull-request.png)
 
-{% endwindows %}
+   {% endwindows %}
 
-  Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
-
+   Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 

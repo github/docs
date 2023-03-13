@@ -122,6 +122,6 @@ You can check, in the {% data variables.product.prodname_vscode %} desktop appli
 
    If the codespace is nearing the end of its retention period, a line is included telling when this period is due to expire.
 
-   ![Screenshot of the "Remote Explorer" sidebar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![Screenshot of the "Remote Explorer" side bar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}
