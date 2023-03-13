@@ -16,34 +16,26 @@ Clicking the notification will switch application focus to {% data variables.pro
 
 ## Notifications about pull request check failures
 
-When changes are made to a pull request branch, you will receive a notification if the checks fail.
-
-![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
+When changes are made to a pull request branch, you will receive a system notification if the checks fail.
 
 Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed, you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
-![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
 ## Notifications for pull request reviews
 
 {% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)" for more information on pull request reviews.
 
-![Pull request review notification](/assets/images/help/desktop/pull-request-review-notification.png)
-
 Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more context for the pull request review comment.
 
-![pull request review dialog](/assets/images/help/desktop/pull-request-review-dialog.png)
 ## Enabling notifications
 
 If system notifications are disabled for {% data variables.product.prodname_desktop %} you can follow the steps below to enable them.
 
 {% mac %}
 
-1. Click the **Apple** menu, then select **System Preferences**.
+1. In the menu bar, select the Apple icon, then click **System Preferences**.
 2. Select **Notifications & Focus**.
 3. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
 4. Click **Allow Notifications**.
-
-![macOS Notifications & Focus](/assets/images/help/desktop/mac-enable-notifications.png)
 
 For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
 

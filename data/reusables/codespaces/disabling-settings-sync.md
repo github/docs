@@ -6,10 +6,10 @@ By default, when you disable Settings Sync, new codespaces continue to use the s
 1. At the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is On**.
 1. In the dropdown, click **Settings Sync: Turn Off**.
 
-   ![Screenshot of the Settings Sync Turn Off option in VS Code](/assets/images/help/codespaces/settings-sync-turn-off.png)
+   ![Screenshot of the dropdown menu with the "Settings Sync: Turn Off" option highlighted with a dark orange outline.](/assets/images/help/codespaces/settings-sync-turn-off.png)
 
 1. To clear your cached settings, in the dialog, select **Turn off sync on all your devices and clear the data from the cloud**.
 
-   ![Screenshot of the Turn Off Settings Sync dialog](/assets/images/help/codespaces/turn-off-sync-dialog.png)
+   ![Screenshot of the "Do you want to turn off sync?" dialog, with the option to clear data from the cloud selected.](/assets/images/help/codespaces/turn-off-sync-dialog.png)
 
 1. Click **Turn off**.

@@ -62,13 +62,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create a codespace for.
+1. Under the repository name, select the branch dropdown menu, which is labeled with the name of the current branch, then click the branch you want to create a codespace for.
 
-   ![Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the expanded branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is highlighted with a dark orange outline.](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
-
-   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
    If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
 
@@ -82,13 +80,13 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
-      1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab and select **New with options**.
+      1. At the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and click **New with options**.
 
-      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+      ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 
       1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 
-         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+         ![Screenshot of the advanced options page with buttons for "Branch," "Dev container configuration," "Region," and "Machine type."](/assets/images/help/codespaces/advanced-options.png)
 
          {% note %}
 
