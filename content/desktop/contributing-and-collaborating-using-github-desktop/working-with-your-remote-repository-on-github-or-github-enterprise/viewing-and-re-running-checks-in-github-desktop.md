@@ -15,14 +15,15 @@ versions:
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}
-  ![Pull Requests tab in the Current Branch drop-down menu](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
+  ![Screenshot of the "Current Branch" dropdown menu. A tab, labeled "Pull Requests", is highlighted with an orange outline.](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
-  ![List of open pull requests in the repository](/assets/images/help/desktop/click-pull-request.png)
 4. Click on the pull request number, to the right of the pull request branch name.
-  ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+
+  ![Screenshot of the repository bar. Next to the "Current Branch" button, a numbered label, displayed with a red cross for failing checks, is outlined in orange.](/assets/images/help/desktop/checks-dialog.png)
 5. To re-run failed checks, click **{% octicon "sync" aria-label="The sync icon" %} Re-run** and select **Re-run Failed Checks**.
-  ![Re-run failed checks](/assets/images/help/desktop/re-run-failed-checks.png)
+
+  ![Screenshot of a dropdown view from a pull request label. Next to the message "Some checks were not successful", a button labeled "Re-run" is outlined in orange.](/assets/images/help/desktop/re-run-failed-checks.png)
 6. To re-run individual checks, hover over the individual check you want to re-run and select the {% octicon "sync" aria-label="The sync icon" %} icon to re-run the check.
-  ![Re-run individual checks](/assets/images/help/desktop/re-run-individual-checks.png)
+
+  ![Screenshot of a dropdown view from a pull request label. The cursor hovers over a check, and an icon of two arrows forming a circle is outlined in orange.](/assets/images/help/desktop/re-run-individual-checks.png)
 7. You will see a confirmation dialog with the summary of the checks that will be re-run. Click **Re-run Checks** to confirm that you want to perform the re-run.
-  ![Re-run confirmation dialog](/assets/images/help/desktop/re-run-confirmation-dialog.png)

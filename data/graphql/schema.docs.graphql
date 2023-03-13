@@ -39858,6 +39858,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
+    The login of one specific collaborator.
+    """
+    login: String
+
+    """
     Filters users with query on user name and login
     """
     query: String

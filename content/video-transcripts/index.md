@@ -10,5 +10,5 @@ versions:
 topics:
   - Transcripts
 children:
-  - /transcript-codespaces-your-instant-dev-box-in-the-cloud
+  - transcript-codespaces-your-instant-dev-box-in-the-cloud
 ---

@@ -55225,6 +55225,16 @@
               }
             },
             {
+              "name": "login",
+              "description": "<p>The login of one specific collaborator.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "query",
               "description": "<p>Filters users with query on user name and login.</p>",
               "type": {

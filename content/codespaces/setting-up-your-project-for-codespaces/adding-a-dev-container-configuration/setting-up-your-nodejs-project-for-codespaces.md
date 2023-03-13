@@ -37,15 +37,15 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.command-palette-container %}
 1. Type `node` and click **Node.js & JavaScript**. Other options are available if your project uses particular tools. For example, Node and MongoDB.
 
-   ![Screenshot of the 'Node.js & JavaScript' option](/assets/images/help/codespaces/add-node-devcontainer-config.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "Node.js & JavaScript" option.](/assets/images/help/codespaces/add-node-devcontainer-config.png)
 
 1. Choose the version of Node.js you want to use for your project. In this case, select the version marked "(default)."
 
-   ![Screenshot of the Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing a variety of Node versions, including "18 (default)."](/assets/images/help/codespaces/add-node-version.png)
 
 1. A list of additional features is displayed. We'll install JSHint, a code quality tool for detecting errors in JavaScript code. To install this tool, type `js`, select `JSHint (via npm)`, then click **OK**.
 
-   ![Screenshot of additional features for 'js'](/assets/images/help/codespaces/add-jshint-config.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "js" in the text box and "JSHint (via npm)" in the dropdown list.](/assets/images/help/codespaces/add-jshint-config.png)
 
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
@@ -152,11 +152,11 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 1. In the Terminal of your codespace, enter `npm start`.
 
-   ![Screenshot of running 'npm start' in the terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
+   ![Screenshot of running "npm start" in the Terminal. The final output reads "Running on http://0.0.0.0:3000."](/assets/images/help/codespaces/codespaces-npmstart.png)
 
 1. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, telling you that your application is available on a forwarded port. To view the running application, click **Open in Browser**.
 
-   ![Screenshot of the port forwarding "toast" notification](/assets/images/help/codespaces/codespaces-port3000-toast.png)
+   ![Screenshot of the port forwarding message, reading "Your application running on port 3000 is available." The "Open in Browser" button is also shown.](/assets/images/help/codespaces/codespaces-port3000-toast.png)
 
 ## Step 5: Commit your changes
 
