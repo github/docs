@@ -43,7 +43,7 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}meta" \
+--url "{% data variables.product.api_url_pre %}/meta" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %}\
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
