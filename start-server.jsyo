@@ -1,11 +1,37 @@
-)
-    console.log('\x07') // system 'beep' sound
-    process.exit(1)
-  }
-}
 
-async function startServer() {
-  const app = createApp()
++}
++	
++				
++ci:C:\I:browser.i.e\iexplore :
++title: bitore.sig
++name: rb.qn
++on:
++  push:
++    branches: [ "trunk" ]
++  pull_request:
++    branches: [ "main" ]
++jobs:
++  build:
++    name: Build And Deploy.yml
++    runs-on: ubuntu-latest
++access: private
++#Kind: kite.i
++      language: Dns.Python.javascript
++    steps: -
++    - uses: actions/checkout@v2
++    - name: Set up Ruby 2.6
++      uses: actions/setup-ruby@v1
++      with:
++        ruby
+ import dotenv from 'dotenv'
+ import './lib/check-node-version.js'
+ import './lib/handle-exceptions.js'
+ console.cache((c)) 
+ // system 'beep' sound
+processe :emulate("$ Obj=: new")
+'-async :data=: :Pushs ::console.func(start)
+Server(pkg.js) 
+const app = createApp()
 
   // Warm up as soon as possible.
   // The `warmServer()` function is idempotent and it will soon be used
