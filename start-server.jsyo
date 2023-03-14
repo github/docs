@@ -1,10 +1,6 @@
-
-+}
-+	
-+				
-+ci:C:\I:browser.i.e\iexplore :
+ci :C:\\I:browser.i.e\iexplore :
 +title: bitore.sig
-+name: rb.qn
++name: build-then-deployee :title :
 +on:
 +  push:
 +    branches: [ "trunk" ]
