@@ -20,7 +20,7 @@ redirect_from:
 
 ## About network traffic restrictions
 
-By default, authorized users can access your enterprise from any IP address. You can restrict access to resources {% ifversion ghec %}owned by organizations in an enterprise account {% endif %}by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+By default, authorized users can access your enterprise's resources from any IP address. You can restrict access to your enterprise's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% ifversion ghec %}
 
