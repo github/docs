@@ -24,7 +24,7 @@ Your app can make API requests on behalf of a user. API requests made by an app 
 
 Similarly, if the request triggers a corresponding entry in the audit logs and security logs, the logs will list the user as the actor but will state that the "programmatic_access_type" is "GitHub App user-to-server token".
 
-To make an API request on the behalf of a user, the user must authorize your app. If an app is installed on an organization that includes multiple members, each member will need to authorize the app before the app can act on their behalf. An app does not need to be installed in order for a user to authorize the app.
+To make an API request on behalf of a user, the user must authorize your app. If an app is installed on an organization that includes multiple members, each member will need to authorize the app before the app can act on their behalf. An app does not need to be installed in order for a user to authorize the app.
 
 When a user installs an app on their account or organization, they grant the app permission to access the organization and repository resources that it requested. During the installation process, they will also see a list of user permissions that the app can request for individual users. When a user authorizes an app, they grant the app permission to act on their behalf, and they grant the user permissions that the app requested.
 
