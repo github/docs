@@ -6,7 +6,7 @@ import { ActionList } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'components/lib/events'
+import { EventType, sendEvent } from 'src/events/browser'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import styles from './SidebarProduct.module.scss'

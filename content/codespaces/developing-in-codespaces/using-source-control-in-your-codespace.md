@@ -128,7 +128,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
    Alternatively, click the down arrow beside **Commit** and click **Commit and Push**.
 
-   ![Screenshot of the commit and push button](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
+   ![Screenshot of the "Commit Changes" dialog showing the "Commit and Push" button.](/assets/images/help/codespaces/jetbrains-commit-and-push.png)
 
 ## Pulling changes from the remote repository
 
@@ -140,7 +140,7 @@ You can pull changes from the same branch on the remote repository and apply tho
 
 1. In the Update Project dialog, choose whether you want to merge or rebase the incoming changes.
 
-   ![Screenshot of the "Update Project" dialog with options to merge or rebase, and a "Don't show again" check box.](/assets/images/help/codespaces/jetbrains-update-options.png)
+   ![Screenshot of the "Update Project" dialog with options to merge or rebase, and a "Don't show again" checkbox.](/assets/images/help/codespaces/jetbrains-update-options.png)
 
 1. Click **OK**.
 

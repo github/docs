@@ -48,7 +48,6 @@ You can also audit actions taken in response to {% data variables.product.prodna
 
 {% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
 
-![Screenshot of Sort dropdown with "Most important" sort](/assets/images/help/dependabot/dependabot-alerts-sort-dropdown.png)
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
@@ -127,7 +126,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 1. Click the alert you'd like to view.{% endif %}{% ifversion dependabot-filter-label-security-advisory %}
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
-   ![Screenshot showing link to {% data variables.product.prodname_advisory_database %}](/assets/images/help/dependabot/dependabot-improve-security-advisory.png)
+   ![Screenshot of the right sidebar of a {% data variables.product.prodname_dependabot %} alert. A link, titled "Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-improve-security-advisory.png)
 {% endif %}
 
 ## Reviewing and fixing alerts

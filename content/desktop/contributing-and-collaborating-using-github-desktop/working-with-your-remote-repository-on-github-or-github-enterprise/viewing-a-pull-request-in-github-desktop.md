@@ -19,14 +19,16 @@ If checks have been enabled in your repository, {% data variables.product.prodna
 ## Viewing a pull request in {% data variables.product.prodname_desktop %}
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}
-  ![Pull Requests tab in the Current Branch drop-down menu](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
+  ![Screenshot of the "Current Branch" dropdown menu. A tab, labeled "Pull Requests", is highlighted with an orange outline.](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
-  ![List of open pull requests in the repository](/assets/images/help/desktop/click-pull-request.png)
-4. Optionally, to refresh the list of pull requests, click {% octicon "sync" aria-label="The sync icon" %}.
-  ![Sync button to refresh](/assets/images/help/desktop/pull-request-list-sync.png)
+   
+   Optionally, to refresh the list of pull requests, click {% octicon "sync" aria-label="The sync icon" %}.
+
+  ![Screenshot of the "Pull Requests" tab. A button, labeled with an icon of two arrows forming a circle, is highlighted with an orange outline.](/assets/images/help/desktop/pull-request-list-sync.png)
 
 ## Opening a pull request in {% data variables.product.prodname_desktop %} from {% data variables.product.prodname_dotcom %}
 {% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
-3. To the right of the title of the pull request, click the **Open with** drop-down and then click the **Open in Desktop** button.
-  ![The Open in Desktop button](/assets/images/help/desktop/open-pr-in-desktop-button.png)
+3. To the right of the title of the pull request, click **{% octicon "code" aria-label="" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
+   
+   ![Screenshot of a pull request on GitHub. The "Code" dropdown menu is expanded, and a button, labeled "Checkout with GitHub Desktop" is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop-button.png)

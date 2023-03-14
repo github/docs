@@ -20,7 +20,8 @@ shortTitle: Clone a GitHub repo
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. Click **Choose...** and, using the Finder window, navigate to a local path where you want to clone the repository.
-![The choose button on the URL tab](/assets/images/help/desktop/clone-choose-button-url-mac.png)
+
+   ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
 
   {% note %}
 
@@ -29,7 +30,6 @@ shortTitle: Clone a GitHub repo
   {% endnote %}
 
 5. Click **Clone**.
-![The clone button on the URL tab](/assets/images/help/desktop/clone-button-url-mac.png)
 
 {% endmac %}
 
@@ -48,6 +48,5 @@ shortTitle: Clone a GitHub repo
   {% endnote %}
 
 5. Click **Clone**.
-![The clone button](/assets/images/help/desktop/clone-button-url-win.png)
 
 {% endwindows %}
