@@ -22,7 +22,7 @@ For sponsored developer accounts, the update will come from your personal accoun
 ## Contacting your sponsors
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.sponsors-updates-tab %}
+1. In the "Manage" section of the sidebar, click **Newsletters**.
 {% data reusables.sponsors.draft-new-update %}
 {% data reusables.sponsors.send-update-to-sponsors %}
 {% data reusables.sponsors.write-sponsor-update %}
