@@ -19,7 +19,4 @@ Companies can use an invoice method to participate in the {% data variables.prod
 
 Companies paying by invoice will be invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to GitHub. Payments to {% data variables.product.prodname_sponsors %} are invoiced through Stripe.
 
-![Example GitHub Sponsors invoice sent via Stripe](/assets/images/help/sponsors/example-sponsors-invoice.png)
-
 You can join this beta program by talking to your sales representative, or by [contacting us](https://support.github.com/contact/org-sponsors-waitlist).
-
