@@ -203,15 +203,20 @@ function printObjectDifference(objFrom, objTo, rawContent, parentKey = '') {
   for (const [key, value] of Object.entries(objFrom)) {
     const combinedKey = `${parentKey}.${key}`
     if (Array.isArray(value) && !equalArray(value, objTo[key])) {
-      console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
       value.forEach((entry, i) => {
-        if (entry !== objTo[key][i]) {
-          console.log(chalk.red(`- ${entry}`))
-          console.log(chalk.green(`+ ${objTo[key][i]}`))
-          const needle = new RegExp(`- ${entry}\\b`)
-          const index = rawContent.split(/\n/g).findIndex((line) => needle.test(line))
-          console.log('  ', chalk.dim(`line ${(index && index + 1) || 'unknown'}`))
-          console.log('')
+        // If it was an array of objects, we need to go deeper!
+        if (isObject(entry)) {
+          printObjectDifference(entry, objTo[key][i], rawContent, combinedKey)
+        } else {
+          console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
+          if (entry !== objTo[key][i]) {
+            console.log(chalk.red(`- ${entry}`))
+            console.log(chalk.green(`+ ${objTo[key][i]}`))
+            const needle = new RegExp(`- ${entry}\\b`)
+            const index = rawContent.split(/\n/g).findIndex((line) => needle.test(line))
+            console.log('  ', chalk.dim(`line ${(index && index + 1) || 'unknown'}`))
+            console.log('')
+          }
         }
       })
     } else if (typeof value === 'object' && value !== null) {

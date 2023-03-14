@@ -1,6 +1,6 @@
 import { afterEach } from '@jest/globals'
 import nock from 'nock'
-import Hydro from '../../lib/hydro.js'
+import Hydro from '../hydro.js'
 
 describe('hydro', () => {
   let hydro, params

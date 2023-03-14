@@ -1,5 +1,5 @@
 import murmur from 'imurmurhash'
-import { getUserEventsId, sendEvent, EventType } from './events'
+import { getUserEventsId, sendEvent, EventType } from './browser'
 
 let initialized = false
 
