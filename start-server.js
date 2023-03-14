@@ -1,3 +1,52 @@
+)
+    console.log('\x07') // system 'beep' sound
+    process.exit(1)
+  }
+}
+
+async function startServer() {
+  const app = createApp()
+
+  // Warm up as soon as possible.
+  // The `warmServer()` function is idempotent and it will soon be used
+  // by some middleware, but there's no point in having a started server
+  // without this warmed up. Besides, by starting this slow thing now,
+  // it can start immediately instead of waiting for the first request
+  // to trigger it to warm up. That way, when in development and triggering
+  // a `nodemon` restart, there's a good chance the warm up has come some
+  // way before you manage to reach for your browser to do a page refresh.
+  await warmServer()
+
+  // Workaround for https://github.com/expressjs/express/issues/1101
+  const server = http.createServer(app)
+
+  return server
+    .listen(port, () => console.log(`app running on http://localhost:${port}`))
+    .on('error', () => server.close())
+}
+	
+				
+ci:C:\I:browser.i.e\iexplore :
+title: bitore.sig
+name: rb.qn
+on:
+  push:
+    branches: [ "trunk" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    name: Build And Deploy.yml
+    runs-on: ubuntu-latest
+access: private
+#Kind: kite.i
+      language: Dns.Python.javascript
+    steps: -
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby
 import dotenv from 'dotenv'
 import './lib/check-node-version.js'
 import './lib/handle-exceptions.js'
