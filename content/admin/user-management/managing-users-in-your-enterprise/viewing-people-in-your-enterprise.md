@@ -71,6 +71,31 @@ You can also remove any enterprise member from all organizations owned by the en
 1. Optionally, to view a list of outside collaborators rather than the list of members, under "Members", click **Outside collaborators**.
 {% endif %}
 
+{% ifversion ghec %}
+
+## Viewing members' email addresses
+
+You may be able to view the email addresses for members of your enterprise on either {% data variables.location.product_location %} or an external identity system. The visibility of the email addresses depends on your enterprise's authentication method, domains, and potentially the member's user profile configuration.
+
+- If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
+
+- If you verify a domain for your enterprise, you can view members' email addresses for the verified domain.
+
+- If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
+
+If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
+
+1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+1. Export the membership report for your enterprise on {% data variables.product.prodname_dotcom %}. The report may contain the user's email address, stored as the following values.
+
+   - `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)")
+   - `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)")
+
+   For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% data reusables.saml.use-api-to-get-externalidentity %}
+
+{% endif %}
+
 {% ifversion enterprise-membership-view-improvements %}
 ## Viewing outside collaborators
 
