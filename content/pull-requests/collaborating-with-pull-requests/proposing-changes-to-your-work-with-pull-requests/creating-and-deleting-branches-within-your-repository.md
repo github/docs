@@ -68,7 +68,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Click {% octicon "trash" aria-label="Delete BRANCH" %} next to the branch that you want to delete.
+1. Next to the branch that you want to delete, click {% octicon "trash" aria-label="The trash icon" %} .
 
    ![Screenshot of a branch in the branch list. A trash icon is highlighted with an orange outline.](/assets/images/help/branches/branches-delete.png)
 {%- ifversion fpt or ghes > 3.5 or ghae > 3.5 or ghec %}
