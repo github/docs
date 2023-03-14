@@ -37,17 +37,17 @@ redirect_from:
 ## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
 
 1. With your default editor set to either {% data variables.product.prodname_vscode %} or {% data variables.product.prodname_vscode %} for Web, open the pull request in a codespace, as described in "[Opening a pull request in {% data variables.product.prodname_codespaces %}](#opening-a-pull-request-in-codespaces)" previously in this article.
-1. In the Activity Bar, click the Git pull request icon to display the "{% data variables.product.prodname_dotcom %} Pull Request" sidebar. This icon is only displayed in the Activity Bar when you open a pull request in a codespace.
+1. In the Activity Bar, click the Git pull request icon to display the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. This icon is only displayed in the Activity Bar when you open a pull request in a codespace.
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The mouse pointer is hovering over an icon displaying the tooltip "{% data variables.product.prodname_dotcom %} Pull Request."](/assets/images/help/codespaces/github-pr-view.png)
 
    If you opened a pull request in a codespace and the pull request icon is not displayed in the Activity Bar, make sure you are signed in to {% data variables.product.prodname_dotcom %}. Click the {% data variables.product.prodname_dotcom %} icon in the Activity Bar then click **Sign in**.
 
-   ![Screenshot of the {% data variables.product.prodname_dotcom %} sidebar showing the "Sign in" button. The {% data variables.product.prodname_dotcom %} icon in the Activity Bar is highlighted with an orange outline.](/assets/images/help/codespaces/sign-in-to-github.png)
+   ![Screenshot of the {% data variables.product.prodname_dotcom %} side bar showing the "Sign in" button. The {% data variables.product.prodname_dotcom %} icon in the Activity Bar is highlighted with an orange outline.](/assets/images/help/codespaces/sign-in-to-github.png)
 
-1. To review the changes that have been made to a specific file, click the file's name in the "{% data variables.product.prodname_dotcom %} Pull Request" sidebar.
+1. To review the changes that have been made to a specific file, click the file's name in the "{% data variables.product.prodname_dotcom %} Pull Request" side bar.
 
-   ![Screenshot of the "{% data variables.product.prodname_dotcom %} Pull Request" sidebar. A file name is highlighted with a dark orange outline.](/assets/images/help/codespaces/changes-in-files.png)
+   ![Screenshot of the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. A file name is highlighted with a dark orange outline.](/assets/images/help/codespaces/changes-in-files.png)
 
    This displays a diff view in the editor, with the version of the file from the base branch on the left, and the new version of the file, from the head branch of the pull request, on the right.
 
@@ -59,9 +59,9 @@ redirect_from:
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
 
-1. When you are finished adding review comments, you can add a summary comment for your pull request review in the "{% data variables.product.prodname_dotcom %} Pull Request" sidebar. You can then click **Comment and Submit**, or click the dropdown arrow and select **Approve and Submit** or **Request Changes and Submit**.
+1. When you are finished adding review comments, you can add a summary comment for your pull request review in the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. You can then click **Comment and Submit**, or click the dropdown arrow and select **Approve and Submit** or **Request Changes and Submit**.
 
-   ![Screenshot of the sidebar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
+   ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
 
 For more information on reviewing a pull request, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
