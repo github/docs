@@ -120,7 +120,7 @@ Read [more about OAuth2](/apps/oauth-apps/building-oauth-apps).  Note that OAuth
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth App's client secret to your users.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your {% data variables.product.prodname_oauth_app %} to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. Don't leak your {% data variables.product.prodname_oauth_app %}'s client secret to your users.
 
 {% ifversion ghes %}
 You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
@@ -329,15 +329,18 @@ Different types of API requests to {% data variables.location.product_location %
 
 #### Rate limits for requests from personal accounts
 
-Direct API requests that you authenticate with a {% data variables.product.pat_generic %} are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)," and "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+You can make direct API requests that you authenticate with a {% data variables.product.pat_generic %}. An {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} can also make a request on your behalf after you authorize the app. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)," and "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %} associates all of these requests with the authenticated user. For {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}, this is the user who authorized the app. All of these requests count toward the authenticated user's rate limit.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.apps.user-to-server-rate-limits-ghec %}
+User access token requests are subject to a higher limit of 15,000 requests per hour and per authenticated user in the following scenarios:
+
+- The request is from a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization.
+- The request is from an {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization.
 
 {% ifversion fpt or ghec or ghes %}
 
@@ -349,7 +352,7 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 #### Rate limits for requests from {% data variables.product.prodname_github_apps %}
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)." 
+Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
 
 #### Rate limits for requests from {% data variables.product.prodname_actions %}
 
@@ -406,9 +409,9 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
 
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+If your {% data variables.product.prodname_oauth_app %} needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
 $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
@@ -422,7 +425,7 @@ $ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre
 
 {% note %}
 
-**Note:** Never share your client secret with anyone or include it in client-side browser code. Use the method shown here only for server-to-server calls.
+**Note:** Never share your client secret with anyone or include it in client-side browser code.
 
 {% endnote %}
 
