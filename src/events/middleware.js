@@ -2,9 +2,9 @@ import express from 'express'
 import { omit } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { eventSchema, hydroNames } from '../../lib/schema-event.js'
-import catchMiddlewareError from '../catch-middleware-error.js'
-import { noCacheControl } from '../cache-control.js'
+import { eventSchema, hydroNames } from './schema.js'
+import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
+import { noCacheControl } from '../../middleware/cache-control.js'
 
 const router = express.Router()
 const ajv = new Ajv()

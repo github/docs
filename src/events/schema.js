@@ -1,7 +1,8 @@
-import { languageKeys } from './languages.js'
-import { allVersionKeys } from './all-versions.js'
-import { productIds } from './all-products.js'
-import { allTools } from './all-tools.js'
+import { languageKeys } from '../../lib/languages.js'
+import { allVersionKeys } from '../../lib/all-versions.js'
+import { productIds } from '../../lib/all-products.js'
+import { allTools } from '../../lib/all-tools.js'
+
 const context = {
   type: 'object',
   additionalProperties: false,

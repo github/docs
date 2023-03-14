@@ -3,8 +3,8 @@ import { Agent } from 'https'
 
 import got from 'got'
 
-import statsd from '../lib/statsd.js'
-import FailBot from '../lib/failbot.js'
+import statsd from '../../lib/statsd.js'
+import FailBot from '../../lib/failbot.js'
 
 const TIME_OUT_TEXT = 'ms has passed since batch creation'
 

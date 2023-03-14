@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
-import { parseUserAgent } from './user-agent'
+import { parseUserAgent } from '../../components/lib/user-agent'
 
 const COOKIE_NAME = '_docs-events'
 
