@@ -30,6 +30,10 @@ You can enforce policies to control the security settings for organizations owne
 
 ## Requiring two-factor authentication for organizations in your enterprise
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
 {% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
@@ -45,6 +49,16 @@ Before you can require 2FA for all organizations owned by your enterprise, you m
 {% endwarning %}
 
 Before you require use of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up 2FA for their accounts. Organization owners can see if members and outside collaborators already use 2FA on each organization's People page. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+
+{% ifversion mandatory-2fa-dotcom-contributors %}
+
+{% note %}
+
+**Note**: Some of the users in your organizations may have been selected for mandatory two-factor authentication enrollment by  {% data variables.product.prodname_dotcom_the_website %}, but it has no impact on how you enable the 2FA requirement for the organizations in your enterprise. If you enable the 2FA requirement for organizations in your enterprise, all users without 2FA currently enabled will be removed from the organizations, including those that are required to enable it by {% data variables.product.prodname_dotcom_the_website %}.
+
+{% endnote %}
+
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
