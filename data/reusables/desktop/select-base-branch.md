@@ -1,1 +1,1 @@
-1. Use the drop-down to choose a base branch for your new branch.
+1. Under "Create branch based on...", select a base branch for your new branch.
