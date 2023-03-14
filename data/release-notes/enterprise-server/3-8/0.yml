@@ -456,14 +456,6 @@ sections:
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
-      During configuration of high availability, after you run `ghe-maintenance -s` in step 12 of [this documentation](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica#creating-a-high-availability-replica), the following error appears and maintenance mode is not enabled.
-    
-      ```
-      unable to access '/data/user/common/cluster.conf': Permission denied
-      ```
-
-      You can ignore the error and proceed to the next step. The issue will be resolved in GitHub Enterprise Server 3.8.1.
-    - |
       During an upgrade to GitHub Enterprise Server 3.8.0 on a cluster, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following error may appear multiple times after you run `ghe-cluster-config-apply`.
        
       ```
