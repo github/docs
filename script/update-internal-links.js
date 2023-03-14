@@ -203,13 +203,17 @@ function printObjectDifference(objFrom, objTo, rawContent, parentKey = '') {
   for (const [key, value] of Object.entries(objFrom)) {
     const combinedKey = `${parentKey}.${key}`
     if (Array.isArray(value) && !equalArray(value, objTo[key])) {
+      const printedKeys = new Set()
       value.forEach((entry, i) => {
         // If it was an array of objects, we need to go deeper!
         if (isObject(entry)) {
           printObjectDifference(entry, objTo[key][i], rawContent, combinedKey)
         } else {
-          console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
           if (entry !== objTo[key][i]) {
+            if (!printedKeys.has(combinedKey)) {
+              console.log(`In frontmatter key: ${chalk.bold(combinedKey)}`)
+              printedKeys.add(combinedKey)
+            }
             console.log(chalk.red(`- ${entry}`))
             console.log(chalk.green(`+ ${objTo[key][i]}`))
             const needle = new RegExp(`- ${entry}\\b`)

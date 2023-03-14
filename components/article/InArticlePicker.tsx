@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { UnderlineNav } from '@primer/react'
-import { sendEvent, EventType } from 'components/lib/events'
+import { sendEvent, EventType } from 'src/events/browser'
 import { useRouter } from 'next/router'
 
 type Option = {

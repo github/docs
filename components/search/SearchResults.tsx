@@ -8,7 +8,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { useNumberFormatter } from 'components/hooks/useNumberFormatter'
 import { Link } from 'components/Link'
 import { useQuery } from 'components/hooks/useQuery'
-import { sendEvent, EventType } from 'components/lib/events'
+import { sendEvent, EventType } from 'src/events/browser'
 
 import styles from './SearchResults.module.scss'
 
