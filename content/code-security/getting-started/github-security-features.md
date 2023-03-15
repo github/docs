@@ -92,7 +92,7 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 {% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
 
-### {% data variables.product.prodname_code_scanning_capc %}
+### {% data variables.product.prodname_code_scanning_caps %}
 
 Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 

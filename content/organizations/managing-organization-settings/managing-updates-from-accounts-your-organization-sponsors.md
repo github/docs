@@ -22,7 +22,6 @@ You can also disable updates from accounts your organization sponsors. For more 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. Under "Sponsors update email (Private)", type the email address you want to receive updates from accounts your organization sponsors.
-    ![Textbox to enter the email address to receive updates from sponsored accounts](/assets/images/help/sponsors/organization-update-email-textbox.png)
 1. Click **Update profile**.
     ![Update profile button](/assets/images/help/organizations/update-profile-button.png)
 

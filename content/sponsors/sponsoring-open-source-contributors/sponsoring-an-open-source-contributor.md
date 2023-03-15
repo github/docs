@@ -82,7 +82,6 @@ Before you can sponsor an account, you must have a verified email address. For m
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}
-  ![Edit payment button](/assets/images/help/sponsors/edit-sponsorship-payment-button.png)
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
   ![Radio buttons to choose who can see your sponsorship](/assets/images/help/sponsors/who-can-see-sponsorship.png)
 {% data reusables.sponsors.choose-updates %}

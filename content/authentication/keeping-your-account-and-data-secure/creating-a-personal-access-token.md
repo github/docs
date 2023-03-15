@@ -28,7 +28,7 @@ shortTitle: 'Create a {% data variables.product.pat_generic %}'
 
 ## About {% data variables.product.pat_generic %}s
 
-{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
+{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/authenticating-to-the-rest-api) or the [command line](#using-a-token-on-the-command-line).
 
 {% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
 

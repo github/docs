@@ -48,7 +48,7 @@ jobs:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
+            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {

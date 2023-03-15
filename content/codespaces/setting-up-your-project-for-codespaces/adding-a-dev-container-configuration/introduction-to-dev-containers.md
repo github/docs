@@ -124,7 +124,7 @@ The default configuration is a good option if you're working on a small project 
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
+**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
 
 {% endnote %}
 

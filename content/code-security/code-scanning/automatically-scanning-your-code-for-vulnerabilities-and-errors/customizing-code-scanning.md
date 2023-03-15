@@ -373,15 +373,18 @@ Notice the `|` after the `registries` property name. This is important since  {%
 {% endif %}
 To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
+You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
+
 ``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    queries: COMMA-SEPARATED LIST OF PATHS
+    # Comma-separated list of queries / packs / suites to run. 
+    # This may include paths or a built in suite, for example:
+    # security-extended or security-and-quality.
+    queries: security-extended
     # Optional. Provide a token to access queries stored in private repositories.
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-
-You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
