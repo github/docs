@@ -1,8 +1,9 @@
 ---
-title: Learn GitHub Packages
+title: Learn GitHub Packages 
 shortTitle: Learn GitHub Packages
 intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, view and install existing packages, and, in special circumstances, delete existing packages.'
 redirect_from:
+  - /[![Auto Close PRs](https://github.com/community/community/actions/workflows/auto-close-pr.yml/badge.svg)](https://github.com/community/community/actions/workflows/auto-close-pr.yml)
   - /packages/getting-started-with-github-container-registry
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
   - /github/packages/publishing-and-managing-packages
