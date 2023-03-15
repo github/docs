@@ -124,7 +124,7 @@ The default configuration is a good option if you're working on a small project 
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
+**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
 
 {% endnote %}
 
@@ -136,11 +136,11 @@ Using a predefined configuration is a great idea if you need some additional ext
 
 You can add a predefined dev container configuration either while working in a codespace, or while working on a repository locally. To do this in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The following procedure describes the process when you are using a codespace. The steps in {% data variables.product.prodname_vscode_shortname %} when you are not connected to a codespace are very similar.
 
-1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Click **Codespaces: Configure Dev Container**.
+1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "add dev". Click **Codespaces: Add Dev Container Configuration Files**.
 
-   ![Screenshot of the Command Palette, filtered to show only the "Codespaces: Configure Dev Container" option.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   ![Screenshot of the Command Palette, with "add dev" entered and "Codespaces: Add Dev Container Configuration Files" listed.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
-1. Click **Start from scratch**.
+1. Click **Create a new configuration**.
 1. Click **Show All Definitions**.
 
    ![Screenshot of the "Add Dev Container Configuration Files" menu with the dropdown showing various options, including "Show All Definitions."](/assets/images/help/codespaces/show-all-definitions.png)

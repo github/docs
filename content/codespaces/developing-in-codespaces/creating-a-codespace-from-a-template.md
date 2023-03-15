@@ -26,7 +26,7 @@ You can start from a blank template, choose from templates maintained by {% data
 
 As an example, if you create a codespace from {% data variables.product.company_short %}'s React template, you'll arrive in a workspace containing template files for a simple application, such as `index.js`, `app.js`, and `package.json`. Shortly after the codespace opens, a development server will start up automatically, and you will be able to view the running application in a simple browser tab within the {% data variables.product.prodname_vscode_shortname %} web client.
 
-![Screenshot of the React template running in a codespace](/assets/images/help/codespaces/react-template.png)
+![Screenshot of {% data variables.product.prodname_vscode_shortname %}'s simple browser rendering the web application in {% data variables.product.prodname_dotcom %}'s React template.](/assets/images/help/codespaces/react-template.png)
 
 The files and configuration included in templates are defined in template repositories. The template repository is cloned into your codespace when you create the codespace. After that, the link is severed, and your codespace won't be linked to a remote repository until you publish to one.
 
@@ -44,11 +44,9 @@ Templates maintained by {% data variables.product.company_short %}, including th
 {% data reusables.codespaces.view-all-templates-step %}
 1. Optionally, to view the template repository containing the files for a template, click the name of the template.
 
-   ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
+   ![Screenshot of the "Explore quick start templates" section of the codespaces page. Three templates are listed, and the names of the templates are highlighted with orange outlines.](/assets/images/help/codespaces/react-template-name.png)
 
-1. Under the template you want to launch, click **Use this template**.
-
-   ![Screenshot of the quick start templates, with the "Use this template" button highlighted under the React template](/assets/images/help/codespaces/react-template-button.png)
+1. Under the name of the template you want to launch, click **Use this template**.
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
@@ -88,10 +86,12 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. Next to the unpublished codespace, click the ellipsis (**...**), then select **Publish to a new repository**.
 
-   ![Screenshot of the "Publish to a new repository" button](/assets/images/help/codespaces/publish-to-new-repository.png)
+   ![Screenshot of the dropdown menu for a codespace, showing the "Publish to a new repository" option.](/assets/images/help/codespaces/publish-to-new-repository.png)
+
 1. Choose a name for your new repository, set it as **Public** or **Private**, and click **Create repository**.
 
-   ![Screenshot of the "Publish to a new repository" dropdown](/assets/images/help/codespaces/template-new-repository-settings.png)
+   ![Screenshot of the "Publish to a new repository" dropdown, with the "Name" field, "Public" and "Private" options, and "Create repository" button.](/assets/images/help/codespaces/template-new-repository-settings.png)
+
 1. Optionally, to view the new repository, click **See repository**.
 
 ## Further reading

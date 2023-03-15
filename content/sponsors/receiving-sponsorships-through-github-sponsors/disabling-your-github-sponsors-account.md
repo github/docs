@@ -21,7 +21,5 @@ Alternatively, you can unpublish your sponsors profile and then republish the ac
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
-1. Under "Disable GitHub Sponsors account", click **Disable account**.  
-  !["Disable your account" button](/assets/images/help/sponsors/disable-your-account-button.png)
-2. To confirm, click **Disable GitHub Sponsors account**.
-  !["Disable GitHub Sponsors account" button](/assets/images/help/sponsors/disable-github-sponsors-account-dialog.png)
+1. In the "Disable {% data variables.product.prodname_sponsors %} account" section, click **Disable account**.
+1. To confirm, click **Disable {% data variables.product.prodname_sponsors %} account**.

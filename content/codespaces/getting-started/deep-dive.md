@@ -105,7 +105,7 @@ Port forwarding gives you access to TCP ports running within your codespace. For
 
 Port forwarding determines which ports are made accessible to you from the remote machine. Even if you do not forward a port, that port is still accessible to other processes running inside the codespace itself.
 
-![Diagram showing how port forwarding works in a codespace](/assets/images/help/codespaces/port-forwarding.png)
+![Diagram showing connections, over the internet, between a code editor or a browser on your device and a codespace on the cloud.](/assets/images/help/codespaces/port-forwarding.png)
 
 When an application running inside {% data variables.product.prodname_github_codespaces %} outputs a port to the console, {% data variables.product.prodname_github_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal, or the link in the "toast" notification message that pops up at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, to open the port in a browser. By default, {% data variables.product.prodname_github_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
@@ -149,7 +149,7 @@ If you work on your codespaces in a JetBrains IDE, you can add plugins from the 
 1. In the Preferences dialog, click either **Plugins On Host** to install a plugin in the full JetBrains IDE that's running remotely, or **Plugins** to install a plugin on the local client, for example to change the user interface theme.
 1. Click the **Marketplace** tab.
 
-   ![Screenshot of the Marketplace tab for 'Plugins On Host'](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
+   ![Screenshot of the "Preferences" dialog, with the "Marketplace" tab displayed. The "Plugins On Host" option is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
 1. Click **Install** beside the required plugin.
 

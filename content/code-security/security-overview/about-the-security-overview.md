@@ -31,7 +31,7 @@ shortTitle: About the security overview
 {% data reusables.security-overview.about-the-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-The security overview shows which security features are enabled for repositories and consolidate alerts for each feature. 
+The security overview shows which security features are enabled for repositories and consolidate alerts for each feature.
 
 - Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories. {% ifversion ghes or ghae %}
 - Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %} and for public repositories.
@@ -88,7 +88,7 @@ This view shows data about which security features are used by repositories in t
 - Click **NUMBER Archived** to show only repositories that are archived.
 - Click in the search box to show a list of the full set of available filters.
 
-In addition, you can click **{% octicon "gear" aria-label="" %} Security settings** for any repository to enable the security features that have a one-click setup.
+In addition, you can click **{% octicon "gear" aria-hidden="true" %} Security settings** for any repository to enable the security features that have a one-click setup.
 
 ![Screenshot of the "Security Coverage" view on the "Security" tab for an organization. Illustrates information and filter options available in view.](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
 
@@ -98,15 +98,15 @@ In addition, you can click **{% octicon "gear" aria-label="" %} Security setting
 
 ![Screenshot of the security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
-For each repository in the security overview, you will see icons for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the icon for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+Each repository in the security overview includes an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
 
-| Icon | Meaning |
+| Indicator | Meaning |
 | -------- | -------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_capc %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)." |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)." |
 | {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." |
 | {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
-| {% octicon "check" aria-label="Check" %} | The security feature is enabled, but does not raise alerts in this repository. |
-| {% octicon "x" aria-label="x" %} | The security feature is not supported in this repository. |
+| {% octicon "check" aria-label="Enabled" %} | The security feature is enabled, but does not raise alerts in this repository. |
+| {% octicon "x" aria-label="Not supported" %} | The security feature is not supported in this repository. |
 
 {% endif %}
 

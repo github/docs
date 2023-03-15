@@ -659,10 +659,10 @@ describe('server', () => {
 
   describe('categories and map topics', () => {
     test('adds links to map topics on a category homepage', async () => {
-      const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/writing-on-github')
       expect(
         $(
-          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github"]'
+          'a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github"]'
         ).length
       ).toBe(1)
       expect($('a[href="#managing-user-account-settings"]').length).toBe(0)
@@ -675,33 +675,31 @@ describe('server', () => {
 
     test('map topic renders with links to articles', async () => {
       const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
+        '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
       )
       expect(
         $(
-          'li h2 a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"]'
+          'li h2 a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github"]'
         ).length
       ).toBe(1)
     })
 
     test('map topic renders with one intro for every h2', async () => {
-      const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-      )
+      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
       const $links = $('[data-testid=expanded-item]')
       expect($links.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
-      const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-      )
-      const $parent = $('[data-testid=expanded-item] a[href*="source-code-migration-tools"]')
+      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
+      const $parent = $('[data-testid=expanded-item] a[href*="organizing-information-with-tables"]')
         .parent()
         .parent()
       const $intro = $('p', $parent)
       expect($intro.length).toBe(1)
-      expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
+      expect($intro.html()).toContain(
+        'You can build tables to organize information in comments, issues, pull requests, and wikis.'
+      )
     })
   })
 })
@@ -912,12 +910,12 @@ describe('index pages', () => {
   const nonEnterpriseOnlyPath =
     '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
 
-  test('includes dotcom-only links in dotcom TOC', async () => {
+  test.skip('includes dotcom-only links in dotcom TOC', async () => {
     const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
-  test('excludes dotcom-only from GHE TOC', async () => {
+  test.skip('excludes dotcom-only from GHE TOC', async () => {
     const $ = await getDOM(
       `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
     )

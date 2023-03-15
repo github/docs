@@ -42,10 +42,10 @@ To create secrets for an organization repository, you must have administrator ac
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.codespaces.sidebar-secret %}
 
-2. At the top of the page, click **New repository secret**.
-3. Type a name for your secret in the **Name** input box.
-4. Enter the value for your secret.
-5. Click **Add secret**.
+1. At the top of the page, click **New repository secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
 ## Adding secrets for an organization
 
@@ -57,14 +57,11 @@ When creating a secret in an organization, you can use a policy to limit which r
 {% data reusables.organizations.org_settings %}
 {% data reusables.codespaces.sidebar-secret %}
 
-2. At the top of the page, click **New organization secret**.
-3. Type a name for your secret in the **Name** input box.
-4. Enter the **Value** for your secret.
-5. From the **Repository access** dropdown list, choose an access policy.
-
-   <img src="/assets/images/help/codespaces/secret-repository-access.png" alt='Screenshot of the "Repository access" dropdown menu with the options "All repositories," "Private repositories," and "Selected repositories."' style="width:400px;"/>
-
-6. Click **Add secret**.
+1. At the top of the page, click **New organization secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the **Value** for your secret.
+1. From the **Repository access** dropdown list, choose an access policy.
+1. Click **Add secret**.
 
 ## Reviewing access to organization-level secrets
 

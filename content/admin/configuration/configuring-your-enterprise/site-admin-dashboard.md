@@ -14,8 +14,7 @@ topics:
   - Enterprise
   - Fundamentals
 ---
-To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
 
 {% ifversion ghes or ghae %}
 
@@ -198,7 +197,7 @@ Under "Current active committer count", you can see the number of active committ
 
 Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
 
-Under "Calculate Additional Advanced Committers", you can calculate how many more additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
+Under "Calculate Additional Advanced Committers", you can calculate how many more additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line.
 
 ```
 example-org

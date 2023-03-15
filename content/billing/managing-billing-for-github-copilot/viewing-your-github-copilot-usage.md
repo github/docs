@@ -13,7 +13,7 @@ shortTitle: View your usage
 
 ## About your {% data variables.product.prodname_copilot %} usage
 
-You can view usage information for {% data variables.product.prodname_copilot %} in your {% ifversion ghec %}enterprise, broken down by organization, or in your{% else %} organization{% endif %}, broken down by seat assignment status. {% ifversion ghec %}At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle.{% endif %} At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle.
+You can view usage information for {% data variables.product.prodname_copilot %} in your {% ifversion ghec %}enterprise, broken down by organization, or in your{% endif %} organization, broken down by seat assignment status. {% ifversion ghec %}At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle.{% endif %} At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle.
 
 If an organization admin has assigned one or more seats partway through the current billing cycle, the enterprise-level information will display a decimal number of seats. For example, if the organization started the billing cycle with 3 seats assigned, and then assigned an additional seat half way through the cycle, the seat usage information will display 3.5 seats. The "3" representing the seats assigned at the start of the cycle, and the "0.5" representing the additional seat assigned halfway through the cycle.
 
@@ -28,8 +28,6 @@ The spending information will display the total spending for each organization f
 1. Under "{% data variables.product.prodname_copilot_short %} monthly usage," view the breakdown of your {% data variables.product.prodname_copilot %} usage.
     - Under "Seat usage" you can view the total number of seats currently assigned per organization, with a decimal number representing seats assigned partway through the current billing cycle.
     - Under "Spending" you can view the total cost of {% data variables.product.prodname_copilot_for_business %} for the current billing cycle per organization.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot %} usage page](/assets/images/help/copilot/monthly-usage-enterprise.png)
 
 ### At the organization-level
 {% endif %}

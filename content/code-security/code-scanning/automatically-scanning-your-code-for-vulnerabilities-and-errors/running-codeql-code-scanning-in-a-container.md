@@ -1,6 +1,6 @@
 ---
 title: Running CodeQL code scanning in a container
-shortTitle: '{% data variables.product.prodname_code_scanning_capc %} in a container'
+shortTitle: '{% data variables.product.prodname_code_scanning_caps %} in a container'
 intro: 'You can run {% data variables.product.prodname_code_scanning %} in a container by ensuring that all processes run in the same container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:

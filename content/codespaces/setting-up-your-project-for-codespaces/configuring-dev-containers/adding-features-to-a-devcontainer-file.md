@@ -25,11 +25,11 @@ redirect_from:
    If you don't already have a `devcontainer.json` file, you can create one now. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 1. To the right of the file editor, in the **Marketplace** tab, browse or search for the feature you want to add, then click the name of the feature.
 
-   ![Screenshot of the Marketplace tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
+   ![Screenshot of the "Marketplace" tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
 
 3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
 
-   ![Screenshot of the Marketplace tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
+   ![Screenshot of the "Marketplace" tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 
    ```JSON
    "features": {
@@ -40,7 +40,7 @@ redirect_from:
     ```
 1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
 
-   ![Screenshot of the "Options" section of the Marketplace tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
+   ![Screenshot of the "Options" section of the "Marketplace" tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
 
    ```JSON
    "features": {
@@ -67,9 +67,9 @@ To add features in {% data variables.product.prodname_vscode_shortname %} while 
 {% endnote %}
 
 {% data reusables.codespaces.command-palette %}
-1. Start typing "configure" and click **Codespaces: Configure Dev Container**.
+1. Start typing "add dev" then click **Codespaces: Add Dev Container Configuration Files**.
 
-   ![Screenshot of the "Codespaces: Configure Dev Container" option in the Command Palette.](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Screenshot of the Command Palette, with "add dev" entered and "Codespaces: Add Dev Container Configuration Files" listed.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
 1. Click **Modify your active configuration**.
 1. Update your feature selections, then click **OK**.

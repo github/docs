@@ -40,6 +40,7 @@ If your project communicates with an external service, you might use a token or 
 
   Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
 
+{% data reusables.secret-scanning.audit-secret-scanning-events %}
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
 
@@ -81,7 +82,7 @@ If you're a repository administrator, you can enable {% data variables.secret-sc
 
 ### Accessing {% data variables.secret-scanning.alerts %}
 
-When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also periodically runs a scan of all historical content in {% ifversion fpt %}public {% endif %}repositories with {% data variables.product.prodname_secret_scanning %} enabled.{% endif%}
+When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also runs a scan of all historical content in {% ifversion fpt %}public {% endif %}repositories with {% data variables.product.prodname_secret_scanning %} enabled when a new partner pattern {% ifversion not fpt %}or custom pattern{% endif %} is added or updated.{% endif%}
 
 If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
 

@@ -57,7 +57,7 @@ shortTitle: View the security overview
 {% data reusables.security-overview.security-coverage-single-repo-enablement %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click **{% octicon "shield" aria-label="" %} Code Security**.
+1. In the left sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.
 {% ifversion security-overview-feature-specific-alert-page %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
 {% endif %}

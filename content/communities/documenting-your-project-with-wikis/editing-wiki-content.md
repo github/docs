@@ -34,11 +34,13 @@ Wikis can display PNG, JPEG, and GIF images.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+1. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
+1. In the wiki toolbar, click {% octicon "image" aria-hidden="true" %}.
+
+   ![Screenshot of the toolbar on the edit page of the wiki. The icon to add an image is outlined in dark orange.](/assets/images/help/wiki/wiki-add-image.png)
+
+1. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
+1. Click **OK**.
 
 ### Linking to images in a repository
 

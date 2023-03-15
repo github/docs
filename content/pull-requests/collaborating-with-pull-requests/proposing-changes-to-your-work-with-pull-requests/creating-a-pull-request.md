@@ -54,7 +54,6 @@ When you change any of the information in the branch range, the Commit and Files
   ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
 {% data reusables.repositories.new-pull-request %}
 4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
-  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 
@@ -126,29 +125,33 @@ gh pr create --web
 
 {% desktop %}
 
-{% mac %}
+1. Click **Preview Pull Request**. {% data variables.product.prodname_desktop %} will open a preview dialog showing the diff of the changes between your current branch and the base branch.
 
-1. Switch to the branch that you want to create a pull request for. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches#switching-between-branches)."
-2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
-  ![Screenshot of the "No local changes" view. A button, labeled "Create Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-create-pull-request.png)
-4. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
-  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
+   {% mac %}
+
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
+
+   {% endmac %}
+
+   {% windows %}
+
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/windows-preview-pull-request.png)
+
+   {% endwindows %}
+
+   Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
+
+1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
+  
+  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+
+  {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
+
+  ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
+
+1. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
-
-{% endmac %}
-
-{% windows %}
-
-1. Switch to the branch that you want to create a pull request for. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches#switching-between-branches)."
-2. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
-  ![The Create Pull Request button](/assets/images/help/desktop/windows-create-pull-request.png)
-3. On {% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. Confirm that the branch in the **compare:** drop-down menu is the topic branch where you made your changes.
-  ![Drop-down menus for choosing the base and compare branches](/assets/images/help/desktop/base-and-compare-branches.png)
-{% data reusables.repositories.pr-title-description %}
-{% data reusables.repositories.create-pull-request %}
-
-{% endwindows %}
 
 {% enddesktop %}
 
