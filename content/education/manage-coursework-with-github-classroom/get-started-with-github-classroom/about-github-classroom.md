@@ -7,9 +7,6 @@ topics:
   - Fundamentals
 versions:
   fpt: '*'
-redirect_from:
-  - /education/manage-coursework-with-github-classroom/about-github-classroom
-   
 ---
 
 
