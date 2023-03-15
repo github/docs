@@ -1,7 +1,6 @@
 ---
 title: About GitHub Classroom
 intro: '{% data variables.product.prodname_classroom %} is a space where teachers, organizations or school administrators can create assignments, collaborate with teaching assistants, and invite students in a single course.'
-product: 'Education'
 type: overview
 topics: 
   - Fundamentals
