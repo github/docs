@@ -14,6 +14,7 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
+import yaml from 'js-yaml'
 
 import { updateInternalLinks } from '../lib/update-internal-links.js'
 import frontmatter from '../lib/read-frontmatter.js'
@@ -130,13 +131,17 @@ async function main(files, opts) {
           }
         }
         if (!opts.dryRun) {
-          // Remember the `content` and `newContent` is the "meat" of the
-          // Markdown page. To save it you need the frontmatter data too.
-          fs.writeFileSync(
-            file,
-            frontmatter.stringify(newContent, newData, { lineWidth: 10000 }),
-            'utf-8'
-          )
+          if (file.endsWith('.yml')) {
+            fs.writeFileSync(file, yaml.dump(newData), 'utf-8')
+          } else {
+            // Remember the `content` and `newContent` is the "meat" of the
+            // Markdown page. To save it you need the frontmatter data too.
+            fs.writeFileSync(
+              file,
+              frontmatter.stringify(newContent, newData, { lineWidth: 10000 }),
+              'utf-8'
+            )
+          }
         }
       }
       if (warnings.length) {
