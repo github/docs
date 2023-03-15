@@ -122,7 +122,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
      $ touch ~/.ssh/config
      ```
 
-   * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
+   * Open your newly created `~/.ssh/config` file by typing `open ~/.ssh/config`, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
 
      ```
      Host {% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
