@@ -115,11 +115,11 @@ For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-
 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} is an {% data variables.product.prodname_advanced_security %} feature that scans code for security vulnerabilities and errors.
+{% data variables.product.prodname_code_scanning_caps %} is an {% data variables.product.prodname_advanced_security %} feature that scans code for security vulnerabilities and errors.
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_capc %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_caps %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
 
-{% data variables.product.prodname_code_scanning_capc %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+{% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 
 ## Next steps
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."

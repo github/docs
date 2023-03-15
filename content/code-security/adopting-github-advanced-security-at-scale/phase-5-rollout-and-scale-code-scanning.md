@@ -42,9 +42,9 @@ You can then proceed to the next stage of enablement, which is creating internal
 
 It’s a good idea to run regular company meetings on specific topics to educate and discuss the rollout with a larger group. This is much more time-efficient for an enterprise with thousands of repositories compared to working with one team at a time. Teams can come to sessions that are relevant to them. Some example sessions that have been run before include:
 
-- {% data variables.product.prodname_code_scanning_capc %} in a container
-- {% data variables.product.prodname_code_scanning_capc %} & Java Struts
-- {% data variables.product.prodname_code_scanning_capc %} & JSP
+- {% data variables.product.prodname_code_scanning_caps %} in a container
+- {% data variables.product.prodname_code_scanning_caps %} & Java Struts
+- {% data variables.product.prodname_code_scanning_caps %} & JSP
 
 You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
 
