@@ -13,16 +13,13 @@ topics:
   - API
 ---
 
-![The Gundamcat](/assets/images/gundamcat.png)
-
 ## Octokit comes in many flavors
 
 Use the official Octokit library, or choose between any of the available third party libraries.
 
-- **Python** → [octokit.py](https://github.com/khornberg/octokit.py)
-- **Ruby** → [octokit.rb](https://github.com/octokit/octokit.rb)
-- **.NET** → [octokit.net](https://github.com/octokit/octokit.net)
-- **JavaScript** → [octokit/octokit.js](https://github.com/octokit/octokit.js)
+- Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
+- .NET: [octokit.net](https://github.com/octokit/octokit.net)
+- JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 ## Third-party libraries
 
@@ -126,6 +123,7 @@ Use the official Octokit library, or choose between any of the available third p
 |**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)|
 |**torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)|
 |**githubkit**|[yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)|
+|**octokit.py**|[khornberg/octokit.py](https://github.com/khornberg/octokit.py)|
 
 ### Ruby
 

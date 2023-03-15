@@ -18,7 +18,7 @@ shortTitle: Check out a PR locally
 ---
 {% note %}
 
-  **Note:** Pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
+  **Note:** Pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
   {% endnote %}
 
@@ -83,7 +83,7 @@ Anyone can work with a previously opened pull request to continue working on it,
   > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
   >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
   ```
-9. [Create a new pull request](/articles/creating-a-pull-request) with your new branch.
+9. [Create a new pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with your new branch.
 
 ## Error: Failed to push some refs
 

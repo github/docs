@@ -20,7 +20,7 @@ shortTitle: Fallback authentication
 
 ## About built-in authentication for users outside your provider
 
-By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
 
 If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
 
@@ -28,7 +28,7 @@ If you configure built-in authentication and a person successfully authenticates
 
 {% warning %}
 
-**Warning:** If you disable built-in authentication, you must individually suspend any users that should no longer have access to the instance. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)."
+**Warning:** If you disable built-in authentication, you must individually suspend any users that should no longer have access to the instance. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
 
 {% endwarning %}
 
@@ -37,10 +37,8 @@ If you configure built-in authentication and a person successfully authenticates
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. Select your identity provider.
-  ![Select identity provider option](/assets/images/enterprise/management-console/identity-provider-select.gif)
+4. Under "Authentication", select your authentication method.
 5. Select **Allow creation of accounts with built-in authentication**.
-  ![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. Read the warning, then click **Ok**.
 
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
@@ -57,6 +55,6 @@ When a user accepts the invitation, they can use their username and password to 
 
 ## Further reading
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- "[AUTOTITLE](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+- "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"

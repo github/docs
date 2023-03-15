@@ -20,27 +20,24 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 ## Authenticating an account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
+1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_dotcom_the_website %}".
+
+   ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
 {% data reusables.desktop.sign-in-browser %}
-
-
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+1. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
 ## Authenticating an account on {% data variables.product.prodname_ghe_server %}
 
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-{% data reusables.desktop.mac-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.location.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
+
+   ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub Enterprise", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-ghes.png)
+1. To add an account on {% data variables.location.product_location_enterprise %}, in the "Sign in" modal window, type the URL for your instance under "Enterprise address," then click **Continue**.
 {% data reusables.desktop.sign-in-browser %}
 1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
-  ![The Sign In button for {% data variables.product.prodname_ghe_server %} in browser](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
   Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
 
@@ -53,7 +50,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. To the right of "GitHub.com," click **Sign in**.
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
+  ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
 {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
@@ -84,8 +81,8 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
 {% mac %}
 
-1. Use the **Help** drop-down menu and click **Show Logs in Finder**.
-  ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
+1. In the menu bar, select **Help**, then click **Show Logs in Finder**.
+  ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the open "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
 2. Select the log file from the date when you encountered the authentication error.
 
 {% endmac %}
@@ -143,7 +140,7 @@ Please make sure you have the correct access rights and the repository exists.
 
 This error means that you do not have a valid SSH key set up.
 
-To troubleshoot, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+To troubleshoot, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 ### Failed to clone
 
@@ -161,7 +158,7 @@ This error means that either the repository that you are trying to clone has sub
 
 If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+If you do not have a valid SSH key set up, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% windows %}
 
@@ -187,4 +184,4 @@ If your Windows username has extended Unicode characters, it may cause an AskPas
 {% endwindows %}
 
 ## Further reading
-- "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

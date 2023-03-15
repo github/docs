@@ -24,7 +24,7 @@ shortTitle: Change the base branch
 {% data reusables.repositories.sidebar-pr %}
 2. In the "Pull Requests" list, click the pull request you'd like to modify.
 3. Next to the pull request's title, click **Edit**. ![Pull Request edit button](/assets/images/help/pull_requests/pull-request-edit.png)
-4. In the base branch drop-down menu, select the base branch you'd like to [compare changes against](/github/committing-changes-to-your-project/comparing-commits#comparing-branches). ![Base branch drop-down menu ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
+4. In the base branch drop-down menu, select the base branch you'd like to [compare changes against](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits#comparing-branches). ![Base branch drop-down menu ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
 5. Read the information about changing the base branch and click **Change base**. ![Base branch change confirmation button ](/assets/images/help/pull_requests/pull-request-base-branch-confirm.png)
 
 {% tip %}
@@ -35,6 +35,6 @@ shortTitle: Change the base branch
 
 ## Further reading
 
-- "[Creating a pull request](/articles/creating-a-pull-request)"
-- "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"

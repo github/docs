@@ -32,7 +32,7 @@ This guide shows you workflow examples that configure a service container using 
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and Redis. For more information, see:
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 - "[Getting Started with Redis](https://redislabs.com/get-started-with-redis/)" in the Redis documentation
 
 ## Running jobs in containers
@@ -117,7 +117,7 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### Configuring the steps for the container job
 
 {% data reusables.actions.service-template-steps %}
 
@@ -209,7 +209,7 @@ jobs:
 
 {% data reusables.actions.redis-label-description %}
 
-The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
 ```yaml{:copy}
 jobs:
@@ -235,7 +235,7 @@ jobs:
           - 6379:6379
 ```
 
-### Configuring the steps
+### Configuring the steps for the runner job
 
 {% data reusables.actions.service-template-steps %}
 
@@ -283,7 +283,7 @@ const redis = require("redis");
 // If REDIS_PORT is not set, the default port is 6379
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT  
+  port: process.env.REDIS_PORT
 });
 
 redisClient.on("error", function(err) {
@@ -319,7 +319,7 @@ When you run this workflow, you should see the following output in the "Connect 
 Reply: OK
 Reply: 1
 Reply: 1
-Reply: 1  
+Reply: 1
 3 replies:
     0: octocat
     1: dinotocat

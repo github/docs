@@ -48,7 +48,7 @@ The new code search (beta) also supports searching for an exact string, includin
 
 You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in the new code search (beta), see "[Using qualifiers](#using-qualifiers)."
 
-You can also use regular expressions in your searches by surrounding the expression in backslashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
 
 ## Query for an exact match
 
@@ -259,10 +259,10 @@ This query would only match files containing the term `README.md`, rather than m
 
 ### Is qualifier
 
-To filter based on document properties, you can use the `is:` qualifier. At this time, the only value supported in this qualifier is `archived`, which restricts the search to archived repositories. For example:
+To filter based on repository properties, you can use the `is:` qualifier. At this time, `is:` supports two values: `archived`, which restricts the search to archived repositories, and `fork`, which restricts the search to forked repositories. For example:
 
 ```
-path:/MIT.txt is:archived
+path:/^MIT.txt$/ is:archived
 ```
 
 Note that the `is:` qualifier can be inverted with the `NOT` operator. To search for non-archived repositories, you can search:
@@ -271,9 +271,15 @@ Note that the `is:` qualifier can be inverted with the `NOT` operator. To search
 log4j NOT is:archived
 ```
 
+To exclude forks from your results, you can search:
+
+```
+log4j NOT is:fork
+```
+
 ## Using regular expressions
 
-The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in backslashes. 
+The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes. 
 
 For example, to search for the regular expression `sparse.*index`, you would use:
 

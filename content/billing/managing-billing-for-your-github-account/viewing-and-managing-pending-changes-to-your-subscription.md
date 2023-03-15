@@ -38,4 +38,4 @@ When you cancel a pending change, your subscription will not change on your next
 
 ## Further reading
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"

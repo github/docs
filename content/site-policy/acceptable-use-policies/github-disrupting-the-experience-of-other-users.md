@@ -24,4 +24,4 @@ We do not allow behavior that significantly or continually disrupts the experien
 
 While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 
-Please note that the above conduct may also violate other restrictions in our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). For example, depending on the nature and severity of the activity, it may rise to the level of [bullying and harassment](/github/site-policy/github-bullying-and-harassment).
+Please note that the above conduct may also violate other restrictions in our [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, depending on the nature and severity of the activity, it may rise to the level of [bullying and harassment](/site-policy/acceptable-use-policies/github-bullying-and-harassment).

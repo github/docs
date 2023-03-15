@@ -19,7 +19,7 @@ For the purposes of this policy:
 
 "Candidate Personal Information" refers to any information we collect about one of our Candidates during the application or recruitment process which could, alone or together with other information, personally identify them or otherwise be reasonably linked or connected with them. 
 
-This policy does not apply to the use of GitHub services, which are covered under our [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+This policy does not apply to the use of GitHub services, which are covered under our [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
 
 ## What Candidate Personal Information do we collect?
 

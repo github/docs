@@ -7,7 +7,6 @@ import frontmatter from '../../lib/read-frontmatter.js'
 import { getDOM } from '../helpers/e2etest.js'
 import { allVersions } from '../../lib/all-versions.js'
 import renderContent from '../../lib/render-content/index.js'
-import loadSiteData from '../../lib/site-data.js'
 import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
@@ -16,11 +15,9 @@ describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
   let $homePage, $githubPage, $enterprisePage, $restPage
   beforeAll(async () => {
-    const siteData = await loadSiteData()
     req.context = {
       allVersions,
       currentLanguage: 'en',
-      site: siteData.en.site,
     }
     ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
@@ -30,23 +27,22 @@ describe('sidebar', () => {
     ])
   })
 
-  test('highlights active product on Enterprise pages', async () => {
-    expect($enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Enterprise administrators')
+  test('highlights active product on Enterprise pages on xl viewport', async () => {
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').text().trim()).toBe(
+      'Enterprise administrators'
+    )
   })
 
-  test('highlights active product on GitHub pages', async () => {
-    expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Get started')
+  test('highlights active product on GitHub pages on xl viewport', async () => {
+    expect($githubPage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($githubPage('[data-testid=sidebar-product-xl]').text().trim()).toBe('Get started')
   })
 
-  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
-    expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
+  test('includes links to external products like Electron and CodeQL', async () => {
+    expect(
+      $homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs/latest"]')
+    ).toHaveLength(1)
     expect(
       $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
     ).toHaveLength(1)
@@ -54,7 +50,8 @@ describe('sidebar', () => {
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
+    const url =
+      '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)
@@ -130,7 +127,7 @@ describe('sidebar', () => {
 
     // Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
     async function createContentCheckDirectory() {
-      const renderOpts = { textOnly: true, encodeEntities: true }
+      const renderOpts = { textOnly: true }
 
       for (const filename of contentFiles) {
         const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
@@ -142,11 +139,9 @@ describe('sidebar', () => {
         if (splitPath[splitPath.length - 2] === 'rest') {
           category = data.title
         } else if (splitPath[splitPath.length - 3] === 'rest') {
-          if (filename.includes('index.md')) {
-            category = data.shortTitle || data.title
-          } else {
-            subCategory = data.shortTitle || data.title
-          }
+          filename.includes('index.md')
+            ? (category = data.shortTitle || data.title)
+            : (subCategory = data.shortTitle || data.title)
         }
         for (const version of applicableVersions) {
           req.context.currentVersion = version

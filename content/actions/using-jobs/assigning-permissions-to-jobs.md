@@ -7,7 +7,6 @@ versions:
   ghes: '> 3.1'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,3 +19,7 @@ miniTocMaxHeadingLevel: 4
 ## Assigning permissions to a specific job
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
+
+### Example: Setting permissions for a specific job
+
+{% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}

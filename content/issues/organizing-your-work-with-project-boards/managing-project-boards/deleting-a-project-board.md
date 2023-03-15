@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip**: If you'd like to retain access to a completed or unneeded {% data variables.projects.projects_v1_board %} without losing access to its contents, you can [close the {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board) instead of deleting it.
+**Tip**: If you'd like to retain access to a completed or unneeded {% data variables.projects.projects_v1_board %} without losing access to its contents, you can [close the {% data variables.projects.projects_v1_board %}](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board) instead of deleting it.
 
 {% endtip %}
 
@@ -29,6 +29,6 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-- "[Closing a {% data variables.product.prodname_project_v1 %}](/articles/closing-a-project-board)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in a repository](/articles/disabling-project-boards-in-a-repository)"
-- "[Disabling {% data variables.product.prodname_project_v1_caps %} in your organization](/articles/disabling-project-boards-in-your-organization)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/disabling-project-boards-in-your-organization)"

@@ -23,5 +23,5 @@ shortTitle: About billing
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
+- "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"

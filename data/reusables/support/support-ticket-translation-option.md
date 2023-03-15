@@ -1,0 +1,1 @@
+You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."

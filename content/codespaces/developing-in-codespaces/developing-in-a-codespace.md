@@ -23,7 +23,7 @@ shortTitle: Develop in a codespace
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
-You can develop code in a codespace using your choice of tool: 
+You can develop code in a codespace using your choice of tool:
 
 * A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
 * One of the JetBrains IDEs, via the JetBrains Gateway.
@@ -38,10 +38,10 @@ The tabs in this article allow you to switch between information for each of the
 
 Using {% data variables.product.prodname_codespaces %} in the browser provides you with a fully featured development experience. You can edit code, debug, use Git commands, and run your application.
 
-![Annotated screenshot of a codespace in the browser](/assets/images/help/codespaces/codespace-overview-annotated.png)
+![Annotated screenshot of the five main components of the user interface: side bar, activity bar, editor, panels, status bar.](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
 {% data reusables.codespaces.vscode-interface-annotation %}
-{% data reusables.codespaces.use-chrome %} For more information, see "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
+{% data reusables.codespaces.use-chrome %} For more information, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
 {% data reusables.codespaces.developing-in-vscode %}
 {% data reusables.codespaces.navigating-to-a-codespace %}
 
@@ -55,15 +55,15 @@ The tabs in this article allow you to switch between information for each of the
 
 {% data variables.product.prodname_github_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
-![Annotated screenshot of a codespace in VS Code](/assets/images/help/codespaces/codespace-annotated-vscode.png)
+![Annotated screenshot of the five main components of the user interface: side bar, activity bar, editor, panels, status bar.](/assets/images/help/codespaces/codespace-annotated-vscode.png)
 
 {% data reusables.codespaces.vscode-interface-annotation %}
 
 For more information on using {% data variables.product.prodname_vscode_shortname %}, see the [User Interface guide](https://code.visualstudio.com/docs/getstarted/userinterface) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-{% data reusables.codespaces.connect-to-codespace-from-vscode %} 
+{% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
-For troubleshooting information, see "[Troubleshooting Codespaces clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
+For troubleshooting information, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
 {% data reusables.codespaces.developing-in-vscode %}
 {% data reusables.codespaces.navigating-to-a-codespace %}
 
@@ -85,15 +85,15 @@ You can edit code, debug, and use Git commands while developing in a codespace w
 
 Within the {% data variables.product.prodname_github_codespaces %} documentation we use IntelliJ IDEA as a representative JetBrains IDE. Different JetBrains IDEs may have different layouts.
 
-![Annotated screenshot of a codespace in JetBrains IntelliJ IDEA](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
+![Annotated screenshot of the six main components of the user interface for JetBrains IntelliJ IDEA.](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
 
+The main components of the user interface are:
 1. **Navigation bar** - This displays the path to the currently selected file or directory. Use the buttons to the right of the navigation bar to perform various actions, including building, running, or debugging the project, or running Git commands to commit and push your changes.
 2. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
 3. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:
-   * Stop the codespace and disconnect
+   * Refresh the details in the tool window for the active codespace
    * Display the "Your codespaces" web page
    * View the codespace creation logs
-   * Rebuild the dev container
 4. **Editor** - This is where you edit your files. You can right-click the tab for a file to access options such as moving the tab to a new window.
 5. **Terminal** - This is displayed by clicking **Terminal** in the tool window bar at the bottom of the main window (just above the status bar). The integrated terminal allows you to perform command-line tasks without having to switch to a dedicated terminal application.
 6. **Status bar** - Hover over the icon at the left of the status bar to see a list of tools. Click the icon to hide or show the tool window bars. The right side of the status bar shows information about the project, including the current Git branch.
@@ -102,23 +102,23 @@ For more information about the IntelliJ IDEA user interface, see the [JetBrains 
 
 ### Customizing the codespaces for a repository
 
-You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+You can customize the codespaces that are created for a repository by creating or updating the dev container configuration for the repository. You can do this from within a codespace. After you change a dev container configuration, you can apply the changes to the current codespace by rebuilding the Docker container for the codespace. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ### Personalizing your codespace
 
-You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to personalize aspects of the codespace environment for any codespace that you create. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to personalize aspects of the codespace environment for any codespace that you create. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
 
 ### Committing your changes
 
 Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit and push your changes. Pushing changes to a repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, to modify the configuration of codespaces created for a repository, will be available to everybody who uses the repository.
 
-For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)."
 
 ## Further reading
 
-* "[Using {% data variables.product.prodname_github_codespaces %} in your JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[Using the {% data variables.product.prodname_github_codespaces %} plugin for JetBrains](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-* "[Troubleshooting {% data variables.product.prodname_github_codespaces %} clients](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
+* "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
+* "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
+* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
 
 {% endjetbrains %}
 
@@ -134,6 +134,6 @@ You can use {% data variables.product.prodname_cli %} to create a new codespace,
 
 After installing {% data variables.product.prodname_cli %} and authenticating with your {% data variables.product.prodname_dotcom %} account you can use the command `gh codespace [<SUBCOMMAND>...] --help` to browse the help information. Alternatively, you can view the same reference information at [https://cli.github.com/manual/gh_codespace](https://cli.github.com/manual/gh_codespace).
 
-For more information, see "[Using {% data variables.product.prodname_github_codespaces %} with GitHub CLI](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)."
 
 {% endcli %}

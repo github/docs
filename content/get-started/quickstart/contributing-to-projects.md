@@ -16,9 +16,11 @@ topics:
 
 ## About forking
 
-After using GitHub by yourself for a while, you may find yourself wanting to contribute to someone else’s project. Or maybe you’d like to use someone’s project as the starting point for your own. This process is known as forking.
+If you want to contribute to someone else's project but don't have write access to the repository, you can use a "fork and pull request" workflow. 
 
-Creating a "fork" is producing a personal copy of someone else's project. Forks act as a sort of bridge between the original repository and your personal copy. You can submit pull requests to help make other people's projects better by offering your changes up to the original project. Forking is at the core of social coding at GitHub. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+{% data reusables.repositories.fork-definition-long %}
+
+You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo)."
 
 ## Forking a repository
 
@@ -29,7 +31,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
    ![Fork button](/assets/images/help/repository/fork_button.png){% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 3. Select an owner for the forked repository.
    ![Create a new fork page with owner dropdown emphasized](/assets/images/help/repository/fork-choose-owner.png)
-4. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.
+4. By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further. 
    ![Create a new fork page with repository name field emphasized](/assets/images/help/repository/fork-choose-repo-name.png)
 5. Optionally, add a description of your fork.
    ![Create a new fork page with description field emphasized](/assets/images/help/repository/fork-description.png)
@@ -40,7 +42,7 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the parent repository, you can do so from the **Branches** page. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
 {% endif %}
@@ -98,7 +100,7 @@ gh repo fork REPOSITORY --clone=true
 
 ## Creating a branch to work on
 
-Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[GitHub Flow](/get-started/quickstart/github-flow#following-github-flow)."
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow#following-github-flow)."
 
 {% webui %}
 
@@ -120,7 +122,7 @@ git checkout BRANCH-NAME
 
 {% desktop %}
 
-For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[Managing branches](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
 
 {% enddesktop %}
 
@@ -150,7 +152,7 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[Committing and reviewing changes to your project](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
 
 {% enddesktop %}
 
@@ -176,7 +178,7 @@ git push
 
 {% desktop %}
 
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[Pushing changes to GitHub](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
+For more information about how to push changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
 
 {% enddesktop %}
 
@@ -192,9 +194,9 @@ To do so, head on over to the repository on {% data variables.product.product_na
 
 ## Managing feedback
 
-Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your copy will exist in infamy on the Internet. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
+Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your changes exist in your fork. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
 
 ## Finding projects
 
 You've successfully forked and contributed back to a repository. Go forth, and
-contribute some more!{% ifversion fpt %} For more information, see "[Finding ways to contribute to open source on GitHub](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+contribute some more!{% ifversion fpt %} For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}

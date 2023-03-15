@@ -1,6 +1,7 @@
 ---
 title: Editing a repository security advisory
 intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
+permissions: Anyone with admin permissions to a repository security advisory, or with a security manager role within the repository, can edit the security advisory.
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -15,36 +16,31 @@ topics:
 shortTitle: Edit repository advisories
 ---
 
-People with admin permissions to a repository security advisory can edit the security advisory.
-
 {% data reusables.security-advisory.repository-level-advisory-note %}
-
-## About credits for security advisories
-
-You can credit people who helped discover, report, or fix a security vulnerability. If you credit someone, they can choose to accept or decline credit.
-
-If someone accepts credit, the person's username appears in the "Credits" section of the security advisory. Anyone with read access to the repository can see the advisory and the people who accepted credit for it.
-
-If you believe you should be credited for a security advisory, please contact the person who created the advisory and ask them to edit the advisory to include your credit. Only the creator of the advisory can credit you, so please don't contact GitHub Support about credits for security advisories.
 
 ## Editing a security advisory
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to edit.
-5. In the upper-right corner of the details for the security advisory, click {% octicon "pencil" aria-label="The edit icon" %}. This will open the security advisory form in edit mode.
-  ![Edit button for a security advisory](/assets/images/help/security/security-advisory-edit-button.png)
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to edit.
+5. In the upper-right corner of the details for the security advisory, click **Edit advisory**. This will open the security advisory form in edit mode.
+{% data reusables.repositories.security-advisory-edit-cve %}
+{% data reusables.repositories.security-advisory-edit-description %}
 {% data reusables.repositories.security-advisory-edit-details %}
 {% data reusables.repositories.security-advisory-edit-severity %}
-{% data reusables.repositories.security-advisory-edit-cwe-cve %}
-{% data reusables.repositories.security-advisory-edit-description %}
-11. Optionally, edit the "Credits" for the security advisory.
-  ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
-12. Click **Update security advisory**.
-  !["Update security advisory" button](/assets/images/help/security/update-advisory-button.png)
-13. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.
+{% data reusables.repositories.security-advisory-edit-cwe %}
+1.  Optionally, under "Credits", remove existing credits, or use the search box to find additional people you want to credit on the security advisory, then click their username to add them.
+{% ifversion security-advisories-credit-types %}
+    - Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."
+
+       ![Screenshot of a draft security advisory. A dropdown menu, labeled "Choose a credit type," is highlighted with an orange outline.](/assets/images/help/security/security-advisories-choose-credit-type.png)
+
+     - Optionally, to remove someone, click the {% octicon "x" aria-label="The icon to remove a credit to someone" %} next to the credit type.{% endif %}
+1.  Click **Update security advisory**.
+
+{% data reusables.repositories.security-advisory-credits-notification %}
 
 ## Further reading
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory)"

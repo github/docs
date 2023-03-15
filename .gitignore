@@ -14,6 +14,8 @@ coverage/
 .next
 .eslintcache
 *.tsbuildinfo
+translations/
+.node-version
 
 # blc: broken link checker
 blc_output.log
@@ -30,3 +32,13 @@ user-code/
 # Logs from scripts
 script/logs/
 external-link-checker-db.json
+
+# Playwright related
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Automated content source
+rest-api-description
+
+.installed.package-lock.json

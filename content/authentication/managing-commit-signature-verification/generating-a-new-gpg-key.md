@@ -20,7 +20,7 @@ topics:
 
 {% note %}
 
-**Note:** Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% ifversion fpt or ghec %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+**Note:** Before generating a new GPG key, make sure you've verified your email address. If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %}
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ topics:
 
   {% note %}
 
-  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
 
   {% endnote %}
 
@@ -56,13 +56,13 @@ topics:
  # Prints the GPG key ID, in ASCII armor format
  ```
 11. Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
-12. [Add the GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
+12. [Add the GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
-* "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-* "[Signing commits](/articles/signing-commits)"
-* "[Signing tags](/articles/signing-tags)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

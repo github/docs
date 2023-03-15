@@ -40,7 +40,7 @@ jobs:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - name: Get preview app info
         env:
@@ -65,7 +65,7 @@ jobs:
           az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
-      - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0
+      - uses: strumwolf/delete-deployment-environment@3cb547f8ec03ee6c0473d90cce57c74c688c2510
         with:
           # The token provided by the workflow does not have the permissions to delete created environments
           token: ${{ secrets.DOCUBOT_REPO_PAT }}

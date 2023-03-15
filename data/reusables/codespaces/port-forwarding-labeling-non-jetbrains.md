@@ -4,5 +4,4 @@ When you open a codespace in the browser, or in the {% data variables.product.pr
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Hover over the port you want to label, then click the label icon.
-  ![Label icon for port](/assets/images/help/codespaces/label-icon.png)
 {% data reusables.codespaces.type-port-label %}

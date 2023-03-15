@@ -1,19 +1,19 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import cx from 'classnames'
 
-import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { AllProductsLink } from 'components/sidebar/AllProductsLink'
-import styles from './SidebarProduct.module.scss'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { Link } from 'components/Link'
 import { RestCollapsibleSection } from './RestCollapsibleSection'
 import { ProductCollapsibleSection } from './ProductCollapsibleSection'
-import { useTranslation } from 'components/hooks/useTranslation'
 
 export const SidebarProduct = () => {
   const router = useRouter()
+  const sidebarRef = useRef<HTMLUListElement>(null)
   const { currentProduct, currentProductTree } = useMainContext()
   const { t } = useTranslation(['products'])
+  const isRestPage = currentProduct && currentProduct.id === 'rest'
 
   useEffect(() => {
     const activeArticle = document.querySelector('[data-is-current-page=true]')
@@ -36,10 +36,8 @@ export const SidebarProduct = () => {
     routePath.includes(href)
   )
 
-  const productTitle = currentProductTree.shortTitle || currentProductTree.title
-
   const productSection = () => (
-    <li className="my-3" data-testid="product-sidebar-items">
+    <li className="mt-2 mb-3" data-testid="product-sidebar-items">
       <ul className="list-style-none">
         {currentProductTree &&
           currentProductTree.childPages.map((childPage, i) => {
@@ -93,7 +91,7 @@ export const SidebarProduct = () => {
     )
     return (
       <>
-        <li className="my-3">
+        <li className="mt-2 mb-3">
           <ul className="list-style-none">
             {conceptualPages.map((childPage, i) => {
               const isStandaloneCategory = childPage.documentType === 'article'
@@ -174,18 +172,8 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <ul data-testid="sidebar" className={styles.container}>
-      <AllProductsLink />
-
-      <li data-testid="sidebar-product" title={productTitle} className="my-2">
-        <Link
-          href={currentProductTree.href}
-          className="pl-4 pr-5 pb-1 f4 color-fg-default no-underline"
-        >
-          {productTitle}
-        </Link>
-      </li>
-      {currentProduct && currentProduct.id === 'rest' ? restSection() : productSection()}
+    <ul data-testid="sidebar" ref={sidebarRef} style={{ overflowY: 'auto' }} className="pt-2">
+      {isRestPage ? restSection() : productSection()}
     </ul>
   )
 }

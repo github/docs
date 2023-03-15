@@ -33,8 +33,8 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Launch GraphiQL.
 1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
-1. In the **Key** field, enter `Authorization`. In the **Value** field, enter `Bearer <token>`, where `<token>` is your generated OAuth token.
-![graphiql headers](/assets/images/developer/graphiql-headers.png)
+1. In the **Key** field, enter `Authorization`. 
+1. In the **Value** field, enter `Bearer TOKEN`, replacing `TOKEN` with your OAuth token from the first step.
 1. Click the checkmark to the right of the token to save it.
 1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
 1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
@@ -42,7 +42,7 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 
 {% note %}
 
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
+**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ All types in a GraphQL schema include a `description` field compiled into docume
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
+The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
 
 {% endnote %}
 
@@ -88,7 +88,7 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
+This is the correct format to submit the call using a `POST` request in a `curl` command (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
 

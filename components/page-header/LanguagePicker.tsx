@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
+import { GlobeIcon } from '@primer/octicons-react'
 
 import { useLanguages } from 'components/context/LanguagesContext'
-import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
+import { Picker } from 'components/ui/Picker'
+
+import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 function rememberPreferredLanguage(value: string) {
   try {
@@ -16,7 +18,7 @@ function rememberPreferredLanguage(value: string) {
     // need this in the client-side which is used to determine
     // the UI about displaying notifications about preferred
     // language if your cookie doesn't match the current URL.
-    Cookies.set(PREFERRED_LOCALE_COOKIE_NAME, value, {
+    Cookies.set(USER_LANGUAGE_COOKIE_NAME, value, {
       expires: 365,
       secure: document.location.protocol !== 'http:',
     })
@@ -31,18 +33,22 @@ function rememberPreferredLanguage(value: string) {
 }
 
 type Props = {
-  variant?: 'inline'
+  mediumOrLower?: boolean
 }
 
-export const LanguagePicker = ({ variant }: Props) => {
+export const LanguagePicker = ({ mediumOrLower }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
 
   const locale = router.locale || 'en'
 
   const { t } = useTranslation('picker')
-  // 92BD1212-61B8-4E7A: Remove `.filter(lang => !lang.wip)` for the public ship of ko, fr, de, ru
-  const langs = Object.values(languages).filter((lang) => !lang.wip)
+  // Remember, in this context `languages` is only the active ones
+  // that are available. I.e. no wip ones.
+  // Also, if the current context has a page and that page has own ideas
+  // about which languages it's available in (e.g. early-access)
+  // it would already have been paired down.
+  const langs = Object.values(languages)
 
   if (langs.length < 2) {
     return null
@@ -59,15 +65,24 @@ export const LanguagePicker = ({ variant }: Props) => {
   return (
     <div data-testid="language-picker">
       <Picker
-        variant={variant}
         defaultText={t('language_picker_default_text')}
-        options={langs.map((lang) => ({
+        items={langs.map((lang) => ({
           text: lang.nativeName || lang.name,
           selected: lang === selectedLang,
-          locale: lang.code,
-          href: `${routerPath}`,
-          onselect: rememberPreferredLanguage,
+          href: `/${lang.code}${routerPath}`,
+          extra: {
+            locale: lang.code,
+          },
         }))}
+        pickerLabel={mediumOrLower ? 'Language' : ''}
+        iconButton={mediumOrLower ? undefined : GlobeIcon}
+        onSelect={(item) => {
+          if (item.extra?.locale) rememberPreferredLanguage(item.extra.locale)
+        }}
+        buttonBorder={mediumOrLower}
+        dataTestId="default-language"
+        ariaLabel={`Select language: current language is ${selectedLang.name}`}
+        alignment={mediumOrLower ? 'start' : 'end'}
       />
     </div>
   )

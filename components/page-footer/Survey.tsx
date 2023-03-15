@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent, EventType } from 'components/lib/events'
+import { sendEvent, EventType } from 'src/events/browser'
 
 import styles from './Survey.module.scss'
 
@@ -16,7 +16,7 @@ enum ViewState {
 }
 
 export const Survey = () => {
-  const { asPath } = useRouter()
+  const { asPath, locale } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const [isEmailError, setIsEmailError] = useState(false)
@@ -36,7 +36,7 @@ export const Survey = () => {
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          'footer a[href="/github/site-policy/github-privacy-statement"]'
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`
         )
         ?.focus()
     }
@@ -194,7 +194,7 @@ export const Survey = () => {
 
       <Link
         className="f6 text-normal color-fg-accent"
-        href="/github/site-policy/github-privacy-statement"
+        href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
         target="_blank"
       >
         {t`privacy_policy`}

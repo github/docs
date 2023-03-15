@@ -12,6 +12,7 @@ security_advisories:
     - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
     - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
     - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+    - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
     - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
     - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
@@ -57,22 +58,23 @@ dependency_version_updates:
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
     - /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
-    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
 
-# Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT so hidden there.
+# Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT.
 secret_scanning:
   title: 'Scan for secrets'
   description: 'Set up secret scanning to guard against accidental check-ins of tokens, passwords, and other secrets to your repository.'
   guides:
-    - '{% ifversion not fpt %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
-    - '{% ifversion not fpt %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
+    - '/code-security/secret-scanning/about-secret-scanning'
+    - '/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories'
     - '{% ifversion not fpt %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning{% endif %}'
-    - '{% ifversion not fpt %}/code-security/secret-scanning/managing-alerts-from-secret-scanning{% endif %}'
-    - '{% ifversion not fpt %}/code-security/secret-scanning/secret-scanning-patterns{% endif %}'
+    - '/code-security/secret-scanning/managing-alerts-from-secret-scanning'
+    - '/code-security/secret-scanning/secret-scanning-patterns'
     - '{% ifversion secret-scanning-push-protection %}/code-security/secret-scanning/protecting-pushes-with-secret-scanning{% endif %}'
     - '{% ifversion secret-scanning-push-protection %}/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection{% endif %}'
+    - '/code-security/secret-scanning/troubleshooting-secret-scanning'
 
 # Security overview feature available in GHEC and GHES 3.2+, so other articles hidden to hide the learning path in other versions
 security_alerts:
@@ -85,6 +87,7 @@ security_alerts:
     - '{% ifversion ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
     - '{% ifversion ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
     - '{% ifversion ghec or ghes %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes %}/code-security/getting-started/auditing-security-alerts {% endif %}'
 
 # Feature available in all versions from GHES 2.22 up
 code_security_actions:

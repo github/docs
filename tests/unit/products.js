@@ -1,6 +1,10 @@
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
 import { productMap } from '../../lib/all-products.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 import schema from '../helpers/schemas/products-schema.js'
+
+const ajv = new Ajv({ allErrors: true })
+const validate = ajv.compile(schema)
 
 describe('products module', () => {
   test('is an object with product ids as keys', () => {
@@ -10,9 +14,13 @@ describe('products module', () => {
 
   test('every product is valid', () => {
     Object.values(productMap).forEach((product) => {
-      const { valid, errors } = revalidator.validate(product, schema)
-      const expectation = JSON.stringify({ product, errors }, null, 2)
-      expect(valid, expectation).toBe(true)
+      const valid = validate(product)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(valid.errors)
+      }
+      expect(valid, errors).toBe(true)
     })
   })
 })

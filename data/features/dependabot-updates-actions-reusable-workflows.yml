@@ -1,0 +1,5 @@
+# Reference: Issue #9693 -  Dependabot Updates now can keep Github Actions reusable workflows up to date - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'

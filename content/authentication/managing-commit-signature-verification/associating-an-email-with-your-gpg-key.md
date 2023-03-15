@@ -32,7 +32,7 @@ If you're using a GPG key that matches your committer identity and your verified
   ```shell
   $ gpg> adduid
   ```
-6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
   ```shell
   Real Name: OCTOCAT
   Email address: "octocat@github.com"
@@ -50,13 +50,13 @@ If you're using a GPG key that matches your committer identity and your verified
   $ gpg --armor --export 3AA5C34371567BD2
   # Prints the GPG key, in ASCII armor format
   ```
-11. Upload the GPG key by [adding it to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account).
+11. Upload the GPG key by [adding it to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
-- "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-- "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-- "[Using a verified email address in your GPG key](/articles/using-a-verified-email-address-in-your-gpg-key)"
-- "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-- "[Signing commits](/articles/signing-commits)"
-- "[Signing tags](/articles/signing-tags)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
+- "[AUTOTITLE](/authentication/troubleshooting-commit-signature-verification/using-a-verified-email-address-in-your-gpg-key)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

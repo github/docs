@@ -17,10 +17,11 @@ topics:
 children:
   - /adding-github-app-managers-in-your-organization
   - /removing-github-app-managers-from-your-organization
-  - /reviewing-your-organizations-installed-integrations
+  - /reviewing-github-apps-installed-in-your-organization
   - /setting-a-personal-access-token-policy-for-your-organization
   - /managing-requests-for-personal-access-tokens-in-your-organization
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
+  - /limiting-oauth-app-and-github-app-access-requests
 shortTitle: Manage programmatic access
 ---
 

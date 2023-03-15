@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
@@ -6,9 +6,13 @@ import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import { initializeEvents } from 'components/lib/events'
-import { initializeExperiments } from 'components/lib/experiment'
-import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import { initializeEvents } from 'src/events/browser'
+import { initializeExperiments } from 'src/events/experiment'
+import {
+  LanguagesContext,
+  LanguagesContextT,
+  LanguageItem,
+} from 'components/context/LanguagesContext'
 import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
@@ -104,11 +108,32 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
 
   // Have to define the type manually here because `req.context.languages`
   // comes from Node JS and is not type-aware.
-  const languages: LanguagesContextT = req.context.languages
+  const languagesContext: LanguagesContextT = {
+    languages: {},
+  }
+
+  // If we're rendering certain 404 error pages, the middleware might not
+  // yet have contextualized the `context.languages`. So omit this
+  // context mutation and live without it.
+  if (req.context.languages) {
+    for (const [langCode, langObj] of Object.entries(
+      req.context.languages as Record<string, LanguageItem>
+    )) {
+      if (langObj.wip) continue
+      // Only pick out the keys we actually need
+      languagesContext.languages[langCode] = {
+        name: langObj.name,
+        code: langObj.code,
+      }
+      if (langObj.nativeName) {
+        languagesContext.languages[langCode].nativeName = langObj.nativeName
+      }
+    }
+  }
 
   return {
     ...appProps,
-    languagesContext: { languages },
+    languagesContext,
   }
 }
 

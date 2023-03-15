@@ -17,9 +17,8 @@ shortTitle: Change access permissions
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under Features, unselect **Restrict edits to collaborators only**.
-   ![Wiki restrict editing](/assets/images/help/wiki/wiki_restrict_editing.png)
+1. Under Features, unselect **Restrict editing to collaborators only**.
 
 ## Further reading
 
-- "[Disabling wikis](/communities/documenting-your-project-with-wikis/disabling-wikis)"
+- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/disabling-wikis)"

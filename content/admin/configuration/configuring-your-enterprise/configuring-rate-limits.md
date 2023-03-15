@@ -1,6 +1,7 @@
 ---
 title: Configuring rate limits
 intro: 'You can set rate limits for {% data variables.product.prodname_ghe_server %} using the {% data variables.enterprise.management_console %}.'
+permissions: 'Site administrators can configure rate limits for a {% data variables.product.prodname_ghe_server %}  instance.'
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
@@ -13,12 +14,21 @@ topics:
   - Infrastructure
   - Performance
 ---
+
+## About rate limits for  {% data variables.product.product_name %}
+
+To prevent excessive use of resources on {% data variables.location.product_location %} that could affect the instance's availability or performance for all users, you can configure rate limits. Rate limits are configurable for the {% data variables.product.prodname_enterprise_api %} and {% data variables.product.prodname_actions %}.
+
+Implement rate limits carefully and communicate frequently with your users as you tune the limits. To avoid interrupting your users' work, {% data variables.product.company_short %} recommends that you start with permissive rate limits, and gradually tune the limits to suit your environment.
+
+You can also configure rate limits for authentication attempts to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."
+
 ## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
 
-Enabling rate limits on the {% data variables.product.prodname_enterprise_api %} can prevent overuse of resources by individual or unauthenticated users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Excessive numbers of requests to the {% data variables.product.prodname_enterprise_api %} can affect the availability and performance of your instance. For more information about how rate limits for the API affect your users, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 {% ifversion ghes %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config)."
 {% endif %}
 
 {% note %}
@@ -30,36 +40,20 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-![Checkbox for enabling API rate limiting](/assets/images/enterprise/management-console/api-rate-limits-checkbox.png)
 3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion enterprise-authentication-rate-limits %}
-## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
-
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If a user exceeds the login attempt limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
-
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Login attempt rate limiting", configure the lockout time and login attempt rate limit or accept the pre-filled default settings.
-![Fields for configuring lockout time and login attempt rate limit](/assets/images/enterprise/management-console/login-attempt-rate-limiting.png)
-{% data reusables.enterprise_management_console.save-settings %}
-
-{% endif %}
 ## Enabling secondary rate limits
 
 Setting secondary rate limits protects the overall level of service on {% data variables.location.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{% ifversion ghes %}
+{%- ifversion ghes %}
 2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-   ![Checkbox for enabling secondary rate limiting](/assets/images/enterprise/management-console/secondary-rate-limits-checkbox.png)
-{% else %}
+{%- else %}
 2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-    ![Checkbox for enabling abuse rate limiting](/assets/images/enterprise/management-console/abuse-rate-limits-checkbox.png)
-{% endif %}
+{%- endif %}
 3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -75,17 +69,16 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable Git Rate Limiting**.
-![Checkbox for enabling Git rate limiting](/assets/images/enterprise/management-console/git-rate-limits-checkbox.png)
-3. Type limits for each repository network or user ID.
-  ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
+1. Under "Rate Limiting", select **Enable Git Rate Limiting**.
+1. Under "Repository Network Limit", type a limit for each repository network.
+1. Under "User ID Limit", type a limit for each user ID.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ghes > 3.4 %}
 
 ## Configuring rate limits for {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+You can apply a rate limit to {% data variables.product.prodname_actions %} workflow runs. For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 ### About rate limits for {% data variables.product.prodname_actions %}
 
@@ -95,9 +88,9 @@ To avoid this performance degradation, you can configure a rate limit for {% dat
 
 > You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
 
-An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+An appropriate rate limit protects {% data variables.location.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 
-By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
+By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}.
 
 ### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
 

@@ -25,9 +25,9 @@ If the commit only exists in your local repository and has not been pushed to {%
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 2. Type `git commit --amend` and press **Enter**.
 3. In your text editor, edit the commit message, and save the commit.
-    - You can add a co-author by adding a trailer to the commit. For more information, see "[Creating a commit with multiple authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+    - You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[Creating a commit on behalf of an organization](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
+    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
@@ -50,7 +50,7 @@ We strongly discourage force pushing, since this changes the history of your rep
 
 **Changing the message of the most recently pushed commit**
 
-1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
+1. Follow the [steps above](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
 2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
   $ git push --force-with-lease origin EXAMPLE-BRANCH
@@ -121,4 +121,4 @@ If you have included sensitive information in a commit message, force pushing a 
 
 ## Further reading
 
-* "[Signing commits](/articles/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"

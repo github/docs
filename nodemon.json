@@ -3,10 +3,10 @@
   "ignore": [
     "assets",
     "script",
-    "translations",
     "stylesheets",
     "tests",
     "content",
+    "translations",
     "data/reusables",
     "data/variables",
     "data/glossaries",

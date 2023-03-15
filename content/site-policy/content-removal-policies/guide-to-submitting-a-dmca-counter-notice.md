@@ -12,7 +12,7 @@ topics:
   - Legal
 ---
 
-This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/articles/dmca-takedown-policy).
+This guide describes the information that GitHub needs in order to process a counter notice to a DMCA takedown request. If you have more general questions about what the DMCA is or how GitHub processes DMCA takedown requests, please review our [DMCA Takedown Policy](/site-policy/content-removal-policies/dmca-takedown-policy).
 
 If you believe your content on GitHub was mistakenly disabled by a DMCA takedown request, you have the right to contest the takedown by submitting a counter notice. If you do, we will wait 10-14 days and then re-enable your content unless the copyright owner initiates a legal action against you before then. Our counter-notice form, set forth below, is consistent with the form suggested by the DMCA statute, which can be found at the U.S. Copyright Office's official website: <https://www.copyright.gov>.
 
@@ -41,7 +41,7 @@ These are just a few examples of the complexities of copyright law. Since there 
 We require you to fill out all fields of a counter notice completely, because a counter notice is a legal statement — not just to us, but to the complaining party. As we mentioned above, if the complaining party wishes to keep the content disabled after receiving a counter notice, they will need to initiate a legal action seeking a court order to restrain you from engaging in infringing activity relating to the content on GitHub. In other words, you might get sued (and you consent to that in the counter notice).
 
 ***Your Counter Notice Will Be Published.***
-As noted in our [DMCA Takedown Policy](/articles/dmca-takedown-policy#d-transparency), **after redacting personal information,** we publish all complete and actionable counter notices at <https://github.com/github/dmca>. Please also note that, although we will only publicly publish redacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it. If you are concerned about your privacy, you may have a lawyer or other legal representative file the counter notice on your behalf.
+As noted in our [DMCA Takedown Policy](/site-policy/content-removal-policies/dmca-takedown-policy#d-transparency), **after redacting personal information,** we publish all complete and actionable counter notices at <https://github.com/github/dmca>. Please also note that, although we will only publicly publish redacted notices, we may provide a complete unredacted copy of any notices we receive directly to any party whose rights would be affected by it. If you are concerned about your privacy, you may have a lawyer or other legal representative file the counter notice on your behalf.
 
 ***GitHub Isn't The Judge.***
 GitHub exercises little discretion in this process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.

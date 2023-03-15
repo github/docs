@@ -22,7 +22,7 @@ shortTitle: Docker registry
 
 {% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
 
-Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
+Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% else %}
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
@@ -104,7 +104,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *VERSION* with package version at build time.
+2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
@@ -123,7 +123,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   ```
   {% endif %}
   {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% ifversion fpt or ghec %}
   ```shell
   $ docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
@@ -233,7 +233,7 @@ $ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
 {% ifversion fpt or ghec %}
 ```shell
@@ -263,6 +263,6 @@ $ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 
 ## Further reading
 
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
 
 {% endif %}  <!-- End of main versioning block -->

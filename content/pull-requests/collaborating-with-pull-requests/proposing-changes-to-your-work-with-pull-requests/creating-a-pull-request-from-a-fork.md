@@ -16,7 +16,7 @@ topics:
   - Pull requests
 shortTitle: Create a PR from a fork
 ---
-If your pull request compares your topic branch with a branch in the upstream repository as the base branch, then your topic branch is also called the compare branch of the pull request. For more information about pull request branches, including examples, see "[Creating a pull request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."
+If your pull request compares your topic branch with a branch in the upstream repository as the base branch, then your topic branch is also called the compare branch of the pull request. For more information about pull request branches, including examples, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
 {% data reusables.pull_requests.perms-to-open-pull-request %}
 
@@ -38,5 +38,5 @@ If your pull request compares your topic branch with a branch in the upstream re
 
 ## Further reading
 
-- "[Working with forks](/articles/working-with-forks)"
-- "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"

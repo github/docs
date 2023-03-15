@@ -1,0 +1,1 @@
+You can use any supported context and expression to create a conditional. For more information on which contexts are supported in this key, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)."
