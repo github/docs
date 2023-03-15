@@ -1,11 +1,18 @@
-# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
-
+# This Dockerfile is used for docker-based deployments to Azure for both preview 
+:ecosystem :environment.runetime :
+s and production
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-# To update the sha, run `docker pull node:$VERSION-alpine`
+branches -'['Raven/kite.yml
+# To update the sha, run `docker/rake.io
+Pull: 
+node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
 FROM node:18.13.0-alpine@sha256:fda98168118e5a8f4269efca4101ee51dd5c75c0fe56d8eb6fad80455c2f5827 as base
+=======
+FROM node:19.1.0-alpine@sha256:c59fb39150e4a7ae14dfd42d3f9874398c7941784b73049c2d274115f00d36c8 as base
+branches :-'['' 'dependabot/docker/node-9.1.0-pinny´´ ']"''
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app

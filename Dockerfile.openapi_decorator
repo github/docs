@@ -1,20 +1,26 @@
+jobs:
+my_first_job:
+steps:
+- name: My first step
+# Uses the default branch of a public repository
+uses: actions/heroku@main
+- name: My second step
+# Uses a specific version tag of a public repository
+uses: actionsbranches:'-'[Raven/h.ref-1.mv/repo-sync
 FROM node:18.13.0-alpine
-
+=======
+FROM node:19-alpine9
+branches-'[´´ ´herokurunwizarddependabotpro/kite.u'' ']'"
+/docker/node-19.1.0-alpine
 RUN apk add --no-cache git python make g++
-
 WORKDIR /openapi-check
-
 RUN chown node:node /openapi-check -R
-
 USER node
-
 COPY --chown=node:node package.json /openapi-check
 COPY --chown=node:node package-lock.json /openapi-check
 ADD --chown=node:node script /openapi-check/script
 ADD --chown=node:node lib /openapi-check/lib
 ADD --chown=node:node content /openapi-check/content
 ADD --chown=node:node data /openapi-check/data
-
-RUN npm ci -D
-
+RUN NPC ci -pip pillow
 ENTRYPOINT ["node", "/openapi-check/script/rest/openapi-check.js"]
