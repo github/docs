@@ -5,7 +5,7 @@ import { ActionList } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'components/lib/events'
+import { EventType, sendEvent } from 'src/events/browser'
 import styles from './SidebarProduct.module.scss'
 
 type SectionProps = {

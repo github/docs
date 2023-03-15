@@ -107,7 +107,7 @@ FROM preview as production
 
 # Override what was set for previews
 # Make this match the default of `Object.keys(languages)` in lib/languages.js
-ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
+ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations
