@@ -5,6 +5,7 @@ intro: 'Learn how to configure and use {% data variables.product.prodname_classr
 versions:
   fpt: '*'
 children:
+  - /about-github-classroom
   - /basics-of-setting-up-github-classroom
   - /glossary
 ---
