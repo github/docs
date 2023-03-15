@@ -32,7 +32,7 @@ export default async function buildRecords(
   redirects,
   config = {}
 ) {
-  const { noMarkers } = config
+  const { noMarkers, popularPagesFilePath } = config
   console.log(`\n\nBuilding records for index '${indexName}' (${languages[languageCode].name})`)
   const records = []
   const pages = indexablePages
@@ -53,7 +53,9 @@ export default async function buildRecords(
       return permalink
     })
 
-  const popularPages = await getPopularPages(redirects)
+  const popularPages = popularPagesFilePath
+    ? await getPopularPages(popularPagesFilePath, redirects)
+    : {}
 
   console.log('indexable pages', indexablePages.length)
   console.log('pages in index', pages.length)
