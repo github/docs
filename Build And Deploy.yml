@@ -1,0 +1,184 @@
+ci:C:\I:
+jobs:
+my_first_job: uae :-'step:
+- name: My first step
+# Uses the default branch of a public repository
+uses: actions/heroku@main
+- name: My second step
+# Uses a specific version tag of a public repository
+uses: actions
+title: bitore.sig
+Name: rb.qn
+on:
+push:
+branches:'' '-'['' 'trunk'' ']''
+pull_request:
+branches:'' '-'['' 'mainbranch'' ']''
+Job :uses :'"'-'Step
+build:
+Name: Build'-then-Deploy: title.yml
+runs-on: ubuntu-latest
+access: private
+#'Kind: kite.i
+language: Dns.Python.javascript
+'-' '#'Checks'-out:Actions/checkout@v2
+'-' 'Name' :'packages'"''
+packages' ':' use ''
+':'checkout: repositories/dispatch-sets'-up/:rake'.i'@v1
+'-' with' ':''Gunit/rb'.qn
+v'-'"12'.02'.08
+Name: Publish to GPHR
+run::\mkdir -p $RAKEFILE/mk.dir=:$ruby.yml/.Gem/.specs
+chieldo/mod.mtml
+$HOME/.gem/credentials
+printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+gem build *.gemspec
+gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+env:
+GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+OWNER: ${{ Zachry.Tyler_Wood }}
+Name ': 'Publish 'to 'Request'.md'"'''
+run: |
+$ mkdir -p $MAKEFILE/rakefile.Gem/.specs
+touch $HOME/.gem/credentials
+*chmod 0600 $HOME/.gem/credentials
+printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+gem build *.gemspec
+gem push *.gem
+env:
+$ make:file:rake.io\$MAKEFILE/rakefile.GEMS/.spec :
+${{secrets.RUBYGEMS_AUTH_TOKEN}}" :,
+access :Private
+Security.md
+Status
+Doc
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About			
+Account: 
+Amazon Web Services					
+account_number_code=STRING 4121350227				
+Advance :Payment Funding Request 					- 'Customer Address:				Request Summary					
+Amazon Web Services, Inc.				
+Request Number:		ZU3FLK7RCVCEO10			
+NAME :ZACHRY T WOOD				
+Request Date:		February 6, 2023			
+5222 BRADFORD DR				
+AMOUNT TO BE PAID		USD 267,567,263,607.00			
+DALLAS, TX 75235-8313, US				Email or talk to us about your AWS account, visit aws.amazon.com/contact-us/					
+This is a document for a recent funding request of your Amazon Web Services account									
+Greetings from Amazon Web Services, we're writing to provide you with an electronic document for the recent									
+funding request of your AWS account.									
+Summary									
+VOLUME :USD 267,567,263,607.00			
+AMOUNT :Value USD 267,567,263,607.00			
+Please complete your payment attributable to Amazon Web Services:									
+Following are the details for making an electronic funds transfer.									
+Please ensure to reference "733254901807 - AdvPay - ZU3FLK7RCVCEO10" in the descriptive text field of your									
+electronic funds transfer payment.									
+If you have any questions regarding payment, please email aws-accountsreceivable@amazon.com									
+Electronic funds transfer details:									
+Account Name: Amazon Web Services, Inc.									
+Checking Account Number: 4121350227									
+Wire Routing Number: 121000248									
+Bank Address: 420 Montgomery Street, San Francisco CA 94163									
+Bank Name: Wells Fargo NA									
+ABA Routing Number: 121000248									
+SWIFT Code: WFBIUS6SXXX									
+Thank you for using Amazon Web Services.									
+Sincerely,									
+The Amazon Web Services Team									
+This message was produced and distributed by Amazon Web Services, Inc., 410 Terry Avenue North, Seattle, Washington 98109-5210. AWS will									
+not be bound by, and specifically objects to, any term, condition or other provision which is different from or in addition to the provisions of the									
+AWS Customer Agreement or other agreement between AWS and you governing your use of our services (whether or not it would materially alter									
+such AWS Customer Agreement or other agreement) and which is submitted in any order, receipt, acceptance, confirmation, correspondence or									
+otherwise, unless AWS specifically agrees to such provision in a written instrument signed by AWS.																		
+Amazon Web Services, Inc. Invoice			
+Email or talk to us about your AWS account or bill, visit aws.amazon.com/contact-us/			
+Invoice Summary			
+Invoice Number: 1261035969			
+Invoice Date: March 2 , 2023			
+TOTAL AMOUNT DUE ON March 2 , 2023 $16,325,790.08			
+This invoice is for the billing period March 1 - March 31 , 2023									
+Greetings from Amazon Web Services, we're writing to provide you with an electronic invoice for your use of AWS services. Additional information									
+about your bill, individual service charge details, and your account history are available on the Account Activity Page.									
+Summary									
+AWS Service Charges $16,325,790.08									
+Savings Plans for AWS Machine Learning (one time fee) $15,315,000.08									
+Charges $0.00									
+Credits $0.00									
+Tax $1,010,790.00									
+Total for this invoice $16,325,790.08									
+Detail for Consolidated Bill									
+Savings Plans for AWS Machine Learning $16,325,790.08									
+Charges $0.00									
+VAT ** $0.00									
+GST $0.00									
+Estimated US sales tax to be collected $1,010,790.00									
+CT $0.00									
+Savings Plans for AWS Machine Learning (one time fee) $15,315,000.08									
+Start Date - 03/02/2023; Duration - 3yr									
+* May include estimated US sales tax, VAT, ST, GST and CT.									
+Amazon Web Services, Inc. is registered under the Singapore GST Overseas Vendor Registration Pay￾Only Regime and GST registration number is M90373009E									
+AWS, Inc. is a "Registered Foreign Supplier" under Japanese Consumption Tax Law and therefore AWS,									
+Inc. is required to declare and pay consumption tax in respect of this transaction (as a “Digital Service”)									
+to the Japan Tax Authority.									
+** This is not a VAT, ST or GST invoice. Related tax invoices can be accessed by going to									
+the Bills page on your Billing Management Console.									
+'*'"'*'°'"'°'*'"'*' Please reference the tax invoice for a breakout of the Canadian taxes by type									
+† Usage and recurring charges for this statement period will be charged on your next billing date. The									
+amount of your actual charges for this statement period may differ from the charges shown on this									
+page. The charges shown on this page do not include any additional usage charges accrued during this									
+statement period after the date you are viewing this page. Also, one-time fees and subscription charges									
+are assessed separately, on the date that they occur.									
+All charges and prices are in US Dollars									
+All AWS Services are sold by Amazon Web Services, Inc.									
+Service Provider:									
+(Not to be used for payment remittance)									
+Amazon Web Services, Inc.									
+410 Terry Ave North									
+Seattle , WA 98109-5210 , US									
+1									
+This invoice is for the billing period March 1 - March 31 , 2023									
+Greetings from Amazon Web Services, we're writing to provide you with an electronic invoice for your use of AWS services. Additional information									
+about your bill, individual service charge details, and your account history are available on the Account Activity Page.									
+Summary									
+AWS Service Charges $16,325,790.08									
+Savings Plans for AWS Machine Learning (one time fee) $15,315,000.08									
+Charges $0.00									
+Credits $0.00									
+Tax $1,010,790.00									
+Total for this invoice $16,325,790.									
+Detail for Consolidated Bill									
+Savings Plans for AWS Machine Learning $16,325,790.08									
+Charges $0.00									
+VAT ** $0.00									
+GST $0.00									
+Estimated US sales tax to be collected $1,010,790.00									
+CT $0.00									
+Savings Plans for AWS Machine Learning (one time fee) $15,315,000.08									
+Start Date - 03/02/2023; Duration - 3yr									
+* May include estimated US sales tax, VAT, ST, GST and CT.									
+Amazon Web Services, Inc. is registered under the Singapore GST Overseas Vendor Registration Pay￾Only Regime and GST registration number is M90373009E									
+AWS, Inc. is a "Registered Foreign Supplier" under Japanese Consumption Tax Law and therefore AWS,									
+Inc. is required to declare and pay consumption tax in. respect of this transaction (as a “Digital Service”)									
+to the Japan Tax Authority.									
+** This is not a VAT, ST or GST invoice. Related tax invoices can be accessed by going to									
+the Bills page on your Billing Management Console.									
+**** Please reference the tax invoice for a breakout of the Canadian taxes by type									
+† Usage and recurring charges for this statement period will be charged on your next billing date. The									
+amount of your actual charges for this statement period may differ from the charges shown on this									
+page. The charges shown on this page do not include any additional usage charges accrued during this									
+statement period after the date you are viewing this page. Also, one-time fees and subscription charges									
+are assessed separately, on the date that they occur.									
+All charges and prices are in US Dollars									
+All AWS Services are sold by Amazon Web Services, Inc.									
+Service Provider:									
+(Not to be used for payment remittance)									
+Amazon Web Services, Inc.									
+410 Terry Ave North									
+Seattle , WA 98109-5210 , US									
+:Build::
