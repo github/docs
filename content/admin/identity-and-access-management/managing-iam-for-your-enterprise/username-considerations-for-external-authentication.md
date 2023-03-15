@@ -54,7 +54,7 @@ When you provision a new user from your identity provider, the new {% data varia
 
 | Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | IDP-USERNAME_is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
+| Azure Active Directory (Azure AD) | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
 | Okta                              | IDP-USERNAME is the normalized username attribute provided by the IdP.               |
 
 These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Azure AD, the following UPNs will result in the same username:

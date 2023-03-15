@@ -35,8 +35,8 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-3. In the root of your publishing source, create a new file for your page called PAGE-NAME.md, replacing PAGE-NAME with a meaningful filename for the page.
-4. Add the following YAML frontmatter to the top of the file, replacing PAGE TITLE with the page's title and URL-PATH with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your URL-PATH is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
+3. In the root of your publishing source, create a new file for your page called `PAGE-NAME.md`, replacing PAGE-NAME with a meaningful filename for the page.
+4. Add the following YAML frontmatter to the top of the file, replacing PAGE-TITLE with the page's title and URL-PATH with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your URL-PATH is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
   ```shell
   layout: page
   title: "PAGE-TITLE"
@@ -58,8 +58,8 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
 3. Navigate to the `_posts` directory.
-4. Create a new file called YYYY-MM-DD-NAME-OF-POST.md, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post.
-4. Add the following YAML frontmatter to the top of the file, replacing POST TITLE with the post's title, YYYY-MM-DD hh:mm:ss -0000 with the date and time for the post, and CATEGORY-1 and CATEGORY-2 with as many categories you want for your post.
+4. Create a new file called `YYYY-MM-DD-NAME-OF-POST.md`, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post.
+5. Add the following YAML frontmatter to the top of the file, including the post's title enclosed in quotation marks, the date and time for the post in YYYY-MM-DD hh:mm:ss -0000 format, and as many categories as you want for your post.
   ```shell
   layout: post
   title: "POST-TITLE"
