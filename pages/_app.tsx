@@ -6,8 +6,8 @@ import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import { initializeEvents } from 'components/lib/events'
-import { initializeExperiments } from 'components/lib/experiment'
+import { initializeEvents } from 'src/events/browser'
+import { initializeExperiments } from 'src/events/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,

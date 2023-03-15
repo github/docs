@@ -15,7 +15,7 @@ shortTitle: Display a sponsor button
 ---
 ## About FUNDING files
 
-You can configure your sponsor button by editing a _FUNDING.yml_ file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
 You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax:
 
@@ -43,7 +43,7 @@ Java | `maven`
 PHP | `packagist`
 C# | `nuget`
 
-Here's an example _FUNDING.yml_ file:
+Here's an example `FUNDING.yml` file:
 ```
 github: [octocat, surftocat]
 patreon: octocat
@@ -71,12 +71,15 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under Features, select **Sponsorships**.
+1. Under Features, select **Sponsorships**.
+
   ![Checkbox to enable Sponsorships](/assets/images/help/sponsors/sponsorships-checkbox.png)
-4. Under "Sponsorships", click **Set up sponsor button** or **Override funding links**.
+
+1. Under "Sponsorships", click **Set up sponsor button** or **Override funding links**.
+
   ![Button to set up sponsor button](/assets/images/help/sponsors/sponsor-set-up-button.png)
-5. In the file editor, follow the instructions in the _FUNDING.yml_ file to add links to your funding locations.
-  ![Edit the FUNDING file to add links to funding locations](/assets/images/help/sponsors/funding-yml-file.png)
+
+1. In the file editor, follow the instructions in the `FUNDING.yml` file to add links to your funding locations.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
