@@ -231,7 +231,7 @@ You may have multiple code scanning configurations on a single repository. When 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Under "{% data variables.product.prodname_code_scanning_capc %}", click a {% data variables.product.prodname_code_scanning %} alert.
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", click a {% data variables.product.prodname_code_scanning %} alert.
 1. In the "Affected branches" section of the sidebar, click the desired branch.
 1. In the "Configurations analyzing" dialog, review details of the configurations that reported this alert on the selected branch. To delete an unwanted configuration for the desired branch, click {% octicon "trash" aria-label="Delete configuration" %}.
 

@@ -199,7 +199,7 @@ prodname_secret_scanning_caps: 'Secret scanning'
 
 # Code scanning
 prodname_code_scanning: 'code scanning'
-prodname_code_scanning_capc: 'Code scanning'
+prodname_code_scanning_caps: 'Code scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
