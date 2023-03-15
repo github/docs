@@ -463,6 +463,12 @@ sections:
       ```
 
       GitHub recommends waiting to upgrade your cluster until this issue is resolved. More information will be available in the release notes for an upcoming update to GitHub Enterprise Server.
+    - |
+      After upgrading to GitHub Enterprise Server 3.8.0, commands run via SSH on any of the instance's nodes will not be logged in `/var/log/ssh-console-audit.log`. To resolve this issue, SSH into the affected node and run the following command.
+
+      ```
+      source /etc/bash.bashrc
+      ```
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
       notes:
