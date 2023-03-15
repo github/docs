@@ -44,15 +44,15 @@ jobs:
             return [
               { name: 'content', path: 'tests/content', },
               { name: 'graphql', path: 'tests/graphql', },
-              { name: 'meta', path: 'tests/meta', },
-              { name: 'rendering', path: 'tests/rendering', },
-              { name: 'routing', path: 'tests/routing', },
-              { name: 'unit', path: 'tests/unit', },
-              { name: 'linting', path: 'tests/linting', },
-              { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'linting', path: 'tests/linting', },
+              { name: 'meta', path: 'tests/meta', },
+              { name: 'routing', path: 'tests/routing', },
+              { name: 'rendering', path: 'tests/rendering', },
+              { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
+              { name: 'unit', path: 'tests/unit', },
             ].filter(Boolean)
 
   test:
