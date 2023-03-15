@@ -39,7 +39,7 @@ You can optionally connect a learning management system (LMS) with {% data varia
 
 ## Feedbacks
 
-{% data variables.product.prodname_classroom %} lets you create special feedback pull request to leave feedback on your students' submissions. For more information, see "[AUTOTITLE](education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
+{% data variables.product.prodname_classroom %} lets you create special feedback pull request to leave feedback on your students' submissions. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
 To learn more about the various {% data variables.product.prodname_classroom %} features, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)."
 
