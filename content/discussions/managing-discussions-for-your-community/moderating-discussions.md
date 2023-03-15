@@ -19,6 +19,14 @@ versions:
 
 It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion. {% ifversion discussions-lock-allow-reactions %}You can also allow emoji reactions to a locked discussion.{% endif %}
 
+{% ifversion discussions-closable %}
+{% note %}
+
+**Note:** You can also close a discussion. For more information, see "[Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion)."
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. In the list of discussions, click the discussion you want to lock.
