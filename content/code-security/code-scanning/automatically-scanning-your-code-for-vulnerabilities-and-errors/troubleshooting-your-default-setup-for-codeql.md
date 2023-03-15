@@ -14,17 +14,13 @@ topics:
   - Troubleshooting
 ---
 
-## Disabling a pre-existing {% data variables.product.prodname_codeql %} workflow
+## A pre-existing {% data variables.product.prodname_codeql %} workflow is disabled 
 
-If you see two workflows named **{% data variables.product.prodname_codeql %}**, you may need to disable the workflow triggered by your pre-existing {% data variables.product.prodname_codeql %} workflow file. Navigate to the main page of your repository, then click {% octicon "play" aria-label="The play icon" %} **Actions**. In the sidebar, find the two workflows named **{% data variables.product.prodname_codeql %}**, then open both workflows. Following the workflow title, look for a link to the workflow file. This file will likely be named `codeql.yml` or `codeql-analysis.yml`. Once you have found the {% data variables.product.prodname_codeql %} workflow with an associated workflow file, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} on the workflow summary page, then click **Disable workflow**. For more information about disabling workflows, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#disabling-a-workflow)."
+If you see two workflows named **{% data variables.product.prodname_codeql %}**, one workflow may be a pre-existing {% data variables.product.prodname_codeql %} workflow file which has been disabled by default setup. Default setup overrides existing {% data variables.product.prodname_codeql %} setups by disabling any existing {% data variables.product.prodname_codeql %} workflows, and blocking any {% data variables.product.prodname_codeql %} analysis API uploads. This behavior stops you using {% data variables.product.prodname_actions %} minutes to run workflows for {% data variables.product.prodname_codeql %} advanced setup when only the results from default setup will be used. For more information about switching between advanced and default setups, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#results-are-different-than-expected)."
+
+Optionally, if you are certain you no longer need the pre-existing workflow file, you can delete the file from your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)."
 
 {% data reusables.code-scanning.troubleshooting-multiple-configurations %}
-
-## Using more {% data variables.product.prodname_actions %} minutes than expected
-
-If a repository uses more {% data variables.product.prodname_actions %} minutes than expected, and you previously scanned the repository using the advanced setup for {% data variables.product.prodname_codeql %}, your pre-existing workflow file may be running in addition to the default {% data variables.product.prodname_codeql %} setup. For more information on disabling your pre-existing workflow file, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-default-setup-for-codeql#disabling-a-pre-existing-codeql-workflow)."
-
-Optionally, if you are certain you no longer need the pre-existing workflow file, you can instead delete the file from your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)."
 
 ## Enabling the default setup takes too long
 

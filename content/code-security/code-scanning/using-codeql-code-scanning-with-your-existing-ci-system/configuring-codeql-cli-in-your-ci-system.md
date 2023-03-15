@@ -328,7 +328,7 @@ When you analyze a {% data variables.product.prodname_codeql %} database using a
 
 For more information about the type of diagnostic information available, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#about-analysis-and-diagnostic-information)".
 
-### {% data variables.product.prodname_code_scanning_capc %} only shows analysis results from one of the analyzed languages
+### {% data variables.product.prodname_code_scanning_caps %} only shows analysis results from one of the analyzed languages
 
 By default, {% data variables.product.prodname_code_scanning %} expects one SARIF results file per analysis for a repository. Consequently, when you upload a second SARIF results file for a commit, it is treated as a replacement for the original set of data.
 

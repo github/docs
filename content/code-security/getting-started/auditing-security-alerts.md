@@ -42,7 +42,7 @@ You can access and search audit logs using the API or the audit log UI. The audi
 
 - {% data variables.product.prodname_secret_scanning_caps %} events track when an alert is created, resolved, or reopened, also when push protection is bypassed.
 - {% data variables.product.prodname_dependabot %} events track when an alert is created, dismissed, or resolved.
-- {% data variables.product.prodname_code_scanning_capc %} does not create timeline events in an audit log.
+- {% data variables.product.prodname_code_scanning_caps %} does not create timeline events in an audit log.
 
 For a list of audit log events, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
 
@@ -80,11 +80,11 @@ To see which {% data variables.product.prodname_secret_scanning %} alerts were t
 
 For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning)." 
 
-### {% data variables.product.prodname_code_scanning_capc %} alerts API
+### {% data variables.product.prodname_code_scanning_caps %} alerts API
 
 You can list all {% data variables.product.prodname_code_scanning %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. Alternatively, you can get full details for an alert or update the alert.
 
-For more information, see “[{% data variables.product.prodname_code_scanning_capc %}](/rest/code-scanning)."
+For more information, see “[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
 
 ## Further reading
 - [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)

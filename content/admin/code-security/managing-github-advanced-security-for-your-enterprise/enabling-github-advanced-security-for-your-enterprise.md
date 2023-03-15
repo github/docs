@@ -48,7 +48,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[AUTOTITLE
 3. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
 4. Review the prerequisites for the features you plan to enable.
 
-    - {% data variables.product.prodname_code_scanning_capc %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
+    - {% data variables.product.prodname_code_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
     - {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
@@ -62,7 +62,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[AUTOTITLE
 {%- ifversion ghes %}
 1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
 {%- else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," select **{% data variables.product.prodname_code_scanning_capc %}**.
+1. Under "{% data variables.product.prodname_advanced_security %}," select **{% data variables.product.prodname_code_scanning_caps %}**.
 {%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -77,7 +77,7 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 1. SSH into {% data variables.location.product_location %}.
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
-    - To enable {% data variables.product.prodname_code_scanning_capc %}, enter the following commands.
+    - To enable {% data variables.product.prodname_code_scanning_caps %}, enter the following commands.
     ```shell
     ghe-config app.minio.enabled true
     ghe-config app.code-scanning.enabled true
