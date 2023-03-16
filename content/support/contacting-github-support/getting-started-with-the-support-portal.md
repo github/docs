@@ -19,13 +19,12 @@ For the best experience using the support portal, we recommend that you do the f
 - Identify the {% data variables.product.prodname_dotcom %} user who is an owner of your enterprise account
 - Configure a verified domain
 - Add owners, billing managers, or suport-entitled members to your enterprise account
-  
+
 As an {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} customer, capabilities available to you in the support portal depend on your role in your enterprise account as well as the account you select when you submit a ticket. Please note that urgent priority and Premium Support SLAs apply only to tickets associated with your enterprise account. Tickets associated with an enterprise account can only be opened by owners, billing managers and support-entitled members.
 
-As an owner, billing manager, or support-entitled member, you can view all tickets associated with your enterprise account or organizations managed by your enterprise account. Under certain conditions, you can also comment on tickets opened by other users and associated to your enterprise account. To comment on a ticket associated with your enterprise account that was opened by another user, one of two conditions must be met:
+As an owner, billing manager, or support-entitled member, you can view all tickets associated with your enterprise account or organizations managed by your enterprise account. Under certain conditions, you can also comment on tickets opened by other users and associated to your enterprise account.
 
-- An email address associated with your {% data variables.product.prodname_dotcom %} account is copied on the ticket
-- Your enterprise has a verified domain and the person who opened the ticket selected their verified-domain email
+{% data reusables.support.enterprise-comment-on-support-tickets %}
 
 {% note %}
 

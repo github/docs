@@ -65,7 +65,7 @@ You can only view archived tickets for an enterprise account.
 
 You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
-You can also comment on tickets opened by someone else and associated with your enterprise account. In order to comment on the ticket, the email address associated with your {% data variables.product.prodname_dotcom %} account is copied on the ticket, or if your enterprise has a verified domain and the ticket was opened with a verified-domain email address. For more information about verifying a domain, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+You can also comment on tickets opened by someone else and associated with your enterprise account. {% data reusables.support.enterprise-comment-on-support-tickets %}
 
 ## Requesting a callback
 
@@ -73,7 +73,7 @@ If your account includes {% data variables.product.prodname_dotcom %} premium su
 
 ## Requesting an escalation
 
-If your account includes {% data variables.product.prodname_dotcom %} preoium support, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. Please refer to [AUTOTITLE](/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket) before requesting an escalation. 
+If your account includes {% data variables.product.prodname_dotcom %} preoium support, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. Please refer to [AUTOTITLE](/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket) before requesting an escalation.
 
 {% endif %}
 
