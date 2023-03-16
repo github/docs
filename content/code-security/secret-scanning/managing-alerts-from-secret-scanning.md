@@ -87,9 +87,23 @@ Once a secret has been committed to a repository, you should consider the secret
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive an email notification if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, or are the author of the commit that contains the secret and are not ignoring the repository.
+{% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+{% ifversion secret-scanning-notification-settings %}
+{% data reusables.repositories.navigate-to-repo %}
+1. To start watching the repository, select **{% octicon "eye" aria-label="The Eye icon" %}Watch**.
+
+   ![Screenshot of the repository's main page. A dropdown menu, titled "Watch", is highlighted with an orange outline.](/assets/images/help/repository/repository-watch-dropdown.png)
+
+1. In the dropdown menu, click **All Activity**. Alternatively, to only subscribe to security alerts, click **Custom**, then click **Security alerts**.
+1. Navigate to the notification settings for your personal account. These are available at [https://github.com/settings/notifications](https://github.com/settings/notifications).
+1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
+1. Select "Email" as a notification option, then click **Save**.
+
+   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/secret-scanning-notification-options.png)
+{% endif %}
+
+For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring your watch settings for an individual repository](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
 
 ## Auditing responses to secret scanning alerts
 
