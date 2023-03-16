@@ -223,6 +223,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs"
     },
     {
+      "slug": "list-repository-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/organization-secrets"
+    },
+    {
       "slug": "get-github-actions-permissions-for-a-repository",
       "subcategory": "permissions",
       "verb": "get",
