@@ -43,7 +43,7 @@ You can use Hookdeck to get a unique URL where {% data variables.product.prodnam
 For an application in production that receives a low volume of webhook traffic, you can host it on any dynamic application server. The server-side code for handling the webhook can receive the event, deserialize its JSON payload, and decide what action to take, such as storing the data in a database or calling the {% data variables.product.prodname_dotcom %} API.
 
 To handle a higher volume of webhook traffic for a large app in production, consider using asynchronous webhook handling on a dedicated server. You can achieve this by employing a queue, where the webhook handler pushes data to the queue, and separate processes perform subsequent actions based on the events. Additionally, you can use cloud functions such as [Azure Functions](https://azure.microsoft.com/en-us/products/functions/)
- or [AWS Lambda](https://aws.amazon.com/lambda/) to help scale the app for handling large volumes of webhook events. [Hookdeck](https://hookdeck.com) allows for production uses with automatic queuing, retries and alerts.
+ or [AWS Lambda](https://aws.amazon.com/lambda/) to help scale the app for handling large volumes of webhook events. [Hookdeck](https://hookdeck.com) also allows for production uses with automatic queuing, retries and alerts.
 
 ## Securing your webhooks with a webhook secret
 
