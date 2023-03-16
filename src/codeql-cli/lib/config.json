@@ -18,5 +18,6 @@
   },
   "targetDirectory": "content/code-security/code-scanning/codeql-cli-manual",
   "sourceDirectory": "semmle-code/documentation/restructuredtext/codeql-cli/manual",
-  "removeKeywords": ["[Plumbing]"]
+  "removeKeywords": ["[Plumbing]"],
+  "linterIgnore": ["content/code-security/code-scanning/codeql-cli-manual"]
 }
