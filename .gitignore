@@ -40,5 +40,6 @@ external-link-checker-db.json
 
 # Automated content source
 rest-api-description
+semmle-code
 
 .installed.package-lock.json
