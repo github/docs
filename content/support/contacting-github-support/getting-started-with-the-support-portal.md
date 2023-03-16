@@ -20,7 +20,12 @@ For the best experience using the support portal, complete the following actions
 - Configure a verified domain. For more information, see "[AUTOTITLE](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)".
 - Add owners, billing managers, or support-entitled members to your enterprise account. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)".
 
-As an {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} customer, capabilities available to you in the support portal depend on your role in your enterprise account as well as the account you select when you submit a ticket. Please note that urgent priority and Premium Support SLAs apply only to tickets associated with your enterprise account. Tickets associated with an enterprise account can only be opened by owners, billing managers and support-entitled members.
+As an {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} customer, capabilities available to you in the support portal depend on your role in your enterprise account as well as the account you select when you submit a ticket. 
+
+{% note %}
+- Urgent priority and {% data variables.contact.premium_support %} SLAs only apply to tickets associated with your enterprise account. 
+- Tickets associated with an enterprise account can only be opened by owners, billing managers, and support-entitled members.
+{% endnote %}
 
 As an owner, billing manager, or member with support entitlements, you can view all tickets associated with your enterprise account or organizations managed by your enterprise account. Under certain conditions, you can also comment on tickets opened by other users and associated to your enterprise account.
 

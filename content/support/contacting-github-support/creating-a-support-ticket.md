@@ -24,12 +24,6 @@ topics:
   - Support
 ---
 
-{% ifversion ghec or ghes %}
-## Prerequisites
-
-To create a support ticket, you must configure the support portal for use. For more information, see "[Getting started with the support portal](/support/contacting-github-support/getting-started-with-the-support-portal)." 
-{% endif%}
-
 {% ifversion fpt or ghec or ghes %}
 
 ## About support tickets
@@ -49,6 +43,12 @@ You can create your ticket using the {% data variables.contact.support_portal %}
 {% endif %}
 
 After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
+
+{% ifversion ghec or ghes %}
+## Prerequisites
+
+To create a support ticket, you must configure the support portal for use. For more information, see "[Getting started with the support portal](/support/contacting-github-support/getting-started-with-the-support-portal)." 
+{% endif%}
 
 ## What to include in your support ticket
 
