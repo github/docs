@@ -53,3 +53,29 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
+
+test.describe('platform picker', () => {
+  test('switch operating systems', async ({ page }) => {
+    await page.goto('/get-started/liquid/platform-specific')
+
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
+    await expect(page).toHaveURL(/\?platform=mac/)
+    await expect(page.getByRole('heading', { name: /Macintosh/ })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Windows 95/ })).not.toBeVisible()
+
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
+    await expect(page).toHaveURL(/\?platform=windows/)
+    await expect(page.getByRole('heading', { name: /Windows 95/ })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
+  })
+
+  test('remember last clicked OS', async ({ page }) => {
+    await page.goto('/get-started/liquid/platform-specific')
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
+
+    // Return and now the cookie should start us off on Windows again
+    await page.goto('/get-started/liquid/platform-specific')
+    await expect(page.getByRole('heading', { name: /Windows 95/ })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
+  })
+})

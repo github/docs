@@ -127,7 +127,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
 2. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**.
+   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for LANGUAGE**.
    ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 
