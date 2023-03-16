@@ -27,7 +27,7 @@ topics:
 {% ifversion ghec or ghes %}
 ## Prerequisites
 
-To create a support ticket, you will need to make sure the support portal is configured for use. For more information, see "[Getting started with the support portal](/support/contacting-github-support/getting-started-with-the-support-portal)." 
+To create a support ticket, you must configure the support portal for use. For more information, see "[Getting started with the support portal](/support/contacting-github-support/getting-started-with-the-support-portal)." 
 {% endif%}
 
 {% ifversion fpt or ghec or ghes %}
