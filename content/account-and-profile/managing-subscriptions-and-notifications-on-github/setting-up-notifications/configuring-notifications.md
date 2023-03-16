@@ -244,6 +244,12 @@ The notification options for your user account are available at [https://github.
 
 For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
+## {% data variables.product.prodname_secret_scanning_caps %} notification options
+
+{% data reusables.secret-scanning.secret-scanning-configure-notifications %}
+
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[Configuring notifications for secret scanning alerts](/code-security/secret-scanning/managing-alerts-from-secret-scanning#configuring-notifications-for-secret-scanning-alerts)."
+
 {% ifversion update-notification-settings-22 or ghes %}
 ## {% data variables.product.prodname_actions %} notification options
 
