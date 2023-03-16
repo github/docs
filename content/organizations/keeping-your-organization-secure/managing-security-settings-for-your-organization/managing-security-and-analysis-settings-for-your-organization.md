@@ -94,14 +94,13 @@ You can enable or disable features for all repositories.
    {% endif %}
    {% endif %}
    {% ifversion fpt or ghec %}
-2. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
+1. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
    {% endif %}
    {% ifversion ghae or ghes %}
-3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
-   ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
-   {% endif %}
+1. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
+{% endif %}
 
-   {% data reusables.security.displayed-information %}
+{% data reusables.security.displayed-information %}
 
 ## Enabling or disabling a feature automatically when new repositories are added
 
@@ -112,9 +111,6 @@ You can enable or disable features for all repositories.
    {% endif %}
   {% ifversion ghes %}
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-   {% ifversion ghae %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
