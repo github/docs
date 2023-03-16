@@ -460,6 +460,8 @@
   "/rest/actions#workflow-runs": "/rest/actions/workflow-runs",
   "/rest/actions/oidc#get-the-customization-template-for-an-oidc-subject-claim-for-a-repository": "/rest/actions/oidc#get-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
   "/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository": "/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository",
+  "/rest/actions/secrets#list-repository-organization-secrets": "/rest/actions/secrets#list-repository-organization-secrets",
+  "/rest/actions/variables#list-repository-organization-variables": "/rest/actions/variables#list-repository-organization-variables",
   "/rest/actions#get-github-actions-permissions-for-a-repository": "/rest/actions/permissions#get-github-actions-permissions-for-a-repository",
   "/rest/actions#set-github-actions-permissions-for-a-repository": "/rest/actions/permissions#set-github-actions-permissions-for-a-repository",
   "/rest/actions#get-workflow-access-level-to-a-repository": "/rest/actions/permissions#get-workflow-access-level-to-a-repository",
