@@ -60,8 +60,7 @@ The search bar also allows for full text searching of alerts and related securit
 
 {% ifversion dependabot-bulk-alerts %}
   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
-You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.{% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 ## Supported ecosystems and manifests for dependency scope
@@ -102,7 +101,7 @@ For alerts where vulnerable calls are detected, the alert details page shows add
 - One or more code blocks showing where the function is used.
 - An annotation listing the function itself, with a link to the line where the function is called.
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
+![Screenshot showing a {% data variables.product.prodname_dependabot %} alert with a "Vulnerable call" label. A code block, showing "Vulnerable function called", and a link, titled "See all your affected repositories", are highlighted with a dark orange outline.](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
 For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-alerts)" below.
 
@@ -116,8 +115,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% data reusables.repositories.sidebar-dependabot-alerts %}
 1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. {% ifversion dependabot-filter-label-security-advisory %}Alternatively, to filter by label, click a label assigned to an alert to automatically apply that filter to the alert list.{% endif %} For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-dependabot-alerts)."
 {%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% else %}
-   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/3.5/dependabot/dependabot-alerts-filters.png){% endif %}
+  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
 1. Click the alert that you would like to view.
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -218,7 +216,7 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 1. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
 
    {% indented_data_reference reusables.enterprise.3-5-missing-feature spaces=3 %}
-   ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+   ![Screenshot showing a closed {% data variables.product.prodname_dependabot %} alert. A button, titled "Reopen", is highlighted in a dark orange outline.](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 
