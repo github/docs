@@ -4,6 +4,50 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CloseDiscussionInput</code> was added</p>",
+          "<p>Type <code>CloseDiscussionPayload</code> was added</p>",
+          "<p>Type 'DeleteProjectV2WorkflowInput' was added</p>",
+          "<p>Type 'DeleteProjectV2WorkflowPayload' was added</p>",
+          "<p>Type <code>DiscussionCloseReason</code> was added</p>",
+          "<p>Type <code>DiscussionState</code> was added</p>",
+          "<p>Type <code>DiscussionStateReason</code> was added</p>",
+          "<p>Type <code>ReopenDiscussionInput</code> was added</p>",
+          "<p>Type <code>ReopenDiscussionPayload</code> was added</p>",
+          "<p>Field <code>viewerCanClose</code> was added to interface <code>Closable</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to interface <code>Closable</code></p>",
+          "<p>Field <code>stateReason</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>closeDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field 'deleteProjectV2Workflow<code>was added to object type</code>Mutation'</p>",
+          "<p>Field <code>reopenDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>Organization.repositoryDiscussions'</p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Project</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Project</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>viewerCanUpdateBranch</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>Repository.discussions'</p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>RepositoryDiscussionAuthor.repositoryDiscussions'</p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>User.repositoryDiscussions'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>login: String</code> added to field <code>Repository.collaborators</code></p>"
         ]
       }
