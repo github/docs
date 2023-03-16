@@ -58,13 +58,10 @@ shortTitle: Manage secret alerts
 {% endif %}{% ifversion secret-scanning-partner-documentation-link-UI %}
 1. To dismiss an alert, select the "Close as" dropdown menu and click a reason for resolving an alert.
 
-   ![Screenshot of the dropdown menu for dismissing an alert from {% data variables.product.prodname_secret_scanning %} showing link to partner documentation](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
+   ![Screenshot of a {% data variables.product.prodname_secret_scanning %} alert. A dropdown menu, titled "Close as", is expanded and highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
 
    {% else %}
 1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
-
-   ![Screenshot of the dropdown menu for resolving an alert from {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/3.2/repository/secret-scanning-resolve-alert-ghe.png)
-
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
@@ -97,4 +94,3 @@ For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-s
 ## Auditing responses to secret scanning alerts
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
-

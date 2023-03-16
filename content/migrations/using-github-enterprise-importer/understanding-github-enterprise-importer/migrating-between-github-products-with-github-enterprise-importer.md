@@ -199,11 +199,11 @@ You can use the REST API to update the alerts to mirror any remediations in the 
 
 The user associated with these updated remediations will be the user who owns the {% data variables.product.pat_generic %} that was used for the API calls, not the user who remediated the alert in the source repository, and the date associated with the remediation will be the date of the API call, not the date the alert was remediated in the source repository.
 
-#### {% data variables.product.prodname_code_scanning_capc %}
+#### {% data variables.product.prodname_code_scanning_caps %}
 
-{% data variables.product.prodname_code_scanning_capc %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[Code Scanning](/enterprise-cloud@latest/rest/code-scanning)" in the REST API documentation.
+{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[Code Scanning](/enterprise-cloud@latest/rest/code-scanning)" in the REST API documentation.
 
-{% data variables.product.prodname_code_scanning_capc %} alerts that are populated this way will differ from the original alerts in the source repository.
+{% data variables.product.prodname_code_scanning_caps %} alerts that are populated this way will differ from the original alerts in the source repository.
 
 - Alerts will only include the detection and the latest state of the alert, not the entire timeline from the source repository.
 - Alerts will only be identified as `open` or `fixed`. Other remediation states, such as `dismissed` and `reopened`, will be lost.

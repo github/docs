@@ -17,7 +17,7 @@ export function Table({ fields }: Props) {
   const tableDescription = t('graphql.reference.description')
 
   return (
-    <table className="fields width-full">
+    <table className="fields width-full table-fixed">
       <thead>
         <tr>
           <th>{tableName}</th>

@@ -99,6 +99,14 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
+
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
@@ -148,6 +156,10 @@ jobs:
           # Note that by default, this is '' (empty string) and that means
           # the same as not set within the script.
           VERSION: ${{ github.event.inputs.version }}
+
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--popular-pags <PATH>` option.
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
 
         run: |
           mkdir /tmp/records
