@@ -293,7 +293,7 @@ By default, {% data variables.product.prodname_actions_importer %} fetches pipel
 
 ##### Audit example
 
-In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file as the source file to perform an audit.
+In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
 
 ```bash
 gh actions-importer audit circle-ci --output-dir ./output/ --config-file-path ./path/to/circle-ci/config.yml
@@ -313,7 +313,7 @@ source_files:
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file as the source file to perform a dry run.
 
-The pipeline is selected by matching the `repository_slug` in the config file to the value of the `--circle-ci-organization` and `--circle-ci-project` option. The `path` is then used to pull the specified source file.
+The pipeline is selected by matching the `repository_slug` in the config file to the value of the `--circle-ci-organization` and `--circle-ci-project` options. The `path` is then used to pull the specified source file.
 
 ```bash
 gh actions-importer dry-run circle-ci --circle-ci-project circle-org-name/circle-project-name --output-dir ./output/ --config-file-path ./path/to/circle-ci/config.yml 
