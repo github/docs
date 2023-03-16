@@ -50,10 +50,8 @@ You can enable others to install your public app by providing the installation U
 These steps assume you have [built a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/creating-github-apps):
 
 1. From the [GitHub Apps settings page](https://github.com/settings/apps), select the public app you want to configure for others to install.
-2. In "Homepage URL," type the URL for your app's homepage and click **Save changes**.
-![Homepage URL](/assets/images/github-apps/github_apps_homepageURL.png)
+2. In the "General" tab, under "Homepage URL," type the URL for your app's homepage and click **Save changes**.
 3. GitHub provides a landing page for your app that includes a link to your app's "Homepage URL." To visit the landing page on GitHub, copy the URL from "Public link" and paste it into a browser.
-![Public link](/assets/images/github-apps/github_apps_public_link.png)
 4. Create a homepage for your app that includes the app installation URL: `{% data variables.product.oauth_host_code %}/{% ifversion ghes or ghae %}github-apps{% else %}apps{% endif %}/<app name>/installations/new`.
 
 ## Authorizing users during installation

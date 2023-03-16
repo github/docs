@@ -77,7 +77,7 @@ When you set up a check run with requested actions (not to be confused with {% d
 
 For example, a code linting app could use requested actions to display a button in a pull request to automatically fix detected syntax errors.
 
-To create a button that can request additional actions from your app, use the [`actions` object](/rest/checks#create-a-check-run--parameters) when you [Create a check run](/rest/checks#create-a-check-run). For example, the `actions` object below displays a button in a pull request with the label "Fix this." The button appears after the check run completes.
+To create a button that can request additional actions from your app, use the [`actions` object](/rest/checks#create-a-check-run--parameters) when you [Create a check run](/rest/checks#create-a-check-run). For example, the `actions` object below displays a button in the **Checks** tab of a pull request with the label "Fix this." The button appears after the check run completes.
 
    ```json
   "actions": [{
@@ -86,8 +86,6 @@ To create a button that can request additional actions from your app, use the [`
       "identifier": "fix_errors"
     }]
   ```
-
-  ![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
 
 When a user clicks the button, {% data variables.product.prodname_dotcom %} sends the [`check_run.requested_action` webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) to your app. When your app receives a `check_run.requested_action` webhook event, it can look for the `requested_action.identifier` key in the webhook payload to determine which button was clicked and perform the requested task.
 
