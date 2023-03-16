@@ -29,10 +29,8 @@ People with write permissions for a repository can add a theme to a {% data vari
 2. Navigate to *_config.yml*.
 {% data reusables.repositories.edit-file %}
 4. Add a new line to the file for the theme name.
-   - To use a supported theme, type `theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository. For a list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site.
-   ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png)
+   - To use a supported theme, type `theme: THEME-NAME`, replacing _THEME-NAME_ with the name of the theme as shown in the README of the theme's repository. For a list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site. For example, to select the Minima theme, type `theme: minima`.
    - To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository.
-   ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
