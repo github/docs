@@ -250,7 +250,7 @@ const automatedIgnorePaths = (
 )
   .flat()
   .filter(Boolean)
-console.log(automatedIgnorePaths)
+
 // For each linterIgnore directory, walk the files in the directory and add
 // to the ignore list.
 const ignoreMarkdownFilesAbsPath = new Set(
