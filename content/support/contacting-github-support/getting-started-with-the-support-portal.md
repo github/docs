@@ -18,7 +18,7 @@ For the best experience using the support portal, complete the following actions
 
 - Identify the {% data variables.product.prodname_dotcom %} user who is an owner of your enterprise account.
 - Configure a verified domain. For more information, see "[AUTOTITLE](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)".
-- Add owners, billing managers, or support-entitled members to your enterprise account. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)".
+- Add owners, billing managers, or support-entitled members to your enterprise account. For more information, see "[Adding people to your organization](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)".
 
 As an {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %} customer, capabilities available to you in the support portal depend on your role in your enterprise account as well as the account you select when you submit a ticket. 
 
