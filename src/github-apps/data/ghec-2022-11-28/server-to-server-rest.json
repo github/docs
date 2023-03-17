@@ -487,6 +487,18 @@
       "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub"
     },
     {
+      "slug": "list-repository-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/organization-secrets"
+    },
+    {
+      "slug": "list-repository-organization-variables",
+      "subcategory": "variables",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/organization-variables"
+    },
+    {
       "slug": "get-github-actions-permissions-for-a-repository",
       "subcategory": "permissions",
       "verb": "get",

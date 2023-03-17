@@ -37,10 +37,7 @@ sections:
     - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - In some cases, users cannot convert existing issues to discussions.
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
-    - |
-      Following an upgrade to GitHub Enterprise Server 3.6 or later, existing inconsistencies in a repository such as broken refs or missing objects, may now be reported as errors like `invalid sha1 pointer 0000000000000000000000000000000000000000`, `Zero-length loose reference file`, or `Zero-length loose object file`. Previously, these indicators of repository corruption may have been silently ignored. GitHub Enterprise Server now uses an updated Git version with more diligent error reporting enabled. For more information, see this [upstream commit](https://github.com/git/git/commit/968f12fdac) in the Git project.
-
-      If you suspect a problem like this exists in one of your repositories, [contact GitHub Enterprise Support](/support/contacting-github-support/creating-a-support-ticket) for assistance.
+    - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
   deprecations:

@@ -27,7 +27,7 @@ The amount of free usage provided on your personal account every month is design
 
 {% data variables.product.prodname_codespaces %} compute is counted in core hours, which is the sum of the time a codespace is active, multiplied by the multiplier for the codespace's machine type: for example, a multiplier of 2 for a 2-core machine, or a multiplier of 8 for an 8-core machine. A codespace becomes active when you create it or start it. A codespace stops being active when you stop it or delete it, or when it is stopped or deleted automatically.
 
-The default idle timeout, which stops a codespace after a period of inactivity, is 30 minutes. You can reduce this if required. For more information, see the "Billing for compute usage" section of "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-compute-usage)."
+The default idle timeout, which stops a codespace after a period of inactivity, is 30 minutes. You can reduce this if required. For more information, see the "About billing for compute usage" section of "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-compute-usage)."
 
 ## About {% data variables.product.prodname_codespaces %} storage
 
@@ -43,7 +43,7 @@ You can see the storage usage for each of your codespaces on the "Your codespace
 
 {% endnote %}
 
-For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-months. This is a cumulative measure of the total storage each codespace consumes from creation to deletion, plus the storage for prebuilds. For more information, see the "Billing for storage usage" section of "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)."
+For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-months. This is a cumulative measure of the total storage each codespace consumes from creation to deletion, plus the storage for prebuilds. For more information, see the "Billing for storage usage" section of "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)."
 
 ## Understanding your {% data variables.product.prodname_codespaces %} usage
 
@@ -90,7 +90,7 @@ If the dev container for the current codespace was built from the default image,
   **Note**: Storage is calculated hourly and added to your existing storage usage. Consumed storage is therefore cumulative for the duration of your month-long billing cycle. This means that, during the billing period, the value you see on your billing page will only increase or remain the same. Usage will be reset to zero when a new billing cycle starts. Deleting a codespace, or a prebuild, will not reduce the usage figure for the current month, but it will reduce the rate at which storage usage accumulates.
 
   {% endnote %}
-- Ensure that you are using prebuilds for only as many versions and as many regions as you need. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+- Ensure that you are using prebuilds for only as many versions and as many regions as you need. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
   {% note %}
 
   **Note**: If your included storage usage is exhausted, new prebuilds are disabled until you set up a spending limit or your included usage quota renews.
