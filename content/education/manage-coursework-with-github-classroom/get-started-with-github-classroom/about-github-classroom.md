@@ -21,7 +21,7 @@ You can also configure workflows, so that on each push of code to a pull request
 You can optionally connect a learning management system (LMS) with {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
 
-## GitHub Classroom Features 
+## {% data variables.product.prodname_classroom %} features 
 
 ### Integrated Development Environment (IDE)
 
