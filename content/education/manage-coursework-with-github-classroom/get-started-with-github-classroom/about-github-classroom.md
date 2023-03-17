@@ -40,5 +40,4 @@ To learn more about the various {% data variables.product.prodname_classroom %} 
 
 ## Further reading 
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)"
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)"
