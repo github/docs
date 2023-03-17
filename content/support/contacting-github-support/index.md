@@ -12,9 +12,9 @@ redirect_from:
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
   - /admin/enterprise-support/receiving-help-from-github-support
 children:
+  - getting-started-with-the-support-portal
   - creating-a-support-ticket
   - viewing-and-updating-support-tickets
   - providing-data-to-github-support
-  - getting-started-with-the-support-portal
 ---
 
