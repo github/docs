@@ -1,6 +1,6 @@
 ---
 title: About GitHub Classroom
-intro: '{% data variables.product.prodname_classroom %} is a space where teachers, organizations or school administrators can create assignments, collaborate with teaching assistants, and invite students in a single course.'
+intro: 'Teachers and school administrators can use {% data variables.product.prodname_classroom %} to create virtual classrooms, make and edit assignments, automatically grade assignment submissions, and more.'
 type: overview
 topics: 
   - Fundamentals
