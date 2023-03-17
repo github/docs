@@ -1,4 +1,8 @@
 {
+  "11.10.340": {
+    "releaseDate": "2014-07-07",
+    "deprecationDate": "2015-07-07"
+  },
   "2.0": {
     "releaseDate": "2014-11-11",
     "deprecationDate": "2016-02-09"
