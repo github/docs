@@ -1,0 +1,23 @@
+To check for ssh-agent on Windows with OpenSSH, follow these steps:
+
+Open a command prompt by pressing the Windows key + R, typing "cmd", and then pressing Enter.
+
+Type the command "ssh-agent" and press Enter. This will start the ssh-agent service, if it is not already running.
+
+If the ssh-agent service is already running, you will see output similar to the following:
+
+
+SSH_AUTH_SOCK=/tmp/ssh-Hko1scCcV7bW/agent.12345; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=12345; export SSH_AGENT_PID;
+echo Agent pid 12345;
+If the ssh-agent service is not running, you will see output similar to the following:
+
+Could not open a connection to your authentication agent.
+If you see the "Could not open a connection to your authentication agent" error, you can start the ssh-agent service by typing the following command:
+
+eval $(ssh-agent)
+After starting the ssh-agent service, you can use the "ssh-add" command to add your private key to the ssh-agent. This will allow you to authenticate with remote servers without having to enter your password every time.
+Note: OpenSSH is not installed by default on Windows, so you may need to install it manually.
+
+
+
