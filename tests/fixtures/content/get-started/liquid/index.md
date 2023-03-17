@@ -10,6 +10,7 @@ children:
   - /warnings
   - /tips
   - /notes
+  - /raw
   - /platform-specific
   - /whitespace
   - /table-row-headers

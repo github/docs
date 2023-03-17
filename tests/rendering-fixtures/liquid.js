@@ -28,6 +28,15 @@ describe('extended Markdown', () => {
     expect(nodes.hasClass('color-bg-accent')).toBe(true)
   })
 
+  test('renders raw', async () => {
+    const $ = await getDOM('/get-started/liquid/raw')
+    const lead = $('[data-testid="lead"]').html()
+    expect(lead).toMatch('{% raw %}')
+    const code = $('pre code').html()
+    expect(code).toMatch('{% data foo.bar.buzz %}')
+    expect(code).toMatch('{{ page.title }}')
+  })
+
   test('renders platform-specific content', async () => {
     const $ = await getDOM('/get-started/liquid/platform-specific')
     expect($('.extended-markdown.mac p').length).toBe(1)

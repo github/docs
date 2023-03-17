@@ -308,13 +308,6 @@ describe('server', () => {
     )
   })
 
-  test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM(
-      '/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites'
-    )
-    expect($.text().includes('{{ page.title }}')).toBe(true)
-  })
-
   test('displays links to categories on product TOCs', async () => {
     const $ = await getDOM('/en/authentication')
     expect($('a[href="/en/authentication/keeping-your-account-and-data-secure"]')).toHaveLength(1)
