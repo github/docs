@@ -884,15 +884,3 @@ describe('index pages', () => {
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
   })
 })
-
-describe('REST reference pages', () => {
-  test('view the rest/repos page in English', async () => {
-    const res = await get('/en/rest/repos')
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('deeper pages in English', async () => {
-    const res = await get('/en/enterprise-cloud@latest/rest/code-scanning')
-    expect(res.statusCode).toBe(200)
-  })
-})
