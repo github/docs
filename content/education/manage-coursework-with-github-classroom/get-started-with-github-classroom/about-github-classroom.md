@@ -31,7 +31,7 @@ You can optionally connect a learning management system (LMS) with {% data varia
 
 {% data variables.product.prodname_classroom %} allows you to configure workflows to automatically grade students on submission of a pull-request. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
-## Feedbacks
+### Feedback
 
 {% data variables.product.prodname_classroom %} lets you create special feedback pull request to leave feedback on your students' submissions. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
