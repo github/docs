@@ -212,7 +212,7 @@ To search for a filename which contains a special character like `*` or `?`, jus
 path:"file?"
 ```
 
-Since glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
+Glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
 
 ### Symbol qualifier
 

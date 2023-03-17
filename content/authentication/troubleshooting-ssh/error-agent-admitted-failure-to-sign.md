@@ -25,7 +25,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
+For more details, see [this issue report](https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786) on Canonical Launchpad.
 
 ## Resolution
 
