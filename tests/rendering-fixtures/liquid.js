@@ -45,4 +45,42 @@ describe('extended Markdown', () => {
     expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBe(1)
     expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBe(1)
   })
+
+  test('rowheaders', async () => {
+    const $ = await getDOM('/get-started/liquid/table-row-headers')
+    const tables = $('#article-contents table')
+    expect(tables.length).toBe(2)
+
+    // The first table should have this structure:
+    //
+    //   table
+    //     tbody
+    //       tr
+    //         th
+    //         td
+    //         td
+    //         td
+    //
+    // (and there are 2 of these <tr> rows)
+    //
+    // That's because a Liquid + Markdown solution rewrites the
+    // *first* `tbody td` to become a `th` instead.
+    const firstTable = tables.filter((i) => i === 0)
+    expect($('tbody tr th', firstTable).length).toBe(2)
+    expect($('tbody tr td', firstTable).length).toBe(2 * 3)
+
+    // The first table should have this structure:
+    //
+    //   table
+    //     tbody
+    //       tr
+    //         td
+    //         td
+    //         td
+    //
+    // (and there are 4 of these <tr> rows)
+    const secondTable = tables.filter((i) => i === 1)
+    expect($('tbody tr th', secondTable).length).toBe(0)
+    expect($('tbody tr td', secondTable).length).toBe(3 * 4)
+  })
 })

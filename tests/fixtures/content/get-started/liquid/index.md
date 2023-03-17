@@ -11,4 +11,5 @@ children:
   - /tips
   - /notes
   - /platform-specific
+  - /table-row-headers
 ---
