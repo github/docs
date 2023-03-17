@@ -301,14 +301,6 @@ describe('server', () => {
     ).toBe(true)
   })
 
-  test('handles whitespace control in liquid tags', async () => {
-    // example from markdown source of index:
-    // Liquid tags with {%- in lists should not result in newlines
-    // that convert to <p>s in <li>s
-    const $ = await getDOM('/')
-    expect($('li > p').length).toBe(0)
-  })
-
   test('renders liquid within liquid within liquid', async () => {
     const $ = await getDOM('/en/articles/enabling-required-status-checks')
     expect($('ol li').first().text().trim()).toBe(

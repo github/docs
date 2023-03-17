@@ -46,6 +46,25 @@ describe('extended Markdown', () => {
     expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBe(1)
   })
 
+  test('whitespace control', async () => {
+    const $ = await getDOM('/get-started/liquid/whitespace')
+    const html = $('#article-contents').html()
+    expect(html).toMatch('<p>GitHub</p>')
+    expect(html).toMatch('<p>Text before. GitHub Text after.</p>')
+    expect(html).toMatch('<li>GitHub</li>')
+    expect(html).toMatch('CramFPTped')
+
+    // Test what happens to `Cram{% ifversion fpt %}FPT{% endif %}ped.`
+    // when it's not free-pro-team.
+    {
+      const $ = await getDOM('/enterprise-server@latest/get-started/liquid/whitespace')
+      const html = $('#article-contents').html()
+      // Assures that there's not whitespace left when the `{% ifversion %}`
+      // yields an empty string.
+      expect(html).toMatch('Cramped')
+    }
+  })
+
   test('rowheaders', async () => {
     const $ = await getDOM('/get-started/liquid/table-row-headers')
     const tables = $('#article-contents table')
