@@ -126,7 +126,7 @@ products:
   rest:
     banner:
       api_versioned: The REST API is now versioned.
-      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
+      api_version_info: For more information, see <a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>.
       ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
       redirect_notice: We've recently moved some of the REST API documentation.
       redirect_repo: If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.
