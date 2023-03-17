@@ -47,7 +47,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 {% ifversion ghec or ghes %}
 ## Prerequisites
 
-To create a support ticket, you must configure the {% data variables.contact.enterprise_portal %} for use. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-support-portal)."
+To create a support ticket, you must configure the {% data variables.contact.enterprise_portal %} for use. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal)."
 {% endif%}
 
 ## What to include in your support ticket
