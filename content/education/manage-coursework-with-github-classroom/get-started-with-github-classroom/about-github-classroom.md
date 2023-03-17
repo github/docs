@@ -37,7 +37,6 @@ You can optionally connect a learning management system (LMS) with {% data varia
 
 To learn more about the various {% data variables.product.prodname_classroom %} features, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)."
 
-
 ## Further reading 
 
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)"
