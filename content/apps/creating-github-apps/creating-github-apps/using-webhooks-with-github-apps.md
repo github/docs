@@ -33,7 +33,7 @@ While you develop and test your app, you can use a webhook payload delivery serv
 
 You can use Hookdeck to get a unique URL where {% data variables.product.prodname_dotcom %} can send webhook payloads, without exposing your local development to the internet.
 
-1. Go to https://console.hookdeck.com
+1. Go to [https://console.hookdeck.com](https://console.hookdeck.com?provider=github)
 2. Copy the Webhook URL provided by Hookdeck
 3. To connect your Hookdeck webhook URL to your {% data variables.product.prodname_github_app %}, enter the URL in the "Webhook URL" field of your app settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 4. (Optional) Select "Add Destination" to forward the Github webhooks to a HTTP URL or Localhost
