@@ -8,7 +8,6 @@ versions:
   fpt: '*'
 ---
 
-
 ## About {% data variables.product.prodname_classroom %}
 
 {% data variables.product.prodname_classroom %} is an all-in-one platform that makes it easier for teachers and school administrators to manage students' course-works, assignments and code submissions. With {% data variables.product.prodname_classroom %}, you can create group assignments and assign your students to teams, which makes it easier for your students to collaborate and for you and for you to grade them.
