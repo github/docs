@@ -12,17 +12,13 @@ topics:
 
 ## About ticket management
 
+{% data reusables.support.support-portal-notes %}
+
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
 Your capabilities in the {% data variables.contact.support_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
-
-{% note %}
-
-**Note**: Urgent priority and Premium Support SLAs apply only to tickets associated with an enterprise account.
-
-{% endnote %}
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
