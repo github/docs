@@ -10,7 +10,7 @@ versions:
 
 ## About {% data variables.product.prodname_classroom %}
 
-{% data variables.product.prodname_classroom %} is an all-in-one platform that makes it easier for teachers and school administrators to manage students' course-works, assignments and code submissions. With {% data variables.product.prodname_classroom %}, you can create group assignments and assign your students to teams, which makes it easier for your students to collaborate and for you and for you to grade them.
+{% data variables.product.prodname_classroom %} is a teaching tool that lets teachers and school administrators create and manage digital classrooms and assignments. You can create assignments for individual students or groups, set due dates, and track assignments on your teacher dashboard. Additionally, {% data variables.product.prodname_classroom %} has many features that simplify tasks like providing feedback, grading assignments, and integrating your existing teaching tools.
 
 With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
