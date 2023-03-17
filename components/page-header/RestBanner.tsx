@@ -79,12 +79,14 @@ export const RestBanner = () => {
       >
         <Flash>
           <span>{bannerText}</span>{' '}
-          <span>
-            {t('rest.banner.api_version_info').replace(
-              /{{\s*versionWithApiVersion\s*}}/,
-              versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
-            )}
-          </span>
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t('rest.banner.api_version_info').replace(
+                /{{\s*versionWithApiVersion\s*}}/,
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+              ),
+            }}
+          ></span>
         </Flash>
       </div>
     )
