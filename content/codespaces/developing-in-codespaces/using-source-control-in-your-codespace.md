@@ -44,7 +44,7 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 ## About automatic forking
 
-You can create a codespace for any repository to which you have write access. If you only have read access to a repository, you can create a codespace for the repository as long as you can fork it.
+If you only have read access to a repository, you can usually create a codespace for the repository as long as you can fork it.
 
 You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
 
