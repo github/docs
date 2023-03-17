@@ -77,6 +77,8 @@ Some of the features listed below are limited to organizations using {% data var
 {% ifversion fpt or ghec %}
 <!-- Free/Pro/Team and GHEC versions have extra columns for Moderators and Billing managers-->
 
+{% rowheaders %}
+
 | Organization permission | Owners | Members | Moderators | Billing managers | Security managers |
 |:------------------------|:------:|:-------:|:----------:|:----------------:|:-----------------:|
 | Create repositories (see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
@@ -139,8 +141,12 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable team synchronization (see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Manage pull request reviews in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
+{% endrowheaders %}
+
 {% elsif ghes or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
+
+{% rowheaders %}
 
 | Organization action | Owners | Members | Security managers |
 |:--------------------|:------:|:-------:|:-------:|
@@ -185,8 +191,12 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage pull request reviews in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |  |{% endif %}
 
+{% endrowheaders %}
+
 {% else %}
 <!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
+
+{% rowheaders %}
 
 | Organization action | Owners | Members |
 |:--------------------|:------:|:-------:|
@@ -194,7 +204,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Edit and cancel invitations to join the organization | **X** |  |
 | Remove members from the organization | **X** | | |
 | Reinstate former members to the organization | **X** | | |
-| Add and remove people from **all teams** | **X** |  |  
+| Add and remove people from **all teams** | **X** |  |
 | Promote organization members to *team maintainer* | **X** |  |
 | Configure code review assignments (see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)")) | **X** |  |
 | Add collaborators to **all repositories** | **X** |  |
@@ -225,6 +235,8 @@ Some of the features listed below are limited to organizations using {% data var
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |
 | Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | **X** | |
 {% ifversion ghae %}| Manage IP allow lists (see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | **X** | |{% endif %}
+
+{% endrowheaders %}
 
 {% endif %}
 

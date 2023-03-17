@@ -462,6 +462,9 @@ sections:
       ```
       source /etc/bash.bashrc
       ```
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
+
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
       notes:

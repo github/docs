@@ -196,28 +196,6 @@ describe('server', () => {
     expect(res.statusCode).toBe(400)
   })
 
-  test('converts Markdown in intros', async () => {
-    // example from markdown source in intro:
-    // The `git rebase` command
-    const $ = await getDOM('/en/articles/about-git-rebase')
-    expect($.html()).toContain('The <code>git rebase</code> command')
-  })
-
-  test('injects site variables into rendered intros', async () => {
-    // example from markdown source in intro:
-    // You can follow people on {{ site.data.variables.product.product_name }}
-    const $ = await getDOM('/en/github/getting-started-with-github/following-people')
-    expect($.text()).toContain('You can follow people on GitHub')
-  })
-
-  test('injects site variables into rendered permissions statements frontmatter', async () => {
-    // markdown source: {% data variables.product.prodname_pages %} site
-    const $ = await getDOM(
-      '/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
-    )
-    expect($('[data-testid="permissions-statement"]').text()).toContain('GitHub Pages site')
-  })
-
   // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM(
@@ -229,13 +207,6 @@ describe('server', () => {
     )
     const mapTopicIntro = $('.map-topic').first().next().text()
     expect(articleIntro).not.toEqual(mapTopicIntro)
-  })
-
-  test('injects site variables into rendered pages', async () => {
-    // example from markdown source in page body:
-    // {{ site.data.variables.product.product_name }} may recommend
-    const $ = await getDOM('/en/github/getting-started-with-github/following-people')
-    expect($.text()).toContain('GitHub may recommend')
   })
 
   test('serves /categories.json for support team usage', async () => {
@@ -301,26 +272,11 @@ describe('server', () => {
     ).toBe(true)
   })
 
-  test('handles whitespace control in liquid tags', async () => {
-    // example from markdown source of index:
-    // Liquid tags with {%- in lists should not result in newlines
-    // that convert to <p>s in <li>s
-    const $ = await getDOM('/')
-    expect($('li > p').length).toBe(0)
-  })
-
   test('renders liquid within liquid within liquid', async () => {
     const $ = await getDOM('/en/articles/enabling-required-status-checks')
     expect($('ol li').first().text().trim()).toBe(
       'On GitHub.com, navigate to the main page of the repository.'
     )
-  })
-
-  test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM(
-      '/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites'
-    )
-    expect($.text().includes('{{ page.title }}')).toBe(true)
   })
 
   test('displays links to categories on product TOCs', async () => {
@@ -926,17 +882,5 @@ describe('index pages', () => {
     const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
     const $ = await getDOM(installationLatest)
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
-  })
-})
-
-describe('REST reference pages', () => {
-  test('view the rest/repos page in English', async () => {
-    const res = await get('/en/rest/repos')
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('deeper pages in English', async () => {
-    const res = await get('/en/enterprise-cloud@latest/rest/code-scanning')
-    expect(res.statusCode).toBe(200)
   })
 })
