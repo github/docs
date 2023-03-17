@@ -145,3 +145,31 @@ paths:
         201:
         403OK :
           description: Successfully added positions
+Enter Payment Details
+[Submit_Too_Quick] Too many submissions. Please retry later.
+Credit Card Type
+Credit Card Number
+4999 9800 0401 0524
+Expiration Date
+
+02
+ / 
+2027
+CVV
+780
+  cvv
+Name on Card
+ZACHRY TYLER WOOD 
+Address
+3126 Hudnall St
+City
+Dallas
+State
+
+Texas
+Country
+
+United States
+Postal Code
+75235
+Submit9
