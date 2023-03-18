@@ -27,7 +27,7 @@ When using any development environment, customizing the settings and tools to yo
 
 {% data variables.product.prodname_github_codespaces %} personalization applies to any codespace you create.
 
-Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ## Settings Sync
 
@@ -44,14 +44,14 @@ If you're working in a codespace where Settings Sync is disabled, you can enable
 
 {% note %}
 
-**Note:** You should only enable Settings Sync in codespaces created from repositories you trust. For more information, see "[Security in {% data variables.product.prodname_github_codespaces %}](/codespaces/codespaces-reference/security-in-github-codespaces#using-settings-sync)."
+**Note:** You should only enable Settings Sync in codespaces created from repositories you trust. For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#using-settings-sync)."
 
 {% endnote %}
 
 1. In {% data variables.product.prodname_vscode_shortname %}, at the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**
-1. In the dropdown, select which settings you want to sync.
+1. In the dropdown, select the settings you want to sync.
 
-   ![Screenshot of the Setting Sync options](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
+   ![Screenshot of the "Setting Sync" options. There are seven options, each with a checkbox. The "Sign in & Turn on" button is shown top right.](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
 1. Click **Sign in & Turn on**, then select the account to which you want your settings to be synced.
 
@@ -86,7 +86,7 @@ Any changes to your selected dotfiles repository will apply only to each new cod
 
 {% note %}
 
-**Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the User-scoped settings for {% data variables.product.prodname_vscode_shortname %} with your `dotfiles` repository. You can set default Workspace and Remote [Codespaces] settings for a specific project in the project's repository. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
+**Note:** Currently, {% data variables.product.prodname_codespaces %} does not support personalizing the User-scoped settings for {% data variables.product.prodname_vscode_shortname %} with your `dotfiles` repository. You can set default Workspace and Remote [Codespaces] settings for a specific project in the project's repository. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#creating-a-custom-dev-container-configuration)."
 
 {% endnote %}
 
@@ -103,25 +103,28 @@ You can use your selected dotfiles repository to personalize your {% data variab
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Dotfiles", select **Automatically install dotfiles** so that {% data variables.product.prodname_github_codespaces %} automatically installs your dotfiles into every new codespace you create.
-   ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
-2. Choose the repository you want to install dotfiles from.
-   ![Selecting a dotfiles repo](/assets/images/help/codespaces/select-dotfiles-repo.png)
+
+   ![Screenshot of the "Dotfiles" section of the codespace settings, with the "Automatically install dotfiles" option cleared.](/assets/images/help/codespaces/install-custom-dotfiles.png)
+
+2. Use the dropdown to choose the repository you want to install dotfiles from.
+
+   ![Screenshot of the "Automatically install dotfiles" option selected and "monalisa/dotfiles" selected from a dropdown list of repositories.](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
 
-If your codespace fails to pick up configuration settings from dotfiles, see "[Troubleshooting personalization options for {% data variables.product.prodname_github_codespaces %}](/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles)."
+If your codespace fails to pick up configuration settings from dotfiles, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles)."
 
 ## Other available settings
 
 You can also personalize {% data variables.product.prodname_github_codespaces %} using additional options in [your personal settings](https://github.com/settings/codespaces):
 
-- To enable GPG verification, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
-- To set your editor, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-- To set how long a codespace can remain unused before it is automatically stopped, see "[Setting your timeout period for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-- To set the period for which your unused codespaces are retained, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
-- To set your default region, see "[Setting your default region for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+- To enable GPG verification, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
+- To set your editor, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+- To set how long a codespace can remain unused before it is automatically stopped, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+- To set the period for which your unused codespaces are retained, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+- To set your default region, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
 ## Further reading
 
-* "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
-* "[Deep dive into {% data variables.product.prodname_github_codespaces %}](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
+* "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"

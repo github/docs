@@ -24,7 +24,7 @@ Labels allow you to send workflow jobs to specific types of self-hosted runners,
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+For information on creating custom and default labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion target-runner-groups %}
 
@@ -34,7 +34,7 @@ For self-hosted runners defined at the organization {% ifversion ghec or ghes or
 
 To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
 
-For information on creating and managing runner groups, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 {% ifversion fpt %}
 {% data reusables.actions.runner-groups-ent-note %}

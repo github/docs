@@ -32,7 +32,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% endnote %}
 
-If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+If that worked, great! If not, you may need to [follow our troubleshooting guide](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
 
 Now, to clone the repository, you can run the following command:
 
@@ -75,4 +75,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[{% data variables.product.prodname_dotcom %}'s SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."

@@ -11,19 +11,18 @@ Once you have an active {% data variables.product.prodname_copilot %} {% ifversi
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
 1. Under **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
-  ![Screenshot of duplication detection option](/assets/images/help/copilot/duplication-detection.png)
 {% data reusables.copilot.save-settings %}
+
 {% ifversion fpt %}
 ### Enabling or disabling telemetry
 
 {% data reusables.copilot.telemetry-setting-org %}
 
-You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[{% data variables.product.company_short %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
+You can choose whether your code snippets are collected and retained by GitHub and further processed and shared with Microsoft and OpenAI by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your telemetry settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your telemetry data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**.
-  ![Screenshot of telemetry option](/assets/images/help/copilot/telemetry-option.png)
 {% data reusables.copilot.save-settings %}{% endif %}
 
 ## Further reading

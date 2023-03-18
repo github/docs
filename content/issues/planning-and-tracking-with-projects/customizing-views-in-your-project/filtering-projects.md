@@ -1,7 +1,6 @@
 ---
 title: 'Filtering {% data variables.projects.projects_v2 %}'
 intro: Use filters to choose which items appear in your project's views.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
@@ -12,7 +11,7 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
 
 To filter a view, click {% octicon "filter" aria-label="The Filter icon" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
@@ -22,7 +21,11 @@ In board layout, you can click on item data to filter for items with that value.
 
 Using multiple filters will act as a logical AND filter. For example, `label:bug status:"In progress"` will return items with the `bug` label and the "In progress" status. You can also provide multiple values for the same field to act as a logical OR filter. For example, `label:bug,support` will return items with either the `bug` or `support` labels. {% data variables.product.prodname_projects_v2 %} does not currently support logical OR filters across multiple fields.
 
-The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[Using insights with projects](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+{% ifversion projects-v2-insights %}
+
+The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+
+{% endif %}
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
@@ -127,7 +130,7 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a Tasklist. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that being tracked by another issue in a Tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
@@ -204,6 +207,8 @@ You can filter by specific text fields or use a general text filter across all t
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
 
+{% ifversion projects-v2-wildcard-text-filtering %}
+
 You can also use a <code>&ast;</code> as a wildcard.
 
 | Qualifier  | Example
@@ -211,3 +216,5 @@ You can also use a <code>&ast;</code> as a wildcard.
 | <code>field:&ast;<em>TEXT</em>&ast;    | **label:&ast;bug&ast;** will show items with a label that contains the word "bug."
 | <code>field:<em>TEXT</em>&ast;         | **title:API&ast;** will show items with a title that begins with "API."
 | <code>field:&ast;<em>TEXT</em>         | **label:&ast;support** will show items with a label that ends with "support."
+
+{% endif %}

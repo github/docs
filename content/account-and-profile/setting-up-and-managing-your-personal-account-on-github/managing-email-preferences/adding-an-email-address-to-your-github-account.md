@@ -34,4 +34,4 @@ shortTitle: Add an email address
 
 ## Further reading
 
-- "[Managing email preferences](/articles/managing-email-preferences/)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)"

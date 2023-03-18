@@ -23,7 +23,7 @@ shortTitle: Configure built-in authentication
 
 By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.location.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
 
-You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 
@@ -32,9 +32,7 @@ You can prevent unauthenticated people from creating new user accounts on your i
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. Select **Built in authentication**.
-![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-select.png)
-
+4. Under "Authentication", select **Built in authentication**.
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
@@ -50,8 +48,8 @@ Once your instance has been created, you'll need to create your own admin accoun
 
 <a name="inviting-users"></a>
 
-After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[Inviting people to use your instance](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
 
 ## Further reading
 
-- "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

@@ -11,7 +11,7 @@ versions:
 shortTitle: JetBrains
 ---
 
-To troubleshoot issues with {% data variables.product.prodname_copilot%} or your JetBrains IDE, you can view the log files. The location of the log files depends on the JetBrains IDE you are using. For more information, see "[Configuring GitHub Copilot in a JetBrains IDE](/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide)."
+To troubleshoot issues with {% data variables.product.prodname_copilot%} or your JetBrains IDE, you can view the log files. The location of the log files depends on the JetBrains IDE you are using. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide)."
 
 ## Collecting log files
 
@@ -27,7 +27,7 @@ These steps describe how to view and collect the log files for the following Jet
 
 The {% data variables.product.prodname_copilot%} extension logs to the IDEA log location for IntelliJ plugins.
 1. In your JetBrains IDE, open the **Help** menu.
-1. Go to **Show Log in**.
+1. Go to **Show Log in Finder**.
 1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
 
 For more information, see the [Locating IDE log files](https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files) in the Intellij documentation.

@@ -42,8 +42,7 @@ export function Search() {
             redirectSearch()
           }}
         >
-          {/* This prevents zooming in on iOS when you touch the search input text area */}
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+          <meta name="viewport" content="width=device-width initial-scale=1" />
           <label className="text-normal width-full">
             <span
               className="visually-hidden"
@@ -83,7 +82,7 @@ export function Search() {
           <IconButton
             aria-label="Search"
             icon={SearchIcon}
-            sx={{ 'border-top-left-radius': 'unset', 'border-bottom-left-radius': 'unset' }}
+            sx={{ borderTopLeftRadius: 'unset', borderBottomLeftRadius: 'unset' }}
           />
         </form>
       </div>

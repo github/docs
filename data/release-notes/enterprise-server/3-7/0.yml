@@ -3,14 +3,14 @@ release_candidate: false
 deprecated: false
 intro: |
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
     - heading: Instance administration
       notes:
         # https://github.com/github/releases/issues/2407
         - |
-         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
 
         # https://github.com/github/releases/issues/2407
         - |
@@ -24,7 +24,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2344
         - |
-          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Administering your instance from the Management Console](/admin/configuration/administering-your-instance-from-the-management-console)."
 
     - heading: Authentication
       notes:
@@ -231,6 +231,10 @@ sections:
         - |
           Users can create a branch from a repository's **Branches** overview page by clicking the **New branch** button. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
+        # https://github.com/github/releases/issues/2233
+        - |
+          When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/). [Updated: 2023-02-10]
+
         # https://github.com/github/releases/issues/1964
         # https://github.com/github/releases/issues/1965
         # https://github.com/github/releases/issues/2170
@@ -349,6 +353,8 @@ sections:
       We are currently investigating a permanent fix for a future hot patch [Updated: 2022-11-24].
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217

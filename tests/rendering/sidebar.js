@@ -27,18 +27,16 @@ describe('sidebar', () => {
     ])
   })
 
-  test('highlights active product on Enterprise pages', async () => {
-    expect($enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Enterprise administrators')
+  test('highlights active product on Enterprise pages on xl viewport', async () => {
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($enterprisePage('[data-testid=sidebar-product-xl]').text().trim()).toBe(
+      'Enterprise administrators'
+    )
   })
 
-  test('highlights active product on GitHub pages', async () => {
-    expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Get started')
+  test('highlights active product on GitHub pages on xl viewport', async () => {
+    expect($githubPage('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($githubPage('[data-testid=sidebar-product-xl]').text().trim()).toBe('Get started')
   })
 
   test('includes links to external products like Electron and CodeQL', async () => {
@@ -52,7 +50,8 @@ describe('sidebar', () => {
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
+    const url =
+      '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)

@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -59,9 +59,11 @@ children:
   - actions
   - copilot
   - codespaces
+  - migrations
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks-and-events
   - rest
   - graphql
   - github-cli
@@ -73,11 +75,13 @@ children:
   - desktop
   - early-access
   - support
+  - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
     children:
       - get-started
+      - migrations
       - account-and-profile
       - authentication
       - billing
@@ -118,9 +122,10 @@ childGroups:
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks-and-events
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -150,4 +155,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

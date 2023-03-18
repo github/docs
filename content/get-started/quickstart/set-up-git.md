@@ -12,7 +12,7 @@ redirect_from:
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
-intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
+intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open-source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -26,9 +26,9 @@ topics:
 ---
 ## Using Git
 
-To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-If you want to work with Git locally, but do not want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)."
+If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop)."
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
@@ -43,7 +43,7 @@ If you do not need to work with files locally, {% data variables.product.product
 
    {% note %}
    
-   **Note**: If you are using a Chrome OS device, additional set up is required:
+   **Note**: If you are using a Chrome OS device, additional setup is required:
    
    1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
    1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
@@ -65,11 +65,11 @@ When you connect to a {% data variables.product.prodname_dotcom %} repository fr
 
 ### Connecting over HTTPS (recommended)
 
-If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[Cloning with HTTPS urls](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)" and "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)."
+If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)" and "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)."
 
 ### Connecting over SSH
 
-If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[Cloning with SSH urls](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls)" and "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls)" and "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 ## Next steps
 

@@ -12,6 +12,8 @@ topics:
   - Code scanning
   - CodeQL
 ---
+<!--The CodeQL CLI man pages include a link to this article. If you rename this article,
+make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs/extractor-options.-->
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
 

@@ -1,11 +1,11 @@
 ---
-title: Code security
+title: Code security documentation
 shortTitle: Code security
 intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
-  guides:
+  startHere:
     - /code-security/getting-started/securing-your-repository
     - /code-security/getting-started/securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
@@ -26,7 +26,7 @@ featuredLinks:
     - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - '{% ifversion ghae %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
     - '{% ifversion ghes < 3.3 or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages{% endif %}'

@@ -3,7 +3,6 @@ title: About Tasklists
 intro: You can use Tasklists to divide your issues into smaller subtasks.
 versions:
   feature: projects-v2-tasklists
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /early-access/issues/about-tasklists
 ---
@@ -22,7 +21,7 @@ The issues you add to your Tasklists will be automatically populated to show the
 
 ### About integration with {% data variables.projects.projects_v2 %}
 
- Your project's side-panel displays an issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your Tasklists. You can also add the Tracks and Tracked by fields to your project views to quickly see the relationships between your issues. For information, see "[About tracks and tracked by fields](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
+ Your project's side-panel displays an issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your Tasklists. You can also add the Tracks and Tracked by fields to your project views to quickly see the relationships between your issues. For information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
 
 ## Creating Tasklists
 

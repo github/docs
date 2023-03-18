@@ -47,7 +47,7 @@ repository you're pushing to, you'll get a message saying `non-fast-forward upda
 This means that you must retrieve, or "fetch," the upstream changes, before
 you are able to push your local changes.
 
-For more information on this error, see "[Dealing with non-fast-forward errors](/get-started/using-git/dealing-with-non-fast-forward-errors)."
+For more information on this error, see "[AUTOTITLE](/get-started/using-git/dealing-with-non-fast-forward-errors)."
 
 ## Pushing tags
 
@@ -108,12 +108,12 @@ git fetch upstream
 When you're done making local changes, you can push your local branch to GitHub
 and [initiate a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-For more information on working with forks, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
+For more information on working with forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
 
 ## Further reading
 
 - [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
 - [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-- "[Git cheatsheet](/get-started/quickstart/git-cheatsheet)"
-- "[Git workflows](/get-started/getting-started-with-git/git-workflows)"
+- "[AUTOTITLE](/get-started/quickstart/git-cheatsheet)"
+- "[AUTOTITLE](/get-started/getting-started-with-git/git-workflows)"
 - "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

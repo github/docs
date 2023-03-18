@@ -10,15 +10,13 @@ shortTitle: Uninstall GitHub Desktop
 ---
 {% mac %}
 
-1. In a Finder window, navigate to the Applications folder.
-  ![Applications folder in the Finder window](/assets/images/help/desktop/applications-folder.png)
-2. While pressing the **Control** button on your keyboard, click **{% data variables.product.prodname_desktop %}**.
-3. Choose **Move to Trash**.
-  ![The Move to Trash option](/assets/images/help/desktop/mac-move-to-trash.png)
-4. In the menu bar, use the **Finder** drop-down menu, then click **Empty Trash**.
-  ![The Empty Trash option in the menu bar](/assets/images/help/desktop/mac-empty-trash-menu.png)
+1. Open the Finder on your Mac and navigate to the "Applications" folder.
+2. Right-click **{% data variables.product.prodname_desktop %}** and click **Move to Trash**.
+4. In the menu bar, select the **Finder** dropdown menu, then click **Empty Trash**.
+
+   ![Screenshot of the menu bar on a Mac. The "Finder" dropdown menu is expanded.](/assets/images/help/desktop/mac-empty-trash-menu.png)
+
 5. Read the warning in the pop-up box and click **Empty Trash**.
-  ![The Empty Trash button](/assets/images/help/desktop/mac-empty-trash-button.png)
 
 {% endmac %}
 

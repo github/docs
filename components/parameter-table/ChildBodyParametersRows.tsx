@@ -45,7 +45,7 @@ export function ChildBodyParametersRows({
                     rowParams={childParam}
                     slug={slug}
                     isChild={true}
-                    key={childParam.name}
+                    key={`${childParam.name}-${index}`}
                     rowIndex={index}
                   />
                 )

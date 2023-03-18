@@ -23,7 +23,7 @@ topics:
   - User account
 shortTitle: Add to your receipts
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
+Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
 {% warning %}
 
@@ -36,10 +36,10 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.user-settings.payment-info-link %}
-1. At the bottom of the page, click **Add information**.
+1. At the bottom of the page, next to "Additional information," click **Add information**.
 
- ![Screenshot of the billing extra info button](/assets/images/help/billing/settings_billing_personal_add_extra.png)
- 
+ ![Screenshot of the "Additional information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_personal_add_extra.png)
+
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Adding information to your organization's receipts
@@ -50,11 +50,10 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endnote %}
 
-
 {% data reusables.organizations.billing-settings %}
 {% data reusables.user-settings.payment-info-link %}
-1. Under "Payment information", under "Extra information", click **Add information**.
+1. Under "Payment information", next to "Additional information click **Add information**.
 
-  ![Screenshot of the billing extra info button](/assets/images/help/billing/settings_billing_add_billing_extra.png)
+  ![Screenshot of the "Payment information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_add_billing_extra.png)
 
 {% data reusables.dotcom_billing.extra_info_receipt %}

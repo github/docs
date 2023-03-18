@@ -18,7 +18,7 @@ For a "marked as duplicate" timeline event to appear, the user who creates the d
 
 ## Marking duplicates
 
-To mark an issue or pull request as a duplicate, type "Duplicate of" followed by the issue or pull request number it duplicates in the body of a new comment. You can also use the GitHub-provided "Duplicate issue" or "Duplicate pull request" saved replies to mark an issue or pull request as a duplicate. For more information, see "[About saved replies](/articles/about-saved-replies)."
+To mark an issue or pull request as a duplicate, type "Duplicate of" followed by the issue or pull request number it duplicates in the body of a new comment. You can also use the GitHub-provided "Duplicate issue" or "Duplicate pull request" saved replies to mark an issue or pull request as a duplicate. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/about-saved-replies)."
 
 ![Duplicate issue syntax](/assets/images/help/issues/duplicate-issue-syntax.png)
 

@@ -24,7 +24,7 @@ You can create tables with pipes `|` and hyphens `-`. Hyphens are used to create
 | Content Cell  | Content Cell  |
 ```
 
-![Rendered table](/assets/images/help/writing/table-basic-rendered.png)
+![Screenshot of a Markdown table with two columns of equal width as rendered on {% data variables.product.prodname_dotcom %}. Headers render in boldface, and alternate content rows have gray shading.](/assets/images/help/writing/table-basic-rendered.png)
 
 The pipes on either end of the table are optional.
 
@@ -37,7 +37,7 @@ Cells can vary in width and do not need to be perfectly aligned within columns. 
 | git diff | Show file differences that haven't been staged |
 ```
 
-![Rendered table with varied cell width](/assets/images/help/writing/table-varied-columns-rendered.png)
+![Screenshot of a Markdown table with two columns of differing width as rendered on {% data variables.product.prodname_dotcom %}. Rows list the commands "git status" and "git diff" and their descriptions.](/assets/images/help/writing/table-varied-columns-rendered.png)
 
 {% data reusables.user-settings.enabling-fixed-width-fonts %}
 
@@ -52,7 +52,7 @@ You can use [formatting](/get-started/writing-on-github/getting-started-with-wri
 | `git diff` | Show file differences that **haven't been** staged |
 ```
 
-![Rendered table with formatted text](/assets/images/help/writing/table-inline-formatting-rendered.png)
+![Screenshot of a Markdown table with two columns of differing width as rendered on {% data variables.product.prodname_dotcom %}. The commands "git status" and "git diff" are formatting as code blocks.](/assets/images/help/writing/table-inline-formatting-rendered.png)
 
 You can align text to the left, right, or center of a column by including colons `:` to the left, right, or on both sides of the hyphens within the header row.
 
@@ -63,7 +63,7 @@ You can align text to the left, right, or center of a column by including colons
 | git diff     | git diff       | git diff      |
 ```
 
-![Rendered table with left, center, and right text alignment](/assets/images/help/writing/table-aligned-text-rendered.png)
+![Screenshot of a Markdown table with three columns as rendered on {% data variables.product.prodname_dotcom %}, showing how text within cells can be set to align left, center, or right.](/assets/images/help/writing/table-aligned-text-rendered.png)
 
 To include a pipe `|` as content within your cell, use a `\` before the pipe:
 
@@ -74,9 +74,9 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 | Pipe     | \|        |
 ```
 
-![Rendered table with an escaped pipe](/assets/images/help/writing/table-escaped-character-rendered.png)
+![Screenshot of a Markdown table as rendered on {% data variables.product.prodname_dotcom %} showing how pipes, which normally close cells, can display inside cells when prefaced by a backslash.](/assets/images/help/writing/table-escaped-character-rendered.png)
 
 ## Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"

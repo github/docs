@@ -16,7 +16,6 @@ versions:
 topics:
   - Pull requests
   - Fundamentals
-miniTocMaxHeadingLevel: 3
 ---
 ## Introduction
 
@@ -24,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Prerequisites
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[Signing up for {% data variables.product.prodname_dotcom %}](/get-started/signing-up-for-github)." For information on how to create a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[AUTOTITLE](/get-started/signing-up-for-github)." For information on how to create a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 
@@ -40,13 +39,13 @@ To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% 
 
 ### Create a branch
 
-  Create a branch in your repository. A short, descriptive branch name enables your collaborators to see ongoing work at a glance. For example, `increase-test-timeout` or `add-code-of-conduct`. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+  Create a branch in your repository. A short, descriptive branch name enables your collaborators to see ongoing work at a glance. For example, `increase-test-timeout` or `add-code-of-conduct`. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
   By creating a branch, you create a space to work without affecting the default branch. Additionally, you give collaborators a chance to review your work.
 
 ### Make changes
 
-On your branch, make any desired changes to the repository. For more information, see "[Creating new files](/repositories/working-with-files/managing-files/creating-new-files)", "[Editing files](/repositories/working-with-files/managing-files/editing-files)", "[Renaming a file](/repositories/working-with-files/managing-files/renaming-a-file)", "[Moving a file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)", or "[Deleting files in a repository](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)".
+On your branch, make any desired changes to the repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/renaming-a-file)", "[AUTOTITLE](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)", or "[AUTOTITLE](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)".
 
 Your branch is a safe place to make changes. If you make a mistake, you can revert your changes or push additional changes to fix the mistake. Your changes will not end up on the default branch until you merge your branch.
 
@@ -66,9 +65,9 @@ Continue to make, commit, and push changes to your branch until you are ready to
 
 ### Create a pull request
 
-Create a pull request to ask collaborators for feedback on your changes. Pull request review is so valuable that some repositories require an approving review before pull requests can be merged. If you want early feedback or advice before you complete your changes, you can mark your pull request as a draft. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+Create a pull request to ask collaborators for feedback on your changes. Pull request review is so valuable that some repositories require an approving review before pull requests can be merged. If you want early feedback or advice before you complete your changes, you can mark your pull request as a draft. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
 
-When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+When you create a pull request, include a summary of the changes and what problem they solve. You can include images, links, and tables to help convey this information. If your pull request addresses an issue, link the issue so that issue stakeholders are aware of the pull request and vice versa. If you link with a keyword, the issue will close automatically when the pull request merges. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
 ![pull request body](/assets/images/help/pull_requests/pull-request-body.png)
 
@@ -78,24 +77,24 @@ In addition to filling out the body of the pull request, you can add comments to
 
 Your repository may be configured to automatically request a review from specific teams or users when a pull request is created. You can also manually @mention or request a review from specific people or teams.
 
-If your repository has checks configured to run on pull requests, you will see any checks that failed on your pull request. This helps you catch errors before merging your branch. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+If your repository has checks configured to run on pull requests, you will see any checks that failed on your pull request. This helps you catch errors before merging your branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 
 ### Address review comments
 
-Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[Reviewing changes in pull requests](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
+Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
 
 You can continue to commit and push changes in response to the reviews. Your pull request will update automatically.
 
 ### Merge your pull request
 
-Once your pull request is approved, merge your pull request. This will automatically merge your branch so that your changes appear on the default branch. {% data variables.product.prodname_dotcom %} retains the history of comments and commits in the pull request to help future contributors understand your changes. For more information, see "[Merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
+Once your pull request is approved, merge your pull request. This will automatically merge your branch so that your changes appear on the default branch. {% data variables.product.prodname_dotcom %} retains the history of comments and commits in the pull request to help future contributors understand your changes. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
 
-{% data variables.product.prodname_dotcom %} will tell you if your pull request has conflicts that must be resolved before merging. For more information, see "[Addressing merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
+{% data variables.product.prodname_dotcom %} will tell you if your pull request has conflicts that must be resolved before merging. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
-Branch protection settings may block merging if your pull request does not meet certain requirements. For example, you need a certain number of approving reviews or an approving review from a specific team. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Branch protection settings may block merging if your pull request does not meet certain requirements. For example, you need a certain number of approving reviews or an approving review from a specific team. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
 
 ### Delete your branch
 
-After you merge your pull request, delete your branch. This indicates that the work on the branch is complete and prevents you or others from accidentally using old branches. For more information, see "[Deleting and restoring branches in a pull request](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)."
+After you merge your pull request, delete your branch. This indicates that the work on the branch is complete and prevents you or others from accidentally using old branches. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)."
 
 Don't worry about losing information. Your pull request and commit history will not be deleted. You can always restore your deleted branch or revert your pull request if needed.

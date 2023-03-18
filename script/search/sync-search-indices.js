@@ -7,6 +7,8 @@
 //
 // [end-readme]
 
+import { existsSync } from 'fs'
+
 import assert from 'assert'
 import { program, Option } from 'commander'
 
@@ -37,6 +39,7 @@ program
   )
   .option('--no-markers', 'Do not print a marker for each parsed document')
   .option('--filter <MATCH>', 'Filter to only do pages that match this string')
+  .option('-p, --popular-pages <PATH>', 'Popular pages JSON file (defaults to $POPULAR_PAGES_JSON)')
   .argument('<out-directory>', 'where the indexable files should be written')
   .parse(process.argv)
 
@@ -85,6 +88,21 @@ async function main(opts, args) {
     }
   }
 
+  let popularPagesFilePath
+  const { popularPages } = opts
+  const { POPULAR_PAGES_JSON } = process.env
+  if (popularPages) {
+    if (!existsSync(popularPages)) {
+      throw new Error(`'${popularPages}' does not exist`)
+    }
+    popularPagesFilePath = popularPages
+  } else if (POPULAR_PAGES_JSON) {
+    if (!existsSync(POPULAR_PAGES_JSON)) {
+      throw new Error(`'${POPULAR_PAGES_JSON}' does not exist`)
+    }
+    popularPagesFilePath = POPULAR_PAGES_JSON
+  }
+
   // A `--version` or `process.env.VERSION` was specified, we need to convert
   // it to the long name. I.e. `free-pro-team@latest`. Not `dotcom`.
   // But it could also have beeb specified as `all` which means that `version`
@@ -109,6 +127,7 @@ async function main(opts, args) {
   const config = {
     noMarkers: !opts.markers,
     filter: opts.filter,
+    popularPagesFilePath,
   }
 
   const options = {

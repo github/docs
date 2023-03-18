@@ -28,9 +28,9 @@ With {% data variables.product.prodname_actions %}, you can use OpenID Connect (
 
 The following diagram gives an overview of this solution's architecture:
 
-![Diagram of an OIDC gateway](/assets/images/help/images/actions-oidc-gateway.png)
+![A diagram of an OIDC gateway architecture starting with a GitHub Actions runner and ending with a private network's private service.](/assets/images/help/images/actions-oidc-gateway.png)
 
-It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
+It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
 
 The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
 
@@ -38,7 +38,7 @@ But there are various advantages too:
 - You don't need to configure any firewalls, or modify the routing of your private network. 
 - The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
 
-For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
+For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
 {% endif %}
 
 ### Using WireGuard to create a network overlay
@@ -92,7 +92,7 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
 
 ### Using Tailscale to create a network overlay
 
@@ -102,4 +102,4 @@ Its disadvantages are similar to WireGuard: The connection is one-to-one, so you
 
 However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" for how to securely store keys.

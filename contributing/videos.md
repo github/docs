@@ -102,16 +102,18 @@ For videos hosted on YouTube, see "[Add subtitles and captions](https://support.
 
 ### Creating video transcripts
 
-A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
+For every video linked or embedded in the docs, we must have a descriptive transcript of the video. Transcript articles are formatted like other articles, with YAML frontmatter and Markdown content. To add a transcript to the Docs site, create an article in [`content/video-transcripts`](https://github.com/github/docs/tree/main/content/video-transcripts), and include the transcript as the article's body text. Give the article a filename like `transcript-VIDEO-NAME.md` and a `title` frontmatter property of `Transcript - VIDEO NAME`. Add the article to the `index.md` file in the `video-transcripts` directory.
 
-Creating transcripts is part of the process of producing accessible videos, so the owner of a video being added to the docs site should provide the transcript.
+Do not use Liquid variables or reusables to replace things like product names in the transcript. The transcript should be faithful to the audio in the video, and we should not change any text in the transcript as a result of updating a variable or reusable after the video was produced.
 
-If you have captions, you can use them to create the transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. Create an article in [`content/video-transcripts`](https://github.com/github/docs/tree/main/content/video-transcripts) with the transcript. Title the article `Transcript - VIDEO NAME`.
+Creating transcripts is part of the process of producing accessible videos, so the owner of a video being added to the docs site should provide the content for a transcript.
+
+You can use captions as the foundation for a transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
 
 - If a video has multiple speakers, identify the speakers in the transcript
 - Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video
 - Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`
-- Link to the YouTube URL of the video in the article's `intro`
+- Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article
 - At the end of the transcript, link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`
 
 See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.
@@ -119,6 +121,16 @@ See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspe
 #### Linking to transcripts from externally hosted videos
 
 Add a link to the article with a video's transcript in the description of the video on the platform where it is hosted. For more information, see "[Edit video settings](https://support.google.com/youtube/answer/57404?)" in the YouTube documentation.
+
+#### Linking to transcripts for embedded videos
+
+In any content with an embedded video, add a `product_video_transcript` property below the `product_video` property in the YAML frontmatter. The value of `product_video_transcript` is a link to the transcript article in the `video-transcripts` directory.
+
+```YAML
+title: Example product landing page
+product_video: 'https://www.youtube-nocookie.com/embed/URL'
+product_video_transcript: /content/video-transcripts/TRANSCRIPT-TITLE
+```
 
 ## Titles for videos
 
@@ -152,17 +164,6 @@ Transcript: ./content/video-transcripts/filename
 ```
 
 ```
-Title: GitHub Actions - Supercharge your GitHub Flow
-URL: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
-Description: A 3 minute overview of how GitHub Actions fits in the GitHub flow.
-Product: Actions
-Versions: All
-Date added: 2020-12-03
-Location: content/actions/index.md
-Transcript: TBD
-```
-
-```
 Title: Codespaces - Your instant dev box in the cloud
 URL: https://www.youtube-nocookie.com/embed/_W9B7qc9lVc
 Description: A 1.5 minute overview of GitHub Codespaces.
@@ -192,94 +193,6 @@ Product: Classroom
 Versions: fpt
 Date added: ?
 Location: content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom.md
-Transcript: TBD
-```
-
-```
-Title: Pull Requests • GitHub & Git Foundations
-URL: https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19
-Description: A 4.5 minute video introducing pull requests.
-Product: Pull requests, getting started
-Versions: All
-Date added: ?
-Location: content/get-started/quickstart/git-and-github-learning-resources.md
-Transcript: TBD
-```
-
-```
-Title: Rebase • GitHub & Git Foundations
-URL: https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22
-Description: A 4.5 minute introduction to using Git Rebase.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/quickstart/git-and-github-learning-resources.md
-Transcript: TBD
-```
-
-```
-Title: Reset• GitHub & Git Foundations
-URL: https://www.youtube.com/watch?v=BKPjPMVB81g
-Description: A 4 minute introduction to using Git Reset.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/quickstart/git-and-github-learning-resources.md
-Transcript: TBD
-```
-
-```
-Title: Forking • GitHub & Git Foundations
-URL: https://www.youtube.com/watch?v=5oJHRbqEofs
-Description: A 2 minute introduction to forking projects on GitHub.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/quickstart/git-and-github-learning-resources.md
-Transcript: TBD
-```
-
-```
-Title: Git & GitHub: Working Locally
-URL: https://www.youtube.com/watch?v=rBbbOouhI-s&index=2&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
-Description: A 1.5 minute overview of working locally in the command line.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/using-git/about-git.md
-Transcript: TBD
-```
-
-```
-Title: Git & GitHub: Git Status
-URL: https://www.youtube.com/watch?v=SxmveNrZb5k&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4&index=3
-Description: A 1 minute overview of the git status command.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/using-git/about-git.md
-Transcript: TBD
-```
-
-```
-Title: Git & GitHub: Git Pull and Git Push
-URL: https://www.youtube.com/watch?v=-uQHV9GOA0w&index=5&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
-Description: A 1 minute introduction to using Git Push and Git Pull.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/using-git/about-git.md
-Transcript: TBD
-```
-
-```
-Title: Git & GiHub: Saved Changes
-URL: https://www.youtube.com/watch?v=Vb0Ghkkc2hk&index=4&list=PLg7s6cbtAD17Gw5u8644bgKhgRLiJXdX4
-Description: A 1.5 minute introduction to saving work and pushing commits.
-Product: Getting started
-Versions: All
-Date added: ?
-Location: content/get-started/using-git/about-git.md
 Transcript: TBD
 ```
 

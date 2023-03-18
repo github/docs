@@ -125,7 +125,7 @@ The following properties are supported in `qlpack.yml` files.
 #### `suites`
 
 - Optional for packs that define query suites.
-- Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run “well-known” suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites/).” For example:
+- Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run “well-known” suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see “[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites).” For example:
   ```yaml
   suites: octo-org-query-suites
   ```
@@ -139,7 +139,7 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `extractor`
 - Required by all packs containing {% data variables.product.prodname_codeql %} tests.
-- Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see “[Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries/).” For example:
+- Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see “[Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries).” For example:
   ```yaml
   extractor: javascript
   ```
@@ -216,7 +216,7 @@ In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs 
 
 ## Examples of custom {% data variables.product.prodname_codeql %} packs
 
-When you write custom queries or tests, you should save them in custom {% data variables.product.prodname_codeql %} packs. For simplicity, try to organize each pack logically. For more information, see “[{% data variables.product.prodname_codeql %} pack structure](#codeql-pack-structure).” Save files for queries and tests in separate packs and, where possible, organize custom packs into specific folders for each target language. This is particuarly useful if you intend to publish your {% data variables.product.prodname_codeql %} packs so they can be shared with others or used in code scanning. For more information, see "[About code scanning with {% data variables.product.prodname_codeql %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+When you write custom queries or tests, you should save them in custom {% data variables.product.prodname_codeql %} packs. For simplicity, try to organize each pack logically. For more information, see “[{% data variables.product.prodname_codeql %} pack structure](#codeql-pack-structure).” Save files for queries and tests in separate packs and, where possible, organize custom packs into specific folders for each target language. This is particuarly useful if you intend to publish your {% data variables.product.prodname_codeql %} packs so they can be shared with others or used in code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
 ### {% data variables.product.prodname_codeql %} packs for custom libraries
 

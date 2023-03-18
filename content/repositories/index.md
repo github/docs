@@ -1,11 +1,12 @@
 ---
-title: Repositories
+title: Repositories documentation
+shortTitle: Repositories
 intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
 introLinks:
   quickstart: /get-started/quickstart/create-a-repo
   overview: /repositories/creating-and-managing-repositories/about-repositories
 featuredLinks:
-  guides:
+  startHere:
     - /repositories/creating-and-managing-repositories/cloning-a-repository
     - /repositories/creating-and-managing-repositories/restoring-a-deleted-repository
     - /repositories/working-with-files/managing-files/adding-a-file-to-a-repository

@@ -111,17 +111,21 @@ export const RestBanner = () => {
       </React.Fragment>,
     ])
 
+    const noticeStringParts = t('rest.banner.redirect_repo').split('{{ newRestPagesLinks }}')
     noticeString = (
       <React.Fragment>
-        If you can't find what you're looking for, you might try the new {newRestPagesText} REST API
-        pages.
+        {noticeStringParts[0]}
+        {newRestPagesText}
+        {noticeStringParts[1] || null}
       </React.Fragment>
     )
   } else if (restEnterpriseDisplayPages.includes(restPage)) {
+    const noticeStringParts = t('rest.banner.redirect_enterprise').split('{{ actionsPageLink }}')
     noticeString = (
       <React.Fragment>
-        If you can't find what you're looking for, you might try the{' '}
-        <Link href={`/${router.locale}/rest/actions`}>Actions</Link> REST API page.
+        {noticeStringParts[0]}
+        <Link href={`/${router.locale}/rest/actions`}>{t('rest.banner.actions_api_title')}</Link>
+        {noticeStringParts[1] || null}
       </React.Fragment>
     )
   }
@@ -131,7 +135,9 @@ export const RestBanner = () => {
       <Flash variant="warning">
         <p>
           <b className="text-bold">
-            <span>We've recently moved some of the REST API documentation. {noticeString}</span>
+            <span>
+              {t('rest.banner.redirect_notice')} {noticeString}
+            </span>
           </b>{' '}
         </p>
       </Flash>

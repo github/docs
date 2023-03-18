@@ -17,7 +17,7 @@ shortTitle: Delete a codespace
 
 ## Overview
 
-{% data reusables.codespaces.automatic-deletion %} For more information, see "[Configuring automatic deletion of your codespaces](http://127.0.0.1:4000/en/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
+{% data reusables.codespaces.automatic-deletion %} For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
 
 You can manually delete a codespace in a variety of ways:
 - In the terminal by using {% data variables.product.prodname_cli %}
@@ -34,7 +34,7 @@ Use the tabs at the top of this article to display instructions for each of thes
 
 ## Why you should delete unused codespaces
 
-There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+There are costs associated with storing codespaces. You should therefore delete any codespaces you no longer need. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 {% data reusables.codespaces.max-number-codespaces %}
 
@@ -45,7 +45,7 @@ There are costs associated with storing codespaces. You should therefore delete 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**.
 
-   ![Screenshot of the 'Delete' button](/assets/images/help/codespaces/delete-codespace.png)
+   ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Delete" option.](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 
@@ -137,9 +137,9 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 
 {% endcli %}
 
-You can also use the REST API to delete codespaces for your organization. For more information, see "[Codespaces organizations](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
+You can also use the REST API to delete codespaces for your organization. For more information, see "[AUTOTITLE](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
 
 ## Further reading
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
-- "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
-- "[Restricting the retention period for codespaces](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"

@@ -1,26 +1,31 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 import { readdirSync, readFileSync } from 'fs'
-import { join } from 'path'
+import path from 'path'
 
 import { get, getDOM } from '../helpers/e2etest.js'
-import getRest, { getEnabledForApps, categoriesWithoutSubcategories } from '../../lib/rest/index.js'
+import getRest, {
+  categoriesWithoutSubcategories,
+  REST_DATA_DIR,
+  REST_SCHEMA_FILENAME,
+} from '../../src/rest/lib/index.js'
+import { getEnabledForApps } from '../../src/github-apps/lib/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
-import { getDiffOpenAPIContentRest } from '../../script/rest/test-open-api-schema.js'
+import { getDiffOpenAPIContentRest } from '../../src/rest/scripts/test-open-api-schema.js'
 
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('all category and subcategory REST pages render for free-pro-team', async () => {
-    const DECORATED_DIR = 'lib/rest/static/decorated'
     // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
     // get a list of all categories across all versions.
-    const freeProTeamFile = readdirSync(DECORATED_DIR)
-      .filter((file) => file.startsWith('api.github.com'))
+    const freeProTeamVersion = readdirSync(REST_DATA_DIR)
+      .filter((file) => file.startsWith('fpt'))
       .shift()
-    const freeProTeamSchema = JSON.parse(readFileSync(join(DECORATED_DIR, freeProTeamFile), 'utf8'))
-    // One off edge case for secret-scanning Docs-content issue 6637
-    if ('secret-scanning' in freeProTeamSchema) delete freeProTeamSchema['secret-scanning']
+    const freeProTeamSchema = JSON.parse(
+      readFileSync(path.join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
+    )
+
     const restCategories = Object.entries(freeProTeamSchema)
       .map(([key, subCategory]) => {
         const subCategoryKeys = Object.keys(subCategory)
@@ -97,13 +102,13 @@ describe('REST references docs', () => {
     }
   })
 
-  test('404 if unrecognized apiVersion', async () => {
+  test('falls back when unsupported calendar version provided', async () => {
     const res = await get(
       `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
         apiVersion: 'junk',
       })}`
     )
-    expect(res.statusCode).toBe(404)
+    expect(res.statusCode).toBe(200)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {
@@ -146,6 +151,36 @@ describe('REST references docs', () => {
       }
     }
   })
+
+  describe('headings', () => {
+    test('rest pages do not render any headings with duplicate text', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingText = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).text())
+        .get()
+        .sort()
+
+      const dupes = headingText.filter((item, index) => headingText.indexOf(item) !== index)
+
+      const message = `The following duplicate heading texts were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
+
+    test('rest pages do not render any headings with duplicate ids', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingIDs = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).attr('id'))
+        .get()
+        .sort()
+
+      const dupes = headingIDs.filter((item, index) => headingIDs.indexOf(item) !== index)
+
+      const message = `The following duplicate heading IDs were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
+  })
 })
 
 function formatErrors(differences) {
@@ -161,7 +196,7 @@ function formatErrors(differences) {
     }
   }
   errorMessage += `
-This test checks that the categories and subcategories in the content/rest directory matches the decorated schemas in lib/rest/static/decorated for each version of the REST API.
+This test checks that the categories and subcategories in the content/rest directory matches the decorated schemas in src/rest/data for each version of the REST API.
 
 If you have made changes to the categories or subcategories in the content/rest directory, either in the frontmatter or the structure of the directory, you will need to ensure that it matches the operations in the OpenAPI description. For example, if an operation is available in GHAE, the frontmatter versioning in the relevant docs category and subcategory files also need to be versioned for GHAE. If you are adding category or subcategory files to the content/rest directory, the OpenAPI dereferenced files must have at least one operation that will be shown for the versions in the category or subcategory files. If this is the case, it is likely that the description files have not been updated from github/github yet.
 

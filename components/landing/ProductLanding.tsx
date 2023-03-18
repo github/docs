@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
-import cx from 'classnames'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
@@ -15,12 +14,12 @@ import { ProductArticlesList } from 'components/landing/ProductArticlesList'
 import { ProductReleases } from 'components/landing/ProductReleases'
 import { useVersion } from 'components/hooks/useVersion'
 import { RestRedirect } from 'components/RestRedirect'
-import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 export const ProductLanding = () => {
   const router = useRouter()
   const { isEnterpriseServer } = useVersion()
   const {
+    title,
     shortTitle,
     featuredLinks,
     productUserExamples,
@@ -34,9 +33,6 @@ export const ProductLanding = () => {
       <div data-search="article-body">
         {router.query.productId === 'rest' && <RestRedirect />}
         <LandingSection className="pt-3">
-          <div className={cx('my-3 mr-auto width-full')} data-search="breadcrumbs">
-            <Breadcrumbs />
-          </div>
           <LandingHero />
         </LandingSection>
 
@@ -80,7 +76,11 @@ export const ProductLanding = () => {
           </div>
         )}
 
-        <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
+        <LandingSection
+          title={t('all_docs').replace('{{ title }}', shortTitle || title)}
+          sectionLink="all-docs"
+          className="pt-9"
+        >
           <ProductArticlesList />
         </LandingSection>
       </div>

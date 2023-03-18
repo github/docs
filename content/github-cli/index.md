@@ -1,5 +1,5 @@
 ---
-title: GitHub CLI
+title: GitHub CLI documentation
 shortTitle: GitHub CLI
 intro: '{% data reusables.cli.about-cli %}'
 versions:
@@ -14,7 +14,7 @@ introLinks:
   quickstart: /github-cli/github-cli/quickstart
   reference: /github-cli/github-cli/github-cli-reference
 featuredLinks:
-  guides:
+  startHere:
     - /github-cli/github-cli/creating-github-cli-extensions
     - /github-cli/github-cli/using-github-cli-extensions
     - /actions/using-workflows/using-github-cli-in-workflows

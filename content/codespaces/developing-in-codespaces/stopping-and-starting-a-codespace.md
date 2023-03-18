@@ -31,7 +31,8 @@ Regardless of where you created or access your codespaces, you can view and mana
 {% data reusables.codespaces.navigate-to-codespaces-page %}
  1. To the right of the codespace you want to stop, click the ellipsis (**...**).
  1. Click **Stop codespace**.
-   ![Screenshot of option to stop a codespace](/assets/images/help/codespaces/stop-codespace-webui.png)
+
+   ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Stop codespace" option.](/assets/images/help/codespaces/stop-codespace-webui.png)
 
 {% endwebui %}
 
@@ -68,7 +69,7 @@ You can stop a codespace from the "Your codespaces" page (see [the web browser i
 {% data reusables.codespaces.navigate-to-codespaces-page %}
 1. Click the name of the codespace you want to restart.
 
-   ![Screenshot of stopped codespaces](/assets/images/help/codespaces/restart-codespace-webui.png)
+   ![Screenshot of a list of two codespaces on GitHub. The names of the codespaces are highlighted with dark orange outlines.](/assets/images/help/codespaces/restart-codespace-webui.png)
 
 {% endwebui %}
 
@@ -106,4 +107,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-- "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"

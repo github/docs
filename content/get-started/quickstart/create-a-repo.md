@@ -21,7 +21,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-You can store a variety of projects in {% data variables.product.prodname_dotcom %} repositories, including open source projects. With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
+You can store a variety of projects in {% data variables.product.prodname_dotcom %} repositories, including open source projects. With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -36,7 +36,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 **Notes:** 
 - You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} 
 - {% data reusables.open-source.open-source-learning %} 
-- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)." 
+- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)." 
 
 {% endnote %}
 
@@ -137,7 +137,7 @@ You have now created a repository, including a *README* file, and created your f
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[Cloning a repository](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[Set up Git](/get-started/quickstart/set-up-git)."
+* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
 
 {% endwebui %}
 

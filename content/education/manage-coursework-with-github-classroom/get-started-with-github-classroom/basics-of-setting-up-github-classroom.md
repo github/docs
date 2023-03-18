@@ -11,7 +11,7 @@ redirect_from:
 
 You can watch a series of short video tutorials about the configuration and use of {% data variables.product.prodname_classroom %}. To watch all videos as part of a continuous playlist, see the [{% data variables.product.prodname_classroom %} Getting Started Guide](https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u) on YouTube.
 
-For more information about terminology for {% data variables.product.prodname_classroom %}, see "[Glossary](/education/manage-coursework-with-github-classroom/glossary)."
+For more information about terminology for {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)."
 
 1. <a href="https://youtu.be/xVVeqIDgCvM" target="_blank">Getting started</a> {% octicon "link-external" aria-label="The external link icon" %}
 2. <a href="https://youtu.be/DTzrKduaHj8" target="_blank">Adding your student roster</a> {% octicon "link-external" aria-label="The external link icon" %}
@@ -26,8 +26,8 @@ For more information about terminology for {% data variables.product.prodname_cl
 
 ## Next steps
 
-For more information about teaching with {% data variables.product.prodname_classroom %}, see "[Teach with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)."
+For more information about teaching with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)."
 
 ## Further reading
 
-- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education)"

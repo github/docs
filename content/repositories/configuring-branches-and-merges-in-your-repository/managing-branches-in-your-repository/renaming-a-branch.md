@@ -15,7 +15,7 @@ redirect_from:
 ---
 ## About renaming branches
 
-You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
+You can rename a branch in a repository on {% data variables.location.product_location %}. For more information about branches, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches))."
 
 When you rename a branch on {% data variables.location.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
 
@@ -27,12 +27,11 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. In the list of branches, to the right of the branch you want to rename, click {% octicon "pencil" aria-label="The edit icon" %}.
-    ![Pencil icon to the right of branch you want to rename](/assets/images/help/branch/branch-rename-edit.png)
+1. Next to the branch you want to rename, click {% octicon "pencil" aria-label="Rename branch" %}.
+
+    ![Screenshot of a branch in the branch list. A pencil icon is highlighted with an orange outline.](/assets/images/help/branches/branch-rename-edit.png)
 1. Type a new name for the branch.
-    ![Text field for typing new branch name](/assets/images/help/branch/branch-rename-type.png)
 1. Review the information about local environments, then click **Rename branch**.
-    ![Local environment information and "Rename branch" button](/assets/images/help/branch/branch-rename-rename.png)
 
 ## Updating a local clone after a branch name changes
 

@@ -2,7 +2,6 @@
 title: Customizing the board layout
 shortTitle: Customizing boards
 intro: You can use the board layout to arrange your project's items over customizable columns.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
@@ -14,7 +13,7 @@ topics:
 
 {% data reusables.projects.about-board-layout %}
 
-For more information about changing a view to use the board layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the board layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 

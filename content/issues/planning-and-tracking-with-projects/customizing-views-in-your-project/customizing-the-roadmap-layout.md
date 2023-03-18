@@ -2,7 +2,6 @@
 title: Customizing the roadmap layout
 shortTitle: Customizing roadmaps
 intro: You can use the roadmap layout to view your project's items on a timeline.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-roadmaps
 type: tutorial
@@ -16,11 +15,11 @@ topics:
 
 {% data reusables.projects.about-roadmap-layout %}
 
-For more information about changing a view to use the roadmap layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the roadmap layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Setting the start and target date fields
 
-You can set the date or iteration fields that your roadmap will use to position items. When you set a view to a roadmap layout, {% data variables.product.company_short %} will attempt to use existing date and iteration fields you have already set up. If you choose an iteration field, you cannot add or edit iterations directly in the roadmap layout. For more information on creating new fields, see "[About date fields](/issues/planning-and-tracking-with-projects/understanding-fields/about-date-fields)" and "[About iteration fields](/issues/planning-and-tracking-with-projects/understanding-fields/about-iteration-fields)."
+You can set the date or iteration fields that your roadmap will use to position items. When you set a view to a roadmap layout, {% data variables.product.company_short %} will attempt to use existing date and iteration fields you have already set up. For more information on creating new fields, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-date-fields)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-iteration-fields)."
 
 1. In the top right of your roadmap, click {% octicon "calendar" aria-label="the calendar icon" %} **Date fields**.
 
@@ -33,6 +32,21 @@ You can set the date or iteration fields that your roadmap will use to position 
 1. Select a date or iteration field for "Start date" and "Target date."
 
   ![Screenshot showing the date field options](/assets/images/help/projects-v2/roadmap-select-dates.png)
+
+
+{% ifversion projects-v2-roadmap-markers %}
+
+## Setting vertical markers
+
+You can configure vertical markers on a roadmap to show your iterations, the dates of items in your project, and the milestones associated with items in your project.
+
+1. In the top right of your roadmap, click {% octicon "location" aria-hidden="true" %} **Markers**.
+
+  ![Screenshot showing the menu bar in a roadmap layout. The "Markers" button is highlighted with an orange outline.](/assets/images/help/projects-v2/markers.png)
+
+1. In the menu, select which markers you want to display on your roadmap.
+
+{% endif %}
 
 ## Setting the zoom level
 
@@ -52,21 +66,19 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
 You can sort items by a field value.
 
-{% note %}
-
-**Note:** When a roadmap is sorted, you cannot manually reorder rows.
-
-{% endnote %}
-
 {% data reusables.projects.customize.sort %}
 
 {% endif %}
+
+{% ifversion projects-v2-roadmap-markers %}{% else %}
 
 ## Showing and hiding fields
 
 When you show and hide fields on the roadmap layout, you define which fields are shown when the side panel opens. This setting will not affect the information visible on the roadmap layout.
 
 {% data reusables.projects.customize.show-hide-field %}
+
+{% endif %}
 
 ## Grouping by field values
 
