@@ -60,4 +60,5 @@ To see when your free access to the {% data variables.product.prodname_student_p
 
 - "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)"
 - "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

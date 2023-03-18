@@ -12,16 +12,10 @@ versions:
 
 {% data variables.product.prodname_classroom %} is a teaching tool that lets teachers and school administrators create and manage digital classrooms and assignments. You can create assignments for individual students or groups, set due dates, and track assignments on your teacher dashboard. Additionally, {% data variables.product.prodname_classroom %} has many features that simplify tasks like providing feedback, grading assignments, and integrating your existing teaching tools.
 
-With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
-
-You can also configure workflows, so that on each push of code to a pull request, your students' submissions are autograded. To learn more about autograding in GitHub Classroom, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
-
-{% data variables.product.prodname_classroom %} lets you enable pull request for feedback. This creates a special pull request titled **Feedback** in the assignment repository for each student or team. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
-
-You can optionally connect a learning management system (LMS) with {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
-
 
 ## {% data variables.product.prodname_classroom %} features 
+
+{% data variables.product.prodname_classroom %} offers a variety of features that frees up your time and lets you focus on teaching.
 
 ### Integrated Development Environment (IDE)
 
@@ -29,13 +23,23 @@ You can optionally connect a learning management system (LMS) with {% data varia
 
 ### Autograding
 
-{% data variables.product.prodname_classroom %} allows you to configure workflows to automatically grade students on submission of a pull-request. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+{% data variables.product.prodname_classroom %} allows you to configure workflows to automatically grade students on submission of a pull-request. To learn more about autograding in GitHub Classroom, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
 ### Feedback
 
-{% data variables.product.prodname_classroom %} lets you create special feedback pull request to leave feedback on your students' submissions. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
+{% data variables.product.prodname_classroom %} lets you enable pull request for feedback. This creates a special pull request titled **Feedback** in the assignment repository for each student or team. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
+
+
+### Assignment Templates
+
+With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+
+### Learning Management System
+
+You can optionally connect a learning management system (LMS) with {% data variables.product.prodname_classroom %} so that you can import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
 To learn more about the various {% data variables.product.prodname_classroom %} features, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)."
+
 
 ## Further reading 
 
