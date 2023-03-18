@@ -160,7 +160,7 @@ The time we greeted you.
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@v1.1
+uses: actions/hello-world-javascript-action@a8dd2c1169d0de038bb630cf188c6a66d3dcecd6
 with:
   who-to-greet: 'Mona the Octocat'
 ```

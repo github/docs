@@ -164,7 +164,7 @@ jobs:
       uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
+    - uses: google-github-actions/setup-gcloud@c66a06cb89c6c4ceab6ae8cb679bc07b689c243d
       with:
         service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
         project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
@@ -175,7 +175,7 @@ jobs:
         gcloud --quiet auth configure-docker
 
     # Get the GKE credentials so we can deploy to the cluster
-    - uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
+    - uses: google-github-actions/get-gke-credentials@b044f8a93871e4b36b15adb52cec9b9cda4c5f3f
       with:
         cluster_name: {% raw %}${{ env.GKE_CLUSTER }}{% endraw %}
         location: {% raw %}${{ env.GKE_ZONE }}{% endraw %}

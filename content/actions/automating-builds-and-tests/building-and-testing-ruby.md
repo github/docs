@@ -56,7 +56,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
         with:
           ruby-version: '3.1'
       - name: Install dependencies
@@ -76,7 +76,7 @@ The `setup-ruby` action takes a Ruby version as an input and configures that ver
 ```yaml
 steps:
 - uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
   with:
     ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
@@ -126,7 +126,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -142,7 +142,7 @@ The `setup-ruby` action will automatically install bundler for you. The version 
 ```yaml
 steps:
 - uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
   with:
     ruby-version: '3.1'
 - run: bundle install
@@ -159,7 +159,7 @@ To enable caching, set the following.
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
     with:
       bundler-cache: true
 ```
@@ -231,7 +231,7 @@ jobs:
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+      - uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - run: bundle install
@@ -256,7 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+      - uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
         with:
           ruby-version: 2.6
       - run: bundle install
@@ -297,7 +297,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@e92b7971f0f3a08d2cf29cceb1d82d4c704a2a78
         with:
           ruby-version: 2.6
       - run: bundle install

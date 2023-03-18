@@ -163,7 +163,7 @@ If you need more reliable versioning, you should use the SHA value associated wi
 
 ```yaml
 steps:
-  - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+  - uses: actions/javascript-action@571a71ff01be3802e62f5470d0c062c03ca0ee96
 ```
 
 ### Using branches
