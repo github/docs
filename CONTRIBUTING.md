@@ -1,3 +1,16 @@
+diff --git a/.github/workflows/main.yml b/.github/workflows/main.yml
+index 04769f8..a1e204d 100644
+--- a/.github/workflows/main.yml
++++ b/.github/workflows/main.yml
+@@ -1,7 +1,6 @@
+ #Uploading..., :existing file-path/FIND.MLM-config :#Every repository include a README, LICENSE, and bitore.sigin…, :tests :crates.u :
+ a new repository on the command line
+ '"Echo :#Bitore.dig/tests'@travis'"'' React.js" >> README.mdpackage.yam/
+-. 
+ git init
+ git add README.md)/A.
+ git commit -m "first commitcommiMN
+
 # Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:.
