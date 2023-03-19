@@ -96,6 +96,11 @@ async function main() {
         frontmatter.title = node.children[0].value
       }
 
+      // The level 2 heading "Options" should be displayed as "Primary options"
+      if (node.depth === 2 && node.children[0].value === 'Options') {
+        node.children[0].value = 'Primary options'
+      }
+
       // There are some headings that include a title followed by
       // some markup that looks like
       // {#options-to-configure-the-package-manager.}
@@ -254,9 +259,18 @@ async function main() {
     await writeFile(targetFilename, matter.stringify(markdownContent, frontmatter))
   }
 
-  // update index.md file
+  // create or update the index.md file
   const indexFilepath = `${targetDirectory}/index.md`
-  const { data, content } = matter(await readFile(indexFilepath, 'utf-8'))
+  const { data, content } = existsSync(indexFilepath)
+    ? matter(await readFile(indexFilepath, 'utf-8'))
+    : {
+        data: {
+          title: 'placeholder',
+          ...frontmatterDefaults,
+          children: [],
+        },
+        content: '',
+      }
   data.children = markdownFiles.map((file) => `/${path.basename(file, '.md')}`).sort()
   await writeFile(indexFilepath, matter.stringify(content, data))
 }

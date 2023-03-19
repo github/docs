@@ -78,13 +78,15 @@ export const RestBanner = () => {
         className="container-xl mt-3 mx-auto p-responsive"
       >
         <Flash>
-          <span>{bannerText}</span>{' '}
-          <span>
-            {t('rest.banner.api_version_info').replace(
-              /{{\s*versionWithApiVersion\s*}}/,
-              versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
-            )}
-          </span>
+          <span dangerouslySetInnerHTML={{ __html: bannerText }} />{' '}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t('rest.banner.api_version_info').replace(
+                /{{\s*versionWithApiVersion\s*}}/,
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+              ),
+            }}
+          />
         </Flash>
       </div>
     )

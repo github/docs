@@ -17,3 +17,5 @@ sections:
     - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
