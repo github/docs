@@ -62,7 +62,7 @@ You can compare a single commit in Git to the commit's predecessors using two ty
 | Notation | Meaning | Example | Comparison |
 | :-: | :- | :- | :- |
 | `^` | One commit prior. Repeat the `^` character to indicate one more commit further back in the history. | `96d29b7^^^^^`<br/><br/>Represents the commit five commits prior to `96d29b7`. | [View comparison](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7) |
-| `~N` | _N_ commit(s) prior. | `96d29b7~5`<br/><br/>Represents the commit five commits prior to `96d29b7`. | [View comparison](https://github.com/octocat/linguist/compare/octocat:96d29b7%7E5...octocat:96d29b7) |
+| `~N` | N commit(s) prior. | `96d29b7~5`<br/><br/>Represents the commit five commits prior to `96d29b7`. | [View comparison](https://github.com/octocat/linguist/compare/octocat:96d29b7%7E5...octocat:96d29b7) |
 
 ## Further reading
 

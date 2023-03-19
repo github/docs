@@ -59,6 +59,14 @@ jobs:
       - name: Checkout the docs-internal repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
+
       - name: Checkout the language-specific repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
@@ -74,6 +82,8 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Create translation health report
+        env:
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
         run: |
           node script/i18n/create-translation-health-report.js \
             --language ${{ matrix.language }} \

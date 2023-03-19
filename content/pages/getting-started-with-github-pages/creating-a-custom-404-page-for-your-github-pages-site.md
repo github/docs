@@ -20,7 +20,6 @@ shortTitle: Create custom 404 page
 {% data reusables.pages.navigate-publishing-source %}
 {% data reusables.files.add-file %}
 3. In the file name field, type `404.html` or `404.md`.
-  ![File name field](/assets/images/help/pages/404-file-name.png)
 4. If you named your file `404.md`, add the following YAML front matter to the beginning of the file:
   ```yaml
   ---
