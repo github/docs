@@ -79,7 +79,17 @@ async function getRemoteJSON(url, config) {
   if (_getRemoteJSONCache.has(url)) {
     return _getRemoteJSONCache.get(url)
   }
-  const body = await got(url, config).json()
+  // got will, by default, follow redirects and it will throw if the ultimate
+  // response is not a 2xx.
+  // But it's possible that the page is a 200 OK but it's just not a JSON
+  // page at all. Then we can't assume we can deserialize it.
+  const res = await got(url, config)
+  if (!res.headers['content-type'].startsWith('application/json')) {
+    throw new Error(
+      `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
+    )
+  }
+  const body = JSON.parse(res.body)
   _getRemoteJSONCache.set(url, body)
   return body
 }

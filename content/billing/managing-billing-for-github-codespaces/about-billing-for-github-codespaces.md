@@ -77,11 +77,11 @@ A {% data variables.product.prodname_github_codespaces %} instance (a "codespace
 | Component           | Machine type | Unit of measure | Included usage multiplier | Price |
 | ------------------- | ------------ | --------------- | ------------------------- | ----- |
 | Codespaces compute  |  2 core      | 1 hour          | 2                         | $0.18 |
-|                     |  4 core      | 1 hour          | 4                         | $0.36 |
-|                     |  8 core      | 1 hour          | 8                         | $0.72 |
-|                     |  16 core     | 1 hour          | 16                        | $1.44 |
-|                     |  32 core     | 1 hour          | 32                        | $2.88 |
-| Codespaces storage  |  Storage     | 1 GB-month [1] | N/A                | $0.07 |
+| Codespaces compute  |  4 core      | 1 hour          | 4                         | $0.36 |
+| Codespaces compute  |  8 core      | 1 hour          | 8                         | $0.72 |
+| Codespaces compute  |  16 core     | 1 hour          | 16                        | $1.44 |
+| Codespaces compute  |  32 core     | 1 hour          | 32                        | $2.88 |
+| Codespaces storage  |  Storage     | 1 GB-month [1] | Not applicable             | $0.07 |
 
 [1] See "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article for details of the GB-month unit of measure.
 
