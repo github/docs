@@ -19,9 +19,11 @@ For example, if you want your app to change the `Status` field of an issue on a 
 
 To make an API request as an installation, you must first generate an installation access token. Then, you will send the installation access token in the `Authorization` header of your subsequent API requests. You can also use {% data variables.product.company_short %}'s Octokit SDKs, which can generate an installation access token for you.
 
-API requests that are made by app installations are called "server-to-server requests." If a REST API endpoint works with server-to-server requests, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information about the permissions required for REST API endpoints, see "[Permissions required for GitHub Apps](/rest/overview/permissions-required-for-github-apps)."
+If a REST API endpoint works with a {% data variables.product.prodname_github_app %} installation access token, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information about the permissions required for REST API endpoints, see "[Permissions required for GitHub Apps](/rest/overview/permissions-required-for-github-apps)."
 
 App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test you app to ensure that your app has the required permissions for the GraphQL queries and mutations that you want to make.
+
+Requests made with an installation access token are sometimes called "server-to-server" requests.
 
 For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)".
 
