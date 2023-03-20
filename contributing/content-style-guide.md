@@ -151,7 +151,7 @@ If you must use footnotes:
 Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licenses”, view your total licenses.
+- **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
@@ -167,7 +167,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in quotes.
+- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -182,15 +182,16 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 > Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
 
 - For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
   - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
 
 ##### Examples
 
-> Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
+> Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
 
 ![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
 
