@@ -86,6 +86,8 @@ async function getRemoteJSON(url, config) {
       `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
     )
   }
+  const tags = [`url:${url}`, `from_cache:${res.isFromCache}`]
+  statsd.increment('middleware.archived_get_remote_json', 1, tags)
   return JSON.parse(res.body)
 }
 const _getRemoteJSONCache = new Map()
