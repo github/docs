@@ -38,6 +38,12 @@ Consider these limitations in your decision to rewrite your repository's history
 
 You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 
+{% note %}
+
+If the data is located in a file that is identified as a binary file the file will need to be removed from the history.
+
+{% endnote %}
+
 ### Using the BFG
 
 The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool that's built and maintained by the open source community. It provides a faster, simpler alternative to `git filter-repo` for removing unwanted data. 
