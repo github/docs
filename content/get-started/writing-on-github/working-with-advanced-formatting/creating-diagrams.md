@@ -14,9 +14,9 @@ You can create diagrams in Markdown using three different syntaxes: mermaid, geo
 
 Mermaid is a Markdown-inspired tool that renders text into diagrams. For example, Mermaid can render flow charts, sequence diagrams, pie charts and more. For more information, see the [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
 
-To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
-For example, you can create a flow chart:
+For example, you can create a flow chart by specifying values and arrows.
 
 <pre>
 Here is a simple flow chart:
@@ -30,7 +30,7 @@ graph TD;
 ```
 </pre>
 
-![Rendered Mermaid flow chart](/assets/images/help/writing/mermaid-flow-chart.png)
+![Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, from B to D, from A to C, and from C to D.](/assets/images/help/writing/mermaid-flow-chart.png)
 
 {% note %}
 
@@ -40,11 +40,11 @@ graph TD;
 
 ## Creating GeoJSON and TopoJSON maps
 
-You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+You can use GeoJSON/TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
 ### Using GeoJSON
 
-For example, you can create a simple map:
+For example, you can create a map by specifying coordinates.
 
 <pre>
 ```geojson
@@ -75,11 +75,11 @@ For example, you can create a simple map:
 ```
 </pre>
 
-![Rendered map](/assets/images/help/writing/fenced-geojson-rendered-map.png)
+![Screenshot of a rendered GeoJSON map of the southeastern United States with a purple rectangular overlay over parts of Alabama and Mississippi.](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
 ### Using TopoJSON
 
-For example, you can create a simple TopoJSON map:
+For example, you can create a TopoJSON map by specifying coordinates and shapes.
 
 <pre>
 ```topojson
@@ -118,14 +118,14 @@ For example, you can create a simple TopoJSON map:
 ```
 </pre>
 
-![Rendered topojson map](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![Screenshot of a rendered TopoJSON map of western Indonesia and part of Singapore and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-For more information on working with `.geojson` and `.topojson` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+For more information on working with `.geojson` and `.topojson` files, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
 
 ## Creating STL 3D models
 
-You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. For more information, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
 For example, you can create a simple 3D model:
 
@@ -164,7 +164,6 @@ endsolid
 ```
 </pre>
 
-![Rendered 3D model](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![Screenshot of a rendered, manipulable 3D model showing a blue pyramid atop a grid of black lines on a white ground. Options to select "Wireframe," "Surface Angle," or "Solid" appear at bottom.](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-For more information on working with `.stl` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)."
-
+For more information on working with `.stl` files, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)."

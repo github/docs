@@ -19,20 +19,14 @@ shortTitle: Manage from your inbox
 ## About your inbox
 
 {% ifversion fpt or ghes or ghec %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
 To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
 
-  ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-
 Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
 
-  ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
-
 By default, your inbox will show read and unread notifications. To only see unread notifications, click **Unread** or use the `is:unread` query.
-
-  ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
 ## Triaging options
 
@@ -46,21 +40,19 @@ You have several options for triaging notifications from your inbox.
 | Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
 | Unread          | Marks notification as unread. To only view unread notifications in your inbox, use the `is:unread` query. |
 
-To see the available keyboard shortcuts, see "[Keyboard Shortcuts](/github/getting-started-with-github/keyboard-shortcuts#notifications)."
+To see the available keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#notifications)."
 
-Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
+Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification)."
 
 ## Triaging multiple notifications at the same time
 
 To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
 
-![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
+![Screenshot of the "Notifications" page. A drop-down menu is highlighted with an orange outline.](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
 ## Default notification filters
 
 By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
-
-  ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
 
 ## Customizing your inbox with custom filters
 
@@ -77,7 +69,7 @@ You can add up to 15 of your own custom filters.
 
 3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
 
-  ![Custom filter example](/assets/images/help/notifications-v2/custom-filter-example.png)
+  ![Screenshot showing notification filters. Two input fields, with an example name and filter query filled in, are highlighted with an orange outline.](/assets/images/help/notifications-v2/custom-filter-example.png)
 
 4. Click **Create**.
 
@@ -88,7 +80,7 @@ Custom filters do not currently support:
   - Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
   - Creating more than 15 custom filters.
   - Changing the default filters or their order.
-  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+  - Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ## Supported queries for custom filters
 
@@ -118,7 +110,7 @@ To filter notifications for specific activity on {% data variables.location.prod
 - `is:team-discussion`{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
-For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[Configuring notifications for {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
 You can also use the `is:` query to describe how the notification was triaged.
 
@@ -129,7 +121,7 @@ You can also use the `is:` query to describe how the notification was triaged.
 
 ### Supported `reason:` queries
 
-To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
+To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#reasons-for-receiving-notifications)."
 
 | Query | Description |
 |-----------------|-------------|
@@ -155,7 +147,7 @@ To filter notifications by user, you can use the `author:` query. An author is t
 
 To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
-For example, to see notifications from the octo-org organization, use `org:octo-org`. 
+For example, to see notifications from the octo-org organization, use `org:octo-org`.
 
 {% endif %}
 
@@ -167,15 +159,14 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 - `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
 - `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+For more information about {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 {% endif %}
 
 {% ifversion ghae %}
 
 If you use {% data variables.product.prodname_dependabot %} to tell you about insecure dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
-- `is:repository_vulnerability_alert` 
+- `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+For more information about {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 {% endif %}
-

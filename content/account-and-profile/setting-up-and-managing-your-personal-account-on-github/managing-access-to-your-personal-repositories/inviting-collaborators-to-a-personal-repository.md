@@ -19,7 +19,7 @@ topics:
   - Repositories
 shortTitle: Invite collaborators
 ---
-Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github)."
+Repositories owned by an organization can grant more granular access. For more information, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
 
 {% data reusables.organizations.org-invite-expiration %}
 
@@ -35,7 +35,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4%}
@@ -61,7 +61,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Further reading
 
-- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
-- "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
-- "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizing members into teams](/organizations/organizing-members-into-teams)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams)"

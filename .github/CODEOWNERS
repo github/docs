@@ -10,15 +10,9 @@
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
 /includes/ @github/docs-engineering
-/lib/search/popular-pages.json @github/docs-engineering
 Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering
 package.json @github/docs-engineering
-
-# Localization
-/.github/actions-scripts/msft-create-translation-batch-pr.js @github/docs-engineering
-/.github/workflows/msft-create-translation-batch-pr.yml @github/docs-engineering
-/translations/ @Octomerger
 
 # Site Policy
 /content/site-policy/ @github/site-policy-admins

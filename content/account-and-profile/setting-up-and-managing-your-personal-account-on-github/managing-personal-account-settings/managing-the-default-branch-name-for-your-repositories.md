@@ -16,7 +16,7 @@ shortTitle: Manage default branch name
 ---
 ## About management of the default branch name
 
-When you create a new repository on {% data variables.location.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+When you create a new repository on {% data variables.location.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% data reusables.branches.change-default-branch %}
 
@@ -33,4 +33,4 @@ When you create a new repository on {% data variables.location.product_location 
 
 ## Further reading
 
-- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

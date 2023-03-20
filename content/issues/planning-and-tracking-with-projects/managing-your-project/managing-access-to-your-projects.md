@@ -2,7 +2,6 @@
 title: 'Managing access to your {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
 intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
@@ -20,7 +19,7 @@ Admins of organization-level projects can manage access for the entire organizat
 
 Admins of user-level projects can invite individual collaborators and manage their access.
 
-Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[Managing the visibility of your projects](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)."
+Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)."
 
 ## Managing access for organization-level projects
 
@@ -40,11 +39,11 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 {% ifversion projects-v2-add-to-team %}
 
-If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see "[Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)."  
+If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)."  
 
 {% endif %}
 
@@ -84,7 +83,7 @@ You can only invite an individual user to collaborate on your organization-level
 
 {% note %}
 
-This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 
 {% endnote %}
 

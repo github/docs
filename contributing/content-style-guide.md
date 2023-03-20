@@ -4,7 +4,7 @@ Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
 
-Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -39,6 +39,16 @@ Warnings and danger notices are rendered in red `{% warning %}` tags.
 
 For more information on formatting callouts, see “Callouts” in the [markup reference guide](content-markup-reference.md).
 
+## Call to action (CTA) buttons
+
+CTA buttons emphasize a link that we expect or encourage readers to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to GitHub-owned domains. For example, the CTA in "[Getting started with GitHub Copilot in Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on github.com.
+
+Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try Copilot must navigate to the GitHub Copilot settings menu and would likely want to after reading the article. In contrast, even though someone might use Copilot as part of writing code that they then create a pull request for, we would not add a "Try GitHub Copilot" CTA to "[Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)" since Copilot is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using Copilot. But people visiting articles about getting started with Copilot are probably interested in trying Copilot if they are not already using it. So we add the CTA button to help people get where they are trying to go.
+
+Style your CTAs using the following format.
+
+`<a href="https://github.com/DESTINATION/URL" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>`
+
 ## Code
 
 ### Code blocks
@@ -49,6 +59,7 @@ Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
 - If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+- If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
   - **Use**:
 
     ```
@@ -125,27 +136,88 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
+## Footnotes
+
+Avoid using footnotes where possible. Consider instead whether you could use a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes:
+
+* Use numbers. Do not use typographical symbols or special characters.
+* Place footnote markers in square brackets: `[1]`.
+* Do not use superscript.
+
 ## Headers
 
-Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
+Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+
+Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under “User licenses”, view your total licenses.
 
-Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
-
-To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
+For more information, see the [content model](/contributing/content-model.md#titles).
 
 ## Images
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
+Every image must include alt text providing a textual equivalent of the visual information.
+
+- Express the core idea or meaning of the image, rather than describing it literally.
+- Use 40–150 characters.
+- End with a period.
+- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Follow standard language used to describe UI elements in article text.
+- Put multi-word titles, e.g. names of menu items, in quotes.
+- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
+
+#### Alt text for screenshots
+
+Alt text provides a short description of a screenshot's content to benefit people who cannot see it.
+
+- Alt text only needs to include the most relevant elements of an image, not every detail.
+- Alt text is not intended to provide instructions for using the GitHub interface. These should be included in accompanying article text.
+
+##### Format
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
+
+- For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Describe UI elements consistently with written documentation.
+- Be flexible with word order when needed for clarity.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+
+##### Examples
+
+> Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
+
+> Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+
+#### Alt text for diagrams and graphs
+
+Explain the information conveyed in the diagram or graph in text on the page.
+
+Use alt text to express the core idea of the image, without duplicating the webpage text.
+
+##### Example
+
+> Diagram showing a five-step process by which a GitHub Actions runner can be automatically added to named classes of runners and then requested by specific jobs.
+
+[See accompanying explanation of this diagram in the Actions documentation.](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners)
+
+#### Alt text for images of command-line interfaces
+
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+
+When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
 ### Filenames
 
 Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
-- **Avoid:** `purchase-button{% ifversion ghes > 3.2 %}-for-admins{% endif %}.png`
+- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -212,11 +284,11 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
   **Note:** Windows and Linux have <kbd>Ctrl</kbd> abbreviated, whereas on Mac it is spelled in full: <kbd>Control</kbd>.
 
   - For Windows and Linux:
-  
+
     - **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
     - **Avoid:** <kbd>Control</kbd>
   - For Mac:
-  
+
     - **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
     - **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
 - Don't confuse key combinations with keys in a sequence.
@@ -226,7 +298,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 - When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
 
   - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
-  
+
      <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows / Linux)
   - **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
 
@@ -278,15 +350,26 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking.
-For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-For links to another section in the same article: `For more information, see "[Header text]()."`
-For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-For links to an article with a specific tool selected: `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).`
-For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+Introduce links consistently using a standard format that clearly indicates where we're linking.
+
+For any link that points to another GitHub docs page, use the special keyword `AUTOTITLE`. See details in the [content markup reference](./content-markup-reference.md#internal-links-with-autotitle).
+
+Usage examples:
+
+- For links to other pages: `For more information, see "[AUTOTITLE](/path/to/page)."`
+- For links to sections in other pages: `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
+- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME).`
+
+Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[Header text](#section-link)."`
+
+For links to external documentation, type out the full article name: `For more information, see [Page or article title](https://some-docs.com/path/to/page) in the X documentation.`
+
 Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
+Some best practices for using links:
+- Links should be meaningful and provide high value to the user’s journey—link out carefully.
+- Move links that are helpful but not necessary to an article’s further reading section.
+- Do not repeat the same link more than once in the same article or under the same H2 header.
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
@@ -296,11 +379,13 @@ For more information on links and accessibility, see “[Links](https://readabil
 
 ### Links between versions
 
-Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+Sometimes, you need to link from one version of GitHub Docs to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
+
+For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
 
 >You can choose to allow or disallow the publication of GitHub Pages sites.
 >
->Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
 
 To link to a different article in a different version, use this format:
 
@@ -308,9 +393,9 @@ To link to a different article in a different version, use this format:
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation]().
+> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
 
-To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
 ### Links to specific sections of articles
 
@@ -326,7 +411,7 @@ To link to a specific header in a different article, use this format:
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME).
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
 
 ### Links to learning paths
 
@@ -402,7 +487,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 #### Reusables for first-party actions
 
-Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
 
 Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
 
@@ -486,6 +571,12 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### GitHub Advanced Security (GHAS)
+
+Use the terms `licenses` and `active committers` when you refer to GitHub Advanced Security billing.
+
+We used to use the term `seats` to describe the number of accounts that can use GitHub Advanced Security in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+
 ### Personal access tokens
 
 GitHub has two types of personal access tokens:
@@ -508,11 +599,82 @@ Follow standard American English punctuation rules. For more guidance, see “[P
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
+## Sectional TOCs
+
+If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in "[Streaming the audit log for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3)" people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
+
+Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in "[About authentication for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)," people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
+
+Format sectional TOCs as a list. Include all subsections in the order that they appear in the article and refer to them using the full header title.
+
+Sectional TOCs must be introduced with a sentence or paragraph that helps people understand how the content is organized and select the section that is most relevant to them. Do not include a sectional TOC directly beneath a header.
+
+### Example of sectional TOCs
+
+```
+## Setting up the application
+
+Set up your application according to your operating system.
+
+- [Setting up for macOS](#setting-up-for-macOS)
+- [Setting up for Windows](#setting-up-for-windows)
+- [Setting up for Linux](#setting-up-for-linux)
+
+### Setting up for macOS
+
+TEXT
+
+### Setting up for Windows
+
+The application is supported for all versions of Windows, but the set up steps differ.
+
+- [Windows 98](#windows-98)
+- [Windows Vista](#windows-vista)
+- [Windows 11](#windows-11)
+
+#### Windows 98
+
+TEXT
+
+#### Windows Vista
+
+TEXT
+
+#### Windows 11
+
+TEXT
+
+### Setting up for Linux
+
+TEXT
+```
+
 ## Tables
 
+### Use tables only for presenting tabular information
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document.
+
+### Avoid describing tables
 A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
 - **Use:** Nothing or a clear header.
 - **Avoid:** “The table below shows what kind of migration data is exported:”
+
+### Include a value for every cell
+Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+### Use clear, consistent symbols and labels
+
+For tables that use symbols:
+
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
+
+### Use footnotes sparingly
+See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
 
 ## Titles
 
@@ -534,7 +696,7 @@ We use short titles to populate the sidebar navigation. They should give users c
     - Enterprise accounts
 - Short titles should still mimic format of the full title
   - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
-  
+
 | Instead of | Use |
 |---|---|
 | Authenticating to GitHub | Authentication |
@@ -603,6 +765,12 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
+
+## Videos
+
+You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
+
+Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
 
 ## Voice and tone
 

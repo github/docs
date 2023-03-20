@@ -19,13 +19,13 @@ You can only make commits on pull request branches that:
 - are opened in a repository that you have push access to and that were created from a fork of that repository
 - are on a user-owned fork
 - have permission granted from the pull request creator
-- don't have [branch restrictions](/github/administering-a-repository/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
+- don't have [branch restrictions](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
 
-Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[Allowing changes to a pull request branch created from a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
+Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
+**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.location.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)."
 
 {% endnote %}
 
@@ -34,7 +34,7 @@ Only the user who created the pull request can give you permission to push commi
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
+ **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)."
 
  {% endtip %}
 4. Change the current working directory to the location where you want to download the cloned directory.
@@ -72,7 +72,7 @@ Only the user who created the pull request can give you permission to push commi
 
  {% tip %}
 
- **Tip:** For more information about pull request branches, including examples, see "[Creating a Pull Request](/articles/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+ **Tip:** For more information about pull request branches, including examples, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
 
  {% endtip %}
 8. At this point, you can do anything you want with this branch. You can push new commits to it, run some local tests, or merge other branches into the branch. Make modifications as you like.
@@ -92,4 +92,4 @@ Your new commits will be reflected on the original pull request on {% data varia
 
 ## Further Reading
 
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

@@ -8,14 +8,8 @@ versions:
   ghae: '*'
   ghec: '*'
 redirect_from:
-  - /actions/migrating-to-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
 children:
-  - /automating-migration-with-github-actions-importer
-  - /migrating-from-azure-pipelines-to-github-actions
-  - /migrating-from-circleci-to-github-actions
-  - /migrating-from-gitlab-cicd-to-github-actions
-  - /migrating-from-jenkins-to-github-actions
-  - /migrating-from-travis-ci-to-github-actions
+  - /automated-migrations
+  - /manual-migrations
 ---
-

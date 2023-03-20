@@ -12,13 +12,13 @@ versions:
 shortTitle: For teachers
 ---
 
-As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see "[Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
+As a faculty member at an accredited educational institution, you can apply for {% data variables.product.prodname_global_campus %}, which includes {% data variables.product.prodname_education %} benefits and resources. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)."
 
 {% data variables.product.prodname_global_campus %} is a portal that allows the GitHub Education Community to access their education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} teacher, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
 ![{% data variables.product.prodname_global_campus %} portal for teachers](/assets/images/help/education/global-campus-portal-teachers.png)
 
-Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[About {% data variables.product.prodname_campus_program %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program)."
+Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program)."
 
 ## {% data variables.product.prodname_global_campus %} features for teachers
 
@@ -30,8 +30,8 @@ Before applying for an individual discount, check if your learning community is 
   - Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
   - Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
 
-A free subscription for {% data variables.product.prodname_copilot %} is available to verified teachers with {% data variables.product.prodname_education %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[Managing your {% data variables.product.prodname_copilot_for_individuals %} subscription](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription#setting-up-a-trial-of-github-copilot)" and "[About {% data variables.product.prodname_copilot %}](/copilot/overview-of-github-copilot/about-github-copilot)."
+A free subscription for {% data variables.product.prodname_copilot %} is available to verified teachers with {% data variables.product.prodname_education %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account#setting-up-a-trial-of-github-copilot)" and "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)."
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)"
+- "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)"

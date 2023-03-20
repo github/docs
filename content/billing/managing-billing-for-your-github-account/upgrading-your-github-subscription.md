@@ -1,7 +1,6 @@
 ---
 title: Upgrading your GitHub subscription
 intro: 'You can upgrade the subscription for any type of account on {% data variables.location.product_location %} at any time.'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan
@@ -45,7 +44,6 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. Next to "Current plan", click **Upgrade**.
-  ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
 2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
@@ -74,9 +72,9 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 
 ### Next steps for organizations using {% data variables.product.prodname_ghe_cloud %}
 
-If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ### Adding seats to your organization
 
@@ -89,17 +87,28 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ### Switching your organization from per-repository to per-user pricing
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
+{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
 
 {% data reusables.organizations.billing-settings %}
-5. To the right of your plan name, use the **Edit** drop-down menu, and select **Edit plan**.
-  ![Edit drop-down menu](/assets/images/help/billing/per-user-upgrade-button.png)
+5. To the right of your plan name, select the **Edit** dropdown menu, then click **Edit plan**.
 6. To the right of "Advanced tools for teams", click **Upgrade now**.
-  ![Upgrade now button](/assets/images/help/billing/per-user-upgrade-now-button.png)
 {% data reusables.dotcom_billing.choose_org_plan %}
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
+
+{% ifversion ghec %}
+## Adding seats to your enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+If your enterprise account is invoiced, you cannot add seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.enterprise-accounts.manage-seats %}
+{% endif %}
 
 ## Troubleshooting a 500 error when upgrading
 
@@ -107,6 +116,6 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Further reading
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
-- "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
+- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."

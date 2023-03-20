@@ -27,7 +27,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 ## Creating your first workflow
 
 1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist.
-1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 1. Copy the following YAML contents into the `github-actions-demo.yml` file:
 
    ```yaml{:copy}
@@ -54,7 +54,7 @@ The following example shows you how {% data variables.product.prodname_actions %
    ```
 1. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
 
-   ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
+   ![Screenshot of the "Commit new file area" of the page.](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
 Committing the workflow file to a branch in your repository triggers the `push` event and runs your workflow.
 
@@ -62,23 +62,21 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workflow you want to see.
+1. In the left sidebar, click the workflow you want to display, in this example "GitHub Actions Demo."
 
-   ![Workflow list in left sidebar](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
-1. From the list of workflow runs, click the name of the run you want to see.
+   ![Screenshot of the "Actions" page. The name of the example workflow, "GitHub Actions Demo", is highlighted by a dark orange outline.](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
+1. From the list of workflow runs, click the name of the run you want to see, in this example "USERNAME is testing out GitHub Actions."
+1. In the left sidebar of the workflow run page, under **Jobs**, click the **Explore-GitHub-Actions** job.
 
-   ![Name of workflow run](/assets/images/help/repository/actions-quickstart-run-name.png)
-1. Under **Jobs** , click the **Explore-GitHub-Actions** job.
-
-   ![Locate job](/assets/images/help/repository/actions-quickstart-job.png)
+   ![Screenshot of the "Workflow run" page. In the left sidebar, the "Explore-GitHub-Actions" job is highlighted with a dark orange outline.](/assets/images/help/repository/actions-quickstart-job.png)
 1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
 
-   ![Example workflow results](/assets/images/help/repository/actions-quickstart-logs.png)
+   ![Screenshot of steps run by the workflow.](/assets/images/help/repository/actions-quickstart-logs.png)
    
    For example, you can see the list of files in your repository:
-   ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
+   ![Screenshot of the "List files in the repository" step expanded to show the log output. The output for the step is highlighted with a dark orange highlight.](/assets/images/help/repository/actions-quickstart-log-detail.png)
 
-The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+The example workflow you just added is triggered each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. For an in-depth tutorial, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
 ## More starter workflows
 

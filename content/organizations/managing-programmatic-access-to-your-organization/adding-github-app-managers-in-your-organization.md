@@ -16,7 +16,7 @@ topics:
 shortTitle: Add GitHub App managers
 ---
 
-For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers)."
 
 ## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
 
@@ -40,5 +40,5 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% ifversion fpt or ghec %}
 ## Further reading
 
-- "[About {% data variables.product.prodname_dotcom %} Marketplace](/articles/about-github-marketplace/)"
+- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
 {% endif %}

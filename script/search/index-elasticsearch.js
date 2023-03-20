@@ -303,8 +303,8 @@ async function indexVersion(
           headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
           headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
           breadcrumbs: { type: 'text' },
-          topics: { type: 'keyword' },
           popularity: { type: 'float' },
+          intro: { type: 'text' },
         },
       },
       settings,
@@ -314,7 +314,7 @@ async function indexVersion(
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
-    const { title, objectID, content, breadcrumbs, headings, topics } = doc
+    const { title, objectID, content, breadcrumbs, headings, intro } = doc
     const contentEscaped = escapeHTML(content)
     const record = {
       url: objectID,
@@ -325,13 +325,13 @@ async function indexVersion(
       breadcrumbs,
       headings,
       headings_explicit: headings,
-      topics: topics.filter(Boolean),
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular
       // one of all is 1.0.
       // By making it >=1.0 when we multiply a relevance score,
       // you never get a product of 0.0.
       popularity: doc.popularity + 1,
+      intro,
     }
     return [{ index: { _index: thisAlias } }, record]
   })

@@ -16,13 +16,13 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
       {headingLevel === 2 && (
         <h2 id={lowerCaseName}>
           <LinkIconHeading slug={lowerCaseName} />
-          {item.name}
+          <code>{item.name}</code>
         </h2>
       )}
       {headingLevel === 3 && (
         <h3 id={lowerCaseName}>
           <LinkIconHeading slug={lowerCaseName} />
-          {item.name}
+          <code>{item.name}</code>
         </h3>
       )}
       <div
@@ -35,7 +35,7 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
         {item.isDeprecated && <Notice item={item} variant="deprecation" />}
       </div>
       <div>
-        {heading && <h4>{heading}</h4>}
+        {heading && <h4 dangerouslySetInnerHTML={{ __html: heading }} />}
         {children}
       </div>
     </div>

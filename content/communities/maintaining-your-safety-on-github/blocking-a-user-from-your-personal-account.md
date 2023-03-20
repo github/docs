@@ -18,27 +18,26 @@ You can block a user in your account settings or from the user's profile. {% dat
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 {% endtip %}
 
 When you block a user:
 - The user stops following you
 - The user stops watching and unpins your repositories
-- The user is not able to join any organizations you are an owner of
 - The user's stars and issue assignments are removed from your repositories
 - The user's votes on discussions or comments in your repositories are deleted
 - The user is removed as a collaborator on your repositories
 - The user's contributions to your repositories are no longer counted as contributions for them
 - Your contributions to the blocked user's repositories are no longer counted as contributions for you
 - You are removed as a collaborator on their repositories
-- Their sponsorship of you is cancelled
-- Any pending repository or account successor invitations to or from the blocked user are cancelled
+- Their sponsorship of you is canceled
+- Any pending repository or account successor invitations to or from the blocked user are canceled
 - The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
 - You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
 
 After you've blocked a user, they cannot:
-- Send you any notifications, including by [@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) your username
+- Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
 - Comment on or edit issues or pull requests that you've created
 - React to your comments on issues, pull requests, and commits
 - Follow you or see your content in their activity feed
@@ -70,8 +69,7 @@ In repositories you own, blocked users also cannot:
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
-3. Click **Block user**.
-   ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-blockuser.png)
+1. Click **Block user**.
 
 {% note %}
 
@@ -81,9 +79,9 @@ Use {% data variables.contact.report_abuse %} to contact us if you're being hara
 
 ## Further reading
 
-- "[Viewing users you've blocked from your personal account](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
-- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[Unblocking a user from your organization](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

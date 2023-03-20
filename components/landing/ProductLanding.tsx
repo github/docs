@@ -19,6 +19,7 @@ export const ProductLanding = () => {
   const router = useRouter()
   const { isEnterpriseServer } = useVersion()
   const {
+    title,
     shortTitle,
     featuredLinks,
     productUserExamples,
@@ -75,7 +76,11 @@ export const ProductLanding = () => {
           </div>
         )}
 
-        <LandingSection title={`All ${shortTitle} docs`} sectionLink="all-docs" className="pt-9">
+        <LandingSection
+          title={t('all_docs').replace('{{ title }}', shortTitle || title)}
+          sectionLink="all-docs"
+          className="pt-9"
+        >
           <ProductArticlesList />
         </LandingSection>
       </div>

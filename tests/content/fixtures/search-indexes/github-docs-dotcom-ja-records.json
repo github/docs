@@ -6,7 +6,8 @@
         "headings": "",
         "content": "これは、ばかげた foo ワードのフィクスチャです。",
         "topics": ["Test", "Fixture"],
-        "popularity": 0.5
+        "popularity": 0.5,
+        "intro": "イントロあり"
     },
     "/ja/bar": {
         "objectID": "/ja/bar",
@@ -15,7 +16,8 @@
         "headings": "",
         "content": "bar も持っていない場合、foo を持つことはできません。",
         "topics": ["Test", "Fixture", "Get started"],
-        "popularity": 0.6
+        "popularity": 0.6,
+        "intro": "イントロがない"
     },
     "/ja/breadcrumbless": {
         "objectID": "/ja/bar",
@@ -24,6 +26,7 @@
         "headings": "",
         "content": "すべてのページにブレッドクラムがあるわけではありません。人生の事実。",
         "topics": [],
-        "popularity": 0.1
+        "popularity": 0.1,
+        "intro": ""
     }
 }

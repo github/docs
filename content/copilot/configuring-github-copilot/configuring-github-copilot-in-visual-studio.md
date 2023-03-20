@@ -15,7 +15,7 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio)."
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -23,8 +23,8 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 | Action | Shortcut | Command name |
 |:---|:---|:---|
-|Show next inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>]</kbd>|Tools.Nextsuggestion|
-|Show previous inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>[</kbd>|Tools.Previoussuggestion|
+|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Tools.Nextsuggestion|
+|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Tools.Previoussuggestion|
 |Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ## Rebinding keyboard shortcuts
@@ -32,20 +32,17 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   
+
    ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
-   
-   ![Screenshot of the Keyboard option in the "Options" dialog](/assets/images/help/copilot/vs-options-dialogue.png)
-
 1. Under "Show commands containing:", search for the command you want to rebind.
-   
+
    ![Screenshot of the show commands containing search bar](/assets/images/help/copilot/vs-show-commands-containing.png)
 
 1. Under "Press shortcut keys," type the shortcut you want to assign to the command, then click **Assign**.
 
-   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)```
+   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
@@ -56,7 +53,6 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
    ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
-    ![Screenshot of the IntelliSense option in the "Options" dialog](/assets/images/help/copilot/vs-options-intellisense.png)
 1. Under "General" select **Visual Studio** and then click **Save**.
 
 {% data reusables.copilot.dotcom-settings %}

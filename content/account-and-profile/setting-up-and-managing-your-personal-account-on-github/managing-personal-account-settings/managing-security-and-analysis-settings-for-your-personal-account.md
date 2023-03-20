@@ -17,15 +17,15 @@ shortTitle: Manage security & analysis
 
 {% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
-You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+You can still manage the security and analysis features for individual repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+You can also review the security log for all activity on your personal account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
+For an overview of repository-level security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
 
 ## Enabling or disabling features for existing repositories
 
@@ -36,7 +36,6 @@ For an overview of repository-level security, see "[Securing your repository](/c
 6. Optionally, enable the feature by default for new repositories that you own.
   {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
 7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
-  {% ifversion ghes %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png){% endif %}
 
 {% data reusables.security.displayed-information %}
 
@@ -49,6 +48,6 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 ## Further reading
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"
+- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+- "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates)"

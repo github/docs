@@ -33,7 +33,7 @@ Actions can run directly on a machine or in a Docker container. You can define a
 
 ## Types of actions
 
-You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
+You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 | Type | Operating system |
 | ---- | ------------------- |
@@ -59,7 +59,7 @@ If you're developing a Node.js project, the {% data variables.product.prodname_a
 
 ### Composite Actions
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)".
+A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)".
 
 ## Choosing a location for your action
 
@@ -80,7 +80,7 @@ To ensure that your action is compatible with {% data variables.product.prodname
 - For the REST API, use the `GITHUB_API_URL` environment variable.
 - For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
 
-For more information, see "[Default environment variables](/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
 
 ## Using release management for actions
 
@@ -99,7 +99,7 @@ To use a specific action version, users can configure their {% data variables.pr
 We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
 
 - Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
-- Create a release using semantic versioning. For more information, see "[Creating releases](/articles/creating-releases)."
+- Create a release using semantic versioning. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
 - Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
 - Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
 - Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
@@ -149,7 +149,7 @@ We recommend creating a README file to help people learn how to use your action.
 
 ## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[About apps](/apps/about-apps/)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
 
 ### Strengths of GitHub Actions and GitHub Apps
 
@@ -170,4 +170,4 @@ While both {% data variables.product.prodname_actions %} and {% data variables.p
 
 ## Further reading
 
-- "[Development tools for {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)"

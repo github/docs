@@ -1,7 +1,6 @@
 ---
 title: Communicating on GitHub
 intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
-miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
   - /articles/about-discussions-in-issues-and-pull-requests
@@ -30,19 +29,19 @@ You can create and participate in issues, pull requests and team discussions, de
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
-- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback. 
-- are specific to a repository, and usually have a clear owner. 
+- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
+- are specific to a repository, and usually have a clear owner.
 - are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
-  
+
 ### Pull requests
 - allow you to propose specific changes.
-- allow you to comment directly on proposed changes suggested by others. 
-- are specific to a repository. 
- 
+- allow you to comment directly on proposed changes suggested by others.
+- are specific to a repository.
+
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important. 
--  may span many repositories. 
+-  are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
+-  may span many repositories.
 -  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
 -  often don’t have a clear owner.
 -  often do not result in an actionable task.
@@ -50,7 +49,7 @@ You can create and participate in issues, pull requests and team discussions, de
 
 ### Team discussions
 - can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
-- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %} 
+- allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %}
 - provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
 - often don’t have a clear owner.
 - often do not result in an actionable task.{% endif %}
@@ -66,11 +65,11 @@ You can create and participate in issues, pull requests and team discussions, de
 
 #### Issue example
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix. 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix.
 
 ![Example of issue](/assets/images/help/issues/issue-example.png)
 
-- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable. 
+- A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable.
 - The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
 - A discussion ensues, and eventually, a consensus will be reached about the fix to apply.
 - A contributor can then create a pull request with the fix.
@@ -84,7 +83,7 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 
 #### Pull request example
 
-This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
+This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo.
 
 In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
@@ -110,7 +109,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 
 This example shows the {% data variables.product.prodname_discussions %} welcome post for the {% data variables.product.prodname_dotcom %} Docs open source repository, and illustrates how the team wants to collaborate with their community.
 
-![Example of {% data variables.product.prodname_discussions %}](/assets/images/help/discussions/github-discussions-example.png)
+![Screenshot of an example of a discussion, with the title "Welcome to GitHub Docs Discussions."](/assets/images/help/discussions/github-discussions-example.png)
 
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
@@ -141,14 +140,14 @@ The `octocat` team member posted a team discussion, informing the team of variou
 
 These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 
-For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues#working-with-issues)" and "[About issue and pull request templates](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
+For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues#working-with-issues)" and "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."
 
-For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)."
+For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
 {% ifversion discussions %}
-For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 {% endif %}
 
-For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
 
-To learn some advanced formatting features that will help you communicate, see "[Quickstart for writing on {% data variables.product.prodname_dotcom %}](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
+To learn some advanced formatting features that will help you communicate, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."

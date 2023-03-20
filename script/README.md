@@ -300,13 +300,6 @@ This script creates the static GraphQL files for a new version.
 ---
 
 
-### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
-
-This script first copies the dereferenced schema from the previous GHES version for the new one. It then replaces references to the previous version's docs URL (e.g., enterprise-server@3.0) with the new version (e.g., enterprise-server@3.1). Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
-
----
-
-
 ### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
 
 This script creates new static webhook payload files for a new version.
@@ -458,78 +451,9 @@ A helper that returns an array of files for a given path and file extension.
 ---
 
 
-### [`i18n/fix-translation-errors.js`](i18n/fix-translation-errors.js)
-
-Run this script to fix known frontmatter errors by copying values from english file Currently only fixing errors in: 'type', 'changelog' Please double check the changes created by this script before committing.
-
----
-
-
-### [`i18n/homogenize-frontmatter.js`](i18n/homogenize-frontmatter.js)
-
-Run this script to fix known frontmatter errors by copying values from english file Translatable properties are designated in the frontmatter JSON schema
-
----
-
-
-### [`i18n/lint-translation-files.js`](i18n/lint-translation-files.js)
-
-Use this script as part of the translation merge process to output a list of either parsing or rendering errors in translated files and run script/i18n/reset-translated-file.js on them.
-
----
-
-
-### [`i18n/msft-report-reset-files.js`](i18n/msft-report-reset-files.js)
-
-
-
----
-
-
-### [`i18n/msft-reset-files-with-broken-liquid-tags.js`](i18n/msft-reset-files-with-broken-liquid-tags.js)
-
-
-
----
-
-
-### [`i18n/msft-tokens.js`](i18n/msft-tokens.js)
-
-
-
----
-
-
-### [`i18n/prune-stale-files.js`](i18n/prune-stale-files.js)
-
-
-
----
-
-
-### [`i18n/reset-translated-file.js`](i18n/reset-translated-file.js)
-
-This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
-
-Usage: script/i18n/reset-translated-file.js <filename>
-
-Examples:
-
-$ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
-
----
-
-
 ### [`i18n/test-html-pages.js`](i18n/test-html-pages.js)
 
 
-
----
-
-
-### [`i18n/test-render-translation.js`](i18n/test-render-translation.js)
-
-Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
 
 ---
 
@@ -580,13 +504,6 @@ This is a temporary script to visualize which pages have liquid (and conditional
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
 This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
-
----
-
-
-### [`prevent-translation-commits.js`](prevent-translation-commits.js)
-
-This script is run as a git precommit hook (installed by husky after npm install). It detects changes to files the in the translations folder and prevents the commit if any changes exist.
 
 ---
 
@@ -689,13 +606,6 @@ Run this script to pull openAPI files from github/github, dereference them, and 
 
 
 ### [`rest/utils/operation.js`](rest/utils/operation.js)
-
-
-
----
-
-
-### [`rest/utils/rest-api-overrides.json`](rest/utils/rest-api-overrides.json)
 
 
 

@@ -22,7 +22,7 @@ shortTitle: Add a file
 
 ## Adding a file to a repository on {% data variables.product.product_name %}
 
-Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[About large files on {% data variables.product.product_name %}](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
 {% tip %}
 
@@ -48,7 +48,7 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 
 {% tip %}
 
-**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/articles/adding-a-file-to-a-repository).
+**Tip:** You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
 {% endtip %}
 
@@ -71,6 +71,8 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
   ```
 {% data reusables.git.git-push %}
 
+{% ifversion fpt or ghec %}
 ## Further reading
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+{% endif %}
