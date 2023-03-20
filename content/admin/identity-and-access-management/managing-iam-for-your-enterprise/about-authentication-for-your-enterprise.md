@@ -29,10 +29,6 @@ After learning more about these options, to determine which method is best for y
 
 The following options are available for account management and authentication on {% data variables.product.product_name %}.
 
-- [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
-- [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
-- [Authentication with {% data variables.product.prodname_emus %} and federation](#authentication-with-enterprise-managed-users-and-federation)
-
 ### Authentication through {% data variables.location.product_location %}
 
 By default, each member must create a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}.
@@ -41,19 +37,7 @@ By default, each member must create a personal account on {% data variables.loca
 
 If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
-You can choose between configuring SAML at the enterprise level, which applies the same SAML configuration to all organizations within the enterprise, and configuring SAML separately for individual organizations.
-
-#### Deciding whether to configure SAML at the enterprise level or the organization level
-
-If some groups within your enterprise must use different SAML authentication providers to grant access to your resources on {% data variables.location.product_location %}, you can configure SAML for individual organizations. You can implement SAML for your organizations over time by allowing users to gradually authenticate using SAML. Alternatively, you can require SAML authentication by a certain date. Organization members who do not authenticate using SAML by this date will be removed. For more information about organization-level SAML, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
-
-If you configure SAML at the organization level, members are not required to authenticate via SAML to access internal repositories. For more information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories),"
-
-If you need to protect internal repositories or enforce a consistent authentication experience for every organization in your enterprise, you can configure SAML authentication for your enterprise account instead. The SAML configuration for your enterprise overrides any SAML configuration for individual organizations, and organizations cannot override the enterprise configuration. After you configure SAML for your enterprise, organization members must authenticate with SAML before accessing organization resources, including internal repositories.
-
-SCIM is not available for enterprise accounts, and team synchronization is only available for SAML at the enterprise level if you use Azure AD as an IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
-
-Regardless of the SAML implementation you choose, you cannot add external collaborators to organizations or teams. You can only add external collaborators to individual repositories.
+You can choose between configuring SAML at the enterprise level, which applies the same SAML configuration to all organizations within the enterprise, and configuring SAML separately for individual organizations. For more information, see "[AUTOTITLE](#deciding-whether-to-configure-saml-at-the-enterprise-level-or-the-organization-level)."
 
 ### Authentication with {% data variables.product.prodname_emus %} and federation
 
@@ -63,14 +47,7 @@ If you need more control of the accounts for your enterprise members on {% data 
 
 Both SAML SSO and {% data variables.product.prodname_emus %} increase security for your enterprise's resources. {% data variables.product.prodname_emus %} additionally allows you to control the user accounts for your enterprise members and restricts what the accounts are able to do. However, those restrictions may be unacceptable for your enterprise if they obstruct your developers' workflows.
 
-To determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %}, ask yourself these questions.
-
-- [Do you want to control the user accounts for your users?](#do-you-want-to-control-the-user-accounts-for-your-users)
-- [Which identity provider does your enterprise use?](#which-identity-provider-does-your-enterprise-use)
-- [Do your developers work in public repositories, gists, or {% data variables.product.prodname_pages %} sites?](#do-your-developers-work-in-public-repositories-gists-or-github-pages-sites)
-- [Do your developers rely on collaboration outside of your enterprise?](#do-your-developers-rely-on-collaboration-outside-of-your-enterprise)
-- [Does your enterprise rely on outside collaborators?](#does-your-enterprise-rely-on-outside-collaborators)
-- [Can your enterprise tolerate migration costs?](#can-your-enterprise-tolerate-migration-costs)
+To determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %}, ask yourself the following questions.
 
 ### Do you want to control the user accounts for your users?
 
@@ -114,6 +91,20 @@ If you're already using {% data variables.product.prodname_dotcom_the_website %}
 
 Although {% data variables.product.prodname_emus %} is free, the migration process may require time or cost from your team. Confirm that this migration process is acceptable to your business and your developers. If not, SAML SSO may be the better choice for you.
 
+## Deciding whether to configure SAML at the enterprise level or the organization level
+
+If you decide to use SAML instead of {% data variables.product.prodname_emus %}, you must decide whether to configure SAML at the enterprise level or the organization level.
+
+If some groups within your enterprise must use different SAML authentication providers to grant access to your resources on {% data variables.location.product_location %}, configure SAML for individual organizations. You can implement SAML for your organizations over time by allowing users to gradually authenticate using SAML. Alternatively, you can require SAML authentication by a certain date. Organization members who do not authenticate using SAML by this date will be removed. For more information about organization-level SAML, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
+
+If you configure SAML at the organization level, members are not required to authenticate via SAML to access internal repositories. For more information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+
+If you need to protect internal repositories or enforce a consistent authentication experience for every organization in your enterprise, you can configure SAML authentication for your enterprise account instead. The SAML configuration for your enterprise overrides any SAML configuration for individual organizations, and organizations cannot override the enterprise configuration. After you configure SAML for your enterprise, organization members must authenticate with SAML before accessing organization resources, including internal repositories.
+
+SCIM is not available for enterprise accounts, and team synchronization is only available for SAML at the enterprise level if you use Azure AD as an IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+
+Regardless of the SAML implementation you choose, you cannot add external collaborators to organizations or teams. You can only add external collaborators to individual repositories.
+
 {% elsif ghes %}
 
 Site administrators can decide how people authenticate to access a {% data variables.product.product_name %} instance. You can use {% data variables.product.product_name %}'s built-in authentication, or, if you want to centralize identity and access management for the web applications that your team uses, you can configure an external authentication method.
@@ -121,9 +112,6 @@ Site administrators can decide how people authenticate to access a {% data varia
 ## Authentication methods for {% data variables.product.product_name %}
 
 The following authentication methods are available for {% data variables.product.product_name %}.
-
-- [Built-in authentication](#built-in-authentication)
-- [External authentication](#external-authentication)
 
 ### Built-in authentication
 

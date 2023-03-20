@@ -1,0 +1,52 @@
+name: Local development
+
+# **What it does**: Can you start the local server like a writer would do?
+# **Why we have it**: Our CI is often heavily geared on testing in "production"
+#                     that historically we've been known to break local
+#                     development sometimes.
+# **Who does it impact**: Engineers, Contributors.
+
+on:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  local-dev:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - uses: ./.github/actions/node-npm-setup
+
+      # Note that we don't check out docs-early-access, Elasticsearch,
+      # or any remote translations. Nothing fancy here!
+
+      - name: Start server in the background
+        run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
+
+      - name: View the home page
+        run: |
+          echo "Going to sleep a little to wait for the server to start"
+          sleep 10
+          curl --fail --retry-connrefused --retry 5 http://localhost:4000/
+
+      - name: Edit a page's .md file and expect it to appear
+        run: |
+          # First append anything to the Markdown page
+          echo "Today's date $(date)" >> content/get-started/quickstart/hello-world.md
+
+          # This pipe to grep will fail if it can't find it in the curl output
+          curl -L http://localhost:4000/get-started/quickstart/hello-world | grep "Today's date"
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log

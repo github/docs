@@ -2035,6 +2035,40 @@
       ]
     },
     {
+      "name": "closeDiscussion",
+      "kind": "mutations",
+      "id": "closediscussion",
+      "href": "/graphql/reference/mutations#closediscussion",
+      "description": "<p>Close a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CloseDiscussionInput!",
+          "id": "closediscussioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#closediscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussion",
+          "description": "<p>The discussion that was closed.</p>"
+        }
+      ]
+    },
+    {
       "name": "closeIssue",
       "kind": "mutations",
       "id": "closeissue",
@@ -3795,6 +3829,48 @@
       ]
     },
     {
+      "name": "deleteProjectV2Workflow",
+      "kind": "mutations",
+      "id": "deleteprojectv2workflow",
+      "href": "/graphql/reference/mutations#deleteprojectv2workflow",
+      "description": "<p>Deletes a project workflow.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2WorkflowInput!",
+          "id": "deleteprojectv2workflowinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteprojectv2workflowinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedWorkflowId",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The ID of the deleted workflow.</p>"
+        },
+        {
+          "name": "projectV2",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2",
+          "description": "<p>The project the deleted workflow was in.</p>"
+        }
+      ]
+    },
+    {
       "name": "deletePullRequestReview",
       "kind": "mutations",
       "id": "deletepullrequestreview",
@@ -5397,6 +5473,40 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#votable",
           "description": "<p>The votable subject.</p>"
+        }
+      ]
+    },
+    {
+      "name": "reopenDiscussion",
+      "kind": "mutations",
+      "id": "reopendiscussion",
+      "href": "/graphql/reference/mutations#reopendiscussion",
+      "description": "<p>Reopen a discussion.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReopenDiscussionInput!",
+          "id": "reopendiscussioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#reopendiscussioninput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "discussion",
+          "type": "Discussion",
+          "id": "discussion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#discussion",
+          "description": "<p>The discussion that was reopened.</p>"
         }
       ]
     },
@@ -18118,6 +18228,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "stateReason",
+          "description": "<p>Identifies the reason for the discussion's state.</p>",
+          "type": "DiscussionStateReason",
+          "id": "discussionstatereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#discussionstatereason"
+        },
+        {
           "name": "title",
           "description": "<p>The title of this discussion.</p>",
           "type": "String!",
@@ -18200,6 +18318,14 @@
           ]
         },
         {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanDelete",
           "description": "<p>Check if the current viewer can delete this object.</p>",
           "type": "Boolean!",
@@ -18210,6 +18336,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -26861,8 +26995,24 @@
           ]
         },
         {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -30466,6 +30616,22 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -37502,6 +37668,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#id"
               }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the discussions by.</p>",
+              "type": {
+                "name": "[DiscussionState!]",
+                "id": "discussionstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#discussionstate"
+              }
             }
           ]
         },
@@ -41158,6 +41334,22 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -42105,6 +42297,22 @@
               }
             }
           ]
+        },
+        {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "viewerCanUpdate",
@@ -46668,6 +46876,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanDeleteHeadRef",
           "description": "<p>Check if the viewer can restore the deleted head ref.</p>",
           "type": "Boolean!",
@@ -46716,6 +46932,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
           "type": "Boolean!",
@@ -46726,6 +46950,14 @@
         {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUpdateBranch",
+          "description": "<p>Whether or not the viewer can update the head ref of this PR, by merging or rebasing the base ref.\nIf the head ref is up to date or unable to be updated by this user, this will return false.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -55225,6 +55457,16 @@
               }
             },
             {
+              "name": "login",
+              "description": "<p>The login of one specific collaborator.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "query",
               "description": "<p>Filters users with query on user name and login.</p>",
               "type": {
@@ -55730,6 +55972,16 @@
                 "id": "discussionorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#discussionorder"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the discussions by.</p>",
+              "type": {
+                "name": "[DiscussionState!]",
+                "id": "discussionstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#discussionstate"
               }
             }
           ]
@@ -69312,6 +69564,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#id"
               }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the discussions by.</p>",
+              "type": {
+                "name": "[DiscussionState!]",
+                "id": "discussionstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#discussionstate"
+              }
             }
           ]
         },
@@ -71640,6 +71902,22 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "viewerCanClose",
+          "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReopen",
+          "description": "<p>Indicates if the object can be reopened by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -73356,6 +73634,16 @@
                 "id": "id",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the discussions by.</p>",
+              "type": {
+                "name": "[DiscussionState!]",
+                "id": "discussionstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#discussionstate"
               }
             }
           ]
@@ -75466,6 +75754,27 @@
       ]
     },
     {
+      "name": "DiscussionCloseReason",
+      "kind": "enums",
+      "id": "discussionclosereason",
+      "href": "/graphql/reference/enums#discussionclosereason",
+      "description": "<p>The possible reasons for closing a discussion.</p>",
+      "values": [
+        {
+          "name": "DUPLICATE",
+          "description": "<p>The discussion is a duplicate of another.</p>"
+        },
+        {
+          "name": "OUTDATED",
+          "description": "<p>The discussion is no longer relevant.</p>"
+        },
+        {
+          "name": "RESOLVED",
+          "description": "<p>The discussion has been resolved.</p>"
+        }
+      ]
+    },
+    {
       "name": "DiscussionOrderField",
       "kind": "enums",
       "id": "discussionorderfield",
@@ -75496,6 +75805,48 @@
         {
           "name": "VOTE_COUNT",
           "description": "<p>Order poll options by the number of votes it has.</p>"
+        }
+      ]
+    },
+    {
+      "name": "DiscussionState",
+      "kind": "enums",
+      "id": "discussionstate",
+      "href": "/graphql/reference/enums#discussionstate",
+      "description": "<p>The possible states of a discussion.</p>",
+      "values": [
+        {
+          "name": "CLOSED",
+          "description": "<p>A discussion that has been closed.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>A discussion that is open.</p>"
+        }
+      ]
+    },
+    {
+      "name": "DiscussionStateReason",
+      "kind": "enums",
+      "id": "discussionstatereason",
+      "href": "/graphql/reference/enums#discussionstatereason",
+      "description": "<p>The possible state reasons of a discussion.</p>",
+      "values": [
+        {
+          "name": "DUPLICATE",
+          "description": "<p>The discussion is a duplicate of another.</p>"
+        },
+        {
+          "name": "OUTDATED",
+          "description": "<p>The discussion is no longer relevant.</p>"
+        },
+        {
+          "name": "REOPENED",
+          "description": "<p>The discussion was reopened.</p>"
+        },
+        {
+          "name": "RESOLVED",
+          "description": "<p>The discussion has been resolved.</p>"
         }
       ]
     },
@@ -84189,6 +84540,40 @@
       ]
     },
     {
+      "name": "CloseDiscussionInput",
+      "kind": "inputObjects",
+      "id": "closediscussioninput",
+      "href": "/graphql/reference/input-objects#closediscussioninput",
+      "description": "<p>Autogenerated input type of CloseDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>ID of the discussion to be closed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason why the discussion is being closed.</p>",
+          "type": "DiscussionCloseReason",
+          "id": "discussionclosereason",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#discussionclosereason"
+        }
+      ]
+    },
+    {
       "name": "CloseIssueInput",
       "kind": "inputObjects",
       "id": "closeissueinput",
@@ -86853,6 +87238,32 @@
         {
           "name": "projectId",
           "description": "<p>The ID of the Project from which the item should be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteProjectV2WorkflowInput",
+      "kind": "inputObjects",
+      "id": "deleteprojectv2workflowinput",
+      "href": "/graphql/reference/input-objects#deleteprojectv2workflowinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2Workflow.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "workflowId",
+          "description": "<p>The ID of the workflow to be removed.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -89644,6 +90055,32 @@
         {
           "name": "subjectId",
           "description": "<p>The Node ID of the discussion or comment to remove upvote.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "ReopenDiscussionInput",
+      "kind": "inputObjects",
+      "id": "reopendiscussioninput",
+      "href": "/graphql/reference/input-objects#reopendiscussioninput",
+      "description": "<p>Autogenerated input type of ReopenDiscussion.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "discussionId",
+          "description": "<p>ID of the discussion to be reopened.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

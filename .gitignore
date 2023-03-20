@@ -33,8 +33,14 @@ user-code/
 script/logs/
 external-link-checker-db.json
 
+# Playwright related
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
 # Automated content source
 rest-api-description
+semmle-code
 
 .installed.package-lock.json
-
+assets/images/help/writing/unordered-list-rendered (1).png

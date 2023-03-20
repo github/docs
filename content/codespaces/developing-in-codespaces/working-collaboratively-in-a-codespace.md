@@ -22,7 +22,7 @@ For more information about Live Share, see "[What is {% data variables.product.p
 1. In the Activity Bar, click the Extensions icon.
 1. In the search box, type `Live Share`.
 
-   ![Screenshot of the "Extensions: Marketplace" sidebar with "live share" entered in the search box. "Live Share" is the first in the list of extensions.](/assets/images/help/codespaces/live-share-search-extensions.png)
+   ![Screenshot of the "Extensions: Marketplace" side bar with "live share" entered in the search box. "Live Share" is the first in the list of extensions.](/assets/images/help/codespaces/live-share-search-extensions.png)
 
 1. If the **Install** button is displayed beside the extension, click it to install the extension in the codespace.
 1. If the extension is shown grayed out in the list, right-click it and click **Enable**.

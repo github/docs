@@ -45,6 +45,10 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 
 {% endif %}
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
 - **Username and password only**
     - You'll create a password when you create your account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."{% ifversion fpt or ghec %}
     - If you have not enabled 2FA, {% data variables.product.product_name %} will ask for additional verification when you first sign in from an unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer.
@@ -76,14 +80,21 @@ You can authenticate with {% data variables.product.prodname_desktop %} using yo
 
 ## Authenticating with the API
 
-You can authenticate with the API in different ways.
+You can authenticate with the API in different ways. For more information, see "[AUTOTITLE](/rest/overview/other-authentication-methods)."
 
-- **{% data variables.product.pat_generic_caps %}s**
-    - In limited situations, such as testing, you can use a {% data variables.product.pat_generic %} to access the API. Using a {% data variables.product.pat_generic %} enables you to revoke access at any time. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-- **Web application flow**
-    - For OAuth Apps in production, you should authenticate using the web application flow. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow)."
-- **GitHub Apps**
-    - For GitHub Apps in production, you should authenticate on behalf of the app installation. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+### Authenticating to the API with a {% data variables.product.pat_generic %}
+
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}.{% ifversion pat-v2 %} If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}.{% endif %} For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+### Authenticating to the API with an app
+
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+
+You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_app %}s allow more control over the access and permission that the app has.
+
+### Authenticating to the API in a {% data variables.product.prodname_actions %} workflow
+
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
 ## Authenticating with the command line
 
@@ -119,6 +130,6 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 | {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
 | {% data variables.product.pat_v2_caps %} | `github_pat_` | "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
 | OAuth access token | `gho_` | "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)" |
-| User-to-server token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" |
-| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)" |
+| User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" |
+| Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)" |
 | Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-to-server-access-tokens)" |

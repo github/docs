@@ -28,5 +28,14 @@
         "topics": [],
         "popularity": 0.1,
         "intro": ""
+    },
+    "/en/get-started/foo/for-playwright": {
+        "objectID": "/en/get-started/foo/for-playwright",
+        "breadcrumbs": "Get started Foo",
+        "title": "For Playwright",
+        "headings": "Opening",
+        "content": "This page exists to serve a Playwright test to view an article page",
+        "popularity": 0.5,
+        "intro": "Exists for a Playwright test"
     }
 }

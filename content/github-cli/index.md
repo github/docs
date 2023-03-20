@@ -1,5 +1,5 @@
 ---
-title: GitHub CLI
+title: GitHub CLI documentation
 shortTitle: GitHub CLI
 intro: '{% data reusables.cli.about-cli %}'
 versions:

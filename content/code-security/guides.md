@@ -24,6 +24,7 @@ includeGuides:
   - /code-security/getting-started/github-security-features
   - /code-security/getting-started/securing-your-organization
   - /code-security/getting-started/securing-your-repository
+  - /code-security/getting-started/auditing-security-alerts
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning

@@ -43,7 +43,7 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}meta" \
+--url "{% data variables.product.api_url_pre %}/meta" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %}\
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
@@ -72,7 +72,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
    ```javascript{:copy}
    import { App } from "octokit";
- 
+
    const app = new App({
      appId: APP_ID,
      privateKey: PRIVATE_KEY,
@@ -93,8 +93,8 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
    ```javascript{:copy}
    await octokit.graphql(`
-     query { 
-       viewer { 
+     query {
+       viewer {
          login
        }
      }
@@ -113,12 +113,12 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
 
 1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
-1. Get the webhook secret that you specified in your app's settings.
+1. Get the webhook secret that you specified in your app's settings. For more information about webhook secrets, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret)."
 1. Import `App` from `octokit`. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `WEBHOOK_SECRET` with the your app's webhook secret.
 
    ```javascript{:copy}
    import { App } from "octokit";
- 
+
    const app = new App({
      appId: APP_ID,
      privateKey: PRIVATE_KEY,

@@ -30,10 +30,11 @@ versions:
 
   {% endnote %}
 
-  ![Viewing a tag in the history](/assets/images/help/desktop/viewing-tags-in-history.png)
+  ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. All tags associated with the commit are visible in that commit's metadata.
-![Viewing a tag in the commit](/assets/images/help/desktop/viewing-tags-in-commit.png)
+   
+   ![Screenshot of the detailed view of a commit. Above the commit's diff, in the commit's metadata, a tag icon and the label "hello-tag" are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-commit.png)
 
 ## Deleting tags
 

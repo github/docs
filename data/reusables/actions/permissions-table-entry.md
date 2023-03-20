@@ -1,1 +1,1 @@
-| Setting permissions for the token: | [`permissions`](/actions/using-jobs/assigning-permissions-to-jobs)|
+| Setting permissions for the token | [`permissions`](/actions/using-jobs/assigning-permissions-to-jobs)|

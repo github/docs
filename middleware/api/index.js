@@ -1,7 +1,7 @@
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-import events from './events.js'
+import events from '../../src/events/middleware.js'
 import search from './search.js'
 import webhooks from './webhooks.js'
 
