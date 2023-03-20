@@ -58,13 +58,14 @@ To discover how a member was added to an organization, you can filter the member
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% ifversion oidc-for-emu %} and authentication methods:
+{% ifversion oidc-for-emu %}
 
-|                                  | SAML                                          | OIDC                                          |
-|----------------------------------|-----------------------------------------------|-----------------------------------------------|
-| Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
-| Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
-{% else %}:
+| Identity provider | SAML | OIDC |
+|-------------------|------|------|
+| Azure Active Directory | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% else %}
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
