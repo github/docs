@@ -1,8 +1,8 @@
 # Creating and updating screenshots
 
-Screenshots complement text instructions for using GitHub. 
+Screenshots complement text instructions for using GitHub.
 
-**Use a screenshot when a user interface element is hard to find:** 
+**Use a screenshot when a user interface element is hard to find:**
 
 - The UI element is small or visually subtle.
 - The UI element is not immediately visible. For example, it is contained in a dropdown menu.
@@ -23,8 +23,6 @@ Don't use screenshots for simple steps where text does the job, or to show code 
 ### The UI element is small or visually subtle
 
 The edit button for a repository's social media preview image is small and visually unobtrusive. It may be hard to find in the sea of repository settings.
-
-The screenshot is helpful to locate the button, as well as to understand the options it presents.
 
 As a bonus, the screenshot gives a visual reference for the aspect ratio required.
 
@@ -100,6 +98,7 @@ Consider these factors when planning the screenshot strategy for an article or s
 ### Technical specs
 
 - PNG file format
+- Static images only
 - 144 dpi
 - 750–1000 pixels wide for full-column images
 - 250KB or less in file size
@@ -114,6 +113,12 @@ To be inclusive of all users, screenshots must:
 - **Have alt text** that describes the content of the image and the appearance of its highlighting, if any. [See alt text guidelines in our style guide.](./content-style-guide.md#alt-text)
 - **Be clear and crisp**, with text and UI elements as legible as possible.
 
+#### No animated GIFs
+
+Animated GIFs are not accessible. According to [WCAG 2.1 2.2.2](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html), motion that starts automatically or that lasts more than five seconds must have a pause, stop, or hide mechanism.
+
+Use text or static images instead.
+
 ### Visual style
 
 - Show a UI element with **just enough surrounding context** to help people know where to find it on their screen.
@@ -122,9 +127,20 @@ To be inclusive of all users, screenshots must:
   - For GitHub, select **Light default** in your account's [appearance settings](https://github.com/settings/appearance).
   - For VSCode, select **GitHub light default** in the free [GitHub Theme extension](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
   - If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
-- Replace your username and avatar, if they appear, with **[Octocat's](https://github.com/octocat) username and avatar**. You can do this using the developer tools in your browser to edit the rendered page.
+- If your username and avatar appear, replace them with **Octocat's username and avatar**. [Find the Octocat avatar here.](https://avatars.githubusercontent.com/u/583231?v=4) Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with the URL for Octocat's avatar, `https://avatars.githubusercontent.com/u/583231?v=4`.
+- Do not include a **cursor**.
 
  ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is outlined in dark orange.](./images/issue-comment-close-button.png)
+
+#### Visual style for dropdown menus
+
+If the primary goal in showing a dropdown menu is to help the reader locate the menu itself, show the menu closed:
+
+![Screenshot of an article showing instructions and a UI screenshot for selecting a folder as the publishing source for GitHub pages.](./images/screenshot-yes-pages-menu.png)
+
+If the primary goal in showing a dropdown menu is to help the reader distinguish among options within the menu, show the menu open. Capture open menus without focus (cursor or hover state). Showing menu items with a white background ensures contrast with the dark orange outline, where present:
+
+![Screenshot of an article showing instructions and a UI screenshot for locating the "Settings" menu item in the GitHub user account menu.](./images/screenshot-yes-account-menu.png)
 
 ## Adding highlighting in Snagit
 
@@ -140,7 +156,7 @@ The stroke is GitHub Primer color `fg.severe` (HEX #BC4C00 or RGB 188, 76, 0). T
 2. Open Snagit and select the **Shape** tool.
 3. Under "**Quick styles**," select **Import**.
 4. Select the Snagit theme from your computer's files. This will install the shape preset.
-5. Optionally, star the orange rectangle to add it to your favorites.
+5. Optionally, star the dark orange rectangle to add it to your favorites.
 
 ### Adding a highlight to a screenshot
 
@@ -152,6 +168,8 @@ The stroke is GitHub Primer color `fg.severe` (HEX #BC4C00 or RGB 188, 76, 0). T
 4. Drag and drop across the image to create a rectangle. Adjust height and width by dragging edges. Do not adjust the corner rounding, which should remain 4 px.
 5. Adjust the space between the UI element and the stroke so it's about the width of the stroke itself.
 6. Export image to PNG.
+
+**Note ⚠️**: A bug in Snagit may corrupt the corner rounding, causing rectangles to become ovals. If this occurs, delete and reinstall the GitHub Docs theme (Windows and Mac), or click and drag the yellow dot at the top right of the shape to reset corner rounding to 4 px (Mac only).
 
 ## Replacing screenshots
 
