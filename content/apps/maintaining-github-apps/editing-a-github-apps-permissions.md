@@ -17,7 +17,7 @@ shortTitle: Edit permissions
 ---
 {% note %}
 
-**Note:** Updated permissions won't take effect on an installation until the owner of the account or organization approves the changes. You can use the [InstallationEvent webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) to find out when people accept new permissions for your app. One exception is [user-level permissions](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps#user-level-permissions), which don't require the account owner to approve permission changes.
+**Note:** Updated permissions won't take effect on an installation until the owner of the account or organization approves the changes. You can use the [InstallationEvent webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) to find out when people accept new permissions for your app. One exception is user-level permissions, which don't require the account owner to approve permission changes.
 
 {% endnote %}
 

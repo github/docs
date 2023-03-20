@@ -40,12 +40,12 @@ Keep these ideas in mind when creating {% data variables.product.prodname_github
 
 {% ifversion fpt or ghec %}
 * {% data reusables.apps.maximum-github-apps-allowed %} {% endif %}
-* A {% data variables.product.prodname_github_app %} should take actions independent of a user (unless the app is using a [user-to-server](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) token). {% data reusables.apps.expiring_user_authorization_tokens %}
+* A {% data variables.product.prodname_github_app %} should take actions independent of a user (unless the app is using a [user access token](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)). {% data reusables.apps.expiring_user_authorization_tokens %}
 
 * Make sure the {% data variables.product.prodname_github_app %} integrates with specific repositories.
 * The {% data variables.product.prodname_github_app %} should connect to a personal account or an organization.
 * Don't expect the {% data variables.product.prodname_github_app %} to know and do everything a user can.
-* Don't use a {% data variables.product.prodname_github_app %} if you just need a "Login with GitHub" service. But a {% data variables.product.prodname_github_app %} can use a [user identification flow](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) to log users in _and_ do other things.
+* Don't use a {% data variables.product.prodname_github_app %} if you just need a "Login with GitHub" service. But a {% data variables.product.prodname_github_app %} can generate a [user access token](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) to log users in _and_ do other things.
 * Don't build a {% data variables.product.prodname_github_app %} if you _only_ want to act as a GitHub user and do everything that user can do.{% ifversion fpt or ghec %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 

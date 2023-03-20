@@ -25,7 +25,7 @@ Windows Server 2019
 <td>
 <code>windows-2019</code>
 </td>
-<td>
+<td>None
 </td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-20.04</code>
 </td>
-<td>
+<td>None
 </rd>
 </tr>
 <tr>
@@ -78,7 +78,7 @@ macOS Big Sur 11
 <td>
 <code>macos-11</code>
 </td>
-<td>
+<td>None
 </td>
 </tr>
 <tr>
