@@ -76,19 +76,25 @@ const retryConfiguration = { limit: 3 }
 const timeoutConfiguration = { response: 1500 }
 
 async function getRemoteJSON(url, config) {
-  // got will, by default, follow redirects and it will throw if the ultimate
-  // response is not a 2xx.
-  // But it's possible that the page is a 200 OK but it's just not a JSON
-  // page at all. Then we can't assume we can deserialize it.
-  const res = await got(url, Object.assign({ cache: _getRemoteJSONCache }, config))
-  if (!res.headers['content-type'].startsWith('application/json')) {
-    throw new Error(
-      `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
-    )
+  let fromCache = true
+  if (!_getRemoteJSONCache.has(url)) {
+    fromCache = false
+    // got will, by default, follow redirects and it will throw if the ultimate
+    // response is not a 2xx.
+    // But it's possible that the page is a 200 OK but it's just not a JSON
+    // page at all. Then we can't assume we can deserialize it.
+    const res = await got(url, config)
+    if (!res.headers['content-type'].startsWith('application/json')) {
+      throw new Error(
+        `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
+      )
+    }
+
+    _getRemoteJSONCache.set(url, JSON.parse(res.body))
   }
-  const tags = [`url:${url}`, `from_cache:${res.isFromCache}`]
+  const tags = [`url:${url}`, `from_cache:${fromCache}`]
   statsd.increment('middleware.archived_get_remote_json', 1, tags)
-  return JSON.parse(res.body)
+  return _getRemoteJSONCache.get(url)
 }
 const _getRemoteJSONCache = new Map()
 
