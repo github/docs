@@ -15,7 +15,7 @@ export function Notice({ item, variant = 'preview' }: Props) {
   const { t } = useTranslation('products')
   const previewTitle =
     variant === 'preview'
-      ? t('rest.reference.preview_notice')
+      ? t('graphql.reference.preview_notice')
       : t('graphql.reference.deprecation_notice')
   const noticeStyle =
     variant === 'preview'

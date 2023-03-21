@@ -40,7 +40,7 @@ If your organization doesn't require SSH certificates, members can continue to u
 
 ## Issuing certificates
 
-When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing _KEY-IDENTITY_ with your key identity and _USERNAME_ with a {% data variables.product.product_name %} username. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.product_name %} username. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
 
 {% note %}
 
@@ -58,7 +58,7 @@ $ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data var
 
 {% endwarning %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for _USERNAME-1_ for the user's account for {% data variables.product.prodname_ghe_cloud %}, and _USERNAME-2_ for the user's account on {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} at _HOSTNAME_.
+To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} at HOSTNAME.
 
 ```shell
 $ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub

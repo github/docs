@@ -10,7 +10,6 @@ on:
     paths:
       - 'script/search/**'
       - 'package*.json'
-      - lib/search/popular-pages.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
 
@@ -35,6 +34,14 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
 
       - uses: ./.github/actions/setup-elasticsearch
 
@@ -77,6 +84,10 @@ jobs:
           # But that'll get fixed in the next translation pipeline. For now,
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
+
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--popular-pags <PATH>` option.
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
 
         run: |
           mkdir /tmp/records

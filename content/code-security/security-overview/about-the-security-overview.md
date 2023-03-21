@@ -78,7 +78,6 @@ This view shows data about the repositories affected by different types of secur
 
 ![Screenshot of the "Security Risk" view on the "Security" tab for an organization. Illustrates information and filter options available in the view.](/assets/images/help/security-overview/security-risk-interactive-header.png)
 
-
 ### Security Coverage view
 
 This view shows data about which security features are used by repositories in the organization. You can filter the view to show the repositories of interest using links, a dropdown menu, and a search field.
@@ -91,6 +90,8 @@ This view shows data about which security features are used by repositories in t
 In addition, you can click **{% octicon "gear" aria-hidden="true" %} Security settings** for any repository to enable the security features that have a one-click setup.
 
 ![Screenshot of the "Security Coverage" view on the "Security" tab for an organization. Illustrates information and filter options available in view.](/assets/images/help/security-overview/security-coverage-view-single-repo-enablement.png)
+
+{% data reusables.code-scanning.beta-org-enable-all %}
 
 {% else %}
 

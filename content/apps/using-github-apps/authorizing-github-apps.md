@@ -30,7 +30,7 @@ During authorization, you'll be prompted to grant the {% data variables.product.
 
 The situations in which a {% data variables.product.prodname_github_app %} acts on your behalf vary according to the purpose of the {% data variables.product.prodname_github_app %} and the context in which it is being used.
 
-For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.prodname_dotcom %}.  The {% data variables.product.prodname_github_app %} will achieve this through a [user-to-server request](/get-started/quickstart/github-glossary#user-to-server-request).
+For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.prodname_dotcom %}.
 
 When a {% data variables.product.prodname_github_app %} acts on your behalf in this way, this is identified on GitHub via a special icon that shows a small avatar for the {% data variables.product.prodname_github_app %} overlaid onto your own avatar, similar to the one shown below.
 
