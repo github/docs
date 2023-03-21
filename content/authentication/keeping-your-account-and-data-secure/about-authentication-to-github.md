@@ -132,4 +132,4 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 | OAuth access token | `gho_` | "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)" |
 | User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" |
 | Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)" |
-| Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-to-server-access-tokens)" |
+| Refresh token for a {% data variables.product.prodname_github_app %} | `ghr_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)" |

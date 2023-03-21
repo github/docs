@@ -1,12 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-usage-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
