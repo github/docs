@@ -27,17 +27,17 @@ topics:
 {% data reusables.actions.example-table-intro %}
 
 | **Feature**  | **Implementation** |
-| --- | --- | 
+| --- | --- |
 {% data reusables.actions.push-table-entry %}
 {% data reusables.actions.pull-request-table-entry %}
 {% data reusables.actions.workflow-dispatch-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
-| Running a script on the runner: | Using `./script/rendered-content-link-checker.mjs` |
+| Using a third-party action | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
+| Running a script on the runner | Using `./script/rendered-content-link-checker.mjs` |
 
 ## Example workflow
 

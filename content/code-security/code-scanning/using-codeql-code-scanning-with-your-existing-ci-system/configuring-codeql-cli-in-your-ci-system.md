@@ -5,6 +5,8 @@ intro: 'You can configure your continuous integration system to run the {% data 
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-code-scanning-in-your-ci-system
 versions:
   fpt: '*'
   ghes: '*'

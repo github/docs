@@ -105,3 +105,40 @@ describe('link-rewriting', () => {
     )
   })
 })
+
+describe('data attributes for hover preview cards', () => {
+  test('check that internal links have the data attributes', async () => {
+    const $ = await getDOM('/pages/quickstart')
+    const links = $('#article-contents a[href]')
+
+    // The internal link
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').includes('/get-started/quickstart')
+      )
+      expect(link.attr('data-title')).toBe('Quickstart')
+      expect(link.attr('data-product-title')).toBe('Get started')
+      // See tests/fixtures/content/get-started/quickstart/index.md
+      expect(link.attr('data-intro')).toBe(
+        'Get started using GitHub to manage Git repositories and collaborate with others.'
+      )
+    }
+
+    // The anchor link has none
+    {
+      const link = links.filter((i, element) => $(element).attr('href') === '#introduction')
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
+    // The external link has none
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').startsWith('https://github.com')
+      )
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
+  })
+})

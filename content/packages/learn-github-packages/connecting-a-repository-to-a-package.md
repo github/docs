@@ -12,7 +12,7 @@ versions:
 shortTitle: Connect a repository
 ---
 
-When you publish a package that is scoped to a personal account or an organization, the package is not linked to a repository by default. If you connect a package to a repository, the package's landing page will show information and links from the repository, such as the README. The package will inherit the visibility setting of the linked repository, and you can also choose to have the package inherit its access permissions from the linked repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+When you publish a package that is scoped to a personal account or an organization, the package is not linked to a repository by default. If you connect a package to a repository, the package's landing page will show information and links from the repository, such as the README. You can also choose to have the package inherit its access permissions from the linked repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 ## Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}
 

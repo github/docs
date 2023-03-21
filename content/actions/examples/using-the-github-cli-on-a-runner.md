@@ -34,12 +34,12 @@ topics:
 {% data reusables.actions.secrets-table-entry %}
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
-| Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
-| Running a script on the runner: | Using `script/check-english-links.js` |
-| Generating an output file: | Piping the output using the `>` operator |
-| Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
-| Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+| Using a third-party action | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
+| Running shell commands on the runner | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
+| Running a script on the runner | Using `script/check-english-links.js` |
+| Generating an output file | Piping the output using the `>` operator |
+| Checking for existing issues using {% data variables.product.prodname_cli %} | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
+| Commenting on an issue using {% data variables.product.prodname_cli %} | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
 ## Example workflow
 
