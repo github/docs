@@ -1,6 +1,6 @@
 ---
-title: Countries where SMS authentication is supported
-intro: 'Because of delivery success rates, {% data variables.product.product_name %} only supports two-factor authentication via SMS for certain countries.'
+title: Countries and regions where SMS authentication is supported
+intro: 'Because of delivery success rates, {% data variables.product.product_name %} only supports two-factor authentication via SMS for certain countries and regions.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
   - /github/authenticating-to-github/countries-where-sms-authentication-is-supported
@@ -10,13 +10,13 @@ versions:
   ghec: '*'
 topics:
   - 2FA
-shortTitle: Countries supporting SMS
+shortTitle: Countries and regions supporting SMS
 ---
-If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+If we don't support two-factor authentication via text message for your country/region of residence, you can set up authentication via a TOTP mobile application. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
-## Supported countries for SMS authentication
+## Supported countries and regions for SMS authentication
 
-If your country is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
+If your country/region is not on this list, then we aren't currently able to reliably deliver text messages to your country/region. We update this list periodically.
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>Aland Islands</li>
