@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -451,34 +451,6 @@ describe('code examples', () => {
     expect(shownCards.length).toBe(0)
     const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
     expect(noResultsMessage).not.toBeNull()
-  })
-})
-
-describe('filter cards', () => {
-  it('works with select input', async () => {
-    await page.goto('http://localhost:4000/en/code-security/guides')
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
-  })
-
-  it('works with select input on an Enterprise version', async () => {
-    await page.goto(`http://localhost:4000/en/enterprise-server@${latest}/code-security/guides`)
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
   })
 })
 
