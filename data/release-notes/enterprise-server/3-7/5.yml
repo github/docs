@@ -6,7 +6,6 @@ sections:
   bugs:
     - After a site administrator adjusted the cutoff date for allowing SSH connections with RSA keys using `ghe-config app.gitauth.rsa-sha1`, the instance would still disallow connections with RSA keys if the connection attempt was signed by the SHA-1 hash function.
     - During the validation phase of a configuration run, a `No such object error` may have occurred for the Notebook and Viewscreen services.
-    - SSH keys and personal access tokens (classic) would fail to allow REST API access to organization resources when GitHub Enterprise Server was configured with SCIM.
     - After disabling Dependabot updates, the avatar for Dependabot was displayed as the **@ghost** user in the Dependabot alert timeline.
     - In some cases, users could experience a `500` error when viewing the **Code security & analysis** settings page for an instance with a very high number of active committers.
     - Some links to contact GitHub Support or view the GitHub Enterprise Server release notes were incorrect.
