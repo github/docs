@@ -8,6 +8,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
   - /code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
 versions:
   fpt: '*'
   ghes: '*'
