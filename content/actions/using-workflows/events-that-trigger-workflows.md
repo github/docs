@@ -1262,7 +1262,7 @@ on: workflow_call
 | ------------------ | ------------ | ------------ | ------------------|
 | [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | Not applicable | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
 
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
+To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
 ```yaml
 on: workflow_dispatch
