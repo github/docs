@@ -18,6 +18,7 @@ children:
   - search
   - get-started
   - early-access
+  - pages
   - code-security
   # - account-and-profile
   # - authentication
@@ -40,7 +41,6 @@ children:
   # - discussions
   # - sponsors
   # - communities
-  # - pages
   # - education
   # - desktop
   # - support
