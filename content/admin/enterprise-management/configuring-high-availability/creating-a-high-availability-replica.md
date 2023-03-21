@@ -100,5 +100,4 @@ For testing, you can add entries to the local workstation's `hosts` file (for ex
 ## Further reading
 
 - "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)"
-- "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)"
 - "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)"
