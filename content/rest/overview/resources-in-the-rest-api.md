@@ -225,10 +225,9 @@ receive request bodies:
 
 All error objects have resource and field properties so that your client
 can tell what the problem is.  There's also an error code to let you
-know what is wrong with the field.  These are the possible validation error
-codes:
+know what is wrong with the field.
 
-Error code name | Description
+Error code | Description
 -----------|-----------|
 `missing` | A resource does not exist.
 `missing_field` | A required field on a resource has not been set.
@@ -246,10 +245,9 @@ error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
 client should repeat the requests.
 
-Status Code | Description
------------|-----------|
-`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
-`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
+A `301` status code indicates permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
+
+A `302` or `307` status code indicates temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
 
 Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
@@ -368,7 +366,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > x-ratelimit-reset: 1372700873
 ```
 
-Header Name | Description
+Header name | Description
 -----------|-----------|
 `x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
 `x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
