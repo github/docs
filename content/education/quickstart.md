@@ -61,18 +61,15 @@ With your personal account and organization account, you're ready to get started
 
 {% data reusables.classroom.sign-into-github-classroom %}
 1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
-  !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
-  !["Grant" button for organization](/assets/images/help/classroom/setup-click-grant.png)
-  
+
   {% tip %}
-  
+
   **Tip**: If you see a **Request** button instead of a **Grant** button, you are a member of the organization, not an owner. An owner must approve your request for {% data variables.product.prodname_classroom %}. You must be an organization owner to create and manage classrooms and assignments in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations)."
-  
+
   {% endtip %}
-  
+
 1. Click **Authorize github**.
-  ![Click "Authorize" button for organization](/assets/images/help/classroom/setup-click-authorize-github.png)
 
 ## Create your classroom
 

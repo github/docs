@@ -19,11 +19,9 @@ If you're a student and your instructor has configured autograding for your assi
 
 The **Actions** tab shows the full history of test runs.
 
-!["Actions" tab with "All workflows" selected](/assets/images/help/classroom/autograding-actions-tab.png)
+![Screenshot of the "Actions" tab with "All workflows" option in the left sidebar selected.](/assets/images/help/classroom/autograding-actions-tab.png)
 
 You can click a specific test run to review log output, like compilation errors and test failures.
-
-![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
 ## Further reading
 
