@@ -79,3 +79,31 @@ test.describe('platform picker', () => {
     await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
   })
 })
+
+test('filter article cards', async ({ page }) => {
+  await page.goto('/code-security/guides')
+  const articleCards = page.getByTestId('article-cards')
+  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
+  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
+
+  // For both the type and topic dropdowns, with the Primer component we use it
+  // ends creating a button to open the dropdowns so that's why we're clicking
+  // a button here to expand the option items.
+
+  // all the articles are displayed, filter by topic
+  await page.getByTestId('card-filter-topics').getByRole('button', { name: 'All' }).click()
+  await page.getByTestId('topics-dropdown').getByText('Organizations').click()
+  await expect(articleCards.getByText('Secure quickstart')).not.toBeVisible()
+  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
+
+  // now show all the articles again and then filter by type
+  await page
+    .getByTestId('card-filter-topics')
+    .getByRole('button', { name: 'Organizations' })
+    .click()
+  await page.getByTestId('topics-dropdown').getByText('All').click()
+  await page.getByTestId('card-filter-types').getByRole('button', { name: 'All' }).click()
+  await page.getByTestId('types-dropdown').getByText('Quickstart').click()
+  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
+  await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
+})

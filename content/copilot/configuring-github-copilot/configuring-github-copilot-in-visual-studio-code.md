@@ -32,7 +32,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
+|Toggle {% data variables.product.prodname_copilot %} on/off| None |github.copilot.toggleCopilot|
 
 {% endmac %}
 
@@ -47,7 +47,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
+|Toggle {% data variables.product.prodname_copilot %} on/off| None |github.copilot.toggleCopilot|
 
 {% endwindows %}
 
@@ -63,7 +63,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
 |Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
+|Toggle {% data variables.product.prodname_copilot %} on/off| None |github.copilot.toggleCopilot|
 
 {% endlinux %}
 
