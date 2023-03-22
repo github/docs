@@ -20,22 +20,14 @@ The Git & {% data variables.product.company_short %} starter assignment is a pre
 ### If there are no existing assignments in the classroom
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click  **Use starter assignment**.
-
-<div class="procedural-image-wrapper">
-  <img alt="Creating your first assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-create-first-assignment.png">
-</div>
+1. Navigate to a classroom.
+1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, click  **Use starter assignment**.
 
 ### If there already are existing assignments in the classroom
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
-2. Navigate to a classroom.
-3. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link on the blue banner.
-
-<div class="procedural-image-wrapper">
-  <img alt="The 'New assignment' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-new-starter-assignment-button.png">
-</div>
+1. Navigate to a classroom.
+1. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, click the link in the blue banner.
 
 ## Setting up the basics for an assignment
 
@@ -56,11 +48,7 @@ Import the starter course into your organization, name your assignment, decide w
 
 ### Importing the assignment
 
-You first need to import the Git & {% data variables.product.product_name %} starter assignment into your organization.
-
-<div class="procedural-image-wrapper">
-  <img alt="The `Import the assignment` button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-import-starter-assignment.png">
-</div>
+To import the Git & {% data variables.product.product_name %} starter assignment into your organization, click **Import the assignment**.
 
 ### Naming the assignment
 
@@ -78,19 +66,11 @@ The repositories for an assignment can be public or private. If you use private 
 
 When you're done, click **Continue**. {% data variables.product.prodname_classroom %} will create the assignment and bring you to the assignment page.
 
-<div class="procedural-image-wrapper">
-  <img alt="'Continue' button" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-continue-button.png">
-</div>
-
 ## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
 You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
-
-<div class="procedural-image-wrapper">
-  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
-</div>
 
 The Git & {% data variables.product.company_short %} starter assignment is only available for individual students, not for groups. Once you create the assignment, students can start work on the assignment.
 

@@ -114,14 +114,14 @@ Extensions that can run in {% data variables.codespaces.serverless %} will appea
 
 ## Using {% data variables.codespaces.serverless %} behind a firewall
 
-If you are working behind a firewall you will need to add the following URLs to your firewall's allow list:
+If you are working behind a firewall you will need to add the following URLs to your firewall's allow list.
 
 | URL | Use |
 | --- | --- |
 | `https://*.vscode-cdn.net` | {% data variables.codespaces.serverless %} runs entirely in the browser. To do so it needs to download {% data variables.product.prodname_vscode_shortname %} assets from endpoints at this URL. |
-| `https://update.code.visualstudio.com` | As above.  |
+| `https://update.code.visualstudio.com` | {% data variables.codespaces.serverless %} runs entirely in the browser. To do so it needs to download {% data variables.product.prodname_vscode_shortname %} assets from endpoints at this URL. |
 | `https://api.github.com` | Used to retrieve source files from {% data variables.product.prodname_dotcom %} |
-| `https://vscode-sync-insiders.trafficmanager.net` | _Optional. To allow settings to be synchronized via Settings Sync._ |
+| `https://vscode-sync-insiders.trafficmanager.net` | _Optional._ To allow settings to be synchronized via Settings Sync. |
 
 Every extension installed in {% data variables.codespaces.serverless %} is run under an independent web worker. This adds a layer of security between multiple extensions running in the same browser. As a result, request URLs coming from extensions are similar to this: `https://v--151hfiju3s93ktt2rqh65902gukb27osot905m4g52k40kaea3h6.vscode-cdn.net`.
 

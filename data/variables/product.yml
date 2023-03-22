@@ -97,8 +97,11 @@ prodname_project_v1_caps: >-
 
 # Personal access tokens
 pat_generic: 'personal access token'
+pat_generic_plural: 'personal access tokens'
 pat_generic_caps: 'Personal access token'
+pat_generic_caps_plural: 'Personal access tokens'
 pat_generic_title_case: 'Personal Access Token'
+pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v1: >-

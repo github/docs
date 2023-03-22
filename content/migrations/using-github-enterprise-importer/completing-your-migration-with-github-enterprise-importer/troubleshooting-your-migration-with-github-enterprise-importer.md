@@ -26,7 +26,7 @@ Before you investigate further, try these troubleshooting steps that commonly re
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
 1. Verify that you meet all the access requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
 2. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
-3. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader datashape problem.
+3. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
 
 If these steps do not resolve your issue, review the migration logs for error messages. The log you need to check will depend on whether your migration failed or succeeded.
 

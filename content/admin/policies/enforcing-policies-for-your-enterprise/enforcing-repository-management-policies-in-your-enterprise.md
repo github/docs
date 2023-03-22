@@ -206,7 +206,7 @@ By default, when you enforce repository upload limits, people cannot add or upda
 
 Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
 
-![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
+![Screenshot of an issue comment. The header says "ashtom (Thomas Dohmke) commented 1 minute ago," with "(Thomas Dohmke)" outlined in dark orange.](/assets/images/help/issues/commenter-full-name.png)
 
 {% note %}
 

@@ -56,7 +56,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
    If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
 
-   Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
+   Click **Create branch and update my pull request** or **I understand, continue updating BRANCH**. The button text corresponds to the action you are performing.
 1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)."
 
 ## Further reading

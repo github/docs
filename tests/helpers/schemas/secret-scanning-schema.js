@@ -39,7 +39,8 @@ delete versionsProps.required
 //   },
 //   "isPublic": true,
 //   "isPrivateWithGhas": true,
-//   "hasPushProtection": false
+//   "hasPushProtection": false,
+//   "hasValidityCheck": false
 // },
 
 export default {
@@ -50,11 +51,12 @@ export default {
     required: [
       'provider',
       'supportedSecret',
-      // 'secretType', // TODO: Once the secretTypes are fully populated in the JSON, make this required.
+      'secretType',
       'versions',
       'isPublic',
       'isPrivateWithGhas',
       'hasPushProtection',
+      'hasValidityCheck',
     ],
     properties: {
       provider: {
@@ -81,6 +83,10 @@ export default {
       },
       hasPushProtection: {
         description: 'whether the secret has push protection',
+        type: 'boolean',
+      },
+      hasValidityCheck: {
+        description: 'whether the secret has its validation status checked',
         type: 'boolean',
       },
     },

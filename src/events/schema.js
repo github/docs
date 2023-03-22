@@ -3,6 +3,8 @@ import { allVersionKeys } from '../../lib/all-versions.js'
 import { productIds } from '../../lib/all-products.js'
 import { allTools } from '../../lib/all-tools.js'
 
+const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
+
 const context = {
   type: 'object',
   additionalProperties: false,
@@ -23,7 +25,7 @@ const context = {
     version: {
       type: 'string',
       description: 'The version of the event schema.',
-      pattern: '^\\d+(\\.\\d+)?(\\.\\d+)?$', // eslint-disable-line
+      pattern: versionPattern,
     },
     created: {
       type: 'string',
@@ -157,7 +159,7 @@ const context = {
   },
 }
 
-const pageSchema = {
+const page = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context'],
@@ -170,7 +172,7 @@ const pageSchema = {
   },
 }
 
-const exitSchema = {
+const exit = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context'],
@@ -223,7 +225,7 @@ const exitSchema = {
   },
 }
 
-const linkSchema = {
+const link = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'link_url'],
@@ -246,7 +248,7 @@ const linkSchema = {
   },
 }
 
-const hoverSchema = {
+const hover = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'hover_url'],
@@ -269,7 +271,7 @@ const hoverSchema = {
   },
 }
 
-const searchSchema = {
+const search = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'search_query'],
@@ -290,7 +292,7 @@ const searchSchema = {
   },
 }
 
-const searchResultSchema = {
+const searchResult = {
   type: 'object',
   additionalProperties: false,
   required: [
@@ -332,7 +334,7 @@ const searchResultSchema = {
   },
 }
 
-const navigateSchema = {
+const navigate = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context'],
@@ -349,7 +351,7 @@ const navigateSchema = {
   },
 }
 
-const surveySchema = {
+const survey = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'survey_vote'],
@@ -375,7 +377,7 @@ const surveySchema = {
   },
 }
 
-const experimentSchema = {
+const experiment = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'experiment_name', 'experiment_variation'],
@@ -402,7 +404,7 @@ const experimentSchema = {
   },
 }
 
-const clipboardSchema = {
+const clipboard = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'clipboard_operation'],
@@ -420,7 +422,7 @@ const clipboardSchema = {
   },
 }
 
-const printSchema = {
+const print = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context'],
@@ -433,7 +435,7 @@ const printSchema = {
   },
 }
 
-const preferenceSchema = {
+const preference = {
   type: 'object',
   additionalProperties: false,
   required: ['type', 'context', 'preference_name', 'preference_value'],
@@ -465,27 +467,49 @@ const preferenceSchema = {
   },
 }
 
-export const eventSchema = {
-  oneOf: [
-    pageSchema,
-    exitSchema,
-    linkSchema,
-    hoverSchema,
-    searchSchema,
-    searchResultSchema,
-    navigateSchema,
-    surveySchema,
-    experimentSchema,
-    clipboardSchema,
-    printSchema,
-    preferenceSchema,
-  ],
+const validation = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    event_id: { type: 'string', format: 'uuid' },
+    version: { type: 'string', pattern: versionPattern },
+    created: { type: 'string', format: 'date-time' },
+    raw: { type: 'string' },
+    // https://ajv.js.org/api.html#error-objects
+    keyword: { type: 'string' },
+    instance_path: { type: 'string' },
+    schema_path: { type: 'string' },
+    params: { type: 'string' },
+    property_name: { type: 'string' },
+    message: { type: 'string' },
+    schema: { type: 'string' },
+    parent_schema: { type: 'string' },
+    data: { type: 'string' },
+  },
+}
+
+// We are not using `oneOf` to keep the list of errors short.
+export const schemas = {
+  page,
+  exit,
+  link,
+  hover,
+  search,
+  searchResult,
+  navigate,
+  survey,
+  experiment,
+  clipboard,
+  print,
+  preference,
+  validation,
 }
 
 export const hydroNames = {
   page: 'docs.v0.PageEvent',
   exit: 'docs.v0.ExitEvent',
   link: 'docs.v0.LinkEvent',
+  hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',
   searchResult: 'docs.v0.SearchResultEvent',
   navigate: 'docs.v0.NavigateEvent',
@@ -494,4 +518,14 @@ export const hydroNames = {
   clipboard: 'docs.v0.ClipboardEvent',
   print: 'docs.v0.PrintEvent',
   preference: 'docs.v0.PreferenceEvent',
+  validation: 'docs.v0.ValidationEvent',
+}
+
+const schemasKeys = Object.keys(schemas)
+const hydroNamesKeys = Object.keys(hydroNames)
+if (
+  schemasKeys.length !== hydroNamesKeys.length ||
+  !schemasKeys.every((k) => hydroNamesKeys.includes(k))
+) {
+  throw new Error("The keys in 'schemas' doesn't match with the keys in 'hydroNames'")
 }
