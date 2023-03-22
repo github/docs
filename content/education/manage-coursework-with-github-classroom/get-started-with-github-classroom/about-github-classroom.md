@@ -14,7 +14,7 @@ versions:
 
 ## {% data variables.product.prodname_classroom %} features 
 
-{% data variables.product.prodname_classroom %} offers a variety of features that frees up your time and lets you focus on teaching.
+{% data variables.product.prodname_classroom %} offers a variety of features to simplify teaching and learning.
 
 ### Integrate a classroom with an integrated development environment (IDE)
 
