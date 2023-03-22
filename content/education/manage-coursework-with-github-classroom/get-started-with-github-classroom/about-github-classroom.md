@@ -22,7 +22,7 @@ versions:
 
 ### Autograding
 
-{% data variables.product.prodname_classroom %} allows you to configure workflows to automatically grade students on submission of a pull-request. To learn more about autograding in GitHub Classroom, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade students' work each time they push to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
 ### Feedback
 
