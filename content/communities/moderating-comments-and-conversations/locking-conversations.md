@@ -17,7 +17,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 
 Locking a conversation creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who locked the conversation is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
-![Anonymized timeline event for a locked conversation](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
+![Screenshot of a timeline event, which says "octo-org locked as too heated and limited conversation to collaborators 2 minutes ago."](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
 While a conversation is locked, only [people with write access](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) and [repository owners and collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) can add, hide, and delete comments. Reactions and votes in a locked conversation are disabled for all users.
 
