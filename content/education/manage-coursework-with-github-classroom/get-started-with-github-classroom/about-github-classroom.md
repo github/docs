@@ -18,7 +18,7 @@ versions:
 
 ### Integrate a classroom with an integrated development environment (IDE)
 
-{% data variables.product.prodname_classroom %} allows you to integrate a classroom with an IDE. Students can choose to either makes changes online or offline. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
+In {% data variables.product.prodname_classroom %}, you can integrate a classroom with an IDE. Students can make changes to their assignment repositories through the IDE, or by checking out and running code locally with the necessary software. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 ### Autograding
 
