@@ -63,9 +63,14 @@ export function ParameterRow({
               {rowParams.name ? (
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
+                  {/* This whitespace is important otherwise, when the CSS is
+                      ignored, the plain text becomes `foobar` if the HTML
+                      was `<code>foo</code><span>bar</span>`.
+                   */}{' '}
                   <span className="color-fg-muted pl-2 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
+                  {/* Ditto about the important explicit whitespace */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -75,6 +80,7 @@ export function ParameterRow({
                   <span className="color-fg-muted pl-1 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
+                  {/* Ditto about the important explicit whitespace */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
