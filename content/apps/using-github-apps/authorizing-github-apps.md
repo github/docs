@@ -53,5 +53,5 @@ However, the activity ExampleApp is able to perform on Alice's behalf in {% data
 This means that, in order for ExampleApp to create an issue on Alice's behalf, in a repository called Repo A, all of the following must be true:
 
 * ExampleApp's {% data variables.product.prodname_github_app %} requests write access to issues.
-* A user having admin access for Repo A must have installed ExampleApp's {% data variables.product.prodname_github_app %} on Repo A.
+* A user having admin access for Repo A must have installed Example App's {% data variables.product.prodname_github_app %} on Repo A.
 * Alice must have read permission for Repo A. For information about which permissions are required to perform various activities, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
