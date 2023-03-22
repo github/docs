@@ -1,67 +1,68 @@
 import { afterEach } from '@jest/globals'
 import nock from 'nock'
-import Hydro from '../hydro.js'
+import { publish } from '../hydro.js'
 
-describe('hydro', () => {
-  let hydro, params
+describe('Hydro', () => {
+  const secret = '3BD22A91'
+  const endpoint = 'http://example.com'
+  const config = { secret, endpoint }
 
-  beforeEach(() => {
-    hydro = new Hydro({
-      secret: '123',
-      endpoint: 'https://real-hydro.com',
-      // When jest tests run, `NODE_ENV==='test'` so the actualy `got()`
-      // calls inside the Hydro class would be prevented.
-      // Setting this to true will prevent that second-layer protection.
-      forceDisableMock: true,
-    })
+  afterEach(() => {
+    nock.cleanAll()
+  })
 
-    nock(hydro.endpoint, {
+  it('publishes a single event', async () => {
+    const scope = nock(endpoint, {
       reqheaders: {
-        Authorization: /^Hydro [\d\w]{64}$/,
+        Authorization: /^Hydro \w{64}$/,
         'Content-Type': 'application/json',
         'X-Hydro-App': 'docs-production',
       },
     })
-      // Respond with a 200 and store the body we sent
-      .post('/')
-      .reply(200, (_, body) => {
-        params = body
-      })
-  })
-
-  afterEach(() => {
-    // Gotta always clean up after activating `nock`.
-    nock.cleanAll()
-  })
-
-  describe('#publish', () => {
-    it('publishes a single event to Hydro', async () => {
-      await hydro.publish('event-name', { pizza: true })
-      expect(params).toEqual({
+      .post('/', {
         events: [
           {
-            schema: 'event-name',
-            value: JSON.stringify({ pizza: true }),
+            schema: 'docs.v0.ExampleEvent',
+            value: JSON.stringify({ event_id: 'FA36EA6D' }),
             cluster: 'potomac',
           },
         ],
       })
-    })
+      .reply(200)
+    await publish({ schema: 'docs.v0.ExampleEvent', value: { event_id: 'FA36EA6D' } }, config)
+    expect(scope.isDone()).toBeTruthy()
   })
 
-  describe('#generatePayloadHmac', () => {
-    it('returns a SHA256 HMAC string', () => {
-      const body = JSON.stringify({ pizza: true })
-      const hash = hydro.generatePayloadHmac(body)
-      expect(hash).toEqual(expect.any(String))
-      expect(hash).toHaveLength(64)
+  it('publishes many events in one request', async () => {
+    const scope = nock(endpoint, {
+      reqheaders: {
+        Authorization: /^Hydro \w{64}$/,
+        'Content-Type': 'application/json',
+        'X-Hydro-App': 'docs-production',
+      },
     })
-
-    it('generates the same string for the same payload', () => {
-      const body = JSON.stringify({ pizza: true })
-      const one = hydro.generatePayloadHmac(body)
-      const two = hydro.generatePayloadHmac(body)
-      expect(one).toBe(two)
-    })
+      .post('/', {
+        events: [
+          {
+            schema: 'docs.v0.ExampleEvent',
+            value: JSON.stringify({ event_id: 'FA36EA6D' }),
+            cluster: 'potomac',
+          },
+          {
+            schema: 'docs.v0.ExampleEvent',
+            value: JSON.stringify({ event_id: '4F60C35A' }),
+            cluster: 'potomac',
+          },
+        ],
+      })
+      .reply(200)
+    await publish(
+      [
+        { schema: 'docs.v0.ExampleEvent', value: { event_id: 'FA36EA6D' } },
+        { schema: 'docs.v0.ExampleEvent', value: { event_id: '4F60C35A' } },
+      ],
+      config
+    )
+    expect(scope.isDone()).toBeTruthy()
   })
 })
