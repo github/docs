@@ -1277,6 +1277,18 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
+    },
+    {
+      "slug": "update-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
+    },
+    {
       "slug": "upload-an-analysis-as-sarif-data",
       "subcategory": "code-scanning",
       "verb": "post",

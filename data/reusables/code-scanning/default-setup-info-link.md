@@ -1,0 +1,1 @@
+For information about eligible repositories, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale#eligible-repositories-default-setup).

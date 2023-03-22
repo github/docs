@@ -1,36 +1,45 @@
 import express from 'express'
-import { omit } from 'lodash-es'
+import { omit, without, mapValues } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { eventSchema, hydroNames } from './schema.js'
+import { schemas, hydroNames } from './schema.js'
 import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
 import { noCacheControl } from '../../middleware/cache-control.js'
+import { publish } from './hydro.js'
 
 const router = express.Router()
 const ajv = new Ajv()
 addFormats(ajv)
 const OMIT_FIELDS = ['type']
+const allowedTypes = new Set(without(Object.keys(schemas), 'validation'))
+const isDev = process.env.NODE_ENV === 'development'
+const validations = mapValues(schemas, (schema) => ajv.compile(schema))
 
 router.post(
   '/',
   catchMiddlewareError(async function postEvents(req, res) {
-    const isDev = process.env.NODE_ENV === 'development'
     noCacheControl(res)
 
-    if (!ajv.validate(eventSchema, req.body)) {
+    // Make sure the type is supported before continuing
+    const { type } = req.body
+    if (!type || !allowedTypes.has(type)) {
+      return res.status(400).json({ message: 'Invalid type' })
+    }
+
+    // Validate the data matches the corresponding data schema
+    if (!validations[type](req.body)) {
       return res.status(400).json(isDev ? ajv.errorsText() : {})
     }
 
     res.json({})
-
-    if (req.hydro.maySend()) {
-      try {
-        await req.hydro.publish(hydroNames[req.body.type], omit(req.body, OMIT_FIELDS))
-      } catch (err) {
-        console.error('Failed to submit event to Hydro', err)
-      }
+    try {
+      await publish({
+        schema: hydroNames[type],
+        value: omit(req.body, OMIT_FIELDS),
+      })
+    } catch (err) {
+      console.error('Failed to submit event to Hydro', err)
     }
   })
 )
-
 export default router

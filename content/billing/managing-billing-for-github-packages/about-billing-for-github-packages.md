@@ -45,7 +45,7 @@ All data transferred out, when triggered by {% data variables.product.prodname_a
 ||Hosted|Self-Hosted|
 |-|-|-|
 |Access using a `GITHUB_TOKEN`|Free|Free|
-|Access using a {% data variables.product.pat_generic %}|Free|$|
+|Access using a {% data variables.product.pat_generic %}|Free|Paid|
 
 Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 

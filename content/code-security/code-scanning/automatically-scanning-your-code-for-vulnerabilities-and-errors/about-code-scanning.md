@@ -7,6 +7,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
   - /code-security/secure-coding/about-code-scanning
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
