@@ -28,7 +28,7 @@ Through {% data variables.product.prodname_classroom %}, you can configure tests
 
 With {% data variables.product.prodname_classroom %}, you can enable feedback pull requests. If you enable this feature for an assignment, {% data variables.product.prodname_classroom %} creates a special pull request titled **Feedback** in the assignment repository for each student or group. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
-### Assignment Templates
+### Assignment templates
 
 With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
