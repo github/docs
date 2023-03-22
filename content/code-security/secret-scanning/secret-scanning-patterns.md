@@ -75,7 +75,7 @@ Push protection alerts are user alerts that are reported by push protection. {% 
 ## Supported secrets
 
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token{% ifversion secret-scanning-validity-check %}, as well as whether a validity check is performed on the token{% endif %}.{% ifversion fpt or ghec %}
-- **Pattern**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
+- **Partner**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
 - **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}{% ifversion ghes or ghae %}
 - **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% ifversion secret-scanning-push-protection %}
 - **Push protection**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.{% endif %}{% ifversion secret-scanning-validity-check %}
