@@ -81,6 +81,16 @@ function popoverWrap(element: HTMLLinkElement) {
   let anchor = ''
 
   if (!title) {
+    // TEMPORARY
+    // We're currently only activating this functionalty on a subset of pages.
+    // In fact, only on /$locale/pages/
+    // On the server-side, we decide this by setting or not setting the
+    // data attributes on the tags. But for in-page anchor links we don't
+    // rely on the server.
+    // We can remove this if statement once preview hover cards are
+    // enabled everywhere.
+    if (new URL(element.href).pathname.split('/')[2] !== 'pages') return
+
     // But, is it an in-page anchor link? If so, get the title, intro
     // and product from within the DOM. But only if we can use the anchor
     // destination to find a DOM node that has text.

@@ -655,13 +655,62 @@ TEXT
 ### Use tables only for presenting tabular information
 Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document.
 
-### Avoid describing tables
-A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
-- **Use:** Nothing or a clear header.
-- **Avoid:** “The table below shows what kind of migration data is exported:”
+### Avoid describing table data
+A table’s data and why it is important should be clear from any preceding content, the column headers, and (if needed) the row headers. Avoid unneeded descriptions of the data in a table. If the data in a table is unclear without a lengthy description, consider if your table needs row headers or if the information would be better communicated in a different way.
+
+For example, in "[Autoscaling with self hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions)," a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
+
+- **Use:** "Different size limits per repository apply depending on your GHES version."
+- **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
+- **Avoid:** “The table below shows what kind of migration data is exported.”
+
+### Use proper markup for row and column headers
+
+Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells. 
+
+For example in the following table, in order to make sense of the "Yes" and "No" values in the table, you need to know both the column header (role) and row header (permission).
+
+<table>
+  <tr>
+    <th>Organization permission</th>
+    <th>Owners</th>
+    <th>Members</th>
+    <th>Moderators</th>
+    <th>Billing managers</th>
+    <th>Security managers</th>
+  </tr>
+  <tr>
+    <th>Create repositories</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>View and edit billing information</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th>Invite people to join the organization</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+</table>
+
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% rowheaders %} {% endrowheaders %}`. For more information about using row headers, see "[Table row headers](./content-markup-reference.md#table-row-headers)" in the content markup reference.
 
 ### Include a value for every cell
-Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+
+If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 
 ### Use clear, consistent symbols and labels
 
