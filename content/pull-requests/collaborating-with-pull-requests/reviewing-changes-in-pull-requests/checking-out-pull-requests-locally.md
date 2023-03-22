@@ -32,8 +32,9 @@ shortTitle: Check out a PR locally
   ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. In the merge box, click **command line instructions**. Follow the sequence of steps to bring down the proposed pull request.
   ![Link to access command line pull request instructions](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, click **open this in {% data variables.product.prodname_desktop %}**.
-  ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+4. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, next to the **Merge pull request** button, click **open this in {% data variables.product.prodname_desktop %}**.
+   
+   ![Screenshot of the "merge messages" section on a pull request page. A link, labeled "Open this in GitHub Desktop", is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 {% endwebui %}
 
