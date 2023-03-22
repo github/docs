@@ -28,7 +28,6 @@ versions:
 
 {% data variables.product.prodname_classroom %} lets you enable pull request for feedback. This creates a special pull request titled **Feedback** in the assignment repository for each student or team. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
-
 ### Assignment Templates
 
 With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
