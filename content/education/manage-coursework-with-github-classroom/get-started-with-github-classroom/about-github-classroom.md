@@ -24,7 +24,7 @@ versions:
 
 Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade students' work each time they push to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
-### Feedback
+### Feedback pull requests
 
 {% data variables.product.prodname_classroom %} lets you enable pull request for feedback. This creates a special pull request titled **Feedback** in the assignment repository for each student or team. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
