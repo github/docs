@@ -76,10 +76,15 @@ You can enable or disable features for all repositories.
 
 {% endif %}
 
-1. Go to the code security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
+1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
+
 2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
-3. Review the information in the dialog box. If you are enabling a feature, optionally select **Enable by default for new {% ifversion fpt or ghec %}private {% endif %}repositories**.
-4. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
+1. Review the information in the dialog box. 
+1. Optionally, if you are enabling a feature, select **Enable by default for new {% ifversion fpt or ghec %}private {% endif %}repositories**.
+   
+    ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
+
+1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 
 {% data reusables.code-scanning.beta-org-enable-all %}
 
@@ -88,13 +93,7 @@ You can enable or disable features for all repositories.
 ## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-2. Under "Code security and analysis", locate the feature and enable or disable it for all new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
-   {% ifversion fpt or ghec %}
-   ![Screenshot of the "Dependency graph" section of the "Code security and analysis" settings page. The checkbox for enabling the feature for new repositories is outlined in dark orange.](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
-  {% ifversion ghes %}
-   ![Screenshot of the "{% data variables.product.prodname_dependabot %} security updates" section of the "Code security and analysis" settings page. The checkbox for enabling the feature for new repositories is outlined in dark orange.](/assets/images/enterprise/orgs-and-teams/security-and-analysis-enable-or-disable-feature-checkbox.png)
-   {% endif %}
+1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
 
 {% ifversion fpt or ghec or ghes %}
 
@@ -109,12 +108,14 @@ If your code depends on packages in a private registry, you can allow {% data va
 To allow {% data variables.product.prodname_dependabot %} to access a private {% data variables.product.prodname_dotcom %} repository:
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "Grant {% data variables.product.prodname_dependabot %} access to private repositories", click **Add private repositories** or **Add internal and private repositories** to display a repository search field.
-   ![Screenshot of the "Grant {% data variables.product.prodname_dependabot %} access to private repositories" section. The "Add repositories" button is outlined in dark orange.](/assets/images/help/organizations/dependabot-private-repository-access.png)
+1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories** to display a repository search field.
+   
+   ![Screenshot of the dropdown that you can use to search for repositories. As you type, repositories whose name matches your search criteria will appear in the list. The search text field is highlighted with a dark orange outline.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
+
 1. Start typing the name of the repository you want to grant {% data variables.product.prodname_dependabot %} access to.
 1. A list of matching repositories in the organization is displayed, click the repository you want to to allow access to and this adds the repository to the allowed list.
-1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="Remove REPOSITORY-NAME" %}.
-   ![Screenshot of the list of repositories {% data variables.product.prodname_dependabot %} has access to. The "Remove REPOSITORY-NAME" button, shown with an x icon, is outlined in dark orange.](/assets/images/help/organizations/dependabot-private-repository-list.png)
+1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
+
 {% endif %}
 
 {% ifversion ghes or ghec %}

@@ -37,10 +37,14 @@ If you encounter a crash when attempting to launch {% data variables.product.pro
 
 {% windows %}
 
-1. In the **Help** menu, click **About GitHub Desktop**.
-![About GitHub Desktop menu option](/assets/images/help/desktop/help-about-desktop-win.png)
+1. In the menu bar, select **Help**, then click **About GitHub Desktop**.
+   
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the open "Help" dropdown menu, an option labeled "About GitHub Desktop" is outlined in orange.](/assets/images/help/desktop/help-about-desktop-win.png)
+   
 2. Click **Check for Updates**.
-![Screenshot of the "GitHub Desktop" window. Under version details and links to external resources, a button, labeled "Check for Updates", is outlined in orange.](/assets/images/help/desktop/check-for-updates.png)
+   
+   ![Screenshot of the "GitHub Desktop" window. Under version details and links to external resources, a button, labeled "Check for Updates", is outlined in orange.](/assets/images/help/desktop/check-for-updates.png)
+
 3. If an update is available, quit and relaunch {% data variables.product.prodname_desktop %} to install the update.
 
 {% endwindows %}

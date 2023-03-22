@@ -36,15 +36,15 @@ When you merge a linked pull request into the default branch of a repository, it
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
-* close
-* closes
-* closed
-* fix
-* fixes
-* fixed
-* resolve
-* resolves
-* resolved
+* `close`
+* `closes`
+* `closed`
+* `fix`
+* `fixes`
+* `fixed`
+* `resolve`
+* `resolves`
+* `resolved`
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
@@ -84,19 +84,17 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 
 Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+1. In the list of issues, click the issue that you'd like to link a pull request or branch to.
+1. In the right sidebar, click **Development**.
+
+   ![Screenshot of the issue sidebar. "Development" is outlined in dark orange.](/assets/images/help/issues/development-menu.png)
+1. Click the repository containing the pull request or branch you want to link to the issue.
+1. Click the pull request or branch you want to link to the issue.
+1. Click **Apply**.
 
 {% endif %}
 
