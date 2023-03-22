@@ -83,7 +83,6 @@ With your personal account and organization account, you're ready to get started
 
 You've created a classroom, and you're ready to enrich your course with {% data variables.product.product_name %} and {% data variables.product.prodname_classroom %}!  🎉
 
-- Watch some videos about {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)."
 - Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)."
 - Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)."
 - Create an assignment for individual students or teams. {% data reusables.classroom.for-more-information-about-assignment-creation %}
