@@ -1,4 +1,4 @@
----
+
 title: Quickstart for GitHub REST API
 intro: 'Learn how to get started with the {% data variables.product.prodname_dotcom %} REST API.'
 allowTitleToDifferFromFilename: true
