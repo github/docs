@@ -16,7 +16,7 @@ versions:
 
 {% data variables.product.prodname_classroom %} offers a variety of features that frees up your time and lets you focus on teaching.
 
-### Integrated Development Environment (IDE)
+### Integrate a classroom with an integrated development environment (IDE)
 
 {% data variables.product.prodname_classroom %} allows you to integrate a classroom with an IDE. Students can choose to either makes changes online or offline. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
