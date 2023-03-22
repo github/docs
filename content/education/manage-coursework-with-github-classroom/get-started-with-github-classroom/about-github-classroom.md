@@ -30,7 +30,7 @@ With {% data variables.product.prodname_classroom %}, you can enable feedback pu
 
 ### Assignment templates
 
-With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+With {% data variables.product.prodname_classroom %}, you can create assignments that use template repositories with boilerplate code, documentation, and other resources. Assignments with template repositories create assignment repositories with starter code for your students. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
 ### Connect a learning management system
 
