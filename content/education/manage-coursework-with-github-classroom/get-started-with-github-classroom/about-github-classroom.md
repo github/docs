@@ -32,7 +32,7 @@ Through {% data variables.product.prodname_classroom %}, you can configure tests
 
 With {% data variables.product.prodname_classroom %}, you can create template repositories with boilerplate code, documentation and other resources to serve as starter code for your students  on an assignment. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
-### Learning Management System
+### Connect a learning management system
 
 You can optionally connect a learning management system (LMS) with {% data variables.product.prodname_classroom %} so that you can import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
