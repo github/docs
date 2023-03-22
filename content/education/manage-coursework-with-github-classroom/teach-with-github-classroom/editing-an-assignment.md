@@ -34,6 +34,9 @@ After creating an assignment, you can edit many aspects of the assignment to bet
     Then, type the new prefix under "Custom repository prefix."
 
 1. Under "Deadline (optional)," click in the text field, then use the date picker to reassign a deadline. The new deadline cannot be in the past, and reassigning a deadline will update the deadline for all students.
+
+    {% data reusables.classroom.assignments-guide-make-cutoff-date %}
+
 1. To change the status of an assignment, select the **Assignment status** dropdown menu, then click **Active** or **Inactive**.
 
     {% note %}
