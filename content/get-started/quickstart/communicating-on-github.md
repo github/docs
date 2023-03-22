@@ -67,7 +67,7 @@ You can create and participate in issues, pull requests and team discussions, de
 
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix.
 
-![Example of issue](/assets/images/help/issues/issue-example.png)
+![Screenshot of an issue, with the title "Blue link text in notices is unreadable due to blue background."](/assets/images/help/issues/issue-example.png)
 
 - A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable.
 - The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).

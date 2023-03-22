@@ -20,8 +20,6 @@ When a student accepts a group assignment, the student can create a new team or 
 
 You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
-For a video demonstration of the creation of a group assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)."
-
 {% data reusables.classroom.reuse-assignment-link %}
 
 ## Prerequisites
