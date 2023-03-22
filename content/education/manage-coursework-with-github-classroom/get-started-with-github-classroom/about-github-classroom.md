@@ -34,7 +34,7 @@ With {% data variables.product.prodname_classroom %}, you can create template re
 
 ### Connect a learning management system
 
-You can optionally connect a learning management system (LMS) with {% data variables.product.prodname_classroom %} so that you can import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+Optionally, you can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} to import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
 ## Further reading 
 
