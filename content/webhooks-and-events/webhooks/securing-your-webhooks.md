@@ -94,8 +94,8 @@ Your language and server implementations may differ from this example code. Howe
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare
 
-## Validating payloads from GitHub
-Similar example in Python
+## Validating payloads from GitHub (Python example)
+
 ```python
 import hashlib
 import hmac
