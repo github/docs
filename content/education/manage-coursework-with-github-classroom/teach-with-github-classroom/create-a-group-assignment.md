@@ -50,6 +50,8 @@ For a group assignment, {% data variables.product.prodname_classroom %} names re
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
+{% data reusables.classroom.assignments-guide-make-cutoff-date %}
+
 ### Choosing an assignment type
 
 Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
