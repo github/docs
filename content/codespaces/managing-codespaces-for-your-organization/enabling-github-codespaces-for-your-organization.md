@@ -20,7 +20,7 @@ topics:
 
 Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
-Only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow a user to create codespaces for a repository owned by your organization, you must do one of the following things.
+Regardless of who pays for a codespace, only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow a user to create codespaces for a repository owned by your organization, you must do one of the following things.
 
 - Ensure that the user has read access to the repository, and the repository permits forking, so that the user can create a codespace from the repository, push their changes to a fork, and create a pull request for any changes they want to make. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 - Ensure that the user has write access to the repository, so that they can push changes directly to the repository without forking.
@@ -31,6 +31,14 @@ To allow people to create codespaces for which your organization will be billed,
 
 - [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)
 - [Choose who can create codespaces that are billed to your organization](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** If you own an {% data variables.enterprise.prodname_emu_org %}, and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, your {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %} anywhere on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt %}
 {% note %}
@@ -55,8 +63,6 @@ By default, a codespace can only access the repository from which it was created
    - **All members** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by members of your organization will be billed to the organization.
    - **All members and outside collaborators** - {% data variables.product.prodname_codespaces %} created for your organization's repositories by organization members and outside collaborators will be billed to the organization.
 
-   ![Screenshot of the "Billing" section. Radio buttons for the options described above are displayed.](/assets/images/help/codespaces/codespaces-org-billing-settings.png)
-
    {% note %}
 
    **Note:** When you select **All members and outside collaborators**,  all outside collaborators who have been added to specific repositories can create and use {% data variables.product.prodname_codespaces %} for those repositories, and your organization will be billed for this usage. For more information on managing outside collaborators, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization#about-outside-collaborators)."
@@ -66,7 +72,7 @@ By default, a codespace can only access the repository from which it was created
 1. Click **Save**.
 1. If you chose **Selected members**, an input box is displayed for you to enter the names of users you want to select.
 
-   ![Input box for selecting users](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
+   ![Screenshot of the input box, below the "Save" button, for entering user names. The user "octocat" has already been added as a selected member.](/assets/images/help/codespaces/codespaces-org-billing-add-users.png)
 
 ## Disabling {% data variables.product.prodname_codespaces %} for your organization
 

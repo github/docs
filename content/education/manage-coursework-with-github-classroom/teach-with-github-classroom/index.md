@@ -12,6 +12,7 @@ children:
   - /create-an-individual-assignment
   - /create-a-group-assignment
   - /editing-an-assignment
+  - /extending-an-assignments-deadline-for-an-individual-or-group
   - /reuse-an-assignment
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests
@@ -20,4 +21,3 @@ children:
   - /connect-a-learning-management-system-course-to-a-classroom
 shortTitle: Teach
 ---
-

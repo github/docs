@@ -20,8 +20,6 @@ When a student accepts a group assignment, the student can create a new team or 
 
 You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
-For a video demonstration of the creation of a group assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)."
-
 {% data reusables.classroom.reuse-assignment-link %}
 
 ## Prerequisites
@@ -52,6 +50,8 @@ For a group assignment, {% data variables.product.prodname_classroom %} names re
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
+{% data reusables.classroom.assignments-guide-make-cutoff-date %}
+
 ### Choosing an assignment type
 
 Under "Individual or group assignment", select the drop-down menu, then click **Group assignment**. You can't change the assignment type after you create the assignment. If you'd rather create an individual assignment, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
@@ -60,17 +60,15 @@ Under "Individual or group assignment", select the drop-down menu, then click **
 
 If you've already created a group assignment for the classroom, you can reuse a set of teams for the new assignment. To create a new set with the teams that your students create for the assignment, type the name for the set. Optionally, type the maximum number of team members and total teams.
 
-{% tip %}
+{% note %}
 
-**Tips**:
+**Note**:
 
 - We recommend including details about the set of teams in the name for the set. For example, if you want to use the set of teams for one assignment, name the set after the assignment. If you want to reuse the set throughout a semester or course, name the set after the semester or course.
 
 - If you'd like to assign students to a specific team, give your students a name for the team and provide a list of members.
 
-{% endtip %}
-
-![Parameters for the teams participating in a group assignment](/assets/images/help/classroom/assignments-define-teams.png)
+{% endnote %}
 
 ### Choosing a visibility for assignment repositories
 
@@ -89,7 +87,7 @@ If you've already created a group assignment for the classroom, you can reuse a 
 
 ### Choosing a template repository
 
-By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %} 
+By default, a new assignment will create an empty repository for each team that a student creates. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -127,10 +125,6 @@ Optionally, you can automatically grade assignments and create a space for discu
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
 You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
-
-<div class="procedural-image-wrapper">
-  <img alt="Group assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-group-hero.png">
-</div>
 
 ## Monitoring students' progress
 The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.

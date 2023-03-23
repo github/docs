@@ -42,7 +42,10 @@ Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | {% octicon "check" aria
 
 [2] {% data variables.product.prodname_dependabot %} only supports updates to {% data variables.product.prodname_actions %} using the {% data variables.product.prodname_dotcom %} repository syntax, such as {% data reusables.actions.action-checkout %}. Docker Hub and {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} URLs are currently not supported.
 
-[3] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files: `build.gradle`, `build.gradle.kts` (for Kotlin projects), and files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+[3] {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
+   - `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
+   - `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
+   - Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 [4] {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
 

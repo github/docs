@@ -15,6 +15,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
 type: how_to
 topics:
   - Advanced Security
@@ -231,7 +232,7 @@ You may have multiple code scanning configurations on a single repository. When 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Under "{% data variables.product.prodname_code_scanning_capc %}", click a {% data variables.product.prodname_code_scanning %} alert.
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", click a {% data variables.product.prodname_code_scanning %} alert.
 1. In the "Affected branches" section of the sidebar, click the desired branch.
 1. In the "Configurations analyzing" dialog, review details of the configurations that reported this alert on the selected branch. To delete an unwanted configuration for the desired branch, click {% octicon "trash" aria-label="Delete configuration" %}.
 

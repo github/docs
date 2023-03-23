@@ -32,7 +32,11 @@ Once you navigate to the "Join the waitlist" profile setup page for the account 
 1. Under "How you receive payouts" or "Organization bank account", select the **Use a fiscal host** or **This organization is using a fiscal host** option.
 
    ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/user-waitlist-payout-options.png)
-2. Use the **Select a fiscal host** dropdown to choose the fiscal host you want to use.
-3. In the text box under "Fiscal host project profile URL", type the URL to your profile page on the fiscal host's site. This helps us verify that you are indeed registered with the fiscal host.
-  
-  ![Screenshot of text box for project profile URL of your fiscal host](/assets/images/help/sponsors/fiscal-host-project-profile-field.png)
+
+1. Use the **Select a fiscal host** dropdown to choose the fiscal host you want to use.
+
+  ![Screenshot of the fiscal host options for a sponsor profile. A collapsed dropdown menu, labeled "Select a fiscal host", is outlined in dark orange.](/assets/images/help/sponsors/choose-fiscal-host-dropdown.png)
+
+1. In the text box under "Fiscal host project profile URL", type the URL to your profile page on the fiscal host's site. This helps us verify that you are indeed registered with the fiscal host.
+
+  ![Screenshot of fiscal host options for a sponsor profile. A text field, labeled "Fiscal host project profile URL", is outlined in dark orange.](/assets/images/help/sponsors/fiscal-host-profile-url-field.png)

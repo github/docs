@@ -17,13 +17,6 @@ runs:
         token: ${{ inputs.token }}
         path: translations/zh-cn
 
-    - name: Clone Japanese
-      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-      with:
-        repository: github/docs-internal.ja-jp
-        token: ${{ inputs.token }}
-        path: translations/ja-jp
-
     - name: Clone Spanish
       uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       with:
@@ -38,12 +31,19 @@ runs:
         token: ${{ inputs.token }}
         path: translations/pt-br
 
-    - name: Clone German
+    - name: Clone Russian
       uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       with:
-        repository: github/docs-internal.de-de
+        repository: github/docs-internal.ru-ru
         token: ${{ inputs.token }}
-        path: translations/de-de
+        path: translations/ru-ru
+
+    - name: Clone Japanese
+      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      with:
+        repository: github/docs-internal.ja-jp
+        token: ${{ inputs.token }}
+        path: translations/ja-jp
 
     - name: Clone French
       uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
@@ -52,12 +52,12 @@ runs:
         token: ${{ inputs.token }}
         path: translations/fr-fr
 
-    - name: Clone Russian
+    - name: Clone German
       uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
       with:
-        repository: github/docs-internal.ru-ru
+        repository: github/docs-internal.de-de
         token: ${{ inputs.token }}
-        path: translations/ru-ru
+        path: translations/de-de
 
     - name: Clone Korean
       uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8

@@ -49,7 +49,7 @@ If you already have a profile README, you can edit it from your profile page.
 {% data reusables.profile.navigating-to-profile %}
 1. Click the {% octicon "pencil" aria-label="Edit this file" %} next to your profile README.
 
-   ![Screenshot of @octocat's profile README. A pencil icon is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-readme.png)
+   ![Screenshot of @octocat's profile README. A pencil icon is outlined in dark orange.](/assets/images/help/profile/edit-profile-readme.png)
 
 {% endif %}
 
@@ -84,7 +84,7 @@ For more information on using images in Markdown, see "[AUTOTITLE](/get-started/
 
 ### How the image looks
 
-![Screenshot of the "Preview" tab of a comment, in light mode. An image of a smiling sun is displayed.](/assets/images/help/writing/lightmode-image-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment, in light mode. An image of a smiling sun fills the box.](/assets/images/help/writing/lightmode-image-example.png)
 
 ## Adding a table
 
@@ -128,7 +128,7 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 
 ### How the table looks
 
-![Screenshot of the "Preview" tab of a comment. Under the "About me" heading is a rendered table with a ranked list of languages.](/assets/images/help/writing/markdown-table-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment. Under the "About me" heading is a rendered table with a ranked list of languages.](/assets/images/help/writing/markdown-table-example.png)
 
 ## Adding a collapsed section
 
@@ -200,7 +200,7 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 
 ### How the quote looks
 
-![Screenshot of the "Preview" tab of a comment. A quote is indented below a thick horizontal line.](/assets/images/help/writing/markdown-quote-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment. A quote is indented below a thick horizontal line.](/assets/images/help/writing/markdown-quote-example.png)
 
 ## Adding a comment
 

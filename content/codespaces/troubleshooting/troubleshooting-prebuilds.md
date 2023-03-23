@@ -16,11 +16,11 @@ For more information about {% data variables.product.prodname_github_codespaces 
 
 When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" is shown next to it.
 
-![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![Screenshot of a list of available machine types: 2, 4, 8, 16, and 32 core, all labeled "Prebuild ready."](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
 If you have your {% data variables.product.prodname_github_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
 
-![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+![Screenshot of the "Setting up your codespace" page, with the text: "Prebuilt codespace found. Downloading image."](/assets/images/help/codespaces/prebuilt-codespace-found.png)
 
 Similarly, if your editor preference is "{% data variables.product.prodname_vscode_shortname %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
@@ -78,13 +78,16 @@ We recommend keeping prebuild optimization enabled, because it helps ensure that
 {% data reusables.codespaces.accessing-prebuild-configuration %}
 1. To the right of the affected prebuild configuration, select the ellipsis (**...**), then click **Edit**.
 
-   ![Screenshot of a list of prebuilds, with "Edit" highlighted](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+   ![Screenshot of the prebuild options dropdown with "Edit" highlighted.](/assets/images/help/codespaces/edit-prebuild-configuration.png)
+
 1. Scroll to the bottom of the "Edit configuration" page and click **Show advanced options**.
 
-   ![Screenshot of the prebuild configuration page, with "Show advanced options" highlighted](/assets/images/help/codespaces/show-advanced-options.png)
+   ![Screenshot of the bottom of the prebuilds configuration page. The link "Show advanced options" is highlighted with a dark orange outline.](/assets/images/help/codespaces/show-advanced-options.png)
+
 1. If you're sure you want to disable the default setting, select **Disable prebuild optimization**.
 
-   ![Screenshot of the bottom of the prebuilds configuration page. The link "Show advanced options" is highlighted with a dark orange outline.](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+   ![Screenshot of the "Advanced options" settings. The checkbox labeled "Disable prebuild optimization" is selected. Under this is the "Update" button.](/assets/images/help/codespaces/disable-prebuild-optimization.png)
+
 1. To save your change, click **Update**.
 
 ## Further reading
