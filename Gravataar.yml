@@ -1,4 +1,28 @@
-ci:C:\I:
+# :"#'#':BEGIN"
+
+:Push:: git checkout -b github-main paradice
+
+git pull https://github.com/github/docs.git main
+
+git checkout paradice
+
+git merge --no-ff github-main
+
+git push origin paradice
+
+https://github.com/mowjoejoejoejoe/docs/pull/https://github.com/github/docs.git
+
+git checkout -b github-main paradice
+
+git pull https://github.com/github/docs.git mainAmazon Web Services
+
+English
+
+AWS
+
+...
+
+Developer Guideci:C:\I:
 jobs:
 my_first_job: uae :-'step:
 - name: My first step
