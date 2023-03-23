@@ -1,5 +1,5 @@
-# :"#'#':BEGIN"
-
+'':':'#':"#'#':':':'BEGIN':''
+'
 :Push:: git checkout -b github-main paradice
 
 git pull https://github.com/github/docs.git main
