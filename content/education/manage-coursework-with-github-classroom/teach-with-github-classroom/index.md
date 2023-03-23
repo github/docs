@@ -17,6 +17,7 @@ children:
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests
   - /use-autograding
+  - /using-github-classroom-with-github-cli
   - /register-a-learning-management-system-with-github-classroom
   - /connect-a-learning-management-system-course-to-a-classroom
 shortTitle: Teach
