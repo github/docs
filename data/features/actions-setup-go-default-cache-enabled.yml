@@ -1,0 +1,7 @@
+# Reference: #9131
+# Setup-Go Action now enabled with caching by default
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'
