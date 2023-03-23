@@ -6591,7 +6591,7 @@ input CreateMigrationSourceInput {
   """
   The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
-  url: String!
+  url: String
 }
 
 """
@@ -12181,6 +12181,86 @@ type EnterpriseServerInstallation implements Node {
 }
 
 """
+The connection type for EnterpriseServerInstallation.
+"""
+type EnterpriseServerInstallationMembershipConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseServerInstallationMembershipEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [EnterpriseServerInstallation]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An Enterprise Server installation that a user is a member of.
+"""
+type EnterpriseServerInstallationMembershipEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: EnterpriseServerInstallation
+
+  """
+  The role of the user in the enterprise membership.
+  """
+  role: EnterpriseUserAccountMembershipRole!
+}
+
+"""
+Ordering options for Enterprise Server installation connections.
+"""
+input EnterpriseServerInstallationOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order Enterprise Server installations by.
+  """
+  field: EnterpriseServerInstallationOrderField!
+}
+
+"""
+Properties by which Enterprise Server installation connections can be ordered.
+"""
+enum EnterpriseServerInstallationOrderField {
+  """
+  Order Enterprise Server installations by creation time
+  """
+  CREATED_AT
+
+  """
+  Order Enterprise Server installations by customer name
+  """
+  CUSTOMER_NAME
+
+  """
+  Order Enterprise Server installations by host name
+  """
+  HOST_NAME
+}
+
+"""
 A user account on an Enterprise Server installation.
 """
 type EnterpriseServerUserAccount implements Node {
@@ -12566,6 +12646,46 @@ type EnterpriseUserAccount implements Actor & Node {
   The enterprise in which this user account exists.
   """
   enterprise: Enterprise!
+
+  """
+  A list of Enterprise Server installations this user is a member of.
+  """
+  enterpriseInstallations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for installations returned from the connection.
+    """
+    orderBy: EnterpriseServerInstallationOrder = {field: HOST_NAME, direction: ASC}
+
+    """
+    The search string to look for.
+    """
+    query: String
+
+    """
+    The role of the user in the installation.
+    """
+    role: EnterpriseUserAccountMembershipRole
+  ): EnterpriseServerInstallationMembershipConnection!
   id: ID!
 
   """
@@ -37876,7 +37996,7 @@ input StartRepositoryMigrationInput {
   """
   The migration source access token.
   """
-  accessToken: String!
+  accessToken: String
 
   """
   A unique identifier for the client performing the mutation.
@@ -37931,7 +38051,7 @@ input StartRepositoryMigrationInput {
   """
   The URL of the source repository.
   """
-  sourceRepositoryUrl: URI!
+  sourceRepositoryUrl: URI
 
   """
   The visibility of the imported repository.
@@ -44170,6 +44290,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   projectsUrl: URI!
 
   """
+  The user's profile pronouns
+  """
+  pronouns: String
+
+  """
   A list of public keys associated with this user.
   """
   publicKeys(
@@ -45089,6 +45214,11 @@ type Workflow implements Node {
   ): WorkflowRunConnection!
 
   """
+  The state of the workflow.
+  """
+  state: WorkflowState!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -45258,6 +45388,36 @@ enum WorkflowRunOrderField {
   Order workflow runs by most recently created
   """
   CREATED_AT
+}
+
+"""
+The possible states for a workflow.
+"""
+enum WorkflowState {
+  """
+  The workflow is active.
+  """
+  ACTIVE
+
+  """
+  The workflow was deleted from the git repository.
+  """
+  DELETED
+
+  """
+  The workflow was disabled by default on a fork.
+  """
+  DISABLED_FORK
+
+  """
+  The workflow was disabled for inactivity in the repository.
+  """
+  DISABLED_INACTIVITY
+
+  """
+  The workflow was disabled manually.
+  """
+  DISABLED_MANUALLY
 }
 
 """
