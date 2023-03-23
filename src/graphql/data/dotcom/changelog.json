@@ -4,6 +4,27 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EnterpriseServerInstallationMembershipConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseServerInstallationMembershipEdge</code> was added</p>",
+          "<p>Type <code>WorkflowState</code> was added</p>",
+          "<p>Input field <code>CreateMigrationSourceInput.url</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>enterpriseInstallations</code> was added to object type <code>EnterpriseUserAccount</code></p>",
+          "<p>Input field <code>StartRepositoryMigrationInput.accessToken</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Input field <code>StartRepositoryMigrationInput.sourceRepositoryUrl</code> changed type from <code>URI!</code> to <code>URI</code></p>",
+          "<p>Field <code>pronouns</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>state</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CloseDiscussionInput</code> was added</p>",
           "<p>Type <code>CloseDiscussionPayload</code> was added</p>",
           "<p>Type 'DeleteProjectV2WorkflowInput' was added</p>",
