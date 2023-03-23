@@ -125,7 +125,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 {% endif %}
 
 <!-- GHES 3.9+ table -->
-{% ifversion ghes > 3.8 % %}
+{% ifversion ghes > 3.8 %}
 
 | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
 |----|----|:----:|:----:|
