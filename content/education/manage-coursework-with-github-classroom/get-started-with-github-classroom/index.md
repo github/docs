@@ -11,5 +11,3 @@ children:
   - /about-github-classroom
   - /glossary
 ---
-
-i
