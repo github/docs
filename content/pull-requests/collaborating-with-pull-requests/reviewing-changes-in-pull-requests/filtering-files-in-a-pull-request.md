@@ -27,12 +27,15 @@ You can filter files in a pull request by file extension type, such as `.html` o
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to filter.
+1. In the list of pull requests, click the pull request you'd like to filter.
 {% data reusables.repositories.changed-files %}
-4. Use the File filter drop-down menu, and select, unselect, or click the desired filters.
-  ![File filter option above pull request diff](/assets/images/help/pull_requests/file-filter-option.png)
-5. Optionally, to clear the filter selection, under the **Files changed** tab, click **Clear**.
-  ![Clear file filter selection](/assets/images/help/pull_requests/clear-file-filter.png)
+1. Use the File filter dropdown menu, and select, deselect, or click the desired filters.
+
+   ![Screenshot of the view options for a pull request. The file filter option is outlined in dark orange.](/assets/images/help/pull_requests/file-filter-option.png)
+
+1. Optionally, to clear the filter selection, under the **Files changed** tab, click **Clear filters**.
+
+   ![Screenshot of the view options for a pull request. The "Clear filters" option is outlined in dark orange.](/assets/images/help/pull_requests/clear-file-filter.png)
 
 {% ifversion pr-tree-view %}
 ## Using the file tree
@@ -48,8 +51,9 @@ You can filter files in a pull request by file extension type, such as `.html` o
    **Note**: The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
 
    {% endnote %}
-   
+
    ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."
 
 {% endif %}
