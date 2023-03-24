@@ -48339,6 +48339,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "line",
+          "description": "<p>The end line number on the file to which the comment applies.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "minimizedReason",
           "description": "<p>Returns why the comment was minimized. One of <code>abuse</code>, <code>off-topic</code>,\n<code>outdated</code>, <code>resolved</code>, <code>duplicate</code> and <code>spam</code>. Note that the case and\nformatting of these values differs from the inputs to the <code>MinimizeComment</code> mutation.</p>",
           "type": "String",
@@ -48355,9 +48363,25 @@
           "href": "/graphql/reference/objects#commit"
         },
         {
+          "name": "originalLine",
+          "description": "<p>The end line number on the file to which the comment applied when it was first created.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "originalPosition",
           "description": "<p>The original line index in the diff to which the comment applies.</p>",
           "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "originalStartLine",
+          "description": "<p>The start line number on the file to which the comment applied when it was first created.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -48511,6 +48535,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "startLine",
+          "description": "<p>The start line number on the file to which the comment applies.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "state",

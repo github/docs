@@ -34113,6 +34113,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   lastEditedAt: DateTime
 
   """
+  The end line number on the file to which the comment applies
+  """
+  line: Int
+
+  """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
   `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
   formatting of these values differs from the inputs to the `MinimizeComment` mutation.
@@ -34125,9 +34130,19 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   originalCommit: Commit
 
   """
+  The end line number on the file to which the comment applied when it was first created
+  """
+  originalLine: Int
+
+  """
   The original line index in the diff to which the comment applies.
   """
   originalPosition: Int!
+
+  """
+  The start line number on the file to which the comment applied when it was first created
+  """
+  originalStartLine: Int
 
   """
   Identifies when the comment body is outdated
@@ -34213,6 +34228,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   The HTTP path permalink for this review comment.
   """
   resourcePath: URI!
+
+  """
+  The start line number on the file to which the comment applies
+  """
+  startLine: Int
 
   """
   Identifies the state of the comment.
