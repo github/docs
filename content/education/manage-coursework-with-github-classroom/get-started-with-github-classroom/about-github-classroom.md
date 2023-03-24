@@ -14,7 +14,7 @@ versions:
 
 ## {% data variables.product.prodname_classroom %} features 
 
-{% data variables.product.prodname_classroom %} offers a variety of features to simplify teaching and learning.
+{% data variables.product.prodname_classroom %} offers a variety of features to simplify both teaching and learning.
 
 ### Assignment templates
 
