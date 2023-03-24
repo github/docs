@@ -29,8 +29,6 @@ In the "Recent activity" section of your news feed, you can quickly find and fol
 
 In the left sidebar of your dashboard, you can access your organization's top repositories you're active in.
 
-![List of repositories you're most active in from your organization](/assets/images/help/dashboard/repositories-from-organization-dashboard.png)
-
 ## Staying updated with activity from the organization
 
 In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.

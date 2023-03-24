@@ -21,7 +21,6 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull Requests" list, click the pull request you'd like to close.
-3. At the bottom of the pull request, below the comment box, click **Close pull request**.
-  ![The close Pull Request button](/assets/images/help/pull_requests/pullrequest-closebutton.png)
-4. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
+1. In the "Pull Requests" list, click the pull request you'd like to close.
+1. At the bottom of the pull request, below the comment box, click **Close pull request**.
+1. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.

@@ -17,9 +17,8 @@ import { toMarkdown } from 'mdast-util-to-markdown'
 
 import { languageKeys } from '../../../lib/languages.js'
 
-const { targetDirectory, sourceDirectory, frontmatterDefaults, removeKeywords } = JSON.parse(
-  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8')
-)
+const { targetDirectory, sourceDirectory, frontmatterDefaults, removeKeywords, markdownPrefix } =
+  JSON.parse(await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'))
 const RELATIVE_LINK_PATH = targetDirectory.replace('content', '')
 const SOURCE_REPO = sourceDirectory.split('/')[0]
 const TEMP_DIRECTORY = path.join(SOURCE_REPO, 'tempCliDocs')
@@ -255,7 +254,7 @@ async function main() {
 
     // write the Markdown file
     const targetFilename = path.join(targetDirectory, path.basename(file))
-    const markdownContent = MARKDOWN_COMMENT + toMarkdown(ast)
+    const markdownContent = MARKDOWN_COMMENT + `${markdownPrefix}\n\n` + toMarkdown(ast)
     await writeFile(targetFilename, matter.stringify(markdownContent, frontmatter))
   }
 

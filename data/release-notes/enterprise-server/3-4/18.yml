@@ -1,0 +1,32 @@
+date: '2023-03-23'
+sections:
+  bugs:
+    - "In the Management Console's monitor dashboard, the `Cached Requests` and `Served Requests` graphs, which are retrieved by the `git fetch catching` command, did not display metrics for the instance."
+    - After a site administrator exempted the **@github-actions\[bot]** user from rate limiting by using the `ghe-config app.github.rate-limiting-exempt-users "github-actions[bot]"` command, running `ghe-config-check` caused a `Validation is-valid-characterset failed` warning to appear. 
+    - GitHub Actions (`actions`) and Microsoft SQL (`mssql`) did not appear in the list of processes within the instances monitor dashboard. 
+    - On an instance in a high availability configuration, if an administrator tore down replication from a replica node using `ghe-repl-teardown` immediately after running `ghe-repl-setup`, but before `ghe-repl-start`, an error indicated that the script `cannot launch /usr/local/bin/ghe-single-config-apply - run is locked`. `ghe-repl-teardown` now displays an informational alert and continues the teardown. 
+    - On an instance in a cluster configuration, when a site administrator set maintenance mode using `ghe-maintenance -s`, a `Permission denied` error appeared when the utility tried to access `/data/user/common/cluster.conf`. 
+    - When a site administrator used `ghe-migrator` to migrate data to GitHub Enterprise Server, in some cases, nested team relationships would not persist after teams were imported. 
+    - GitHub Enterprise Server published distribution metrics that cannot be processed by collectd. The metrics included `pre_receive.lfsintegrity.dist.referenced_oids`, `pre_receive.lfsintegrity.dist.unknown_oids`, and `git.hooks.runtime`. 
+  changes:
+    - After an enterprise owner enables Dependabot updates, the instance creates the initial set of updates faster. 
+    - On an instance in a cluster configuration, when a site administrator sets maintenance mode on a single cluster node using `ghe-maintenance -s`, the utility warns the administrator to use `ghe-cluster-maintenance -s` to set maintenance mode on all of the clusters nodes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster)." 
+    - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)." 
+    - The default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+  known_issues:
+    - |
+      On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.2022-09-hotpatch-issue %}
+    - |
+      {% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}
+    - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - |
+      After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
