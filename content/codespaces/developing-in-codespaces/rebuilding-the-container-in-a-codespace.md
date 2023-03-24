@@ -1,13 +1,15 @@
 ---
-title: Performing a full rebuild of a container
-intro: 'If you are low on disk space, or want to ensure your dev container configuration will work in new codespaces, you can perform a full rebuild of a container.'
+title: Rebuilding the container in a codespace
+intro: 'You can rebuild a container to apply configuration changes to the codespaces you are working in. From time to time, you may want to perform a full rebuild.'
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
+type: how_to
 topics:
   - Codespaces
-shortTitle: Full rebuilds
+shortTitle: Rebuilding a container
+redirect_from:
+  - /codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container
 ---
 
 ## About rebuilding a container
@@ -23,20 +25,26 @@ Occasionally, you may want to perform a full rebuild of your container. With a f
 - You want to ensure that the setup defined in your configuration is not dependent on cached images, and will run as required when someone creates a new codespace based on the configuration. For example, a dependency may have been removed from the base image since it was last pulled into your codespace.
 - You want to free up the disk space used by your cache, for example if you are low on disk space or want to minimize storage charges. Your image cache might be using a significant amount of disk space if you've changed your base image multiple times, if you've made a large number of iterative changes to your configuration, or if you're running multiple containers with Docker Compose.
 
-## Performing a full rebuild
+## Rebuilding a container
 
-You can perform a full rebuild in {% data variables.product.prodname_vscode %}.
+You can rebuild a container within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
+
+### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.command-palette %}
-1. Start typing "Rebuild" and select **Codespaces: Full Rebuild Container**.
+1. Start typing "Rebuild" and select **Codespaces: Rebuild Container** or **Codespaces: Full Rebuild Container**.
 
    ![Screenshot of the "Codespaces: Full Rebuild Container" option in the Command Palette.](/assets/images/help/codespaces/codespaces-rebuild-full.png)
 
-## Persisting data over a full rebuild
+{% data reusables.codespaces.rebuilding-container-procedures %}
 
-Any files and folders contained in the `/workspaces` directory of your codespace are always persisted over a rebuild. You do not need to change any settings or add any configuration to retain the contents of this directory over a full rebuild.
+To perform a full rebuild with {% data variables.product.prodname_cli %}, you can use the `gh codespace rebuild --full` command.
 
-If you want to preserve files outside the `/workspaces` directory over a full rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `/workspaces/.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
+## Persisting data over a rebuild
+
+{% data reusables.codespaces.workspaces-directory %}
+
+If you want to preserve files outside the `/workspaces` directory over a rebuild, you can create, at the desired location in the container, a symbolic link (symlink) to the persistent directory. For example, in your `/workspaces/.devcontainer` directory, you can create a `config` directory that will be preserved across a rebuild. You can then symlink the `config` directory and its contents as a `postCreateCommand` in your `devcontainer.json` file.
 
 ```json
 {
