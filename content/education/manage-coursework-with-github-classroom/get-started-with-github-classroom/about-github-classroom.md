@@ -34,8 +34,9 @@ With {% data variables.product.prodname_classroom %}, you can enable feedback pu
 
 ### Combination with an integrated development environment (IDE)
 
-In {% data variables.product.prodname_classroom %}, you can integrate a classroom with an IDE. Students can make changes to their assignment repositories through the IDE, or by checking out and running code locally with the necessary software. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+In {% data variables.product.prodname_classroom %}, you can integrate a classroom with an IDE. Students can make changes to their assignment repositories through the IDE, or by checking out and running code locally with the appropriate software. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/glossary)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/learn-with-github-classroom)"
