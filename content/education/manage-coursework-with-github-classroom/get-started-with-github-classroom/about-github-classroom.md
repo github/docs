@@ -22,7 +22,7 @@ With {% data variables.product.prodname_classroom %}, you can create assignments
 
 ### Autograding
 
-Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade students' work each time they push to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade the work of each student every time that student  pushes to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
 ### Connect a learning management system
 
