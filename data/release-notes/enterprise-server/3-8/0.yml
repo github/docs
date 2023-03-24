@@ -461,6 +461,12 @@ sections:
       ```
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
+    - |
+      Use of the search API may cause subsequent requests to other interfaces to fail. When this issue occurs, impacted API or web UI users will receive HTTP 5xx responses and this `NoMethodError` exception will be logged:
+
+      ```
+      NoMethodError (undefined method `starts_with?' for [:ok, "refs/heads/main"]:Array):
+      ```
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
