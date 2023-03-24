@@ -23,18 +23,36 @@ The issues you add to your Tasklists will be automatically populated to show the
 
  Your project's side-panel displays an issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your Tasklists. You can also add the Tracks and Tracked by fields to your project views to quickly see the relationships between your issues. For information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
 
-## Creating Tasklists
+## Creating Tasklists with Markdown
 
-You can create a Tasklist using Markdown in an issue description. Create a fenced code block and include `[tasklist]` next to the opening backticks. You can then preface each item with `- [ ]` and include links to other issues or text. You can optionally include a title as a Markdown header at the top of your list.
+You can create a Tasklist using Markdown in the issue description (the opening comment of an issue). You can include links to issues and pull requests or create draft issues.
+
+1. Start creating a new issue or edit the issue description of an existing issue.
+1. To begin your Tasklist, type <code>```[tasklist]</code> (triple backticks and <code>tasklist</code> inside square brackets) on a new line in the issue description.
+1. Optionally, type `### TITLE` on the next line, replacing `TITLE` with a title for your Tasklist.
+1. For each item you want to add to your Tasklist, type `- [ ]` on a new line, followed by a space, and either a link to an issue, a link to a pull request, or some text to create a draft issue.
+   * You must provide a full link to an issue or pull request. For example, `https://github.com/octo-org/octo-repo/issues/45`.
+   * Tasks can be formatted with Markdown.
+   * Tasks must not exceed 256 characters in length.
+1. To finish your Tasklist, type <code>```</code> on a new line after the last item.
+
+Your finished Tasklist should look like this:
 
 ````
 ```[tasklist]
-### Tasks
+### My tasks
 - [ ] https://github.com/octo-org/octo-repo/issues/45
 - [ ] Draft issue title
 ```
 ````
-Your Markdown will be rendered by {% data variables.product.product_name %} as a Tasklist. You can then make changes and add issues and draft issues using the UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the Tasklist in other issues.
+
+Your Tasklist will be rendered by {% data variables.product.product_name %} when you save the issue. You can then make changes and add issues and draft issues using the {% data variables.product.product_name %} UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the Tasklist in other issues.
+
+{% note %}
+
+**Note:** If {% data variables.product.product_name %} cannot render your Tasklist, make sure it is formatted like the example above and that you do not have any unintended new lines.
+
+{% endnote %}
 
 You can also click {% octicon "checklist" aria-label="Add tasklist" %} in the formatting toolbar to insert a Tasklist when creating a new issue or editing an issue description.
 
