@@ -45,9 +45,9 @@ The web application flow to authorize users for your app is:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-This endpoint takes the following input parameters:
+This endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
 `redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
@@ -64,9 +64,9 @@ Exchange this `code` for an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-This endpoint takes the following input parameters:
+This endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
@@ -140,9 +140,9 @@ Before you can use the device flow to authorize and identify users, you must fir
 
 Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
-The endpoint takes the following input parameters:
+The endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
 `scope` | `string` | The scope that your app is requesting access to.
@@ -153,7 +153,7 @@ By default, the response takes the following form:
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `device_code` | `string` | The device verification code is 40 characters and used to verify the device.
 `user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
@@ -199,9 +199,9 @@ The user must enter a valid code within 15 minutes (or 900 seconds). After 15 mi
 
 Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
-The endpoint takes the following input parameters:
+The endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
