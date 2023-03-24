@@ -34,22 +34,30 @@ When a proxy server is enabled for {% data variables.location.product_location %
 
 You can configure an outbound proxy server {% data variables.location.product_location %}, and you can configure exceptions for connections to specific domains.
 
+{% ifversion ghes > 3.8 %}
+
+Your instance validates the hostnames for proxy exclusion using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
+
+{% endif %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 1. Under **HTTP Proxy Server**, type the URL of your proxy server.
 1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you must use `.` as a wildcard prefix, such as `.octo-org.tentacle`.
 
+   {%- ifversion ghes < 3.9 %}
    {% note %}
 
-   **Note**: Your instance validates the hostnames using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
+   **Note**: In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your instance validates the hostnames using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
 
    {% endnote %}
+   {%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Excluding additional unregistered TLDs from the proxy
 
-You can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
+{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Enter the following command, replacing COMMA-SEPARATED-TLD-LIST with a comma-separated list of TLDs.
