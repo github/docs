@@ -18,7 +18,7 @@ versions:
 
 ### Assignment templates
 
-With {% data variables.product.prodname_classroom %}, you can create assignments that use template repositories with boilerplate code, documentation, and other resources. Assignments with template repositories create assignment repositories with starter code for your students. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+With {% data variables.product.prodname_classroom %}, you can create assignments that use template repositories with boilerplate code, documentation, and other resources that you think will be useful to your students. Assignments with template repositories create assignment repositories with starter code for your students. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
 
 ### Autograding
 
