@@ -1,4 +1,4 @@
----
+Name ::Build then Deploy.yml
 title: Hosting your own runners
 shortTitle: Self-hosted runners
 intro: You can create self-hosted runners to run workflows in a highly customizable environment.
@@ -12,11 +12,11 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-groups-to-manage-access-to-ae-hosted-runners
   - /actions/using-github-hosted-runners/creating-custom-images
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-children:
+  fpt: 'OPTION'
+  ghes: 'OPTION'
+  ghae: 'OPTION'
+  ghec: 'OPTION'
+installing..., :orphan child process' :
   - /about-self-hosted-runners
   - /adding-self-hosted-runners
   - /autoscaling-with-self-hosted-runners
