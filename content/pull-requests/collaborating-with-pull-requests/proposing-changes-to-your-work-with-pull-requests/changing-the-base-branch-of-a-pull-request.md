@@ -22,10 +22,16 @@ shortTitle: Change the base branch
 {% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull Requests" list, click the pull request you'd like to modify.
-3. Next to the pull request's title, click **Edit**. ![Pull Request edit button](/assets/images/help/pull_requests/pull-request-edit.png)
-4. In the base branch drop-down menu, select the base branch you'd like to [compare changes against](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits#comparing-branches). ![Base branch drop-down menu ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
-5. Read the information about changing the base branch and click **Change base**. ![Base branch change confirmation button ](/assets/images/help/pull_requests/pull-request-base-branch-confirm.png)
+1. In the "Pull Requests" list, click the pull request you'd like to modify.
+1. Next to the pull request's title, click **Edit**.
+
+   ![Screenshot of a pull request title. A button labeled "Edit" is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-edit.png)
+
+1. In the base branch drop-down menu, select the base branch you'd like to [compare changes against](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits#comparing-branches).
+
+   ![Screenshot of a pull request title. The dropdown to change the base branch is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
+
+1. Read the information about changing the base branch and click **Change base**.
 
 {% tip %}
 
