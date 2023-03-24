@@ -33,8 +33,6 @@ In the "Recent activity" section of your news feed, you can quickly find and fol
 
 In the left sidebar of your dashboard, you can access the top repositories and teams you use.
 
-![list of repositories and teams from different organizations](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
-
 The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list {% ifversion ghes < 3.6 or ghae < 3.6 %}4 months{% else %}1 year{% endif %} after you last interacted with them.
 
 You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
@@ -73,7 +71,7 @@ For more information about following people and watching repositories, see "[AUT
 
 {% note %}
 
-**Note:** This new tab is currently in public beta and subject to change. 
+**Note:** This new tab is currently in public beta and subject to change.
 
 {% endnote %}
 
