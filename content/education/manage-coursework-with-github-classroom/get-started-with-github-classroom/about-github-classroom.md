@@ -24,7 +24,7 @@ With {% data variables.product.prodname_classroom %}, you can create assignments
 
 Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade the work of each student every time that student  pushes to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
-### Connect a learning management system
+### Ability to connect a learning management system
 
 Optionally, you can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} to import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
 
