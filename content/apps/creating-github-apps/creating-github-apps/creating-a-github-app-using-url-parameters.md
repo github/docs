@@ -31,8 +31,6 @@ The following URL creates a new public app called `octocat-github-app` with a pr
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
 ```
 
-The complete list of available query parameters, permissions, and events is listed in the sections below.
-
 ## {% data variables.product.prodname_github_app %} configuration parameters
 
  Name | Type | Description

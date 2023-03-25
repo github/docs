@@ -2,4 +2,4 @@ When you click the default **Merge pull request** option on a pull request on {%
 
 To merge pull requests, you must have [write permissions](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) in the repository.
 
-![standard-merge-commit-diagram](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)
+![Diagram of a standard merge and commit flow, where commits from a feature branch and an additional merge commit are both added to `main`.](/assets/images/help/pull_requests/standard-merge-commit-diagram.png)

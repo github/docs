@@ -41,12 +41,16 @@ Updating your branch from the pull request page performs a traditional merge. Th
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the merge section near the bottom of the page, you can:
    - Click **Update branch** to perform a traditional merge.
-   ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
+
+     ![Screenshot of the merge section for a pull request.](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
+
    - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch.
-   ![Drop-down menu showing merge and rebase options](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
+
+     ![Screenshot of the merge section for a pull request. The dropdown menu is expanded, showing "Update with merge commit" and "Update with rebase" options.](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 {% else %}
 1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge.
-  ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch.png)
+
+   ![Screenshot of the merge section for a pull request.](/assets/images/help/pull_requests/pull-request-update-branch.png)
 {% endif %}
 
 ## Further reading
