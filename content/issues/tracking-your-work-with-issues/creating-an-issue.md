@@ -70,16 +70,14 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 You can open a new issue from a comment in an issue or pull request. When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.
 
 1. Navigate to the comment that you would like to open an issue from.
-2. In that comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-  ![Kebab button in pull request review comment](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
-3. Click **Reference in new issue**.
-  ![Reference in new issue menu item](/assets/images/help/pull_requests/reference-in-new-issue.png)
-4. Use the "Repository" drop-down menu, and select the repository you want to open the issue in.
-  ![Repository dropdown for new issue](/assets/images/help/pull_requests/new-issue-repository.png)
-5. Type a descriptive title and body for the issue.
-  ![Title and body for new issue](/assets/images/help/pull_requests/new-issue-title-and-body.png)
-6. Click **Create issue**.
-  ![Button to create new issue](/assets/images/help/pull_requests/create-issue.png)
+1. In that comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}.
+
+   ![Screenshot of a comment on a pull request. The kebab button is outlined in dark orange.](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
+
+1. Click **Reference in new issue**.
+1. Use the "Repository" dropdown menu, and select the repository you want to open the issue in.
+1. Type a descriptive title and body for the issue.
+1. Click **Create issue**.
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 

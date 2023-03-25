@@ -131,10 +131,9 @@ Sometimes, a pull request may introduce changes to code that conflict with the e
 
 In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
 
-1. Click **Merge pull request** to merge the changes into `main`.
-  ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-2. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
-3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
+1. At the bottom of the pull request, click **Merge pull request** to merge the changes into `main`.
+1. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
+1. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 
 ## Next steps
 

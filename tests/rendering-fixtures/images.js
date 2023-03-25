@@ -4,7 +4,7 @@ import { get, getDOM } from '../helpers/e2etest.js'
 
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
-    const $ = await getDOM('/get-started/foo/single-image')
+    const $ = await getDOM('/get-started/images/single-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(1)
@@ -38,5 +38,12 @@ describe('render Markdown image tags', () => {
     // The `_fixtures/screenshot.png` is 2000x1494.
     // So if 2000/1494==1000/x, then x becomes 1494*1000/2000=747
     expect(height).toBe(747)
+  })
+
+  test('image inside a list keeps its span', async () => {
+    const $ = await getDOM('/get-started/images/images-in-lists')
+
+    const imageSpan = $('#article-contents > div > ol > li > span.procedural-image-wrapper')
+    expect(imageSpan.length).toBe(1)
   })
 })

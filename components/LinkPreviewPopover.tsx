@@ -97,7 +97,7 @@ function popoverWrap(element: HTMLLinkElement) {
     if (
       element.href.includes('#') &&
       element.href.split('#')[1] &&
-      element.href.startsWith(`${window.location.href}#`)
+      element.href.startsWith(`${window.location.href.split('#')[0]}#`)
     ) {
       const domID = element.href.split('#')[1]
       const domElement = document.querySelector(`#${domID}`)

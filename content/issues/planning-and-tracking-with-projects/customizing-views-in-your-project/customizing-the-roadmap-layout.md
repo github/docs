@@ -9,8 +9,6 @@ topics:
   - Projects
 ---
 
-{% data reusables.projects.roadmaps-release-stage %}
-
 ## About the roadmap layout
 
 {% data reusables.projects.about-roadmap-layout %}
