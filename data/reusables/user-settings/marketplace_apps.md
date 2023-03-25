@@ -7,6 +7,6 @@
 
    {% endnote %}
 
-   ![App type selection](/assets/images/settings/apps_choose_app.png)
+   ![Screenshot of the "Developer Settings" page in GitHub. Options labelled "GitHub Apps" and "OAuth Apps" are outlined in dark orange.](/assets/images/settings/apps_choose_app.png)
 
 {% endif %}
