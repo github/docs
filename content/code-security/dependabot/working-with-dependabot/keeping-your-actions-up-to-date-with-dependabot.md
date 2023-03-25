@@ -65,6 +65,8 @@ updates:
       interval: "weekly"
 ```
 
+Note that the same configuration of `package-ecosystem: "github-actions"` is what is required for Dependabot to check workflow files for re-usable workflow version updates.
+
 ## Configuring {% data variables.product.prodname_dependabot_version_updates %} for actions
 
 When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
