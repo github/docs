@@ -43,9 +43,9 @@ topics:
 
   {% note %}
 
-  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
-
-  {% endnote %}
+  **бележка:** Когато е поискано да въведете имейл адрес, уверете се, че въведете проверения имейл адрес за вашата сметка GitHub. {% резервни данни. gpg. частен-имейла %} {% ifversion fpt или ghec %} } } \ За повече информация, вж.  "[автозаглавие](/старт/записване за-github/проверка на вашия имейл адрес)" и "[автозаглавие](/профил/създаване и управление на вашия личен акаунт-н-гитуб/управление на преференциите по-мейл/настройка-на-вашия-commcomm-имейл-адрес)".{% ендиф %}
+no-reply@campaign-preferences.com
+ {% крайна бележка %} 
 
 9. Type a secure passphrase.
 {% data reusables.gpg.list-keys-with-note %}
@@ -56,13 +56,15 @@ topics:
  # Prints the GPG key ID, in ASCII armor format
  ```
 11. Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
-12. [Add the GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
-
-## Further reading
+На 12. [Добавете GPG ключ към вашата сметка GitHub](/удостоверяване/управление на подпис-проверка/добавяне-а-gpg-ключ към вашия-github-сметка).
+3А5C34371567BD2
+# По-нататъшно четене
 
 * "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
 * "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
 * "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+* "[автозаглавиеauthentica
+* 
+управление ging-commit-signature-verification/associating-an-email-with-your-gpg-key)"
 * "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
 * "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
