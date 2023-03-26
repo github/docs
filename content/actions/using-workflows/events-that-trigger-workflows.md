@@ -864,7 +864,7 @@ To run a job based on the pull request's head branch name (as opposed to the pul
 
 ```yaml
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
 jobs:
