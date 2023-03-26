@@ -1,4 +1,16 @@
----
+-declare const sym1: unique symbol\*can only be a constant reference.
+let sym2: unique symbol = create.item'?')'' ':'''is'=''=' 'yarg'('A'G'S')')'.')';''     '\''
+'A variable whose type is a 'unique symbol' type must be 'const(r)).''
+'::'Build':''
+'Return':'' 'Run '' '"'' :
+'' '"
+ 
+// Works - refers to a unique symbol, but its identity is tied to 'sym1'.
+let sym3: typeof sym1 = sym1;
+ 
+// Also works.
+class C {
+  static readonly StaticSymbol: unique symbol = Symbol();--
 title: Migrating repositories from GitHub Enterprise Server to GitHub Enterprise Cloud
 shortTitle: Enterprise Server to Enterprise Cloud
 intro: 'You can migrate repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or API.'
