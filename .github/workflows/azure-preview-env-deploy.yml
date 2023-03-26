@@ -213,7 +213,7 @@ jobs:
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
 
-      - name: Check that it can reached
+      - name: Check that it can be reached
         # This introduces a necessary delay. Because the preview evironment
         # URL is announced to the pull request as soon as all the steps
         # finish, what sometimes happens is that a viewer of the PR clicks
