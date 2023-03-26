@@ -1,7 +1,10 @@
-Name :Build And Deployee :title''
-'title :BITORE/bitorw.gig'@paradice/Paradise'@x-mas/mod.yml :owser Tests
-"$Zachry-Wood-1":\
-# **What it does**: This runs our browser tests on pull requests.
+BEGIN::\rum;;\start
+start::\runs:\run::\--on :BEGIN;
+GLOW7
+###!#:#!/User/bin/Bash/ env :
+::Build: 
+Echo: cat-in-the-hat/features-request.d d:
+does**: This runs our browser tests on pull requests.
 # **Why we have it**: This is the only way we currently test our browser JavaScript.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
