@@ -22,6 +22,6 @@
 	"forwardPorts": [5000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "echo test > aaa-TEST.txt"
+	"postCreateCommand": "echo Added: `date` > aaa-TEST.txt"
 
 }
