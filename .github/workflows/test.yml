@@ -96,7 +96,8 @@ jobs:
           # links can and should be updated.
           ./script/update-internal-links.js --dry-run --check --strict --verbose \
             tests/fixtures/content \
-            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
           ./script/update-internal-links.js --dry-run --check --strict --verbose \
             tests/fixtures/data
 

@@ -2399,6 +2399,54 @@
       "requestPath": "/organizations/{organization_id}/custom_roles"
     },
     {
+      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/organizations/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}"
+    },
+    {
+      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories"
+    },
+    {
+      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/organizations/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}"
+    },
+    {
+      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}/repositories"
+    },
+    {
       "slug": "get-an-organization",
       "subcategory": "orgs",
       "verb": "get",
