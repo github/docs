@@ -94,11 +94,16 @@ This example is vulnerable to script injection because the `run` command execute
 
 To inject commands into this workflow, the attacker could create a pull request with a title of  `a"; ls $GITHUB_WORKSPACE"`:
 
-![Example of script injection in PR title](/assets/images/help/images/example-script-injection-pr-title.png)
+![Screenshot of the title of a pull request in edit mode. A new title has been entered in the field: a"; ls $GITHUB_WORKSPACE".](/assets/images/help/actions/example-script-injection-pr-title.png)
 
 In this example, the `"` character is used to interrupt the {% raw %}`title="${{ github.event.pull_request.title }}"`{% endraw %} statement, allowing the `ls` command to be executed on the runner. You can see the output of the `ls` command in the log:
 
-![Example result of script injection](/assets/images/help/images/example-script-injection-result.png)
+```shell
+Run title="a"; ls $GITHUB_WORKSPACE""
+README.md
+code.yml
+example.js
+```
 
 ## Good practices for mitigating script injection attacks
 
@@ -138,9 +143,13 @@ The following example uses Bash to process the `github.event.pull_request.title`
 ```
 {% endraw %}
 
-In this example, the attempted script injection is unsuccessful:
+In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
 
-![Example of mitigated script injection](/assets/images/help/images/example-script-injection-mitigated.png)
+```shell
+   env:
+     TITLE: a"; ls $GITHUB_WORKSPACE"
+PR title did not start with 'octocat'
+```
 
 With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
 
@@ -293,7 +302,7 @@ This list describes the recommended approaches for accessing repository data wit
 
 You can view a software bill of materials (SBOM) to see what software was pre-installed on the {% data variables.product.prodname_dotcom %}-hosted runner image used during your workflow runs. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
-SBOMs are available for Windows and Ubuntu runner images. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.<IMAGE-NAME>.json.zip` can be found in the attachments of each release.
+SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.<IMAGE-NAME>.json.zip` can be found in the attachments of each release.
 
 {% endif %}
 

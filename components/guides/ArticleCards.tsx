@@ -132,7 +132,11 @@ export const ArticleCards = () => {
         </div>
       </div>
 
-      <ul ref={articleCardRef} className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
+      <ul
+        data-testid="article-cards"
+        ref={articleCardRef}
+        className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8"
+      >
         {guides.slice(0, numVisible).map((card) => {
           return (
             <ArticleCard

@@ -315,7 +315,7 @@ describe('server', () => {
 
     test('admin articles on latest version of GHE have images that point to local assets dir', async () => {
       const $ = await getDOM(
-        `${latestEnterprisePath}/admin/user-management/using-built-in-authentication`
+        `${latestEnterprisePath}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       )
       const imageSrc = $('img').first().attr('src')
       expect(
@@ -327,7 +327,7 @@ describe('server', () => {
 
     test('admin articles on older GHE versions have images that point to local assets dir', async () => {
       const $ = await getDOM(
-        `${oldestEnterprisePath}/admin/user-management/using-built-in-authentication`
+        `${oldestEnterprisePath}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       )
       const imageSrc = $('img').first().attr('src')
       expect(

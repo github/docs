@@ -64,14 +64,16 @@ An _authorized_ OAuth App has access to all of the user's or organization owner'
 | ----- | ----------- |
 | A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An OAuth app can exchange a request token for an access token after a redirect via a web request. |
 | An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
-| Installation tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits for server-to-server requests. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} requests per hour. |
+| Installation access tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
+| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits that scale with the number of installations. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} requests per hour. |
 | Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per OAuth App. Every token granted to that OAuth App gets the increased limit. |
-| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user, which is called a user-to-server request. The flow to authorize is the same as the OAuth App authorization flow. User-to-server tokens can expire and be renewed with a refresh token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-to-server-access-tokens)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used in {% data variables.product.prodname_github_app %} user-to-server authorization. |
+| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user. The flow to authorize is the same as the {% data variables.product.prodname_oauth_app %} authorization flow. User access tokens can expire and be renewed with a refresh token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used to generate a {% data variables.product.prodname_github_app %} user access token. |
 
 ## Requesting permission levels for resources
 
 Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to request access only to what they need. For example, a Continuous Integration (CI) GitHub App can request read access to repository content and write access to the status API. Another GitHub App can have no read or write access to code but still have the ability to manage issues, labels, and milestones. OAuth Apps can't use granular permissions.
+
+{% rowheaders %}
 
 | Access | GitHub Apps (`read` or `write` permissions) | OAuth Apps |
 | ------ | ----- | ----------- |
@@ -82,6 +84,8 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 | **For access to commit statuses (for CI builds)** | Commit statuses | `repo:status` scope. |
 | **For access to deployments and deployment statuses** | Deployments | `repo_deployment` scope. |
 | **To receive events via a webhook** | A GitHub App includes a webhook by default. | `write:repo_hook` or `write:org_hook` scope. |
+
+{% endrowheaders %}
 
 ## Repository discovery
 

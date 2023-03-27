@@ -11,31 +11,27 @@ Squashing allows you to combine multiple commits in your branch's history into a
 
 ## Squashing a commit
 
-{% mac %}
-
 {% data reusables.desktop.current-branch-menu %}
 2. In the list of branches, select the branch that has the commits that you want to squash.
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>.
+4. Select the commits to squash and drop them on the commit you want to combine them with. 
+   
+   {% mac %}
+   
+   You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>.
 
-  ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a commit, highlighted in blue. A hover-over text box says, "Squash 2 commits".](/assets/images/help/desktop/squash-drag-and-drop.png)
+   {% endmac %}
+
+   {% windows %}
+   
+   You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>.
+
+   {% endwindows %}
+
+   ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a commit, highlighted in blue. A hover-over text box says, "Squash 2 commits".](/assets/images/help/desktop/squash-drag-and-drop.png)
+
 5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
 6. Click **Squash Commits**.
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, select the branch that has the commits that you want to squash.
-{% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>.
-
-  ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a commit, highlighted in blue. A hover-over text box says, "Squash 2 commits".](/assets/images/help/desktop/squash-drag-and-drop.png)
-5. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
-6. Click **Squash Commits**.
-
-{% endwindows %}
 
 ## Error messages when squashing commits
 

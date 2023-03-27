@@ -34,8 +34,7 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
-1. On the left, click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
+1. In the left sidebar, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}
 
 ## Migrating a user project board
@@ -45,7 +44,6 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 1. On the top of your profile page, in the main navigation, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
   ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
 1. Above the list of projects, click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-user.png)
 {% data reusables.projects.migrate-project-steps %}
 
 ## Migrating a repository project board
@@ -60,6 +58,5 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
 ![Project tab](/assets/images/help/projects-v2/repo-tabs-projects.png)
-1. Click **Projects (classic)**.
-  ![Screenshot showing Projects (classic) menu option}](/assets/images/help/issues/projects-classic-org.png)
+1. In the left sidebar, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}

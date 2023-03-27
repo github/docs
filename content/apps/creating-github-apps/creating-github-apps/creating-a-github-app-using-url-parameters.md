@@ -31,8 +31,6 @@ The following URL creates a new public app called `octocat-github-app` with a pr
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
 ```
 
-The complete list of available query parameters, permissions, and events is listed in the sections below.
-
 ## {% data variables.product.prodname_github_app %} configuration parameters
 
  Name | Type | Description
@@ -40,7 +38,7 @@ The complete list of available query parameters, permissions, and events is list
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.
-`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.
+`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
 `setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation.
 `setup_on_update` | `boolean` | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
