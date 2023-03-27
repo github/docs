@@ -1,5 +1,5 @@
 {
-	"name": "test",
+	"name": "Test postCreateCommand",
 	"image": "mcr.microsoft.com/devcontainers/universal:linux",
 
 	"settings": {
