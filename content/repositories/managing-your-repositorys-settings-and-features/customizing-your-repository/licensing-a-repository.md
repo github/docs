@@ -35,7 +35,7 @@ As a best practice, we encourage you to include the license file with your proje
 
 ## Searching GitHub by license type
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword.
 
 License | License keyword
 ---  | ---

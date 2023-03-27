@@ -114,7 +114,7 @@ You can even open pull requests in your own repository and merge them yourself. 
 3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
 4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
 
 5. Click **Create pull request**.
 6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
@@ -131,10 +131,9 @@ Sometimes, a pull request may introduce changes to code that conflict with the e
 
 In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
 
-1. Click **Merge pull request** to merge the changes into `main`.
-  ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-2. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
-3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
+1. At the bottom of the pull request, click **Merge pull request** to merge the changes into `main`.
+1. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
+1. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 
 ## Next steps
 

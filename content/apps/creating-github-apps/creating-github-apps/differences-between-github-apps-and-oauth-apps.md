@@ -73,6 +73,8 @@ An _authorized_ OAuth App has access to all of the user's or organization owner'
 
 Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to request access only to what they need. For example, a Continuous Integration (CI) GitHub App can request read access to repository content and write access to the status API. Another GitHub App can have no read or write access to code but still have the ability to manage issues, labels, and milestones. OAuth Apps can't use granular permissions.
 
+{% rowheaders %}
+
 | Access | GitHub Apps (`read` or `write` permissions) | OAuth Apps |
 | ------ | ----- | ----------- |
 | **For access to public repositories** | Public repository needs to be chosen during installation. | `public_repo` scope. |
@@ -82,6 +84,8 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 | **For access to commit statuses (for CI builds)** | Commit statuses | `repo:status` scope. |
 | **For access to deployments and deployment statuses** | Deployments | `repo_deployment` scope. |
 | **To receive events via a webhook** | A GitHub App includes a webhook by default. | `write:repo_hook` or `write:org_hook` scope. |
+
+{% endrowheaders %}
 
 ## Repository discovery
 

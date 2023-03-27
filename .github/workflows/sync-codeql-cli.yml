@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate-decorated-files:
+  generate-codeql-files:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
@@ -43,6 +43,7 @@ jobs:
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
+          token: ${{ secrets.DOCS_BOT_FR }}
           repository: github/semmle-code
           path: semmle-code
           ref: ${{ github.event.inputs.SOURCE_BRANCH }}
@@ -67,6 +68,7 @@ jobs:
           sudo dpkg -i pandoc-3.0.1-1-amd64.deb
           # Output the pandoc version installed
           pandoc -v
+          rm pandoc-3.0.1-1-amd64.deb
 
       - name: Sync the CodeQL CLI data
         run: |
@@ -82,8 +84,9 @@ jobs:
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
-          if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit after running src/codeql/scripts/sync.js. Exiting..."
             exit 0
           fi
 

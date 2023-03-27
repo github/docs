@@ -16,7 +16,23 @@ topics:
 ---
 ## About cloning a repository
 
-You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
+{% webui %}
+
+You can clone a repository from {% data variables.location.product_location %} to your local computer{% ifversion codespaces %}, or to a codespace,{% endif %} to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine{% ifversion codespaces %}, or to a remote virtual machine when you create a codespace. For more information about cloning to a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."{% else %}.{% endif %}
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.repositories.about-cloning %}
+
+{% endcli %}
+
+{% desktop %}
+
+{% data reusables.repositories.about-cloning %}
+
+{% enddesktop %}
 
 Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/using-git)".
 

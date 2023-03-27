@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
+import { Box, Flash } from '@primer/react'
+import { LinkExternalIcon, BeakerIcon } from '@primer/octicons-react'
 
 import { Callout } from 'components/ui/Callout'
-
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
@@ -21,8 +22,7 @@ import { RestRedirect } from 'components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
-
-import { LinkExternalIcon } from '@primer/octicons-react'
+import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -49,6 +49,7 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
+      <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
@@ -57,11 +58,50 @@ export const ArticlePage = () => {
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
-          topper={<ArticleTitle>{title}</ArticleTitle>}
+          topper={
+            <>
+              {/* This is a temporary thing for the duration of the
+              feature-flagged release of hover preview cards on /$local/pages/
+              articles.
+              Delete this whole thing when hover preview cards is
+              available on all articles independent of path.
+               */}
+              {router.query.productId === 'pages' && (
+                <Flash variant="default" className="mb-3">
+                  <Box sx={{ display: 'flex' }}>
+                    <Box
+                      sx={{
+                        p: 1,
+                        textAlign: 'center',
+                      }}
+                    >
+                      <BeakerIcon className="mr-2 color-fg-muted" />
+                    </Box>
+                    <Box
+                      sx={{
+                        flexGrow: 1,
+                        p: 0,
+                      }}
+                    >
+                      <p>
+                        Hover over a link to another article to get more details. If you have ideas
+                        for how we can improve this page, let us know in the{' '}
+                        <a href="https://github.com/github/docs/discussions/24591">discussion</a>.
+                      </p>
+                    </Box>
+                  </Box>
+                </Flash>
+              )}
+
+              <ArticleTitle>{title}</ArticleTitle>
+            </>
+          }
           intro={
             <>
               {intro && (
-                <Lead data-testid="lead" data-search="lead">
+                // Note the `_page-intro` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                <Lead data-testid="lead" data-search="lead" className="_page-intro">
                   {intro}
                 </Lead>
               )}
