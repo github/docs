@@ -39,7 +39,8 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 
 ## Deleting access to an archive of your personal account's data
 
+You can disable the download link sent to your email before an export expires by deleting the export.
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. To disable the download link sent to your email before it expires, under "Export account data", find the data export download you want to disable and click **Delete**.
-![Delete personal data export package button highlighted](/assets/images/help/repository/delete-export-personal-account-data.png)
+3. In the "Export account data" section, next to the data export download you want to disable, click **Delete**.

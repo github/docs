@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Diagram of an event triggering a workflow that uses a test matrix.](/assets/images/help/actions/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
 ## Features used in this example
 
