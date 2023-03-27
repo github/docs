@@ -114,7 +114,7 @@ You can even open pull requests in your own repository and merge them yourself. 
 3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
 4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
 
 5. Click **Create pull request**.
 6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
