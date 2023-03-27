@@ -90,7 +90,7 @@ jobs:
           branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
 
           branchCheckout=$(git checkout -b $branchname)
-          if [[! $? -eq 0 ]]; then
+          if ! [[ $? -eq 0 ]]; then
             echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
             exit 0
           fi
