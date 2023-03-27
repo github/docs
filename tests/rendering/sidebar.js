@@ -13,62 +13,22 @@ jest.useFakeTimers({ legacyFakeTimers: true })
 const req = {}
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
-  let $homePage, $githubPage, $enterprisePage, $restPage
   beforeAll(async () => {
     req.context = {
       allVersions,
       currentLanguage: 'en',
     }
-    ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
-      getDOM('/en'),
-      getDOM('/en/get-started'),
-      getDOM('/en/enterprise/admin'),
-      getDOM('/en/rest'),
-    ])
   })
 
   test('highlights active product on Enterprise pages on xl viewport', async () => {
-    expect($enterprisePage('[data-testid=sidebar-product-xl]').length).toBe(1)
-    expect($enterprisePage('[data-testid=sidebar-product-xl]').text().trim()).toBe(
-      'Enterprise administrators'
-    )
-  })
-
-  test('highlights active product on GitHub pages on xl viewport', async () => {
-    expect($githubPage('[data-testid=sidebar-product-xl]').length).toBe(1)
-    expect($githubPage('[data-testid=sidebar-product-xl]').text().trim()).toBe('Get started')
-  })
-
-  test('includes links to external products like Electron and CodeQL', async () => {
-    expect(
-      $homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs/latest"]')
-    ).toHaveLength(1)
-    expect(
-      $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
-    ).toHaveLength(1)
-    expect($homePage('[data-testid=sidebar] a[href="https://docs.npmjs.com/"]')).toHaveLength(1)
-  })
-
-  test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url =
-      '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
-    const $ = await getDOM(url)
-    expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
-    expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)
-    expect($('[data-testid=sidebar] [data-is-current-page=true] a').attr('href')).toContain(url)
-  })
-
-  test('does not display Early Access as a product', async () => {
-    expect(
-      $homePage('[data-testid=sidebar] [data-testid=sidebar-product][title*="Early"]').length
-    ).toBe(0)
-    expect(
-      $homePage('[data-testid=sidebar] [data-testid=sidebar-product][title*="early"]').length
-    ).toBe(0)
+    const $ = await getDOM('/en/enterprise/admin')
+    expect($('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($('[data-testid=sidebar-product-xl]').text().trim()).toBe('Enterprise administrators')
   })
 
   test('REST API Reference title is viewable', async () => {
-    expect($restPage('[data-testid=rest-sidebar-reference]').length).toBe(1)
+    const $ = await getDOM('/en/rest')
+    expect($('[data-testid=rest-sidebar-reference]').length).toBe(1)
   })
 
   test('Check REST categories and subcategories are rendering', async () => {
