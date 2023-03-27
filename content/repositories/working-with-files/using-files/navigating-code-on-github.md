@@ -19,22 +19,25 @@ Code navigation helps you to read, navigate, and understand code by showing and 
 
 ![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
 
-Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported:
+Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported.
+
+{% rowheaders %}
 
 | Language   | Search-based code navigation | Precise code navigation |
 |:----------:|:----------------------------:|:-----------------------:|
-| C#         | ✅                           |                         |
-| CodeQL     | ✅                           |                         |
-| Elixir     | ✅                           |                         |
-| Go         | ✅                           |                         |
-| Java       | ✅                           |                         |
-| JavaScript | ✅                           |                         |
-| PHP        | ✅                           |                         |
-| Python     | ✅                           | ✅                      |
-| Ruby       | ✅                           |                         |
-| Rust       | ✅                           |                         |
-| TypeScript | ✅                           |                         |
+| C#         | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| CodeQL     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| Elixir     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| Go         | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| Java       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| JavaScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| PHP        | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| Python     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                      |
+| Ruby       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| Rust       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| TypeScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
 
+{% endrowheaders %}
 
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
 

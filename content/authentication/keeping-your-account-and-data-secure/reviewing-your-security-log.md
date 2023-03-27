@@ -32,7 +32,7 @@ The security log lists all actions performed within the last 90 days.
 
 ### Search based on the action performed
 
-The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
+The events listed in your security log are triggered by your actions. Actions are grouped into different categories.
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
