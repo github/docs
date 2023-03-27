@@ -49,9 +49,7 @@ shortTitle: Working with non-code files
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
-
-![inline image](/assets/images/help/images/view.png)
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 SVGs don't currently support inline scripting or animation.
 
