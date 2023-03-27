@@ -157,6 +157,10 @@ For more information, see the [content model](/contributing/content-model.md#tit
 
 ## Images
 
+We use static images including screenshots, diagrams, and graphs throughout the docs to complement textual information.
+
+Do not use animated GIFs in the docs.
+
 ### Alt text
 
 Every image must include alt text providing a textual equivalent of the visual information.
