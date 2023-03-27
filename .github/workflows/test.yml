@@ -45,6 +45,7 @@ jobs:
               { name: 'content', path: 'tests/content', },
               { name: 'graphql', path: 'tests/graphql', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'linting', path: 'tests/linting', },
               { name: 'meta', path: 'tests/meta', },
               { name: 'routing', path: 'tests/routing', },

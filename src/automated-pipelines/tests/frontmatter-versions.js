@@ -1,10 +1,10 @@
 import { describe, expect } from '@jest/globals'
 
-import { supported } from '../../lib/enterprise-server-releases.js'
-import { allVersionKeys, allVersions } from '../../lib/all-versions.js'
-import { convertVersionsToFrontmatter } from '../../src/rest/scripts/utils/update-markdown.js'
+import { supported } from '../../../lib/enterprise-server-releases.js'
+import { allVersionKeys, allVersions } from '../../../lib/all-versions.js'
+import { convertVersionsToFrontmatter } from '../lib/update-markdown.js'
 
-describe('frontmatter versions are generated correctly from REST data', () => {
+describe('frontmatter versions are generated correctly from automated data', () => {
   test('non-continuous enterprise server versions', async () => {
     const fromVersions = allVersionKeys.filter(
       (version) =>
