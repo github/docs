@@ -30,7 +30,7 @@ You can register your Canvas installation with {% data variables.product.prodnam
 2. In the left sidebar on the home page, click **Admin**, then click **Site Admin**.
 3. Click **Developer Keys**.
 4. Under "Developer Keys", click the **+ Developer Key** button, then select **+ LTI Key** from the dropdown menu.
-5. On the "Key Settings" configuration screen, set the fields to the following values:
+5. On the "Key Settings" configuration screen, set the fields to the following values.
 
     | Field in Canvas app configuration | Value or setting |
     | :- | :- |
@@ -87,7 +87,7 @@ You must be using Moodle version 3.0 or greater.
 1. Return to the Moodle "Site administration" page by clicking on the "Site administration" tab in the top level menu.
 2. Click the "Plugins" tab, then next to the "Activity modules" section, under "External tool", click **Manage tools**.
 3. Click **Configure a tool manually**.
-4. Enter the following values in the fields:
+4. Enter the following values in the fields.
 
     | Field in Moodle app configuration | Value or setting |
     | :- | :- |
@@ -128,7 +128,7 @@ You must be using Moodle version 3.0 or greater.
 1. Go to Sakai and log in.
 2. Go to "Administration Workspace" and select **External Tools** in the left hand sidebar.
 3. Click **Install LTI 1.x Tool**.
-4. Enter the following values in the fields:
+4. Enter the following values in the fields.
 
     | Field in Sakai app configuration | Value or setting |
     | :- | :- |
