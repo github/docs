@@ -64,7 +64,7 @@ Query  | Example
 
 ## Exclude results that match a qualifier
 
-A way you can narrow down search results is to exclude certain subsets. You can prefix any search qualifier with a `-` to exclude all results that are matched by that qualifier.
+You can narrow down search results by excluding one or more subsets. To exclude all results that are matched by a qualifier, prefix the search qualifier with a hyphen (`-`).
 
 Query  | Example
 ------------- | -------------
