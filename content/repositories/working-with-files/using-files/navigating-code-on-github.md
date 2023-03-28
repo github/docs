@@ -53,7 +53,7 @@ Future releases will add *precise code navigation* for more languages, which is 
 
 You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![Screenshot of the function window. A section, titled "Definition," is outlined in dark orange.](/assets/images/help/repository/jump-to-definition-tab.png)
 
 ## Finding all references of a function or method
 
