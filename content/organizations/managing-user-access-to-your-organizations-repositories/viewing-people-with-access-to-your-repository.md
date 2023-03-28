@@ -45,6 +45,5 @@ You can see a combined overview of teams and people with access to your reposito
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.accessing-repository-people %}
-4. Click **Export CSV**.
-  ![People tab in the repository sidebar](/assets/images/help/repository/export-repository-permissions.png)
+1. Above the list of people, click **Export CSV**.
 {% endif %}

@@ -127,7 +127,6 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. To the right of the branch protection rule you want to edit, click **Edit**.
 1. Make your desired changes to the branch protection rule.
 1. Click **Save changes**.
-  ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
 
 ## Deleting a branch protection rule
 
@@ -135,4 +134,3 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 1. To the right of the branch protection rule you want to delete, click **Delete**.
-    ![Delete button](/assets/images/help/repository/delete-branch-protection-rule.png)
