@@ -1,15 +1,74 @@
 ---
-title: Troubleshooting GitHub Copilot in Visual Studio Code
-intro: 'This article provides troubleshooting advice for errors related to {% data variables.product.prodname_copilot%} in {% data variables.product.prodname_vscode %}.'
+title: Troubleshooting GitHub Copilot in your environment
+intro: 'Troubleshoot {% data variables.product.prodname_copilot %} related errors in your IDE.'
 product: '{% data reusables.gated-features.copilot %}'
+redirect_from:
+  - /copilot/troubleshooting-github-copilot-in-visual-studio
+  - /copilot/troubleshooting-github-copilot-in-visual-studio-code
+  - /copilot/troubleshooting-github-copilot-in-a-jetbrains-ide
+  - /copilot/troubleshooting-github-copilot-in-neovim
 topics:
   - Copilot
   - Logging
   - Troubleshooting
 versions:
   feature: copilot
-shortTitle: Visual Studio Code
+shortTitle: In your environment
 ---
+
+{% jetbrains %}
+
+## About troubleshooting {% data variables.product.prodname_copilot%} in your JetBrains IDE
+
+To troubleshoot issues with {% data variables.product.prodname_copilot%} or your JetBrains IDE, you can view the log files. The location of the log files depends on the JetBrains IDE you are using. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains)."
+
+## Collecting log files
+
+These steps describe how to view and collect the log files for the following JetBrains IDEs:
+
+- IntelliJ IDEA
+- Android Studio
+- GoLand
+- PhpStorm
+- PyCharm
+- RubyMine
+- WebStorm
+
+The {% data variables.product.prodname_copilot%} extension logs to the IDEA log location for IntelliJ plugins.
+1. In your JetBrains IDE, open the **Help** menu.
+1. Go to **Show Log in Finder**.
+1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
+
+For more information, see the [Locating IDE log files](https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files) in the IntelliJ documentation.
+
+### Collect log files from Rider
+
+1. In Rider, open the **Help** menu.
+1. Go to **Diagnostic Tools**.
+1. Go to **Show Log in**.
+1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
+
+
+{% endjetbrains %}
+
+{% visualstudio %}
+
+
+
+## Viewing logs in {% data variables.product.prodname_vs %}
+
+The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vs %} extensions.
+1. Open the the **View** menu in {% data variables.product.prodname_vs %}.
+1. Click **Output**.
+1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
+
+## Further reading
+
+- "[Log all activity to the log file for troubleshooting](https://learn.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2022)" in the {% data variables.product.prodname_vs %} documentation
+
+{% endvisualstudio %}
+
+{% vscode %}
 
 ## Viewing and collecting log files
 
@@ -55,5 +114,18 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)"
+- "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot)"
 - "[Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)" in the {% data variables.product.prodname_vscode %} documentation
+
+{% endvscode %}
+
+{% neovim %}
+
+## Checking if {% data variables.product.prodname_copilot%} is operational
+
+To check if GitHub Copilot is operational, run the following command in Neovim:
+
+
+    :Copilot status
+
+{% endneovim %}
