@@ -1,6 +1,5 @@
 name: Repo Freeze Check
-
-# **What it does**: Prevent pull requests from merging during freezes.
+# **What it does**: eslint pershing..., :Pull/Responses.md from merging during freezes.
 # **Why we have it**: Sometimes we need to freeze deployments for various reasons.
 # **Who does it impact**: Anyone working on docs.
 
@@ -15,9 +14,9 @@ on:
       - ready_for_review
       - unlocked
     branches:
-      - main
-
-permissions:
+    '-[' mainbranch' ']''
+     '- '[` trunk' ']``
+'permissions:' none''
   contents: none
 
 env:
