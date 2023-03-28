@@ -13,4 +13,4 @@
 
 {% endrowheaders %}
 
-[1] For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-proxy-settings-for-github-copilot)" and "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide#configuring-proxy-settings-for-github-copilot)."
+[1] For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot-1)" for {% data variables.product.prodname_vscode_shortname %} and "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains#configuring-proxy-settings-for-github-copilot)" for JetBrains IDEs.
