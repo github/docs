@@ -28,12 +28,16 @@ The following repositories have detailed instructions for setting up these autos
 
 Each solution has certain specifics that may be important to consider.
 
-| **Features** | **actions-runner-controller** | **terraform-aws-github-runner** |
+{% rowheaders %}
+
+| | actions-runner-controller | terraform-aws-github-runner |
 | :--- | :--- | :--- |
 | Runtime | Kubernetes | Linux and Windows VMs |
 | Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
 | Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
 | How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
+
+{% endrowheaders %}
 
 ## Using ephemeral runners for autoscaling
 

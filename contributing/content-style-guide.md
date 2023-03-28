@@ -151,11 +151,15 @@ If you must use footnotes:
 Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licenses”, view your total licenses.
+- **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
 ## Images
+
+We use static images including screenshots, diagrams, and graphs throughout the docs to complement textual information.
+
+Do not use animated GIFs in the docs.
 
 ### Alt text
 
@@ -167,7 +171,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in quotes.
+- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -182,15 +186,16 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 > Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
 
 - For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
   - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
 
 ##### Examples
 
-> Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
+> Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
 
 ![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
 
@@ -370,6 +375,7 @@ Some best practices for using links:
 - Links should be meaningful and provide high value to the user’s journey—link out carefully.
 - Move links that are helpful but not necessary to an article’s further reading section.
 - Do not repeat the same link more than once in the same article or under the same H2 header.
+- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
@@ -654,13 +660,62 @@ TEXT
 ### Use tables only for presenting tabular information
 Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document.
 
-### Avoid describing tables
-A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
-- **Use:** Nothing or a clear header.
-- **Avoid:** “The table below shows what kind of migration data is exported:”
+### Avoid describing table data
+A table’s data and why it is important should be clear from any preceding content, the column headers, and (if needed) the row headers. Avoid unneeded descriptions of the data in a table. If the data in a table is unclear without a lengthy description, consider if your table needs row headers or if the information would be better communicated in a different way.
+
+For example, in "[Autoscaling with self hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions)," a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
+
+- **Use:** "Different size limits per repository apply depending on your GHES version."
+- **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
+- **Avoid:** “The table below shows what kind of migration data is exported.”
+
+### Use proper markup for row and column headers
+
+Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells. 
+
+For example in the following table, in order to make sense of the "Yes" and "No" values in the table, you need to know both the column header (role) and row header (permission).
+
+<table>
+  <tr>
+    <th>Organization permission</th>
+    <th>Owners</th>
+    <th>Members</th>
+    <th>Moderators</th>
+    <th>Billing managers</th>
+    <th>Security managers</th>
+  </tr>
+  <tr>
+    <th>Create repositories</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>View and edit billing information</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th>Invite people to join the organization</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+</table>
+
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% rowheaders %} {% endrowheaders %}`. For more information about using row headers, see "[Table row headers](./content-markup-reference.md#table-row-headers)" in the content markup reference.
 
 ### Include a value for every cell
-Every cell in a table must contain a value. If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+
+If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 
 ### Use clear, consistent symbols and labels
 

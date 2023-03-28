@@ -29,9 +29,9 @@ With the raw view, you can view or copy the raw content of a file without any st
 
 ## Viewing the line-by-line revision history for a file
 
-With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
+Within the blame view, you can view the line-by-line revision history for an entire file. To view the revision history of a single line within a file, click {% octicon "versions" aria-label="View blame prior to this change" %}. Each time you click {% octicon "versions" aria-label="View blame prior to this change" %}, you'll see the previous revision information for that line, including who committed the change and when.
 
-![Git blame view](/assets/images/help/repository/git_blame.png)
+![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/help/repository/git_blame.png)
 
 In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
 

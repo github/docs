@@ -17,7 +17,7 @@ shortTitle: Display a sponsor button
 
 You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
-You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax:
+You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax.
 
 Platform | Syntax
 -------- | -----
@@ -32,7 +32,7 @@ Platform | Syntax
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
-For Tidelift, use the `platform-name/package-name` syntax with the following platform names:
+For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
 
 Language | Platform name
 -------- | -------------

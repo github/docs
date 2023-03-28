@@ -21,7 +21,7 @@ shortTitle: Use GitHub Connect for actions
 
 ## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
 
-By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. 
+By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}.
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
@@ -43,7 +43,6 @@ Before enabling access to all actions from {% data variables.product.prodname_do
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 ## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
@@ -55,10 +54,9 @@ Automatic retirement of namespaces for actions accessed on {% data variables.pro
 After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.location.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, under **Site admin** click **Retired namespaces**.
-3. Locate the namespace that you want use in {% data variables.location.product_location %} and click **Unretire**.
-   ![Unretire namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
-4. Go to the relevant organization and create a new repository.
+1. In the left sidebar, under **Site admin** click **Retired namespaces**.
+1. To the right of the namespace that you want use in {% data variables.location.product_location %}, click **Unretire**.
+1. Go to the relevant organization and create a new repository.
 
    {% tip %}
 

@@ -16,7 +16,23 @@ topics:
 ---
 ## About cloning a repository
 
-You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.
+{% webui %}
+
+You can clone a repository from {% data variables.location.product_location %} to your local computer{% ifversion codespaces %}, or to a codespace,{% endif %} to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine{% ifversion codespaces %}, or to a remote virtual machine when you create a codespace. For more information about cloning to a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."{% else %}.{% endif %}
+
+{% endwebui %}
+
+{% cli %}
+
+{% data reusables.repositories.about-cloning %}
+
+{% endcli %}
+
+{% desktop %}
+
+{% data reusables.repositories.about-cloning %}
+
+{% enddesktop %}
 
 Cloning a repository pulls down a full copy of all the repository data that {% data variables.location.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.location.product_location %}, or pull other people's changes from {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/using-git)".
 
@@ -68,11 +84,13 @@ For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-u
 An empty repository contains no files. It's often made if you don't initialize the repository with a README when creating it.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}.
-   ![Empty repository clone URL button](/assets/images/help/repository/empty-https-url-clone-button.png)
+1. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "copy" aria-label="Copy to clipboard" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "copy" aria-label="Copy to clipboard" %}.
 
-   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** and follow the prompts to complete the clone.
-   ![Empty repository clone desktop button](/assets/images/help/repository/empty-desktop-clone-button.png)
+   ![Screenshot of the quick setup instructions for an empty repository. To the right of the HTTPS URL for the repository, a copy icon is outlined in dark orange.](/assets/images/help/repository/empty-https-url-clone-button.png)
+
+   Alternatively, to clone your repository in Desktop, click {% octicon "desktop-download" aria-hidden="true" %} **Set up in Desktop** and follow the prompts to complete the clone.
+
+   ![Screenshot of the quick setup instructions for an empty repository. A button, labeled with a download icon and "Set up in Desktop," is outlined in dark orange.](/assets/images/help/repository/empty-desktop-clone-button.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}

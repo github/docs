@@ -27,23 +27,21 @@ Issues and pull requests in public repositories, and in private repositories for
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Open the issue or pull request that you want to assign to someone.
-4. If no one is assigned to an issue or pull request, click **assign yourself** to assign yourself.
-  ![The assign yourself item](/assets/images/help/issues/assign_yourself.png)
-5. In the right side menu, click **Assignees**.
-   ![The Assignees menu item](/assets/images/help/issues/assignee_menu.png)
-6. To assign the issue or pull request to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
-  ![Issues assignment drop-down](/assets/images/help/issues/issues_assigning_dropdown.png)
+1. Open the issue or pull request that you want to assign to someone.
+1. In the right side menu, click **Assignees**.
+
+   ![Screenshot of the right sidebar of an issue. A header, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/assignee_menu.png)
+1. To assign the issue or pull request to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
 
 ## Assigning multiple issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Select the checkbox next to the items you want to assign to someone.
-  ![Issues metadata checkbox](/assets/images/help/issues/issues_assign_checkbox.png)
-4. In the upper-right corner, click **Assign**.
-5. To assign the items to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
-  ![Issues assignment drop-down](/assets/images/help/issues/issues_assigning_dropdown.png)
+1. Select the items you want to assign to someone.
+
+   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues_assign_checkbox.png)
+1. In the upper-right corner, click **Assign**.
+1. To assign the items to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
 
 ## Further reading
 

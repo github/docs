@@ -59,10 +59,9 @@ You can download the log files from your workflow run. You can also download a w
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% data reusables.repositories.navigate-to-job %}
-1. In the upper right corner, click {% octicon "gear" aria-label="The gear icon" %} and select **Download log archive**.
-  
-  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
-  
+1. In the upper right corner of the log, select the {% octicon "gear" aria-label="Show options" %} dropdown menu, then click **Download log archive**.
+
+  ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
 
   {% ifversion re-run-jobs %}
 
@@ -82,14 +81,12 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    
-    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
-    
-2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
-  
-  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
-  
+1. In the upper-right corner, select the {% octicon "kebab-horizontal" aria-label="Show workflow options" %} dropdown menu, then click **Delete all logs**.
+
+    ![Screenshot of the page for a workflow run. In the top-right corner, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/actions/workflow-run-kebab-horizontal-icon.png)
+
+1. Review the confirmation prompt.
+
 After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 
 ## Viewing logs with {% data variables.product.prodname_cli %}

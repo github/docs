@@ -47,8 +47,6 @@ For more information about macOS system notifications, see "[Use notifications o
 2. Select **System**, then click **Notifications**.
 3. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
 
-![Enable Windows Notifications](/assets/images/help/desktop/windows-enable-notifications.png)
-
 For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
 
 {% endwindows %}

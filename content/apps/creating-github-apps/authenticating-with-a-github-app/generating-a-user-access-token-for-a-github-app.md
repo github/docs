@@ -27,7 +27,7 @@ Users can revoke their authorization of a {% data variables.product.prodname_git
 
 ## Using the web application flow to generate a user access token
 
-If your app runs in the browser, you should use the web application flow to generate a user access token.
+If your app runs in the browser, you should use the web application flow to generate a user access token. For a tutorial about using the web application flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app)."
 
 1. Direct the user to this URL, and add any necessary query parameters from the following list of parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize`. For example, this URL specifies the `client_id` and `state` parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=12345&state=abcdefg`.
 

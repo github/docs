@@ -37,8 +37,8 @@ Depending on the policy settings configured at the enterprise level, an organiza
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Selected teams/users** and click **Save**.
-1. If you are updating user access from the **Allow for all members** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
+1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Purchase for selected teams/users** and click **Save**.
+1. If you are updating user access from the **Purchase for all members** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
     - To unassign all members and then select those who should have access, select **Start from scratch**.
     - To keep all members who currently have access and then select those who should not have access, select **Keep all users**.
 1. If you selected **Start from scratch**, click **Add people** or **Add teams** to add individual users, or entire teams.
@@ -72,7 +72,7 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions,", select **Selected teams/users** and then click **Save**.
+1. Under "User permissions,", select **Purchase for selected teams/users** and then click **Save**.
 
     - In the "Confirm seat assignment" pop-up dialog, select **Keep all users**.
 

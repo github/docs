@@ -33,13 +33,17 @@ If you're a member of an organization that uses {% data variables.product.prodna
 
 {% ifversion not ghae %}
 
+{% rowheaders %}
+
 |  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
 |----|---------------|-------|---------------|
-| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Check" %}  |  |  |  
-| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |  
-| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |
-| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
-| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
+| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
+| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
+
+{% endrowheaders %}
 
 {% endif %}
 

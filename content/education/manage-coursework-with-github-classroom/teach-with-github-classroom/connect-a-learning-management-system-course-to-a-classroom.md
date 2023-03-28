@@ -17,7 +17,7 @@ shortTitle: Connect an LMS course
 ---
 ## About connecting an LMS to your classroom
 
-You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} and import a roster of student identifiers from the LMS. 
+You can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} and import a roster of student identifiers from the LMS.
 
 ## Prerequisites
 
@@ -43,13 +43,13 @@ An administrator needs to register your LMS instance with classroom before you c
 
 1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
 1. Select the Canvas course to integrate with {% data variables.product.prodname_classroom %}.
-2. Click "Settings" in the left sidebar, then click the "Apps" tab. 
-3. Click the **+ App** button. 
-4. Under "Configuration Type", select **By Client ID** from the dropdown menu. 
+2. Click "Settings" in the left sidebar, then click the "Apps" tab.
+3. Click the **+ App** button.
+4. Under "Configuration Type", select **By Client ID** from the dropdown menu.
 5. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.
 6. Click **Submit**, then click **Install**.
 7. Refresh the page, and you should see a **GitHub Classroom** link in the course sub-navigation menu on the right hand side of the course details page. Note that the name may be different if your LMS admin named it something else when registering your LMS.
-8. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course. 
+8. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
 ## Linking a Moodle course with a classroom
@@ -63,7 +63,7 @@ You must be using Moodle version 3.0 or greater.
 1. Sign into [Moodle](https://moodle.org/login/).
 1. Select the Moodle course to integrate with {% data variables.product.prodname_classroom %}.
 2. Under "External Tools, under "General", you should see a button with the name "GitHub Classroom". Note that the name may be different if your LMS admin named it something else when registering your LMS.
-3. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course. 
+3. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
 ## Linking a Sakai course with a classroom
@@ -74,7 +74,7 @@ An administrator needs to register your LMS instance with classroom before you c
 
 1. Sign into your Sakai instance.
 2. Select the Sakai course to integrate with {% data variables.product.prodname_classroom %}.
-3. Click on **External Tools**. 
+3. Click on **External Tools**.
 4. Click on **Tool Links**.
 5. Clicking the "GitHub Classroom" link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
@@ -84,18 +84,13 @@ Once your course is linked, you can import your roster from your LMS course to y
 ## Importing a roster from your LMS
 
 To import your roster from your LMS:
-1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab. 
-2. Click the **Import from...** button containing the name of your LMS (Canvas, Sakai, or Moodle). 
-   
-   ![Import from Canvas button](/assets/images/help/classroom/import-from-connected-lms.png)
-
-3. Select which identifier you'd like to use for your students, then click **Import roster entries**, and your roster will be imported.
+1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab.
+1. Click the **Import from...** button containing the name of your LMS (Canvas, Sakai, or Moodle).
+1. Select which identifier you'd like to use for your students, then click **Import roster entries**, and your roster will be imported.
 
 To update an existing roster:
- 1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab. 
- 2. Click the **Sync from...** button containing the name of your LMS (Canvas, Sakai, or Moodle).
-
-![Sync from Moodle button](/assets/images/help/classroom/moodle-sync-roster.png)
+1. Open your linked classroom in {% data variables.product.prodname_classroom %} and select the "Students" tab.
+1. Click the **Sync from...** button containing the name of your LMS (Canvas, Sakai, or Moodle).
 
 ## Importing a roster from Google Classroom
 
@@ -108,7 +103,6 @@ Google Classroom does not use the LTI protocol so does not need to be connected 
     - For more information about deleting and creating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
     - For more information about updating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
 1. In the list of LMSes, click **Google Classroom**.
-  !["Google Classroom" button](/assets/images/help/classroom/classroom-settings-click-google-classroom.png)
 1. Sign in to Google, then select the Classroom to link to.
 
 ## Disconnecting your LMS
@@ -119,6 +113,4 @@ You can disconnect your classroom from your LMS in {% data variables.product.pro
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-settings %}
 1. Under "Connect to a learning management system (LMS)", click **Connection Settings**.
-  !["Connection settings" link in classroom settings](/assets/images/help/classroom/classroom-settings-click-connection-settings.png)
 1. Under "Delete Connection to your learning management system", click **Disconnect from your learning management system**.
-  !["Disconnect from your learning management system" button in connection settings for classroom](/assets/images/help/classroom/classroom-settings-click-disconnect-from-your-lms-button.png)

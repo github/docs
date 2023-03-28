@@ -99,9 +99,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    -  Optionally, to allow fork syncing, select **Allow fork syncing**.
 ![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png)
 {%- endif %}
-1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**.
-![Do not allow bypassing the above settings checkbox](/assets/images/help/repository/do-not-allow-bypassing-the-above-settings.png){% else %}**Apply the rules above to administrators**.
-![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png){% endif %}
+1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**{% else %}**Apply the rules above to administrators**{% endif %}.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
@@ -127,10 +125,8 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 1. To the right of the branch protection rule you want to edit, click **Edit**.
-  ![Edit button](/assets/images/help/repository/edit-branch-protection-rule.png)
 1. Make your desired changes to the branch protection rule.
 1. Click **Save changes**.
-  ![Save changes button](/assets/images/help/repository/save-branch-protection-rule.png)
 
 ## Deleting a branch protection rule
 
@@ -138,4 +134,3 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 1. To the right of the branch protection rule you want to delete, click **Delete**.
-    ![Delete button](/assets/images/help/repository/delete-branch-protection-rule.png)

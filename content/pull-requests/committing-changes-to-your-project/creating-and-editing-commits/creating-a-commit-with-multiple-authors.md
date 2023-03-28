@@ -34,9 +34,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-manag
 
 ## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
-
-![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ## Creating co-authored commits on the command line
 

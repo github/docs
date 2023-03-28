@@ -7,6 +7,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-integration-with-code-scanning
   - /code-security/secure-coding/about-integration-with-code-scanning
   - /code-security/secure-coding/integrating-with-code-scanning/about-integration-with-code-scanning
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/about-integration-with-code-scanning
 versions:
   fpt: '*'
   ghes: '*'

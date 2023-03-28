@@ -22,7 +22,7 @@ For all the methods of setting custom variables listed below, you can access the
 
 You can set the value of the environment variable in the `~/.bashrc` file, or in an equivalent configuration file if you are not using the Bash shell. For example, add the statement `VARNAME=value`.
 
-After you save the change to this file, the value will be set the next time you open the codespace, or you can set it immediately by using a command such as `source ~/.bashrc`. The variable will remain set if you stop and start the codespace. However, changes to files in the home directory will be reset if you rebuild the container, so variables set in the `~/.bashrc` file will not persist over a rebuild.
+After you save the change to this file, the value will be set the next time you open the codespace, or you can set it immediately by using a command such as `source ~/.bashrc`. The variable will remain set if you stop and start the codespace. However, changes to files in the home directory will be reset if you rebuild the container, so variables set in the `~/.bashrc` file will not persist over a rebuild. For more information, see "[Preventing temporary files from being automatically deleted](#preventing-temporary-files-from-being-automatically-deleted)."
 
 ### For all codespaces for a repository
 
@@ -72,6 +72,8 @@ If you want to set a personalized environment variable for all codespaces that y
 
 ## Preventing temporary files from being automatically deleted
 
-Files saved to your workspace will be available the next time you start the codespace. The exception to this is any file you save in the `/tmp` directory. The contents of this directory are deleted each time the codespace stops (for example, when the codespace session times out after a period of inactivity).
+{% data reusables.codespaces.workspaces-directory %} For information about creating symlinks to preserve data outside the `/workspaces` directory, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
-If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+The `/tmp` directory is an exception because it is mounted into the container, but it is not persistent. Therefore, the contents of the `/tmp` directory are persisted over a rebuild, but are cleared each time the codespace stops. For example, the `/tmp` directory is cleared when a codespace session times out after a period of inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+
+If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory. 
