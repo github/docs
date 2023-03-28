@@ -59,7 +59,8 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 - The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies. 
 - The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
-- You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.
+- You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.{% ifversion dependency-graph-sbom-export %}
+- {% data reusables.dependency-graph.sbom-export %}{% endif %}
 
 {% ifversion dependency-submission-api %} 
 {% data reusables.dependency-submission.dependency-submission-link %}
