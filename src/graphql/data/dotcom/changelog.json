@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>PullRequestReviewThreadSubjectType</code> was added</p>",
+          "<p>Input field <code>subjectType</code> was added to input object type <code>AddPullRequestReviewThreadInput</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>line</code> was added to object type <code>PullRequestReviewComment</code></p>",
           "<p>Field <code>originalLine</code> was added to object type <code>PullRequestReviewComment</code></p>",
           "<p>Field <code>originalStartLine</code> was added to object type <code>PullRequestReviewComment</code></p>",

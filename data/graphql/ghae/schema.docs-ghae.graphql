@@ -640,6 +640,11 @@ input AddPullRequestReviewThreadInput {
   The side of the diff on which the start line resides.
   """
   startSide: DiffSide = RIGHT
+
+  """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType = LINE
 }
 
 """
@@ -27910,6 +27915,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   state: PullRequestReviewCommentState!
 
   """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType!
+
+  """
   Identifies when the comment was last updated.
   """
   updatedAt: DateTime!
@@ -28286,6 +28296,11 @@ type PullRequestReviewThread implements Node {
   startLine: Int
 
   """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType!
+
+  """
   Indicates whether the current viewer can reply to this thread.
   """
   viewerCanReply: Boolean!
@@ -28339,6 +28354,21 @@ type PullRequestReviewThreadEdge {
   The item at the end of the edge.
   """
   node: PullRequestReviewThread
+}
+
+"""
+The possible subject types of a pull request review comment.
+"""
+enum PullRequestReviewThreadSubjectType {
+  """
+  A comment that has been made against the file of a pull request
+  """
+  FILE
+
+  """
+  A comment that has been made against the line of a pull request
+  """
+  LINE
 }
 
 """

@@ -48553,6 +48553,14 @@
           "href": "/graphql/reference/enums#pullrequestreviewcommentstate"
         },
         {
+          "name": "subjectType",
+          "description": "<p>The level at which the comments in the corresponding thread are targeted, can be a diff line or a file.</p>",
+          "type": "PullRequestReviewThreadSubjectType!",
+          "id": "pullrequestreviewthreadsubjecttype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype"
+        },
+        {
           "name": "updatedAt",
           "description": "<p>Identifies when the comment was last updated.</p>",
           "type": "DateTime!",
@@ -49054,6 +49062,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "subjectType",
+          "description": "<p>The level at which the comments in the corresponding thread are targeted, can be a diff line or a file.</p>",
+          "type": "PullRequestReviewThreadSubjectType!",
+          "id": "pullrequestreviewthreadsubjecttype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype"
         },
         {
           "name": "viewerCanReply",
@@ -78464,6 +78480,23 @@
       ]
     },
     {
+      "name": "PullRequestReviewThreadSubjectType",
+      "kind": "enums",
+      "id": "pullrequestreviewthreadsubjecttype",
+      "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype",
+      "description": "<p>The possible subject types of a pull request review comment.</p>",
+      "values": [
+        {
+          "name": "FILE",
+          "description": "<p>A comment that has been made against the file of a pull request.</p>"
+        },
+        {
+          "name": "LINE",
+          "description": "<p>A comment that has been made against the line of a pull request.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestState",
       "kind": "enums",
       "id": "pullrequeststate",
@@ -83834,6 +83867,14 @@
           "id": "diffside",
           "kind": "enums",
           "href": "/graphql/reference/enums#diffside"
+        },
+        {
+          "name": "subjectType",
+          "description": "<p>The level at which the comments in the corresponding thread are targeted, can be a diff line or a file.</p>",
+          "type": "PullRequestReviewThreadSubjectType",
+          "id": "pullrequestreviewthreadsubjecttype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype"
         }
       ]
     },
