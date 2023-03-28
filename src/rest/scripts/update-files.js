@@ -65,6 +65,7 @@ const { versions, includeUnpublished, includeDeprecated, next, output, sourceRep
 main()
 
 async function main() {
+  const pipelines = Array.isArray(output) ? output : [output]
   await validateInputParameters()
   rimraf.sync(TEMP_OPENAPI_DIR)
   await mkdirp(TEMP_OPENAPI_DIR)
@@ -110,22 +111,22 @@ async function main() {
   const derefFiles = await readdir(TEMP_OPENAPI_DIR)
   const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(derefFiles)
 
-  if (output.includes('rest')) {
+  if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
     await syncRestData(TEMP_OPENAPI_DIR, restSchemas)
   }
 
-  if (output.includes('webhooks')) {
+  if (pipelines.includes('webhooks')) {
     console.log(`\n▶️  Generating Webhook data files...\n`)
     await syncWebhookData(TEMP_OPENAPI_DIR, webhookSchemas)
   }
 
-  if (output.includes('github-apps')) {
+  if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
     await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas)
   }
 
-  if (output.includes('rest-redirects')) {
+  if (pipelines.includes('rest-redirects')) {
     console.log(`\n▶️  Generating REST redirect data files...\n`)
     await syncRestRedirects(TEMP_OPENAPI_DIR, restSchemas)
   }
@@ -141,7 +142,7 @@ async function main() {
       throw new Error(`Could not get the SHA of the synced ${REST_API_DESCRIPTION_ROOT} repo.`)
     }
 
-    const pipelinesWithConfigs = output.filter((pipeline) => !noConfig.includes(pipeline))
+    const pipelinesWithConfigs = pipelines.filter((pipeline) => !noConfig.includes(pipeline))
     for (const pipeline of pipelinesWithConfigs) {
       const configFilepath = `src/${pipeline}/lib/config.json`
       const configData = JSON.parse(await readFile(configFilepath, 'utf8'))

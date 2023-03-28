@@ -3,7 +3,7 @@ import { existsSync } from 'fs'
 import path from 'path'
 import mkdirp from 'mkdirp'
 
-import { updateMarkdownFiles } from './update-markdown.js'
+import { updateRestFiles } from './update-markdown.js'
 import { allVersions } from '../../../../lib/all-versions.js'
 import { createOperations, processOperations } from './get-operations.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
@@ -48,7 +48,7 @@ export async function syncRestData(sourceDirectory, restSchemas) {
       console.log(`✅ Wrote ${targetPath}`)
     })
   )
-  await updateMarkdownFiles()
+  await updateRestFiles()
   await updateRestConfigData(restSchemas)
 }
 

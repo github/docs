@@ -34,13 +34,11 @@ A repository is usually used to organize a single project. Repositories can cont
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
 
 {% data reusables.repositories.create_new %}
-1. In the **Repository name** box, enter `hello-world`.
-2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Select whether your repository will be **Public** or **Private**.
-5. Click **Create repository**.
-
-   ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
+1. In the "Repository name" box, type `hello-world`.
+1. In the "Description" box, type a short description.
+1. Select whether your repository will be **Public** or **Private**.
+1. Select **Add a README file**.
+1. Click **Create repository**.
 
 ## Creating a branch
 
@@ -77,7 +75,7 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 1. Type a branch name, `readme-edits`, into the text box.
 1. Click **Create branch: readme-edits from main**.
 
-![Branch menu](/assets/images/help/repository/new-branch.png)
+   ![Screenshot of the branch dropdown for a repository. "Create branch: readme-edits from 'main'" is outlined in dark orange.](/assets/images/help/repository/new-branch.png)
 
 Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
@@ -88,12 +86,10 @@ When you created a new branch in the previous step, {% data variables.product.pr
 You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
-2. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-3. In the editor, write a bit about yourself. Try using different Markdown elements.
-4. In the **Commit changes** box, write a commit message that describes your changes.
-5. Click **Commit changes**.
-
-   ![Commit example](/assets/images/help/repository/first-commit.png)
+1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
+1. In the editor, write a bit about yourself. Try using different Markdown elements.
+1. In the "Commit changes" box, write a commit message that describes your changes.
+1. Click **Commit changes**.
 
 These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
 
@@ -114,7 +110,7 @@ You can even open pull requests in your own repository and merge them yourself. 
 3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
 4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
 
 5. Click **Create pull request**.
 6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.

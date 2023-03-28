@@ -10,6 +10,15 @@ describe('extended Markdown', () => {
     expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
 
+  test('renders styled danger', async () => {
+    const $ = await getDOM('/get-started/liquid/danger')
+    const nodes = $('div.extended-markdown.danger')
+    expect(nodes.length).toBe(1)
+    expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
+    expect(nodes.hasClass('color-border-danger')).toBe(true)
+    expect(nodes.hasClass('color-bg-danger')).toBe(true)
+  })
+
   test('renders styled tips', async () => {
     const $ = await getDOM('/get-started/liquid/tips')
     const nodes = $('div.extended-markdown.tip')
@@ -111,4 +120,77 @@ describe('extended Markdown', () => {
     expect($('tbody tr th', secondTable).length).toBe(0)
     expect($('tbody tr td', secondTable).length).toBe(3 * 4)
   })
+
+  // tests for ifversion
+
+  // the matchesPerVersion object contains a list of conditions that
+  // should match per version tested, but we also operate against it
+  // to find out versions that shouldn't match
+  const matchesPerVersion = {
+    'free-pro-team@latest': [
+      'condition-a',
+      'condition-b',
+      'condition-d',
+      'condition-i',
+      'condition-j',
+      'condition-l',
+    ],
+    'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
+    'enterprise-server@3.4': [
+      'condition-c',
+      'condition-e',
+      'condition-g',
+      'condition-i',
+      'condition-j',
+      'condition-m',
+      'condition-n',
+    ],
+    'enterprise-server@3.5': [
+      'condition-c',
+      'condition-e',
+      'condition-f',
+      'condition-g',
+      'condition-h',
+      'condition-i',
+      'condition-k',
+      'condition-m',
+      'condition-o',
+    ],
+    'enterprise-server@3.6': [
+      'condition-c',
+      'condition-e',
+      'condition-f',
+      'condition-i',
+      'condition-j',
+      'condition-m',
+      'condition-o',
+    ],
+  }
+
+  test.each(Object.keys(matchesPerVersion))(
+    'ifversion using rendered version %p',
+    async (version) => {
+      const $ = await getDOM(`/${version}/get-started/liquid/ifversion`)
+      const html = $('#article-contents').html()
+
+      const allConditions = Object.values(matchesPerVersion).flat()
+
+      // this is all conditions that should match for this rendered version
+      const wantedConditions = allConditions.filter((condition) => {
+        return matchesPerVersion[version].includes(condition)
+      })
+
+      // this is the inverse of the above, conditions that shoudn't match for this rendered version
+      const unwantedConditions = allConditions.filter((condition) => {
+        return !matchesPerVersion[version].includes(condition)
+      })
+
+      wantedConditions.forEach((condition) => {
+        expect(html).toMatch(condition)
+      })
+      unwantedConditions.forEach((condition) => {
+        expect(html).not.toMatch(condition)
+      })
+    }
+  )
 })
