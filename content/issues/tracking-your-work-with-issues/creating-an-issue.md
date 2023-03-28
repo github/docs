@@ -85,8 +85,6 @@ You can open a new issue from a comment in an issue or pull request. When you op
 
 You can open a new issue from a specific line or lines of code in a file or pull request. When you open an issue from code, the issue contains a snippet showing the line or range of code you chose. You can only open an issue in the same repository where the code is stored.
 
-![Code snippet rendered in an issue opened from code](/assets/images/help/repository/issue-opened-from-code.png)
-
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     - To open an issue about code in a file, navigate to the file.

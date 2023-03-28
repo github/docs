@@ -66,7 +66,6 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Restrict who can dismiss pull request reviews checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
 {% ifversion last-pusher-require-approval %}
    - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval from someone other than the last pusher**. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
-     ![Require review from someone other than the last pusher](/assets/images/help/repository/last-pusher-review-required.png)
 {% endif %}
 1. Optionally, enable required status checks. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
    - Select **Require status checks to pass before merging**.
@@ -95,10 +94,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
 {% ifversion lock-branch %}
-1. Optionally, select **Lock branch** to make branch read-only.
-![Screenshot of the checkbox to lock a branch](/assets/images/help/repository/lock-branch.png)
-   -  Optionally, to allow fork syncing, select **Allow fork syncing**.
-![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png)
+1. Optionally, make the branch read-only.
+   - Select **Lock branch**.
+   - Optionally, to allow fork syncing, select **Allow fork syncing**.
 {%- endif %}
 1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**{% else %}**Apply the rules above to administrators**{% endif %}.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.

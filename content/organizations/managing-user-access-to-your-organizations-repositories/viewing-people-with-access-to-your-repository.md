@@ -25,8 +25,6 @@ You can use this information to help off-board people, gather data for complianc
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
 {% endif %}
 
-![Access management overview](/assets/images/help/repository/manage-access-overview.png)
-
 ## Viewing people with access to your repository
 
 You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)."
