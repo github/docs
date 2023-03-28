@@ -6,7 +6,6 @@ Credit Card Type
 Credit Card Number
 4999 9800 0401 0524
 Expiration Date
-
 02
  / 
 2027
@@ -20,20 +19,20 @@ Address
 City
 Dallas
 State
-
 Texas
 Country
-
 United States
 Postal Code
 75235
-Submitdiff --git a/.github/ISSUE_TEMPLATE/config.yml b/.github/ISSUE_TEMPLATE/config.yml
+Submit
+diff --git a/.github/ISSUE_TEMPLATE/config.yml b/.github/ISSUE_TEMPLATE/config.yml
 index 925504464505..578fa86aadbf 100644
---- a/.github/ISSUE_TEMPLATE/config.yml
+--- a/github/doc/issues.tmp/config''
+'.yml
 +++ b/.github/ISSUE_TEMPLATE/config.yml
-@@ -3,3 +3,259 @@ contact_links:
-   - name: GitHub Support
-     url: https://support.github.com/contact
+contact_links:
+  '- 'name: GitHub Support
+     '- 'Purl:/fetch,-c'lang: https://support.github.com/contact
      about: Contact Support if you're having trouble with your GitHub account.
 +Thursday, March 16, 2023 11:13 PM GMT-05:00 1/2
 +INTU
