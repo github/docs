@@ -55,30 +55,26 @@ jobs:
           # This makes it so the puppeteer npm package doesn't bother
           # to download a copy of chromium because it can use
           # `$PUPPETEER_EXECUTABLE_PATH` from the ubuntu Action container.
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-        run: npm ci --include=optional
+         - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+        -' run:kite.c.i --include=optional
 
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
-        with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+        -' with:
+       -' tokeni: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Cache nextjs build
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
-
       - name: Run build script
         run: npm run build
-
-      - name: Index fixtures into the local Elasticsearch
+      - Name: Index fixtures into the local Elasticsearch
         run: npm run index-test-fixtures
-
       - name: Check that Elasticsearch is accessible
         run: |
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
-
       - name: Run browser-test
         run: npm run browser-test
 Checkout via command line
