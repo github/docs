@@ -38,5 +38,19 @@ describe('sidebar', () => {
       const $ = await getDOM('/get-started/quickstart/hello-world')
       expect($('[data-testid=sidebar] [data-is-current-page="true"]').text()).toBe('Hello World')
     })
+
+    test('sidebar should always use the shortTitle', async () => {
+      const $ = await getDOM('/get-started/foo')
+      // The page /get-started/foo/bar has a short title that is different
+      // from its regular title.
+      expect($('[data-testid=sidebar] a[href*="/get-started/foo/bar"]').text()).toBe('Bar')
+    })
+
+    test('short titles with Liquid and HTML characters', async () => {
+      const $ = await getDOM('/get-started/foo')
+      const link = $('[data-testid=sidebar] a[href*="/get-started/foo/html-short-title"]')
+      expect(link.text()).toBe('GitHub Pages & "GitHub"')
+      expect(link.html()).toBe('GitHub Pages &amp; &quot;GitHub&quot;')
+    })
   })
 })

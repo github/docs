@@ -14,4 +14,5 @@ children:
   - /anchor-autotitling
   - /cross-version-linking
   - /for-playwright
+  - /html-short-title
 ---

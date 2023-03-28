@@ -65,19 +65,6 @@ describe('sidebar', () => {
       })
     )
   })
-
-  test("test a page where there's known sidebar short titles that use Liquid and ampersands", async () => {
-    const url =
-      '/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards'
-    const $ = await getDOM(url)
-    const linkTexts = []
-    $('[data-testid=sidebar]  a').each((i, element) => {
-      linkTexts.push($(element).text())
-    })
-    // This makes sure that none of the texts in there has their final HTML
-    // to be HTML entity encoded.
-    expect(linkTexts.filter((text) => text.includes('&amp;')).length).toBe(0)
-  })
 })
 
 // Recursively go through the content/rest directory and get all the absolute file names
