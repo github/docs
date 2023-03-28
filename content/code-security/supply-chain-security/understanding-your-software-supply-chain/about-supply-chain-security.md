@@ -26,7 +26,7 @@ With the accelerated use of open source, most projects depend on hundreds of ope
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
-{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment{% ifversion ghae %} and know about vulnerabilities in those dependencies{% endif %}{% ifversion fpt or ghec or ghes %}, know about vulnerabilities in those dependencies, and patch them{% endif %}. 
+{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment{% ifversion ghae %} and know about vulnerabilities in those dependencies{% endif %}{% ifversion fpt or ghec or ghes %}, know about vulnerabilities in those dependencies, and patch them{% endif %}.
 
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
@@ -36,7 +36,7 @@ The supply chain features on {% data variables.product.product_name %} are:
   - **{% data variables.product.prodname_dependabot_security_updates %}**
   - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
 
-The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository. 
+The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository.
 
 Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
 
@@ -57,20 +57,18 @@ For best practice guides on end-to-end supply chain security including the prote
 
 To generate the dependency graph, {% data variables.product.company_short %} looks at a repository’s explicit dependencies declared in the manifest and lockfiles. When enabled, the dependency graph automatically parses all known package manifest files in the repository, and uses this to construct a graph with known dependency names and versions.
 
-- The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies. 
+- The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies.
 - The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
 - You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.{% ifversion dependency-graph-sbom-export %}
 - {% data reusables.dependency-graph.sbom-export %}{% endif %}
 
-{% ifversion dependency-submission-api %} 
 {% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
 
 For more information about the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 ### What is dependency review
 
-Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request. 
+Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request.
 
 - Dependency review tells you which dependencies were added, removed, or updated, in a pull request. You can use the release dates, popularity of dependencies, and vulnerability information to help you decide whether to accept the change.
 - You can see the dependency review for a pull request by showing the rich diff on the **Files Changed** tab.
@@ -112,13 +110,13 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 #### What are Dependabot alerts
 
-{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. 
+{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}.
 
 - {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 {% ifversion fpt or ghec %}
    - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
    - New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-   - The dependency graph for the repository changes. 
+   - The dependency graph for the repository changes.
 - {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
@@ -133,7 +131,7 @@ There are two types of {% data variables.product.prodname_dependabot_updates %}:
  - Update dependencies to the minimum version that resolves a known vulnerability
  - Supported for ecosystems the dependency graph supports
  - Does not require a configuration file, but you can use one to override the default behavior
- 
+
 {% data variables.product.prodname_dependabot_version_updates %}:
  - Requires a configuration file
  - Run on a schedule you configure
@@ -150,7 +148,7 @@ For more information about {% data variables.product.prodname_dependabot_updates
 Public repositories:
 - **Dependency graph**—enabled by default and cannot be disabled.
 - **Dependency review**—enabled by default and cannot be disabled.
-- **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. {% data variables.product.prodname_dotcom %} detects insecure dependencies and displays information in the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %}. 
+- **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. {% data variables.product.prodname_dotcom %} detects insecure dependencies and displays information in the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %}.
   You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 Private repositories:
@@ -158,7 +156,7 @@ Private repositories:
 {% ifversion fpt %}
 - **Dependency review**—available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 {% elsif ghec %}
-- **Dependency review**—available in private repositories owned by organizations provided you have a license for {% data variables.product.prodname_GH_advanced_security %} and the dependency graph enabled. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)." 
+- **Dependency review**—available in private repositories owned by organizations provided you have a license for {% data variables.product.prodname_GH_advanced_security %} and the dependency graph enabled. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."
 {% endif %}
 - **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
   You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
