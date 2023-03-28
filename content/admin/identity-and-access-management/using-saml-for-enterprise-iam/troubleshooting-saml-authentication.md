@@ -40,16 +40,9 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
-
-   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
-
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-
 1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
-
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
-
-   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
 
 ## Decoding responses in _auth.log_
 

@@ -20,8 +20,9 @@ shortTitle: Configure commit merging
 {% ifversion ghes < 3.6  %}
  ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %}
 {% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow merge commits**, use the dropdown to choose the format of the commit message presented to contributors when merging. The default message includes the pull request number and title. For example, `Merge pull request #123 from patch-1`. You can also choose to use just the pull request title, or the pull request title and description. 
-![Screenshot of emphasized default commit message dropdown](/assets/images/help/repository/default-commit-message-dropdown.png)
+1. Optionally, under **Allow merge commits**, select the dropdown menu, then click the format of the commit message presented to contributors when merging.
+
+   The default message includes the pull request number and title. For example, `Merge pull request #123 from patch-1`. You can also choose to use just the pull request title, or the pull request title and description.
 {% endif %}
 
 If you select more than one merge method, collaborators can choose which type of merge commit to use when they merge a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-history %}

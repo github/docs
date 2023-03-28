@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![Diagram of an event triggering a workflow that uses scripts to test code.](/assets/images/help/actions/overview-actions-using-scripts-ci-example.png)
 
 ## Features used in this example
 

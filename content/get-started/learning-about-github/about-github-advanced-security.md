@@ -38,11 +38,16 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 {% ifversion fpt or ghec %}
 The table below summarizes the availability of {% data variables.product.prodname_GH_advanced_security %} features for public and private repositories.
 
+{% rowheaders %}
+
 | | Public repository | Private repository <br>without {% data variables.product.prodname_advanced_security %} | Private repository <br>with {% data variables.product.prodname_advanced_security %} |
 | --- | --- | --- | --- |
 | Code scanning     | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Dependency review | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+
+{% endrowheaders %}
+
 {% endif %}
 
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
