@@ -84,7 +84,7 @@ For more information, see "[{% data variables.product.prodname_secret_scanning_c
 
 You can list all {% data variables.product.prodname_code_scanning %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. Alternatively, you can get full details for an alert or update the alert.
 
-For more information, see "[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
+For more information, see “[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
 
 ## Further reading
 - [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)

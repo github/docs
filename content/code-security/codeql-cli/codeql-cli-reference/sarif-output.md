@@ -19,7 +19,7 @@ topics:
 ## About SARIF output
 
 SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are
-considered "optional". This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze/)."
+considered “optional”. This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see the [database analyze](https://codeql.github.com/docs/codeql-cli/manual/database-analyze/) command in the {% data variables.product.prodname_codeql %} documentation.
 
 ## SARIF specification and schema
 
@@ -78,9 +78,9 @@ This details each SARIF component that may be generated, along with any specific
 
 | JSON property name| Always generated?| Notes|
 |-----------------------|---------------------|-----|
-| `name`| {% octicon "check" aria-label="Always" %}| Set to "{% data variables.product.prodname_codeql %} command-line toolchain" for output from the {% data variables.product.prodname_codeql_cli %} tools. Note, if the output was generated using a different tool a different `name` is reported, and the format may not be as described here.|
-| `organization`| {% octicon "check" aria-label="Always" %}| Set to "GitHub".|
-| `version`| {% octicon "check" aria-label="Always" %}| Set to the {% data variables.product.prodname_codeql %} release version e.g. "2.0.0".|
+| `name`| {% octicon "check" aria-label="Always" %}| Set to “{% data variables.product.prodname_codeql %} command-line toolchain” for output from the {% data variables.product.prodname_codeql_cli %} tools. Note, if the output was generated using a different tool a different `name` is reported, and the format may not be as described here.|
+| `organization`| {% octicon "check" aria-label="Always" %}| Set to “GitHub”.|
+| `version`| {% octicon "check" aria-label="Always" %}| Set to the {% data variables.product.prodname_codeql %} release version e.g. “2.0.0”.|
 | `rules`| {% octicon "check" aria-label="Always" %}| An array of `reportingDescriptor` objects that represent rules. This array will contain, at a minimum, all the rules that were run during this analysis, but may contain rules which were available but not run. For more detail about enabling queries, see `defaultConfiguration`.|
 
 ### `reportingDescriptor` object (for rule)
@@ -119,7 +119,7 @@ The composition of the results is dependent on the options provided to CodeQL. B
 |-----------------------|--------------------|------|
 | `ruleId`| {% octicon "check" aria-label="Always" %}| See the description of the `id` property in `reportingDescriptor` object (for rule) .|
 | `ruleIndex`| {% octicon "check" aria-label="Always" %}| None |
-| `message`| {% octicon "check" aria-label="Always" %}| A message describing the problem(s) occurring at this location. This message may be a SARIF "Message with placeholder", containing links that refer to locations in the `relatedLocations` property.|
+| `message`| {% octicon "check" aria-label="Always" %}| A message describing the problem(s) occurring at this location. This message may be a SARIF “Message with placeholder”, containing links that refer to locations in the `relatedLocations` property.|
 | `locations`| {% octicon "check" aria-label="Always" %}| An array containing a single `location` object.|
 | `partialFingerprints`| {% octicon "check" aria-label="Always" %}| A dictionary from named fingerprint types to the fingerprint. This will contain, at a minimum, a value for the `primaryLocationLineHash`, which provides a fingerprint based on the context of the primary location.|
 | `codeFlows`| {% octicon "x" aria-label="Optionally" %}| This array may be populated with one or more `codeFlow` objects if the query that defines the rule for this result is of `@kind path-problem`.|

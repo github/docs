@@ -29,8 +29,8 @@ The {% data variables.product.prodname_codeql_cli %} can be set up to support ma
 structures. To get started quickly, we recommend adopting a relatively simple
 setup, as outlined in the steps below.
 
-If you use Linux, Windows, or macOS version 10.14 ("Mojave") or earlier, simply
-follow the steps below. For macOS version 10.15 ("Catalina") or newer, there are additional notes for some of the steps. If you are using macOS
+If you use Linux, Windows, or macOS version 10.14 (“Mojave”) or earlier, simply
+follow the steps below. For macOS version 10.15 (“Catalina”) or newer, there are additional notes for some of the steps. If you are using macOS
 on Apple Silicon (for example, Apple M1), ensure that the [Xcode command-line developer
 tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https://support.apple.com/en-us/HT211861) are installed.
 
@@ -54,34 +54,34 @@ Conditions](https://securitylab.github.com/tools/codeql/license).
 **Important:** There are several versions of the CLI available to download, depending on your use case:
 
 - If you want to use the most up to date {% data variables.product.prodname_codeql %} tools and features, download the version tagged `latest`.
-- If you want to generate code scanning data to upload to {% data variables.product.prodname_enterprise %} server, then download the version that is compatible with the {% data variables.product.prodname_codeql_cli %} used in your CI system. For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/enterprise-server@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#downloading-the-codeql-cli)."
+- If you want to generate code scanning data to upload to {% data variables.product.prodname_enterprise %} server, then download the version that is compatible with the {% data variables.product.prodname_codeql_cli %} used in your CI system. For more information, see “[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/enterprise-server@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#downloading-the-codeql-cli).”
 
 {% endnote %}
 
-If you use Linux, Windows, or macOS version 10.14 ("Mojave") or earlier, simply
+If you use Linux, Windows, or macOS version 10.14 (“Mojave”) or earlier, simply
 [download the zip archive](https://github.com/github/codeql-cli-binaries/releases)
 for the version you require.
 
 If you want the CLI for a specific platform, download the appropriate `codeql-PLATFORM.zip` file.
 Alternatively, you can download `codeql.zip`, which contains the CLI for all supported platforms.
 
-#### Download information for macOS "Catalina" (or newer) users
+#### Download information for macOS “Catalina” (or newer) users
 
-If you use macOS version 10.15 ("Catalina"), version 11 ("Big Sur"), or the upcoming version 12 ("Monterey"), you need to ensure that your web browser does not automatically extract zip files. If you use Safari, complete the following steps before downloading the {% data variables.product.prodname_codeql_cli %} zip archive:
+If you use macOS version 10.15 (“Catalina”), version 11 (“Big Sur”), or the upcoming version 12 (“Monterey”), you need to ensure that your web browser does not automatically extract zip files. If you use Safari, complete the following steps before downloading the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. Open Safari.
 2. From the Safari menu, select **Preferences…**.
 3. Click the **General** Tab.
-4. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
+4. Ensure the check-box labeled **Open “safe” files after downloading** is unchecked.
 
 ### 2. Extract the zip archive
 
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier)
+For Linux, Windows, and macOS users (version 10.14 “Mojave”, and earlier)
 simply extract the zip archive.
 
-#### Extraction information for macOS "Catalina" (or newer) users
+#### Extraction information for macOS “Catalina” (or newer) users
 
-macOS "Catalina", "Big Sur", or "Monterey" users should run the following commands in the Terminal, where `${extraction-root}` is the path to the directory where you will extract the {% data variables.product.prodname_codeql_cli %} zip archive:
+macOS “Catalina”, “Big Sur”, or “Monterey” users should run the following commands in the Terminal, where `${extraction-root}` is the path to the directory where you will extract the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. `mv ~/Downloads/codeql\*.zip ${extraction-root}`
 2. `cd ${extraction-root}`
@@ -97,7 +97,7 @@ package.
 - By adding `<extraction-root>/codeql` to your `PATH`, so that you
 can run the executable as just `codeql`.
 
-At this point, you can execute {% data variables.product.prodname_codeql %} commands. For a full list of the {% data variables.product.prodname_codeql_cli %} commands, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual)."
+At this point, you can execute {% data variables.product.prodname_codeql %} commands. For a full list of the {% data variables.product.prodname_codeql_cli %} commands, see the “[{% data variables.product.prodname_codeql_cli %} manual](https://codeql.github.com/docs/codeql-cli/manual/).”
 
 {% note %}
 
@@ -111,7 +111,7 @@ At this point, you can execute {% data variables.product.prodname_codeql %} comm
 {% data variables.product.prodname_codeql_cli %} has subcommands you can execute to verify that you are correctly set up to create and analyze databases:
 
 - Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.{% ifversion codeql-packs %}
-- (Optional) You can download some "[{% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)" containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
+- (Optional) You can download some “[{% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)” containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
 
   - `codeql/cpp-queries`
   - `codeql/csharp-queries`
@@ -171,7 +171,7 @@ For more information, see the [Relocation announcement](https://github.com/githu
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
-see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
+see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
 {% endif %}
 
 {% note %}
@@ -185,7 +185,7 @@ see "[About {% data variables.product.prodname_codeql %} packs](/code-security/c
 
 ### 4. Extract the zip archive
 
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive into the directory you created in step 2.
+For Linux, Windows, and macOS users (version 10.14 “Mojave”, and earlier) simply extract the zip archive into the directory you created in step 2.
 
 For example, if the path to your copy of the {% data variables.product.prodname_codeql %} repository is `$HOME/codeql-home/codeql-repo`, then extract the CLI into
 `$HOME/codeql-home/`.
