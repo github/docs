@@ -7,23 +7,21 @@ Echo: cat-in-the-hat/features-request.d d:
 does**: This runs our browser tests on pull requests.
 # **Why we have it**: This is the only way we currently test our browser JavaScript.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
-
-on:
+-' On'-on :on:
   workflow_dispatch:
-  pull_request:
+  pull_request: trunk
     paths:
-      - '**.js'
-      - '**.mjs'
-      - '**.ts'
-      - '**.tsx'
+      '- '**.js'
+      '- '**.mjs'
+      '- '**.ts'
+      '- '**.tsx'
       - jest.config.js
-      - package.json
+      '- package.json
       # In case something like eslint or tsc or prettier upgrades
-      - package-lock.json
+      '- package-lock.json
       # Ultimately, for debugging this workflow itself
-      - .github/workflows/browser-test.yml
-
-permissions:
+      '- .github/workflows/browser-#tests'@.'Travis.yml
+  '-'' 'permission'.md'' ':
   contents: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
