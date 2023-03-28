@@ -25,22 +25,20 @@ shortTitle: Configure
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the "Features" section, under "Issues," click **Set up templates**. You may need to enable "Issues" and refresh the page before you can see the button.
-4. Use the Add template dropdown menu, and click on the type of template you'd like to create.
+1. In the "Features" section, under **Issues**, click **Set up templates**. You may need to enable **Issues** and refresh the page before you can see the button.
+1. Use the **Add template** dropdown menu, and click on the type of template you'd like to create.
 
-![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
-5. To preview or edit the template before committing it to the repository, click **Preview and edit**.
+   ![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
+1. To preview or edit the template before committing it to the repository, click **Preview and edit**.
 ![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
-6. To edit the template, click {% octicon "pencil" aria-label="The edit icon" %}, and type in the fields to edit their contents.
-![Issue template edit button](/assets/images/help/repository/issue-template-edit-button.png)
-7. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
-8. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
-![Propose changes button](/assets/images/help/repository/propose-changes-button.png)
-9. Enter a commit message describing your changes.
-![Issue template commit message field](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Below the commit message fields, decide whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
-11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
+1. To edit the template, click {% octicon "pencil" aria-label="Edit template" %}, and type in the fields to edit their contents.
+
+   ![Screenshot of the preview of an issue template. To the right of the template name, a pencil icon is outlined in dark orange.](/assets/images/help/repository/issue-template-edit-button.png)
+1. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
+1. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
+1. In the "Commit message" field, type a commit message describing your changes.
+1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+1. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
 {% ifversion fpt or ghec %}
 
