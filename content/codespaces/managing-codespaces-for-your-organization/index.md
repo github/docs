@@ -20,5 +20,6 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
  

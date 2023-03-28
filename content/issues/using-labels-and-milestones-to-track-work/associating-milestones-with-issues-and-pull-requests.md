@@ -16,10 +16,14 @@ shortTitle: Add to milestones
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Select the checkbox next to the items you want associated with a milestone.
-  ![Issues metadata checkbox](/assets/images/help/issues/issues_assign_checkbox.png)
-4. In the upper-right corner, click **Milestone**, then start typing the name of [an existing milestone](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests). Click the milestone's name to associate it with the item.
-  ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
+1. Select the checkbox next to the items you want associated with a milestone.
+
+   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues_assign_checkbox.png)
+1. Above the list of issues or pull requests, select the **Milestone** dropdown menu.
+
+  ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
+1. In the "Filter milestones" field, start typing the name of an existing milestone, then click the milestone's name to associate it with the item.
+
 
 {% tip %}
 
@@ -29,6 +33,4 @@ As you're working on issues and pull requests, you can [track the progress of yo
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests)"
 - "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"

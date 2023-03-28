@@ -26,7 +26,7 @@ tests on them using the `test run` subcommand.
 
 ## Setting up a test {% data variables.product.prodname_codeql %} pack for custom queries
 
-All {% data variables.product.prodname_codeql %} tests must be stored in a special “test” {% data variables.product.prodname_codeql %} pack. That is, a directory for test files with a `qlpack.yml` file that defines:
+All {% data variables.product.prodname_codeql %} tests must be stored in a special "test" {% data variables.product.prodname_codeql %} pack. That is, a directory for test files with a `qlpack.yml` file that defines:
 
 ```yaml
 name: <name-of-test-pack>
@@ -38,7 +38,7 @@ extractor: <language-of-code-to-test>
 
 The `dependencies` value specifies the {% data variables.product.prodname_codeql %} packs containing queries to test.
 Typically, these packs will be resolved from source, and so it is not necessary
-to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
+to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
 You may find it useful to look at the way query tests are organized in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql). Each language has a `src` directory, `ql/<language>/ql/src`, that contains libraries and queries for analyzing codebases. Alongside the `src` directory, there is a `test` directory with tests for
 these libraries and queries.
@@ -53,7 +53,7 @@ Each `test` directory is configured as a test {% data variables.product.prodname
 For each query you want to test, you should create a sub-directory in the test {% data variables.product.prodname_codeql %} pack.
 Then add the following files to the subdirectory before you run the test command:
 
-- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see “[Query reference files](/code-security/codeql-cli/codeql-cli-reference/query-reference-files).”
+- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see "[Query reference files](/code-security/codeql-cli/codeql-cli-reference/query-reference-files)."
 
    You do not need to add a query reference file if the query you want to test is stored in the test directory, but it is generally good practice to store queries separately from tests. The only exception is unit tests for QL libraries, which tend to be stored in test packs, separate from queries that generate alerts or paths.
 
@@ -94,7 +94,7 @@ You can also specify:
 
 - `--threads:` optionally, the number of threads to use when running queries. The default option is `1`. You can specify more threads to speed up query execution. Specifying `0` matches the number of threads to the number of logical processors.
   
-For full details of all the options you can use when testing queries, see the [test run reference documentation](https://codeql.github.com/docs/codeql-cli/manual/test-run/). 
+For full details of all the options you can use when testing queries, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/)." 
 
 ## Example
 
@@ -129,7 +129,7 @@ other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
      codeql/java-queries: "*"
    ```
 
-   For more information about {% data variables.product.prodname_codeql %} packs, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
+   For more information about {% data variables.product.prodname_codeql %} packs, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
 4. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
 
@@ -214,8 +214,8 @@ This information may be sufficient to debug trivial test failures.
 
 For failures that are harder to debug, you can import `EmptyThen.testproj`
 into {% data variables.product.prodname_codeql %} for VS Code, execute `EmptyThen.ql`, and view the results in the
-`Test.java` example code. For more information, see “[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)” in the {% data variables.product.prodname_codeql %} for VS Code help.
+`Test.java` example code. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)" in the {% data variables.product.prodname_codeql %} for VS Code help.
 
 ## Further reading
-- “[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)”
+- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
 - "[Testing {% data variables.product.prodname_codeql %} queries in Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/testing-codeql-queries-in-visual-studio-code/#testing-codeql-queries-in-visual-studio-code)."

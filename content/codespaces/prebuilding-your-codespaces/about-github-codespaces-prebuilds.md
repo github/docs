@@ -9,6 +9,7 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds
+product: 'You create and configure prebuilds in your repository''s settings. {% data reusables.gated-features.codespaces-repo %}'
 ---
 
 ## Overview
