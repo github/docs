@@ -23,7 +23,6 @@ type: how_to
 {% data reusables.project-management.milestones %}
 4. Choose one of these options:
     - To create a new milestone, click **New Milestone**.
-  ![New milestone button](/assets/images/help/repository/new-milestone.png)
     - To edit a milestone, next to the milestone you want to edit, click **Edit**.
 
        ![Screenshot of the list of milestones. Within the entry for the "beta release" milestone, a link, labeled "Edit," is outlined in dark orange.](/assets/images/help/repository/edit-milestone.png)
