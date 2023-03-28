@@ -57,9 +57,9 @@ You can jump to a function or method's definition within the same repository by 
 
 ## Finding all references of a function or method
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+You can find all references for a function or method within the same repository by clicking the function or method call in a file.
 
-![Find all references tab](/assets/images/help/repository/find-all-references-tab.png)
+![Screenshot of the function window. A section, titled "3 References," is outlined in dark orange.](/assets/images/help/repository/find-all-references-tab.png)
 
 ## Precise and search-based navigation
 

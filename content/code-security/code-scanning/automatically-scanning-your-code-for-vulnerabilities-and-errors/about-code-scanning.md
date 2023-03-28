@@ -19,7 +19,6 @@ topics:
   - Code scanning
 ---
 
-
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -57,3 +56,11 @@ You can configure {% data variables.product.prodname_code_scanning %} to use the
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
+
+{% ifversion code-scanning-tool-status }
+
+## About the {% data variables.code-scanning.tool_status_page %}
+
+The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)".
+
+{% endif %}
