@@ -359,7 +359,8 @@ graph TD
 ```
 
 When you view the file in the repository, it is rendered as a flow chart.
-![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+![Screenshot of a flow chart. Two arrows point from a box labeled "A" to boxes labeled "B" and "C," and two more arrows point from "B" and "C" to "D."](/assets/images/help/repository/mermaid-file-diagram.png)
 
 ### Troubleshooting Mermaid files
 
