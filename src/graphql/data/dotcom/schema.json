@@ -48376,7 +48376,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>We are phasing out diff-relative positioning for PR comments Removal on 2023-10-01 UTC.</p>"
         },
         {
           "name": "originalStartLine",
@@ -48408,7 +48410,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>We are phasing out diff-relative positioning for PR comments Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers Removal on 2023-10-01 UTC.</p>"
         },
         {
           "name": "publishedAt",
@@ -83654,8 +83658,8 @@
       "inputFields": [
         {
           "name": "body",
-          "description": "<p>The text of the comment.</p>",
-          "type": "String!",
+          "description": "<p>The text of the comment. This field is required</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -83670,7 +83674,7 @@
         },
         {
           "name": "commitOID",
-          "description": "<p>The SHA of the commit to comment on.</p>",
+          "description": "<p>The SHA of the commit to comment on.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "GitObjectID",
           "id": "gitobjectid",
           "kind": "scalars",
@@ -83678,7 +83682,7 @@
         },
         {
           "name": "inReplyTo",
-          "description": "<p>The comment id to reply to.</p>",
+          "description": "<p>The comment id to reply to.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -83687,7 +83691,7 @@
         },
         {
           "name": "path",
-          "description": "<p>The relative path of the file to comment on.</p>",
+          "description": "<p>The relative path of the file to comment on.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -83695,7 +83699,7 @@
         },
         {
           "name": "position",
-          "description": "<p>The line index in the diff to comment on.</p>",
+          "description": "<p>The line index in the diff to comment on.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -83703,7 +83707,7 @@
         },
         {
           "name": "pullRequestId",
-          "description": "<p>The node ID of the pull request reviewing.</p>",
+          "description": "<p>The node ID of the pull request reviewing</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>pullRequestId</code> will be removed. use\naddPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -83712,7 +83716,7 @@
         },
         {
           "name": "pullRequestReviewId",
-          "description": "<p>The Node ID of the review to modify.</p>",
+          "description": "<p>The Node ID of the review to modify.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>pullRequestReviewId</code> will be removed. use\naddPullRequestReviewThread or addPullRequestReviewThreadReply instead\n<strong>Reason:</strong> We are deprecating the addPullRequestReviewComment mutation.</p>",
           "type": "ID",
           "id": "id",
           "kind": "scalars",
@@ -83746,7 +83750,7 @@
         },
         {
           "name": "comments",
-          "description": "<p>The review line comments.</p>",
+          "description": "<p>The review line comments.</p>\n<p><strong>Upcoming Change on 2023-10-01 UTC</strong>\n<strong>Description:</strong> <code>comments</code> will be removed. use the <code>threads</code> argument instead\n<strong>Reason:</strong> We are deprecating comment fields that use diff-relative positioning.</p>",
           "type": "[DraftPullRequestReviewComment]",
           "id": "draftpullrequestreviewcomment",
           "kind": "input-objects",
