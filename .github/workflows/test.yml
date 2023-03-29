@@ -97,11 +97,11 @@ jobs:
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/content \
             --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
             --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/data
 
       - name: Clone all translations
