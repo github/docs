@@ -8,6 +8,10 @@ redirect_from:
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
 versions:
   feature: copilot
 topics:
