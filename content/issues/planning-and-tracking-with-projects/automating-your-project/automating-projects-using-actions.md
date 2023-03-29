@@ -65,7 +65,7 @@ jobs:
     steps:
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@cd81e4cb40c3672f41b30a21758d6298e821691b
+        uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
         with:
           app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
           private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -308,7 +308,7 @@ This workflow runs whenever a pull request in the repository is marked as "ready
 ```yaml
 - name: Generate token
   id: generate_token
-  uses: tibdex/github-app-token@cd81e4cb40c3672f41b30a21758d6298e821691b
+  uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
   with:
     app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
     private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

@@ -429,7 +429,7 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ```yaml
 steps:
   # Reference a specific commit
-  - uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+  - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
   # Reference the major version of a release
   - uses: {% data reusables.actions.action-checkout %}
   # Reference a specific version

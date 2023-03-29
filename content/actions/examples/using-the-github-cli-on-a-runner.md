@@ -117,7 +117,7 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
+        uses: peter-evans/create-issue-from-file@ceef9be92406ace67ab5421f66570acf213ec395
         with:
           token: {% raw %}${{ env.GITHUB_TOKEN }}{% endraw %}
 
@@ -395,7 +395,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
+        uses: peter-evans/create-issue-from-file@ceef9be92406ace67ab5421f66570acf213ec395
         with:
           token: {% raw %}${{ env.GITHUB_TOKEN }}{% endraw %}
 
@@ -407,7 +407,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
 </td>
 <td>
 
-Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `433e51abf769039ee20ba1293a088ca19d573b7f` SHA.
+Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `ceef9be92406ace67ab5421f66570acf213ec395` SHA.
 </td>
 </tr>
 <tr>

@@ -133,7 +133,7 @@ Each Git commit receives a calculated SHA value, which is unique and immutable. 
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@571a71ff01be3802e62f5470d0c062c03ca0ee96
+    - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ## Creating a README file for your action

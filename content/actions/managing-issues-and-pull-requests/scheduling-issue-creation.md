@@ -48,7 +48,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
           issues: write
         steps:
           - name: Create team sync issue
-            uses: imjohnbo/issue-bot@4c86f3182f738efa1a0a7fec4df114ac21c4b7b1
+            uses: imjohnbo/issue-bot@3d96848fb5e9a4a473bb81ae62b4b4866a56e93a
             with:
               assignees: "monalisa, doctocat, hubot"
               labels: "weekly sync, docs-team"

@@ -267,7 +267,7 @@ The following example caches dependencies for pnpm (v6.10+).
 
 steps:
 - uses: {% data reusables.actions.action-checkout %}
-- uses: pnpm/action-setup@f4129fb46eaadbab36b5be281b768dfef049df0d
+- uses: pnpm/action-setup@0609f0983b7a228f052f81ef4c3d6510cae254ad
   with:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}

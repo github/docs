@@ -91,7 +91,7 @@ jobs:
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
     
     - name: Gets K8s context
-      uses: azure/aks-set-context@4d245b6708f53b68f9decf5e1dc98e9753017daf
+      uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
       with:
           creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
           resource-group: {% raw %}${{ env.RESOURCE_GROUP }}{% endraw %}
@@ -99,7 +99,7 @@ jobs:
       id: login
 
     - name: Configure deployment
-      uses: azure/k8s-bake@83c5bf7343d6ba148f927433db8307a992588614
+      uses: azure/k8s-bake@61041e8c2f75c1f01186c8f05fb8b24e1fc507d8
       with:
         renderEngine: 'helm'
         helmChart: {% raw %}${{ env.CHART_PATH }}{% endraw %}
@@ -110,7 +110,7 @@ jobs:
       id: bake
 
     - name: Deploys application
-    - uses: Azure/k8s-deploy@dcd9bc6b1acbf6dd5c1acbaaed835c0cac33e4f3
+    - uses: Azure/k8s-deploy@dd4bbd13a5abd2fc9ca8bdcb8aee152bb718fa78
       with:
         manifests: {% raw %}${{ steps.bake.outputs.manifestsBundle }}{% endraw %}
         images: |

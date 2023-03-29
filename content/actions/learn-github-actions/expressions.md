@@ -32,7 +32,7 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 ```yaml
 steps:
-  - uses: actions/hello-world-javascript-action@a8dd2c1169d0de038bb630cf188c6a66d3dcecd6
+  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
