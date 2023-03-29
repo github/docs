@@ -38,6 +38,11 @@ const DEFAULT_OPTIONS = {
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
+        // This URL is also set in ArticleContext.tsx. We don't rely on importing a constant as we may run into an import conflict where the env variable is not yet set.
+        process.env.NODE_ENV === 'production'
+          ? 'https://support.github.com'
+          : // Assume that a developer is not testing the VA iframe locally if this env var is not set
+            process.env.SUPPORT_PORTAL_URL || '',
         'https://www.youtube-nocookie.com',
       ].filter(Boolean),
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],

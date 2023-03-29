@@ -25,4 +25,3 @@ You can also enable code review limits for an organization. If you enable limits
 1. Under **Access**, click **{% octicon "comment-discussion" aria-hidden="true" %} Moderation options**.
 1. Under **Moderation options**, click **Code review limits**.
 1. Select or deselect **Limit to users explicitly granted read or higher access**.
-![Limit review in repository](/assets/images/help/repository/limit-reviews-in-repository.png)

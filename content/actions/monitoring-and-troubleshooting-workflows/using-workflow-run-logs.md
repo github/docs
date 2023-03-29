@@ -63,7 +63,6 @@ You can download the log files from your workflow run. You can also download a w
 
   ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
 
-
   {% ifversion re-run-jobs %}
 
   {% note %}
@@ -82,11 +81,11 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="Show options" %}.
+1. In the upper-right corner, select the {% octicon "kebab-horizontal" aria-label="Show workflow options" %} dropdown menu, then click **Delete all logs**.
 
-    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    ![Screenshot of the page for a workflow run. In the top-right corner, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/actions/workflow-run-kebab-horizontal-icon.png)
 
-2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt.
+1. Review the confirmation prompt.
 
 After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 

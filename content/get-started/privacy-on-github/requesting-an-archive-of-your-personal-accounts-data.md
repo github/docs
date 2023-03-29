@@ -30,12 +30,10 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. Under "Export account data", click **Start export** or **New export**.
-![Start personal data export button highlighted](/assets/images/help/repository/export-personal-data.png)
-![New personal data export button highlighted](/assets/images/help/repository/new-export.png)
-4. Once the export is ready to download, {% data variables.product.product_name %} will send you a download link to your primary email address.
-5. Click the download link in your email and re-enter your password if prompted.
-6. You'll be redirected to a `tar.gz` file that you can download.
+1. Under "Export account data", click **Start export** or **New export**.
+1. Once the export is ready to download, {% data variables.product.product_name %} will send you a download link to your primary email address.
+1. Click the download link in your email and re-enter your password if prompted.
+1. You'll be redirected to a `tar.gz` file that you can download.
 
 ## Deleting access to an archive of your personal account's data
 
@@ -43,4 +41,4 @@ You can disable the download link sent to your email before an export expires by
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. In the "Export account data" section, next to the data export download you want to disable, click **Delete**.
+1. In the "Export account data" section, next to the data export download you want to disable, click **Delete**.
