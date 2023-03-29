@@ -807,6 +807,11 @@ input AddPullRequestReviewThreadInput {
   The side of the diff on which the start line resides.
   """
   startSide: DiffSide = RIGHT
+
+  """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType = LINE
 }
 
 """
@@ -7029,7 +7034,7 @@ input CreateMigrationSourceInput {
   """
   The migration source URL, for example `https://github.com` or `https://monalisa.ghe.com`.
   """
-  url: String!
+  url: String
 }
 
 """
@@ -13665,6 +13670,51 @@ type EnterpriseServerInstallationEdge {
 }
 
 """
+The connection type for EnterpriseServerInstallation.
+"""
+type EnterpriseServerInstallationMembershipConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseServerInstallationMembershipEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [EnterpriseServerInstallation]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An Enterprise Server installation that a user is a member of.
+"""
+type EnterpriseServerInstallationMembershipEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: EnterpriseServerInstallation
+
+  """
+  The role of the user in the enterprise membership.
+  """
+  role: EnterpriseUserAccountMembershipRole!
+}
+
+"""
 Ordering options for Enterprise Server installation connections.
 """
 input EnterpriseServerInstallationOrder {
@@ -14085,6 +14135,46 @@ type EnterpriseUserAccount implements Actor & Node {
   The enterprise in which this user account exists.
   """
   enterprise: Enterprise!
+
+  """
+  A list of Enterprise Server installations this user is a member of.
+  """
+  enterpriseInstallations(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for installations returned from the connection.
+    """
+    orderBy: EnterpriseServerInstallationOrder = {field: HOST_NAME, direction: ASC}
+
+    """
+    The search string to look for.
+    """
+    query: String
+
+    """
+    The role of the user in the installation.
+    """
+    role: EnterpriseUserAccountMembershipRole
+  ): EnterpriseServerInstallationMembershipConnection!
   id: ID!
 
   """
@@ -34028,6 +34118,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   lastEditedAt: DateTime
 
   """
+  The end line number on the file to which the comment applies
+  """
+  line: Int
+
+  """
   Returns why the comment was minimized. One of `abuse`, `off-topic`,
   `outdated`, `resolved`, `duplicate` and `spam`. Note that the case and
   formatting of these values differs from the inputs to the `MinimizeComment` mutation.
@@ -34040,9 +34135,19 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   originalCommit: Commit
 
   """
+  The end line number on the file to which the comment applied when it was first created
+  """
+  originalLine: Int
+
+  """
   The original line index in the diff to which the comment applies.
   """
   originalPosition: Int!
+
+  """
+  The start line number on the file to which the comment applied when it was first created
+  """
+  originalStartLine: Int
 
   """
   Identifies when the comment body is outdated
@@ -34130,9 +34235,19 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   resourcePath: URI!
 
   """
+  The start line number on the file to which the comment applies
+  """
+  startLine: Int
+
+  """
   Identifies the state of the comment.
   """
   state: PullRequestReviewCommentState!
+
+  """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType!
 
   """
   Identifies when the comment was last updated.
@@ -34511,6 +34626,11 @@ type PullRequestReviewThread implements Node {
   startLine: Int
 
   """
+  The level at which the comments in the corresponding thread are targeted, can be a diff line or a file
+  """
+  subjectType: PullRequestReviewThreadSubjectType!
+
+  """
   Indicates whether the current viewer can reply to this thread.
   """
   viewerCanReply: Boolean!
@@ -34564,6 +34684,21 @@ type PullRequestReviewThreadEdge {
   The item at the end of the edge.
   """
   node: PullRequestReviewThread
+}
+
+"""
+The possible subject types of a pull request review comment.
+"""
+enum PullRequestReviewThreadSubjectType {
+  """
+  A comment that has been made against the file of a pull request
+  """
+  FILE
+
+  """
+  A comment that has been made against the line of a pull request
+  """
+  LINE
 }
 
 """
@@ -47844,7 +47979,7 @@ input StartRepositoryMigrationInput {
   """
   The migration source access token.
   """
-  accessToken: String!
+  accessToken: String
 
   """
   A unique identifier for the client performing the mutation.
@@ -47899,7 +48034,7 @@ input StartRepositoryMigrationInput {
   """
   The URL of the source repository.
   """
-  sourceRepositoryUrl: URI!
+  sourceRepositoryUrl: URI
 
   """
   The visibility of the imported repository.
@@ -54880,6 +55015,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): ProjectV2Connection!
 
   """
+  The user's profile pronouns
+  """
+  pronouns: String
+
+  """
   A list of public keys associated with this user.
   """
   publicKeys(
@@ -56299,6 +56439,11 @@ type Workflow implements Node {
   ): WorkflowRunConnection!
 
   """
+  The state of the workflow.
+  """
+  state: WorkflowState!
+
+  """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
@@ -56468,6 +56613,36 @@ enum WorkflowRunOrderField {
   Order workflow runs by most recently created
   """
   CREATED_AT
+}
+
+"""
+The possible states for a workflow.
+"""
+enum WorkflowState {
+  """
+  The workflow is active.
+  """
+  ACTIVE
+
+  """
+  The workflow was deleted from the git repository.
+  """
+  DELETED
+
+  """
+  The workflow was disabled by default on a fork.
+  """
+  DISABLED_FORK
+
+  """
+  The workflow was disabled for inactivity in the repository.
+  """
+  DISABLED_INACTIVITY
+
+  """
+  The workflow was disabled manually.
+  """
+  DISABLED_MANUALLY
 }
 
 """

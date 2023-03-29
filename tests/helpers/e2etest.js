@@ -63,11 +63,7 @@ export function post(route, opts) {
 const getDOMCache = new Map()
 
 export async function getDOMCached(route, options) {
-  const cacheKey = `${route}:${options ? JSON.stringify(options) : ''}`
-  if (!getDOMCache.has(cacheKey)) {
-    getDOMCache.set(cacheKey, getDOM(route, options))
-  }
-  return getDOMCache.get(cacheKey)
+  return getDOM(route, Object.assign({ cache: getDOMCache }, options))
 }
 
 export async function getDOM(

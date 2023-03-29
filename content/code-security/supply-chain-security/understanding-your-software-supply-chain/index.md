@@ -14,6 +14,7 @@ children:
   - /about-supply-chain-security
   - /about-the-dependency-graph
   - /configuring-the-dependency-graph
+  - /exporting-a-software-bill-of-materials-for-your-repository
   - /using-the-dependency-submission-api
   - /about-dependency-review
   - /configuring-dependency-review

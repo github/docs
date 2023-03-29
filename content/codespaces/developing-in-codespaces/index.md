@@ -17,6 +17,7 @@ children:
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace
   - /forwarding-ports-in-your-codespace
+  - /rebuilding-the-container-in-a-codespace
   - /default-environment-variables-for-your-codespace
   - /persisting-environment-variables-and-temporary-files
   - /connecting-to-a-private-network

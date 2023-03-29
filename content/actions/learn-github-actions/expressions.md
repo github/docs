@@ -204,7 +204,7 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 #### Example of `toJSON`
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` might return `{ "status": "success" }`
 
 ### fromJSON
 

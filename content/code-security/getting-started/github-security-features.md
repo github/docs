@@ -58,6 +58,8 @@ The dependency graph allows you to explore the ecosystems and packages that your
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
+{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
+
 {% ifversion security-overview-displayed-alerts %}
 ### Security overview
 
@@ -74,7 +76,7 @@ The security overview shows which security features are enabled for the reposito
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
 ## Available with {% data variables.product.prodname_GH_advanced_security %}

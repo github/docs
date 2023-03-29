@@ -49,9 +49,7 @@ shortTitle: Working with non-code files
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
-
-![inline image](/assets/images/help/images/view.png)
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 SVGs don't currently support inline scripting or animation.
 
@@ -63,19 +61,17 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 **2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
-![2-up](/assets/images/help/repository/images-2up-view.png)
+![Screenshot of a diff for an image in 2-up mode. The image on the right is outlined in green and larger than the image on the left, which is outlined in red.](/assets/images/help/repository/images-2up-view.png)
 
 #### Swipe
 
 **Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
 
-![Swipe](/assets/images/help/repository/images-swipe-view.png)
+![Screenshot of a diff for an image in swipe mode. A line down the center divides the image into new, outlined in green, and old, outlined in red.](/assets/images/help/repository/images-swipe-view.png)
 
 #### Onion skin
 
 **Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
-
-![Onion skin](/assets/images/help/repository/images-onion-view.gif)
 
 ## 3D File Viewer
 
@@ -361,7 +357,8 @@ graph TD
 ```
 
 When you view the file in the repository, it is rendered as a flow chart.
-![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+![Screenshot of a flow chart. Two arrows point from a box labeled "A" to boxes labeled "B" and "C," and two more arrows point from "B" and "C" to "D."](/assets/images/help/repository/mermaid-file-diagram.png)
 
 ### Troubleshooting Mermaid files
 

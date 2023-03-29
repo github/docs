@@ -1,8 +1,17 @@
+import fs from 'fs'
+import path from 'path'
 import { jest } from '@jest/globals'
-import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
+
+import { getDOM } from '../helpers/e2etest.js'
+import frontmatter from '../../lib/read-frontmatter.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
+import renderContent from '../../lib/render-content/index.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
-
+const req = {}
 /* global page, browser */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -454,34 +463,6 @@ describe('code examples', () => {
   })
 })
 
-describe('filter cards', () => {
-  it('works with select input', async () => {
-    await page.goto('http://localhost:4000/en/code-security/guides')
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
-  })
-
-  it('works with select input on an Enterprise version', async () => {
-    await page.goto(`http://localhost:4000/en/enterprise-server@${latest}/code-security/guides`)
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
-  })
-})
-
 // Skipping because next/links are disabled by default for now
 // Docs Engineering issue: 962
 describe.skip('next/link client-side navigation', () => {
@@ -537,3 +518,128 @@ describe('iframe pages', () => {
     ).toBeTruthy()
   })
 })
+
+describe('REST sidebar', () => {
+  req.context = {
+    allVersions,
+    currentLanguage: 'en',
+  }
+
+  it('Check REST categories and subcategories are rendering', async () => {
+    // Get the titles from the content/rest directory to match the titles on the page
+    const contentFiles = getCatAndSubCat('content/rest')
+    const contentCheck = await createContentCheckDirectory(contentFiles)
+
+    for (const version in allVersions) {
+      // Get MapTopic level categories/subcategories for each version on /rest page
+      const url = `/en/${version}/rest`
+      const $ = await getDOM(url)
+
+      const categories = []
+      $('[data-testid=sidebar] [data-testid=rest-category]').each((i, el) => {
+        categories[i] = $(el).text()
+      })
+      const browserUrl = `http://localhost:4000${url}`
+      await page.goto(browserUrl)
+      await page.setViewport({ width: 1024, height: 768 })
+      // console.log('went ot the page')
+      await page.waitForSelector('[data-testid=rest-category] li div div span')
+      const restCategories = await page.$$('[data-testid=rest-category] li div div span')
+
+      for (const cat of restCategories) {
+        await page.evaluate(async (el) => {
+          return el.click()
+        }, cat)
+
+        await page.waitForSelector('[data-testid=rest-subcategory]')
+      }
+
+      const subcategories = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('[data-testid=rest-subcategory] li div div span')).map(
+          (subCategory) => subCategory.textContent
+        )
+      )
+      expect(contentCheck[version].cat.length).toBe(categories.length)
+      expect(contentCheck[version].subcat.length).toBe(subcategories.length)
+
+      categories.forEach((category) => {
+        expect(contentCheck[version].cat).toContain(category)
+      })
+
+      subcategories.forEach((subcategory) => {
+        expect(contentCheck[version].subcat).toContain(subcategory)
+      })
+    }
+  })
+})
+
+// Recursively go through the content/rest directory and get all the absolute file names
+function getCatAndSubCat(root) {
+  const files = []
+  for (const dirent of fs.readdirSync(root, { withFileTypes: true })) {
+    const { name } = dirent
+    const file = path.join(root, name)
+    if (dirent.isDirectory()) {
+      if (!(name === 'guides' || name === 'overview')) {
+        files.push(...getCatAndSubCat(file))
+      }
+    } else if (
+      !(
+        name === 'README.md' ||
+        file.includes('rest/index.md') ||
+        file.includes('rest/quickstart.md')
+      )
+    ) {
+      files.push(file)
+    }
+  }
+  return files
+}
+
+// Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
+async function createContentCheckDirectory(contentFiles) {
+  const contentCheck = Object.keys(allVersions).reduce((acc, val) => {
+    return { ...acc, [val]: { cat: [], subcat: [] } }
+  }, {})
+
+  const renderOpts = { textOnly: true }
+
+  for (const filename of contentFiles) {
+    const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
+    const applicableVersions = getApplicableVersions(data.versions, filename)
+    const splitPath = filename.split('/')
+    let category = ''
+    let subCategory = ''
+
+    if (splitPath[splitPath.length - 2] === 'rest') {
+      category = data.title
+    } else if (splitPath[splitPath.length - 3] === 'rest') {
+      filename.includes('index.md')
+        ? (category = data.shortTitle || data.title)
+        : (subCategory = data.shortTitle || data.title)
+    }
+    for (const version of applicableVersions) {
+      req.context.currentVersion = version
+
+      if (category !== '')
+        if (category.includes('{')) {
+          await shortVersionsMiddleware(req, null, () => {})
+          contentCheck[version].cat.push(
+            await renderContent.liquid.parseAndRender(category, req.context, renderOpts)
+          )
+        } else {
+          contentCheck[version].cat.push(category)
+        }
+      if (subCategory !== '')
+        if (subCategory.includes('{')) {
+          await shortVersionsMiddleware(req, null, () => {})
+          contentCheck[version].subcat.push(
+            await renderContent.liquid.parseAndRender(subCategory, req.context, renderOpts)
+          )
+        } else {
+          contentCheck[version].subcat.push(subCategory)
+        }
+    }
+  }
+  return contentCheck
+}

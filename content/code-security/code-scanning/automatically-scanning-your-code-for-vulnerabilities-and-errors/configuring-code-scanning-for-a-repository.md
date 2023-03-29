@@ -13,6 +13,7 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
   - /code-security/secure-coding/configuring-code-scanning-for-a-repository
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -41,6 +42,12 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
+{% ifversion code-scanning-tool-status }
+
+The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)".
+
+{% endif %}
+
 {% ifversion ghae %}
 ## Prerequisites
 
@@ -53,7 +60,9 @@ Enterprise owners, organization and repository administrators can add self-hoste
 
 ## Configuring {% data variables.product.prodname_code_scanning %} automatically
 
-The default setup for {% data variables.product.prodname_code_scanning %} will automatically configure {% data variables.product.prodname_code_scanning %} with the best settings for your repository. Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages: JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by CodeQL, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."
+The default setup for {% data variables.product.prodname_code_scanning %} will automatically configure {% data variables.product.prodname_code_scanning %} with the best settings for your repository. Default setup uses {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis without requiring you to commit a workflow file your repository.
+
+Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages: JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by CodeQL, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."{% ifversion org-enable-code-scanning %} For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
 
 Enabling default setup is the quickest way to configure {% data variables.product.prodname_code_scanning %} for your repository. Additionally, default setup requires none of the maintenance necessary with a {% data variables.product.prodname_codeql %} workflow file. Before you enable default setup, you'll see the languages it will analyze, the query suites it will run, and the events that will trigger a new scan.
 
@@ -171,9 +180,17 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
 {% endif %}
 
+{% ifversion org-enable-code-scanning %}
+
+For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."
+
+{% else %}
+
 ## Bulk configuration of {% data variables.product.prodname_code_scanning %}
 
 You can configure {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. If you'd like to use a script to raise pull requests that add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository for an example using PowerShell, or [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) for teams who do not have PowerShell and instead would like to use NodeJS.
+
+{% endif %}
 
 ## Viewing the logging output from {% data variables.product.prodname_code_scanning %}
 

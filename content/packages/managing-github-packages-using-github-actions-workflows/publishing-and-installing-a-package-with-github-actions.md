@@ -240,7 +240,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  This job installs npm and uses it to build the app.
 </td>
 </tr>
 
@@ -515,9 +515,9 @@ name: Demo Push
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
+    # Publish `main` as Docker `latest` image.
     branches:
-      - master
+      - main
       - seed
 
     # Publish `v1.2.3` tags as releases.
@@ -560,7 +560,7 @@ jobs:
           # Strip "v" prefix from tag name
           [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION

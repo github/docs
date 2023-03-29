@@ -16,4 +16,5 @@ children:
   - /creating-ci-tests-with-the-checks-api
   - /using-the-github-api-in-your-app
   - /migrating-oauth-apps-to-github-apps
+  - /using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app
 ---

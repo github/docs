@@ -32,7 +32,7 @@ The audit log lists events triggered by activities that affect your organization
 
 ### Search based on the action performed
 
-To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
+To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories.
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
@@ -472,7 +472,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% ifversion fpt or ghec %}
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
-| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion fpt or ghes or ghec %}
+| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion org-enable-code-scanning %}
+| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use the default setup for {% data variables.product.prodname_codeql %}.
+| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use the default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
 | `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
 | `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
 | `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}{% ifversion display-ip-org-audit-log %}
