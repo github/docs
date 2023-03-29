@@ -58,6 +58,8 @@ The dependency graph allows you to explore the ecosystems and packages that your
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
+{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
+
 {% ifversion security-overview-displayed-alerts %}
 ### Security overview
 

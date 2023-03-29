@@ -77,7 +77,8 @@ You can exclude results containing a certain word, using the `NOT` syntax. The `
 
 Query  | Example
 ------------- | -------------
-`NOT`  | **[hello NOT world](https://github.com/search?q=hello+NOT+world&type=Repositories)** matches repositories that have the word "hello" but not the word "world."
+<code>-<em>QUALIFIER</em></code>  | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
+<code>-<em>QUALIFIER</em></code>  | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization.
 
 ## Use quotation marks for queries with whitespace
 

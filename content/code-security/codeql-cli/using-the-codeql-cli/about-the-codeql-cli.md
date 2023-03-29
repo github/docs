@@ -30,7 +30,7 @@ source community
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 For information about using the {% data variables.product.prodname_codeql_cli %}, see
-“[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
+"[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
 
 ## About the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} license
 
@@ -42,7 +42,7 @@ For information about using the {% data variables.product.prodname_codeql_cli %}
 - To demonstrate the software.
 - To test {% data variables.product.prodname_codeql %} queries that are released under an OSI-approved License to confirm that new versions of those queries continue to find the right vulnerabilities.
 
-Where “OSI-approved License” means an Open Source Initiative (OSI)-approved open source software license.
+Where "OSI-approved License" means an Open Source Initiative (OSI)-approved open source software license.
 
 If you are working with an Open Source Codebase (that is, a codebase that is released under an OSI-approved License) you can also use {% data variables.product.prodname_codeql %} for the following tasks:
 
@@ -60,5 +60,5 @@ command line. To run a command, use:
 codeql [command] [subcommand]
 ```
 
-To view the reference documentation for a command, add the `--help` flag, or visit the
-"[{% data variables.product.prodname_codeql_cli %} manual](https://codeql.github.com/docs/codeql-cli/manual/)."
+To view the reference documentation for a command, add the `--help` flag, or see
+"[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual)."
