@@ -62,20 +62,22 @@ Query  | Example
 <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>+<em>00</em>:<em>00</em></code> | **[cats created:2017-01-01T01:00:00+07:00..2017-03-01T15:30:15+07:00](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2017-01-01T01%3A00%3A00%2B07%3A00..2017-03-01T15%3A30%3A15%2B07%3A00&type=Issues)** matches issues created between January 1, 2017 at 1 a.m. with a UTC offset of `07:00` and March 1, 2017 at 3 p.m. with a UTC offset of `07:00`.
 <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>T<em>HH</em>:<em>MM</em>:<em>SS</em>Z</code>  | **[cats created:2016-03-21T14:11:00Z..2016-04-07T20:45:00Z](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2016-03-21T14%3A11%3A00Z..2016-04-07T20%3A45%3A00Z&type=Issues)** matches issues created between March 21, 2016 at 2:11pm and April 7, 2016 at 8:45pm.
 
-## Exclude certain results
+## Exclude results that match a qualifier
+
+You can narrow down search results by excluding one or more subsets. To exclude all results that are matched by a qualifier, prefix the search qualifier with a hyphen (`-`).
+
+Query  | Example
+------------- | -------------
+<code>-<em>QUALIFIER</em></code>  | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
+<code>-<em>QUALIFIER</em></code>  | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization.
+
+## Exclude results with specific keywords
 
 You can exclude results containing a certain word, using the `NOT` syntax. The `NOT` operator can only be used for string keywords. It does not work for numerals or dates.
 
 Query  | Example
 ------------- | -------------
 `NOT`  | **[hello NOT world](https://github.com/search?q=hello+NOT+world&type=Repositories)** matches repositories that have the word "hello" but not the word "world."
-
-Another way you can narrow down search results is to exclude certain subsets. You can prefix any search qualifier with a `-` to exclude all results that are matched by that qualifier.
-
-Query  | Example
-------------- | -------------
-<code>-<em>QUALIFIER</em></code>  | **[`cats stars:>10 -language:javascript`](https://github.com/search?q=cats+stars%3A>10+-language%3Ajavascript&type=Repositories)** matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
-<code>-<em>QUALIFIER</em></code>  | **[`mentions:defunkt -org:github`](https://github.com/search?utf8=%E2%9C%93&q=mentions%3Adefunkt+-org%3Agithub&type=Issues)** matches issues mentioning @defunkt that are not in repositories in the GitHub organization
 
 ## Use quotation marks for queries with whitespace
 
