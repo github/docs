@@ -21,7 +21,7 @@ export function SupportPortalVaIframe({
     STOP = 'stop',
   }
 
-  const [showIframe, setIframe] = useState(true)
+  const [showIframe, setIframe] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -55,21 +55,11 @@ export function SupportPortalVaIframe({
       }
     }
     window.addEventListener('message', eventHandler)
+    setIframe(true)
     return () => {
       window.removeEventListener('message', eventHandler)
     }
   }, [])
-
-  useEffect(() => {
-    // Communicate to Support Portal that the iframe is ready to receive messages
-    // If the iframe feature is disabled on the Support Portal, no message will be sent back iframe will remain hidden
-    if (iframeRef.current?.contentWindow) {
-      iframeRef.current.contentWindow.postMessage(
-        'ready',
-        supportPortalVaIframeProps.supportPortalUrl
-      )
-    }
-  }, [iframeRef.current?.contentWindow])
 
   if (!showIframe) {
     return null
