@@ -2,15 +2,15 @@ import fs from 'fs'
 
 import { describe, expect } from '@jest/globals'
 
-import { get } from '../helpers/e2etest.js'
+import { get } from '../../../tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../middleware/set-fastly-surrogate-key.js'
+} from '../../../middleware/set-fastly-surrogate-key.js'
 
-describe('anchor-redirect middleware', () => {
+describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(
-    fs.readFileSync('./src/rest/data/client-side-rest-api-redirects.json', 'utf-8')
+    fs.readFileSync('src/rest/data/client-side-rest-api-redirects.json', 'utf-8')
   )
 
   test('returns correct redirect to url', async () => {
@@ -20,7 +20,7 @@ describe('anchor-redirect middleware', () => {
     const sp = new URLSearchParams()
     sp.set('path', path)
     sp.set('hash', hash)
-    const res = await get('/anchor-redirect?' + sp)
+    const res = await get('/api/anchor-redirect?' + sp)
     expect(res.statusCode).toBe(200)
     const { to } = JSON.parse(res.text)
     expect(to).toBe(value)
@@ -31,7 +31,7 @@ describe('anchor-redirect middleware', () => {
     const hash = key.split('#')[1]
     const sp = new URLSearchParams()
     sp.set('hash', hash)
-    const res = await get('/anchor-redirect?' + sp)
+    const res = await get('/api/anchor-redirect?' + sp)
     expect(res.statusCode).toBe(400)
   })
   test('errors when path is not passed', async () => {
@@ -40,14 +40,14 @@ describe('anchor-redirect middleware', () => {
     const path = key.split('#')[0]
     const sp = new URLSearchParams()
     sp.set('path', path)
-    const res = await get('/anchor-redirect?' + sp)
+    const res = await get('/api/anchor-redirect?' + sp)
     expect(res.statusCode).toBe(400)
   })
   test('unfound redirect returns undefined', async () => {
     const sp = new URLSearchParams()
     sp.set('path', 'foo')
     sp.set('hash', 'bar')
-    const res = await get('/anchor-redirect?' + sp)
+    const res = await get('/api/anchor-redirect?' + sp)
     const { to } = JSON.parse(res.text)
     expect(to).toBe(undefined)
   })
@@ -55,7 +55,7 @@ describe('anchor-redirect middleware', () => {
     const sp = new URLSearchParams()
     sp.set('path', 'foo')
     sp.set('hash', 'bar')
-    const res = await get('/anchor-redirect?' + sp)
+    const res = await get('/api/anchor-redirect?' + sp)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
