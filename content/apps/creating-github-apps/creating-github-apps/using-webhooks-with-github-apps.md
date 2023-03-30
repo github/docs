@@ -54,7 +54,7 @@ After creating a webhook secret for your app, you will need to configure your se
 
 ## Subscribing to webhook events
 
-You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. The specific webhook events that you can select in your app settings are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions.
+You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. The specific webhook events that you can select in your app settings are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 For example, if you would like your app to receive a webhook event payload whenever a new issue is opened in your repository, you would first need to give your app permission to access "Issues" under "Repository permissions." Then under "Subscribe to events" you can select "Issues."
 
