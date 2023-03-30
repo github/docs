@@ -22,7 +22,7 @@ You decide what information to include in your profile README, so you have full 
 - Contributions you're proud of, and context about those contributions
 - Guidance for getting help in communities where you're involved
 
-![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
+![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 
 You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)." For a hands-on guide to customizing your profile README, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
 

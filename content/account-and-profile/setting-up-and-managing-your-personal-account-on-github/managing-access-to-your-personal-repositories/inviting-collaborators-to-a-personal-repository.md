@@ -51,17 +51,14 @@ You can send an invitation to collaborate in your repository directly to someone
 1. Click **Add people**.
 1. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
 1. Click **Add NAME to REPOSITORY**.
-    ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
 {% else %}
 1. In the left sidebar, click **Collaborators**.
 1. Under "Collaborators", start typing the collaborator's username.
 1. Select the collaborator's username from the dropdown menu.
-   ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Click **Add collaborator**.
-   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+1. Click **Add collaborator**.
 {% endif %}
 {% ifversion fpt or ghec %}
-9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
+1. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
 {% endif %}
 
 ## Further reading

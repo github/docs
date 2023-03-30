@@ -96,9 +96,7 @@ You can also select the **Revision Slider** option, which lets you use a slider 
 
 ### Fixing slow performance
 
-If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
-
-![WebGL pop error](/assets/images/help/repository/render_webgl_error.png)
+If you see {% octicon "info" aria-label="the info icon" %} in the corner of the viewer, with the tooltip "WebGL powered hardware support not available," then the WebGL technology is not available on your browser.
 
 WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
 
@@ -136,9 +134,9 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 ## Rendering CSV and TSV data
 
-GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 
-![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
+![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
 
 When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
@@ -163,9 +161,7 @@ Common errors include:
 
 ## Rendering PDF documents
 
-GitHub supports rendering of PDF documents.
-
-![Rendered PDF Document](/assets/images/help/repository/rendered-pdf.png)
+{% data variables.product.prodname_dotcom %} supports rendering of PDF documents.
 
 Currently, links within PDFs are ignored.
 
@@ -189,11 +185,13 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 * MediaWiki
 * Pod
 
-![Paper icon to view rendered prose document](/assets/images/help/repository/rendered_prose_diff.png)
+To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
-You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
+![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered_prose_diff.png)
 
-![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
+This "rich diff" highlights the code that has been added and removed.
+
+![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered_prose_changes.png)
 
 ### Disabling Markdown rendering
 
@@ -205,7 +203,7 @@ We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
 another, we'd show a tooltip like this:
 
-![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
+![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose_diff_attributes.png)
 
 ### Commenting on changes
 
@@ -221,8 +219,6 @@ of your rendered prose diff to specific sections.
 ### Viewing complex diffs
 
 Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
-
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
 
 You can still use the source view to analyze and comment on changes.
 

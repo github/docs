@@ -42,9 +42,9 @@ If a repository contains more than one README file, then the file shown is chose
 
 ## Auto-generated table of contents for README files
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %}  menu icon at the top left of the rendered page.
 
-![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+![Screenshot of the README for a repository. In the upper-left corner, a dropdown menu, labeled with a list icon, is expanded to show a table of contents.](/assets/images/help/repository/readme-automatic-toc.png)
 
 ## Section links in README files and blob pages
 

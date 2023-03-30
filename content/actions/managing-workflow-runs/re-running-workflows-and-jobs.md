@@ -117,10 +117,8 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}.
-   ![Re-run selected job](/assets/images/help/repository/re-run-selected-job.png)
 
-   Alternatively, click on a job to view the log. In the log, click {% octicon "sync" aria-label="The re-run icon" %}.
-   ![Re-run selected job](/assets/images/help/repository/re-run-single-job-from-log.png)
+   ![Screenshot of the page for a workflow run. In the left sidebar, to the right of a job, a sync icon is outlined in dark orange.](/assets/images/help/actions/re-run-selected-job.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}

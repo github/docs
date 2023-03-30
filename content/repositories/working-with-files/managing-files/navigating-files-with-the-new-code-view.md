@@ -96,7 +96,8 @@ Rather than losing file context when you enter the blame view, you can now use t
 
 1. Select a repository, then click a file within that repository to open the new code view.
 1. To see the revision history of the file, above the file content, click **Blame**. This view gives you a line-by-line revision history, with the code in a file separated by commit. Each commit lists the author, commit description, and commit date.
-   - To see versions of a file before a particular commit, click {% octicon "versions" aria-label="The versions icon" %}. Alternatively, to see more detail about a particular commit, click the commit message.
+   - To see versions of a file before a particular commit, click {% octicon "versions" aria-label="View blame prior to this change" %}. Alternatively, to see more detail about a particular commit, click the commit message.
+
       ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
 
 1. To return to the raw code view, above the file content, click **Code**.
