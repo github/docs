@@ -33,9 +33,9 @@ Within the blame view, you can view the line-by-line revision history for an ent
 
 ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/help/repository/git_blame.png)
 
-In a file or pull request, you can also use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} menu to view Git blame for a selected line or range of lines.
+In a file or pull request, you can also view Git blame for a selected line or range of lines by selecting the {% octicon "kebab-horizontal" aria-label="Code line X options" %} dropdown menu, then clicking **View git blame**.
 
-![Kebab menu with option to view Git blame for a selected line](/assets/images/help/repository/view-git-blame-specific-line.png)
+![Screenshot of a file, with 8 lines selected. To the left of the first selected line, a button labeled with a kebab icon is outlined in dark orange.](/assets/images/help/repository/open-new-issue-specific-line.png)
 
 {% tip %}
 

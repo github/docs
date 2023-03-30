@@ -95,10 +95,8 @@ Your configuration file will customize the template chooser when the file is mer
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type `.github/ISSUE_TEMPLATE/config.yml`.
-  ![Configuration filename](/assets/images/help/repository/template-config-file-name.png)
-4. In the body of the new file, type the contents of your configuration file.
-  ![Configuration file content](/assets/images/help/repository/template-config-file-content.png)
+1. In the file name field, type `.github/ISSUE_TEMPLATE/config.yml`.
+1. In the body of the new file, type the contents of your configuration file.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
