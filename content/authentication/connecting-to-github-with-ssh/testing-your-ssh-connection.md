@@ -32,7 +32,7 @@ When you test your connection, you'll need to authenticate this action using you
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+  > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
   > Are you sure you want to continue connecting (yes/no)?
   ```
 

@@ -114,10 +114,11 @@ You can filter a repository's list of pull requests to find:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. In the upper-right corner, select the Reviews drop-down menu.
-  ![Reviews drop-down menu in the filter menu above the list of pull requests](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
-4. Choose a filter to find all of the pull requests with that filter's status.
-  ![List of filters in the Reviews drop-down menu](/assets/images/help/pull_requests/pr-review-filters.png)
+1. In the upper-right corner, select the **Reviews** dropdown menu.
+
+   ![Screenshot of the filter menu above the list of pull requests. The "Reviews" dropdown is outlined in dark orange.](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
+
+1. Choose a filter to find all of the pull requests with that filter's status.
 
 ## Using search to filter issues and pull requests
 

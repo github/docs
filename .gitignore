@@ -14,7 +14,7 @@ coverage/
 .next
 .eslintcache
 *.tsbuildinfo
-translations/
+/translations/
 .node-version
 
 # blc: broken link checker
@@ -44,3 +44,6 @@ semmle-code
 
 .installed.package-lock.json
 assets/images/help/writing/unordered-list-rendered (1).png
+
+# Used by getRemoteJSON()
+.remotejson-cache/

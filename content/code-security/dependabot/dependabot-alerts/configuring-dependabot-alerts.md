@@ -70,10 +70,12 @@ By default, we notify people with admin permissions in the affected repositories
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts.
-  ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
-{% endif %}{% ifversion ghes or ghae %}
+
+{% endif %}
+{% ifversion ghes or ghae %}
 
 {% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+
 {% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization

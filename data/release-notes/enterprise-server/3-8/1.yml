@@ -1,0 +1,47 @@
+date: '2023-03-23'
+sections:
+  bugs:
+    - On an instance with GitHub Actions enabled, a workflow job for GitHub Actions would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
+    - On an instance with GitHub Actions enabled, GitHub Actions will now properly execute after restoration of a deleted repository.
+    - |
+      On an instance with GitHub Actions enabled, nested calls to reusable workflows within a reusable workflow job with a matrix correctly evaluate contexts within expressions, like `strategy: ${% raw %}{{ inputs.strategies }}{% endraw %}`.
+    - "In some cases, graphs on the Management Console's monitor dashboard failed to render."
+    - After an administrator used the `/setup/api/start` REST API endpoint to upload a license, the configuration run failed with a `Connection refused` error during the migrations phase.
+    - On an instance in a cluster configuration, when a site administrator set maintenance mode using `ghe-maintenance -s`, a `Permission denied` error appeared when the utility tried to access `/data/user/common/cluster.conf`.
+    - On an instance in a high availability configuration, if an administrator tore down replication from a replica node using `ghe-repl-teardown` immediately after running `ghe-repl-setup`, but before `ghe-repl-start`, an error indicated that the script `cannot launch /usr/local/bin/ghe-single-config-apply - run is locked`. `ghe-repl-teardown` now displays an informational alert and continues the teardown.
+    - During configuration of high availability, if a site administrator interrupted the `ghe-repl-start` utility, the utility erroneously reported that replication was configured, and the instance would not perform expected clean-up operations.
+    - Commands that site administrators ran via SSH on any of the instances nodes were not logged in `/var/log/ssh-console-audit.log`.
+    - "On instances configured to use the private beta of SCIM for GitHub Enterprise Server, users' authentication with SSH keys and personal access tokens failed due to an erroneous requirement for authorization."
+    - |
+      After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
+    - Responses from the `/repositories` REST API endpoint erroneously included deleted repositories.
+    - When a site administrator used `ghe-migrator` to migrate data to GitHub Enterprise Server, in some cases, nested team relationships would not persist after teams were imported.
+    - If a repository contained a `CODEOWNERS` file with check annotations, pull requests "Files changed" tab returned a `500` error and displayed "Oops, something went wrong" in the "Unchanged files with check annotations" section.
+    - On an instance with GitHub Actions enabled, if a user manually triggered a workflow using the REST API but did not specify values for optional booleans, the API failed to validate the request and returned a `422` error.
+    - When users searched for gists, the text in the search field was not visible in some cases because the texts color was identical to the color of the fields background.
+    - In some cases on an instance with multiple nodes, GitHub Enterprise Server erroneously stopped writing to replica fileservers, causing repository data to fall out of sync.
+    - On an instance with GitHub Connect enabled, if "Users can search GitHub.com" was enabled, users would not see issues in private and internal repositories in search results for GitHub.com.
+  changes:
+    - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+    - To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
+    - The default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+    - On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+  known_issues:
+    - |
+      On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      {% data reusables.release-notes.ghe-cluster-config-apply-error %}
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+    - |
+      Use of the search API may cause subsequent requests to other interfaces to fail. When this issue occurs, impacted API or web UI users will receive HTTP 5xx responses and this `NoMethodError` exception will be logged:
+
+      ```
+      NoMethodError (undefined method `starts_with?' for [:ok, "refs/heads/main"]:Array):
+      ```

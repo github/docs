@@ -13,6 +13,7 @@ featuredLinks:
     - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/git-and-github-learning-resources
   popular:
+    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
     - /desktop

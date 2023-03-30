@@ -187,10 +187,8 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **LDAP users**.
-![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
-![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
+1. In the left sidebar, click **LDAP users**.
+1. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 
 ## Updating LDAP accounts
 
@@ -207,9 +205,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
-![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
+1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
 You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap).
 
