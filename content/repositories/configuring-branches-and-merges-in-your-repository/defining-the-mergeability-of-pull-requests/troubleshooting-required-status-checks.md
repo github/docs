@@ -40,8 +40,6 @@ remote: error: Required status check "ci-build" is failing
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls#get-a-pull-request)."
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-
 ## Handling skipped but required checks
 
 {% note %}

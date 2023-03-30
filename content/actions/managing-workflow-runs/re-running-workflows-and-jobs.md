@@ -28,16 +28,14 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.4 or ghae or ghec -%}
-1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run all jobs**.
+1. In the upper-right corner of the workflow, re-run jobs.
 
-   If no jobs failed, you will not see the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**.
+   - If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
-   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+   - If no jobs failed, click **Re-run all jobs**.
 {%- endif %}
 {% ifversion ghes < 3.5 or ghae -%}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-
-   ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+1. In the upper-right corner of the workflow, select the **Re-run jobs** dropdown menu and click **Re-run all jobs**.
 {%- endif %}
 {% data reusables.actions.enable-debug-logging %}
 
@@ -81,9 +79,7 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run failed jobs**.
-
-   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. In the upper-right corner of the workflow, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu, and click **Re-run failed jobs**.
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}

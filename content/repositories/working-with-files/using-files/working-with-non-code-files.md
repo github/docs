@@ -90,7 +90,7 @@ When looking at a commit or set of changes which includes an STL file, you'll be
 
 By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
 
-![wireframe](/assets/images/help/repository/stl_wireframe.png)
+![Screenshot of the diff for a STL file. Portions of a 3D object are red, and other portions are green.](/assets/images/help/repository/stl_wireframe.png)
 
 You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
 
@@ -144,9 +144,7 @@ You can link to a particular row by clicking the row number, or select multiple 
 
 ### Searching data
 
-If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
-
-![Searching for values](/assets/images/help/repository/searching_csvs.gif)
+If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically.
 
 ### Handling errors
 
@@ -230,11 +228,7 @@ In general, rendered views of changes to a document containing embedded HTML wil
 
 ## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
-
-When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
-
-![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
+{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on {% data variables.product.product_name %}.
 
 ### Geometry types
 

@@ -32,8 +32,6 @@ If you put your README file in your repository's hidden `.github`, root, or `doc
 
 If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 
-![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
-
 {% ifversion fpt or ghes or ghec %}
 
 {% data reusables.profile.profile-readme %}
