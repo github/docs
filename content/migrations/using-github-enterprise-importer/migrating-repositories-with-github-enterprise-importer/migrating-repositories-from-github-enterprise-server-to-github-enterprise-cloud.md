@@ -454,22 +454,24 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or later, use the following flags:
 
 ```shell{:copy}
-gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --ghes-api-url GHES-API-URL
+gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --ghes-api-url GHES-API-URL --wait
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Azure Blob Storage as your blob storage provider, use the following flags to authenticate:
 
 ```shell{:copy}
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
-    --ghes-api-url GHES-API-URL --azure-storage-connection-string "AZURE_STORAGE_CONNECTION_STRING"
+    --ghes-api-url GHES-API-URL --azure-storage-connection-string "AZURE_STORAGE_CONNECTION_STRING" --wait
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Amazon S3 as your blob storage provider, use the following flags to authenticate:
 
 ```shell{:copy}
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
-    --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME"
+    --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME" --wait
 ```
+
+{% data reusables.enterprise-migration-tool.wait-flag %}
 
 {% data reusables.enterprise-migration-tool.ssl-flag %}
 
