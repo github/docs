@@ -60,7 +60,7 @@ The security coverage page, part of security overview, makes it easy to filter t
 {%- endif %}
 - `code-scanning-default-setup:not-eligible` shows repositories that either have advanced setup configured already, or where the languages not are suitable for default setup.
 
-For more information about the security coverage page, see "[AUTOTITLE](/code-security/security-overview/about-the-security-overview#security-coverage-view)."
+For more information about the security coverage page, see "[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)."
 
 {% endif %}
 
