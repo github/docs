@@ -34,7 +34,7 @@ By updating your workflows to use OIDC tokens, you can adopt the following good 
 
 The following diagram gives an overview of how {% data variables.product.prodname_dotcom %}'s OIDC provider integrates with your workflows and cloud provider:
 
-![OIDC diagram](/assets/images/help/images/oidc-architecture.png)
+![Diagram of how a cloud provider integrates with {% data variables.product.prodname_actions %} through access tokens and JSON web token cloud role IDs.](/assets/images/help/actions/oidc-architecture.png)
 
 1. In your cloud provider, create an OIDC trust between your cloud role and your {% data variables.product.prodname_dotcom %} workflow(s) that need access to the cloud.
 2. Every time your job runs, {% data variables.product.prodname_dotcom %}'s OIDC Provider auto-generates an OIDC token. This token contains multiple claims to establish a security-hardened and verifiable identity about the specific workflow that is trying to authenticate.

@@ -165,25 +165,15 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
 
 In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell script. Steps 1 and 2 run actions, while steps 3 and 4 run shell scripts. To find more prebuilt actions for your workflows, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)."
 
-![Workflow overview](/assets/images/help/images/overview-actions-event.png)
+![Diagram showing the trigger, runner, and job of a workflow. The job is broken into 4 steps.](/assets/images/help/actions/overview-actions-event.png)
 
 ## Viewing the activity for a workflow run
 
 When your workflow is triggered, a _workflow run_ is created that executes the workflow. After a workflow run has started, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Actions**.
-
-   ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
-1. In the left sidebar, click the workflow you want to see.
-
-   ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Under "Workflow runs", click the name of the run you want to see.
-
-   ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-1. Under **Jobs** or in the visualization graph, click the job you want to see.
-
-   ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
-1. View the results of each step.
-
-   ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+1. In the left sidebar or in the visualization graph, click the job you want to see.
+1. To view the results of a step, click the step.

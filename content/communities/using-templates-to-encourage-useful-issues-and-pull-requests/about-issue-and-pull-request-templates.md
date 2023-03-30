@@ -26,7 +26,7 @@ You can create default issue and pull request templates for your organization or
 
 When you create issue templates for your repository using the issue template builder{% ifversion fpt or ghec %} or with issue forms{% endif %}, contributors can select the appropriate template when they open new issues in the repository.
 
-![New issue page showing issue template choices](/assets/images/help/issues/new-issue-page-with-multiple-templates.png)
+![Screenshot of the new issue page, with multiple templates to choose from.](/assets/images/help/issues/new-issue-page-with-multiple-templates.png)
 
 Issue templates are helpful when you want to provide guidance for opening issues while allowing contributors to specify the content of their issues. {% ifversion fpt or ghec %} If you want contributors to provide specific, structured information when they open issues, issue forms help ensure that you receive your desired information.{% endif %}
 
@@ -47,8 +47,6 @@ It is possible to manually create a single issue template in Markdown using the 
 ## Pull request templates
 
 When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body.
-
-![Sample pull request template](/assets/images/help/pull_requests/pr-template-sample.png)
 
 You must create templates on the repository's default branch. Templates created in other branches are not available for collaborators to use. You can store your pull request template in the repository's visible root directory, the `docs` folder, or the hidden `.github` directory. Pull request template filenames are not case sensitive, and can have an extension such as *.md* or *.txt*.
 

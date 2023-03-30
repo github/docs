@@ -70,7 +70,7 @@ We recommend testing your site locally, which allows you to see build error mess
 
 ## Viewing Jekyll build error messages in your pull request with a third-party CI service
 
-You can configure a third-party service, such as [Travis CI](https://travis-ci.org/), to display error messages after each commit.
+You can configure a third-party service, such as [Travis CI](https://travis-ci.com/), to display error messages after each commit.
 
 1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
   ```ruby
@@ -78,7 +78,7 @@ You can configure a third-party service, such as [Travis CI](https://travis-ci.o
   gem `github-pages`
   ```
 
-2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.org/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
+2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.com/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
   ```yaml
   language: ruby
   rvm:

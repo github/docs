@@ -5,9 +5,8 @@ import addFormats from 'ajv-formats'
 import { schemas, hydroNames } from './schema.js'
 import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
 import { noCacheControl } from '../../middleware/cache-control.js'
-import Hydro from './hydro.js'
+import { publish } from './hydro.js'
 
-const hydro = new Hydro()
 const router = express.Router()
 const ajv = new Ajv()
 addFormats(ajv)
@@ -33,12 +32,13 @@ router.post(
     }
 
     res.json({})
-    if (hydro.maySend()) {
-      try {
-        await hydro.publish(hydroNames[req.body.type], omit(req.body, OMIT_FIELDS))
-      } catch (err) {
-        console.error('Failed to submit event to Hydro', err)
-      }
+    try {
+      await publish({
+        schema: hydroNames[type],
+        value: omit(req.body, OMIT_FIELDS),
+      })
+    } catch (err) {
+      console.error('Failed to submit event to Hydro', err)
     }
   })
 )

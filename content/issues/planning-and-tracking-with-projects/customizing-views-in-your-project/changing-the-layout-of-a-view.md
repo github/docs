@@ -28,8 +28,6 @@ topics:
 
 ## About the roadmap layout
 
-{% data reusables.projects.roadmaps-release-stage %}
-
 {% data reusables.projects.about-roadmap-layout %} For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
 
 ![Screenshot showing an example roadmap layout](/assets/images/help/projects-v2/example-roadmap.png)

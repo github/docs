@@ -196,8 +196,11 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 {% data reusables.enterprise-migration-tool.gei-migrate-repo %}
 
 ```shell{:copy}
-gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
+gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --wait
 ```
+
+{% data reusables.enterprise-migration-tool.wait-flag %}
+
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}

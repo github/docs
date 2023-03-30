@@ -248,6 +248,33 @@ Reusable strings (commonly called content references or conrefs) contain content
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).
 
+## Table row headers
+
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag `{% rowheaders %} {% endrowheaders %}`. For more information, see "[Use proper markup for row and column headers](./content-style-guide.md#use-proper-markup-for-row-and-column-headers)" in the style guide.
+
+### Example table with row headers
+
+```
+{% rowheaders %}
+
+| | Mona | Tom | Hobbes |
+|---|---|---|---|
+|Type of cat| Octo | Tuxedo | Tiger |
+|Likes to swim in the ocean| Yes | No | No |
+
+{% endrowheaders %}
+```
+
+### Example table without row headers
+
+```
+| Name | Vocation |
+| --- | --- |
+| Mona | GitHub mascot |
+| Tom | Mouse antagonist |
+| Hobbes | Best friend | 
+```
+
 ## Tables with codeblocks
 
 Although using tables to contain block items, such as code blocks, is generally discouraged, occasionally it may be appropriate.

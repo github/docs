@@ -31,26 +31,28 @@ If a site administrator disables the merge conflict editor for pull requests bet
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
 1. Near the bottom of your pull request, click **Resolve conflicts**.
-![Resolve merge conflicts button](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
- {% tip %}
+   ![Screenshot of a warning that a pull request has a merge conflict. The "Resolve merge conflicts" button is outlined in dark orange.](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
- **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
+ {% note %}
 
- {% endtip %}
+ **Note:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
+
+ {% endnote %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
- ![View merge conflict example with conflict markers](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
 1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
 1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.
- ![Click mark as resolved button](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+
+   ![Screenshot of the editor to resolve a merge conflict in a pull request. The "Mark as resolved" button is outlined in dark orange.](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+
 1. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
- ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
 1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
- ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
+
+   ![Screenshot of the editor to resolve a merge conflict in a pull request. The "Commit merge" button is outlined in dark orange.](/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
+
 1. If prompted, review the branch that you are committing to.
 
    If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
- ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
 
    If you choose to create a new branch, enter a name for the branch.
 

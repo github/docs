@@ -47,7 +47,7 @@ Artifacts consume storage space on the external blob storage that is configured 
 
 Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.product_name %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
 
-{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
+{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `upload-artifact` and `download-artifact` actions on {% data variables.location.product_location %}{% endif %}.
 
 To share data between jobs:
 
@@ -85,7 +85,7 @@ For example, your repository or a web application might contain SASS and TypeScr
 |       └── app.ts
 |   └── output
 |       └── test
-|   
+|
 ```
 
 This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
@@ -249,7 +249,6 @@ jobs:
 ```
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
