@@ -99,7 +99,7 @@ For more information on how to configure notifications for {% data variables.sec
 Repository administrators and organization owners can grant users and teams access to {% data variables.secret-scanning.alerts %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion ghec or ghes or ghae > 3.4 %}
-You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-the-security-overview)."
+You can use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 You can also use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."

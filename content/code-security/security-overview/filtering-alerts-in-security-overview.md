@@ -1,5 +1,5 @@
 ---
-title: Filtering alerts in the security overview
+title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
@@ -15,16 +15,18 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering the security overview
+shortTitle: Filtering security overview
+redirect_from:
+  - /code-security/security-overview/filtering-alerts-in-the-security-overview
 ---
 
 {% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 
-## About filtering the security overview
+## About filtering security overview
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterpise or organization level{% endif %}.
+You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterprise or organization level{% endif %}.
 
 {% ifversion security-overview-displayed-alerts %}
 {% note %}
@@ -51,7 +53,7 @@ In the examples below, replace `:enabled` with `:not-enabled` to see repositorie
 | `not-enabled:any` | Display repositories with at least one security feature that is not enabled. |{% endif %}
 
 {% ifversion security-overview-org-risk-coverage %}
-The organization-level Security Coverage view includes extra filters.
+The organization-level "Security coverage" view includes extra filters.
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
@@ -97,7 +99,7 @@ These qualifiers are available in the enterprise-level view.
 
 ## Filter by number of alerts
 
-{% ifversion security-overview-org-risk-coverage %}These qualifiers are available in the enterprise-level Overview and in the organization-level Security Risk view.{% else %}These qualifiers are available in the main summary views.{% endif %}
+{% ifversion security-overview-org-risk-coverage %}These qualifiers are available in the enterprise-level "Overview" and in the organization-level "Security risk" view.{% else %}These qualifiers are available in the main summary views.{% endif %}
 
 | Qualifier | Description |
 | -------- | -------- |
