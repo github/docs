@@ -96,14 +96,12 @@ You can add a repository to an existing or new list wherever you see a repositor
 1. Select the list you want to edit.
 2. Click **Edit list**.
 3. Update the name or description and click **Save list**.
-  ![Screenshot of modal showing edit options with "Delete list" and "Save list" highlighted with a dark orange outline.](/assets/images/help/stars/edit-list-options.png) 
 
 ### Deleting a list
 
 {% data reusables.stars.stars-page-navigation %}
 2. Select the list you want to delete.
 3. Click **Delete list**.
-  ![Screenshot of modal showing edit options with "Delete list" and "Save list" highlighted with a dark orange outline.](/assets/images/help/stars/edit-list-options.png)
 4. To confirm, click **Delete**.
 
 {% endif %}
