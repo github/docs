@@ -5,15 +5,28 @@ import addFormats from 'ajv-formats'
 import { schemas, hydroNames } from './schema.js'
 import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
 import { noCacheControl } from '../../middleware/cache-control.js'
-import { publish } from './hydro.js'
+import { formatErrors } from './middleware-errors.js'
+import { publish as _publish } from './hydro.js'
 
 const router = express.Router()
 const ajv = new Ajv()
 addFormats(ajv)
 const OMIT_FIELDS = ['type']
 const allowedTypes = new Set(without(Object.keys(schemas), 'validation'))
-const isDev = process.env.NODE_ENV === 'development'
+const isProd = process.env.NODE_ENV === 'production'
 const validations = mapValues(schemas, (schema) => ajv.compile(schema))
+
+// In production, fire and not wait to respond.
+// _publish will send an error to failbot,
+// so we don't get alerts but we still track it.
+// This ends up being the same as try > await > catch > (do nothing).
+async function publish(...args) {
+  if (isProd) {
+    _publish(...args)
+    return
+  }
+  return await _publish(...args)
+}
 
 router.post(
   '/',
@@ -27,19 +40,25 @@ router.post(
     }
 
     // Validate the data matches the corresponding data schema
-    if (!validations[type](req.body)) {
-      return res.status(400).json(isDev ? ajv.errorsText() : {})
+    const validate = validations[type]
+    if (!validate(req.body)) {
+      // Track validation errors in Hydro so that we can know if
+      // there's a widespread problem in browser.ts
+      await publish(
+        formatErrors(validate.errors, req.body).map((error) => ({
+          schema: hydroNames.validation,
+          value: error,
+        }))
+      )
+      // We aren't helping bots spam us :)
+      return res.status(400).json(isProd ? {} : validate.errors)
     }
 
-    res.json({})
-    try {
-      await publish({
-        schema: hydroNames[type],
-        value: omit(req.body, OMIT_FIELDS),
-      })
-    } catch (err) {
-      console.error('Failed to submit event to Hydro', err)
-    }
+    await publish({
+      schema: hydroNames[type],
+      value: omit(req.body, OMIT_FIELDS),
+    })
+    return res.json({})
   })
 )
 export default router

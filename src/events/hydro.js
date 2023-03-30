@@ -1,6 +1,7 @@
 import { createHmac } from 'crypto'
 import { Agent } from 'node:https'
 import got from 'got'
+import { isNil } from 'lodash-es'
 import statsd from '../../lib/statsd.js'
 import { report } from '../../lib/failbot.js'
 import { MAX_REQUEST_TIMEOUT } from '../../lib/constants.js'
@@ -11,7 +12,11 @@ const CLUSTER = 'potomac' // We only have ability to publish externally to potom
 const TIMEOUT = MAX_REQUEST_TIMEOUT - 1000 // Limit because Express will terminate at MAX_REQUEST_TIMEOUT
 const RETRIES = 0 // We care about aggregate statistics; a few dropped events isn't a big deal
 const httpsAgent = new Agent({ keepAlive: true, maxSockets: 32 }) // keepAlive: https://gh.io/AAk2qio -- 32: https://bit.ly/3Tywd1U
-const isProd = process.env.NODE_ENV === 'production'
+const { NODE_ENV, HYDRO_SECRET, HYDRO_ENDPOINT } = process.env
+
+if (NODE_ENV === 'production' && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
+  throw new Error('Configure Hydro before sending events')
+}
 
 /*
 `events` can be either like:
@@ -21,13 +26,9 @@ const isProd = process.env.NODE_ENV === 'production'
 */
 async function _publish(
   events,
-  { secret, endpoint } = {
-    secret: process.env.HYDRO_SECRET,
-    endpoint: process.env.HYDRO_ENDPOINT,
-  }
+  { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT }
 ) {
   if (!secret || !endpoint) {
-    if (isProd) throw new Error('Configure Hydro')
     return { statusCode: 200 }
   }
 
