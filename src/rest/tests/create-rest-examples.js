@@ -1,5 +1,5 @@
 import { describe, expect } from '@jest/globals'
-import getCodeSamples, { mergeExamples } from '../../src/rest/scripts/utils/create-rest-examples.js'
+import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples.js'
 import {
   operation,
   noContent,
@@ -7,7 +7,7 @@ import {
   noResponse,
   oneToOne,
   matchingTags,
-} from '../fixtures/openapi-examples.js'
+} from './fixtures/create-rest-examples.js'
 
 describe('rest example requests and responses', () => {
   // If there is a request with no request body parameters and all of

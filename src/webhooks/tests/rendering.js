@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
-import { getDOM } from '../helpers/e2etest.js'
-import { allVersions } from '../../lib/all-versions.js'
-import { getWebhooks } from '../../src/webhooks/lib/index.js'
+import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import { getWebhooks } from '../lib/index.js'
 
 describe('webhooks events and payloads', () => {
   jest.setTimeout(300 * 1000)

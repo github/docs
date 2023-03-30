@@ -87,14 +87,27 @@ async function updateMarkdownFile(
     // update only the versions property of the file, assuming
     // the other properties have already been added and edited
     const { data, content } = matter(await readFile(file, 'utf-8'))
-    if (isEqual(sourceData.versions, data.versions)) {
+
+    // Double check that the comment delimiter is only used once
+    const matcher = new RegExp(commentDelimiter, 'g')
+    const matches = content.match(matcher)
+    if (matches && matches.length > 1) {
+      throw new Error(`Error: ${file} has multiple comment delimiters`)
+    }
+
+    // Only proceed if the content or versions have changed
+    const [manuallyCreatedContent, automatedContent] = content.split(commentDelimiter)
+    const isContentSame = automatedContent === sourceContent
+    const isVersionsSame = isEqual(sourceData.versions, data.versions)
+    if (isContentSame && isVersionsSame) {
       return
     }
+
+    // Create a new object so that we don't mutate the original data
     const newData = { ...data }
-    // Keep all frontmatter currently in the Markdown file on disk
-    // except replace the versions property with the new versions
+    // Only modify the versions property when a file already existss
     newData.versions = sourceData.versions
-    const targetContent = content.replace(commentDelimiter, sourceContent)
+    const targetContent = manuallyCreatedContent + commentDelimiter + sourceContent
     await writeFile(file, matter.stringify(targetContent, newData))
   } else {
     await createDirectory(path.dirname(file))
