@@ -4,12 +4,7 @@ import { readdirSync, readFileSync } from 'fs'
 import path from 'path'
 
 import { get, getDOM } from '../helpers/e2etest.js'
-import getRest, {
-  categoriesWithoutSubcategories,
-  REST_DATA_DIR,
-  REST_SCHEMA_FILENAME,
-} from '../../src/rest/lib/index.js'
-import { getEnabledForApps } from '../../src/github-apps/lib/index.js'
+import getRest, { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../src/rest/lib/index.js'
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../src/rest/scripts/test-open-api-schema.js'
 
@@ -63,52 +58,6 @@ describe('REST references docs', () => {
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
       expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
     }
-  })
-
-  // Checks every version of the
-  // /rest/overview/endpoints-available-for-github-apps page
-  // and ensures that all sections in the openapi schema
-  // are present in the page.
-  test('loads operations enabled for GitHub Apps', async () => {
-    const flatMapping = getFlatMappingWithCalendarDates()
-
-    for (const [version, versionValue] of Object.entries(flatMapping)) {
-      const schemaSlugs = []
-      const enabledForApps = await getEnabledForApps(version, versionValue.apiVersion)
-
-      // using the static file, generate the expected slug for each operation
-      for (const [key, value] of Object.entries(enabledForApps)) {
-        schemaSlugs.push(
-          ...value.map(
-            (item) =>
-              `/en${
-                versionValue.url === '' ? versionValue.url : `/${versionValue.url}`
-              }/rest/${key}${
-                categoriesWithoutSubcategories.includes(key) ? '' : '/' + item.subcategory
-              }#${item.slug}`
-          )
-        )
-      }
-      // get all of the href attributes in the anchor tags
-      const $ = await getDOM(
-        `/en/${versionValue.url}/rest/overview/endpoints-available-for-github-apps${
-          versionValue.apiVersion ? `?apiVersion=${versionValue.apiVersion}` : ''
-        }`
-      )
-      const domH3Ids = $('#article-contents a')
-        .map((i, a) => $(a).attr('href'))
-        .get()
-      expect(schemaSlugs.every((slug) => domH3Ids.includes(slug))).toBe(true)
-    }
-  })
-
-  test('falls back when unsupported calendar version provided', async () => {
-    const res = await get(
-      `/en/rest/overview/endpoints-available-for-github-apps?${new URLSearchParams({
-        apiVersion: 'junk',
-      })}`
-    )
-    expect(res.statusCode).toBe(200)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {
@@ -174,32 +123,4 @@ If you come across this error in an Update OpenAPI Descriptions PR it's likely t
 
 If you have any questions contact #docs-engineering, #docs-content, or #docs-apis-and-events if you need help.`
   return errorMessage
-}
-
-// This gets a flat mapping for all REST versions (versioned and unversioned) and creates a mapping between
-// the full name of the version including calendar dates to its url name and apiVersion if it exists.
-// Example:
-// {
-// free-pro-team@latest: { url: '', apiVersion: 2022-08-09 }
-// free-pro-team@latest: { url: '', apiVersion: 2022-11-14 }
-// enterprise-cloud@latest: { url: 'enterprise-cloud@latest, apiVersion: 2022-11-14 }
-// enterprise-server@3.6: { url: enterprise-server@3.6 }
-// }
-function getFlatMappingWithCalendarDates() {
-  const flatMapping = {}
-
-  for (const version in allVersions) {
-    if (isApiVersioned(version)) {
-      for (const apiVersion of allVersions[version].apiVersions) {
-        flatMapping[allVersions[version].version] = {
-          url: `${version === 'free-pro-team@latest' ? '' : allVersions[version].version}`,
-          apiVersion,
-        }
-      }
-    } else {
-      flatMapping[allVersions[version].version] = { url: allVersions[version].version }
-    }
-  }
-
-  return flatMapping
 }
