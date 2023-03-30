@@ -20,7 +20,7 @@ shortTitle: Classify with topics
 
 With topics, you can explore repositories in a particular subject area, find projects to contribute to, and discover new solutions to a specific problem. Topics appear on the main page of a repository. You can click a topic name to {% ifversion fpt or ghec %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
 
-![Main page of the test repository showing topics](/assets/images/help/repository/os-repo-with-topics.png)
+![Screenshot of the github/docs repository. In the right sidebar, three topics are outlined in dark orange: "docs," "hacktoberfest," and "works-with-codespaces."](/assets/images/help/repository/os-repo-with-topics.png)
 
 To browse the most used topics, go to https://github.com/topics/.
 
@@ -47,12 +47,12 @@ When creating a topic:
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the top right corner of the page, to the right of "About", click {% octicon "gear" aria-label="Edit repository metadata" %}.
-  
+
   ![Screenshot of the top right of the main page for a repository. The "Edit repository metadata" button, shown as a gear icon, is outlined in orange.](/assets/images/help/repository/edit-repository-details-gear.png)
-  
+
 3. Under "Topics", start to type the topic you want to add to your repository to display a dropdown menu of any matching topics. Click the topic you want to add or continue typing to create a new topic.
-  
+
   ![Screenshot of the "Topics" field showing example topics: "docs" and "works-with-codespaces." A "Suggested" topic "documentation" is shown below.](/assets/images/help/repository/add-topic-form.png)
-  
+
 4. Optional, if there are "Suggested" topics displayed under the "Topics" field, click {% octicon "plus" aria-label="Add this topic" %} to add or {% octicon "dash" aria-label="Decline this topic" %} to decline the suggested topic.
 5. After you've finished adding topics, click **Save changes**.

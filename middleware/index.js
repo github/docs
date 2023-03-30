@@ -15,7 +15,6 @@ import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
-import reqUtils from './req-utils.js'
 import handleErrors from './handle-errors.js'
 import handleInvalidPaths from './handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
@@ -31,6 +30,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import api from './api/index.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
+import productIcons from './product-icons.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
@@ -62,6 +62,7 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
+import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -207,11 +208,14 @@ export default function (app) {
     app.use(fastlyBehavior) // FOR TESTING.
   }
 
+  if (process.env.NODE_ENV === 'development') {
+    app.use(mockVaPortal) // FOR TESTING.
+  }
+
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
-  app.use(reqUtils) // Must come before events
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
@@ -239,6 +243,7 @@ export default function (app) {
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
+  app.use('/producticons', instrument(productIcons, './product-icons'))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints

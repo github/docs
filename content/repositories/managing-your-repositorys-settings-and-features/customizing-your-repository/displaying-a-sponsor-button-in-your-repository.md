@@ -17,7 +17,7 @@ shortTitle: Display a sponsor button
 
 You can configure your sponsor button by editing a `FUNDING.yml` file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
-You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax:
+You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax.
 
 Platform | Syntax
 -------- | -----
@@ -32,7 +32,7 @@ Platform | Syntax
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
-For Tidelift, use the `platform-name/package-name` syntax with the following platform names:
+For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
 
 Language | Platform name
 -------- | -------------
@@ -71,14 +71,8 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under Features, select **Sponsorships**.
-
-  ![Checkbox to enable Sponsorships](/assets/images/help/sponsors/sponsorships-checkbox.png)
-
-1. Under "Sponsorships", click **Set up sponsor button** or **Override funding links**.
-
-  ![Button to set up sponsor button](/assets/images/help/sponsors/sponsor-set-up-button.png)
-
+1. On the "General" settings page, in the "Features" section, select **Sponsorships**.
+1. In the "Sponsorships" box, click **Set up sponsor button** or **Override funding links**.
 1. In the file editor, follow the instructions in the `FUNDING.yml` file to add links to your funding locations.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

@@ -21,7 +21,7 @@ Integrations can be {% data variables.product.prodname_github_apps %}, {% data v
 For more information, see:
 - "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)"
 - "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)"
-- "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps#user-level-permissions)"
+- "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)"
 - "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)"
 - "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
 - "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)"

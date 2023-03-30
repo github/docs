@@ -32,7 +32,7 @@ You can monitor security alerts to discover when users are bypassing push protec
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 

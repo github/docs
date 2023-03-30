@@ -15,6 +15,7 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
   - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 {% warning %}

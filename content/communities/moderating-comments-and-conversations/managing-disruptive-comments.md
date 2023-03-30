@@ -22,7 +22,7 @@ shortTitle: Manage comments
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
-![Minimized comment](/assets/images/help/repository/hidden-comment.png)
+![Screenshot of a hidden comment. The only visible content is "This comment has been minimized", with a button to show the comment.](/assets/images/help/repository/hidden-comment.png)
 
 1. Navigate to the comment you'd like to hide.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
@@ -39,9 +39,8 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 {% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
-2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
-   ![Show comment text](/assets/images/help/repository/hidden-comment-show.png)
-3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
+1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" %} Show comment**.
+1. On the right side of the expanded comment, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Unhide**.
    ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
 
 ## Editing a comment
@@ -61,13 +60,12 @@ That said, anyone with read access to a repository can view a comment's edit his
 Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
 
 1. Navigate to the comment you'd like to edit.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Edit**.
+
   ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
-3. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
-  ![Comment window with redacted content](/assets/images/help/issues/redacted-content-comment.png)
-4. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
-  ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
-5. Click **Update comment**.
+1. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
+1. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
+1. Click **Update comment**.
 
 ## Deleting a comment
 
@@ -79,7 +77,7 @@ Deleting a comment is your last resort as a moderator. It's appropriate to delet
 
 Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
-![Anonymized timeline event for a deleted comment](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
+![Screenshot of a timeline event, which says "octo-org deleted a comment from hubot 6 minutes ago."](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
 {% note %}
 
@@ -97,4 +95,4 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 {% ifversion fpt or ghec %}
 ## Further reading
 - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
-{% endif %} 
+{% endif %}

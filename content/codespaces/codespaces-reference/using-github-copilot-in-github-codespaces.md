@@ -23,4 +23,4 @@ To include {% data variables.product.prodname_copilot %}, or other extensions, i
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)"
+- "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=vscode)"
