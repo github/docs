@@ -163,12 +163,11 @@ You can view the results from your previous attempts at running a workflow. You 
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {%- ifversion re-run-jobs %}
-1. Any previous run attempts are shown in the **Latest** drop-down menu.
-   ![Previous run attempts](/assets/images/help/repository/previous-run-attempts.png)
+1. To the right of the run name, select the **Latest** dropdown menu and click a previous run attempt.
+
+   ![Screenshot of the page for a workflow run. A dropdown menu, labeled "Latest #2," is outlined in dark orange.](/assets/images/help/actions/previous-run-attempts.png)
 {%- else %}
-1. Any previous run attempts are shown in the left pane.
+1. In the left pane, click a previous run attempt.
     ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}
-1. Click an entry to view its results.
-
 {% endif %}

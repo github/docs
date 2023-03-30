@@ -46,19 +46,14 @@ GitHub will display your profile README on your profile page if all of the follo
 ## Adding a profile README
 
 {% data reusables.repositories.create_new %}
-2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
-  ![Repository name field which matches username](/assets/images/help/repository/repo-username-match.png)
-3. Optionally, add a description of your repository. For example, "My personal repository."
-  ![Field for entering a repository description](/assets/images/help/repository/create-personal-repository-desc.png)
-4. Select **Public**.
- ![Radio button to select visibility with public selected](/assets/images/help/repository/create-personal-repository-visibility.png)
+1. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
+1. Optionally, in the "Description" field, type a description of your repository. For example, "My personal repository."
+1. Select **Public**.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. Above the right sidebar, click **Edit README**.
-  ![Button to edit README file](/assets/images/help/repository/personal-repository-edit-readme.png)
-  
+1. Above the right sidebar, click **Edit README**.
+
   The generated README file is pre-populated with a template to give you some inspiration for your profile README.
-  ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
 
 For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 

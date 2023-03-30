@@ -80,9 +80,7 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
-
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
 You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
 
@@ -100,8 +98,6 @@ jobs:
       - run: 'echo "No build required"'
 ```
 Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
-
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 

@@ -29,8 +29,7 @@ shortTitle: Configure
 1. Use the **Add template** dropdown menu, and click on the type of template you'd like to create.
 
    ![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
-1. To preview or edit the template before committing it to the repository, click **Preview and edit**.
-![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
+1. To preview or edit the template before committing it to the repository, next to the template, click **Preview and edit**.
 1. To edit the template, click {% octicon "pencil" aria-label="Edit template" %}, and type in the fields to edit their contents.
 
    ![Screenshot of the preview of an issue template. To the right of the template name, a pencil icon is outlined in dark orange.](/assets/images/help/repository/issue-template-edit-button.png)
