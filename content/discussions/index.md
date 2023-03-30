@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_discussions %} is a collaborative com
 introLinks:
   quickstart: /discussions/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions
     - /discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion
     - /discussions/managing-discussions-for-your-community/moderating-discussions
@@ -24,7 +24,6 @@ featuredLinks:
 changelog:
   label: discussions
 examples_source: data/product-examples/discussions/community-examples.yml
-product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
   feature: discussions
@@ -37,4 +36,3 @@ children:
   - /collaborating-with-your-community-using-discussions
   - /managing-discussions-for-your-community
 ---
-

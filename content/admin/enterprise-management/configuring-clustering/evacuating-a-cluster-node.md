@@ -17,7 +17,7 @@ topics:
 
 In a cluster configuration for {% data variables.product.product_name %}, you can evacuate a node before taking the node offline. Evacuation ensures that the remaining nodes in a service tier contain all of the service's data. For example, when you replace the virtual machine for a node in your cluster, you should first evacuate the node.
 
-For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see "[About cluster nodes](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
 
 {% warning %}
 

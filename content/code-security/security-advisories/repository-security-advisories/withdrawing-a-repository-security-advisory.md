@@ -21,4 +21,4 @@ If you publish a security advisory in error, you can withdraw the security advis
 
 ## Further reading
 
-- "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)"

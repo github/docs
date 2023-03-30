@@ -33,8 +33,15 @@ prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities
 # GitHub Connect (enterprise accounts, other unified features)
 prodname_github_connect: 'GitHub Connect'
 
-# GitHub Enterprise migration tool
+# GitHub Enterprise Importer
 prodname_importer_proper_name: 'GitHub Enterprise Importer'
+prodname_importer_secondary_name: Importer
+prodname_gei_cli_short: GEI extension
+prodname_gei_cli: GEI extension of the GitHub CLI
+prodname_ado2gh_cli: ADO2GH extension of the GitHub CLI
+prodname_ado2gh_cli_short: ADO2GH extension
+prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
+prodname_bbs2gh_cli_short: BBS2GH extension
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -47,6 +54,10 @@ prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 prodname_global_campus: 'GitHub Global Campus'
 prodname_community_exchange: 'GitHub Community Exchange'
+prodname_student_leader_program: 'GitHub Campus Experts'
+prodname_student_leader_program_singular: 'GitHub Campus Expert'
+prodname_octernships: 'GitHub Octernships'
+prodname_octernship_singular: 'GitHub Octernship'
 
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -71,23 +82,26 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% endif %}
+  {% ifversion ghes < 3.5 or ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.8.5{% elsif ghes = 3.6 or ghae = 3.6 %}2.9.4{% elsif ghes = 3.7 or ghae = 3.7 %}2.10.5{% elsif ghes = 3.8 or ghae = 3.8 %}2.11.6{% endif %}
 
 # Projects v2
-prodname_projects_v2: 'Projects'
+prodname_projects_v2: '{% ifversion ghes = 3.8 %}Projects (beta){% else %}Projects{% endif %}'
 prodname_projects_v1: >-
-  {% ifversion ghes or ghae %}project boards{% else %}projects (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}project boards{% else %}projects (classic){% endif %}
 prodname_projects_v1_caps: >-
-  {% ifversion ghes or ghae %}Project boards{% else %}Projects (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}Project boards{% else %}Projects (classic){% endif %}
 prodname_project_v1: >-
-  {% ifversion ghes or ghae %}project board{% else %}project (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}project board{% else %}project (classic){% endif %}
 prodname_project_v1_caps: >-
-  {% ifversion ghes or ghae %}Project board{% else %}Project (classic){% endif %}
+  {% ifversion ghes < 3.8 or ghae %}Project board{% else %}Project (classic){% endif %}
 
 # Personal access tokens
 pat_generic: 'personal access token'
+pat_generic_plural: 'personal access tokens'
 pat_generic_caps: 'Personal access token'
+pat_generic_caps_plural: 'Personal access tokens'
 pat_generic_title_case: 'Personal Access Token'
+pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v1: >-
@@ -188,7 +202,7 @@ prodname_secret_scanning_caps: 'Secret scanning'
 
 # Code scanning
 prodname_code_scanning: 'code scanning'
-prodname_code_scanning_capc: 'Code scanning'
+prodname_code_scanning_caps: 'Code scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'

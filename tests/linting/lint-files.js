@@ -4,11 +4,15 @@ import slash from 'slash'
 import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import addErrors from 'ajv-errors'
+import addFormats from 'ajv-formats'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
-import frontmatter from '../../lib/frontmatter.js'
+import { existsSync } from 'fs'
+import semver from 'semver'
+import { frontmatter, deprecatedProperties } from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
 import { tags } from '../../lib/liquid-tags/extended-markdown.js'
 import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
@@ -18,6 +22,7 @@ import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -228,69 +233,111 @@ const yamlWalkOptions = {
 // different lint rules apply to different content types
 let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint
 
-if (!process.env.TEST_TRANSLATION) {
-  // compile lists of all the files we want to lint
+// compile lists of all the files we want to lint
 
-  const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
-  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
+const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
+const contentMarkdownRelPaths = contentMarkdownAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+
+// Get the list of config files for automated pipelines
+const automatedConfigFiles = walk(`src`, { includeBasePath: true, globs: ['**/lib/config.json'] })
+// Get a list of Markdown files to ignore during Markdown linting
+const automatedIgnorePaths = (
+  await Promise.all(
+    automatedConfigFiles.map(async (p) => {
+      return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore
+    })
   )
-  const contentMarkdownTuples = zip(contentMarkdownRelPaths, contentMarkdownAbsPaths)
+)
+  .flat()
+  .filter(Boolean)
 
-  const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
-  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
-  )
-  const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
+// For each linterIgnore directory, walk the files in the directory and add
+// to the ignore list.
+const ignoreMarkdownFilesAbsPath = new Set(
+  automatedIgnorePaths
+    .filter((p) => {
+      const exists = existsSync(p)
+      if (!exists) {
+        console.warn(
+          `WARNING: Ignored path ${p} defined in an automation pipeline does not exist. This may be expected, but if not, remove the defined path from the pipeline config.`
+        )
+      }
+      return exists
+    })
+    .map((p) =>
+      walk(p, {
+        includeBasePath: true,
+        globs: ['**/*.md'],
+      })
+    )
+    .flat()
+)
 
-  mdToLint = [...contentMarkdownTuples, ...reusableMarkdownTuples]
+// Difference between contentMarkdownAbsPaths & automatedIgnorePaths
+const contentMarkdownNoAutomated = [...contentMarkdownRelPaths].filter(
+  (p) => !ignoreMarkdownFilesAbsPath.has(p)
+)
+// We also need to go back and get the difference between the
+// absolute paths list
+const contentMarkdownAbsPathNoAutomated = [...contentMarkdownAbsPaths].filter(
+  (p) => !ignoreMarkdownFilesAbsPath.has(slash(path.relative(rootDir, p)))
+)
 
-  // data/variables
-  const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
-  const variableYamlRelPaths = variableYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
-  const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
+const contentMarkdownTuples = zip(contentMarkdownNoAutomated, contentMarkdownAbsPathNoAutomated)
 
-  // data/glossaries
-  const glossariesYamlAbsPaths = walk(glossariesDir, yamlWalkOptions).sort()
-  const glossariesYamlRelPaths = glossariesYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
-  const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
+const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
+const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>
+  slash(path.relative(rootDir, p))
+)
+const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
-  // data/features (feature-based versioning)
-  const FbvYamlAbsPaths = walk(fbvDir, yamlWalkOptions).sort()
-  const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
-  const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
+mdToLint = [...contentMarkdownTuples, ...reusableMarkdownTuples]
 
-  // GHES release notes
-  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
-  )
-  ghesReleaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+// data/variables
+const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
+const variableYamlRelPaths = variableYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
 
-  // GHAE release notes
-  const ghaeReleaseNotesYamlAbsPaths = walk(ghaeReleaseNotesDir, yamlWalkOptions).sort()
-  const ghaeReleaseNotesYamlRelPaths = ghaeReleaseNotesYamlAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
-  )
-  ghaeReleaseNotesToLint = zip(ghaeReleaseNotesYamlRelPaths, ghaeReleaseNotesYamlAbsPaths)
+// data/glossaries
+const glossariesYamlAbsPaths = walk(glossariesDir, yamlWalkOptions).sort()
+const glossariesYamlRelPaths = glossariesYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+const glossariesYamlTuples = zip(glossariesYamlRelPaths, glossariesYamlAbsPaths)
 
-  // Learning tracks
-  const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
-  const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map((p) =>
-    slash(path.relative(rootDir, p))
-  )
-  learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
+// data/features (feature-based versioning)
+const FbvYamlAbsPaths = walk(fbvDir, yamlWalkOptions).sort()
+const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
+const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
-  // Put all the yaml files together
-  ymlToLint = [].concat(
-    variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
-    glossariesYamlTuples,
-    fbvTuples,
-    ghesReleaseNotesToLint,
-    ghaeReleaseNotesToLint,
-    learningTracksToLint
-  )
-}
+// GHES release notes
+const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
+const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map((p) =>
+  slash(path.relative(rootDir, p))
+)
+ghesReleaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+
+// GHAE release notes
+const ghaeReleaseNotesYamlAbsPaths = walk(ghaeReleaseNotesDir, yamlWalkOptions).sort()
+const ghaeReleaseNotesYamlRelPaths = ghaeReleaseNotesYamlAbsPaths.map((p) =>
+  slash(path.relative(rootDir, p))
+)
+ghaeReleaseNotesToLint = zip(ghaeReleaseNotesYamlRelPaths, ghaeReleaseNotesYamlAbsPaths)
+
+// Learning tracks
+const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
+const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map((p) =>
+  slash(path.relative(rootDir, p))
+)
+learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
+
+// Put all the yaml files together
+ymlToLint = [].concat(
+  variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
+  glossariesYamlTuples,
+  fbvTuples,
+  ghesReleaseNotesToLint,
+  ghaeReleaseNotesToLint,
+  learningTracksToLint
+)
 
 function formatLinkError(message, links) {
   return `${message}\n  - ${links.join('\n  - ')}`
@@ -349,6 +396,18 @@ if (
   })
 }
 
+// ajv for schema validation tests
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+addFormats(ajv)
+addErrors(ajv)
+// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
+ajv.addFormat('semver', {
+  validate: (x) => semver.validRange(x),
+})
+// *** End TODO ***
+const ghesValidate = ajv.compile(releaseNotesSchema)
+const learningTracksValidate = ajv.compile(learningTracksSchema)
+
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
 
@@ -361,6 +420,8 @@ describe('lint markdown content', () => {
       isEarlyAccess,
       isSitePolicy,
       isSearch,
+      isTranscript,
+      isTranscriptLanding,
       hasExperimentalAlternative,
       frontmatterData,
       rawContent
@@ -378,6 +439,8 @@ describe('lint markdown content', () => {
       isEarlyAccess = split.includes('early-access')
       isSitePolicy = split.includes('site-policy-deprecated')
       isSearch = split.includes('search') && !split.includes('reusables')
+      isTranscript = split.includes('video-transcripts')
+      isTranscriptLanding = isTranscript && split.includes('index.md')
       hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
@@ -396,7 +459,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = {}
+      const context = { currentLanguage: 'en' }
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
@@ -424,12 +487,43 @@ describe('lint markdown content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    test('hidden docs must be Early Access, Site Policy, Search, or Experimental', async () => {
+    test('hidden docs must be Early Access, Site Policy, Search, Experimental, or Transcript', async () => {
       // We need to support some non-Early Access hidden docs in Site Policy
       if (isHidden) {
-        expect(isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative).toBe(true)
+        expect(
+          isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative || isTranscript
+        ).toBe(true)
       }
     })
+
+    //   TODO 47F50CA3 unskip the following tests (3 in total) when all the required videos are transcribed
+    //     'content/codespaces/index.md',
+    //     'content/discussions/index.md',
+
+    // ---- START SKIPPED TRANSCRIPTION TESTS ----
+
+    // see contributing/videos.md
+    test.skip('transcripts must contain intro link to video being transcribed', async () => {
+      if (isTranscript && !isTranscriptLanding) {
+        expect(frontmatterData.product_video).toBeDefined()
+      }
+    })
+
+    // see contributing/videos.md
+    test.skip('transcripts must be prepended with "Transcript - "', async () => {
+      if (isTranscript && !isTranscriptLanding) {
+        expect(frontmatterData.title.startsWith('Transcript - ')).toBe(true)
+      }
+    })
+
+    // see contributing/videos.md
+    test.skip('videos on product landing pages must contain transcript', async () => {
+      if (frontmatterData.layout === 'product-landing' && frontmatterData.product_video) {
+        expect(frontmatterData.product_video_transcript).toMatch(/^\/video-transcripts\/.+/)
+      }
+    })
+
+    // ---- END SKIPPED TRANSCRIPTION TESTS ----
 
     test('relative URLs must start with "/"', async () => {
       const matches = links.filter((link) => {
@@ -490,83 +584,93 @@ describe('lint markdown content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    if (!process.env.TEST_TRANSLATION) {
-      test('does not use old site.data variable syntax', async () => {
-        const matches = content.match(oldVariableRegex) || []
-        const matchesWithExample = matches.map((match) => {
-          const example = match.replace(
-            /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-            '{% data $1 %}'
-          )
-          return `${match} => ${example}`
+    test('does not use old site.data variable syntax', async () => {
+      const matches = content.match(oldVariableRegex) || []
+      const matchesWithExample = matches.map((match) => {
+        const example = match.replace(
+          /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
+          '{% data $1 %}'
+        )
+        return `${match} => ${example}`
+      })
+      const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('does not use old octicon variable syntax', async () => {
+      const matches = content.match(oldOcticonRegex) || []
+      const errorMessage = formatLinkError(oldOcticonErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('does not use old extended markdown syntax', async () => {
+      Object.keys(tags).forEach((tag) => {
+        const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
+        if (reg.test(content)) {
+          const matches = content.match(oldExtendedMarkdownRegex) || []
+          const tagMessage = oldExtendedMarkdownErrorText
+            .replace('{{#note}}', `{{#${tag}}}`)
+            .replace('{% note %}', `{% ${tag} %}`)
+            .replace('{% endnote %}', `{% end${tag} %}`)
+          const errorMessage = formatLinkError(tagMessage, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        }
+      })
+    })
+
+    test('URLs must not contain a hard-coded language code', async () => {
+      const matches = links.filter((link) => {
+        return /\/(?:${languageCodes.join('|')})\//.test(link)
+      })
+
+      const errorMessage = formatLinkError(languageLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('URLs must not contain a hard-coded version number', async () => {
+      const initialMatches = content.match(versionLinkRegEx) || []
+
+      // Filter out some very specific false positive matches
+      const matches = initialMatches.filter(() => {
+        if (
+          markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
+          markdownRelPath.endsWith('all-releases.md')
+        ) {
+          return false
+        }
+        return true
+      })
+
+      const errorMessage = formatLinkError(versionLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('URLs must not contain a hard-coded domain name', async () => {
+      const initialMatches = content.match(domainLinkRegex) || []
+
+      // Filter out some very specific false positive matches
+      const matches = initialMatches.filter(() => {
+        if (markdownRelPath === 'content/admin/all-releases.md') {
+          return false
+        }
+        return true
+      })
+
+      const errorMessage = formatLinkError(domainLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
+
+    test('contains no deprecated frontmatter properties', async () => {
+      if (!isEarlyAccess) {
+        const usedDeprecateProps = deprecatedProperties.filter((prop) => {
+          return Object.keys(frontmatterData).includes(prop)
         })
-        const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('does not use old octicon variable syntax', async () => {
-        const matches = content.match(oldOcticonRegex) || []
-        const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('does not use old extended markdown syntax', async () => {
-        Object.keys(tags).forEach((tag) => {
-          const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
-          if (reg.test(content)) {
-            const matches = content.match(oldExtendedMarkdownRegex) || []
-            const tagMessage = oldExtendedMarkdownErrorText
-              .replace('{{#note}}', `{{#${tag}}}`)
-              .replace('{% note %}', `{% ${tag} %}`)
-              .replace('{% endnote %}', `{% end${tag} %}`)
-            const errorMessage = formatLinkError(tagMessage, matches)
-            expect(matches.length, errorMessage).toBe(0)
-          }
-        })
-      })
-
-      test('URLs must not contain a hard-coded language code', async () => {
-        const matches = links.filter((link) => {
-          return /\/(?:${languageCodes.join('|')})\//.test(link)
-        })
-
-        const errorMessage = formatLinkError(languageLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('URLs must not contain a hard-coded version number', async () => {
-        const initialMatches = content.match(versionLinkRegEx) || []
-
-        // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(() => {
-          if (
-            markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
-            markdownRelPath.endsWith('all-releases.md')
-          ) {
-            return false
-          }
-          return true
-        })
-
-        const errorMessage = formatLinkError(versionLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-
-      test('URLs must not contain a hard-coded domain name', async () => {
-        const initialMatches = content.match(domainLinkRegex) || []
-
-        // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(() => {
-          if (markdownRelPath === 'content/admin/all-releases.md') {
-            return false
-          }
-          return true
-        })
-
-        const errorMessage = formatLinkError(domainLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    }
+        expect(
+          usedDeprecateProps,
+          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`
+        ).toEqual([])
+      }
+    })
 
     test('contains valid Liquid', async () => {
       // If Liquid can't parse the file, it'll throw an error.
@@ -711,111 +815,109 @@ describe('lint yaml content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    if (!process.env.TEST_TRANSLATION) {
-      test('URLs must not contain a hard-coded language code', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded language code', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(languageLinkRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(languageLinkRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(languageLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(languageLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('URLs must not contain a hard-coded version number', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded version number', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(versionLinkRegEx) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(versionLinkRegEx) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(versionLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(versionLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('URLs must not contain a hard-coded domain name', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded domain name', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(domainLinkRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(domainLinkRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(domainLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(domainLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old site.data variable syntax', async () => {
-        const matches = []
+    test('does not use old site.data variable syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(oldVariableRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(
-              ...valMatches.map((match) => {
-                const example = match.replace(
-                  /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-                  '{% data $1 %}'
-                )
-                return `Key "${key}": ${match} => ${example}`
-              })
-            )
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(oldVariableRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(
+            ...valMatches.map((match) => {
+              const example = match.replace(
+                /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
+                '{% data $1 %}'
+              )
+              return `Key "${key}": ${match} => ${example}`
+            })
+          )
         }
+      }
 
-        const errorMessage = formatLinkError(oldVariableErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(oldVariableErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old octicon variable syntax', async () => {
-        const matches = []
+    test('does not use old octicon variable syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(oldOcticonRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(oldOcticonRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(oldOcticonErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old extended markdown syntax', async () => {
-        const matches = []
+    test('does not use old extended markdown syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          const contentStr = getContent(content)
-          if (!contentStr) continue
-          const valMatches = contentStr.match(oldExtendedMarkdownRegex) || []
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        const contentStr = getContent(content)
+        if (!contentStr) continue
+        const valMatches = contentStr.match(oldExtendedMarkdownRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    }
+      const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
   })
 })
 
@@ -839,11 +941,14 @@ describe('lint GHES release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = ghesValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(ghesValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('contains valid liquid', () => {
@@ -895,11 +1000,14 @@ describe('lint GHAE release notes', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, releaseNotesSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = ghesValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(ghesValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('does not have more than one yaml file with currentWeek set to true', () => {
@@ -959,11 +1067,14 @@ describe('lint learning tracks', () => {
     })
 
     it('matches the schema', () => {
-      const { errors } = revalidator.validate(dictionary, learningTracksSchema)
-      const errorMessage = errors
-        .map((error) => `- [${error.property}]: ${error.actual}, ${error.message}`)
-        .join('\n')
-      expect(errors.length, errorMessage).toBe(0)
+      const valid = learningTracksValidate(dictionary)
+      let errors
+
+      if (!valid) {
+        errors = formatAjvErrors(learningTracksValidate.errors)
+      }
+
+      expect(valid, errors).toBe(true)
     })
 
     it('has one and only one featured track per supported version', async () => {
@@ -991,7 +1102,6 @@ describe('lint learning tracks', () => {
               typeof entry.featured_track === 'boolean' ||
               (await renderContent(entry.featured_track, context, {
                 textOnly: true,
-                encodeEntities: true,
               })) === 'true'
             featuredTracksPerVersion.push(isFeaturedLink)
           }

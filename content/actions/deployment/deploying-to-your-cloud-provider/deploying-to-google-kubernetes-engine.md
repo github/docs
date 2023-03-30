@@ -38,7 +38,7 @@ GKE is a managed Kubernetes cluster service from Google Cloud that can host your
 
 ## Prerequisites
 
-Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
+Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file.
 
 ### Creating a GKE cluster
 
@@ -111,11 +111,11 @@ This procedure demonstrates how to create the service account for your GKE integ
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Storing your project name
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### (Optional) Configuring kustomize
 Kustomize is an optional tool used for managing YAML specs. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
@@ -215,6 +215,5 @@ jobs:
 For more information on the tools used in these examples, see the following documentation:
 
 * For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-* For more starter workflows and accompanying code, see Google's [{% data variables.product.prodname_actions %} example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
 * The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
 * "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.

@@ -3,14 +3,13 @@ name: Sync search - PR
 # **What it does**: This does what `sync-sarch-elasticsearch.yml` does but
 #                   with a localhost Elasticsearch and only for English.
 # **Why we have it**: To test that the script works and the popular pages json is valid.
-# **Who does it impact**: Docs engineering.
+# **Who does it impact**: Docs engineering
 
 on:
   pull_request:
     paths:
       - 'script/search/**'
       - 'package*.json'
-      - lib/search/popular-pages.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
 
@@ -33,33 +32,20 @@ jobs:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
-      - uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          # # Make sure this matches production and `test.yml`
-          elasticsearch version: '7.11.1'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-
       - name: Check out repo
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Cache node_modules
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
 
-      - name: Setup node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
+      - uses: ./.github/actions/setup-elasticsearch
 
-      - name: Install dependencies
-        run: npm install --prefer-offline --no-audit --ignore-scripts
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
@@ -98,6 +84,10 @@ jobs:
           # But that'll get fixed in the next translation pipeline. For now,
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
+
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--popular-pags <PATH>` option.
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
 
         run: |
           mkdir /tmp/records

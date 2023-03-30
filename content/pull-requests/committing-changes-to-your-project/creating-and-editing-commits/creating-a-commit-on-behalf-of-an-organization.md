@@ -50,25 +50,22 @@ Organizations can use the `name@organization.com` email as a public point of con
   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
   ```
 
-The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
+The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
 
 ## Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 
 After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
-
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+1. Click **Commit changes...**
+1. In the "Commit message" field, type a short, meaningful commit message that describes the changes you made.
+1. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+1. Click **Commit changes** or **Propose changes**.
 
 The new commit, message, and badge will appear on {% data variables.location.product_location %}.
 
 ## Further reading
 
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Viewing a project’s contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
+- "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)"
+- "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"

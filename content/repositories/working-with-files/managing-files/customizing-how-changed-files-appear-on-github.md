@@ -27,4 +27,4 @@ search/index.json linguist-generated=true
 
 ## Further reading
 - "[Generated code](https://github.com/github/linguist/blob/master/docs/overrides.md#generated-code)" in the Linguist documentation
-- "[Creating new files](/articles/creating-new-files/)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"

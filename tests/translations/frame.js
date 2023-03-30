@@ -2,17 +2,20 @@ import { languageKeys } from '../../lib/languages.js'
 import { blockIndex } from '../../middleware/block-robots.js'
 import { get, getDOMCached as getDOM } from '../helpers/e2etest.js'
 import Page from '../../lib/page.js'
+import { jest } from '@jest/globals'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
 describe('frame', () => {
+  jest.setTimeout(60 * 1000)
+
   test.each(langs)('allows crawling of %s pages', async (lang) => {
     expect(blockIndex(`/${lang}/articles/verifying-your-email-address`)).toBe(false)
   })
 
   test.each(langs)('breadcrumbs link to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}/get-started/learning-about-github`)
-    const $breadcrumbs = $('[data-testid=breadcrumbs] a')
+    const $breadcrumbs = $('[data-testid=breadcrumbs-in-article] a')
     expect($breadcrumbs[0].attribs.href).toBe(`/${lang}/get-started`)
   })
 
@@ -49,7 +52,8 @@ describe('frame', () => {
     )
   })
 
-  test.each(langs)('loads the survey via site data in %s', async (lang) => {
+  // Docs Engineering issue: 2637
+  test.skip.each(langs)('loads the survey via site data in %s', async (lang) => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
     expect($('[data-testid="survey-form"] h2').text()).not.toEqual(

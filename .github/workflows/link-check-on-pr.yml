@@ -28,41 +28,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Cache node_modules
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/node-npm-setup
 
-      - name: Setup node
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install --prefer-offline --no-audit --ignore-scripts
-
-      - name: Figure out which docs-early-access branch to checkout, if internal repo
+      - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
-        id: check-early-access
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
-
-      - name: Check out docs-early-access too, if internal repo
-        if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.branch }}
-
-      - name: Merge docs-early-access repo's folders
-        if: ${{ github.repository == 'github/docs-internal' }}
-        run: .github/actions-scripts/merge-early-access.sh
 
       # TODO: When we want to fix redirects on changed files we can uncomment everything below
       # Creates file "${{ env.HOME }}/files.json", among others

@@ -37,10 +37,10 @@ The `sort:reactions` qualifier sorts by the number or type of reactions.
 | `sort:reactions` or `sort:reactions-desc` | [**org:github sort:reactions**](https://github.com/search?q=org%3Agithub+sort%3Areactions&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by the highest number of reactions.
 | `sort:reactions-asc` | [**org:github sort:reactions-asc**](https://github.com/search?q=org%3Agithub+sort%3Areactions-asc&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by ascending number of reactions (the fewest to the most).
 | <code>sort:reactions-<em>reaction</em></code> | [**org:github sort:reactions-+1**](https://github.com/search?q=org%3Agithub+sort%3Areactions-%2B1&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most thumbs up (:+1:) reactions.
-| | [**org:github sort:reactions--1**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions--1&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most thumbs down (:-1:) reactions.
-| | [**org:github sort:reactions-smile**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-smile&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most laugh (:smile:) reactions.
-| | [**org:github sort:reactions-tada**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-tada&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most hurray (:tada:) reactions.
-| | [**org:github sort:reactions-heart**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-heart&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most heart (:heart:) reactions.
+| <code>sort:reactions-<em>reaction</em></code> | [**org:github sort:reactions--1**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions--1&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most thumbs down (:-1:) reactions.
+| <code>sort:reactions-<em>reaction</em></code> | [**org:github sort:reactions-smile**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-smile&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most laugh (:smile:) reactions.
+| <code>sort:reactions-<em>reaction</em></code> | [**org:github sort:reactions-tada**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-tada&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most hurray (:tada:) reactions.
+| <code>sort:reactions-<em>reaction</em></code> | [**org:github sort:reactions-heart**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Areactions-heart&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most heart (:heart:) reactions.
 
 ## Sort by author date
 
@@ -71,5 +71,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-- "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

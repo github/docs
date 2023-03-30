@@ -43,17 +43,10 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 The CPU and memory resources available to {% data variables.location.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
 
-The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated performance targets for GitHub Enterprise Server on a range of CPU and memory configurations.
 
 {% endif %}
 
-{%- ifversion ghes = 3.3 %}
-
-{% data reusables.actions.hardware-requirements-3.3 %}
-
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
-
-{%- endif %}
 
 {%- ifversion ghes = 3.4 %}
 
@@ -79,7 +72,6 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 
 {%- ifversion ghes > 3.5 %}
 
-
 | vCPUs | Memory | Maximum Connected Runners |
 | :---| :--- | :--- |
 | 8   | 64 GB  | 740  runners |
@@ -99,22 +91,22 @@ Maximum concurrency was measured using multiple repositories, job duration of ap
 {% endnote %}
 {%- endif %}
 
-If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+If you plan to enable {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)."
 
 For more information about minimum hardware requirements for {% data variables.location.product_location %}, see the hardware considerations for your instance's platform.
 
-- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
-- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
-- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
-- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
-- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
-- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [AWS](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Google Cloud Platform](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% ifversion ghes > 3.4 %}
 
-Optionally, you can limit resource consumption on {% data variables.location.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+Optionally, you can limit resource consumption on {% data variables.location.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
 
 {% endif %}
 
@@ -145,7 +137,7 @@ All other {% data variables.product.prodname_actions %} data, such as the workfl
 
 ## Networking considerations
 
-{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[Configuring an outbound web proxy server](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+{% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
 
 {% ifversion ghes %}
 
@@ -162,19 +154,19 @@ Follow one of the procedures below to enable {% data variables.product.prodname_
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 ## Adding self-hosted runners
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 ## Managing which actions can be used in your enterprise
 
 You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
 
-For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
+For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
 
 {% data reusables.actions.general-security-hardening %}
 

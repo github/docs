@@ -16,7 +16,7 @@ shortTitle: Emails from GitHub
 ---
 ## Notification emails
 
-You can choose to receive some or all of your activity notifications via email. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)." Notification emails can include:
+You can choose to receive some or all of your activity notifications via email. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)." Notification emails can include:
 
 - Security-related activity on repositories you have admin access to
 - Activity on repositories you're watching
@@ -26,11 +26,11 @@ You can choose to receive some or all of your activity notifications via email. 
 - Invitations to collaborate in an organization or repository
 - Your own activity, such as opening, commenting on, or closing issues and pull requests
 
-You can also choose which type of email updates you'd like to receive on conversations you're participating in or watching. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)."
+You can also choose which type of email updates you'd like to receive on conversations you're participating in or watching. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 ## Account emails
 
-If you've upgraded to paid products or features, then you'll receive billing receipts at the account's primary email address. For more information, see "[Setting your billing email](/articles/setting-your-billing-email)."
+If you've upgraded to paid products or features, then you'll receive billing receipts at the account's primary email address. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)."
 
 ## Customer research emails
 
@@ -51,4 +51,4 @@ These emails are infrequent and you can choose whether or not to participate. If
 - Customized information about engaging projects or new features
 - Newsletters that you've subscribed to, such as {% data variables.explore.explore_github %}
 
-For more information, see "[Managing marketing emails from GitHub](/articles/managing-marketing-emails-from-github)."
+For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/managing-marketing-emails-from-github)."

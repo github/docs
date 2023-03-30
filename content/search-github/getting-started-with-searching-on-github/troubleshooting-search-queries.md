@@ -31,4 +31,4 @@ Specific search types, such as code search, might have additional limitations. C
 
 ## Further reading
 
-- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

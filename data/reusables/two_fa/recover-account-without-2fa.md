@@ -1,0 +1,1 @@
+If you have lost access to your two-factor authentication credentials, there are a few different ways to recover your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."

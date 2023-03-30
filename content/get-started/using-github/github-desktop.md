@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.desktop.about-github-desktop %}
 
-For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
+For more information about {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
 
 ## Sharing feedback
 

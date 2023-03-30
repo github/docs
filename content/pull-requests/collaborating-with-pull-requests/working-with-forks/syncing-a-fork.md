@@ -25,22 +25,23 @@ permissions: People with write access for a forked repository can sync the fork 
 
 {% ifversion syncing-fork-web-ui %}
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Sync fork** dropdown.
-    !["Sync fork" dropdown emphasized](/assets/images/help/repository/sync-fork-dropdown.png)
-3. Review the details about the commits from the upstream repository, then click **Update branch**.
-    ![Sync fork modal with "Update branch" button emphasized](/assets/images/help/repository/update-branch-button.png)
+1. Above the list of files, select the **Sync fork** dropdown menu.
+
+    ![Screenshot of the main page of a fork. A dropdown menu, labeled with a sync icon and "Sync fork," is outlined in dark orange.](/assets/images/help/repository/sync-fork-dropdown.png)
+1. Review the details about the commits from the upstream repository, then click **Update branch**.
 {% else %}
 1. On {% data variables.product.product_name %}, navigate to the main page of the forked repository that you want to sync with the upstream repository.
-2. Select the **Fetch upstream** dropdown.
-    !["Fetch upstream" drop-down](/assets/images/help/repository/fetch-upstream-drop-down.png)
-3. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
-    !["Fetch and merge" button](/assets/images/help/repository/fetch-and-merge-button.png){% endif %}
+1. Above the list of files, select the **Fetch upstream** dropdown menu.
+
+    ![Screenshot of the main page of a fork. A dropdown menu, labeled with a sync icon and "Fetch upstream," is outlined in dark orange.](/assets/images/help/repository/fetch-upstream-drop-down.png)
+1. Review the details about the commits from the upstream repository, then click **Fetch and merge**.
+{% endif %}
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
 ## Syncing a fork branch with the {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
@@ -52,7 +53,7 @@ If the changes from the upstream repository cause conflict then the {% data vari
 
 ## Syncing a fork branch from the command line
 
-Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see "[Configuring a remote repository for a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)."
+Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
@@ -87,7 +88,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
   >  delete mode 100644 README
   >  create mode 100644 README.md
   ```
-  
+
   If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
   ```shell
   $ git merge upstream/main
@@ -95,11 +96,11 @@ Before you can sync your fork with an upstream repository, you must configure a 
   > Fast-forward
   >  README.md                 |    5 +++--
   >  1 file changed, 3 insertions(+), 2 deletions(-)
-  ``` 
-  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)."
+  ```
+  If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.location.product_location %}, you must [push your changes](/get-started/using-git/pushing-commits-to-a-remote-repository).
 
 {% endtip %}

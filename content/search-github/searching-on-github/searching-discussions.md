@@ -12,7 +12,7 @@ redirect_from:
 
 ## About searching for discussions
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
+You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% data reusables.search.syntax_tips %}
 
@@ -38,7 +38,7 @@ To search discussions in all repositories owned by a certain user or organizatio
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the discussions using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | :- | :- |{% ifversion fpt or ghes or ghec %}
@@ -53,7 +53,7 @@ The `author` qualifier finds discussions created by a certain user.
 | Qualifier | Example |
 | :- | :- |
 | <code>author:<em>USERNAME</em></code> | [**cool author:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) matches discussions with the word "cool" that were created by @octocat. |
-| | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) matches discussions created by @octocat that contain the word "bootstrap" in the body. |
+| `in:body` <code>author:<em>USERNAME</em></code> | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) matches discussions created by @octocat that contain the word "bootstrap" in the body. |
 
 ## Search by commenter
 
@@ -63,6 +63,14 @@ The `commenter` qualifier finds discussions that contain a comment from a certai
 | :- | :- |
 | <code>commenter:<em>USERNAME</em></code> | [**github commenter:becca org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Abecca+org%3Agithub&type=Discussions) matches discussions in repositories owned by GitHub, that contain the word "github," and have a comment by @becca.
 
+## Search by user who has answered a discussion
+
+The `answered-by` qualifier finds discussions where a certain user's comment was marked as an answer.
+
+| Qualifier | Example |
+| :- | :- |
+| <code>answered-by:<em>USERNAME</em></code> | [**cool answered-by:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) matches discussions with the word "cool" that were answered by @octocat. |
+
 ## Search by a user that's involved in a discussion
 
 You can use the `involves` qualifier to find discussions that involve a certain user. The qualifier returns discussions that were either created by a certain user, mention the user, or contain comments by the user. The `involves` qualifier is a logical OR between the `author`, `mentions`, and `commenter` qualifiers for a single user.
@@ -70,16 +78,16 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 | Qualifier | Example |
 | :- | :- |
 | <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.
-| | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
 
 ## Search by number of comments
 
-You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+You can use the `comments` qualifier along with greater than, less than, and range qualifiers to search by the number of comments. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
 
 | Qualifier | Example |
 | :- | :- |
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) matches discussions with more than 100 comments.
-| | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000.
+| <code>comments:<em>n</em></code> | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000.
 
 ## Search by when a discussion was created or last updated
 
@@ -96,4 +104,4 @@ Both qualifiers take a date as a parameter. {% data reusables.time_date.date_for
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

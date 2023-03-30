@@ -15,14 +15,15 @@ topics:
   - GitHub search
 shortTitle: Search issues & PRs
 ---
-You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% tip %}
 
 **Tips:**{% ifversion ghes or ghae %}
   - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
-  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
+  - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
+  - Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
@@ -71,6 +72,16 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
+## Search for pull requests in the merge queue
+
+{% data reusables.pull_requests.merge-queue-beta %}
+
+You can also use the `is` qualifier to find pull requests that are queued to merge.
+
+| Qualifier | Example |
+| --- | --- |
+| `is:queued` | [**is:queued**](https://github.com/search?q=is%3Aqueued&type=pullrequests) matches pull requests that are currently queued to merge. |
+
 {% ifversion issue-close-reasons %}
 ## Search by the reason an issue was closed
 
@@ -80,12 +91,12 @@ You can filter issues based on the reason given when the issue was closed, using
 | ------------- | -------------
 | `reason:completed` | [**libraries is:closed reason:completed**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."
 | `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned."
- 
+
 {% endif %}
 
 ## Filter by repository visibility
 
-You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
@@ -100,8 +111,9 @@ The `author` qualifier finds issues and pull requests created by a certain user 
 | Qualifier     | Example
 | ------------- | -------------
 | <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.
-| | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body.
+| `in:body` <code>author:<em>USERNAME</em></code>  | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body.
 | <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."
+| <code>-</code><code>author:app/<em>USERNAME</em></code> | [**-author:app/robot**](https://github.com/search?q=-author%3Aapp%2Frobot&type=Issues) matches issues created by any user other than the integration account named "robot." The minus sign, or dash character (<code>-</code>) before the qualifier signifies a logical NOT for the qualifier in the search query.
 
 ## Search by assignee
 
@@ -113,7 +125,7 @@ The `assignee` qualifier finds issues and pull requests that are assigned to a c
 
 ## Search by mention
 
-The `mentions` qualifier finds issues that mention a certain user. For more information, see "[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)."
+The `mentions` qualifier finds issues that mention a certain user. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)."
 
 | Qualifier     | Example
 | ------------- | -------------
@@ -126,7 +138,7 @@ For organizations and teams you belong to, you can use the `team` qualifier to f
 | Qualifier        | Example
 | ------------- | -------------
 | <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned.
-| | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned.
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> `is:open is:pr` | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned.
 
 ## Search by commenter
 
@@ -143,7 +155,7 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | Qualifier        | Example
 | ------------- | -------------
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.
-| | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
 ## Search for linked issues and pull requests
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
@@ -162,22 +174,22 @@ You can narrow your results by labels, using the `label` qualifier. Since issues
 | Qualifier        | Example
 | ------------- | -------------
 | <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.
-|  | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
-| | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."
-| | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."
+| `in:body` <code>-label:<em>LABEL</em></code> <code>label:<em>LABEL</em></code> | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
+| <code>label:<em>LABEL</em></code> <code>label:<em>LABEL</em></code> | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."
+| <code>label:<em>LABEL,LABEL</em></code> | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."
 
 ## Search by milestone
 
-The `milestone` qualifier finds issues or pull requests that are a part of a [milestone](/articles/about-milestones) within a repository.
+The `milestone` qualifier finds issues or pull requests that are a part of a [milestone](/issues/using-labels-and-milestones-to-track-work/about-milestones) within a repository.
 
 | Qualifier        | Example
 | ------------- | -------------
 | <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) matches issues that are in a milestone named "overhaul."
-| | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."
+| <code>milestone:<em>MILESTONE</em></code> | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."
 
 ## Search by project board
 
-You can use the `project` qualifier to find issues that are associated with a specific [project board](/articles/about-project-boards/) in a repository or organization. You must search project boards by the project board number. You can find the project board number at the end of a project board's URL.
+You can use the `project` qualifier to find issues that are associated with a specific [project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) in a repository or organization. You must search project boards by the project board number. You can find the project board number at the end of a project board's URL.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -186,7 +198,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ## Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -201,7 +213,7 @@ If you know the specific SHA hash of a commit, you can use it to search for pull
 | Qualifier        | Example
 | ------------- | -------------
 | <code><em>SHA</em></code> | [**e1109ab**](https://github.com/search?q=e1109ab&type=Issues) matches pull requests with a commit SHA that starts with `e1109ab`.
-| | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) matches merged pull requests with a commit SHA that starts with `0eff326d6213c`.
+| <code><em>SHA</em></code> `is:merged`  | [**0eff326d6213c is:merged**](https://github.com/search?q=0eff326d+is%3Amerged&type=Issues) matches merged pull requests with a commit SHA that starts with `0eff326d6213c`.
 
 ## Search by branch name
 
@@ -227,7 +239,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 | Qualifier        | Example
 | ------------- | -------------
 | <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments.
-| | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.
+| <code>comments:<em>n..n</em></code> | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.
 
 ## Search by number of interactions
 
@@ -236,7 +248,7 @@ You can filter issues and pull requests by the number of interactions with the `
 | Qualifier        | Example
 | ------------- | -------------
 | <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches pull requests or issues with more than 2000 interactions.
-| | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000.
+| <code>interactions:<em>n..n</em></code> | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000.
 
 ## Search by number of reactions
 
@@ -245,10 +257,10 @@ You can filter issues and pull requests by the number of reactions using the `re
 | Qualifier        | Example
 | ------------- | -------------
 | <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) matches issues with more than 1000 reactions.
-| | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
+| <code>reactions:<em>n..n</em></code> | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
 
 ## Search for draft pull requests
-You can filter for draft pull requests. For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
+You can filter for draft pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -293,8 +305,8 @@ This qualifier takes a date as its parameter. {% data reusables.time_date.date_f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>closed:<em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) matches issues and pull requests in Swift that were closed after June 11, 2014.
-| | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012.
+| <code>closed:><em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) matches issues and pull requests in Swift that were closed after June 11, 2014.
+| `in:body `<code>closed:<<em>YYYY-MM-DD</em></code> | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012.
 
 ## Search by when a pull request was merged
 
@@ -306,8 +318,8 @@ This qualifier takes a date as its parameter. {% data reusables.time_date.date_f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
-| | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014.
+| <code>language:<em>LANGUAGE</em></code> <code>merged:<<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
+| `in:title` <code>language:<em>LANGUAGE</em></code> <code>merged:><em>YYYY-MM-DD</em></code> | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014.
 
 ## Search based on whether a pull request is merged or unmerged
 
@@ -329,7 +341,7 @@ The `archived` qualifier filters your results based on whether an issue or pull 
 
 ## Search based on whether a conversation is locked
 
-You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -354,4 +366,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-- "[Sorting search results](/search-github/getting-started-with-searching-on-github/sorting-search-results/)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

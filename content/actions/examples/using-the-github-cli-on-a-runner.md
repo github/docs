@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![Diagram of an event triggering a workflow that uses the {% data variables.product.prodname_cli %} to create an issue.](/assets/images/help/actions/overview-actions-using-cli-ci-example.png)
 
 ## Features used in this example
 
@@ -34,12 +34,12 @@ topics:
 {% data reusables.actions.secrets-table-entry %}
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
-| Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
-| Running a script on the runner: | Using `script/check-english-links.js` |
-| Generating an output file: | Piping the output using the `>` operator |
-| Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
-| Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+| Using a third-party action | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
+| Running shell commands on the runner | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
+| Running a script on the runner | Using `script/check-english-links.js` |
+| Generating an output file | Piping the output using the `>` operator |
+| Checking for existing issues using {% data variables.product.prodname_cli %} | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
+| Commenting on an issue using {% data variables.product.prodname_cli %} | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
 ## Example workflow
 
@@ -217,7 +217,7 @@ on:
 Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 
 * The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
-* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/reference/events-that-trigger-workflows#schedule).
+* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/using-workflows/events-that-trigger-workflows#schedule).
 </td>
 </tr>
 <tr>
@@ -231,7 +231,7 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
@@ -280,7 +280,7 @@ runs-on: ubuntu-latest
 </td>
 <td>
 
-Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 </td>
 </tr>
 <tr>

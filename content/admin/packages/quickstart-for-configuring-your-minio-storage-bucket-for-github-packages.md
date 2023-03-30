@@ -23,7 +23,7 @@ This quickstart shows you how to set up MinIO using Docker for use with {% data 
 
 | MinIO mode | Optimized for | Storage infrastructure required |
 |----|----|----|
-| Standalone MinIO (on a single host) | Fast setup |  N/A |
+| Standalone MinIO (on a single host) | Fast setup |  Not applicable |
 | Clustered MinIO (also called Distributed MinIO)|  Data security | Storage servers running in a cluster |
 
 For more information about your options, see the official [MinIO docs](https://docs.min.io/).
@@ -88,7 +88,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
 ## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
-1. Install the MinIO client.  
+1. Install the MinIO client.
 
     ```shell
     $ docker pull minio/mc
@@ -120,4 +120,4 @@ To finish configuring storage for {% data variables.product.prodname_registry %}
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."

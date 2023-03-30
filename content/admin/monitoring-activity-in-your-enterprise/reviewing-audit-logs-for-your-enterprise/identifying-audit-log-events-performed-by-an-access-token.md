@@ -42,7 +42,7 @@ $hashString.Replace('-', '')
 
 ### Searching on {% data variables.product.prodname_dotcom %}
 
-While searching the audit log on {% data variables.product.prodname_dotcom %}, include `hashed_token:"VALUE"` in your search query, replacing `VALUE` with the SHA-256 hash of the token. 
+While searching the audit log on {% data variables.product.prodname_dotcom %}, include `hashed_token:"VALUE"` in your search query, replacing `VALUE` with the SHA-256 hash of the token.
 
 {% note %}
 
@@ -54,15 +54,14 @@ While searching the audit log on {% data variables.product.prodname_dotcom %}, i
 
 Before you can search for a token using the REST API, after you generate a SHA-256 hash, you also need to URI-escape the hash. Most major programming languages provide a utility for URI escaping. For example, [encodeURIComponent()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) encodes a string for JavaScript.
 
-Then, include `hashed_token:"VALUE"` in your search phrase, replacing VALUE with the URI-escaped hash. 
+Then, include `hashed_token:"VALUE"` in your search phrase, replacing VALUE with the URI-escaped hash.
 
 For example, if the name of the enterprise account is `octo-corp`, the following curl command would search @octo-corp's audit log for all events that are associated with the token whose URI-encoded SHA-256 hash is `EH4L8o6PfCqipALbL%2BQT62lyqUtnI7ql0SPbkaQnjv8`.
 
 ```
-curl --location --request GET 'https://api.github.com/enterprises/octo-corp/audit-log?phrase=hashed_token:"EH4L8o6PfCqipALbL%2BQT62lyqUtnI7ql0SPbkaQnjv8"' \
---header 'Authorization: Basic TOKEN' \ 
+curl --header "Accept: application/vnd.github+json" --header "Authorization: Bearer YOUR-TOKEN" {% data reusables.rest-api.version-header %} 'https://api.github.com/enterprises/octo-corp/audit-log?phrase=hashed_token:"EH4L8o6PfCqipALbL%2BQT62lyqUtnI7ql0SPbkaQnjv8"'
 ```
 
 ## Further reading
 
-- "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)"
+- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)"

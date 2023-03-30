@@ -47,4 +47,4 @@ You can remove a support entitlement from an enterprise member. You cannot remov
 
 ## Further reading
 
-- "[Working with GitHub support](/github/working-with-github-support)"
+- "[AUTOTITLE](/support)"

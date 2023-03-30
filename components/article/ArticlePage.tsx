@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import cx from 'classnames'
+import { Box, Flash } from '@primer/react'
+import { LinkExternalIcon, BeakerIcon } from '@primer/octicons-react'
 
-import { ZapIcon, InfoIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
-
-import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
@@ -18,32 +17,18 @@ import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
+import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'components/RestRedirect'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
+import { SupportPortalVaIframe } from 'components/article/SupportPortalVaIframe'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
 })
 const isDev = process.env.NODE_ENV === 'development'
-
-// Mapping of a "normal" article to it's interactive counterpart
-const interactiveAlternatives: Record<string, { href: string }> = {
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-nodejs-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=nodejs',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-dotnet-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=dotnet',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-java-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=java',
-    },
-  '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces':
-    {
-      href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
-    },
-}
 
 export const ArticlePage = () => {
   const router = useRouter()
@@ -52,40 +37,77 @@ export const ArticlePage = () => {
     intro,
     effectiveDate,
     renderedPage,
-    contributor,
     permissions,
     includesPlatformSpecificContent,
     includesToolSpecificContent,
     product,
+    productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    supportPortalVaIframeProps,
   } = useArticleContext()
-  const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const isLearningPath = !!currentLearningTrack?.trackName
+  const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
+      {supportPortalVaIframeProps.supportPortalUrl &&
+        supportPortalVaIframeProps.vaFlowUrlParameter && (
+          <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
+        )}
+      <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
+        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
+          <Breadcrumbs />
+        </div>
         <ArticleGridLayout
-          topper={<ArticleTitle>{title}</ArticleTitle>}
-          intro={
+          topper={
             <>
-              {contributor && (
-                <Callout variant="info" className="mb-3">
-                  <p>
-                    <span className="mr-2">
-                      <InfoIcon />
-                    </span>
-                    {t('contributor_callout')} <a href={contributor.URL}>{contributor.name}</a>.
-                  </p>
-                </Callout>
+              {/* This is a temporary thing for the duration of the
+              feature-flagged release of hover preview cards on /$local/pages/
+              articles.
+              Delete this whole thing when hover preview cards is
+              available on all articles independent of path.
+               */}
+              {router.query.productId === 'pages' && (
+                <Flash variant="default" className="mb-3">
+                  <Box sx={{ display: 'flex' }}>
+                    <Box
+                      sx={{
+                        p: 1,
+                        textAlign: 'center',
+                      }}
+                    >
+                      <BeakerIcon className="mr-2 color-fg-muted" />
+                    </Box>
+                    <Box
+                      sx={{
+                        flexGrow: 1,
+                        p: 0,
+                      }}
+                    >
+                      <p>
+                        Hover over a link to another article to get more details. If you have ideas
+                        for how we can improve this page, let us know in the{' '}
+                        <a href="https://github.com/github/docs/discussions/24591">discussion</a>.
+                      </p>
+                    </Box>
+                  </Box>
+                </Flash>
               )}
 
+              <ArticleTitle>{title}</ArticleTitle>
+            </>
+          }
+          intro={
+            <>
               {intro && (
-                <Lead data-testid="lead" data-search="lead">
+                // Note the `_page-intro` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                <Lead data-testid="lead" data-search="lead" className="_page-intro">
                   {intro}
                 </Lead>
               )}
@@ -106,19 +128,21 @@ export const ArticlePage = () => {
           }
           toc={
             <>
-              {!!interactiveAlternatives[currentPath] && (
-                <div className="flash mb-3">
-                  <ZapIcon className="mr-2" />
-                  <Link href={interactiveAlternatives[currentPath].href}>
-                    Try the new interactive article
-                  </Link>
-                </div>
-              )}
+              {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
               {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
             </>
           }
         >
           <div id="article-contents">
+            {productVideoUrl && (
+              <div className="my-2">
+                <Link id="product-video" href={productVideoUrl} target="_blank">
+                  <LinkExternalIcon className="octicon-link mr-2" />
+                  {t('video_from_transcript')}
+                </Link>
+              </div>
+            )}
+
             <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
@@ -131,7 +155,7 @@ export const ArticlePage = () => {
           </div>
         </ArticleGridLayout>
 
-        {currentLearningTrack?.trackName ? (
+        {isLearningPath ? (
           <div className="mt-4">
             <LearningTrackNav track={currentLearningTrack} />
           </div>

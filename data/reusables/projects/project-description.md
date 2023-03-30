@@ -4,7 +4,7 @@ You can set your project's description and README to share the purpose of your p
 1. To add a short description to your project, under "Add a description", type your description in the text box  and click **Save**.
   ![Screenshot showing the 'Add my description' settings](/assets/images/help/projects-v2/edit-description.png)
 1. To update your project's README, under "README", type your content in the text box.
-   - You can format your README using Markdown. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+   - You can format your README using Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
    - To toggle between the text box and a preview of your changes, click {% octicon "eye" aria-label="The preview icon" %} or {% octicon "pencil" aria-label="The edit icon" %}.
   ![Screenshot showing editing a project's README](/assets/images/help/projects-v2/edit-readme.png)
 1. To save changes to your README, click **Save**.
