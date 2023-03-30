@@ -15,5 +15,6 @@ children:
   - /migrating-from-circleci-with-github-actions-importer
   - /migrating-from-gitlab-with-github-actions-importer
   - /migrating-from-jenkins-with-github-actions-importer
+  - /migrating-from-travis-ci-with-github-actions-importer
 ---
 

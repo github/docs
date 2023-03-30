@@ -53,7 +53,7 @@ Future releases will add *precise code navigation* for more languages, which is 
 
 You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
 
-![Jump-to-definition tab](/assets/images/help/repository/jump-to-definition-tab.png)
+![Screenshot of the function window. A section, titled "Definition," is outlined in dark orange.](/assets/images/help/repository/jump-to-definition-tab.png)
 
 ## Finding all references of a function or method
 
@@ -67,7 +67,7 @@ Certain languages supported by {% data variables.product.prodname_dotcom %} have
 
 If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
 
-![Search-based code navigation link](/assets/images/help/repository/search-based-code-navigation-link.png)
+![Screenshot of the function window. Two links, labeled, "Search for this symbol in this repository" and "all repositories," are outlined in dark orange.](/assets/images/help/repository/search-based-code-navigation-link.png)
 
 If your precise results appear inaccurate, you can file a support request.
 

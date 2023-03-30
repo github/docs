@@ -85,8 +85,8 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Tell NPM which scope and registry to publish packages to using one of the following methods:
-   - Add an NPM configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
+8. Tell npm which scope and registry to publish packages to using one of the following methods:
+   - Add an npm configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
       {% raw %}
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com

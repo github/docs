@@ -17,9 +17,10 @@ shortTitle: Attribute sponsorships
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.
 1. Under your organization name, click {% octicon "heart" aria-label="The heart icon" %} **Sponsoring**.
-  !["Sponsoring" tab](/assets/images/help/sponsors/sponsoring-tab.png)
+
+  ![Screenshot of the "{% data variables.product.prodname_dotcom %}" organization's home page. A menu tab, labeled "Sponsoring," is outlined in dark orange.](/assets/images/help/sponsors/sponsoring-tab.png)
+
 1. In the upper-right corner, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
   !["Settings" button](/assets/images/help/sponsors/sponsoring-settings-button.png)
 1. In the "Link sponsorships to another account" section, select the dropdown menu, then click the organization you want your organization's sponsorships to be attributed to.
 1. Click **Link account**.
-  !["Link account" button](/assets/images/help/sponsors/link-account-button.png)

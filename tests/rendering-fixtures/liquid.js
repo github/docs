@@ -106,7 +106,7 @@ describe('extended Markdown', () => {
     expect($('tbody tr th', firstTable).length).toBe(2)
     expect($('tbody tr td', firstTable).length).toBe(2 * 3)
 
-    // The first table should have this structure:
+    // The second table should have this structure:
     //
     //   table
     //     tbody
@@ -119,6 +119,23 @@ describe('extended Markdown', () => {
     const secondTable = tables.filter((i) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
     expect($('tbody tr td', secondTable).length).toBe(3 * 4)
+
+    // More specifically, the <th> tags should have the appropriate
+    // `scope` attribute.
+    // See "Scope attribute should be used correctly on tables"
+    // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
+    $('thead th', firstTable).each((i, element) => {
+      expect($(element).attr('scope')).toBe('col')
+    })
+    $('tbody th', firstTable).each((i, element) => {
+      expect($(element).attr('scope')).toBe('row')
+    })
+    // The 5 here is the other `expect(...)` that happens before these
+    // two, just above, `expect(...)` inside the `.each(...)` loops.
+    let totalAssertions = 5
+    totalAssertions += $('thead th', firstTable).length
+    totalAssertions += $('tbody th', firstTable).length
+    expect.assertions(totalAssertions)
   })
 
   // tests for ifversion

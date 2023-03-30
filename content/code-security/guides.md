@@ -94,6 +94,7 @@ includeGuides:
   - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---

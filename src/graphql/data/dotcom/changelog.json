@@ -4,6 +4,51 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AddPullRequestReviewCommentInput.body</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddPullRequestReviewCommentInput.body</code>:<code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.commitOID</code>:<code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.inReplyTo</code>:<code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.path</code>:<code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.position</code>:<code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.pullRequestId</code>:<code>pullRequestId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.pullRequestReviewId</code>:<code>pullRequestReviewId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewInput.comments</code>:<code>comments</code> will be removed. use the <code>threads</code> argument instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>PullRequestReviewComment.originalPosition</code>:<code>originalPosition</code> will be removed. <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>PullRequestReviewComment.position</code>:<code>position</code> will be removed. Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers <strong>Effective 2023-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-03-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PullRequestReviewThreadSubjectType</code> was added</p>",
+          "<p>Input field <code>subjectType</code> was added to input object type <code>AddPullRequestReviewThreadInput</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>line</code> was added to object type <code>PullRequestReviewComment</code></p>",
           "<p>Field <code>originalLine</code> was added to object type <code>PullRequestReviewComment</code></p>",
           "<p>Field <code>originalStartLine</code> was added to object type <code>PullRequestReviewComment</code></p>",

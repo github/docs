@@ -69,7 +69,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the {% data variables.product.prodname_github_app %}, after the {% data variables.product.prodname_github_app %} is installed.
 `setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your {% data variables.product.prodname_github_app %} installation.
 
-The `hook_attributes` object has the following key:
+The `hook_attributes` object has the following keys.
 
 Name | Type | Description
 -----|------|-------------

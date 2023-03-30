@@ -52,37 +52,26 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull requests.
    - Under "Protect matching branches", select **Require a pull request before merging**.
-     ![Pull request review restriction checkbox](/assets/images/help/repository/PR-reviews-required-updated.png)
-   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch.
-     ![Drop-down menu to select number of required review approvals](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**.
+
+      Select the **Required number of approvals before merging** dropdown menu, then click the number of approving reviews you would like to require on the branch.
    - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
-     ![Dismiss stale pull request approvals when new commits are pushed checkbox](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
-     ![Require review from code owners](/assets/images/help/repository/PR-review-required-code-owner.png)
    - Optionally, to allow specific repository admin users to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
-     ![Allow specific actors to bypass pull request requirements checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-bypass-requirements-with-apps.png){% else %}(/assets/images/help/repository/PR-bypass-requirements.png){% endif %}
-   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
-     ![Restrict who can dismiss pull request reviews checkbox]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/PR-review-required-dismissals-with-apps.png){% else %}(/assets/images/help/repository/PR-review-required-dismissals.png){% endif %}
+   - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, in the search field, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 {% ifversion last-pusher-require-approval %}
    - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval from someone other than the last pusher**. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
-     ![Require review from someone other than the last pusher](/assets/images/help/repository/last-pusher-review-required.png)
 {% endif %}
 1. Optionally, enable required status checks. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
    - Select **Require status checks to pass before merging**.
-     ![Required status checks option](/assets/images/help/repository/required-status-checks.png)
    - Optionally, to ensure that pull requests are tested with the latest code on the protected branch, select **Require branches to be up to date before merging**.
-     ![Loose or strict required status checkbox](/assets/images/help/repository/protecting-branch-loose-status.png)
-   - Search for status checks, selecting the checks you want to require.
-     ![Search interface for available status checks, with list of required checks](/assets/images/help/repository/required-statuses-list.png)
+   - In the search field, search for status checks, selecting the checks you want to require.
 1. Optionally, select **Require conversation resolution before merging**.
-  ![Require conversation resolution before merging option](/assets/images/help/repository/require-conversation-resolution.png)
 1. Optionally, select **Require signed commits**.
-  ![Require signed commits option](/assets/images/help/repository/require-signed-commits.png)
 1. Optionally, select **Require linear history**.
-  ![Required linear history option](/assets/images/help/repository/required-linear-history.png)
 {%- ifversion fpt or ghec %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-  ![Require merge queue option](/assets/images/help/repository/require-merge-queue.png)
+
   {% tip %}
 
   **Tip:** The pull request merge queue feature is currently in public beta and subject to change.
@@ -91,32 +80,27 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {%- endif %}
 {%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-   ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
 {%- endif %}
 {% ifversion lock-branch %}
-1. Optionally, select **Lock branch** to make branch read-only.
-![Screenshot of the checkbox to lock a branch](/assets/images/help/repository/lock-branch.png)
-   -  Optionally, to allow fork syncing, select **Allow fork syncing**.
-![Screenshot of the checkbox to allow fork syncing](/assets/images/help/repository/lock-branch-forksync.png)
+1. Optionally, make the branch read-only.
+   - Select **Lock branch**.
+   - Optionally, to allow fork syncing, select **Allow fork syncing**.
 {%- endif %}
 1. Optionally, select {% ifversion bypass-branch-protections %}**Do not allow bypassing the above settings**{% else %}**Apply the rules above to administrators**{% endif %}.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
-     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% ifversion restrict-pushes-create-branch %}
+{%- ifversion restrict-pushes-create-branch %}
    - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
-     ![Branch restriction search]{% ifversion restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
+{%- endif %}
+   - In the search field, search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
-  ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-  Then, choose who can force push to the branch.
-    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
-    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
-      ![Screenshot of the options to specify who can force push]{% ifversion integration-branch-protection-exceptions %}(/assets/images/help/repository/allow-force-pushes-specify-who-with-apps.png){% else %}(/assets/images/help/repository/allow-force-pushes-specify-who.png){% endif %}
+
+   Then, choose who can force push to the branch.
+   - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
+   - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
 
     For more information about force pushes, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#allow-force-pushes)."
 1. Optionally, select **Allow deletions**.
-  ![Allow branch deletions option](/assets/images/help/repository/allow-branch-deletions.png)
 1. Click **Create**.
 
 ## Editing a branch protection rule
