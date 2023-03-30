@@ -110,7 +110,7 @@ Authenticate to GitHub Enterprise Server Container registries by passing
 a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
-"<https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2>"
+`https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`
 to authenticate to two GitHub Enterprise Server instances.
 
 This overrides the CODEQL\_REGISTRIES\_AUTH and GITHUB\_TOKEN environment
