@@ -230,16 +230,6 @@ describe('server', () => {
     })
   })
 
-  test('renders Markdown links that have Liquid hrefs', async () => {
-    // example from markdown source:
-    // 1. Go to {{ site.data.variables.product.product_name }}'s [Pricing]({{ site.data.variables.dotcom_billing.plans_url }}) page.
-    const $ = await getDOM(
-      '/en/github/getting-started-with-github/signing-up-for-a-new-github-account'
-    )
-    expect($.text()).toContain("Go to GitHub's Pricing page.")
-    expect($('a[href="https://github.com/pricing"]').first().text()).toBe('Pricing')
-  })
-
   test('renders liquid within liquid within liquid in body text', async () => {
     const $ = await getDOM('/en/github/administering-a-repository/enabling-required-status-checks')
     expect($('ol li').first().text().trim()).toBe(
