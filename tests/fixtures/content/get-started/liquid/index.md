@@ -16,4 +16,5 @@ children:
   - /whitespace
   - /table-row-headers
   - /ifversion
+  - /links-with-liquid
 ---
