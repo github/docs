@@ -48,7 +48,6 @@ You can search the build logs for a particular step. When you search logs, only 
 {% data reusables.repositories.view-run %}
 {% data reusables.repositories.navigate-to-job %}
 1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
-![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
 
 ## Downloading logs
 

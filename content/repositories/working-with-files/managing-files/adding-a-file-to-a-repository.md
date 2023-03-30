@@ -33,13 +33,13 @@ Files that you add to a repository via a browser are limited to {% data variable
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Above the list of files, using the **Add file** drop-down, click **Upload files**.
-  !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)
-3. Drag and drop the file or folder you'd like to upload to your repository onto the file tree.
-![Drag and drop area](/assets/images/help/repository/upload-files-drag-and-drop.png)
+1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**.
+
+   ![Screenshot of the main page of the repository. Above the list of a files, a button, labeled "Add file," is outlined in dark orange.](/assets/images/help/repository/upload-files-button.png)
+1. To select the files you want to upload, drag and drop the file or folder, or click **choose your files**.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
-6. Click **Commit changes**.
+1. Click **Commit changes**.
 ![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
 
 ## Adding a file to a repository using the command line
