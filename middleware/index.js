@@ -62,6 +62,7 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
+import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -205,6 +206,10 @@ export default function (app) {
 
   if (ENABLE_FASTLY_TESTING) {
     app.use(fastlyBehavior) // FOR TESTING.
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    app.use(mockVaPortal) // FOR TESTING.
   }
 
   // *** Headers ***

@@ -2459,6 +2459,12 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "delete-an-organization",
+      "subcategory": "orgs",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}"
+    },
+    {
       "slug": "get-the-audit-log-for-an-organization",
       "subcategory": "orgs",
       "verb": "get",

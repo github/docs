@@ -35,7 +35,7 @@ When the job begins, {% data variables.product.prodname_dotcom %} automatically 
 
 The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners.
 
-![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+![Diagram of a workflow that consists of two jobs. One job runs on Ubuntu and the other runs on Windows.](/assets/images/help/actions/overview-github-hosted-runner.png)
 
 The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job.
 

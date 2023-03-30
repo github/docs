@@ -24,7 +24,7 @@ featuredLinks:
     - /sponsors/getting-started-with-github-sponsors/about-github-sponsors
     - /sponsors/receiving-sponsorships-through-github-sponsors/tax-information-for-github-sponsors
     - /sponsors/sponsoring-open-source-contributors
-    - /sponsors/about-github-sponsors-for-open-source-contributors
+    - /sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors
 layout: product-landing
 versions:
   fpt: '*'
