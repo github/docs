@@ -33,9 +33,9 @@ For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github
 
 You can subscribe to a repository to watch it and receive notifications for activity in it. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)."
 
-Click **Watch** at the top of a repository to watch it.
+To watch a repository, at the top of the page, click **Watch**.
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+![Screenshot of the main page of the github/docs repository. A button, labeled with an eye icon and "Watch 2.1k", is outlined in dark orange.](/assets/images/help/repository/repo-actions-watch.png)
 
 ## Joining the conversation
 

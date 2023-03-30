@@ -33,12 +33,11 @@ Organization owners and moderators can also block users for a specific amount of
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Interaction limits**.
+1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-hidden="true" %} Moderation**, then click **Interaction limits**.
 
    _For organization moderators:_ In the sidebar, click **Interaction limits**.
 
 {% data reusables.community.set-interaction-limit %}
-  ![Temporary interaction limit options](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
 ## Further reading
 - "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

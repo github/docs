@@ -279,6 +279,36 @@ You can specify which languages you want to enable or disable {% data variables.
     }
     ```
 
+## Revoking {% data variables.product.prodname_copilot %} authorization
+
+{% data variables.product.prodname_vscode %} retains authorization to use {% data variables.product.prodname_copilot %} through a particular {% data variables.product.prodname_dotcom %} account. If you want to prevent your {% data variables.product.prodname_dotcom %} account being used for {% data variables.product.prodname_copilot %} on a device you no longer have access to, you can revoke authorization and then go through the authorization process again. The device you previously used will not have the new authorization.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+1. Click the **...** next to **{% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode_shortname %}** and click **Revoke**.
+{% data reusables.user-settings.access_authorized_github_apps %}
+1. If the **{% data variables.product.prodname_copilot %}** plugin is listed, click **Revoke**.
+
+After revoking authorization, {% data variables.product.prodname_vscode %} will be able to continue using {% data variables.product.prodname_copilot %} in a current session for a maximum of 30 minutes. After that time, you will need to re-authorize {% data variables.product.prodname_copilot %} for use in {% data variables.product.prodname_vscode %} again.
+
+## Re-authorizing {% data variables.product.prodname_copilot %}
+
+After you have revoked authorization, if you want to continue using {% data variables.product.prodname_copilot %}, you will need to complete the re-authorization process.
+
+1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign out**.
+
+   ![Screenshot of the menu in {% data variables.product.prodname_vscode %}. The "Sign out" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-out.png)
+
+1. In the "{% data variables.product.prodname_vscode %}" pop-up, click **Sign Out**.
+
+1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %}**.
+
+  ![Screenshot of the accounts menu in {% data variables.product.prodname_vscode %}. The "Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %} (1)" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-in.png)
+
+1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Continue**.
+1. In the "Open {% data variables.product.prodname_vscode %}?" pop-up, click **Open {% data variables.product.prodname_vscode %}**.
+
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
 You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
