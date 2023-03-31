@@ -14,7 +14,7 @@ coverage/
 .next
 .eslintcache
 *.tsbuildinfo
-translations/
+/translations/
 .node-version
 
 # blc: broken link checker
@@ -40,5 +40,10 @@ external-link-checker-db.json
 
 # Automated content source
 rest-api-description
+semmle-code
 
 .installed.package-lock.json
+assets/images/help/writing/unordered-list-rendered (1).png
+
+# Used by getRemoteJSON()
+.remotejson-cache/

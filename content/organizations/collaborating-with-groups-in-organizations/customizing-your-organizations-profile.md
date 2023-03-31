@@ -18,7 +18,7 @@ You can customize your organization's Overview page to show a README and pinned 
 
 ![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
 
-Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page. 
+Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
 
 ![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
 
@@ -59,7 +59,7 @@ You can format text and include emoji, images, and GIFs in your organization pro
 
 ## Adding a member-only organization profile README
 
-1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`. 
+1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`.
 2. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
 3. Commit the changes to the `README.md` file. The content of the `README.md` will be displayed in the member view of your organization's profile.
 
@@ -70,21 +70,21 @@ You can format text and include emoji, images, and GIFs in your organization pro
 You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. Navigate to your organization's profile page.
-2. In the right sidebar of the page in the {% octicon "eye" aria-label="The eye octicon" %} "View as" link, choose the **Public** or **Member** profile view from the dropdown menu.
+1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" %} View as** dropdown menu, then click **Public** or **Member**.
 
-   ![Image of the organization profile view dropdown](/assets/images/help/organizations/org_profile_view.png)
+   ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org_profile_view.png)
 
-3. In the pinned repositories section, select **Customize pins**.
+1.
 
-   ![Image of the customize pins link](/assets/images/help/organizations/customize_pins_link.png)
+   - If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
 
-   - If you haven't yet pinned any repositories to your organization's profile, you'll need to instead click **pin repositories** in the right sidebar of the profile page.
-   ![Image of pin repositories link in right sidebar](/assets/images/help/organizations/pin_repositories_link.png)
+      ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize_pins_link.png)
 
-4. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+   - If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
-   ![Image of pinned repo dialog](/assets/images/help/organizations/pinned_repo_dialog.png)
+      ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin_repositories_link.png)
 
-5. Click **Save pins**.
+1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+1. Click **Save pins**.
 
 {% endif %}

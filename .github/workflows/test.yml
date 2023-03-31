@@ -45,6 +45,9 @@ jobs:
               { name: 'content', path: 'tests/content', },
               { name: 'graphql', path: 'tests/graphql', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'rest', path: 'src/rest/tests', },
+              { name: 'webhooks', path: 'src/webhooks/tests', },
               { name: 'linting', path: 'tests/linting', },
               { name: 'meta', path: 'tests/meta', },
               { name: 'routing', path: 'tests/routing', },
@@ -94,10 +97,11 @@ jobs:
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/content \
-            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/data
 
       - name: Clone all translations
@@ -148,6 +152,15 @@ jobs:
 
       - name: Run build script
         run: npm run build
+
+      - name: Disk cache used by getRemoteJSON function in middleware
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .remotejson-cache
+          # Very liberal cache key. Note, for this to become populated
+          # for other branches, you have to manually run this workflow
+          # at least once using the "Run workflow" button.
+          key: ${{ runner.os }}-remotejson
 
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group

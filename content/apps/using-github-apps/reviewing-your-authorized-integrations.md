@@ -16,12 +16,6 @@ topics:
   - Access management
 shortTitle: Authorized integrations
 ---
-## Reviewing your authorized {% data variables.product.prodname_oauth_apps %}
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.access_applications %}
-{% data reusables.user-settings.access_authorized_oauth_apps %}
-{% data reusables.user-settings.review-oauth-apps %}
 
 ## Reviewing your authorized {% data variables.product.prodname_github_apps %}
 

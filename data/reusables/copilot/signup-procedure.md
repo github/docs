@@ -8,4 +8,4 @@
 1. Follow the steps to confirm your payment details, then click **Submit**.
 1. Select your preferences, then click **Save and get started**.
 
-   You can change these preferences at a later time by returning to your {% data variables.product.prodname_copilot %} settings. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code#configuring-github-copilot-settings-on-githubcom)."
+   You can change these preferences at a later time by returning to your {% data variables.product.prodname_copilot %} settings. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-github-copilot-settings-on-githubcom)."

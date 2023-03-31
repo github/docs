@@ -20,6 +20,12 @@ When organization members create a {% data variables.product.pat_v2 %} to access
 
 {% endnote %}
 
+{% ifversion pat-v2-org-admin-api %}
+
+Organization admins can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
+
+{% endif %}
+
 ## Managing {% data variables.product.pat_v2 %} requests
 
 {% data reusables.profile.access_org %}
@@ -38,3 +44,4 @@ Alternatively, you can approve or deny multiple tokens at once:
 {% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to approve or reject.
 1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.
+

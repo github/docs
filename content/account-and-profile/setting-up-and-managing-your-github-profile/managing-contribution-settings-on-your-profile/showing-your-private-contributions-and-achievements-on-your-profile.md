@@ -26,7 +26,7 @@ If you publicize your private contributions, people without access to the privat
 
 ## Changing the visibility of your private contributions
 
-You can choose to publicize your private contributors, which allows visitors to your profile to see private contribution counts, without further details.
+You can choose to publicize your private contributions, which allows visitors to your profile to see private contribution counts, without further details.
 
 If you choose to hide your private contributions, visitors will only see your public contributions.
 

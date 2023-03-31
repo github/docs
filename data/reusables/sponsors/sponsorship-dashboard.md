@@ -3,5 +3,4 @@
 
       ![Screenshot of the sidebar of @octocat's profile page. A button, labeled with a heart icon and "Sponsoring", is outlined in dark orange.](/assets/images/help/profile/sponsoring-button.png)
    -  If you're sponsoring an organization, to the right of the organization's name, click {% octicon "heart-fill" aria-label="" %} **Sponsoring**.
-1. Optionally, to manage a sponsorship on behalf of an organization, on the right side of the page, use the **Sponsoring as** drop-down menu, and click the organization.
-    ![Drop-down menu to choose the account you're sponsoring as](/assets/images/help/sponsors/sponsoring-as-drop-down-menu.png)
+1. Optionally, to manage a sponsorship on behalf of an organization, on the right side of the page, use the **Sponsoring as** dropdown menu, then click the organization.

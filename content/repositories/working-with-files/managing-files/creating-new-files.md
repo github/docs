@@ -21,14 +21,13 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 {% data reusables.repositories.sensitive-info-warning %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In your repository, browse to the folder where you want to create a file.
+1. In your repository, browse to the folder where you want to create a file.
 {% data reusables.files.add-file %}
-4. In the file name field, type the name and extension for the file. To create subdirectories, type the `/` directory separator.
-![New file name](/assets/images/help/repository/new-file-name.png)
-5. On the **Edit new file** tab, add content to the file.
-![Content in new file](/assets/images/help/repository/new-file-content.png)
-6. To review the new content, click **Preview**.
-![New file preview button](/assets/images/help/repository/new-file-preview.png)
+1. In the file name field, type the name and extension for the file. To create subdirectories, type the `/` directory separator.
+1. In the file contents text box, type content for the file.
+1. To review the new content, above the file contents, click **Preview**.
+
+   ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/help/repository/new-file-preview.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

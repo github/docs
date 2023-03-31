@@ -1,0 +1,6 @@
+# Reference: #9147
+# Dependency graph updates the repository view - [GA] #9147
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

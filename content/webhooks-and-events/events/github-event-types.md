@@ -23,30 +23,30 @@ The Events API can return different types of events triggered by activity on Git
 
 The event objects returned from the Events API endpoints have the same structure.
 
-| Event API attribute name | Description |
-|--------------------------|-------------|
-| `id` | Unique identifier for the event. |
-| `type` | The type of event. Events uses PascalCase for the name. |
-| `actor` | The user that triggered the event. |
-| `actor.id` | The unique identifier for the actor. |
-| `actor.login` | The username of the actor. |
-| `actor.display_login` | The specific display format of the username. |
-| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
-| `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
-| `actor.avatar_url` | The URL of the actor's profile image. |
-| `repository` | The repository object where the event occurred.  |
-| `repository.id` | The unique identifier of the repository. |
-| `repository.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
-| `repository.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
-| `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
-| `public` | Whether the event is visible to all users. |
-| `created_at` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
-| `org` | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
-| `org.id` | The unique identifier for the organization. |
-| `org.login` | The name of the organization. |
-| `org.gravatar_id` | The unique identifier of the Gravatar profile for the organization. |
-| `org.url` | The REST API URL used to retrieve the organization object, which includes additional organization information. |
-| `org.avatar_url` | The URL of the organization's profile image. |
+| Event API attribute name | Type | Description |
+|--------------------------|-------------|-------------|
+| `id` | `string` | Unique identifier for the event. |
+| `type` | `string` | The type of event. Events uses PascalCase for the name. |
+| `actor` | `object` | The user that triggered the event. |
+| `actor.id` | `string` | The unique identifier for the actor. |
+| `actor.login` | `string` | The username of the actor. |
+| `actor.display_login` | `string` | The specific display format of the username. |
+| `actor.gravatar_id` | `string` | The unique identifier of the Gravatar profile for the actor. |
+| `actor.url` | `string` | The REST API URL used to retrieve the user object, which includes additional user information. |
+| `actor.avatar_url` | `string` | The URL of the actor's profile image. |
+| `repository` | `object` | The repository object where the event occurred.  |
+| `repository.id` | `string` | The unique identifier of the repository. |
+| `repository.name` | `string` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
+| `repository.url` | `string` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
+| `payload` | `object` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
+| `public` | `boolean` | Whether the event is visible to all users. |
+| `created_at` | `string` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
+| `org` | `object` | The organization that was chosen by the actor to perform action that triggers the event.<br />_The property appears in the event object only if it is applicable._ |
+| `org.id` | `string` | The unique identifier for the organization. |
+| `org.login` | `string` | The name of the organization. |
+| `org.gravatar_id` | `string` | The unique identifier of the Gravatar profile for the organization. |
+| `org.url` | `string` | The REST API URL used to retrieve the organization object, which includes additional organization information. |
+| `org.avatar_url` | `string` | The URL of the organization's profile image. |
 
 ### Example WatchEvent event object
 

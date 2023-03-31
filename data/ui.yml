@@ -34,7 +34,7 @@ search:
   matches_found: Results found
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
-  description: Enter a search term to find it in the GitHub Documentation.
+  description: Enter a search term to find it in the GitHub Docs.
   label: Search GitHub Docs
   n_results: '{n} results'
   one_result: 1 result

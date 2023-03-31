@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![Diagram of an event triggering a workflow that uses the {% data variables.product.prodname_cli %} to create an issue.](/assets/images/help/actions/overview-actions-using-cli-ci-example.png)
 
 ## Features used in this example
 
@@ -34,28 +34,18 @@ topics:
 {% data reusables.actions.secrets-table-entry %}
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
-| Running shell commands on the runner: | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
-| Running a script on the runner: | Using `script/check-english-links.js` |
-| Generating an output file: | Piping the output using the `>` operator |
-| Checking for existing issues using {% data variables.product.prodname_cli %}: | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
-| Commenting on an issue using {% data variables.product.prodname_cli %}: | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
+| Using a third-party action | [`peter-evans/create-issue-from-file`](https://github.com/peter-evans/create-issue-from-file)|
+| Running shell commands on the runner | [`run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) |
+| Running a script on the runner | Using `script/check-english-links.js` |
+| Generating an output file | Piping the output using the `>` operator |
+| Checking for existing issues using {% data variables.product.prodname_cli %} | [`gh issue list`](https://cli.github.com/manual/gh_issue_list) |
+| Commenting on an issue using {% data variables.product.prodname_cli %} | [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) |
 
 ## Example workflow
 
 {% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/6e01c0653836c10d7e092a17566a2c88b10504ce/.github/workflows/check-all-english-links.yml).
 
 {% data reusables.actions.note-understanding-example %}
-
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:70%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
 
 ```yaml{:copy}
 name: Check all English links
@@ -173,11 +163,6 @@ jobs:
             fi
           done
 ```
-</tr>
-</td>
-</tbody>
-</table>
-
 ## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
@@ -185,8 +170,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>

@@ -16,6 +16,7 @@ import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { archivedCacheControl, languageCacheControl } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
+import getRemoteJSON from './get-remote-json.js'
 
 const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
 
@@ -74,16 +75,6 @@ const retryConfiguration = { limit: 3 }
 // set to 500ms. Let's try to be very conservative here to avoid
 // unnecessary error reporting.
 const timeoutConfiguration = { response: 1500 }
-
-async function getRemoteJSON(url, config) {
-  if (_getRemoteJSONCache.has(url)) {
-    return _getRemoteJSONCache.get(url)
-  }
-  const body = await got(url, config).json()
-  _getRemoteJSONCache.set(url, body)
-  return body
-}
-const _getRemoteJSONCache = new Map()
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions

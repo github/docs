@@ -1,0 +1,1 @@
+AWS-REGION | The AWS region where your S3 bucket is located

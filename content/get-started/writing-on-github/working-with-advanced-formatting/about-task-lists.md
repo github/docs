@@ -20,7 +20,7 @@ topics:
 {% ifversion projects-v2-tasklists %}
 {% note %}
 
-**Note:** For more information about the new iteration of Tasklists, which is currently in a private beta, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+**Note:** For more information about the new iteration of tasklists, which is currently in a private beta, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 {% endnote %}
 {% endif %}
@@ -44,7 +44,7 @@ If you add a task list to the body of an issue, the list has added functionality
 - If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. To add more details before creating the issue, you can use keyboard shortcuts to open the new issue form. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#issues-and-pull-requests)."
 - Any issues referenced in the task list will specify that they are tracked in the referencing issue.
 
-![Rendered task list](/assets/images/help/writing/task-list-rendered.png)
+![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing a task list under the header "Features." Some items are checked as done, others unchecked as undone. Three list items link to other {% data variables.product.prodname_github_issues %}.](/assets/images/help/writing/task-list-rendered.png)
 
 {% endif %}
 
@@ -60,9 +60,11 @@ If you add a task list to the body of an issue, the list has added functionality
 
 ## Reordering tasks
 
-You can reorder the items in a task list by clicking to the left of a task's checkbox, dragging the task to a new location, and dropping the task. You can reorder tasks across different lists in the same comment, but you can not reorder tasks across different comments.
+You can reorder the items in a task list. First, click or hover to the left of a task's checkbox until a grid of six dots appears. Then, drag and drop the grid to move the task to a new location.
 
-{% ifversion fpt %} ![Reordered task list](/assets/images/help/writing/task-list-reordered.gif)
+You can reorder tasks across different lists in the same comment, but you cannot reorder tasks across different comments.
+
+{% ifversion fpt %} ![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing two tasks in a task list. A grid of six dots to the left of the second task is outlined in dark orange.](/assets/images/help/writing/task-list-reorder.png)
 {% else %} ![Reordered task list](/assets/images/enterprise/writing/task-lists-reorder.gif) {% endif %}
 
 {% ifversion fpt %}
@@ -71,7 +73,7 @@ You can reorder the items in a task list by clicking to the left of a task's che
 
 Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
 
-![Tracked in example](/assets/images/help/writing/task_list_tracked.png)
+![Screenshot of a {% data variables.product.prodname_dotcom %} issue named "Create relationships between issues" and numbered issue 3. A button below the issue title reading "Tracked by issue #2" is outlined in dark orange.](/assets/images/help/writing/task-list-tracked.png)
 
 {% endif %}
 

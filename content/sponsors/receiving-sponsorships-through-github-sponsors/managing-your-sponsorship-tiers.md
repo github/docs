@@ -28,9 +28,6 @@ shortTitle: Manage payment tiers
 1. If you are setting up tiers for the first time, we recommend you review the suggested tier examples to see how some other open source contributors have set up {% data variables.product.prodname_sponsors %}. Decide whether you want to start with some suggested draft tiers, which you can customize in the tier editor.
    - To use a suggested tier, select the rewards you'd like to include in your draft tier or tiers. Then, click **Continue to tier editor**.
    - To create tiers without using with any of the draft suggestions, click **Skip this step**.
-
-     ![Screenshot of "Skip this step" option and "Continue to tier editor" button](/assets/images/help/sponsors/tier-editor-button.png)
-
 1. Optionally, in the text boxes in the "Custom amounts" section, type a recommended or minimum sponsorship amount. The minimum amount applies to both recurring and one-time sponsorships.
 1. Optionally, to edit a draft tier, find the draft tier and click **Edit**.
 
