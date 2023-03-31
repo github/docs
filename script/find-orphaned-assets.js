@@ -139,11 +139,7 @@ async function main(opts) {
     for (const imagePath of [...allImages].sort((a, b) => a.localeCompare(b))) {
       // It's important to escape spaces if we're ever going to pipe this
       // to xargs.
-      if (imagePath.includes(' ')) {
-        console.log(`"${imagePath}"`)
-      } else {
-        console.log(imagePath)
-      }
+      console.log(`"${imagePath}"`)
     }
   }
 

@@ -34,6 +34,10 @@ concurrency:
 env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
+  # Since we'll run in NDOE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
 
 jobs:
   figureOutMatrix:
