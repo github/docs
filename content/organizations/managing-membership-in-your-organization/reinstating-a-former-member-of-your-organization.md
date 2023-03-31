@@ -18,7 +18,7 @@ shortTitle: Reinstate a member
 
 ## About member reinstatement
 
-If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months. 
+If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
 
 - You manually removed the user from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
 - The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
@@ -68,10 +68,8 @@ If your organization has a paid per-user subscription, an unused license must be
 {% endif %}
 {% ifversion fpt or ghec %}
 7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
 7. If you cleared the previous privileges for a former organization member, choose a role for the user, and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
