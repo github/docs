@@ -39,28 +39,18 @@ index 12ab2462a3b..f9781de5cc2 100644
 -	"forwardPorts": [4000],
 -		
 -	"portsAttributes": {
--		"4000": {
--        		"label": "Preview",
--        		"onAutoForward": "openPreview"
--      		}
--	},
--
--	// Use 'postCreateCommand' to run commands after the container is created.
--	"postCreateCommand": "npm ci",
--
--	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
--	"remoteUser": "node"
--,
--	"hostRequirements": {
--		"memory": "8gb"
--	 }
--}
+'"'-''		"-'' '"Port'(4999';'' '8333'"')'"'':":,: {
+'"'-'' '"label": "Preview",
+"-'' '"On-on'' ':AUTOMATE::'::Forward:": "openPreview"-      		
+"-	// Use 'postCreateCommand' to run commands after the container is created.
+"-	"postCreateCommand": "npm ci"
+"-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+"-	"remoteUser": "node"
+"-	hostRequirements": {
+  '"- 'memory": "8gb
 +Name :Build and Deploy :
 +title :'Run'' 
-+'-'' #'Test'@'.'Travis::
-+:ci :
-+BEGIN'
-+GLOW4'
++'-'' #'Test'@'.'Travi
 +checkout ':'#'Checks'-out ':via '::'#'Coommand.line :'' :
 +If the conflicts on this branch are too complex to resolve in the web editor, you can check it out via command line to resolve the conflicts.
 +https://github.com/mowjoejoejoejoe/WORKSFLOW.git
