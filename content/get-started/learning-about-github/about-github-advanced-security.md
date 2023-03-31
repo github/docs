@@ -1,4 +1,194 @@
----
+#:##BEGIN
+bitore.sig#1
+Item statusClosed
+mowjoejoejoejoe opened 3 hours ago
+Description
+
+mowjoejoejoejoe
+1 minute ago (edited)
+#:##BEGIN
+GLOW47
+#!/Users/Bin/Bash ENVIROMENT.RUNETIME
+install: setup**/ecex*/dl/install/installer/WIZARD'@https://www.java.sun/.org
+#Test :tests'@(truffle-G--Unit-truffleruby.yml
+lollipop: versionings'@v'-'"-9.1.17.0, lowest":,(https://github.com/translation/rails/actions/runs/4112669745/jobs/7097875177#logs)
+succeeded on Feb 7 in 2m 13s
+Search logs
+2s
+Current runner version: '2.301.1'
+Operating System
+Runner Image
+Runner Image Provisioner
+GITHUB_TOKEN Permissions
+Secret source: Actions
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@v2' (SHA:dc323e67f16fb5f7663d20ff7941f27f5809e9b6)
+Download action repository 'ruby/setup-ruby@v1' (SHA:8df78e55761745aad83acaf3ff12976382356e6d)
+Download action repository 'paambaati/codeclimate-action@v3.0.0' (SHA:84cea27117a473d605400ca3a97fcef7e433e2d6)
+Complete job name: test (jruby-9.1.17.0, lowest)
+1s
+Run actions/checkout@v2
+Syncing repository: translation/rails
+Getting Git version info
+Temporarily overriding HOME='/home/runner/work/_temp/b227b610-e493-41c1-9063-33db7b0f020a' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/rails/rails
+Deleting the contents of '/home/runner/work/rails/rails'
+Initializing the repository
+Disabling automatic garbage collection
+Setting up auth
+Fetching the repository
+Determining the checkout info
+Checking out the ref
+/usr/bin/git log -1 --format='%H'
+'79a96b384ab2548cffbdc68a24cb94caba7e3e42'
+0s
+Run echo "BUNDLER_VERSION=1.17.3" >> $GITHUB_ENV
+41s
+Run ruby/setup-ruby@v1
+Modifying PATH
+Downloading Ruby
+Extracting Ruby
+Print Ruby version
+Installing Bundler
+bundle install
+0s
+Run ruby --version
+jruby 9.1.17.0 (2.3.3) 2018-04-20 d8b1ff9 OpenJDK 64-Bit Server VM 11.0.18+10 on 11.0.18+10 +jit [linux-x86_64]
+1m 27s
+Run bundle exec rspec
+Coverage may be inaccurate; set the "--debug" command line option, or do JRUBY_OPTS="--debug" or set the "debug.fullTrace=true" option in your .jrubyrc
+/home/runner/work/rails/rails/vendor/bundle/jruby/2.3.0/gems/simplecov-0.12.0/lib/simplecov.rb:48: warning: tracing (e.g. set_trace_func) will not capture all events without --debug flag
+/home/runner/work/rails/rails/vendor/bundle/jruby/2.3.0/gems/activesupport-4.1.0/lib/active_support/values/time_zone.rb:285: warning: circular argument reference - now
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.jruby.ext.zlib.RubyZlib to field java.util.zip.CRC32.crc
+WARNING: Please consider reporting this to the maintainers of org.jruby.ext.zlib.RubyZlib
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+..................................................................................................................................
+
+Finished in 1 minute 21.16 seconds (files took 2.06 seconds to load)
+130 examples, 0 failures
+Coverage report generated for RSpec to /home/runner/work/rails/rails/coverage. 0 / 1893 LOC (0.0%) covered.
+0s
+0s
+#Orphan: children cleanings processes
+/usr/bin/git version
+git version 2.39.1
+Temporarily overriding HOME='/home/runner/work/_temp/a24ccad1-098c-4ff9-94da-6b1461793173' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/rails/rails
+/usr/bin/git config --local --name-only --get-regexp core.sshCommand
+/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader
+http.https://github.com/.extraheader
+/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http.https://github.com/.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+
+Comments
+Add new comment
+Markdown input: edit mode selected.
+Leave a comment
+Properties
+Assignees
+
+Add assignees…
+Labels
+
+Add labels…
+Milestone
+
+Add milestone…
+Status
+
+Done
+Linked pull requests
+No linked pull requests
+Repository
+None yet
+Open in new tab
+Copy link
+Copy link in project
+Archive
+Delete from project
+
+#  Welcome to GitHub docs contributing guide
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on docs.github.com ✨.
+
+Read our Code of Conduct to keep our community approachable and respectable.
+
+In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+
+Use the table of contents icon  on the top left corner of this document to get to a specific section of this guide quickly.
+
+New contributor guide
+To get an overview of the project, read the README. Here are some resources to help you get started with open source contributions:
+
+Finding ways to contribute to open source on GitHub
+Set up Git
+GitHub flow
+Collaborating with pull requests
+Getting started
+To navigate our codebase with confidence, see the introduction to working in the docs repository 🎊. For more information on how we write our markdown files, see the GitHub Markdown reference.
+
+Check to see what types of contributions we accept before making changes. Some of them don't even require writing a single line of code ✨.
+
+Issues
+Create a new issue
+If you spot a problem with the docs, search if an issue already exists. If a related issue doesn't exist, you can open a new issue using a relevant issue form.
+
+Solve an issue
+Scan through our existing issues to find one that interests you. You can narrow down the search using labels as filters. See Labels for more information. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+
+Make Changes
+Make changes in the UI
+Click Make a contribution at the bottom of any docs page to make small changes such as a typo, sentence fix, or a broken link. This takes you to the .md file where you can make your changes and create a pull request for a review.
+
+
+
+Make changes in a codespace
+For more information about using a codespace for working on GitHub documentation, see "Working in a codespace."
+
+Make changes locally
+Fork the repository.
+Using GitHub Desktop:
+
+Getting started with GitHub Desktop will guide you through setting up Desktop.
+Once Desktop is set up, you can use it to fork the repo!
+Using the command line:
+
+Fork the repo so that you can make your changes without affecting the original project until you're ready to merge them.
+Install or update to Node.js, at the version specified in .node-version. For more information, see the development guide.
+
+Create a working branch and start with your changes!
+
+Commit your update
+Commit the changes once you are happy with them. Don't forget to self-review to speed up the review process⚡.
+
+Pull Request
+When you're finished with the changes, create a pull request, also known as a PR.
+
+Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
+Don't forget to link PR to issue if you are solving one.
+Enable the checkbox to allow maintainer edits so the branch can be updated for a merge.
+Once you submit your PR, a Docs team member will review your proposal. We may ask questions or request additional information.
+We may ask for changes to be made before a PR can be merged, either using suggested changes or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
+As you update your PR and apply changes, mark each conversation as resolved.
+If you run into any merge issues, checkout this git tutorial to help you resolve merge conflicts and other issues.
+Your PR is merged!
+Congratulations 🎉🎉 The GitHub team thanks you ✨.
+Once your PR is merged, your contributions will be publicly visible on the GitHub docs.
+Now that you are part of the GitHub docs community, see how else you can contribute to the docs.
+Windows
+This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
+Regular Expressions: Windows uses \r\n for line endings, while Unix-based systems use \n. Therefore, when working on Regular Expressions, use \r?\n instead of \n in order to support both environments. The Node.js os.EOL property can be used to get an OS-specific end-of-line marker.
+Paths: Windows systems use \ for the path separator, which would be returned by path.join and others. You could use path.posix, path.posix.join etc and the slash module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
+Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write scripts in JavaScript instead of Bash.
+Filename too long error: There is a 260 character limit for a filename when Git is compiled with msys. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
+Update Git configuration: git config --system core.longpaths true
+Consider using a different Git client on Windows
 title: About GitHub Advanced Security
 intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license.{% ifversion fpt or ghec %} These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
 product: '{% data reusables.gated-features.ghas %}'
