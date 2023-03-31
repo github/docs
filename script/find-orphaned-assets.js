@@ -66,6 +66,12 @@ async function main(opts) {
     )
     for (const [language, { dir }] of Object.entries(languages)) {
       if (language !== 'en') {
+        if (!fs.existsSync(dir)) {
+          throw new Error(
+            `${dir} does not exist. ` +
+              "Get around this by using the flag `--exclude-translations`. Or set up the TRANSLATION_ROOT."
+          )
+        }
         const languageFiles = []
         languageFiles.push(...walkFiles(path.join(dir, 'content'), ['.md']))
         languageFiles.push(...walkFiles(path.join(dir, 'data'), ['.md', '.yml']))
