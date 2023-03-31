@@ -1,5 +1,5 @@
 ---
-title: Secrets
+title: Workflows
 versions: 
   fpt: '*'
   ghae: '*'

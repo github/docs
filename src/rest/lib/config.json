@@ -21,5 +21,10 @@
     "allowTitleToDifferFromFilename": true
   },
   "targetDirectory": "content/rest",
+  "indexOrder": {
+    "content/rest/index.md": {
+      "startsWith": ["quickstart", "overview", "guides"]
+    }
+  },
   "sha": "e27c8f10a2208e6a8df88e64d2b40c9c7a1ecd2d"
 }
