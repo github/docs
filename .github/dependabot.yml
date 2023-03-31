@@ -27,3 +27,8 @@ updates:
     schedule:
       interval: weekly
       day: thursday
+
+verify:
+sign:
+   - RaDzikalbonie.
+   
