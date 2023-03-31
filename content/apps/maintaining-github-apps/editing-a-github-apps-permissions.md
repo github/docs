@@ -26,7 +26,7 @@ shortTitle: Edit permissions
 {% data reusables.user-settings.github_apps %}
 {% data reusables.user-settings.modify_github_app %}
 5. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Permissions & events**.
-6. Under "Repository permissions", "Organization permissions", and "Account permissions" sections, modify the permissions you'd like to change. For each type of permission, select either "Read-only", "Read and write", or "No access" from the dropdown.
+6. Under "Repository permissions", "Organization permissions", and "Account permissions" sections, modify the permissions you'd like to change. For each type of permission, select either "Read-only", "Read and write", or "No access" from the dropdown. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 7. Under "Subscribe to events", select any events to which you'd like to subscribe your app.
 8. Optionally, under "Add a note to users", add a note telling your users why you are changing the permissions that your GitHub App requests.
 9. Click **Save changes**.

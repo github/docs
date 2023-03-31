@@ -16,9 +16,9 @@ const req = {}
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
-  test('should be titled "GitHub Documentation"', async () => {
+  test('should be titled "GitHub Docs"', async () => {
     await page.goto('http://localhost:4000')
-    await expect(page.title()).resolves.toMatch('GitHub Documentation')
+    await expect(page.title()).resolves.toMatch('GitHub Docs')
   })
 })
 

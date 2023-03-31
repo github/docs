@@ -142,35 +142,35 @@ For some migration paths, we offer specialist tools that allow you to migrate so
 <table>
   <tr>
     <th></th>
-    <th colspan="2" style="text-align: center"><b>Destination</b></th>
+    <th scope="colgroup" colspan="2" style="text-align: center"><b>Destination</b></th>
   </tr>
   <tr>
-    <th><b>Origin</b></th>
-    <th><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
-    <th><b>{% data variables.product.prodname_ghe_server %}</b></th>
+    <th scope="col"><b>Origin</b></th>
+    <th scope="col"><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
+    <th scope="col"><b>{% data variables.product.prodname_ghe_server %}</b></th>
   </tr>
   <tr>
-    <th><b>Azure DevOps (Cloud only)</b></th>
+    <th scope="row"><b>Azure DevOps (Cloud only)</b></th>
     <td>{% data variables.product.prodname_importer_proper_name %}</td>
     <td>None</td>
   </tr>
   <tr>
-    <th><b>Bitbucket Server</b></th>
+    <th scope="row"><b>Bitbucket Server</b></th>
     <td><ul><li>bbs-exporter (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (private beta)</li></ul></td>
     <td>`bbs-exporter` (expert-led migrations only)</td>
   </tr>
   <tr>
-    <th><b>GitLab (self-managed or SaaS)</b></th>
+    <th scope="row"><b>GitLab (self-managed or SaaS)</b></th>
     <td>gl-exporter (expert-led migrations only)</td>
     <td>gl-exporter (expert-led migrations only)</td>
   </tr>
   <tr>
-    <th><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
+    <th scope="row"><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>
     <td><ul><li>{% data variables.product.prodname_importer_proper_name %}</li><li>Enterprise Cloud Importer (expert-led migrations only)</li></ul></td>
     <td>ghe-migrator</td>
   </tr>
   <tr>
-    <th><b>{% data variables.product.prodname_ghe_server %}</b></th>
+    <th scope="row"><b>{% data variables.product.prodname_ghe_server %}</b></th>
     <td><ul><li>{% data variables.product.prodname_importer_proper_name %}</li><li>Enterprise Cloud Importer (expert-led migrations only)</li></ul></td>
     <td>ghe-migrator</td>
   </tr>
