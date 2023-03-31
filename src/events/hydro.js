@@ -15,7 +15,9 @@ const httpsAgent = new Agent({ keepAlive: true, maxSockets: 32 }) // keepAlive: 
 const { NODE_ENV, HYDRO_SECRET, HYDRO_ENDPOINT } = process.env
 
 if (NODE_ENV === 'production' && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
-  throw new Error('Configure Hydro before sending events')
+  console.warn(
+    'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.'
+  )
 }
 
 /*
