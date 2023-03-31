@@ -30,11 +30,12 @@ You can add up to 10 individual people, or teams, as moderators. If you've alrea
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Moderators**.
-1. Under **Moderators**, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar. 
-  ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
-
+{% data reusables.organizations.sidebar-moderators %}
+1. Under **Moderators**, in the search field, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar.
 
 ## Removing an organization moderator
 
-Follow steps 1-3 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.sidebar-moderators %}
+1. Next to the person or team you want to remove, click **Remove moderator**.
