@@ -1,1 +1,1 @@
-1. Optionally, add the user to teams in the organization. ![List of the organization's teams](/assets/images/help/organizations/add-user-to-teams.png)
+1. Optionally, to add the user to a team in the organization, select the team.

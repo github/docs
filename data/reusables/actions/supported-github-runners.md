@@ -1,9 +1,9 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Runner image</b></th>
-    <th style="width:25%"><b>YAML workflow label</b></th>
-    <th style="width:40%"><b>Notes</b></th>
+    <th scope="col" style="width:35%"><b>Runner image</b></th>
+    <th scope="col" style="width:25%"><b>YAML workflow label</b></th>
+    <th scope="col" style="width:40%"><b>Notes</b></th>
   </tr>
 </thead>
 <tbody>

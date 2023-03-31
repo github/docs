@@ -137,7 +137,9 @@ async function main(opts) {
     console.log(JSON.stringify([...allImages], undefined, 2))
   } else {
     for (const imagePath of [...allImages].sort((a, b) => a.localeCompare(b))) {
-      console.log(imagePath)
+      // It's important to escape spaces if we're ever going to pipe this
+      // to xargs.
+      console.log(`"${imagePath}"`)
     }
   }
 
