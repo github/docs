@@ -281,7 +281,7 @@ The way that attribution works differs between tools:
 
 ### Managing teams and permissions
 
-Most customers use teams to manage access to repositories. With teams, instead of giving Mona access to a repository directly, you can add Mona to the Engineering team, and give everyone in the Engineering team access to the repostiory. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+Most customers use teams to manage access to repositories. With teams, instead of giving Mona access to a repository directly, you can add Mona to the Engineering team, and give everyone in the Engineering team access to the repository. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 You can create your teams and add team members before you migrate your repositories. You may want to manage your members through your identity provider (IdP) by linking your teams to IdP groups. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
