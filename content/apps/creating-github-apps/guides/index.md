@@ -13,8 +13,10 @@ topics:
   - GitHub Apps
 children:
   - /setting-up-your-development-environment-to-create-a-github-app
-  - /creating-ci-tests-with-the-checks-api
   - /using-the-github-api-in-your-app
+  - /building-a-login-with-github-button-with-a-github-app
+  - /building-a-cli-with-a-github-app
+  - /creating-ci-tests-with-the-checks-api
   - /migrating-oauth-apps-to-github-apps
-  - /using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app
 ---
+
