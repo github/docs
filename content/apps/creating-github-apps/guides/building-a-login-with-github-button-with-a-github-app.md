@@ -1,7 +1,7 @@
 ---
-title: Using the web application flow to generate a user access token for a GitHub App
-shortTitle: Web application flow
-intro: "Follow this tutorial to write Ruby code to generate a user access token via the web application flow for your {% data variables.product.prodname_github_app %}."
+title: Building a "Login with GitHub" button with a GitHub App
+shortTitle: Build a "Login" button
+intro: 'Follow this tutorial to write Ruby code to generate a user access token via the web application flow for your {% data variables.product.prodname_github_app %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,15 +9,21 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app
 ---
 
 ## Introduction
 
-This tutorial demonstrates how to use the web application flow to generate a user access token for a {% data variables.product.prodname_github_app %}. Your app should use a user access token if you want to attribute the app's actions to a user and want to prevent your app from taking over-privileged actions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
-
-If your app does not have access to a web interface, you should use device flow instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token)."
+This tutorial demonstrates how to build a "Login with GitHub" button for a website. The website will use a {% data variables.product.prodname_github_app %} to generate a user access token via the web application flow. Then, the website uses the user access token to make API requests on behalf of the authenticated user.
 
 This tutorial uses Ruby, but you can use the web application flow with any programming language that is used for web development.
+
+### About web application flow and user access tokens
+
+Your app should use a user access token if you want to attribute the app's actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
+
+There are two ways to generate a user access token for a {% data variables.product.prodname_github_app %}: web application flow and device flow. If your app has access to a web interface, you should use web application flow. If your app does not have access to a web interface, you should use device flow instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
 ## Prerequisites
 
@@ -409,7 +415,7 @@ Unlike a traditional OAuth token, the user access token does not use scopes so y
 
 ### Adjust the code to meet your app's needs
 
-This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions.
+This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
 
 This tutorial stored all of the code into a single file, but you may want to move functions and components into separate files.
 
@@ -418,4 +424,3 @@ This tutorial stored all of the code into a single file, but you may want to mov
 This tutorial generates a user access token. Unless you opted out of expiration for user access tokens, the user access token will expire after eight hours. You will also receive a refresh token that can regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
 If you plan on interacting further with {% data variables.product.company_short %}'s APIs, you should store the token for future use. If you choose to store the user access token or refresh token, you must store it securely. You should never publicize the token.
-
