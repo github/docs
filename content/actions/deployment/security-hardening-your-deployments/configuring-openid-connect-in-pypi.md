@@ -66,9 +66,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: {% data reusables.actions.action-checkout %}
 
-      - uses: actions/setup-python@v4
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: "3.x"
 
@@ -78,7 +78,7 @@ jobs:
           python -m build
 
       - name: upload windows dists
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: release-dists
           path: dist/
@@ -92,7 +92,7 @@ jobs:
 
     steps:
       - name: Retrieve release distributions
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: release-dists
           path: dist/
