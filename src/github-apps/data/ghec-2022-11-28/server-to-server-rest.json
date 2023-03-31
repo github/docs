@@ -3685,6 +3685,32 @@
       "requestPath": "/repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations"
     }
   ],
+  "security-advisories": [
+    {
+      "slug": "list-repository-security-advisories",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories"
+    },
+    {
+      "slug": "create-a-repository-security-advisory",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories"
+    },
+    {
+      "slug": "get-a-repository-security-advisory",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "update-a-repository-security-advisory",
+      "subcategory": "repository-advisories",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    }
+  ],
   "teams": [
     {
       "slug": "get-an-external-group",
