@@ -96,7 +96,7 @@ For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-
 {% endif %}
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning).{% endif %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, as well as public npm packages. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning).{% endif %}
 
 {% ifversion ghes or ghae %}{% data variables.product.prodname_secret_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
 

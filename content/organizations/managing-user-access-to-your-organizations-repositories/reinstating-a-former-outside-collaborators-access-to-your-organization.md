@@ -46,32 +46,26 @@ When you reinstate a former outside collaborator, you can restore:
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% ifversion fpt or ghec %}
-1. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
+1. Select whether to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
 
   {% warning %}
 
   **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
-
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
-6. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Add and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Add and start fresh**.
+6. Select whether to restore the outside collaborator's previous privileges in the organization by clicking **Add and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Add and start fresh**.
 
   {% warning %}
 
   **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member).
 
   {% endwarning %}
-
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
 7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 8. The invited person will receive an email inviting them to the organization. They will need to accept the invitation before becoming an outside collaborator in the organization. {% data reusables.organizations.cancel_org_invite %}
