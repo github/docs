@@ -47,9 +47,9 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) 
+        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
          && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
-       ) 
+       )
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
        &&  github.actor != 'dependabot[bot]'
     timeout-minutes: 15
@@ -192,6 +192,8 @@ jobs:
           cache-to: ''
           build-args: |
             BUILD_SHA=${{ env.COMMIT_REF }}
+            HYDRO_SECRET=
+            HYDRO_ENDPOINT=
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
@@ -213,7 +215,7 @@ jobs:
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
 
-      - name: Check that it can reached
+      - name: Check that it can be reached
         # This introduces a necessary delay. Because the preview evironment
         # URL is announced to the pull request as soon as all the steps
         # finish, what sometimes happens is that a viewer of the PR clicks
@@ -223,4 +225,8 @@ jobs:
         # process requests.
         # By introducing a slight "delay" here we avoid announcing a
         # preview environment URL that isn't actually working just yet.
-        run: curl --retry-connrefused --retry 5 -I ${{ env.APP_URL }}
+        # Note the use of `--fail`. It which means that if it actually
+        # did connect but the error code was >=400, the command will fail.
+        # The `--fail --retry N` combination means that a 4xx response
+        # code will exit immediately but a 5xx will exhaust the retries.
+        run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

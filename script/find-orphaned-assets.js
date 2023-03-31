@@ -69,7 +69,7 @@ async function main(opts) {
         if (!fs.existsSync(dir)) {
           throw new Error(
             `${dir} does not exist. ` +
-              "Get around this by using the flag `--exclude-translations`. Or set up the TRANSLATION_ROOT."
+              'Get around this by using the flag `--exclude-translations`. Or set up the TRANSLATION_ROOT.'
           )
         }
         const languageFiles = []
