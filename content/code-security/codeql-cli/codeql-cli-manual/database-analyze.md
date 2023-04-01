@@ -73,7 +73,7 @@ absolute. It is considered relative to the root of the CodeQL pack.
 
 If no queries are specified, the CLI will automatically determine a
 suitable set of queries to run. In particular, if a Code Scanning
-configuation file was specfied at database creation time using
+configuration file was specfied at database creation time using
 `--codescanning-config` then the queries from this will be used.
 Otherwise, the default queries for the langauge being analyzed will be
 used.
