@@ -45,7 +45,7 @@ desired *total* RAM amount.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print commmand-line arguments on one line each.
+`lines` *(default)*: Print command-line arguments on one line each.
 
 `json`: Print them as a JSON array.
 
