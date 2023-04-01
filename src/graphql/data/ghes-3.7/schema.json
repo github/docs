@@ -72823,7 +72823,7 @@
         },
         {
           "name": "status",
-          "description": "<p>Filters the check runs by this status. superseded by statuses.</p>",
+          "description": "<p>Filters the check runs by this status. Superceded by statuses.</p>",
           "type": "CheckStatusState",
           "id": "checkstatusstate",
           "kind": "enums",

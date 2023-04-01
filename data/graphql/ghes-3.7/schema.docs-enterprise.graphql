@@ -2826,7 +2826,7 @@ input CheckRunFilter {
   conclusions: [CheckConclusionState!]
 
   """
-  Filters the check runs by this status. superseded by statuses.
+  Filters the check runs by this status. Superceded by statuses.
   """
   status: CheckStatusState
 
