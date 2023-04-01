@@ -1,5 +1,5 @@
 ---
-title: Issues guides
+title: Guides for Issues
 shortTitle: Guides
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 allowTitleToDifferFromFilename: true

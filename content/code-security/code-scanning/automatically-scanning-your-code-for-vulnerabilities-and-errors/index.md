@@ -19,6 +19,7 @@ children:
   - /about-code-scanning-alerts
   - /triaging-code-scanning-alerts-in-pull-requests
   - /configuring-code-scanning-for-a-repository
+  - /about-the-tool-status-page
   - /managing-code-scanning-alerts-for-your-repository
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
   - /customizing-code-scanning

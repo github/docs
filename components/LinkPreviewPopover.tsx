@@ -89,7 +89,10 @@ function popoverWrap(element: HTMLLinkElement) {
     // rely on the server.
     // We can remove this if statement once preview hover cards are
     // enabled everywhere.
-    if (new URL(element.href).pathname.split('/')[2] !== 'pages') return
+    const pathnameSplit = new URL(element.href).pathname.split('/')
+    // Check for both when you're on free-pro-team@latest and any
+    // other version too.
+    if (!(pathnameSplit[2] === 'pages' || pathnameSplit[3] === 'pages')) return
 
     // But, is it an in-page anchor link? If so, get the title, intro
     // and product from within the DOM. But only if we can use the anchor
@@ -97,7 +100,7 @@ function popoverWrap(element: HTMLLinkElement) {
     if (
       element.href.includes('#') &&
       element.href.split('#')[1] &&
-      element.href.startsWith(`${window.location.href}#`)
+      element.href.startsWith(`${window.location.href.split('#')[0]}#`)
     ) {
       const domID = element.href.split('#')[1]
       const domElement = document.querySelector(`#${domID}`)

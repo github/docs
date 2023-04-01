@@ -30,11 +30,11 @@ Many of the events in the timeline also create an event in the audit log, which 
 
 ## Security overview page
 
-Security overview consolidates information about security alerts and provides high-level summaries of the security status of an enterprise, organization, or team. 
+Security overview consolidates information about security alerts and provides high-level summaries of the security status of your enterprise or organization. 
 
-In security overview you can see repositories with open security alerts{% ifversion security-overview-org-risk-coverage %}, as well as which repositories have enabled specific security features{% endif %}. You can also use the security overview to filter and sort security alerts using interactive views. 
+In security overview you can see repositories with open security alerts{% ifversion security-overview-org-risk-coverage %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views. 
 
-For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 ## Audit log
 
@@ -84,7 +84,7 @@ For more information, see "[{% data variables.product.prodname_secret_scanning_c
 
 You can list all {% data variables.product.prodname_code_scanning %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. Alternatively, you can get full details for an alert or update the alert.
 
-For more information, see “[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
+For more information, see "[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
 
 ## Further reading
 - [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)

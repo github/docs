@@ -30,7 +30,7 @@ If you've created a custom repository role with an inherited role that is lower 
 
 {% note %}
 
-**Note:** All changes to base permissions will affect both new and existing members. 
+**Note:** All changes to base permissions will affect both new and existing members.
 
 {% endnote %}
 
@@ -39,10 +39,8 @@ If you've created a custom repository role with an inherited role that is lower 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Base permissions", use the drop-down to select new base permissions.
-  ![Selecting new permission level from base permissions drop-down](/assets/images/help/organizations/base-permissions-drop-down.png)
-6. Review the changes. To confirm, click **Change default permission to PERMISSION**.
-  ![Reviewing and confirming change of base permissions](/assets/images/help/organizations/base-permissions-confirm.png)
+1. Under "Base permissions", select the dropdown menu and click a permissions level.
+1. Review the changes. To confirm, click **Change default permission to PERMISSION**.
 
 ## Further reading
 

@@ -198,7 +198,7 @@ You can always rely on [GitHub integrations][integrations].
 [webhook]: /webhooks/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [access token]: /articles/creating-an-access-token-for-command-line-use
-[travis api]: https://api.travis-ci.org/docs/
+[travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven
 [hubot]: https://github.com/github/hubot

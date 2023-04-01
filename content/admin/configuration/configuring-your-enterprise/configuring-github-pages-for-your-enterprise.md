@@ -55,7 +55,6 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
 1. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
 {% data reusables.enterprise-accounts.pages-policies-save %}
 
 {% endif %}

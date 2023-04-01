@@ -844,6 +844,28 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`POST /repos/{owner}/{repo}/pages/deployment`](/rest/pages#create-a-github-pages-deployment) (write){% endif %}
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages) (write){% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.9 %}
+
+## {% data variables.product.pat_generic_caps %} requests
+
+- [`GET /organizations/{org}/personal-access-token-requests`](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) (read)
+- [`POST /organizations/{org}/personal-access-token-requests`](/rest/orgs/orgs#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) (write)
+- [`POST /organizations/{org}/personal-access-token-requests/{pat_request_id}`](/rest/orgs/orgs#review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token) (write)
+- [`GET /organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories`](/rest/orgs/orgs#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token) (read)
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.9 %}
+
+## {% data variables.product.pat_generic_caps %}s
+
+- [`GET /organizations/{org}/personal-access-tokens`](/rest/orgs/orgs#list-fine-grained-personal-access-tokens-with-access-to-organization-resources) (read)
+- [`POST /organizations/{org}/personal-access-tokens`](/rest/orgs/orgs#update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens) (write)
+- [`POST /organizations/{org}/personal-access-tokens/{pat_id}`](/rest/orgs/orgs#update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources) (write)
+- [`GET /organizations/{org}/personal-access-tokens/{pat_id}/repositories`](/rest/orgs/orgs#list-repositories-a-fine-grained-personal-access-token-has-access-to) (read)
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Plan

@@ -31,7 +31,7 @@ If your project communicates with an external service, you might use a token or 
 {% ifversion fpt or ghec %}
 {% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
 
-1. **{% data variables.secret-scanning.partner_alerts_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.secret-scanning.partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
+1. **{% data variables.secret-scanning.partner_alerts_caps %}.** Runs automatically on all public repositories and public npm packages. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.secret-scanning.partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
 
 2. **{% data variables.secret-scanning.user_alerts_caps %}.** {% ifversion fpt %}The following users can enable and configure additional scanning:
    - Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
@@ -53,7 +53,7 @@ You can also enable {% data variables.product.prodname_secret_scanning %} as a p
 {% ifversion fpt or ghec %}
 ## About {% data variables.secret-scanning.partner_alerts %}
 
-When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. Public packages on the npm registry are also scanned. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
 
@@ -99,7 +99,7 @@ For more information on how to configure notifications for {% data variables.sec
 Repository administrators and organization owners can grant users and teams access to {% data variables.secret-scanning.alerts %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% ifversion ghec or ghes or ghae > 3.4 %}
-You can use the security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-the-security-overview)."
+You can use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 You can also use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."

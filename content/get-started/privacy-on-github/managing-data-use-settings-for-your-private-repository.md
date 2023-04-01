@@ -17,17 +17,17 @@ shortTitle: Manage data use for private repo
 ## About data use for your private repository
 
 
-You can control data use for your private repository with the security and analysis features. 
+You can control data use for your private repository with the security and analysis features.
 
-- Enable the dependency graph to allow read-only data analysis on your repository. 
-- Disable the dependency graph to block read-only data analysis of your repository. 
+- Enable the dependency graph to allow read-only data analysis on your repository.
+- Disable the dependency graph to block read-only data analysis of your repository.
 
 When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies)."
 
 
 {% note %}
 
-**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." 
+**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 {% endnote %}
 
@@ -38,9 +38,7 @@ When you enable data use for your private repository, you'll be able to access t
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.{% ifversion fpt %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
+1. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
 
 ## Further reading
 

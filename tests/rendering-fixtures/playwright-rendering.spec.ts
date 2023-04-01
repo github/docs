@@ -14,7 +14,7 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
 test('view home page', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/GitHub Documentation/)
+  await expect(page).toHaveTitle(/GitHub Docs/)
 })
 
 test('view the for-playwright article', async ({ page }) => {
@@ -32,8 +32,8 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.getByTestId('sidebar').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
-  await page.getByTestId('product-sidebar-items').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar-items').getByRole('link', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByText('Quickstart').click()
+  await page.getByTestId('product-sidebar').getByRole('link', { name: 'Hello World' }).click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
