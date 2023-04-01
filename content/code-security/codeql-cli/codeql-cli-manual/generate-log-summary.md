@@ -45,7 +45,7 @@ event logs directly.
 
 #### `<result>`
 
-Path to the location to output the summarised log file to. If this
+Path to the location to output the summarized log file to. If this
 omitted, then the summary will be output to stdout.
 
 #### `--minify-output`
