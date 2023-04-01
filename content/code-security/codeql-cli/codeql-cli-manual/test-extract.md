@@ -44,7 +44,7 @@ execute test queries against.
 
 Override the location of the database being created. By default it will
 be a subdirectory whose name is derived from the name of the test
-directory itself with '.testproj' appended.
+directory itself with `.testproj` appended.
 
 #### `--search-path=<dir>[:<dir>...]`
 
