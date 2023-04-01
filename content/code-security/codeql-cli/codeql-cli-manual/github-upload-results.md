@@ -53,7 +53,7 @@ your release).
 #### `-r, --repository=<repository-name>`
 
 GitHub repository owner and name (e.g., *github/octocat*) to use as an
-endpoint for uploading. The CLI will atempt to autodetect this from the
+endpoint for uploading. The CLI will attempt to autodetect this from the
 checkout path if it is omitted.
 
 #### `-f, --ref=<ref>`
