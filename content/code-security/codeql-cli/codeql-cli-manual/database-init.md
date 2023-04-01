@@ -181,7 +181,7 @@ will be used.
 
 \[Windows only] When initializing tracing, inject the tracer this many
 parents above the current process, with 0 corresponding to the process
-that is invoking the CodeQL CLI. The CLI's default behavior if no
+that is invoking the CodeQL CLI. The CLI's default behaviour if no
 arguments are passed is to inject into the parent of the calling
 process.
 
@@ -195,7 +195,7 @@ produce all necessary data directly.
 #### `--extra-tracing-config=<tracing-config.lua>`
 
 \[Advanced] The path to a tracer configuration file. It may be used to
-modify the behavior of the build tracer. It may be used to pick out
+modify the behaviour of the build tracer. It may be used to pick out
 compiler processes that run as part of the build command, and trigger
 the execution of other tools. The extractors will provide default tracer
 configuration files that should work in most situations.
@@ -214,7 +214,7 @@ be any string that does not contain a newline.
 
 You can use this command-line option repeatedly to set multiple
 extractor options. If you provide multiple values for the same extractor
-option, the behavior depends on the type that the extractor option
+option, the behaviour depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed after extractor options
@@ -240,7 +240,7 @@ string and array options are map entries with string and array values.
 
 Extractor option bundle files are read in the order they are specified.
 If different extractor option bundle files specify the same extractor
-option, the behavior depends on the type that the extractor option
+option, the behaviour depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed before extractor options
