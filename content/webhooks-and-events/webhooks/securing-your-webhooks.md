@@ -45,25 +45,37 @@ When your secret token is set, {% data variables.product.product_name %} uses it
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** For backward-compatibility, we also include the `x-hub-signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `x-hub-signature-256` header for improved security. The example below demonstrates using the `x-hub-signature-256` header.
+**Note:** For backward-compatibility, we also include the `x-hub-signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `x-hub-signature-256` header for improved security. The examples below demonstrate using the `x-hub-signature-256` header.
 
 {% endnote %}
 {% endif %}
 
-For example, if you have a basic server that listens for webhooks, it might be configured similar to this:
+You should calculate a hash using your `SECRET_TOKEN`, and ensure that the result matches the hash from {% data variables.product.product_name %}. {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash.
+
+{% note %}
+
+**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
+
+{% endnote %}
+
+Your language and server implementations may differ from the following examples. However, there are a number of very important things to point out:
+
+* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+
+* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+
+### Ruby example
+
+For example, you can define the following `verify_signature` function:
 
 ``` ruby
-require 'sinatra'
-require 'json'
-
-post '/payload' do
-  request.body.rewind
-  push = JSON.parse(request.body.read)
-  "I got some JSON: #{push.inspect}"
+def verify_signature(payload_body)
+  signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
+  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
 end
 ```
 
-The intention is to calculate a hash using your `SECRET_TOKEN`, and ensure that the result matches the hash from {% data variables.product.product_name %}. {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash, so you could reconfigure your server to look a little like this:
+Then you can call it when you receive a webhook payload:
 
 ``` ruby
 post '/payload' do
@@ -73,33 +85,15 @@ post '/payload' do
   push = JSON.parse(payload_body)
   "I got some JSON: #{push.inspect}"
 end
-
-def verify_signature(payload_body)
-  signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
-end
 ```
 
-{% note %}
+### Python example
 
-**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
-
-{% endnote %}
-
-Your language and server implementations may differ from this example code. However, there are a number of very important things to point out:
-
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
-
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
-
-[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare
-
-## Validating payloads from GitHub (Python example)
+For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
 
 ```python
 import hashlib
 import hmac
-
 def verify_signature(payload_body, secret_token, signature_header):
     """Verify that the payload was sent from GitHub by validating SHA256.
     
@@ -109,13 +103,13 @@ def verify_signature(payload_body, secret_token, signature_header):
         payload_body: original request body to verify (request.body())
         secret_token: GitHub app webhook token (WEBHOOK_SECRET)
         signature_header: header received from GitHub (x-hub-signature-256)
-
     """
     if not signature_header:
         raise HTTPException(status_code=403, detail="x-hub-signature-256 header is missing!")
-
     hash_object = hmac.new(secret_token.encode('utf-8'), msg=payload_body, digestmod=hashlib.sha256)
     expected_signature = "sha256=" + hash_object.hexdigest()
     if not hmac.compare_digest(expected_signature, signature_header):
         raise HTTPException(status_code=403, detail="Request signatures didn't match!")
 ```
+
+[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare
