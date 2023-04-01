@@ -32,8 +32,8 @@ codeql pack ls <options>... -- <dir>
 ## Description
 
 \[Experimental] \[Deep plumbing] List the CodeQL packages rooted at
-this directory. This directory must contain a qlpack.yml or
-.codeqlmanifest.json file.
+this directory. This directory must contain a `qlpack.yml` or
+`.codeqlmanifest.json` file.
 
 ## Primary options
 
