@@ -38,7 +38,7 @@ for modifying the path in extraordinary cases where exact control is
 needed.
 
 The command will also detect a language and dbscheme to compile a query
-against, as these may also depend on autodetecting the language of a QL
+against, as these may also depend on auto-detecting the language of a QL
 query.
 
 **The command is deeply internal and its behavior or existence may
