@@ -242,3 +242,79 @@ upcoming_changes:
     date: '2023-07-01T00:00:00+00:00'
     criticality: breaking
     owner: stevepopovich
+  - location: AddPullRequestReviewCommentInput.body
+    description:
+      '`body` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.commitOID
+    description:
+      '`commitOID` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.inReplyTo
+    description:
+      '`inReplyTo` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.path
+    description:
+      '`path` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.position
+    description:
+      '`position` will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply
+      instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.pullRequestId
+    description:
+      '`pullRequestId` will be removed. use addPullRequestReviewThread or
+      addPullRequestReviewThreadReply instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewCommentInput.pullRequestReviewId
+    description:
+      '`pullRequestReviewId` will be removed. use addPullRequestReviewThread
+      or addPullRequestReviewThreadReply instead'
+    reason: We are deprecating the addPullRequestReviewComment mutation
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: AddPullRequestReviewInput.comments
+    description: '`comments` will be removed. use the `threads` argument instead'
+    reason: We are deprecating comment fields that use diff-relative positioning
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: PullRequestReviewComment.originalPosition
+    description: '`originalPosition` will be removed.'
+    reason: We are phasing out diff-relative positioning for PR comments
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole
+  - location: PullRequestReviewComment.position
+    description:
+      '`position` will be removed. Use the `line` and `startLine` fields
+      instead, which are file line numbers instead of diff line numbers'
+    reason: We are phasing out diff-relative positioning for PR comments
+    date: '2023-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: aharpole

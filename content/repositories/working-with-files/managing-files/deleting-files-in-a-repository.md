@@ -38,8 +38,9 @@ If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you delet
 ## Deleting a directory
 
 1. Browse to the directory in your repository that you want to delete.
-1. In the top-right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete directory**.
-  ![Button to delete a directory](/assets/images/help/repository/delete-directory-button.png)
+1. In the top-right corner, select the {% octicon "kebab-horizontal" aria-label="More options" %} dropdown menu, then click **Delete directory**.
+
+  ![Screenshot of the file list for a directory. To the right of the directory name, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/repository/delete-directory-button.png)
 1. Review the files you will delete.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

@@ -36,7 +36,7 @@ For more detailed information on features, requirements, and advanced usage, see
 
 ## Prerequisites
 
-To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a Linux or Unix host system separate from {% data variables.location.product_location %}.
+To use {% data variables.product.prodname_enterprise_backup_utilities %}, you must have a host system separate from {% data variables.location.product_location %}. For details about how the system should be configured, see [Requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md) in the github/backup-utils repository.
 
 You can also integrate {% data variables.product.prodname_enterprise_backup_utilities %} into an existing environment for long-term permanent storage of critical data.
 

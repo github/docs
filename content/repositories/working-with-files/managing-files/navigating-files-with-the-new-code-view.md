@@ -30,17 +30,17 @@ To provide feedback on the new code view beta, see the [discussion forum](https:
 The new file tree view is a panel that displays a repository's directories and files within an easily navigable tree. You can move between directories and files quickly and understand the context for each item you view.
 
 1. Select a repository, then click a directory or file within that repository to open the file tree view.
-1. To search for a specific directory or file, in the file tree view, click the {% octicon "filter" aria-label="The filter icon" %} **Jump to file** search bar, then type the directory or file name and select the directory or file from the results. You can view the file path for a directory or file below each search result.
+1. To search for a specific directory or file, in the file tree view, click the {% octicon "filter" aria-hidden="true" %} **Jump to file** search bar, then type the directory or file name and select the directory or file from the results. You can view the file path for a directory or file below each search result.
 
   ![Screenshot of the file tree view for a repository. A search bar, labeled "Jump to file", is outlined in dark orange.](/assets/images/help/repository/file-tree-view-jump-to-file.png)
 
      - To search within the repository using the {% data variables.product.prodname_dotcom %} search bar, click {% octicon "search" aria-label="The search icon" %} in the file tree view.
 
-1. To switch between branches, select the {% octicon "git-branch" aria-label="The branch icon" %} branch dropdown menu, then click the desired branch from the results. To view all branches for a repository, click **View all branches**.
+1. To switch between branches, select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, then click the desired branch from the results. To view all branches for a repository, click **View all branches**.
 
   ![Screenshot of the file tree view for a repository. A dropdown menu for switching branches is expanded and outlined in dark orange.](/assets/images/help/repository/file-tree-view-branch-dropdown.png)
 
-1. To switch between tags, select the {% octicon "git-branch" aria-label="The branch icon" %} branch dropdown menu, click the **Tags** tab, then click the desired tag from the results. To view all tags for a repository, click **View all tags**.
+1. To switch between tags, select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, click the **Tags** tab, then click the desired tag from the results. To view all tags for a repository, click **View all tags**.
 
   ![Screenshot of the file tree view. A dropdown menu for switching branches is expanded, and a tab, labeled "Tags", is outlined in dark orange.](/assets/images/help/repository/file-tree-view-branch-dropdown-tags.png)
 
@@ -96,7 +96,8 @@ Rather than losing file context when you enter the blame view, you can now use t
 
 1. Select a repository, then click a file within that repository to open the new code view.
 1. To see the revision history of the file, above the file content, click **Blame**. This view gives you a line-by-line revision history, with the code in a file separated by commit. Each commit lists the author, commit description, and commit date.
-   - To see versions of a file before a particular commit, click {% octicon "versions" aria-label="The versions icon" %}. Alternatively, to see more detail about a particular commit, click the commit message.
+   - To see versions of a file before a particular commit, click {% octicon "versions" aria-label="View blame prior to this change" %}. Alternatively, to see more detail about a particular commit, click the commit message.
+
       ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
 
 1. To return to the raw code view, above the file content, click **Code**.

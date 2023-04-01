@@ -25,12 +25,11 @@ To make your repositories easier to reference in academic literature, you can cr
 
 {% endtip %}
 
-1. Navigate to [Zenodo](http://zenodo.org/).
-2. In the upper-left corner of the screen, click **Log in**. ![Zenodo log in button](/assets/images/help/repository/zenodo_login.png)
-3. Click **Log in with GitHub**. ![Log into Zenodo with GitHub](/assets/images/help/repository/zenodo_login_with_github.png)
-4. Review the information about access permissions, then click **Authorize application**. ![Authorize Zenodo](/assets/images/help/repository/zenodo_authorize.png)
-5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
-6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
+1. Navigate to the [login page](https://zenodo.org/login) for Zenodo.
+1. Click **Log in with {% data variables.product.prodname_dotcom %}**.
+1. Review the information about access permissions, then click **Authorize zenodo**.
+1. Navigate to the [Zenodo {% data variables.product.prodname_dotcom %} page](https://zenodo.org/account/settings/github/).
+1. To the right of the name of the repository you want to archive, toggle the button to **On**.
 
 Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/repositories/releasing-projects-on-github/about-releases). Follow the steps at "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)" to create a new one.
 

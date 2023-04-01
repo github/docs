@@ -49,9 +49,7 @@ shortTitle: Working with non-code files
 
 ### Viewing images
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}:
-
-![inline image](/assets/images/help/images/view.png)
+You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
 
 SVGs don't currently support inline scripting or animation.
 
@@ -63,19 +61,17 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 **2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
-![2-up](/assets/images/help/repository/images-2up-view.png)
+![Screenshot of a diff for an image in 2-up mode. The image on the right is outlined in green and larger than the image on the left, which is outlined in red.](/assets/images/help/repository/images-2up-view.png)
 
 #### Swipe
 
 **Swipe** lets you view portions of your image side by side. Not sure if colors shifted between different versions? Drag the swipe slider over the area in question and compare the pixels for yourself.
 
-![Swipe](/assets/images/help/repository/images-swipe-view.png)
+![Screenshot of a diff for an image in swipe mode. A line down the center divides the image into new, outlined in green, and old, outlined in red.](/assets/images/help/repository/images-swipe-view.png)
 
 #### Onion skin
 
 **Onion Skin** really comes in handy when elements move around by small, hard to notice amounts. Did an icon shift two pixels to the left? Drag the opacity slider back a bit and notice if things move around.
-
-![Onion skin](/assets/images/help/repository/images-onion-view.gif)
 
 ## 3D File Viewer
 
@@ -94,15 +90,13 @@ When looking at a commit or set of changes which includes an STL file, you'll be
 
 By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
 
-![wireframe](/assets/images/help/repository/stl_wireframe.png)
+![Screenshot of the diff for a STL file. Portions of a 3D object are red, and other portions are green.](/assets/images/help/repository/stl_wireframe.png)
 
 You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
 
 ### Fixing slow performance
 
-If you see this icon in the corner of the viewer, then the WebGL technology is not available on your browser:
-
-![WebGL pop error](/assets/images/help/repository/render_webgl_error.png)
+If you see {% octicon "info" aria-label="the info icon" %} in the corner of the viewer, with the tooltip "WebGL powered hardware support not available," then the WebGL technology is not available on your browser.
 
 WebGL is necessary to take advantage of your computer's hardware to its fullest. We recommend you try browsers like [Chrome](https://www.google.com/intl/en/chrome/browser/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/), which ship with WebGL enabled.
 
@@ -140,9 +134,9 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 ## Rendering CSV and TSV data
 
-GitHub supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
 
-![Rendered CSV sample](/assets/images/help/repository/rendered_csv.png)
+![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
 
 When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
@@ -150,9 +144,7 @@ You can link to a particular row by clicking the row number, or select multiple 
 
 ### Searching data
 
-If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
-
-![Searching for values](/assets/images/help/repository/searching_csvs.gif)
+If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically.
 
 ### Handling errors
 
@@ -167,9 +159,7 @@ Common errors include:
 
 ## Rendering PDF documents
 
-GitHub supports rendering of PDF documents.
-
-![Rendered PDF Document](/assets/images/help/repository/rendered-pdf.png)
+{% data variables.product.prodname_dotcom %} supports rendering of PDF documents.
 
 Currently, links within PDFs are ignored.
 
@@ -193,11 +183,13 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 * MediaWiki
 * Pod
 
-![Paper icon to view rendered prose document](/assets/images/help/repository/rendered_prose_diff.png)
+To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
-You can click {% octicon "file" aria-label="The paper icon" %} to see the changes made to the document as part of a commit.
+![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered_prose_diff.png)
 
-![Rendered Prose changes](/assets/images/help/repository/rendered_prose_changes.png)
+This "rich diff" highlights the code that has been added and removed.
+
+![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered_prose_changes.png)
 
 ### Disabling Markdown rendering
 
@@ -209,7 +201,7 @@ We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
 another, we'd show a tooltip like this:
 
-![Rendered Prose attribute changes](/assets/images/help/repository/prose_diff_attributes.png)
+![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose_diff_attributes.png)
 
 ### Commenting on changes
 
@@ -226,8 +218,6 @@ of your rendered prose diff to specific sections.
 
 Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
-
 You can still use the source view to analyze and comment on changes.
 
 ### Viewing HTML elements
@@ -238,11 +228,7 @@ In general, rendered views of changes to a document containing embedded HTML wil
 
 ## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on GitHub.com.
-
-When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
-
-![Source Render toggle screenshot](/assets/images/help/repository/source-render-toggle-geojson.png)
+{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on {% data variables.product.product_name %}.
 
 ### Geometry types
 
@@ -305,9 +291,7 @@ The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap
 
 If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
-Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that looks something like this:
-
-![Large file](/assets/images/help/repository/view_raw.png)
+Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that says we can't show files that large.
 
 It may still be possible to render the data by converting the `.geojson` file to [TopoJSON](https://github.com/mbostock/topojson), a compression format that, in some cases, can reduce filesize by up to 80%. Of course, you can always break the file into smaller chunks (such as by state or by year), and store the data as multiple files within the repository.
 
@@ -361,7 +345,8 @@ graph TD
 ```
 
 When you view the file in the repository, it is rendered as a flow chart.
-![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+![Screenshot of a flow chart. Two arrows point from a box labeled "A" to boxes labeled "B" and "C," and two more arrows point from "B" and "C" to "D."](/assets/images/help/repository/mermaid-file-diagram.png)
 
 ### Troubleshooting Mermaid files
 

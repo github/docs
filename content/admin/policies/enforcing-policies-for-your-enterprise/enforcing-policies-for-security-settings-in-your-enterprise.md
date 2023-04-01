@@ -80,6 +80,8 @@ You can use a SSH certificate authorities (CA) to allow members of any organizat
 
 If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
 
+ {% data reusables.enterprise.certificate-authority-usage %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}

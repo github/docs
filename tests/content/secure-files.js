@@ -1,5 +1,5 @@
 import fs from 'fs/promises'
-import path from 'path'
+
 import glob from 'glob'
 
 /*
@@ -17,21 +17,14 @@ const secureFiles = [
   },
 ]
 
-const codeOwnersFile = await fs.readFile(path.join(process.cwd(), '.github/CODEOWNERS'), 'utf8')
+const codeOwnersFile = await fs.readFile('.github/CODEOWNERS', 'utf8')
 const codeOwners = codeOwnersFile.split(/\r?\n/)
 
 describe('Secure file paths are present and have code owners if required', () => {
   for (const file of secureFiles) {
     test(`secure file(s) check for: ${file.name}`, async () => {
       // Verify file(s) exist in provided path
-      const matchingFiles = await new Promise((resolve, reject) => {
-        glob(file.path, { strict: true }, (error, files) => {
-          if (error) {
-            return reject(error)
-          }
-          resolve(files)
-        })
-      })
+      const matchingFiles = await glob(file.path)
       expect(matchingFiles.length, `Expected to find content in "${file.path}"`).toBeGreaterThan(0)
 
       // Verify there are code owners for file(s)

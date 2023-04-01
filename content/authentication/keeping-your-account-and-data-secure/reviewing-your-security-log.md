@@ -25,7 +25,6 @@ The security log lists all actions performed within the last 90 days.
 1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
 {% else %}
 1. In the user settings sidebar, click **Security log**.
-  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% endif %}
 
 ## Searching your security log
@@ -34,7 +33,7 @@ The security log lists all actions performed within the last 90 days.
 
 ### Search based on the action performed
 
-The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
+The events listed in your security log are triggered by your actions. Actions are grouped into different categories.
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}

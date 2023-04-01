@@ -57,7 +57,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 {% endnote %}
 
-If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools or Git credential mangers should use the device flow.
+If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow.
 
 {% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
 
@@ -69,7 +69,7 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
 
    Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
 
-1. {% data variables.product.company_short %} will respond with a response that includes the following parameters:
+1. {% data variables.product.company_short %} will give a response that includes the following query parameters:
 
    Response parameter | Type | Description
    --- | --- | ---
@@ -91,24 +91,24 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
 
    Do not poll this endpoint at a higher frequency than the frequency indicated by `interval`. If you do, you will hit the rate limit and receive a `slow_down` error. The `slow_down` error response adds 5 seconds to the last `interval`.
 
-1. Once the user has entered the `user_code`, {% data variables.product.company_short %} will respond with a response body that includes the following parameters:
+   Until the user enters the code, {% data variables.product.company_short %} will respond with a 200 status and an `error` response query parameter.
+
+   | Error name | Description |
+   |----|----|
+   | `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` at a frequency no faster than the frequency specified by `interval`.
+   | `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for a token. The error response includes the new `interval` that you must use.
+   | `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
+   | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
+   | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The client ID is different from the app ID and client secret.
+   | `incorrect_device_code` | The `device_code` provided is not valid.
+   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
+   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."{% endif %}
+
+1. Once the user has entered the `user_code`, {% data variables.product.company_short %} will give a response that includes the following query parameters:
 
    {% data reusables.apps.user-access-token-response-parameters %}
 
 {% data reusables.apps.user-access-token-example-request %}
-
-### Error codes for the device flow
-
-| Error code | Description |
-|----|----|
-| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` at a frequency no faster than the frequency specified by `interval`.
-| `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for a token. The error response includes the new `interval` that you must use.
-| `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
-| `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
-| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The client ID is different from the app ID and client secret.
-| `incorrect_device_code` | The `device_code` provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."{% endif %}
 
 ## Generating a user access token when a user installs your app
 

@@ -28,16 +28,12 @@ You can create default pull request templates for your organization{% ifversion 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field:
+1. In the file name field:
     -  To make your pull request template visible in the repository's root directory, name the pull request template `pull_request_template.md`.
-  ![New pull request template name in root directory](/assets/images/help/repository/pr-template-file-name.png)
     - To make your pull request template visible in the repository's `docs` directory, name the pull request template `docs/pull_request_template.md`.
-  ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
     - To store your file in a hidden directory, name the pull request template `.github/pull_request_template.md`.
-  ![New pull request template in hidden directory](/assets/images/help/repository/pr-template-hidden-directory.png)
     - To create multiple pull request templates and use the `template` query parameter to specify a template to fill the pull request body, type *.github/PULL_REQUEST_TEMPLATE/*, then the name of your pull request template. For example, `.github/PULL_REQUEST_TEMPLATE/pull_request_template.md`. You can also store multiple pull request templates in a `PULL_REQUEST_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)."
-  ![New multiple pull request template in hidden directory](/assets/images/help/repository/pr-template-multiple-hidden-directory.png)
-4. In the body of the new file, add your pull request template. This could include:
+1. In the body of the new file, add your pull request template. This could include:
     - A [reference to a related issue](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests) in your repository.
     - A description of the changes proposed in the pull request.
     - [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) of the person or team responsible for reviewing proposed changes.

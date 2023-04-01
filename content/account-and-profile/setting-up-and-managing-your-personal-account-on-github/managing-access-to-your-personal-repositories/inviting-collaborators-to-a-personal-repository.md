@@ -43,28 +43,22 @@ You can send an invitation to collaborate in your repository directly to someone
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)".{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-{% data reusables.repositories.click-collaborators-teams %}
-1. Click **Invite a collaborator**.
-  !["Invite a collaborator" button](/assets/images/help/repository/invite-a-collaborator-button.png)
-2. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
-  ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field-user.png)
-3. Click **Add NAME to REPOSITORY**.
-    ![Button to add collaborator](/assets/images/help/repository/add-collaborator-user-repo.png)
+1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators**.
+1. Click **Add people**.
+1. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
+1. Click **Add NAME to REPOSITORY**.
 {% else %}
-5. In the left sidebar, click **Collaborators**.
-![Repository settings sidebar with Collaborators highlighted](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
-6. Under "Collaborators", start typing the collaborator's username.
-7. Select the collaborator's username from the drop-down menu.
-   ![Collaborator list drop-down menu](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. Click **Add collaborator**.
-   !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+1. In the left sidebar, click **Collaborators**.
+1. Under "Collaborators", start typing the collaborator's username.
+1. Select the collaborator's username from the dropdown menu.
+1. Click **Add collaborator**.
 {% endif %}
 {% ifversion fpt or ghec %}
-9. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
+1. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
 {% endif %}
 
 ## Further reading
