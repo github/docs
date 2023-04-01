@@ -28,7 +28,7 @@ codeql generate query-help --format=<format> [--output=<dir|file>] <options>... 
 
 ## Description
 
-Generate end-user query help from .qhelp files.
+Generate end-user query help from `.qhelp` files.
 
 ## Primary options
 
@@ -36,10 +36,10 @@ Generate end-user query help from .qhelp files.
 
 \[Mandatory] Query help files to render. Each argument is one of:
 
-*   A .qhelp file to render.
-*   A .ql file with a corresponding .qhelp file to render.
+*   A `.qhelp` file to render.
+*   A .ql file with a corresponding `.qhelp` file to render.
 *   A directory that will be searched recursively for .ql files with
-    corresponding .qhelp files.
+    corresponding `.qhelp` files.
 *   A .qls file that defines a particular set of queries.
 *   The basename of a "well-known" .qls file exported by one of the
     installed QL packs.
@@ -63,15 +63,15 @@ of SARIF between different CodeQL versions.
 A path to write the rendered documentation to. Usually this is a
 directory into which the rendered output will be written.
 
-If only a single .qhelp or .ql file is provided, and no directory exists
+If only a single `.qhelp` or .ql file is provided, and no directory exists
 at the output path, the output will be written to a single file at that
 path.
 
-If no output path is provided, only a single .qhelp or .ql file will be
+If no output path is provided, only a single `.qhelp` or .ql file will be
 accepted, and the output will be written to stdout.
 
 If an output directory is used, filenames *within* the output directory
-will be derived from the .qhelp file names.
+will be derived from the `.qhelp` file names.
 
 #### `--warnings=<mode>`
 
