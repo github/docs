@@ -1,0 +1,6 @@
+# Reference: #5503.
+# Documentation for security overview individual views for each type of security alert
+versions:
+  ghes: '> 3.4'
+  ghae: '>= 3.5'
+  ghec: '*'

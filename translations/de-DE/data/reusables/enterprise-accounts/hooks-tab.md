@@ -1,1 +1,0 @@
-1. Klicken Sie unter {% octicon "gear" aria-label="The Settings gear" %} „Settings“ (Einstellungen) auf **Hooks**. ![Registerkarte „Hooks“ auf der Seitenleiste mit den Einstellungen des Enterprise-Kontos](/assets/images/help/business-accounts/settings-hooks-tab.png)

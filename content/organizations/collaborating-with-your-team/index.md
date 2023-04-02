@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 children:
@@ -19,3 +20,6 @@ children:
 shortTitle: Collaborate with your team
 ---
 
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}

@@ -1,5 +1,0 @@
-{% data variables.contact.premium_support %} kann ein Ticket nach einer Erläuterung, Empfehlung, Gebrauchsanweisungen, Workaround-Anweisungen oder durch den Verweis auf einen das Problem adressierenden verfügbaren Release, als gelöst betrachten.
-
-Wenn Sie ein eigenes oder nicht unterstütztes Plug-in, Modul oder einen benutzerdefinierten Code verwenden, kann der {% data variables.contact.premium_support %} Sie bitten, das nicht unterstützte Plug-in, Modul oder den Code zur Fehlerbehebung zu entfernen. Wenn das Problem nach dem Ausbau des nicht unterstützten Plug-ins, Moduls oder des benutzerdefinierten Codes behoben ist, kann der {% data variables.contact.premium_support %} das Problem als gelöst betrachten.
-
-{% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. Wenn {% data variables.contact.premium_support %} ein Ticket aufgrund fehlender Antwort schließt, kannst Du verlangen, dass {% data variables.contact.premium_support %} das Ticket erneut öffnet.

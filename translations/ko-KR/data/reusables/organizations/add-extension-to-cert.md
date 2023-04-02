@@ -1,1 +1,0 @@
-When you issue each client certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."

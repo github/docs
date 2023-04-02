@@ -1,2 +1,2 @@
-1. On {% data variables.product.product_location_enterprise %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
+1. On {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
+   ![Screenshot of {% data variables.product.prodname_dotcom %}'s account menu showing options for users to view and edit their profile, content, and settings. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)

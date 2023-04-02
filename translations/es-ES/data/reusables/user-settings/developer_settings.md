@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, haz clic en **Developer settings** (Parámetros del desarrollador). ![Sección Developer settings (Parámetros del programador)](/assets/images/settings/developer_settings.png)

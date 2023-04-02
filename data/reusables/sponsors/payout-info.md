@@ -1,1 +1,1 @@
-For information about timing for payments from {% data variables.product.prodname_sponsors %}, see "[GitHub Sponsors Additional Terms](/github/site-policy/github-sponsors-additional-terms#43-payment-timing)."
+For information about timing for payments from {% data variables.product.prodname_sponsors %}, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms#43-payment-timing)."

@@ -13,7 +13,7 @@ shortTitle: Quickstart for MinIO
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
+Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your third-party storage solution.
 
 MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
 
@@ -23,8 +23,7 @@ This quickstart shows you how to set up MinIO using Docker for use with {% data 
 
 | MinIO mode | Optimized for | Storage infrastructure required |
 |----|----|----|
-| Standalone MinIO (on a single host) | Fast setup |  N/A |
-| MinIO as a NAS gateway |  NAS (Network-attached storage)| NAS devices |
+| Standalone MinIO (on a single host) | Fast setup |  Not applicable |
 | Clustered MinIO (also called Distributed MinIO)|  Data security | Storage servers running in a cluster |
 
 For more information about your options, see the official [MinIO docs](https://docs.min.io/).
@@ -85,25 +84,11 @@ For more information about your options, see the official [MinIO docs](https://d
 
      For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
 
-   * Run MinIO using Docker as a NAS gateway:
-
-     This setup is useful for deployments where there is already a NAS you want to use as the backup storage for {% data variables.product.prodname_registry %}.
-
-     ```shell
-     $ docker run -p 9000:9000 \
-             -v $MINIO_DIR:/data \
-             -e "MINIO_ACCESS_KEY=$MINIO_ACCESS_KEY" \
-             -e "MINIO_SECRET_KEY=$MINIO_SECRET_KEY" \
-             minio/minio gateway nas /data
-     ```
-
-     For more information, see "[MinIO Gateway for NAS](https://docs.min.io/docs/minio-gateway-for-nas.html)."
-
-   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html).
+   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
-1. Install the MinIO client.  
+1. Install the MinIO client.
 
     ```shell
     $ docker pull minio/mc
@@ -115,10 +100,10 @@ For more information about your options, see the official [MinIO docs](https://d
 
      ```shell
      $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc <em>BUCKET-NAME</em>
+     $ docker run minio/mc BUCKET-NAME
      ```
 
-     This example can be used for MinIO standalone or MinIO as a NAS gateway.
+     This example can be used for MinIO standalone.
 
    * Clustered deployments example:
 
@@ -135,4 +120,4 @@ To finish configuring storage for {% data variables.product.prodname_registry %}
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."

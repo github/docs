@@ -1,0 +1,1 @@
+For more information on commit email addresses,{% ifversion fpt or ghec %} including your `noreply` email address for {% data variables.product.product_name %},{% endif %} see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."

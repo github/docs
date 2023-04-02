@@ -9,14 +9,14 @@
 import fs from 'fs'
 import mkdirp from 'mkdirp'
 import path from 'path'
-import program from 'commander'
+import { program } from 'commander'
 import { allVersions } from '../../lib/all-versions.js'
 
-const payloadsDir = 'lib/webhooks/static'
+const payloadsDir = 'src/webhooks/data'
 
 program
   .description(
-    'Create new payload files in lib/webhooks/static/<new_version> based on an existing version.'
+    'Create new payload files in src/webhooks/data/<new_version> based on an existing version.'
   )
   .option(
     '-n, --newVersion <version>',

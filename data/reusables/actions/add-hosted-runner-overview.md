@@ -1,0 +1,3 @@
+You can choose an operating system and a hardware configuration from the list of available options. When new instances of this runner are deployed through autoscaling, they'll use the same operating system and hardware configuration you've defined here.
+
+New runners are automatically assigned to the default group, or you can choose which group the runners must join during the runner creation process. In addition, you can modify the runner's group membership after you've registered the runner. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."

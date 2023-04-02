@@ -1,1 +1,0 @@
-1. Resolva qualquer conflito de merge do jeito que preferir, usando um editor de texto, a linha de comando ou outra ferramenta. Para obter mais informações, consulte "[Solucionar conflitos de merge](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."

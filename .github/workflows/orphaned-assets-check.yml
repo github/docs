@@ -1,0 +1,75 @@
+name: 'Orphaned assets check'
+
+# **What it does**: Checks that there are no files in ./assets/ that aren't mentioned in any source file.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-assets-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout English repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check for orphaned assets
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: |
+          set -e
+
+          ./script/find-orphaned-assets.js | xargs git rm
+
+          git status
+
+          # If nothing to commit, exit now. It's fine. No orphans.
+          git status -- ':!translations*' | grep 'nothing to commit' && exit 0
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docubot"
+          git config --global user.email "67483024+docubot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-assets-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -m "Delete orphaned assets $date"
+          git push origin $branchname
+
+          gh pr create \
+            --title "Delete orphaned assets ($date)" \
+            --body "Found with the find-orphaned-assets.js script" \
+            --repo github/docs-internal \
+            --label docs-content-fr
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last "Orphaned assets check" run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/orphaned-assets-check.yml

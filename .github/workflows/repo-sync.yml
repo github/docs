@@ -18,7 +18,11 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10,25,40,55 * * * *' # every 15 minutes
+    - cron: '20,50 * * * *' # Run every hour at 20 and 50 minutes after
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   close-invalid-repo-sync:
@@ -27,7 +31,7 @@ jobs:
     steps:
       - name: Find pull request
         if: ${{ github.repository == 'github/docs' }}
-        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
         id: find-pull-request
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
@@ -37,13 +41,13 @@ jobs:
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
             const { owner, repo } = context.repo
 
-            const { data: pr } = await github.pulls.get({
+            const { data: pr } = await github.rest.pulls.get({
               owner,
               repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
@@ -57,7 +61,7 @@ jobs:
             }
 
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: prCreator
@@ -71,7 +75,7 @@ jobs:
             }
 
             // Close the PR and add the invalid label
-            await github.issues.update({
+            await github.rest.issues.update({
               owner,
               repo,
               issue_number: pr.number,
@@ -80,7 +84,7 @@ jobs:
             })
 
             // Comment on the PR
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner,
               repo,
               issue_number: pr.number,
@@ -94,13 +98,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      # Set up npm and run npm ci to run husky to get githooks for LFS
-      - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+      # Set up npm and run npm ci to get custom husky githooks error
+      # messages if they exist. We could also remove these steps
+      # because currently we have no hooks with customer error messages.
+      # See pull #32064 where they were removed.
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: 16.x
+          node-version-file: 'package.json'
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -109,7 +116,6 @@ jobs:
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          CI: true
         with:
           source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
           source_branch: main
@@ -117,8 +123,7 @@ jobs:
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Create pull request
-        id: create-pull
-        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
+        uses: repo-sync/pull-request@65785d95a5a466e46a9d0708933a3bd51bbf9dde
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
@@ -126,11 +131,14 @@ jobs:
           destination_branch: main
           pr_title: 'repo sync'
           pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: autoupdate,automated-reposync-pr
+          pr_label: automated-reposync-pr
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          # This will exit 0 if there's no difference between `repo-sync`
+          # and `main`. And if so, no PR will be created.
+          pr_allow_empty: false
 
       - name: Find pull request
-        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
         id: find-pull-request
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -139,21 +147,14 @@ jobs:
           author: Octomerger
           state: open
 
-      - name: Approve pull request
-        if: ${{ steps.find-pull-request.outputs.number }}
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.find-pull-request.outputs.number }}
-
       # Because we get far too much spam ;_;
       - name: Lock conversations
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
             try {
-              await github.issues.lock({
+              await github.rest.issues.lock({
                 ...context.repo,
                 issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
                 lock_reason: 'spam'
@@ -167,17 +168,17 @@ jobs:
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
-            const mainHeadSha = await github.git.getRef({
+            const mainHeadSha = await github.rest.git.getRef({
               ...context.repo,
               ref: 'heads/main'
             })
             console.log(`heads/main sha: ${mainHeadSha.data.object.sha}`)
 
-            const pull = await github.pulls.get({
+            const pull = await github.rest.pulls.get({
               ...context.repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
             })
@@ -185,7 +186,7 @@ jobs:
 
             if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
               try {
-                const updateBranch = await github.pulls.updateBranch({
+                const updateBranch = await github.rest.pulls.updateBranch({
                   ...context.repo,
                   pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
                 })
@@ -195,18 +196,18 @@ jobs:
                 // We should retry one more time to update the branch
                 if (error.status === 422) {
                   try {
-                    const updateBranch = await github.pulls.updateBranch({
+                    const updateBranch = await github.rest.pulls.updateBranch({
                       ...context.repo,
                       pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
                     })
                     console.log(updateBranch.data.message)
                   } catch (error) {
-                    // Only retry once. We'll rely on the update branch workflow to update 
+                    // Only retry once. We'll rely on the update branch workflow to update
                     // this PR in the case of a second failure.
                     console.log(`Retried updating the branch, but an error occurred: ${error}`)
                   }
                 } else {
-                  // A failed branch update shouldn't fail this worklow. 
+                  // A failed branch update shouldn't fail this worklow.
                   console.log(`An error occurred when updating the branch: ${error}`)
                 }
               }
@@ -214,43 +215,48 @@ jobs:
               console.log(`Branch is already up-to-date`)
             }
 
-      - name: Enable GitHub auto-merge
+      - name: Check pull request file count after updating
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        id: pr-files
+        env:
+          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          result-encoding: string
           script: |
-            const pull = await github.pulls.get({
+            const { data: prFiles } = await github.rest.pulls.listFiles({
               ...context.repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+              pull_number: process.env.PR_NUMBER,
             })
+            core.setOutput('count', (prFiles && prFiles.length || 0).toString())
 
-            const pullNodeId = pull.data.node_id
-            console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
+      # Sometimes after updating the branch, there aren't any remaining files changed.
+      # If not, we should close the PR instead of merging it and triggering deployments.
+      - name: Close the pull request if no files remain
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count == '0' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr close ${{ steps.find-pull-request.outputs.number }} --repo $GITHUB_REPOSITORY
 
-            const mutation = `mutation ($id: ID!) {
-              enablePullRequestAutoMerge(input: {
-                pullRequestId: $id,
-                mergeMethod: MERGE
-              }) {
-                clientMutationId
-              }
-            }`
-            const variables = {
-              id: pullNodeId
-            }
+      - name: Approve pull request
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
+        uses: juliangruber/approve-pull-request-action@c67a4808d52e44ea03656f6646ba24a010304f03
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.find-pull-request.outputs.number }}
 
-            const graph = await github.graphql(mutation, variables)
-            console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
-
-            if (graph.errors && graph.errors.length > 0) {
-              console.error('ERROR! Failed to enable auto-merge:\n - ' + graph.errors.map(error => error.message).join('\n - '))
-            } else {
-              console.log('Auto-merge enabled!')
-            }
+      - name: Admin merge the pull request
+        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+        run: |
+          gh pr merge $PR_NUMBER --admin --merge
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: failure()
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

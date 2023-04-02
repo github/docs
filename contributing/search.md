@@ -19,7 +19,7 @@ You can also query our search endpoint directly at:
 `https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
  
 - The VERSION can be any numbered GitHub Enterprise Server version (e.g., `2.22`, `3.0`), GitHub AE (`ghae`), or the Free pro team plan (`dotcom`).
-- The LANGUAGE CODE can be: `cn`, `de`, `en`, `es`, `ja`, or `pt`.
+- The LANGUAGE CODE can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
 - TOPIC can be any topics in [the allowed list of topics](/data/allowed-topics.js). The values in the `topics` attribute are **not** case sensitive, so filtering on `GitHub actions` or `github actions` will return the same result. **Note:** Currently, the topics filter only works for the dotcom version in the English language. We plan to expand this search query to other languages and versions in the future.
 - Any search QUERY you'd like.
 
@@ -43,13 +43,7 @@ The Actions workflow progress can be viewed (by GitHub employees) in the [Action
 
 ## Manually triggering the search index update workflow
 
-You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml).
-
-## Generating search indexes for your local checkout
-
-You can locally generate search indexes, but please do not check them into your local branch because they can get out-of-sync with the `main` branch quickly.
-
-To locally generate the English version of the Dotcom search index locally, run `LANGUAGE=en VERSION=free-pro-team@latest npm run sync-search`. See [Build and sync](#build-and-sync) below for more details. To revert those files run `git checkout lib/search/indexes`.
+You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
 
 ### Build and sync
 
@@ -100,18 +94,15 @@ There's a separate search index for each combination of product and language. So
 
 Index Name | Description
 ---------- | -----------
-`github-docs-dotcom-cn` | GitHub.com Chinese
 `github-docs-dotcom-en` | GitHub.com English
+`github-docs-dotcom-zh` | GitHub.com Chinese
 `github-docs-dotcom-es` | GitHub.com Spanish
-`github-docs-dotcom-ja` | GitHub.com Japanese
-`github-docs-2.18-cn` | GitHub Enterprise 2.18 Chinese
 `github-docs-2.18-en` | GitHub Enterprise 2.18 English
+`github-docs-2.18-zh` | GitHub Enterprise 2.18 Chinese
 `github-docs-2.18-es` | GitHub Enterprise 2.18 Spanish
-`github-docs-2.18-ja` | GitHub Enterprise 2.18 Japanese
-`github-docs-2.17-cn` | GitHub Enterprise 2.17 Chinese
 `github-docs-2.17-en` | GitHub Enterprise 2.17 English
+`github-docs-2.17-zh` | GitHub Enterprise 2.17 Chinese
 `github-docs-2.17-es` | GitHub Enterprise 2.17 Spanish
-`github-docs-2.17-ja` | GitHub Enterprise 2.17 Japanese
 
 ## Records
 
@@ -135,3 +126,4 @@ Each record represents a section of a page. Sections are derived by splitting up
 - Our search querying has typo tolerance. Try spelling something wrong and see what you get!
 - Our search querying has lots of controls for customizing each index, so we can add weights to certain attributes and create rules like "title is more important than body", etc. But it works pretty well as-is without any configuration.
 - Our search querying has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default but we have it enabled in our browser client. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.js]([middleware/search.js).
+- When needed, the Docs Engineering team can commit updates to the search index, as long as the label `skip-index-check` is applied to the PR.

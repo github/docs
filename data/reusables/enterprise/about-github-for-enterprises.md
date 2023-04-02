@@ -1,0 +1,1 @@
+For more information about how businesses can use {% data variables.product.company_short %}'s products to support their software development lifecycle, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises)."

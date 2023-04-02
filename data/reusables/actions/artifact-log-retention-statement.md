@@ -1,0 +1,1 @@
+By default, {% data variables.product.product_name %} stores build logs and artifacts for 90 days, and this retention period can be customized.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}

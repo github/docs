@@ -1,0 +1,7 @@
+# Reference for limited public beta: Issue #6669 — New Code View
+# Reference for public beta: #9287
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

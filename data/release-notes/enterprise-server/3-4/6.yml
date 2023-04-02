@@ -1,0 +1,35 @@
+date: '2022-07-21'
+sections:
+  security_fixes:
+    - "**MEDIUM**: Prevents an attack where a server-side request forgery (SSRF) could potentially force the Subversion (SVN) bridge to execute remote code by injecting arbitrary data into Memcached." 
+    - "**MEDIUM**: Prevents an attacker from executing Javascript code by exploiting a cross-site scripting (XSS) vulnerability in dropdown UI elements within the GitHub Enterprise Server web interface." 
+    - Updates Grafana to version 7.5.16, which addresses various security vulnerabilities including [CVE-2020-13379](https://github.com/advisories/GHSA-wc9w-wvq2-ffm9) and [CVE-2022-21702](https://github.com/grafana/grafana/security/advisories/GHSA-xc3p-28hw-q24g). 
+    - Packages have been updated to the latest security versions.
+    - "**MEDIUM**: A stored XSS vulnerability was identified in GitHub Enterprise Server that allowed the injection of arbitrary attributes. This injection was blocked by Github's Content Security Policy (CSP). This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23733](https://www.cve.org/CVERecord?id=CVE-2022-23733).  [Updated: 2022-07-31]"
+    - "**MEDIUM**: A vulnerability involving deserialization of untrusted data was identified in GitHub Enterprise Server that could potentially lead to remote code execution on the Subversion (SVN) bridge. To exploit this vulnerability, an attacker would need to gain access via a server-side request forgery (SSRF) that would let an attacker control the data being deserialized. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23734](https://www.cve.org/CVERecord?id=CVE-2022-23734)."
+  bugs:
+    - In some cases, the collectd daemon could consume excess memory. 
+    - In some cases, backups of rotated log files could accumulate and consume excess storage. 
+    - After an upgrade to a new feature release and subsequent configuration run, Elasticsearch could log excessive exceptions while rebuilding indices. 
+    - In some cases where a protected branch required more than one approving review, a pull request could be merged with fewer than the required number of approving reviews. 
+    - On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible. 
+    - In some cases, scheduled GitHub Actions workflows could become disabled.
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
+  changes:
+    - The `ghe-set-password` command-line utility starts required services automatically when the instance is booted in recovery mode. 
+    - Metrics for `aqueduct` background processes are gathered for Collectd forwarding and display in the Management Console. 
+    - The location of the database migration and configuration run log, `/data/user/common/ghe-config.log`, is now displayed on the page that details a migration in progress. 
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - |
+      After registering a self-hosted runner with the `--ephemeral` parameter on more than one level (for example, both enterprise and organization), the runner may get stuck in an idle state and require re-registration. [Updated: 2022-06-17]
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.4, releases may appear to be missing from repositories. This can occur when the required Elasticsearch index migrations have not successfully completed.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]

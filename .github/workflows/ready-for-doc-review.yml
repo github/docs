@@ -1,26 +1,31 @@
 name: Ready for docs-content review
 
-# **What it does**: Adds pull requests in the docs-internal repository to the docs-content review board when the "ready-for-doc-review" label is added
+# **What it does**: Adds pull requests in the docs-internal repository to the docs-content review board when the "ready-for-doc-review" label is added or when a review by docs-content is requested
 # **Why we have it**: So that other GitHub teams can easily request reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers working in the docs-internal repository
 
 on:
-  pull_request:
-    types: [labeled]
+  pull_request_target:
+    types: [labeled, review_requested]
+
+permissions:
+  contents: read
 
 jobs:
   request_doc_review:
     name: Request a review from the docs-content team
-    if: github.event.label.name == 'ready-for-doc-review' && github.repository == 'github/docs-internal'
+    if: >-
+      github.repository == 'github/docs-internal' &&
+      (github.event.label.name == 'ready-for-doc-review' || github.event.requested_team.name == 'docs-content')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Setup Node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: 16.x
+          node-version-file: 'package.json'
           cache: npm
 
       - name: Install dependencies
@@ -30,12 +35,12 @@ jobs:
         run: |
           node .github/actions-scripts/ready-for-docs-review.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT }}
+          TOKEN: ${{ secrets.DOCS_BOT_FR }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
-          PR_NODE_ID: ${{ github.event.pull_request.node_id }}
+          ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}
           AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
-          PR_REPO: ${{ github.event.pull_request.base.repo.full_name }}
+          REPO: ${{ github.event.pull_request.base.repo.full_name }}
 
         # Since the projects API is still in beta, use the old workflow if something fails
         # so that we don't miss these PRs
@@ -43,6 +48,6 @@ jobs:
         if: ${{ failure() }}
         uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
         with:
-          action-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          action-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'

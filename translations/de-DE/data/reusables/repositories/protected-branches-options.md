@@ -1,1 +1,0 @@
-Du kannst geschützte Branch-Einstellungen automatisch für einige oder alle Branches in Deinem Repository erzwingen. Weitere Informationen finden Sie unter „[Geschützte Branches konfigurieren](/github/administering-a-repository/configuring-protected-branches)“.

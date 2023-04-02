@@ -1,9 +1,0 @@
-- {% data variables.product.prodname_marketplace %}から購入した有料プランをキャンセルした顧客は、そのアプリケーションに無料プランがあれば自動的にダウングレードされなければなりません。 {% data reusables.marketplace.cancellation-clarification %} 顧客は以前のプランを再度有効にできるようにすることが強く推奨されます。
-- [アップグレードURL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls)を`https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`という形式で提供する場合、顧客がアプリケーションのユーザインターフェースからアップグレードできるようにするべきです。
-- シート（ユニット単位の価格プラン）もしくは無制限のコラボレーターを提供するプランを購入した場合、どのユーザがアプリケーションにアクセスできるかを、顧客がアプリケーションのWebサイトから変更できるようにするべきです。
-- 以下の変更は、顧客が自分のアカウントで、アプリケーションのWebサイトの支払い、プロフィール、もしくはアカウント設定のセクションにおいてすぐに見ることができるようになっているべきです。
-  - 現在のプランと価格。
-  - 購入された新しいプラン。
-  - アップグレード、ダウングレード、キャンセル、無料トライアルの残り日数。
-  - 支払いサイクルの変更（月または年単位）。
-  - 定額及びユニット単位のプランの利用状況と残りのリソース。 たとえば、価格プランがユニット単位であれば、アプリケーションのサイトは使用されたユニットと使用可能なユニットを表示すべきです。

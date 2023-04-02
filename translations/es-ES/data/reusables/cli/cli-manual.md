@@ -1,1 +1,0 @@
-Para obtener más información acerca de {% data variables.product.prodname_cli %}, consulta [el manual de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/).

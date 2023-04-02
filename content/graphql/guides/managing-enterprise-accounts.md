@@ -4,7 +4,7 @@ intro: You can manage your enterprise account and the organizations it owns with
 redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
-  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
@@ -27,7 +27,7 @@ With the Audit Log API, you can monitor when someone:
 - Promotes users to admin.
 - Changes permissions of a GitHub App.
 
-The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AuditEntry interface](/graphql/reference/interfaces#auditentry/)."
+The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AUTOTITLE](/graphql/reference/interfaces#auditentry/)."
 
 With the Enterprise Accounts API, you can:
 - List and review all of the organizations and repositories that belong to your enterprise account.
@@ -36,33 +36,36 @@ With the Enterprise Accounts API, you can:
 - Invite administrators to your enterprise account.
 - Create new organizations in your enterprise account.
 
-For a list of the fields available with the Enterprise Accounts API, see "[GraphQL fields and types for the Enterprise account API](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)."
+For a list of the fields available with the Enterprise Accounts API, see "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)."
 
 ## Getting started using GraphQL for enterprise accounts
 
 Follow these steps to get started using GraphQL to manage your enterprise accounts:
- - Authenticating with a personal access token
+ - Authenticating with a {% data variables.product.pat_generic %}
  - Choosing a GraphQL client or using the GraphQL Explorer
  - Setting up Insomnia to use the GraphQL API
 
 For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
-### 1. Authenticate with your personal access token
+### 1. Authenticate with your {% data variables.product.pat_generic %}
 
-1. To authenticate with GraphQL, you need to generate a personal access token (PAT) from developer settings. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+{% data reusables.user-settings.graphql-classic-pat-only %}
 
-2. Grant admin and full control permissions to your personal access token for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your personal access token:
+1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     - `repo`
     - `admin:org`
     - `user`
     - `admin:enterprise`
 
   The enterprise account specific scopes are:
-    - `admin:enterprise`: Gives full control of enterprises (includes `manage_billing:enterprise` and `read:enterprise`)
-    - `manage_billing:enterprise`: Read and write enterprise billing data.
+    - `admin:enterprise`: Gives full control of enterprises (includes `manage_runners:enterprise`, `manage_billing:enterprise` and `read:enterprise`)
+    - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes or ghae %}
+    - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
-    
-4. Copy your personal access token and keep it in a secure place until you add it to your GraphQL client.
+
+3. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
 
 ### 2. Choose a GraphQL client
 
@@ -81,22 +84,21 @@ The next steps will use Insomnia.
     - For your enterprise instance: `https://<HOST>/api/graphql`
     - For GitHub Enterprise Cloud: `https://api.github.com/graphql`
 
-2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your personal access token that you copied earlier.
-
- ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
-
- ![Permissions options for personal access token](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
-
-3. Include header information.
-   - Add `Content-Type` as the header and `application/json` as the value.
-   ![Standard header](/assets/images/developer/graphql/json-content-type-header.png)
-   ![Header with preview value for the Audit Log API](/assets/images/developer/graphql/preview-header-for-2.18.png)
+1. Select the "Auth" menu and click **Bearer Token**. If you've previously selected a different authentication method, the menu will be labeled with that method, such as "Basic Auth", instead.
+   ![Screenshot of the expanded "Auth" menu in Insomnia. The menu label, "Auth", and the "Bearer Token" option are outlined in dark orange.](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
+1. In the "TOKEN" field, enter your {% data variables.product.pat_generic %} from an earlier step.
+   ![Screenshot of the "Bearer" authentication settings in Insomnia. The "TOKEN" field is outlined in dark orange.](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
+1. Click **Headers**.
+   ![Screenshot of the settings tabs in Insomnia. The "Headers" tab is outlined in dark orange.](/assets/images/developer/graphql/json-content-type-header.png)
+1. Under the **Headers** tab, click **Add**.
+1. In the "header" field, enter `Content-Type`.
+1. In the "value" field, enter `application/json`.
 
 Now you are ready to start making queries.
 
 ## An example query using the Enterprise Accounts API
 
-This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the slug of your Enterprise's instance slug.
+This GraphQL query requests the total number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each of your appliance's organizations using the Enterprise Accounts API. To customize this query, replace `<enterprise-account-name>` with the handle for your enterprise account. For example, if your enterprise account is located at `https://github.com/enterprises/octo-enterprise`, replace `<enterprise-account-name>` with `octo-enterprise`.
 
 {% ifversion not ghae %}
 
@@ -285,7 +287,7 @@ This GraphQL query requests the last 5 log entries for an enterprise organizatio
 }
 ```
 
-For more information about getting started with GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)" and "[Forming Calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+For more information about getting started with GraphQL, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql)" and "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
 ## GraphQL fields and types for the Enterprise Accounts API
 
@@ -293,5 +295,5 @@ Here's an overview of the new queries, mutations, and schema defined types avail
 
 For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
-You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[Using the explorer](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)."
+You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[AUTOTITLE](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)."
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).

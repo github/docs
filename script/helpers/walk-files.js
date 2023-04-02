@@ -6,14 +6,13 @@
 //
 // [end-readme]
 
-import path from 'path'
 import walk from 'walk-sync'
 
 export default function walkFiles(dir, ext, opts = {}) {
-  const dirPath = path.posix.join(process.cwd(), dir)
+  const extensions = Array.isArray(ext) ? ext : [ext]
   const walkSyncOpts = { includeBasePath: true, directories: false }
 
-  return walk(dirPath, walkSyncOpts)
-    .filter((file) => file.endsWith(ext) && !file.endsWith('README.md'))
+  return walk(dir, walkSyncOpts)
+    .filter((file) => extensions.some((ext) => file.endsWith(ext)) && !file.endsWith('README.md'))
     .filter((file) => (opts.includeEarlyAccess ? file : !file.includes('/early-access/')))
 }

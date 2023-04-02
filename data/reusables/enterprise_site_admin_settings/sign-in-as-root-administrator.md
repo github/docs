@@ -1,0 +1,1 @@
+1. Sign into the {% data variables.enterprise.management_console %} as the root site administrator. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console)."

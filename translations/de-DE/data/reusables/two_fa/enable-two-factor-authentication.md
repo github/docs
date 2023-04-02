@@ -1,1 +1,0 @@
-1. Klicke unter „Two-factor authentication" (Zwei-Faktor-Authentifizierung) auf **Enable two-factor authentication** (Aktiviere Zwei-Faktor-Authentifizierung). ![Option „Enable two-factor authentication" (Aktiviere Zwei-Faktor-Authentifizierung)](/assets/images/help/2fa/enable-two-factor-authentication-dialoge.png)

@@ -50,7 +50,7 @@ export async function getTreeSha(owner, repo, commitSha) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-export async function getTree(owner, repo, ref, allowedPaths = []) {
+export async function getTree(owner, repo, ref) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {
@@ -70,11 +70,11 @@ export async function getTree(owner, repo, ref, allowedPaths = []) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-export async function getContentsForBlob(owner, repo, blob) {
+export async function getContentsForBlob(owner, repo, sha) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
-    file_sha: blob.sha,
+    file_sha: sha,
   })
   // decode blob contents
   return Buffer.from(data.content, 'base64')
@@ -89,7 +89,13 @@ export async function getContents(owner, repo, ref, path) {
       ref,
       path,
     })
-    // decode contents
+
+    if (!data.content) {
+      const blob = await getContentsForBlob(owner, repo, data.sha)
+      // decode Base64 encoded contents
+      return Buffer.from(blob, 'base64').toString()
+    }
+    // decode Base64 encoded contents
     return Buffer.from(data.content, 'base64').toString()
   } catch (err) {
     console.log(`error getting ${path} from ${owner}/${repo} at ref ${ref}`)
@@ -123,6 +129,86 @@ export async function createIssueComment(owner, repo, pullNumber, body) {
     return data
   } catch (err) {
     console.log(`error creating a review comment on PR ${pullNumber} in ${owner}/${repo}`)
+    throw err
+  }
+}
+
+// Search for a string in a file in code and return the array of paths to files that contain string
+export async function getPathsWithMatchingStrings(strArr, org, repo) {
+  const perPage = 100
+  const paths = new Set()
+
+  for (const str of strArr) {
+    try {
+      const q = `q=${str}+in:file+repo:${org}/${repo}`
+      let currentPage = 1
+      let totalCount = 0
+      let currentCount = 0
+
+      do {
+        const data = await searchCode(q, perPage, currentPage)
+        data.items.map((el) => paths.add(el.path))
+        totalCount = data.total_count
+        currentCount += data.items.length
+        currentPage++
+      } while (currentCount < totalCount)
+    } catch (err) {
+      console.log(`error searching for ${str} in ${org}/${repo}`)
+      throw err
+    }
+  }
+
+  return paths
+}
+
+async function searchCode(q, perPage, currentPage) {
+  try {
+    const { data } = await secondaryRateLimitRetry(github.rest.search.code, {
+      q,
+      per_page: perPage,
+      page: currentPage,
+    })
+
+    return data
+  } catch (err) {
+    console.log(`error searching for ${q} in code`)
+    throw err
+  }
+}
+
+async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTime = 1000) {
+  try {
+    const response = await callable(args)
+    return response
+  } catch (err) {
+    // If you get a secondary rate limit error (403) you'll get a data
+    // response that includes:
+    //
+    //  {
+    //    documentation_url: 'https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits',
+    //    message: 'You have exceeded a secondary rate limit. Please wait a few minutes before you try again.'
+    //  }
+    //
+    // Let's look for that an manually self-recurse, under certain conditions
+    const lookFor = 'You have exceeded a secondary rate limit.'
+    if (
+      err.status &&
+      err.status === 403 &&
+      err.response?.data?.message.includes(lookFor) &&
+      maxAttempts > 0
+    ) {
+      console.warn(
+        `Got secondary rate limit blocked. Sleeping for ${
+          sleepTime / 1000
+        } seconds. (attempts left: ${maxAttempts})`
+      )
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(secondaryRateLimitRetry(callable, args, maxAttempts - 1, sleepTime * 2))
+        }, sleepTime)
+      })
+    }
+
     throw err
   }
 }

@@ -1,0 +1,43 @@
+date: '2022-09-21'
+sections:
+  features:
+    - Repository archives for migrations now include an `is_archived` field. 
+  security_fixes:
+    - |
+      **HIGH**: A GitHub App could use a scoped user-to-server token to bypass user authorization logic and escalate privileges.
+    - |
+      **MEDIUM**: The use of a Unicode right-to-left override character in the list of accessible files for a GitHub App could obscure additional files that the app could access.
+    - |
+      **LOW**: Granting a user the ability to bypass branch protections no longer allows the user to bypass the requirement for signature verification.
+    - Packages have been updated to the latest security versions. 
+  bugs:
+    - Installation of a TLS certificate failed when the certificate's subject string included UTF-8 characters.
+    - Configuration runs could fail when `retry-limit` or `retry-sleep-duration` were manually set by an administrator using `ghe-config`.
+    - The `ghe-find-insecure-git-operations` command did not return all insecure Git operations after each invocation.
+    - In some cases, the Management Console's monitor dashboard would not load correctly.
+    - Removed a non-functional link for exporting Management Console monitor graphs as a PNG image.
+    - When sending a support bundle to GitHub Enterprise Support using `ghe-support-upload`, the `-t` option would not successfully associate the uploaded bundle with the specified ticket.
+    - In rare cases, an upgrade from GitHub Enterprise Server 3.3 to 3.4 would incorrectly modify how data is stored, resulting in failures during future upgrades. When upgrading directly to this release from 3.3, the failure will not occur.
+    - When using a VPC endpoint URL as an AWS S3 URL for GitHub Packages, publication and installation of packages failed.
+    - Git clones or fetches over SSH could experience data corruption for transfers over 1GB in size.
+    - A link back to the security settings for the instance's enterprise account could render an incorrect view.
+    - After a user deleted or restored packages from the web interface, counts for packages could render incorrectly.
+    - After successful configuration of Dependabot and alert digest emails, the instance would not send digest emails.
+    - After upgrading to GitHub Enterprise Server 3.5, releases would appear to be missing from repositories. This occurred when the required Elasticsearch index migrations had not successfully completed. The releases UI now indicates if it is waiting for the Elasticsearch index migrations to complete, and links to documentation on how to observe status and immediately complete the migration. 
+    - Manually disabled GitHub Actions workflows in a repository were re-enabled if the repository received a push containing more than 2048 commits, or if the repository's default branch changed.
+    - When viewing a pull request's diff for a large file with many lines between changes, it was not possible to expand the view to display all of the changes.
+    - If branch protections were enabled, the `GITHUB_REF_PROTECTED` environment variable and `github.ref_protected` contexts for GitHub Actions workflow runs were incorrectly set as `false`.
+    - On instances using GitHub Advanced Security, secret scanning automatically revoked personal access tokens added to public repositories.
+    - Repositories for packages erroneously displayed a "Used by" section.
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

@@ -1,1 +1,0 @@
-您可以使用部署密钥从 {% data variables.product.product_name %} 仓库启动项目到服务器，部署密钥是授予访问单个仓库的 SSH 密钥。 {% data variables.product.product_name %} 将密钥的公共部分直接附加到仓库而不是个人用户帐户，密钥的私有部分仍保留在服务器上。 更多信息请参阅“[交付部署](/rest/guides/delivering-deployments)”。

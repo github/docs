@@ -1,0 +1,1 @@
+We recommend that you regularly review your authorized integrations. Remove any applications and tokens that haven't been used in a while. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."

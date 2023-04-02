@@ -1,2 +1,2 @@
-1. Under your repository name, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
-![Security tab](/assets/images/help/repository/security-tab.png)
+1. Under the repository name, click **{% octicon "shield" aria-hidden="true" %} Security**. If you cannot see the "Security" tab, select the **{% octicon "kebab-horizontal" aria-hidden="true" %}** dropdown menu, and then click **Security**.
+![Screenshot of a repository header showing the tabs. The "Security" tab is highlighted by a dark orange outline.](/assets/images/help/repository/security-tab.png)

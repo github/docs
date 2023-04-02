@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages
 versions:
   fpt: '*'
+  ghec: '*'
 children:
   - /about-billing-for-github-packages
   - /viewing-your-github-packages-usage

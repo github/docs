@@ -1,8 +1,8 @@
 ---
 title: Ignoring files
 redirect_from:
-  - /git-ignore/
-  - /ignore-files/
+  - /git-ignore
+  - /ignore-files
   - /articles/ignoring-files
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
@@ -12,6 +12,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 ---
 ## Configuring ignored files for a single repository
 
@@ -27,12 +28,14 @@ GitHub maintains an official list of recommended *.gitignore* files for many pop
    $ touch .gitignore
   ```
 
+   If the command succeeds, there will be no output.
+   
 For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
 ```shell
-$ git rm --cached <em>FILENAME</em>
+$ git rm --cached FILENAME
 ```
 
 ## Configuring ignored files for all repositories on your computer
@@ -57,7 +60,7 @@ Use your favorite text editor to open the file called *.git/info/exclude* within
 
 ## Further Reading
 
-* [Ignoring files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) in the Pro Git book
-* [.gitignore](https://git-scm.com/docs/gitignore) in the man pages for Git
+* [Ignoring files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring) in the Git documentation
+* [.gitignore](https://git-scm.com/docs/gitignore) in the Git documentation
 * [A collection of useful *.gitignore* templates](https://github.com/github/gitignore) in the github/gitignore repository
 * [gitignore.io](https://www.gitignore.io/) site

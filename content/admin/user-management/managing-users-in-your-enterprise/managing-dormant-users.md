@@ -1,13 +1,14 @@
 ---
 title: Managing dormant users
 redirect_from:
-  - /enterprise/admin/articles/dormant-users/
-  - /enterprise/admin/articles/viewing-dormant-users/
-  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
+  - /enterprise/admin/articles/dormant-users
+  - /enterprise/admin/articles/viewing-dormant-users
+  - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant
   - /enterprise/admin/user-management/managing-dormant-users
   - /admin/user-management/managing-dormant-users
-intro: 'A user account is considered to be dormant if it has not been active for at least a month.{% ifversion ghes %} You may choose to suspend dormant users to free up user licenses.{% endif %}'
+intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
 versions:
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 type: how_to
@@ -16,29 +17,35 @@ topics:
   - Enterprise
   - Licensing
 ---
-"Activity" includes, but is not limited to:
-- Signing in to {% data variables.product.product_name %}.
-- Commenting on issues and pull requests.
-- Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% ifversion ghes or ghae %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
 
+## About dormant users
+
+{% data reusables.enterprise-accounts.dormant-user-activity %}
+
+{% ifversion ghec %}
+When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
+
+Only sign-on events through an SSO domain associated with your enterprise are considered user activity associated with the enterprise.
+
+The report includes both enterprise members and outside collaborators.
+{% endif %}
+
+{% ifversion ghes or ghae %}
 ## Viewing dormant users
 
-You can view a list of all dormant users who have not been suspended and who are not site administrators.
+{% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% ifversion ghes %}
-4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
-![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
+1. In the left sidebar, click **Dormant users**.{% ifversion ghes %}
+1. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
+{% endif %}
 
 ## Determining whether a user account is dormant
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
+1. In the **User info** section, any users labeled with "{% octicon "hourglass" aria-hidden="true" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" %} "Active" are not.
 ![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
 ![Active user account](/assets/images/enterprise/stafftools/active-user.png)
 
@@ -47,11 +54,20 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
-![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+1. Under "Dormancy threshold", select the dropdown menu, and click the desired dormancy threshold.
+
+{% endif %}
+
+{% ifversion ghec %}
+## Downloading the dormant users report from your enterprise account
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
+1. Scroll to "Other."
+1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
+1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-hidden="true" %} **Download**.
+
+
+{% endif %}

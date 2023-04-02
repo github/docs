@@ -1,0 +1,11 @@
+{
+    "/en/github-ae@latest/foo": {
+        "objectID": "/en/github-ae@latest/foo",
+        "breadcrumbs": "foo",
+        "title": "Foo",
+        "headings": "",
+        "content": "This is a fixture with the silly foo word. Exclusively for GHAE.",
+        "topics": ["Test", "Fixture"],
+        "intro": "Sample intro"
+    }
+}

@@ -1,1 +1,0 @@
-4. Decida se deseja receber atualizações por e-mail do desenvolvedor patrocinado e, em seguida, selecione ou desmarque a opção "Receber atualizações do _DESENVOLVEDOR_". ![Caixa de seleção para receber atualizações do desenvolvedor patrocinado](/assets/images/help/sponsors/updates-checkbox-manage.png)

@@ -1,0 +1,1 @@
+Note that the syntax and qualifiers for searching for non-code content, such as issues, users, and discussions, work the same as before. For more information on non-code search, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)" and "[AUTOTITLE](/search-github/searching-on-github)."

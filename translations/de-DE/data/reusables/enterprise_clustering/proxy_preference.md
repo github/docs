@@ -1,1 +1,0 @@
-Wenn Dein Load-Balancer das PROXY-Protokoll unterstützen kann, wird dringend empfohlen, es zu implementieren. Wenn keine PROXY-Unterstützung verfügbar ist, kann auch mithilfe des Headers `X-Forwarded-For` der Lastenausgleich auf den HTTP- und HTTPS-Ports vorgenommen werden.

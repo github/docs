@@ -1,0 +1,4 @@
+# Issue 7909
+versions:
+  fpt: '*'
+  ghec: '*'

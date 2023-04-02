@@ -1,13 +1,13 @@
 ---
 title: Accessing the administrative shell (SSH)
 redirect_from:
-  - /enterprise/admin/articles/ssh-access/
-  - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access/
-  - /enterprise/admin/guides/installation/administrative-shell-ssh-access/
-  - /enterprise/admin/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.13/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.14/articles/troubleshooting-ssh-permission-denied-publickey/
-  - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
+  - /enterprise/admin/articles/ssh-access
+  - /enterprise/admin/articles/adding-an-ssh-key-for-shell-access
+  - /enterprise/admin/guides/installation/administrative-shell-ssh-access
+  - /enterprise/admin/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.13/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.14/articles/troubleshooting-ssh-permission-denied-publickey
+  - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
   - /admin/configuration/accessing-the-administrative-shell-ssh
@@ -27,7 +27,7 @@ If you have SSH access to the administrative shell, you can run {% data variable
 
 ## Enabling access to the administrative shell via SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% tip %}
 
@@ -53,18 +53,18 @@ admin@github-example-com:~$ █
 
 ### Troubleshooting SSH connection problems
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
+ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
 ```
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host HOSTNAME
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122

@@ -1,2 +1,1 @@
-1. In the left sidebar, click **{% data variables.enterprise.management_console %}**.
-![{% data variables.enterprise.management_console %} tab in the left sidebar](/assets/images/enterprise/management-console/management-console-tab.png)
+1. In the "{% octicon "rocket" aria-hidden="true" %} Site admin" sidebar, click **{% data variables.enterprise.management_console %}**.

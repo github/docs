@@ -1,49 +1,51 @@
 ---
-title: GitHub Issues
+title: GitHub Issues documentation
 shortTitle: GitHub Issues
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
-  overview: /issues/tracking-your-work-with-issues/creating-issues/about-issues
+  overview: /issues/tracking-your-work-with-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
 featuredLinks:
-  guides:
-    - /issues/tracking-your-work-with-issues/creating-issues/creating-an-issue
-    - /issues/trying-out-the-new-projects-experience/quickstart
-    - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
+  startHere:
+    - /issues/tracking-your-work-with-issues/creating-an-issue
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
-    - /issues/trying-out-the-new-projects-experience/automating-projects
-    - /issues/tracking-your-work-with-issues/creating-issues/linking-a-pull-request-to-an-issue
-    - /issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards
+    - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
+    - /issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
+    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
+    - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
-    - /issues/tracking-your-work-with-issues/creating-issues/about-issues
-    - /issues/trying-out-the-new-projects-experience/about-projects
-    - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
+    - /issues/tracking-your-work-with-issues/about-issues
+    - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
+    - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
+    - /issues/tracking-your-work-with-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
-    - /github/managing-your-work-on-github/viewing-all-of-your-issues-and-pull-requests
-    - /issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards
-changelog:
-  label: issues
+    - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
+    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 children:
   - /tracking-your-work-with-issues
-  - /trying-out-the-new-projects-experience
+  - /planning-and-tracking-with-projects
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
+  - /guides
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
   - /github/managing-your-work-on-github
-  - /categories/100/articles/
-  - /categories/managing-projects/
-  - /categories/managing-projects-on-github/
+  - /categories/100/articles
+  - /categories/managing-projects
+  - /categories/managing-projects-on-github
   - /categories/managing-your-work-on-github
   - /about-issues
   - /creating-an-issue
@@ -63,4 +65,3 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
-

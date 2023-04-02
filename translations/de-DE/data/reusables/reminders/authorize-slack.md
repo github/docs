@@ -1,1 +1,0 @@
-1. Klicke unter „Slack workspace" (Slack-Arbeitsbereich) auf **Authorize Slack workspace** (Autorisiere Slack-Arbeitsbereich) und folge den Anweisungen. ![Schaltfläche „Authorize Slack workspace" (Autorisiere Slack-Arbeitsbereich)](/assets/images/help/settings/scheduled-reminders-authorize-slack.png)

@@ -5,6 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Notifications
 redirect_from:
@@ -34,7 +35,7 @@ For example, you may decide to check your notifications in this order in the mor
 
   {% tip %}
 
-  **Tip:** To quickly review your highest priorities, set up custom filters in order of their reviewing priority. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)."
+  **Tip:** To quickly review your highest priorities, set up custom filters in order of their reviewing priority. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#customizing-your-inbox-with-custom-filters)."
 
   {% endtip %}
 
@@ -44,7 +45,7 @@ To follow-up on notifications, you might consider the question "What was I block
 
 For example, you may decide to follow up in this order:
   - Issues and pull requests you're assigned to. Immediately close any issues or pull requests you can and add updates. As needed, save notifications to review later.
-  - Review notifications in the saved inbox, especially unread updates. If the thread is no longer relevant, uncheck {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
+  - Review notifications in the saved inbox, especially unread updates. If the thread is no longer relevant, deselect {% octicon "bookmark" aria-label="The bookmark icon" %} to remove the notification from the saved inbox and unsave it.
 
 ## Managing lower-priority notifications
 
@@ -52,11 +53,11 @@ After triaging the higher priority notifications, review the remaining notificat
   - Can you unsubscribe to this notification? Is this notification completed and ready to be marked as **Done**?
   {% tip %}
 
-  **Tip:** When you unsubscribe from a notification you won't receive new updates unless you start participating in the thread or you're @mentioned or a team you're on is @mentioned. When you mark a notification as **Done**, the notification is removed from your main inbox view and can be viewed with the query `is:read`. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-options)."
+  **Tip:** When you unsubscribe from a notification you won't receive new updates unless you start participating in the thread or you're @mentioned or a team you're on is @mentioned. When you mark a notification as **Done**, the notification is removed from your main inbox view and can be viewed with the query `is:read`. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options)."
 
   {% endtip %}
-  - Would you like to receive future updates when this issue or pull request is closed or reopened, or when a pull request is merged? For more information on these options, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
-  - Would you like to avoid receiving notifications like this in the future? If so, consider unsubscribing. For more information, see "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+  - Would you like to receive future updates when this issue or pull request is closed or reopened, or when a pull request is merged? For more information on these options, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
+  - Would you like to avoid receiving notifications like this in the future? If so, consider unsubscribing. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 
 ## Clearing your least important notifications
 
@@ -66,6 +67,6 @@ For example, you may decide to clear notifications in this order:
   - Participating notifications that you can unsubscribe to.
   - Repository updates that are not relevant to keep or follow-up on.
 
-For more information on managing multiple notifications in your inbox at the same time, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
+For more information on managing multiple notifications in your inbox at the same time, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 
-You may also consider changing your notification settings or unsubscribing from these updates if possible. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)" or "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+You may also consider changing your notification settings or unsubscribing from these updates if possible. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)" or "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."

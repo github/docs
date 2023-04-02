@@ -1,0 +1,1 @@
+You must configure SAML SSO for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."

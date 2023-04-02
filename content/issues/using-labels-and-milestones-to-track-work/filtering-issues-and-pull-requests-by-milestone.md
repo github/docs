@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pull requests
 shortTitle: Filter by milestone
@@ -26,13 +27,11 @@ shortTitle: Filter by milestone
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 3. Select **Milestones** to see a list of all available milestones for the repository.
-  ![Milestones button](/assets/images/help/issues/issues_milestone_button.png)
-4. Select the milestone you're interested in from the list. You can view relevant information for the milestone, including all issues and pull requests associated with it, from the milestone page. For more information, see "[About milestones](/articles/about-milestones)."
+
+  ![Screenshot of the list of issues for a repository. Above the list, a button, labeled with a signpost icon and "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues_milestone_button.png)
+4. Select the milestone you're interested in from the list. You can view relevant information for the milestone, including all issues and pull requests associated with it, from the milestone page. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)."
 
 ## Further reading
 
-- "[Filtering issues and pull requests](/articles/filtering-issues-and-pull-requests)"
-- "[Sorting issues and pull requests](/articles/sorting-issues-and-pull-requests)"
-- "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"
-- "[Sharing filters](/articles/sharing-filters)"
-- "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"

@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Fundamentals
@@ -15,9 +16,9 @@ topics:
   - User account
 shortTitle: Billing process
 ---
-Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
+Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
-For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)" and "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
 
 ## Example of canceling a paid subscription for a personal account or organization
 
@@ -37,7 +38,7 @@ Stefan's organization pays for 50 seats every year on May 20th. If Stefan remove
 
 ## Further reading
 
-- "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)"
-- "[Managing billing for {% data variables.product.prodname_marketplace %} apps](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Managing billing for {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
-- "[About per-user pricing](/articles/about-per-user-pricing)"
+- "[AUTOTITLE](/billing/managing-billing-for-your-github-account)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
+- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)"

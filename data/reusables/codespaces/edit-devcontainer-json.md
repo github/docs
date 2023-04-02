@@ -1,0 +1,1 @@
+1. {% data variables.product.prodname_github_codespaces %} for your repository may be configured in a `devcontainer.json` file. If your repository does not already contain a `devcontainer.json` file, you can add one now. See "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)."

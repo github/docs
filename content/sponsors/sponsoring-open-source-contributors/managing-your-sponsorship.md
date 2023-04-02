@@ -6,6 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
   fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Contacting sponsors
@@ -37,5 +38,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ## Further reading
 
-- "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
-- "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)"

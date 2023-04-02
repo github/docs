@@ -1,1 +1,0 @@
-1. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, danach auf **Edit** (Bearbeiten). ![Option „Edit" (Bearbeiten) im Dropdownmenü der Projektboard-Seitenleiste](/assets/images/help/projects/project-board-edit-settings.png)

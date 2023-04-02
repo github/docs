@@ -1,1 +1,0 @@
-1. Na página do aplicativo, em "Pricing and setup," (Preços e configuração), clique no plano de preços que você gostaria de usar. ![Lista dos planos de preços disponíveis do aplicativo](/assets/images/help/marketplace/marketplace-choose-plan.png)

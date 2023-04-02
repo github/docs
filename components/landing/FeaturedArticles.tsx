@@ -2,7 +2,7 @@ import cx from 'classnames'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { ArticleList } from './ArticleList'
+import { ArticleList } from 'components/landing/ArticleList'
 
 export const FeaturedArticles = () => {
   const { featuredArticles = [], whatsNewChangelog, changelogUrl } = useProductLandingContext()
@@ -12,6 +12,8 @@ export const FeaturedArticles = () => {
   return (
     <div className="d-lg-flex gutter my-6 py-6">
       {featuredArticles.map((section, i) => {
+        const viewAllTitleText =
+          section.key === 'startHere' ? `All '${section.label}' content` : `All ${section.label}`
         return (
           <div
             key={section.label + i}
@@ -19,8 +21,8 @@ export const FeaturedArticles = () => {
           >
             <ArticleList
               title={section.label}
-              titleVariant="large"
               viewAllHref={section.viewAllHref}
+              {...(section.viewAllHref ? { viewAllTitleText } : {})}
               articles={section.articles}
             />
           </div>
@@ -31,8 +33,8 @@ export const FeaturedArticles = () => {
         <div className={cx('col-12 mb-4 mb-lg-0 col-lg-4')}>
           <ArticleList
             title={t('whats_new')}
-            titleVariant="large"
             viewAllHref={changelogUrl}
+            viewAllTitleText={t('all_changelogs')}
             articles={(whatsNewChangelog || []).map((link) => {
               return {
                 title: link.title,

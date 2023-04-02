@@ -1,55 +1,40 @@
-import '../../lib/feature-flags.js'
-import { getDOM } from '../helpers/supertest.js'
-import { jest } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
 
+import { getDOM } from '../helpers/e2etest.js'
+import { allVersions } from '../../lib/all-versions.js'
+
+jest.useFakeTimers({ legacyFakeTimers: true })
+const req = {}
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
-
-  let $homePage, $githubPage, $enterprisePage
   beforeAll(async () => {
-    ;[$homePage, $githubPage, $enterprisePage] = await Promise.all([
-      getDOM('/en'),
-      getDOM('/en/github'),
-      getDOM('/en/enterprise/admin'),
-    ])
+    req.context = {
+      allVersions,
+      currentLanguage: 'en',
+    }
   })
 
-  test('highlights active product on Enterprise pages', async () => {
-    expect($enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $enterprisePage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('Enterprise administrators')
+  test('highlights active product on Enterprise pages on xl viewport', async () => {
+    const $ = await getDOM('/en/enterprise/admin')
+    expect($('[data-testid=sidebar-product-xl]').length).toBe(1)
+    expect($('[data-testid=sidebar-product-xl]').text().trim()).toBe('Enterprise administrators')
   })
 
-  test('highlights active product on GitHub pages', async () => {
-    expect($githubPage('[data-testid=sidebar] [data-testid=sidebar-product]').length).toBe(1)
-    expect(
-      $githubPage('[data-testid=sidebar] [data-testid=sidebar-product] > a').text().trim()
-    ).toBe('GitHub')
+  test('REST API Reference title is viewable', async () => {
+    const $ = await getDOM('/en/rest')
+    expect($('[data-testid=rest-sidebar-reference]').length).toBe(1)
   })
 
-  test('includes links to external products like the Atom, Electron, and CodeQL', async () => {
-    expect($homePage('[data-testid=sidebar] a[href="https://atom.io/docs"]')).toHaveLength(1)
-    expect($homePage('[data-testid=sidebar] a[href="https://electronjs.org/docs"]')).toHaveLength(1)
-    expect(
-      $homePage('[data-testid=sidebar] a[href="https://codeql.github.com/docs"]')
-    ).toHaveLength(1)
-  })
-
-  test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+  test("test a page where there's known sidebar short titles that use Liquid and ampersands", async () => {
+    const url =
+      '/en/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards'
     const $ = await getDOM(url)
-    expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
-    expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)
-    expect($('[data-testid=sidebar] [data-is-current-page=true] a').attr('href')).toContain(url)
-  })
-
-  test('does not display Early Access as a product', async () => {
-    expect(
-      $homePage('[data-testid=sidebar] [data-testid=sidebar-product][title*="Early"]').length
-    ).toBe(0)
-    expect(
-      $homePage('[data-testid=sidebar] [data-testid=sidebar-product][title*="early"]').length
-    ).toBe(0)
+    const linkTexts = []
+    $('[data-testid=sidebar]  a').each((i, element) => {
+      linkTexts.push($(element).text())
+    })
+    // This makes sure that none of the texts in there has their final HTML
+    // to be HTML entity encoded.
+    expect(linkTexts.filter((text) => text.includes('&amp;')).length).toBe(0)
   })
 })

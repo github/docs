@@ -9,15 +9,20 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Community
 shortTitle: Create a team discussion
 ---
 
-{% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}
+
+{% data reusables.organizations.team-discussions-permissions %} For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Type a team discussion title and a comment to start a conversation.
@@ -29,6 +34,6 @@ shortTitle: Create a team discussion
 
 ## Further reading
 
-  - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
-  - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
-  - "[Pinning a team discussion](/organizations/collaborating-with-your-team/pinning-a-team-discussion)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+  - "[AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)"

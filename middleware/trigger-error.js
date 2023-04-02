@@ -7,7 +7,7 @@ export default async function triggerError(req, res, next) {
   // pattern used on async middleware! This is an intentional omission!
 
   // prevent this from being used in production
-  if (process.env.NODE_ENV === 'production') return next()
+  if (process.env.NODE_ENV === 'production' && process.env.HEROKU_PRODUCTION_APP) return next()
 
   throw new Error('Intentional error')
 }

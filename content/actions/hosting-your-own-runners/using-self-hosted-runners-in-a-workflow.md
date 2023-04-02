@@ -1,6 +1,6 @@
 ---
 title: Using self-hosted runners in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels to specify the runner type for a job.'
+intro: 'To use self-hosted runners in a workflow, you can use labels{% ifversion target-runner-groups %} or groups{% endif %} to specify the runner for a job.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -8,24 +8,39 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 type: tutorial
 shortTitle: Use runners in a workflow
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
 
-## Using self-hosted runners in a workflow
+## About self-hosted runner labels
 
 Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For information on creating custom and default labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+
+{% ifversion target-runner-groups %}
+
+## About self-hosted runner groups
+
+For self-hosted runners defined at the organization {% ifversion ghec or ghes or ghae %}or enterprise levels{% else %}level{% endif %}, you can group your runners with shared characteristics into a single runner group and then configure your job to target the runner group.
+
+To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
+
+For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+
+{% ifversion fpt %}
+{% data reusables.actions.runner-groups-ent-note %}
+{% endif %}
+
+{% endif %}
 
 ## Using default labels to route jobs
 
@@ -64,15 +79,25 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `x64` - Only use a runner based on x64 hardware.
 - `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
 
-These labels operate cumulatively, so a self-hosted runner’s labels must match all four to be eligible to process the job.
+These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
+
+{% ifversion target-runner-groups %}
+
+## Using groups to route jobs
+
+{% data reusables.actions.jobs.example-runs-on-groups %}
+
+## Using labels and groups to route jobs
+
+{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+{% endif %}
 
 ## Routing precedence for self-hosted runners
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% ifversion ghes or ghae %}, then at the enterprise level{% endif %}. 
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+- If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}, the job is then assigned and sent to the runner.
+  - If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
+- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels {% ifversion target-runner-groups %} and/or groups{% endif %}, then the job will remain queued until a runner comes online.
+- If the job remains queued for more than 24 hours, the job will fail.

@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
+import { TreeView } from '@primer/react'
 
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
-
-import { AllProductsLink } from './AllProductsLink'
 
 export const SidebarHomepage = () => {
   const router = useRouter()
@@ -13,41 +12,37 @@ export const SidebarHomepage = () => {
   const { activeProducts, isFPT } = useMainContext()
 
   return (
-    <ul data-testid="sidebar" className="mt-4">
-      {!isFPT && <AllProductsLink />}
+    <div data-testid="sidebar" className="mt-3">
+      <TreeView>
+        {activeProducts
+          .filter(
+            (product) => isFPT || product.versions?.includes(currentVersion) || product.external
+          )
+          .map((product) => {
+            const href = `${!product.external ? `/${router.locale}` : ''}${
+              product.versions?.includes(currentVersion) && !isFPT
+                ? `/${currentVersion}/${product.id}`
+                : product.href
+            }`
 
-      {activeProducts.map((product) => {
-        if (!isFPT && !product.versions?.includes(currentVersion) && !product.external) {
-          return null
-        }
-
-        const href = `${!product.external ? `/${router.locale}` : ''}${
-          product.versions?.includes(currentVersion) && !isFPT
-            ? `/${currentVersion}/${product.id}`
-            : product.href
-        }`
-
-        return (
-          <li
-            key={product.id}
-            title={`${product.name}${product.external ? '(External Site)' : ''}`}
-            className="my-3"
-          >
-            <Link
-              href={href}
-              target={product.external ? '_blank' : undefined}
-              className="f4 pl-4 pr-5 py-2 color-text-primary no-underline"
-            >
-              {product.name}
-              {product.external && (
-                <span className="ml-1">
-                  <LinkExternalIcon size="small" />
-                </span>
-              )}
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
+            return (
+              <TreeView.Item id={product.id} key={product.id}>
+                <Link
+                  href={href}
+                  target={product.external ? '_blank' : undefined}
+                  className="d-block f4 my-1 pr-5 py-2 color-fg-default no-underline width-full"
+                >
+                  {product.name}
+                  {product.external && (
+                    <span className="ml-1">
+                      <LinkExternalIcon size="small" />
+                    </span>
+                  )}
+                </Link>
+              </TreeView.Item>
+            )
+          })}
+      </TreeView>
+    </div>
   )
 }

@@ -7,15 +7,15 @@ redirect_from:
   - /articles/configuring-jekyll-plugins
   - /articles/using-syntax-highlighting-on-github-pages
   - /articles/files-that-start-with-an-underscore-are-missing
-  - /articles/sitemaps-for-github-pages/
-  - /articles/search-engine-optimization-for-github-pages/
-  - /articles/repository-metadata-on-github-pages/
-  - /articles/atom-rss-feeds-for-github-pages/
-  - /articles/redirects-on-github-pages/
-  - /articles/emoji-on-github-pages/
-  - /articles/mentions-on-github-pages/
-  - /articles/using-jekyll-plugins-with-github-pages/
-  - /articles/adding-jekyll-plugins-to-a-github-pages-site/
+  - /articles/sitemaps-for-github-pages
+  - /articles/search-engine-optimization-for-github-pages
+  - /articles/repository-metadata-on-github-pages
+  - /articles/atom-rss-feeds-for-github-pages
+  - /articles/redirects-on-github-pages
+  - /articles/emoji-on-github-pages
+  - /articles/mentions-on-github-pages
+  - /articles/using-jekyll-plugins-with-github-pages
+  - /articles/adding-jekyll-plugins-to-a-github-pages-site
   - /articles/about-github-pages-and-jekyll
   - /github/working-with-github-pages/about-github-pages-and-jekyll
 product: '{% data reusables.gated-features.pages %}'
@@ -23,6 +23,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: GitHub Pages & Jekyll
@@ -34,7 +35,7 @@ Jekyll is a static site generator with built-in support for {% data variables.pr
 
 Jekyll is not officially supported for Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)."
+We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#static-site-generators)."
 
 ## Configuring Jekyll in your {% data variables.product.prodname_pages %} site
 
@@ -73,10 +74,10 @@ You can add `site.github` to a post or page to add any repository references met
 
 {% data reusables.pages.add-jekyll-theme %} For more information, see "[Themes](https://jekyllrb.com/docs/themes/)" in the Jekyll documentation.
 
-{% ifversion fpt %}
-You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and "[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)."
+{% ifversion fpt or ghec %}
+You can add a supported theme to your site on {% data variables.product.prodname_dotcom %}. For more information, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and [Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll"](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll).
 
-To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+To use any other open source Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, you can add the theme manually.{% else %} You can add a theme to your site manually.{% endif %} For more information, see{% ifversion fpt or ghec %} [themes hosted on {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) and{% else %} "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site and{% endif %} "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 You can override any of your theme's defaults by editing the theme's files. For more information, see your theme's documentation and "[Overriding your theme's defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" in the Jekyll documentation.
 
@@ -95,13 +96,13 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation. 
+You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
 
 For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
 
 {% tip %}
 
-**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[Testing your GitHub Pages site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+**Tip:** You can make sure you're using the latest version of all plugins by keeping the {% data variables.product.prodname_pages %} gem updated. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#updating-the-github-pages-gem)" and "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
 
 {% endtip %}
 
@@ -109,9 +110,9 @@ For a list of supported plugins, see "[Dependency versions](https://pages.github
 
 ## Syntax highlighting
 
-To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
+To make your site easier to read, code snippets are highlighted on {% data variables.product.prodname_pages %} sites the same way they're highlighted on {% data variables.product.product_name %}. For more information about syntax highlighting on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
 
-By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). If you specify Pygments in your *_config.yml* file, Rouge will be used instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[About Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/about-jekyll-build-errors-for-github-pages-sites)."
+By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses the [Rouge](https://github.com/jneen/rouge) highlighter, which is compatible with [Pygments](http://pygments.org/). Pygments has been deprecated and not supported in Jekyll 4. If you specify Pygments in your *_config.yml* file, Rouge will be used as the fallback instead. Jekyll cannot use any other syntax highlighter, and you'll get a page build warning if you specify another syntax highlighter in your *_config.yml* file. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites)."
 
 If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
 

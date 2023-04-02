@@ -1,2 +1,1 @@
-1. Select **Enable GitHub Actions**.
-  ![Checkbox to Enable GitHub Actions](/assets/images/enterprise/management-console/enable-github-actions.png)
+1. Under "{% data variables.product.prodname_actions %}", select **Enable GitHub Actions**.

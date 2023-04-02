@@ -1,1 +1,1 @@
-4. Under "Billing information", review your payment details. Optionally, to change the payment details for your entire {% data variables.product.product_name %} account, click **Edit**. Then, follow the prompts to complete the payment form.
+4. In the "Billing information" and "Payment method" sections, review your payment details. Optionally, to change the payment details for your entire account on {% data variables.location.product_location %}, in the "Payment method" section, click **Edit**. Then, follow the prompts to complete the payment form.

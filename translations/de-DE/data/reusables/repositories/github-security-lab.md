@@ -1,1 +1,0 @@
-Du kannst Dich auch [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}) anschließen, um sicherheitsrelevante Themen zu durchsuchen und zu Sicherheitswerkzeugen und -Projekten beizutragen. 

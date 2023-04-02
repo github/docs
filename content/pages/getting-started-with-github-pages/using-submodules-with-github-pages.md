@@ -2,12 +2,13 @@
 title: Using submodules with GitHub Pages
 intro: 'You can use submodules with {% data variables.product.prodname_pages %} to include other projects in your site''s code.'
 redirect_from:
-  - /articles/using-submodules-with-pages/
+  - /articles/using-submodules-with-pages
   - /articles/using-submodules-with-github-pages
   - /github/working-with-github-pages/using-submodules-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
+  ghec: '*'
 topics:
   - Pages
 shortTitle: Use submodules with Pages
@@ -22,4 +23,4 @@ Use the `https://` read-only URL for your submodules, including nested submodule
 ## Further reading
 
 - "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
-- "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+- "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

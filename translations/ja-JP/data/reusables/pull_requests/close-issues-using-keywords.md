@@ -1,1 +1,0 @@
-Pull RequestをIssueにリンクして、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}修正が進んでいることを示すとともに、{% endif %}誰かがそのPull Requestをマージしたときに自動的にそのIssueをクローズさせることができます。 詳しい情報については「[プルリクエストのIssueへのリンク](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)」を参照してください。

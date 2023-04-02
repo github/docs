@@ -1,0 +1,5 @@
+# Reference: Issue #7084 Dependabot unlocks parent dependencies on updates
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

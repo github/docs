@@ -1,17 +1,26 @@
 .markdown-body .procedural-image-wrapper {
   display: block;
-  padding: 10px 0;
-  margin: 20px auto 0 auto;
+  padding: 1rem 0;
+  margin: 1rem auto 0 auto;
   border: none;
-  max-width: calc(100% - 32px);
+  max-width: calc(100% - 2rem);
+
+  img {
+    width: auto;
+    height: auto;
+    max-height: 32rem;
+    padding: 0;
+    box-shadow: var(--color-shadow-medium);
+  }
+
+  img[src*="https://github.githubassets.com/images/icons/emoji"]
+  {
+    box-shadow: none;
+  }
 }
 
-.markdown-body .procedural-image-wrapper img {
-  border-radius: 5px;
-  border: 2px solid var(--color-auto-gray-2);
-  width: auto;
-  height: auto;
-  max-height: 500px;
+.markdown-body img {
+  max-height: 32rem;
   padding: 0;
 }
 
@@ -20,9 +29,4 @@
 {
   height: 20px;
   width: 20px;
-}
-
-.markdown-body img {
-  max-height: 500px;
-  padding: 0;
 }

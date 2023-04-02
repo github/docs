@@ -1,49 +1,117 @@
-name: OpenAPI generate decorated schema files
+name: Sync OpenAPI schema
 
-# **What it does**: On 'Update OpenAPI Descriptions' PRs opened by github-openapi-bot, this workflow runs the script to generate the decorated OpenAPI files and commit them to the PR.
-# **Why we have it**: So we can consume OpenAPI changes, decorate them, and publish them to the REST API docs.
+# **What it does**: Once a day, this workflow syncs the REST, Webhooks, and GitHub Apps automated pipelines with the github/rest-api-description repository, and creates a pull request if there are updates to any of the data files we generate from the OpenAPI.
+# **Why we have it**: So we can automate updates to REST, Webhooks, and GitHub Apps documentation
 # **Who does it impact**: Anyone making OpenAPI changes in `github/github`, and wanting to get them published on the docs site.
 
 on:
   workflow_dispatch:
-  pull_request:
+    inputs:
+      SOURCE_BRANCH:
+        description: 'Branch to pull the dereferenced OpenAPI source files from in the github/rest-api-descriptions repo.'
+        type: string
+        required: true
+        default: 'main'
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   generate-decorated-files:
-    if: github.event.pull_request.user.login == 'github-openapi-bot'
-    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
     steps:
-      - name: Label pull requests with 'github-openapi-bot'
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
-        with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          add-labels: 'github-openapi-bot'
+      - if: ${{ env.FREEZE == 'true' }}
+        run: |
+          echo 'The repo is currently frozen! Exiting this workflow.'
+          exit 1 # prevents further steps from running
+
       - name: Checkout repository code
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          # In order to fail gracefully when a branch already exists
+          # in the "Create pull request" step, we need to be able
+          # to get all existing branches.
+          fetch-depth: 0
 
-      - name: Setup node
-        uses: actions/setup-node@38d90ce44d5275ad62cc48384b3d8a58c500bb5f
+        # Check out a nested repository inside of previous checkout
+      - name: Checkout rest-api-description repo
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          node-version: 16.x
-          cache: npm
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          repository: github/rest-api-description
+          path: rest-api-description
+          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
-      - name: Decorate the dereferenced OpenAPI schemas
-        run: script/rest/update-files.js --decorate-only
+      - name: Sync the REST, Webhooks, and GitHub Apps schemas
+        run: |
+          src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          git status
+          echo "Deleting the cloned github/rest-api-description repo..."
+          rm -rf rest-api-description
 
-      - name: Check in the decorated files
-        uses: EndBug/add-and-commit@2bdc0a61a03738a1d1bda24d566ad0dbe3083d87
-        with:
-          # The arguments for the `git add` command
-          add: 'lib/rest/static/decorated'
+      - name: Get the rest-api-description SHA being synced
+        id: rest-api-description
+        run: |
+          OPENAPI_COMMIT_SHA=$(cat src/rest/lib/config.json | jq -r '.sha')
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/rest-api-description repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+          if [ -z $OPENAPI_COMMIT_SHA ]; then
+            echo "OpenAPI commit SHA is empty!"
+            exit 1
+          fi
 
-          # The message for the commit
-          message: 'Add decorated OpenAPI schema files'
-
+      - name: Create pull request
         env:
-          # Disable pre-commit hooks; they don't play nicely with add-and-commit
-          HUSKY: '0'
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          if [[ $changes -eq 0 ]]; then
+            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            exit 0
+          fi
+
+          git config --global user.name "docubot"
+          git config --global user.email "67483024+docubot@users.noreply.github.com"
+
+          branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
+
+          branchCheckout=$(git checkout -b $branchname)
+          if ! [[ $? -eq 0 ]]; then
+            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+            exit 0
+          fi
+          git add .
+          git commit -m "Add decorated OpenAPI schema files"
+          git push origin $branchname
+
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Update OpenAPI Description" \
+            --body '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
+
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            --repo github/docs-internal \
+            --label github-openapi-bot
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-openapi.yml

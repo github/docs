@@ -1,1 +1,0 @@
-Sie können eine Testversion anfordern, um {% data variables.product.prodname_ghe_server %} zu evaluieren. Weitere Informationen findest Du unter „<a href="/articles/setting-up-a-trial-of-github-enterprise-server" class="dotcom-only">Eine Testversion von {% data variables.product.prodname_ghe_server %} einrichten</a>.“

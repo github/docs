@@ -1,5 +1,9 @@
+{% ifversion ghes = 3.8 %}
+
 {% note %}
 
-**Note:** Projects (beta) is currently in limited public beta. For more information, see [{% data variables.product.prodname_github_issues %}](https://github.com/features/issues).
+**Note:** Projects (beta) is currently in public beta and subject to change.
 
 {% endnote %}
+
+{% endif %}

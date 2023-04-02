@@ -1,0 +1,5 @@
+{% note %}
+
+**Note:** If you have duplication detection enabled for {% data variables.product.prodname_copilot %}, you may receive limited suggestions, or no suggestions, when using the code examples provided. As an alternative, you can start by typing your own code to see suggestions from {% data variables.product.prodname_copilot %}. For more information on duplication detection, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom#enabling-or-disabling-duplication-detection)."
+
+{% endnote %}

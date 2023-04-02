@@ -1,16 +1,16 @@
-2. In the same directory as your `package.json` file, create or edit an `.npmrc` file to include a line specifying {% data variables.product.prodname_registry %} URL and the account owner. Replace `OWNER` with the name of the user or organization account that owns the repository containing your project.
+2. In the same directory as your `package.json` file, create or edit an `.npmrc` file to include a line specifying {% data variables.product.prodname_registry %} URL and the namespace where the package is hosted. Replace `NAMESPACE` with the name of the user or organization account {% ifversion packages-npm-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %}.
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
   ```shell
-  @<em>OWNER</em>:registry=https://npm.pkg.github.com
+  @NAMESPACE:registry=https://npm.pkg.github.com
   ```
 {% else %}
   If subdomain isolation is enabled:
   ```shell
-  @<em>OWNER</em>:registry=https://npm.<em>HOSTNAME</em>
+  @NAMESPACE:registry=https://npm.HOSTNAME
   ```
   If subdomain isolation is disabled:
   ```shell
-  @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
+  @NAMESPACE:registry=https://HOSTNAME/_registry/npm
   ```
 {% endif %}

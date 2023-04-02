@@ -19,7 +19,7 @@ shortTitle: Configure a cluster network
 
 The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
-{% ifversion ghes %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% data reusables.enterprise_clustering.network-latency %}
 
 ### Application ports for end users
 
@@ -27,11 +27,11 @@ Application ports provide web application and Git access for end users.
 
 | Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| 22/TCP    | Git over SSH | Yes |
+| 22/TCP    | Git over SSH | {% octicon "check" aria-label="Encrypted" %} |
 | 25/TCP    | SMTP | Requires STARTTLS |
-| 80/TCP    | HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
-| 443/TCP   | HTTPS | Yes |
-| 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | No |
+| 80/TCP    | HTTP | {% octicon "x" aria-label="Not encrypted" %}<br><br>When SSL is enabled this port redirects to HTTPS |
+| 443/TCP   | HTTPS | {% octicon "check" aria-label="Encrypted" %} |
+| 9418/TCP  | Simple Git protocol port<br>(Disabled in private mode) | {% octicon "x" aria-label="Not encrypted" %} |
 
 ### Administrative ports
 
@@ -39,11 +39,11 @@ Administrative ports are not required for basic application use by end users.
 
 | Port     | Description     | Encrypted  |
 | :------------- | :------------- | :------------- |
-| ICMP      | ICMP Ping | No |
-| 122/TCP   | Administrative SSH | Yes |
-| 161/UDP    | SNMP | No |
-| 8080/TCP  | Management Console HTTP | No<br>(When SSL is enabled this port redirects to HTTPS) |
-| 8443/TCP  | Management Console HTTPS | Yes |
+| ICMP      | ICMP Ping | {% octicon "x" aria-label="Not encrypted" %} |
+| 122/TCP   | Administrative SSH | {% octicon "check" aria-label="Encrypted" %} |
+| 161/UDP    | SNMP | {% octicon "x" aria-label="Not encrypted" %} |
+| 8080/TCP  | Management Console HTTP | {% octicon "x" aria-label="Not encrypted" %}<br><br>When SSL is enabled this port redirects to HTTPS |
+| 8443/TCP  | Management Console HTTPS | {% octicon "check" aria-label="Encrypted" %} |
 
 ### Cluster communication ports
 
@@ -98,6 +98,8 @@ Because client connections to the cluster come from the load balancer, the clien
 ### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
+
+{% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
  - For your instance, use this command:
   ```shell

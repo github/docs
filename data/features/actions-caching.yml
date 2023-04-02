@@ -1,0 +1,6 @@
+# Reference: #6456
+# General versioning for caching feature for Actions, newly added to GHES in 3.5
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
