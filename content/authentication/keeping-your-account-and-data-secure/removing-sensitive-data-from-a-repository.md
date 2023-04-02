@@ -136,7 +136,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME.YOUR-REPOSITORY.git
+  > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
 8. In order to remove the sensitive file from [your tagged releases](/repositories/releasing-projects-on-github/about-releases), you'll also need to force-push against your Git tags:
