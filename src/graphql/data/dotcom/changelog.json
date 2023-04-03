@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>BigInt</code> was added</p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>PinnedIssue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>SUCCESS</code> was added to enum <code>DeploymentState</code></p>"
         ]
       }
