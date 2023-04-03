@@ -21,7 +21,7 @@ If you are using a {% data variables.product.prodname_actions %} workflow to man
 | Permission | Access description |
 |------------|--------------------|
 | Read       | Can download package. <br> Can read package metadata. |
-| Write      | Can upload and download this package. <br> Can read and write package metadata. |
-| Admin      | Can upload, download{% ifversion packages-delete-with-github-token-api %}{% else %}, delete{% endif %}, and manage this package. <br> Can read and write package metadata. <br> Can {% ifversion packages-delete-with-github-token-api %}delete and restore packages{% else %}grant package permissions{% endif %}.
+| Write      | Can upload and download this package. <br> Can read and write package metadata. |{% ifversion packages-delete-with-github-token-api %}
+| Admin      | Can upload, download, delete, and manage this package. <br> Can read and write package metadata. <br> Can grant package permissions.{% endif %}
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}

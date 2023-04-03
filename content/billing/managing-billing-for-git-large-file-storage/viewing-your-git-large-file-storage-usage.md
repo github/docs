@@ -32,6 +32,15 @@ shortTitle: View Git LFS usage
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.lfs-data %}
 
+{% ifversion ghec %}
+## Viewing storage and bandwidth for an enterprise account
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. Scroll to the "Git LFS" section.
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"

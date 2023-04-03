@@ -50,6 +50,7 @@ The following features are not included in the trial of {% data variables.produc
 - {% data variables.product.prodname_sponsors %}
 - {% data variables.product.prodname_marketplace %} apps
 - {% data variables.product.prodname_github_connect %}
+- For {% data variables.product.prodname_actions %}, increased minutes and job concurrency
 - If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
