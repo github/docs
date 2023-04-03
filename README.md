@@ -28,7 +28,7 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 
-That's how you can easily become a member of the GitHub Documentation community. :sparkles:
+That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
 ## READMEs
 

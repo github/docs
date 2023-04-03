@@ -186,17 +186,6 @@ Transcript: TBD
 ```
 
 ```
-Title: GitHub Classroom Getting Started Guide
-URL: https://www.youtube.com/playlist?list=PLIRjfNq867bewk3ZGV6Z7a16YDNRCpK3u
-Description: A 9 video series introducing GitHub Classroom.
-Product: Classroom
-Versions: fpt
-Date added: ?
-Location: content/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom.md
-Transcript: TBD
-```
-
-```
 Title: Planning at scale with Issues – GitHub Universe 2021
 URL: https://www.youtube-nocookie.com/embed/ha1KHcPMAEk
 Description: A 20 minute presentation by Mario Rodriguez.Nbobigogc

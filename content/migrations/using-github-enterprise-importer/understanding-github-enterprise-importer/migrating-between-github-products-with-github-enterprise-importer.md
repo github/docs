@@ -172,7 +172,7 @@ If you were using self-hosted runners or encrypted secrets, you must reconfigure
    - Add runners to the appropriate repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
    - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
-1. Re-add any encyrpted secrets.
+1. Re-add any encrypted secrets.
 
    - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
    - To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
@@ -199,11 +199,11 @@ You can use the REST API to update the alerts to mirror any remediations in the 
 
 The user associated with these updated remediations will be the user who owns the {% data variables.product.pat_generic %} that was used for the API calls, not the user who remediated the alert in the source repository, and the date associated with the remediation will be the date of the API call, not the date the alert was remediated in the source repository.
 
-#### {% data variables.product.prodname_code_scanning_capc %}
+#### {% data variables.product.prodname_code_scanning_caps %}
 
-{% data variables.product.prodname_code_scanning_capc %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[Code Scanning](/enterprise-cloud@latest/rest/code-scanning)" in the REST API documentation.
+{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[Code Scanning](/enterprise-cloud@latest/rest/code-scanning)" in the REST API documentation.
 
-{% data variables.product.prodname_code_scanning_capc %} alerts that are populated this way will differ from the original alerts in the source repository.
+{% data variables.product.prodname_code_scanning_caps %} alerts that are populated this way will differ from the original alerts in the source repository.
 
 - Alerts will only include the detection and the latest state of the alert, not the entire timeline from the source repository.
 - Alerts will only be identified as `open` or `fixed`. Other remediation states, such as `dismissed` and `reopened`, will be lost.

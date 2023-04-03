@@ -9,6 +9,7 @@ versions:
 type: how_to
 topics:
   - Codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 ## Overview
@@ -39,16 +40,10 @@ If you add an organization-wide policy with a retention constraint, you should s
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Retention period**.
-
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-retention.png)
-
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
-
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
-
 1. Enter the maximum number of days codespaces can remain stopped before they are automatically deleted, then click **Save**.
 
-   ![Screenshot of setting the retention period in days](/assets/images/help/codespaces/maximum-days-retention.png)
+   ![Screenshot of a dropdown with a field labeled "Maximum value" set to 8 days. Below this are "Cancel" and "Save" buttons.](/assets/images/help/codespaces/maximum-days-retention.png)
 
    {% note %}
 
@@ -86,5 +81,4 @@ You can delete a policy at any time. Deleting a policy has no effect on existing
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. Click the delete button to the right of the policy you want to delete.
-
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+{% data reusables.codespaces.delete-codespace-policy %}

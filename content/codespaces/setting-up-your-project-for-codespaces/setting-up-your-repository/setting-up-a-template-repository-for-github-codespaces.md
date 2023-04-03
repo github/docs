@@ -21,7 +21,7 @@ Anyone with read access to your template repository can create a codespace from 
 
 You can provide a link in the format `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` to take users directly to a "Create a new codespace" page for your template.
 
-![Screenshot of the "create a new codespace" page](/assets/images/help/codespaces/create-a-new-codespace-page.png)
+![Screenshot of the "Create a new codespace" page for a template repository called "Basic React website," with a "Use this template" button.](/assets/images/help/codespaces/create-a-new-codespace-page.png)
 
 For example, you could provide this link in a tutorial for getting started with your framework. In your link, replace `OWNER/TEMPLATE-REPO` with the name of your template repository, for example `monalisa/octo-template`.
 
@@ -33,7 +33,7 @@ If you don't have one, create a README for your template repository to describe 
 
 A short description of your template is displayed on the "Create a new codespace" page that users land on when they follow the `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` link. This description is taken from the **Description** field that you can set when you create a repository. You can edit this description at any time by navigating to the repository's page and clicking **{% octicon "gear" aria-label="The Settings gear" %}** next to the **About** section on the right of the page.
 
-![Screenshot of the "About" section on a repository page](/assets/images/help/repository/repository-settings-icon.png)
+![Screenshot of the "About" section on a repository page. The settings button (a gear symbol) is highlighted with a dark orange outline.](/assets/images/help/codespaces/repository-settings-icon.png)
 
 ## Add starter files
 
@@ -45,7 +45,7 @@ For guidance on the kinds of files to include, you can look at the starter files
 {% data reusables.codespaces.view-all-templates-step %}
 1. To view the template repository that contains the files for the template, click the name of the template.
 
-   ![Screenshot of the "Explore quick start templates" section, with "React" highlighted](/assets/images/help/codespaces/react-template-name.png)
+   ![Screenshot of the "Explore quick start templates" section of the codespaces page. The names of the templates are highlighted with orange outlines.](/assets/images/help/codespaces/react-template-name.png)
 
 ## Configure the dev container
 

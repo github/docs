@@ -50,11 +50,11 @@ If you opt into user access tokens that expire after you have already generated 
 
    Query parameter | Type | Description
    -----|------|------------
-   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.<br><br>For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.<br><br>For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.<br><br>Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.<br><br>For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.<br><br>For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.<br><br>Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
    `client_secret` | `string` | **Required.** The client secret for your {% data variables.product.prodname_github_app %}. You can generate a client secret on the settings page for your app.
    `grant_type` | `string` | **Required.** The value must be "refresh_token".
    `refresh_token` | `string` | **Required.** The refresh token that you received when you generated a user access token.
 
-1. {% data variables.product.company_short %} will respond with a response body that includes the following parameters:
+1. {% data variables.product.company_short %} will give a response that includes the following parameters:
 
    {% data reusables.apps.user-access-token-response-parameters %}

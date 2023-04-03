@@ -20,6 +20,20 @@ shortTitle: Create a codespace for a repo
 
 {% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.
 
+You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
+
+Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+
+{% data reusables.codespaces.when-you-can-create-codespaces %}
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** {% data reusables.codespaces.emus-create-codespaces %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.codespaces.starting-new-project-template %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
 {% note %}
@@ -27,12 +41,6 @@ shortTitle: Create a codespace for a repo
 **Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
 
 {% endnote %}
-
-You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
-
-Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
-
-{% data reusables.codespaces.codespaces-are-personal %}
 
 If you create a codespace from a repository, the codespace will be associated with a specific branch, which cannot be empty. You can create more than one codespace per repository or even per branch.
 
@@ -62,13 +70,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create a codespace for.
+1. Under the repository name, select the branch dropdown menu, which is labeled with the name of the current branch, then click the branch you want to create a codespace for.
 
-   ![Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the expanded branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is highlighted with a dark orange outline.](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
-
-   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
    If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
 
@@ -82,13 +88,13 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
-      1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab and select **New with options**.
+      1. At the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and click **New with options**.
 
-      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+      ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 
       1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 
-         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+         ![Screenshot of the advanced options page with buttons for "Branch," "Dev container configuration," "Region," and "Machine type."](/assets/images/help/codespaces/advanced-options.png)
 
          {% note %}
 

@@ -70,21 +70,25 @@ When you add a `CITATION.cff` file to the default branch of your repository, it 
 
 If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
 
+{% rowheaders %}
+
 | Resource | CFF type | BibTeX type | APA annotation |
 |----------|----------|-------------|----------------|
-| Journal article/paper | `article` | `@article` | |
-| Book | `book` | `@book` | |
-| Booklet (bound but not published) | `pamphlet` | `@booklet` | |
+| Journal article/paper | `article` | `@article` | Not applicable |
+| Book | `book` | `@book` | Not applicable |
+| Booklet (bound but not published) | `pamphlet` | `@booklet` | Not applicable |
 | Conference article/paper | `conference-paper` | `@inproceedings` | [Conference paper] |
-| Conference proceedings | `conference`, `proceedings` | `@proceedings` | |
+| Conference proceedings | `conference`, `proceedings` | `@proceedings` | Not applicable |
 | Data set | `data`, `database` | `@misc` | [Data set] |
-| Magazine article | `magazine-article` | `@article` | |
-| Manual | `manual` | `@manual` | |
-| Misc/generic/other | `generic`, any other CFF type | `@misc` | |
-| Newspaper article | `newspaper-article` | `@article` | |
+| Magazine article | `magazine-article` | `@article` | Not applicable |
+| Manual | `manual` | `@manual` | Not applicable |
+| Misc/generic/other | `generic`, any other CFF type | `@misc` | Not applicable |
+| Newspaper article | `newspaper-article` | `@article` | Not applicable |
 | Software |  `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software` | [Computer software] |
-| Report/technical report | `report` | `@techreport` | |
-| Unpublished | `unpublished` | `@unpublished` | |
+| Report/technical report | `report` | `@techreport` | Not applicable |
+| Unpublished | `unpublished` | `@unpublished` | Not applicable |
+
+{% endrowheaders %}
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 

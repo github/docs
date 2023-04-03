@@ -1,7 +1,7 @@
 ---
 title: Configuring code scanning for your appliance
 shortTitle: Configuring code scanning
-intro: 'You can enable, configure and disable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_capc %} allows users to scan code for vulnerabilities and errors.'
+intro: 'You can enable, configure and disable {% data variables.product.prodname_code_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_code_scanning_caps %} allows users to scan code for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
@@ -26,7 +26,7 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_capc %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The bullets below summarize the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
+You can configure {% data variables.product.prodname_code_scanning %} to run {% data variables.product.prodname_codeql %} analysis and third-party analysis. {% data variables.product.prodname_code_scanning_caps %} also supports running analysis natively using {% data variables.product.prodname_actions %} or externally using existing CI/CD infrastructure. The bullets below summarize the options available to users when you configure {% data variables.location.product_location %} to allow {% data variables.product.prodname_code_scanning %} using actions.
 
 {% data reusables.code-scanning.enabling-options %}
 
@@ -38,7 +38,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 - A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
-- {% data variables.product.prodname_code_scanning_capc %} enabled in the management console (see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)")
+- {% data variables.product.prodname_code_scanning_caps %} enabled in the management console (see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)")
 
 - A VM or container for {% data variables.product.prodname_code_scanning %} analysis to run in.
 

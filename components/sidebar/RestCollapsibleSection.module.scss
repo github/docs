@@ -1,0 +1,14 @@
+.operationWidth {
+  li div div span {
+    white-space: normal !important;
+    padding: 2px;
+  }
+}
+
+.toggleHover {
+  li div div {
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+}

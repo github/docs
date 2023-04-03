@@ -151,6 +151,10 @@ You can view the status of all attribution invitations for your organization.
 
 ## Managing authorship for Git commits
 
-Authorship for Git commits is not associated with mannequins and cannot be attributed to {% data variables.product.prodname_dotcom %} users by reclaiming mannequins.
+Authorship for Git commits is not associated with mannequins and cannot be attributed to {% data variables.product.prodname_dotcom %} users by reclaiming mannequins. Instead, commit authorship is attributed to user accounts on {% data variables.product.prodname_dotcom %} based on the email address that was used to author the commit in Git.
 
-Instead, commit authorship is attributed to user accounts on {% data variables.product.prodname_dotcom %} based on the email address that was used to author the commit in Git. For more information about how to associate commits with {% data variables.product.prodname_dotcom %} users, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+In many cases, users can reattribute commits to themselves by adding the email address used to author the commit to their user account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+
+However, if you use {% data variables.product.prodname_emus %}, users cannot add email addresses to their user account on {% data variables.product.prodname_dotcom %} and will therefore not be able to reattribute Git commits. Only commits authored by a user's primary email address in your identity provider (IdP) will be attributed to {% data variables.enterprise.prodname_managed_users %}.
+
+Additionally, commits authored by a {% data variables.product.company_short %}-provided `noreply` email address cannot be reattributed, because you can't manually add a `noreply` email address to a user account. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."

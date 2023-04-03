@@ -329,7 +329,7 @@ For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
 - `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax.
+- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`.
 - `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 
 If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
@@ -376,8 +376,6 @@ updates:
 
 Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
 
-You can explicitly deny external code execution, irrespective of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
-
 {% raw %}
 ```yaml
 # Allow external code execution when updating dependencies from private registries
@@ -397,6 +395,40 @@ updates:
       interval: "monthly"
 ```
 {% endraw %}
+
+If you define a `registries` setting to allow {% data variables.product.prodname_dependabot %} to access a private package registry, and you set `insecure-external-code-execution` to `allow` in the same `updates` configuration, external code execution that occurs will only have access to the package managers in the registries associated with that `updates`setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
+
+In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
+
+{% raw %}
+```yaml
+# Using `registries` in conjunction with `insecure-external-code-execution:allow`
+# in the same `updates` setting
+
+version: 2
+registries:
+  ruby-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/octocat/github_api
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+  dockerhub:
+    type: docker-registry
+    url: registry.hub.docker.com
+    username: octocat
+    password: ${{secrets.DOCKERHUB_PASSWORD}}
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/rubygems-server"
+    insecure-external-code-execution: allow
+    registries:
+      - ruby-github # only access to registries associated with this ecosystem/directory
+    schedule:
+      interval: "monthly"
+
+```
+{% endraw %}
+
+You can explicitly deny external code execution, regardless of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
 
 ### `labels`
 

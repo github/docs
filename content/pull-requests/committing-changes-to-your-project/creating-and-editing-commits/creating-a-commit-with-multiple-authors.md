@@ -34,9 +34,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-manag
 
 ## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
-
-![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ## Creating co-authored commits on the command line
 
@@ -72,12 +70,10 @@ The new commit and message will appear on {% data variables.location.product_loc
 After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
-
-  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+1. Click **Commit changes...**
+1. In the "Commit message" field, type a short, meaningful commit message that describes the changes you made.
+1. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+1. Click **Commit changes** or **Propose changes**.
 
 The new commit and message will appear on {% data variables.location.product_location %}.
 

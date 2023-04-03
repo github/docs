@@ -9,6 +9,7 @@ versions:
 type: how_to
 topics:
   - Codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 ## Overview
@@ -47,16 +48,10 @@ If you add an organization-wide policy with a timeout constraint, you should set
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Maximum idle timeout**.
-
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
-
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
-
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-timeout-constraint.png)
-
 1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
 
-   ![Screenshot of setting the maximum timeout in minutes](/assets/images/help/codespaces/maximum-minutes-timeout.png)
+   ![Screenshot of a dropdown with a field labeled "Maximum value" set to 60 minutes. To the right of the field is a "Save" button.](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
@@ -80,6 +75,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 ## Deleting a policy 
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
-1. Click the delete button to the right of the policy you want to delete.
-
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+{% data reusables.codespaces.delete-codespace-policy %}

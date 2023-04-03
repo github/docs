@@ -75,13 +75,13 @@ There are two types of snapshots:
 
   {% endnote %}
 
-| Platform | Snapshot method | Snapshot documentation URL |
+| Platform | Snapshot method | Documentation |
 |---|---|---|
-| Amazon AWS | Disk | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
-| Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
-| Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
-| Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
+| Amazon AWS | Disk | [Create Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html) in the AWS documentation
+| Azure | VM | [Back up an Azure VM from the VM settings](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm) in Microsoft Learn
+| Hyper-V | VM | [Enable or disable checkpoints in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v) in Microsoft Learn
+| Google Compute Engine | Disk | [Create and manage disk snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots) in the Google Cloud documentation
+| VMware | VM | [Taking Snapshots of a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html) in VMware Docs
 
 ## Choosing an upgrade package
 

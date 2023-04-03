@@ -44,6 +44,12 @@ You can create your ticket using the {% data variables.contact.support_portal %}
 
 After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
 
+{% ifversion ghec or ghes %}
+## Prerequisites
+
+To create a support ticket, you must configure the {% data variables.contact.enterprise_portal %} for use. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal)."
+{% endif%}
+
 ## What to include in your support ticket
 
 Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
@@ -68,7 +74,7 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
 1. Navigate to the {% data variables.contact.contact_support_portal %}.
 {% data reusables.support.submit-a-ticket %}

@@ -10,6 +10,7 @@ import addFormats from 'ajv-formats'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
+import { existsSync } from 'fs'
 import semver from 'semver'
 import { frontmatter, deprecatedProperties } from '../../lib/frontmatter.js'
 import languages from '../../lib/languages.js'
@@ -236,7 +237,53 @@ let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learnin
 
 const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
 const contentMarkdownRelPaths = contentMarkdownAbsPaths.map((p) => slash(path.relative(rootDir, p)))
-const contentMarkdownTuples = zip(contentMarkdownRelPaths, contentMarkdownAbsPaths)
+
+// Get the list of config files for automated pipelines
+const automatedConfigFiles = walk(`src`, { includeBasePath: true, globs: ['**/lib/config.json'] })
+// Get a list of Markdown files to ignore during Markdown linting
+const automatedIgnorePaths = (
+  await Promise.all(
+    automatedConfigFiles.map(async (p) => {
+      return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore
+    })
+  )
+)
+  .flat()
+  .filter(Boolean)
+
+// For each linterIgnore directory, walk the files in the directory and add
+// to the ignore list.
+const ignoreMarkdownFilesAbsPath = new Set(
+  automatedIgnorePaths
+    .filter((p) => {
+      const exists = existsSync(p)
+      if (!exists) {
+        console.warn(
+          `WARNING: Ignored path ${p} defined in an automation pipeline does not exist. This may be expected, but if not, remove the defined path from the pipeline config.`
+        )
+      }
+      return exists
+    })
+    .map((p) =>
+      walk(p, {
+        includeBasePath: true,
+        globs: ['**/*.md'],
+      })
+    )
+    .flat()
+)
+
+// Difference between contentMarkdownAbsPaths & automatedIgnorePaths
+const contentMarkdownNoAutomated = [...contentMarkdownRelPaths].filter(
+  (p) => !ignoreMarkdownFilesAbsPath.has(p)
+)
+// We also need to go back and get the difference between the
+// absolute paths list
+const contentMarkdownAbsPathNoAutomated = [...contentMarkdownAbsPaths].filter(
+  (p) => !ignoreMarkdownFilesAbsPath.has(slash(path.relative(rootDir, p)))
+)
+
+const contentMarkdownTuples = zip(contentMarkdownNoAutomated, contentMarkdownAbsPathNoAutomated)
 
 const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
 const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>

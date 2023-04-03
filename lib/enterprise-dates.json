@@ -1,4 +1,8 @@
 {
+  "11.10.340": {
+    "releaseDate": "2014-07-07",
+    "deprecationDate": "2015-07-07"
+  },
   "2.0": {
     "releaseDate": "2014-11-11",
     "deprecationDate": "2016-02-09"
@@ -138,5 +142,9 @@
   "3.11": {
     "releaseDate": "2023-10-31",
     "deprecationDate": "2024-11-28"
+  },
+  "3.12": {
+    "releaseDate": "2024-02-06",
+    "deprecationDate": "2025-02-27"
   }
 }

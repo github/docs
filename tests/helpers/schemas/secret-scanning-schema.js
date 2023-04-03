@@ -4,28 +4,6 @@ import { schema } from '../../../lib/frontmatter.js'
 // so we can import that part of the FM schema.
 const versionsProps = Object.assign({}, schema.properties.versions)
 
-// Tweak the imported versions schema so it works with AJV.
-// *** TODO: We can drop the following once the frontmatter.js schema has been updated to work with AJV. ***
-const properties = {}
-Object.keys(versionsProps.properties).forEach((key) => {
-  const value = Object.assign({}, versionsProps.properties[key])
-
-  // AJV supports errorMessage, not message.
-  value.errorMessage = value.message
-  delete value.message
-
-  // AJV doesn't support conform, so we'll add semver validation in the lint-secret-scanning-data test.
-  if (value.conform) {
-    value.format = 'semver'
-    delete value.conform
-  }
-  properties[key] = value
-})
-
-versionsProps.properties = properties
-delete versionsProps.required
-// *** End TODO ***
-
 // The secret-scanning.json contains an array of objects that look like this:
 // {
 //   "provider": "Azure",
@@ -39,7 +17,8 @@ delete versionsProps.required
 //   },
 //   "isPublic": true,
 //   "isPrivateWithGhas": true,
-//   "hasPushProtection": false
+//   "hasPushProtection": false,
+//   "hasValidityCheck": false
 // },
 
 export default {
@@ -50,11 +29,12 @@ export default {
     required: [
       'provider',
       'supportedSecret',
-      // 'secretType', // TODO: Once the secretTypes are fully populated in the JSON, make this required.
+      'secretType',
       'versions',
       'isPublic',
       'isPrivateWithGhas',
       'hasPushProtection',
+      'hasValidityCheck',
     ],
     properties: {
       provider: {
@@ -81,6 +61,10 @@ export default {
       },
       hasPushProtection: {
         description: 'whether the secret has push protection',
+        type: 'boolean',
+      },
+      hasValidityCheck: {
+        description: 'whether the secret has its validation status checked',
         type: 'boolean',
       },
     },

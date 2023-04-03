@@ -34,8 +34,7 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 ## Adding information to your personal account's receipts
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.user-settings.payment-info-link %}
+{% data reusables.user-settings.billing_plans_payment %}
 1. At the bottom of the page, next to "Additional information," click **Add information**.
 
  ![Screenshot of the "Additional information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_personal_add_extra.png)

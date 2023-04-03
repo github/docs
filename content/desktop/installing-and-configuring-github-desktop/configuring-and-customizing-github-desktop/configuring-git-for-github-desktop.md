@@ -41,14 +41,13 @@ Configuring your global author information in {% data variables.product.prodname
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-8. In the Options window, click **Git**.
-![The Git Pane in the Options menu](/assets/images/help/desktop/windows-select-git-pane.png)
+1. In the "Options" window, click **Git**.
+
+   ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-git-pane.png)
+
 {% data reusables.desktop.name-field-git-config %}
-  ![The name field of the Git configuration](/assets/images/help/desktop/windows-name-git-config.png)
 {% data reusables.desktop.select-email-git-config %}
-  ![Select email address in Git configuration field](/assets/images/help/desktop/windows-email-git-config.png)
 {% data reusables.desktop.click-save-git-config %}
-  ![Save button in Git configuration field](/assets/images/help/desktop/windows-save-git-config.png)
 
 {% endwindows %}
 
@@ -100,9 +99,10 @@ You can configure the default branch that will be used when you create a new rep
 
 {% data reusables.desktop.windows-choose-options %}
 1. In the Options window, click **Git**.
-  ![The Git Pane in the Options menu](/assets/images/help/desktop/windows-select-git-pane.png)
-1. Under "Default branch name for new repositories", select the default branch name you would like to use, or select "Other..." to enter a custom name.
-  ![Default branch name selection options](/assets/images/help/desktop/windows-select-default-branch-name.png)
+
+   ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-git-pane.png)
+   
+1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
 {% data reusables.desktop.click-save-git-config %}
 
 {% endwindows %}

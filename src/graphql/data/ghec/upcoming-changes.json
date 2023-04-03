@@ -1,4 +1,86 @@
 {
+  "2023-10-01": [
+    {
+      "location": "PullRequestReviewComment.position",
+      "description": "<p><code>position</code> will be removed. Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "PullRequestReviewComment.originalPosition",
+      "description": "<p><code>originalPosition</code> will be removed.</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewInput.comments",
+      "description": "<p><code>comments</code> will be removed. use the <code>threads</code> argument instead</p>",
+      "reason": "<p>We are deprecating comment fields that use diff-relative positioning</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestReviewId",
+      "description": "<p><code>pullRequestReviewId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestId",
+      "description": "<p><code>pullRequestId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.position",
+      "description": "<p><code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.path",
+      "description": "<p><code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.inReplyTo",
+      "description": "<p><code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.commitOID",
+      "description": "<p><code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.body",
+      "description": "<p><code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    }
+  ],
   "2023-07-01": [
     {
       "location": "ProjectV2ItemFieldGroup.field",
@@ -87,6 +169,14 @@
       "date": "2023-07-01",
       "criticality": "breaking",
       "owner": "github/merge_queue"
+    },
+    {
+      "location": "Commit.pushedDate",
+      "description": "<p><code>pushedDate</code> will be removed.</p>",
+      "reason": "<p><code>pushedDate</code> is no longer supported.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "darthwillis"
     }
   ],
   "2023-04-01": [

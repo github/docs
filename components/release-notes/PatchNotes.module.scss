@@ -1,5 +1,8 @@
 .sectionHeading {
   scroll-margin-top: 70px !important;
+  pre code {
+    white-space: pre-wrap;
+  }
 }
 
 .aside {

@@ -46,7 +46,7 @@ To handle a higher volume of webhook traffic for a large app in production, cons
 
 ## Securing your webhooks with a webhook secret
 
-Once you've configured your server to recieve payloads, it will listen for any payload sent to the server. For security reasons, you should limit incoming requests to only those originating from {% data variables.product.prodname_dotcom %}. You can do that by creating a webhook secret for your app.
+Once you've configured your server to receive payloads, it will listen for any payload sent to the server. For security reasons, you should limit incoming requests to only those originating from {% data variables.product.prodname_dotcom %}. You can do that by creating a webhook secret for your app.
 
 To create a webhook secret for your GitHub App, type a secret token in your app settings under "Webhook secret." You should choose a random string of text with high entropy. For more information about how to create a webhook secret in your app settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
@@ -54,7 +54,7 @@ After creating a webhook secret for your app, you will need to configure your se
 
 ## Subscribing to webhook events
 
-You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. The specific webhook events that you can select in your app settings are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions.
+You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. The specific webhook events that you can select in your app settings are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 For example, if you would like your app to receive a webhook event payload whenever a new issue is opened in your repository, you would first need to give your app permission to access "Issues" under "Repository permissions." Then under "Subscribe to events" you can select "Issues."
 
