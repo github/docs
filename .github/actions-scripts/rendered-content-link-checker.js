@@ -1186,9 +1186,11 @@ async function renderInnerHTML(page, permalink) {
 
   req.context.relativePath = page.relativePath
 
+  const guts = [page.rawIntro, page.rawPermissions, page.markdown].filter(Boolean).join('\n').trim()
+
   // These lines do what the ubiquitous `renderContent` function does,
   // but at an absolute minimum to get a string of HTML.
-  const markdown = await liquid.parseAndRender(page.markdown, req.context)
+  const markdown = await liquid.parseAndRender(guts, req.context)
   const processor = createMinimalProcessor(req.context)
   const vFile = await processor.process(markdown)
   return vFile.toString()
