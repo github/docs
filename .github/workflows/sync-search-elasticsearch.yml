@@ -183,7 +183,7 @@ jobs:
           # not exist.
           VERSION: ${{ github.event.inputs.version }}
         run: |
-          ./script/search/index-elasticsearch.js /tmp/records \
+          ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
 
       - name: Check created indexes and aliases

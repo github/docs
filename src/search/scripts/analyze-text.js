@@ -8,7 +8,7 @@
 //
 // Example:
 //
-//    ./script/search/analyze-text.js my words to tokenize
+//    ./src/search/scripts/analyze-text.js my words to tokenize
 //
 // [end-readme]
 
@@ -17,8 +17,8 @@ import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
-import { languageKeys } from '../../lib/languages.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { languageKeys } from '../../../lib/languages.js'
+import { allVersions } from '../../../lib/all-versions.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()

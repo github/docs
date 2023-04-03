@@ -13,8 +13,8 @@
 
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../helpers/conditional-runs.js'
-import { get } from '../helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
+import { get } from '../../../tests/helpers/e2etest.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -30,7 +30,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   test('basic search', async () => {
     const sp = new URLSearchParams()
     // To see why this will work,
-    // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
+    // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
     // which clearly has a record with the title "Foo"
     sp.set('query', 'foo')
     const res = await get('/api/search/v1?' + sp)

@@ -5,7 +5,7 @@ import fs from 'fs/promises'
 import cheerio from 'cheerio'
 import { expect, test } from '@jest/globals'
 
-import parsePageSectionsIntoRecords from '../../../script/search/parse-page-sections-into-records.js'
+import parsePageSectionsIntoRecords from '../scripts/parse-page-sections-into-records'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const fixtures = {

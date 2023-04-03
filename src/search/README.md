@@ -15,9 +15,9 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 ## How to search
 
 The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts our search querying functionality. We recommend using this endpoint, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
-You can also query our search endpoint directly at: 
+You can also query our search endpoint directly at:
 `https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
- 
+
 - The VERSION can be any numbered GitHub Enterprise Server version (e.g., `2.22`, `3.0`), GitHub AE (`ghae`), or the Free pro team plan (`dotcom`).
 - The LANGUAGE CODE can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
 - TOPIC can be any topics in [the allowed list of topics](/data/allowed-topics.js). The values in the `topics` attribute are **not** case sensitive, so filtering on `GitHub actions` or `github actions` will return the same result. **Note:** Currently, the topics filter only works for the dotcom version in the English language. We plan to expand this search query to other languages and versions in the future.
@@ -43,7 +43,7 @@ The Actions workflow progress can be viewed (by GitHub employees) in the [Action
 
 ## Manually triggering the search index update workflow
 
-You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
+You can manually run the workflow to generate the indexes after you push your changes to `main` to speed up the indexing when needed. It's recommended to do this for only the `free-pro-team@latest` version and the `en` language because running all languages and versions takes about 40 minutes. To run it manually, click "Run workflow" button in the Actions tab. Enter the language and version you'd like to generate the indexes for as inputs to the workflow. By default, all languages and versions are generated.
 
 ### Build and sync
 
@@ -77,7 +77,7 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ### Actions workflow files
 
-- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are committed directly to the `main` branch on both the `github/docs-internal` and `github/docs` repositories. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml).
+- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are committed directly to the `main` branch on both the `github/docs-internal` and `github/docs` repositories. It can also be run manually. To run it manually, click "Run workflow" button in the Actions tab.
 - [`.github/workflows/sync-single-english-index.yml`](.github/workflows/sync-single-english-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
 
 ### Code files

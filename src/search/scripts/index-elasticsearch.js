@@ -15,10 +15,10 @@ import { program, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
-import { retryOnErrorTest } from '../helpers/retry-on-error-test.js'
-import { languageKeys } from '../../lib/languages.js'
-import { allVersions } from '../../lib/all-versions.js'
-import statsd from '../../lib/statsd.js'
+import { retryOnErrorTest } from '../../../script/helpers/retry-on-error-test.js'
+import { languageKeys } from '../../../lib/languages.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import statsd from '../../../lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
