@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription to your enterprise
-intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} usage.'
+intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_github_codespaces %} usage and {% data variables.product.prodname_copilot_business_short %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -11,11 +11,11 @@ shortTitle: Connect an Azure subscription
 ---
 ## About Azure subscriptions and {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)," "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)," and "[AUTOTITLE](/billing/managing-billing-for-github-copilot)."
 
 {% note %}
 
-**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} at all.
+**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %} at all.
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 1. Under "Payment Information", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
-1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
+1. Under "Select a subscription", select the Azure subscription ID that you want to connect to your enterprise.
 
    {% note %}
 

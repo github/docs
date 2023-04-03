@@ -156,13 +156,13 @@ For some migration paths, we offer specialist tools that allow you to migrate so
   </tr>
   <tr>
     <th scope="row"><b>Bitbucket Server</b></th>
-    <td><ul><li>bbs-exporter (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (private beta)</li></ul></td>
-    <td>`bbs-exporter` (expert-led migrations only)</td>
+    <td><ul><li><code>bbs-exporter</code> (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (private beta)</li></ul></td>
+    <td><code>bbs-exporter</code> (expert-led migrations only)</td>
   </tr>
   <tr>
     <th scope="row"><b>GitLab (self-managed or SaaS)</b></th>
-    <td>gl-exporter (expert-led migrations only)</td>
-    <td>gl-exporter (expert-led migrations only)</td>
+    <td><code>gl-exporter</code> (expert-led migrations only)</td>
+    <td><code>gl-exporter</code> (expert-led migrations only)</td>
   </tr>
   <tr>
     <th scope="row"><b>{% data variables.product.prodname_dotcom_the_website %}, including {% data variables.product.prodname_ghe_cloud %}</b></th>

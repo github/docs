@@ -12890,7 +12890,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>pushedDate</code> is no longer supported. Removal on 2023-07-01 UTC.</p>"
         },
         {
           "name": "repository",
@@ -75910,6 +75912,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The deployment has queued.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The deployment was successful.</p>"
         },
         {
           "name": "WAITING",

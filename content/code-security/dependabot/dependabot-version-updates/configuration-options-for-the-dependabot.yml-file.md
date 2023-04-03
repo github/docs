@@ -376,8 +376,6 @@ updates:
 
 Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
 
-You can explicitly deny external code execution, irrespective of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
-
 {% raw %}
 ```yaml
 # Allow external code execution when updating dependencies from private registries
@@ -397,6 +395,40 @@ updates:
       interval: "monthly"
 ```
 {% endraw %}
+
+If you define a `registries` setting to allow {% data variables.product.prodname_dependabot %} to access a private package registry, and you set `insecure-external-code-execution` to `allow` in the same `updates` configuration, external code execution that occurs will only have access to the package managers in the registries associated with that `updates`setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
+
+In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
+
+{% raw %}
+```yaml
+# Using `registries` in conjunction with `insecure-external-code-execution:allow`
+# in the same `updates` setting
+
+version: 2
+registries:
+  ruby-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/octocat/github_api
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+  dockerhub:
+    type: docker-registry
+    url: registry.hub.docker.com
+    username: octocat
+    password: ${{secrets.DOCKERHUB_PASSWORD}}
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/rubygems-server"
+    insecure-external-code-execution: allow
+    registries:
+      - ruby-github # only access to registries associated with this ecosystem/directory
+    schedule:
+      interval: "monthly"
+
+```
+{% endraw %}
+
+You can explicitly deny external code execution, regardless of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
 
 ### `labels`
 

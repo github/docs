@@ -4229,7 +4229,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   """
   The datetime when this commit was pushed.
   """
-  pushedDate: DateTime
+  pushedDate: DateTime @deprecated(reason: "`pushedDate` is no longer supported. Removal on 2023-07-01 UTC.")
 
   """
   The Repository this commit belongs to
@@ -8931,6 +8931,11 @@ enum DeploymentState {
   The deployment has queued
   """
   QUEUED
+
+  """
+  The deployment was successful.
+  """
+  SUCCESS
 
   """
   The deployment is waiting.
@@ -36363,7 +36368,7 @@ input RequestReviewsInput {
   """
   Add users to the set rather than replace.
   """
-  union: Boolean
+  union: Boolean = false
 
   """
   The Node IDs of the user to request.
