@@ -114,4 +114,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-openapi.yml
+          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/openapi-decorate.yml

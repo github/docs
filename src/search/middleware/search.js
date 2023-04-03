@@ -1,12 +1,12 @@
 import express from 'express'
 
-import FailBot from '../../lib/failbot.js'
-import languages from '../../lib/languages.js'
-import { allVersions } from '../../lib/all-versions.js'
-import statsd from '../../lib/statsd.js'
-import { searchCacheControl } from '../cache-control.js'
-import catchMiddlewareError from '../catch-middleware-error.js'
-import { setFastlySurrogateKey } from '../set-fastly-surrogate-key.js'
+import FailBot from '../../../lib/failbot.js'
+import languages from '../../../lib/languages.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import statsd from '../../../lib/statsd.js'
+import { searchCacheControl } from '../../../middleware/cache-control.js'
+import catchMiddlewareError from '../../../middleware/catch-middleware-error.js'
+import { setFastlySurrogateKey } from '../../../middleware/set-fastly-surrogate-key.js'
 import {
   getSearchResults,
   POSSIBLE_HIGHLIGHT_FIELDS,

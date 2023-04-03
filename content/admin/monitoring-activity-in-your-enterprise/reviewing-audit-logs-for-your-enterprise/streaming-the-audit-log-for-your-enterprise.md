@@ -3,6 +3,8 @@ title: Streaming the audit log for your enterprise
 intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 versions:
   feature: audit-log-streaming
+  ghec: '*'
+  ghes: '>=3.9'
 type: tutorial
 topics:
   - Auditing
@@ -333,3 +335,17 @@ When the application is ready to receive audit logs again, click **Resume stream
    ![Delete the stream](/assets/images/help/enterprises/audit-stream-delete.png)
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
+
+## Enabling audit log streaming of API requests
+
+{% note %}
+
+**Note:** This feature is currently in public beta and subject to change. 
+
+{% endnote %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
+1. Under "Audit log", click **Settings**.
+2. Under "API Requests", select **Enable API Request Events**. 
