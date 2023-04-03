@@ -129,7 +129,7 @@ Emit source location info in RA for debugging.
 portability.
 
 From time to time, new QL language features and evaluator optimizations
-will be supported by the QL evauator a few releases before they are
+will be supported by the QL evaluator a few releases before they are
 enabled by default in the QL compiler. This helps ensure that the
 performance you experience when developing queries in the newest CodeQL
 release can be matched by slightly older releases that may still be in
