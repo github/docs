@@ -129,7 +129,7 @@ Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-
 Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
-$ curl -I {% data variables.product.api_url_pre %} -u foo:bar
+$ curl -I {% data variables.product.api_url_pre %} --header "Authorization: Bearer INVALID-TOKEN"
 > HTTP/2 401
 
 > {
@@ -143,8 +143,6 @@ the API will temporarily reject all authentication attempts for that user
 (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
--u VALID_USERNAME:VALID_TOKEN {% endif %}{% ifversion ghes %}-u VALID_USERNAME:VALID_PASSWORD {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -170,7 +168,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ## Root endpoint
