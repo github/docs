@@ -340,7 +340,7 @@ jobs:
 
 ![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
-## Masking a value in log
+## Masking a value in a log
 
 ```{:copy}
 ::add-mask::{value}
