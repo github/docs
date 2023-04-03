@@ -29,19 +29,42 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 **Note:** As a member of an organization owned by a {% data variables.product.prodname_ghe_cloud %} account with a {% data variables.product.prodname_copilot %} subscription, you must be assigned a {% data variables.product.prodname_copilot %} seat by your organization before you can use {% data variables.product.prodname_copilot %}.
 {% endnote %}
 
-## Signing up for {% data variables.product.prodname_copilot %} for your organization{% ifversion ghec %} or enterprise{% endif %} account
+{% ifversion fpt %}
 
-{% ifversion ghec%}
-### Signing up for {% data variables.product.prodname_copilot %} for your enterprise account
+## Signing up for {% data variables.product.prodname_copilot %} for your organization account
 
-{% data reusables.copilot.signup-procedure-enterprise %}
-
-### Signing up for {% data variables.product.prodname_copilot %} for your organization account
-{% endif %}
 
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
+{% endif %}
+
+{% ifversion ghec %}
+
+## Signing up for {% data variables.product.prodname_copilot %} for your enterprise account
+
+{% note %}
+
+**Note:** If you already have a payment method set up for your enterprise account and are billed by {% data variables.product.prodname_dotcom %}, you can skip this section.
+
+{% endnote %}
+
+### Customers under a Microsoft Enterprise Agreement
+
+{% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
+
+### Customers under a direct GitHub contract
+
+{% data reusables.copilot.signup-procedure-enterprise %}
+
+## Enabling {% data variables.product.prodname_copilot %} for your enterprise account
+
+{% data reusables.copilot.enabling-in-enterprise %}
+
+For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business)."
+
+{% endif %}
+
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 
@@ -76,7 +99,6 @@ You successfully installed {% data variables.product.prodname_copilot %} and rec
 - [AUTOTITLE](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
-
 
 ## Further reading
 

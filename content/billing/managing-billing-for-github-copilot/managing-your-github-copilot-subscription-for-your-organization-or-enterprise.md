@@ -25,14 +25,25 @@ You can set up a {% data variables.product.prodname_copilot_for_business %} subs
 
 Before you can start using {% data variables.product.prodname_copilot_business_short %} in your enterprise, you will need to set up a subscription.
 
+### Customers under a Microsoft Enterprise Agreement
+
+{% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
+
+### Customers under a direct GitHub contract
+
 {% data reusables.copilot.signup-procedure-enterprise %}
 
 {% endif %}
+
+{% ifversion fpt %}
+
 ## Setting up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization
 
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
+
+{% endif %}
 
 ##  Modifying your {% data variables.product.prodname_copilot_business_short %} subscription
 
