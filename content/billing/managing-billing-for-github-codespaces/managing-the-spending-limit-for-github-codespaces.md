@@ -36,7 +36,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your own personal account.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.billing_plans_spending %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}

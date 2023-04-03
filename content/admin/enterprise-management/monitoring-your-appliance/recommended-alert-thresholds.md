@@ -18,6 +18,11 @@ topics:
   - Storage
 shortTitle: Recommended alert thresholds
 ---
+
+## About recommended alert thresholds
+
+You can configure external monitoring systems to alert you to storage, CPU, and memory usage that may cause problems with {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)."
+
 ## Monitoring storage
 
 We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.

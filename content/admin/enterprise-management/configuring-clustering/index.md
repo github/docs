@@ -19,6 +19,6 @@ children:
   - /upgrading-a-cluster
   - /monitoring-cluster-nodes
   - /replacing-a-cluster-node
-  - /evacuating-a-cluster-node
+  - /evacuating-a-cluster-node-running-data-services
 ---
 
