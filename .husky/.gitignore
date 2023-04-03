@@ -1,1 +1,31 @@
-_
+map:
+on the command line
+echo "# From-0a50a7810d00501ef04ad289258ba60a4e3791c9-Mon-Sep-17-00-00-00-2001-From-ZACHRY-T-WOOD-12404156" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/mowjoejoejoejoe/From-0a50a7810d00501ef04ad289258ba60a4e3791c9-Mon-Sep-17-00-00-00-2001-From-ZACHRY-T-WOOD-12404156.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/mowjoejoejoejoe/From-0a50a7810d00501ef04ad289258ba60a4e3791c9-Mon-Sep-17-00-00-00-2001-From-ZACHRY-T-WOOD-12404156.git
+git branch -M main
+git push -u origin main
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+ ProTip! Use the URL for this page when adding GitHub as a remote.
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
