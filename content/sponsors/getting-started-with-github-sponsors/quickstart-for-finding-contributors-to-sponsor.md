@@ -16,9 +16,7 @@ As you consider where to find open source contributors to sponsor, consider star
 
 If you're logged in, the sponsors results will start with public dependencies that your repositories depend on.
 
-You can also toggle which of your accounts to view results for and further filter or search.
-
-![Search options on sponsors community search page](/assets/images/help/sponsors/sponsors-search-options.png)
+Using the "Explore as," "Ecosystem," and "Filters" sidebar menus, you can also toggle which of your accounts to view dependencies for and further filter your results.
 
 ## Explore whom others sponsor
 

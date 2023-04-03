@@ -134,8 +134,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. In the left sidebar, click **Enterprise licensing**.
-  ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+{% data reusables.enterprise-accounts.license-tab %}
 4. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
   ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
 5. Under "Select an enterprise account", select the support bundle's associated account from the drop-down menu.

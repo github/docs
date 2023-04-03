@@ -33,13 +33,10 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+1. In the list of issues, click the issue you'd like to transfer.
+1. In the right sidebar, click **Transfer issue**.
+1. Select the **Choose a repository** dropdown menu, and click the repository you want to transfer the issue to.
+1. Click **Transfer issue**.
 
 {% endwebui %}
 

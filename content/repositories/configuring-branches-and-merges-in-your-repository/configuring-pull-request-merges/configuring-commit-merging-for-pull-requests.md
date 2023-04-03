@@ -14,11 +14,7 @@ shortTitle: Configure commit merging
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.{% ifversion default-merge-squash-commit-message %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits.png){% endif %}{% ifversion ghes = 3.6 %}
- ![Screenshot of Pull Request settings with allow merge commits checkbox emphasized](/assets/images/help/repository/allow-merge-commits-no-dropdown.png){% endif %}
-{% ifversion ghes < 3.6  %}
- ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png){% endif %}
+1. Under {% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.
 {% ifversion default-merge-squash-commit-message %}
 1. Optionally, under **Allow merge commits**, select the dropdown menu, then click the format of the commit message presented to contributors when merging.
 

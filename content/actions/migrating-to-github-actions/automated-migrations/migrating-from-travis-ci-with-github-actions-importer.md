@@ -99,7 +99,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    Updating ghcr.io/actions-importer/cli:latest...
-   ghcr.io/actions-importer/cli:latest up-to-date  
+   ghcr.io/actions-importer/cli:latest up-to-date
    ```
 
 ## Perform an audit of Travis CI
@@ -185,7 +185,7 @@ You can use the `forecast` command to forecast potential {% data variables.produ
 To perform a forecast of potential {% data variables.product.prodname_actions %} usage, run the following command in your terminal. By default, {% data variables.product.prodname_actions_importer %} includes the previous seven days in the forecast report.
 
 ```shell
-gh actions-importer forecast travis-ci --output-dir tmp/forecast 
+gh actions-importer forecast travis-ci --output-dir tmp/forecast
 ```
 
 ### Inspecting the forecast report
@@ -239,14 +239,14 @@ $ gh actions-importer migrate travis-ci --target-url https://github.com/octo-org
 
 ### Inspecting the pull request
 
-The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository. 
+The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository.
 
 Some important elements of the pull request include:
 
-- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows. 
+- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows.
 - The converted workflows file. Select the **Files changed** tab in the pull request to view the workflow file that will be added to your {% data variables.product.product_name %} repository.
 
-When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository. 
+When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository.
 
 ## Reference
 
@@ -323,7 +323,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--travis-ci-repository` option. The `path` is then used to pull the specified source file.
 
 ```bash
-gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/travis-repo-name --output-dir ./output/ --config-file-path ./path/to/travis-ci/config.yml 
+gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/travis-repo-name --output-dir ./output/ --config-file-path ./path/to/travis-ci/config.yml
 ```
 
 ### Supported project languages
@@ -399,7 +399,7 @@ The following table shows the type of properties {% data variables.product.prodn
 | cron triggers       | `on.schedule`                      |         Unsupported |
 |                     | `on.workflow_run`                  |         Unsupported |
 
-For information about supported Travis CI constructs, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/travis-ci/index.md).
+For information about supported Travis CI constructs, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/travis_ci/index.md).
 
 ### Environment variables syntax
 

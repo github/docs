@@ -57,9 +57,8 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 ## Reporting contact link abuse in the template chooser
 
 1. Navigate to the repository that contains the contact link you'd like to report.
-1. Under the repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
+1. Under the repository name, click {% octicon "issue-opened" aria-hidden="true" %} **Issues**.
 1. In the lower-right corner of the template chooser, click **Report abuse**.
-  ![Link to report an abuse](/assets/images/help/repository/template-chooser-report-abuse.png)
 1. Complete the contact form to tell {% data variables.contact.contact_support %} about the contact link's behavior, then click **Send request**.
 
 ## Further reading

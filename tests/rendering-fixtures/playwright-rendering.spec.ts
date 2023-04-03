@@ -14,7 +14,7 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
 test('view home page', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/GitHub Documentation/)
+  await expect(page).toHaveTitle(/GitHub Docs/)
 })
 
 test('view the for-playwright article', async ({ page }) => {

@@ -38,16 +38,16 @@ export async function get(
     throw new Error('B')
   }
 
-  const text = res.body
-  const status = res.statusCode
-  const headers = res.headers
+  const { body, statusCode, headers, url } = res
   return {
-    text,
-    status,
-    statusCode: status, // Legacy
+    body,
+    statusCode,
     headers,
-    header: headers, // Legacy
-    url: res.url,
+    url,
+    // Legacy
+    text: body,
+    status: statusCode,
+    header: headers,
   }
 }
 

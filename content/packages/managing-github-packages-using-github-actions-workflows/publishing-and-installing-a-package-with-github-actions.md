@@ -240,7 +240,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  This job installs npm and uses it to build the app.
 </td>
 </tr>
 

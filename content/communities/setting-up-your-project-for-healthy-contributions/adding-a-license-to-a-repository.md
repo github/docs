@@ -14,7 +14,7 @@ shortTitle: Add a license to a repo
 ---
 If you include a detectable license in your repository, people who visit your repository will see it at the top of the repository page. To read the entire license file, click the license name.
 
-![A repository header with an MIT license](/assets/images/help/repository/repo-license-indicator.png)
+![Screenshot of the main page of the github/linguist repository. In the right sidebar, "MIT license," preceded by a law icon, is outlined in dark orange.](/assets/images/help/repository/repo-license-indicator.png)
 
 Open source licenses enable others to freely use, change, and distribute the project in your repository. For more information on repository licenses, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
 

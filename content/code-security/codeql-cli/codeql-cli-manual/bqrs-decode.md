@@ -88,7 +88,7 @@ Omit column titles for `text` and `csv` formats
 comma-separated list of the following choices:
 
 `url`: A URL referring to a source location, if the query was compiled
-to produce such URLs for entitity types.
+to produce such URLs for entity types.
 
 `string`: A string computed by the toString() method in QL, if the query
 was compiled to produce such strings for the column.

@@ -1,0 +1,1 @@
+Security overview provides high-level summaries of the security status of an organization or enterprise and makes it easy to identify repositories that require intervention. You can also use security overview to see which repositories have enabled specific security features and to configure any available security features that are not currently in use.

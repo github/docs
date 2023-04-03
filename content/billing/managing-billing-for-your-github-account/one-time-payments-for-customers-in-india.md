@@ -58,7 +58,7 @@ Existing sponsorships will remain in place during this period and maintainers wi
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.billing_plans_payment %}
 1. At the top of the page, click **Pay now**.
 1. Review your billing and payment information.
 1. Optionally, if you need to make an edit, click **Edit** next to the relevant section.

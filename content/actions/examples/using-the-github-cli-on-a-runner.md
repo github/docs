@@ -47,16 +47,6 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:70%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
 ```yaml{:copy}
 name: Check all English links
 
@@ -173,11 +163,6 @@ jobs:
             fi
           done
 ```
-</tr>
-</td>
-</tbody>
-</table>
-
 ## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
@@ -185,8 +170,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>

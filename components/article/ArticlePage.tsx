@@ -23,6 +23,7 @@ import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
+import { SupportPortalVaIframe } from 'components/article/SupportPortalVaIframe'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -43,12 +44,17 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    supportPortalVaIframeProps,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
   const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
+      {supportPortalVaIframeProps.supportPortalUrl &&
+        supportPortalVaIframeProps.vaFlowUrlParameter && (
+          <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
+        )}
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />

@@ -38,30 +38,18 @@ For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-w
 {% ifversion fpt or ghec %}
 ### Viewing job execution time
 
-To identify how long a job took to run, you can view its execution time. For example:
-
-   ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
-
-For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
+To identify how long a job took to run, you can view its execution time. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 {% endif %}
 
 ### Viewing workflow run history
 
-You can view the status of each job and step in a workflow. For example:
-
-   ![Name of workflow run](/assets/images/help/repository/run-name.png)
-
-For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+You can view the status of each job and step in a workflow. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
 ## Troubleshooting your workflows
 
 ### Using workflow run logs
 
-Each workflow run generates activity logs that you can view, search, and download. For example:
-
-   ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results-updated-2.png)
-
-For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
+Each workflow run generates activity logs that you can view, search, and download. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
 ### Enabling debug logging
 

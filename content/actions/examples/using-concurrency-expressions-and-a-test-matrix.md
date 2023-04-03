@@ -49,16 +49,6 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
 ```yaml{:copy}
 name: Node.js Tests
 
@@ -208,10 +198,6 @@ jobs:
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- {% raw %}tests/${{ matrix.test-group }}/{% endraw %}
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -220,8 +206,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
