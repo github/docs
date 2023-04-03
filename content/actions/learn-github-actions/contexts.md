@@ -39,16 +39,14 @@ You can access contexts using the expression syntax. For more information, see "
 {%- ifversion actions-configuration-variables %}
 | `vars` | `object` | Contains variables set at the repository, organization, or environment levels. For more information, see [`vars` context](#vars-context). |{% endif %}
 | `job` | `object` | Information about the currently running job. For more information, see [`job` context](#job-context). |
-{%- ifversion fpt or ghes or ghae > 3.3 or ghec %}
-| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |{% endif %}
+| `jobs` | `object` | For reusable workflows only, contains outputs of jobs from the reusable workflow. For more information, see [`jobs` context](#jobs-context). |
 | `steps` | `object` | Information about the steps that have been run in the current job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
 | `secrets` | `object` | Contains the names and values of secrets that are available to a workflow run. For more information, see [`secrets` context](#secrets-context). |
 | `strategy` | `object` | Information about the matrix execution strategy for the current job. For more information, see [`strategy` context](#strategy-context). |
 | `matrix` | `object` | Contains the matrix properties defined in the workflow that apply to the current job. For more information, see [`matrix` context](#matrix-context). |
 | `needs` | `object` | Contains the outputs of all jobs that are defined as a dependency of the current job. For more information, see [`needs` context](#needs-context). |
-{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
-| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |{% endif %}
+| `inputs` | `object` | Contains the inputs of a reusable {% ifversion actions-unified-inputs %}or manually triggered {% endif %}workflow. For more information, see [`inputs` context](#inputs-context). |
 
 As part of an expression, you can access context information using one of two syntaxes.
 
@@ -71,32 +69,30 @@ In addition, some functions may only be used in certain places. For example, the
 
 The following table indicates where each context and special function can be used within a workflow. Unless listed below, a function can be used anywhere.
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
-
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
 {%- ifversion actions-run-name %}
-| <code>run-name</code> | <code>github, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
+| <code>run-name</code> | <code>github, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
 {%- endif %}
-| <code>concurrency</code> | <code>github, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>env</code> | <code>github, secrets, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, {% ifversion actions-configuration-variables %}vars, {% endif %}matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}steps, inputs</code> | |
+| <code>concurrency</code> | <code>github, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>env</code> | <code>github, secrets, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, {% ifversion actions-configuration-variables %}vars, {% endif %}matrix, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}steps, inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | <code>always, cancelled, success, failure</code> |
-| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | |
+| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.secrets.&lt;secrets_id&gt;</code> | <code>github, needs,{% ifversion actions-reusable-workflow-matrix %} strategy, matrix,{% endif %} secrets{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}steps, inputs</code> | <code>always, cancelled, success, failure, hashFiles</code> |
@@ -105,43 +101,11 @@ The following table indicates where each context and special function can be use
 | <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | <code>hashFiles</code> |
 | <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps, inputs</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | |
-| <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | |
-{% else %}
-| Path | Context | Special functions |
-| ---- | ------- | ----------------- |
-| <code>concurrency</code> | <code>github</code> | |
-| <code>env</code> | <code>github, secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}</code> | |
-| <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.environment</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.environment.url</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}steps</code> | |
-| <code>jobs.&lt;job_id&gt;.if</code> | <code>github, needs</code> | <code>always, cancelled, success, failure</code> |
-| <code>jobs.&lt;job_id&gt;.name</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.outputs.&lt;output_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | |
-| <code>jobs.&lt;job_id&gt;.runs-on</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.services</code> | <code>github, needs, strategy, matrix</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.services.&lt;service_id&gt;.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets</code> | |
-| <code>jobs.&lt;job_id&gt;.steps.continue-on-error</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.env</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.if</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}steps</code> | <code>always, cancelled, success, failure, hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.name</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.run</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.timeout-minutes</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.with</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.steps.working-directory</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, steps</code> | <code>hashFiles</code> |
-| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs</code> | |
-| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix</code> | |
-{% endif %}
+| <code>jobs.&lt;job_id&gt;.strategy</code> | <code>github, needs, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.timeout-minutes</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.with.&lt;with_id&gt;</code> | <code>github, needs{% ifversion actions-reusable-workflow-matrix %}, strategy, matrix{% endif %}{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>on.workflow_call.inputs.&lt;inputs_id&gt;.default</code> | <code>github{% ifversion actions-unified-inputs %}, inputs{% endif %}{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
+| <code>on.workflow_call.outputs.&lt;output_id&gt;.value</code> | <code>github, jobs, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
 
 ### Example: printing context information to the log
 
@@ -207,11 +171,9 @@ The `github` context contains information about the workflow run and the event t
 {%- endif %}
 | `github.path` | `string` | Path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `github.ref` | `string` | {% data reusables.actions.ref-description %} |
-{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} |
 | `github.ref_protected` | `boolean` | {% data reusables.actions.ref_protected-description %} |
 | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %} |
-{%- endif %}
 | `github.repository` | `string` | The owner and repository name. For example, `octocat/Hello-World`. |
 {%- ifversion actions-oidc-custom-claims %}
 | `github.repository_id` | `string` | {% data reusables.actions.repository_id-description %} |
@@ -227,9 +189,7 @@ The `github` context contains information about the workflow run and the event t
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
-{%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |{% ifversion actions-stable-actor-ids %}
@@ -455,8 +415,6 @@ jobs:
       - run: ./run-tests
 ```
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
-
 ## `jobs` context
 
 The `jobs` context is only available in reusable workflows, and can only be used to set outputs for a reusable workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
@@ -526,8 +484,6 @@ jobs:
 {%- endif %}{% raw %}
 ```
 {% endraw %}
-
-{% endif %}
 
 ## `steps` context
 
@@ -846,8 +802,6 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 ## `inputs` context
 
 The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
@@ -915,7 +869,7 @@ on:
     inputs:
       build_id:
         required: true
-        type: number
+        type: string
       deploy_target:
         required: true
         type: string
@@ -932,6 +886,4 @@ jobs:
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
 {% endraw %}
-{% endif %}
-
 {% endif %}

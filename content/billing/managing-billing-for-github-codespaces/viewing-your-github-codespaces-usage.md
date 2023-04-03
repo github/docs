@@ -21,13 +21,13 @@ You can see how much of the usage included in your personal account you have use
 {% data reusables.user-settings.billing_plans %}
 1. Under "{% data variables.product.prodname_codespaces %}," you can see how many core hours of {% data variables.product.prodname_github_codespaces %} compute usage and GB-months of storage you have used so far in the current billing month.
 
-   ![Screenshot of the initial view of personal usage](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
+   ![Screenshot of the "{% data variables.product.prodname_codespaces %}" section of the billing page showing figures for "Usage hours" and "Storage."](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
    For information about "core hours" and "GB-months," see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 
 1. Optionally, click **Usage hours** and **Storage** to see more details.
 
-   ![Screenshot of the expanded view of personal usage](/assets/images/help/codespaces/view-personal-usage-expanded.png)
+   ![Screenshot of the "{% data variables.product.prodname_codespaces %}" section of the billing page, expanded to show more details for "Usage hours" and "Storage."](/assets/images/help/codespaces/view-personal-usage-expanded.png)
 
    The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
 

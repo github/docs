@@ -43,15 +43,14 @@ The Insights page displays these performance metrics, for the selected time peri
 * **Unique visitors to checkout page:** Number of people who viewed one of your GitHub App's checkout pages.
 * **Checkout page to new subscriptions:** Total number of paid subscriptions, free trials, and free subscriptions. See the "Breakdown of total subscriptions" for the specific number of each type of subscription.
 
-![Marketplace insights](/assets/images/marketplace/marketplace_insights.png)
+![Screenshot of the {% data variables.product.prodname_marketplace %} Insights for a {% data variables.product.prodname_github_app %}.](/assets/images/marketplace/marketplace-insights.png)
 
 To access {% data variables.product.prodname_marketplace %} Insights:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+1. To select the {% data variables.product.prodname_github_app %} that you'd like to view Insights for, click **Edit**.
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Insights** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page.
-![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)
+1. Click the **Insights** tab.
+1. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page.

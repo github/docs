@@ -32,7 +32,7 @@ You can prevent unauthenticated people from creating new user accounts on your i
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. Under "Authentiction", select **Built in authentication**.
+4. Under "Authentication", select **Built in authentication**.
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
@@ -40,8 +40,7 @@ You can prevent unauthenticated people from creating new user accounts on your i
 
 Once your instance has been created, you'll need to create your own admin account.
 
-1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, choose your username, password, and email address, then click **Create an account**.
-![Create Admin Account](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
+1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, type your username, password, and email address, then click **Create an account**.
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 
 ## Next steps

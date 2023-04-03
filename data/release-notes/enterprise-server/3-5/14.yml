@@ -1,0 +1,19 @@
+date: '2023-03-02'
+sections:
+  security_fixes:
+    - |
+     "**HIGH**: A path traversal vulnerability was identified in GitHub Enterprise Server that allowed remote code execution when building a GitHub Pages site. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23760](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23760).
+  bugs:
+    - When viewing a list of open sessions for the devices logged into a user account, the GitHub Enterprise Server web UI could display an incorrect location. 
+    - |
+      In the rare case when primary shards for Elasticsearch were located on a replica node, the `ghe-repl-stop` command would fail with `ERROR: Running migrations`.
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - '{% data reusables.release-notes.2022-09-hotpatch-issue %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

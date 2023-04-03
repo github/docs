@@ -56,6 +56,8 @@ SAML SSO allows people to authenticate and access {% data variables.location.pro
 
 SAML is an XML-based standard for authentication and authorization. When you configure SAML for {% data variables.location.product_location %}, the external system for authentication is called an identity provider (IdP). Your instance acts as a SAML service provider (SP). For more information about the SAML standard, see [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia.
 
+{% data reusables.enterprise.saml-or-ldap %}
+
 {% elsif ghae %}
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
@@ -100,12 +102,12 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
-Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | |
-Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-Okta | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
+Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Shibboleth | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% elsif ghes %}
 

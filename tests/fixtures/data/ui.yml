@@ -34,7 +34,7 @@ search:
   matches_found: Results found
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
-  description: Enter a search term to find it in the GitHub Documentation.
+  description: Enter a search term to find it in the GitHub Docs.
   label: Search GitHub Docs
   n_results: '{n} results'
   one_result: 1 result
@@ -103,17 +103,18 @@ parameter_table:
 products:
   graphql:
     reference:
-      implements: Implements
-      fields: Fields
-      arguments: Arguments
+      implements: <code>{{ GraphQLItemTitle }}</code> Implements
+      fields: Fields for <code>{{ GraphQLItemTitle }}</code>
+      arguments: Arguments for <code>{{ GraphQLItemTitle }}</code>
       name: Name
       type: Type
       description: Description
-      input_fields: Input fields
-      return_fields: Return fields
-      implemented_by: Implemented by
-      values: Values
-      possible_types: Possible types
+      input_fields: Input fields for <code>{{ GraphQLItemTitle }}</code>
+      return_fields: Return fields for <code>{{ GraphQLItemTitle }}</code>
+      implemented_by: |
+        <code>{{ GraphQLItemTitle }}</code> is implemented by
+      values: Values for <code>{{ GraphQLItemTitle }}</code>
+      possible_types: Possible types for <code>{{ GraphQLItemTitle }}</code>
       preview_notice: Preview notice
       deprecation_notice: Deprecation notice
       preview_period: During the preview period, the API may change without notice.
@@ -127,21 +128,25 @@ products:
       api_versioned: The REST API is now versioned.
       api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
       ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+      redirect_notice: We've recently moved some of the REST API documentation.
+      redirect_repo: If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.
+      redirect_enterprise: If you can't find what you're looking for, you might try the {{ actionsPageLink }} REST API page.
+      actions_api_title: Actions
     versioning:
       about_versions: About REST API versions
     reference:
       in: In
       description: Description
       notes: Notes
-      parameters: Parameters
+      parameters: Parameters for "{{ RESTOperationTitle }}"
       response: Response
       example_response: Example response
       status_code: Status code
-      http_status_code: HTTP response status codes
+      http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
       code_sample: Code sample
-      code_samples: Code samples
-      preview_notice: Preview notice
-      preview_notices: Preview notices
+      code_samples: Code samples for "{{ RESTOperationTitle }}"
+      preview_notice: Preview notice for "{{ RESTOperationTitle }}"
+      preview_notices: Preview notices for "{{ RESTOperationTitle }}"
       preview_header_is_required: This header is <strong>required</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
@@ -152,11 +157,18 @@ products:
       query: Query parameters
       path: Path parameters
       body: Body parameters
+      response_options:
+        example: Example response
+        schema: Response schema
+      code_sample_options:
+        ghcli: GitHub CLI
+        javascript: JavaScript
+        curl: cURL
   webhooks:
     action_type_switch_error: There was an error switching webhook action types.
     action_type: Action type
-    availability: Availability
-    webhook_payload_object: Webhook payload object
+    availability: Availability for <code>{{ WebhookName }}</code>
+    webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
     webhook_payload_example: Webhook payload example
     rephrase_availability:
       repository: Repositories
@@ -208,6 +220,7 @@ product_landing:
   reference: Reference
   overview: Overview
   guides: Guides
+  explore_guides: Explore guides
   code_examples: Code examples
   search_code_examples: Search code examples
   search_results_for: Search results for
@@ -231,6 +244,10 @@ product_landing:
   explore_release_notes: Explore release notes
   view: View all
   view_transcript: View video transcript
+  all_docs: 'All {{ title }} docs'
+  code_example:
+    search_button: Search
+    search_examples: 'Search code examples:'
 product_guides:
   start_path: Start learning path
   learning_paths: '{{ productMap[currentProduct].name }} learning paths'

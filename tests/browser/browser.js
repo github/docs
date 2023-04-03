@@ -1,19 +1,28 @@
+import fs from 'fs'
+import path from 'path'
 import { jest } from '@jest/globals'
-import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
+
+import { getDOM } from '../helpers/e2etest.js'
+import frontmatter from '../../lib/read-frontmatter.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import { allVersions } from '../../lib/all-versions.js'
+import renderContent from '../../lib/render-content/index.js'
+import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
-
+const req = {}
 /* global page, browser */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
-  test('should be titled "GitHub Documentation"', async () => {
+  test('should be titled "GitHub Docs"', async () => {
     await page.goto('http://localhost:4000')
-    await expect(page.title()).resolves.toMatch('GitHub Documentation')
+    await expect(page.title()).resolves.toMatch('GitHub Docs')
   })
 })
 
-// Note, we can only test Elasticsearch searches on things we have indexed
+// Note: we can only test Elasticsearch searches on things we have indexed
 // in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
@@ -327,107 +336,6 @@ describe('survey', () => {
   })
 })
 
-describe('platform picker', () => {
-  // from tests/javascripts/user-agent.js
-  const userAgents = [
-    {
-      name: 'Mac',
-      id: 'mac',
-      ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9',
-    },
-    {
-      name: 'Windows',
-      id: 'windows',
-      ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36',
-    },
-    {
-      name: 'Linux',
-      id: 'linux',
-      ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
-    },
-  ]
-  const linuxUserAgent = userAgents[2]
-  const pageWithPlatformPicker =
-    'http://localhost:4000/en/github/using-git/configuring-git-to-handle-line-endings'
-  const pageWithoutPlatformPicker = 'http://localhost:4000/en/github/using-git'
-  const pageWithDefaultPlatform =
-    'http://localhost:4000/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
-
-  it('should have a platform picker', async () => {
-    await page.goto(pageWithPlatformPicker)
-    const nav = await page.$$('[data-testid=platform-picker]')
-    const switches = await page.$$('[data-testid=platform-picker] div a')
-    const selectedSwitch = await page.$$('[data-testid=platform-picker] div a.PRC-selected')
-    expect(nav).toHaveLength(1)
-    expect(switches.length).toBeGreaterThan(1)
-    expect(selectedSwitch).toHaveLength(1)
-  })
-
-  it('should NOT have a platform picker', async () => {
-    await page.goto(pageWithoutPlatformPicker)
-    const nav = await page.$$('[data-testid=platform-picker]')
-    const switches = await page.$$('[data-testid=platform-picker] div a')
-    const selectedSwitch = await page.$$('[data-testid=platform-picker] div a.PRC-selected')
-    expect(nav).toHaveLength(0)
-    expect(switches).toHaveLength(0)
-    expect(selectedSwitch).toHaveLength(0)
-  })
-
-  it('should detect platform from user agent', async () => {
-    for (const agent of userAgents) {
-      await page.setUserAgent(agent.ua)
-      await page.goto(pageWithPlatformPicker)
-      const selectedPlatformElement = await page.waitForSelector(
-        '[data-testid=platform-picker] div a.PRC-selected'
-      )
-      const selectedPlatform = await page.evaluate(
-        (el) => el.dataset.platform,
-        selectedPlatformElement
-      )
-      expect(selectedPlatform).toBe(agent.name.toLowerCase())
-    }
-  })
-
-  it('should prefer defaultPlatform from frontmatter', async () => {
-    for (const agent of userAgents) {
-      await page.setUserAgent(agent.ua)
-      await page.goto(pageWithDefaultPlatform)
-      const defaultPlatform = await page.$eval(
-        '[data-default-platform]',
-        (el) => el.dataset.defaultPlatform
-      )
-      const selectedPlatformElement = await page.waitForSelector(
-        '[data-testid=platform-picker] div a.PRC-selected'
-      )
-      const selectedPlatform = await page.evaluate((el) => el.textContent, selectedPlatformElement)
-      expect(defaultPlatform).toBe(linuxUserAgent.id)
-      expect(selectedPlatform).toBe(linuxUserAgent.name)
-    }
-  })
-
-  it('should show the content for the selected platform only', async () => {
-    await page.goto(pageWithPlatformPicker)
-
-    const platforms = ['mac', 'windows', 'linux']
-    for (const platform of platforms) {
-      await page.click(`[data-testid=platform-picker] [data-platform=${platform}]`)
-
-      // content for selected platform is expected to become visible
-      await page.waitForSelector(`.extended-markdown.${platform}`, { visible: true, timeout: 3000 })
-
-      // only a single tab should be selected
-      const selectedSwitch = await page.$$('[data-testid=platform-picker] .PRC-selected')
-      expect(selectedSwitch).toHaveLength(1)
-
-      // content for NOT selected platforms is expected to become hidden
-      const otherPlatforms = platforms.filter((e) => e !== platform)
-      for (const other of otherPlatforms) {
-        await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
-      }
-    }
-  })
-})
-
 describe('tool specific content', () => {
   const pageWithSingleSwitcher =
     'http://localhost:4000/en/actions/managing-workflow-runs/manually-running-a-workflow'
@@ -555,34 +463,6 @@ describe('code examples', () => {
   })
 })
 
-describe('filter cards', () => {
-  it('works with select input', async () => {
-    await page.goto('http://localhost:4000/en/code-security/guides')
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
-  })
-
-  it('works with select input on an Enterprise version', async () => {
-    await page.goto(`http://localhost:4000/en/enterprise-server@${latest}/code-security/guides`)
-    // 2nd element is 'Overview'
-    await page.click('[data-testid=card-filter-types] button')
-    await page.click('[data-testid=types-dropdown] > div > ul > li:nth-child(2)')
-    const shownCards = await page.$$('[data-testid=article-card]')
-    const shownCardTypes = await page.$$eval('[data-testid=article-card-type]', (cardTypes) =>
-      cardTypes.map((cardType) => cardType.textContent)
-    )
-    shownCardTypes.map((type) => expect(type).toBe('Overview'))
-    expect(shownCards.length).toBeGreaterThan(0)
-  })
-})
-
 // Skipping because next/links are disabled by default for now
 // Docs Engineering issue: 962
 describe.skip('next/link client-side navigation', () => {
@@ -638,3 +518,128 @@ describe('iframe pages', () => {
     ).toBeTruthy()
   })
 })
+
+describe('REST sidebar', () => {
+  req.context = {
+    allVersions,
+    currentLanguage: 'en',
+  }
+
+  it('Check REST categories and subcategories are rendering', async () => {
+    // Get the titles from the content/rest directory to match the titles on the page
+    const contentFiles = getCatAndSubCat('content/rest')
+    const contentCheck = await createContentCheckDirectory(contentFiles)
+
+    for (const version in allVersions) {
+      // Get MapTopic level categories/subcategories for each version on /rest page
+      const url = `/en/${version}/rest`
+      const $ = await getDOM(url)
+
+      const categories = []
+      $('[data-testid=sidebar] [data-testid=rest-category]').each((i, el) => {
+        categories[i] = $(el).text()
+      })
+      const browserUrl = `http://localhost:4000${url}`
+      await page.goto(browserUrl)
+      await page.setViewport({ width: 1024, height: 768 })
+      // console.log('went ot the page')
+      await page.waitForSelector('[data-testid=rest-category] li div div span')
+      const restCategories = await page.$$('[data-testid=rest-category] li div div span')
+
+      for (const cat of restCategories) {
+        await page.evaluate(async (el) => {
+          return el.click()
+        }, cat)
+
+        await page.waitForSelector('[data-testid=rest-subcategory]')
+      }
+
+      const subcategories = await page.evaluate(() =>
+        Array.from(document.querySelectorAll('[data-testid=rest-subcategory] li div div span')).map(
+          (subCategory) => subCategory.textContent
+        )
+      )
+      expect(contentCheck[version].cat.length).toBe(categories.length)
+      expect(contentCheck[version].subcat.length).toBe(subcategories.length)
+
+      categories.forEach((category) => {
+        expect(contentCheck[version].cat).toContain(category)
+      })
+
+      subcategories.forEach((subcategory) => {
+        expect(contentCheck[version].subcat).toContain(subcategory)
+      })
+    }
+  })
+})
+
+// Recursively go through the content/rest directory and get all the absolute file names
+function getCatAndSubCat(root) {
+  const files = []
+  for (const dirent of fs.readdirSync(root, { withFileTypes: true })) {
+    const { name } = dirent
+    const file = path.join(root, name)
+    if (dirent.isDirectory()) {
+      if (!(name === 'guides' || name === 'overview')) {
+        files.push(...getCatAndSubCat(file))
+      }
+    } else if (
+      !(
+        name === 'README.md' ||
+        file.includes('rest/index.md') ||
+        file.includes('rest/quickstart.md')
+      )
+    ) {
+      files.push(file)
+    }
+  }
+  return files
+}
+
+// Create a ContentCheck object that has all the categories/subcategories and get the title from frontmatter
+async function createContentCheckDirectory(contentFiles) {
+  const contentCheck = Object.keys(allVersions).reduce((acc, val) => {
+    return { ...acc, [val]: { cat: [], subcat: [] } }
+  }, {})
+
+  const renderOpts = { textOnly: true }
+
+  for (const filename of contentFiles) {
+    const { data } = frontmatter(await fs.promises.readFile(filename, 'utf8'))
+    const applicableVersions = getApplicableVersions(data.versions, filename)
+    const splitPath = filename.split('/')
+    let category = ''
+    let subCategory = ''
+
+    if (splitPath[splitPath.length - 2] === 'rest') {
+      category = data.title
+    } else if (splitPath[splitPath.length - 3] === 'rest') {
+      filename.includes('index.md')
+        ? (category = data.shortTitle || data.title)
+        : (subCategory = data.shortTitle || data.title)
+    }
+    for (const version of applicableVersions) {
+      req.context.currentVersion = version
+
+      if (category !== '')
+        if (category.includes('{')) {
+          await shortVersionsMiddleware(req, null, () => {})
+          contentCheck[version].cat.push(
+            await renderContent.liquid.parseAndRender(category, req.context, renderOpts)
+          )
+        } else {
+          contentCheck[version].cat.push(category)
+        }
+      if (subCategory !== '')
+        if (subCategory.includes('{')) {
+          await shortVersionsMiddleware(req, null, () => {})
+          contentCheck[version].subcat.push(
+            await renderContent.liquid.parseAndRender(subCategory, req.context, renderOpts)
+          )
+        } else {
+          contentCheck[version].subcat.push(subCategory)
+        }
+    }
+  }
+  return contentCheck
+}

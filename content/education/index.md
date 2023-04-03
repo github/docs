@@ -6,14 +6,14 @@ introLinks:
   quickstart: /education/quickstart
 featuredLinks:
   startHere:
-    - education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
+    - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
   guideCards:
     - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/git-and-github-learning-resources
-    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom
   popular:
+    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
     - /desktop
@@ -29,6 +29,6 @@ children:
   - /explore-the-benefits-of-teaching-and-learning-with-github-education
   - /contribute-with-github-community-exchange
   - /manage-coursework-with-github-classroom
+  - /explore-internship-projects-with-github-octernships
   - /guides
 ---
-

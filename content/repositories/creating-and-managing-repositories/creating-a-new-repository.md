@@ -32,22 +32,20 @@ topics:
 {% endtip %}
 
 {% data reusables.repositories.create_new %}
-2. Optionally, to create a repository with the directory structure and files of an existing repository, use the **Choose a template** drop-down and select a template repository. You'll see template repositories that are owned by you and organizations you're a member of or that you've used before. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)."
-  ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png)
-3. Optionally, if you chose to use a template, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-    ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
-3. In the Owner drop-down, select the account you wish to create the repository on.
-   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
+1. Optionally, to create a repository with the directory structure and files of an existing repository, select the **Choose a template** dropdown menu and click a template repository. You'll see template repositories that are owned by you and organizations you're a member of or that you've used before. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)."
+1. Optionally, if you chose to use a template, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
+1. In the Owner dropdown, select the account you wish to create the repository on.
+   ![Owner dropdown menu](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.product_name %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see "[AUTOTITLE](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-an-external-git-repository-using-the-command-line)," "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)," and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
+1. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.product_name %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)," "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)," and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
     - You can create a README, which is a document describing your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
     - You can create a *.gitignore* file, which is a set of ignore rules. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."{% ifversion fpt or ghec %}
     - You can choose to add a software license for your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
 {% ifversion fpt or ghec %}
-9. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
+1. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
 {% endif %}
 
 ## Further reading

@@ -96,39 +96,64 @@ For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-
 {% endif %}
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} is an {% data variables.product.prodname_advanced_security %} feature that scans repositories for secrets that are insecurely stored.
-
-{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is already enabled for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning). {% endif %}
+{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, as well as public npm packages. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning).{% endif %}
 
 {% ifversion ghes or ghae %}{% data variables.product.prodname_secret_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
 
-{% ifversion not fpt %}
-You can enable or disable {% data variables.product.prodname_secret_scanning %} for all repositories across your organization that have {% data variables.product.prodname_advanced_security %} enabled.
+You can enable or disable {% data variables.product.prodname_secret_scanning %} for all {% ifversion fpt or ghec %}public {% endif %}repositories across your organization{% ifversion fpt %}.{% endif %}{% ifversion ghec %}, and for all private and internal repositories{% endif %}{% ifversion ghec or ghes or ghae %} that have {% data variables.product.prodname_GH_advanced_security %} enabled.{% endif %}
 
 1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_secret_scanning_caps %} ({% data variables.product.prodname_GH_advanced_security %} repositories only).
-5. Optionally, select **Automatically enable for private repositories added to {% data variables.product.prodname_advanced_security %}**.
+1. Click **Settings** next to your organization.
+1. Click **Code security & analysis**.
+1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_secret_scanning_caps %}.
+1. In the dialog box displayed, optionally
+{%- ifversion fpt %} select **Automatically enable for new public repositories**.
+{%- elsif ghec %} select **Automatically enable for new public repositories and repositories with {% data variables.product.prodname_advanced_security %} enabled**.
+{%- else %} select **Automatically enable for repositories added to {% data variables.product.prodname_advanced_security %}.**
+{%- endif %}
+1. Click the enable or disable button in the dialog box to confirm the change.
 
 For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-{% endif %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} is an {% data variables.product.prodname_advanced_security %} feature that scans code for security vulnerabilities and errors.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_caps %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_capc %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
+{% ifversion org-enable-code-scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+You can enable or disable {% data variables.product.prodname_code_scanning %} default setup for all eligible repositories
+
+{%- ifversion fpt %} that are public across your organization.
+{%- elsif ghec %} that are public, and for all private and internal repositories
+{%- endif %}
+
+{%- ifversion ghec or ghes or ghae %} across your organization that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+{%- endif %}
+{% data reusables.code-scanning.default-setup-info-link %}
+
+For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+
+{% data reusables.code-scanning.beta-org-enable-all %}
+
+1. Click your profile photo, then click **Organizations**.
+1. Click **Settings** next to your organization.
+1. Click **Code security & analysis**.
+1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_code_scanning_caps %}.
+1. In the "Enable {% data variables.product.prodname_code_scanning %} for eligible repositories" or "Disable {% data variables.product.prodname_code_scanning %}" dialog box displayed, click **Enable for eligible repositories** or **Disable {% data variables.product.prodname_code_scanning %}** to confirm the change.
+
+{% else %}
+{% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+{% endif %}
 
 ## Next steps
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
+You can also monitor responses to security alerts within your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
+
 {% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)" and "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
 {% endif %}
 
-{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in the security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[AUTOTITLE](/code-security/security-overview/about-the-security-overview)."{% elsif fpt %} "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[AUTOTITLE](/code-security/security-overview/about-security-overview)."{% elsif fpt %} "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% ifversion ghec %}
 ## Further reading

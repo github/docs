@@ -47,7 +47,7 @@ To work in a codespace in a JetBrains IDE you need:
 
 ### JetBrains license
 
-You must have a license to at least one of the supported JetBrains IDEs to connect to a codespace from the JetBrains Gateway.
+You must have a JetBrains license that supports the IDE you choose in the JetBrains Gateway.
 
 ### JetBrains Gateway
 
@@ -57,7 +57,7 @@ You can install and update the JetBrains Gateway from the JetBrains Toolbox appl
 1. Open the JetBrains Toolbox.
 1. Find **Gateway** in the list of available tools and click **Install**.
 
-   ![Screenshot of the JetBrains Toolbox](/assets/images/help/codespaces/jetbrains-toolbox.png)
+   ![Screenshot of the JetBrains Toolbox with "Gateway" at the bottom of the list of applications. Each application has an "Install" button next to it.](/assets/images/help/codespaces/jetbrains-toolbox.png)
 
 ### {% data variables.product.prodname_cli %}
 
@@ -92,19 +92,16 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 1. Open the JetBrains Gateway application.
 1. Under **Install More Providers** click the **Install** link for {% data variables.product.prodname_github_codespaces %}.
 
-   ![Screenshot of the JetBrains Gateway initial view](/assets/images/help/codespaces/jetbrains-gateway-initial-view.png)
+   ![Screenshot of the "Welcome to JetBrains Gateway" page, with  "{% data variables.product.prodname_github_codespaces %}" listed under "Install More Providers."](/assets/images/help/codespaces/jetbrains-gateway-initial-view.png)
 
 1. Click **Connect to Codespace**.
 
-   ![Screenshot of the Gateway with the 'Connect to Codespace' button](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
+   ![Screenshot of the Gateway with the "Connect to {% data variables.product.prodname_codespaces %}" button.](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
-1. In the "Welcome to JetBrains Gateway" dialog box, click **Sign In with {% data variables.product.prodname_dotcom %}**.
-
-   ![Screenshot of the sign in button](/assets/images/help/codespaces/jetbrains-gateway-sign-in.png)
-
+1. In the "Welcome to JetBrains Gateway" dialog, click **Sign In with {% data variables.product.prodname_dotcom %}**.
 1. Click the icon beside the one-time code to copy it, then click the login link.
 
-   ![Screenshot of the one-time login code](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)
+   ![Screenshot of a one-time login code. The copy icon beside the code is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)
 
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed.
    * Enter your details and click **Sign in**.
@@ -128,5 +125,4 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
 - "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-- "[AUTOTITLE](/codespaces/codespaces-reference/using-github-copilot-in-github-codespaces)"
 - "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"

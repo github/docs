@@ -28,37 +28,20 @@ Depending on the policy settings configured at the enterprise level, an organiza
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Allow for all members**.
-
-   ![Screenshot of {% data variables.product.prodname_copilot %} user permissions](/assets/images/help/copilot/allow-all-members.png)
-
+1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Purchase for all members**.
 1. In the "Confirm seat assignment" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Confirm**.
-
-   ![Screenshot of the confirm seat assignment dialog](/assets/images/help/copilot/confirm-seat-assignment.png)
-
 1. To save your changes, click **Save**.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot %} user permissions save button](/assets/images/help/copilot/user-permissions-save.png)
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Selected teams/users** and click **Save**.
-
-   ![Screenshot of {% data variables.product.prodname_copilot %} selected users/teams permissions](/assets/images/help/copilot/selected-users-teams.png)
-
-1. If you are updating user access from the **Allow for all members** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
+1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Purchase for selected teams/users** and click **Save**.
+1. If you are updating user access from the **Purchase for all members** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
     - To unassign all members and then select those who should have access, select **Start from scratch**.
     - To keep all members who currently have access and then select those who should not have access, select **Keep all users**.
-
-      ![Screenshot of the confirm seat assignment dialog](/assets/images/help/copilot/confirm-seat-assignment-selected.png)
-
 1. If you selected **Start from scratch**, click **Add people** or **Add teams** to add individual users, or entire teams.
-
-   ![Screenshot of the add people or add teams button](/assets/images/help/copilot/add-people-add-teams.png)
-
 1. If you selected **Add people**, in the "Enable {% data variables.product.prodname_copilot %} access for selected members of ORGANIZATION" dialog, you can either search for individual members, or you can add members in bulk by uploading a CSV file.
 
    ![Screenshot of the enable access for selected members dialog](/assets/images/help/copilot/enable-access-for-selected-members.png)
@@ -74,19 +57,9 @@ Depending on the policy settings configured at the enterprise level, an organiza
 
     - Review the list of users generated from your CSV file. To confirm that you want to grant access to the listed users, click **Add XX member(s) to access list**, or to reject the list, click **Cancel**.
 
-     ![Screenshot of the csv list results](/assets/images/help/copilot/csv-results.png)
-
 1. If you selected **Add teams**, in the "Enable GitHub Copilot access for selected teams of ORGANIZATION" dialog, start typing the team name in the search bar, select the team you want to add and click **Select a team above**.
-
-   ![Screenshot of the enable access for selected teams dialog](/assets/images/help/copilot/add-teams.png)
-
 1. If you selected **Keep all users**, review the full list of your organization members and selected the individuals whose {% data variables.product.prodname_copilot %} access you want to revoke.
-
-   ![Screenshot of the keep all users list](/assets/images/help/copilot/access-removal-list.png)
-
 1. Click the **XX members selected** dropdown, and then click **Remove**.
-
-   ![Screenshot of the remove access button](/assets/images/help/copilot/remove-access.png)
 
 ### Disabling access to {% data variables.product.prodname_copilot %} for your whole organization
 
@@ -99,21 +72,15 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
-1. Under "User permissions,", select **Selected teams/users** and then click **Save**.
-
-   ![Screenshot of {% data variables.product.prodname_copilot %} selected users/teams permissions](/assets/images/help/copilot/selected-users-teams.png)
+1. Under "User permissions,", select **Purchase for selected teams/users** and then click **Save**.
 
     - In the "Confirm seat assignment" pop-up dialog, select **Keep all users**.
 
-      ![Screenshot of the confirm seat assignment dialog](/assets/images/help/copilot/confirm-seat-assignment-selected.png)
-
 1. Under "Manage access," in the search bar, type the member's username, full name, or email address.
 
-   ![Screenshot of the search bar](/assets/images/help/copilot/manage-access-search.png)
+   ![Screenshot of the search bar under "Manage access".](/assets/images/help/copilot/manage-access-search.png)
 
-1. To remove the member from the list of users who have access to {% data variables.product.prodname_copilot %}, click **Remove**.
-
-   ![Screenshot of the remove access button](/assets/images/help/copilot/remove-access-button.png)
+1. To remove the member from the list of users who have access to {% data variables.product.prodname_copilot %}, click **Remove** on the right side of the page.
 
 ## Configuring suggestion matching policies for {% data variables.product.prodname_copilot %} in your organization
 
@@ -125,8 +92,6 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
 1. In the "Suggestions matching public code" dropdown, select **Allow** or **Block** to allow or block suggestions matching public code.
-
-   ![Screenshot of the suggestions matching public code dropdown](/assets/images/help/copilot/duplication-detection-org-policy.png)
 
 ## Further reading
 

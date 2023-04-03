@@ -16,7 +16,6 @@ topics:
   - Repositories
 shortTitle: Dependency graph
 ---
-<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
 ## About the dependency graph
@@ -25,11 +24,11 @@ shortTitle: Dependency graph
 
 When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
-{% ifversion dependency-submission-api %} 
 {% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
 
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+
+{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
 
 ## Dependency graph availability
 
@@ -80,23 +79,21 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 {%- ifversion dependency-graph-rust-support %}
-| Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` | 
+| Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` |
 {%- endif %}
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows [1] | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-| Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
+| Go modules | Go | `go.mod`| `go.mod`{% ifversion ghes < 3.9 or ghae < 3.9 %}, `go.sum`{% endif %} |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`[2] |
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
-{%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
-{%- endif %}
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
@@ -115,7 +112,9 @@ The recommended formats explicitly define which versions are used for all direct
 {% endnote %}
 {% endif %}
 
-{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %}
+
+{% ifversion dependency-submission-api %}You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia

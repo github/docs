@@ -37,10 +37,9 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js {% ifversion fpt or ghes or ghae > 3.3 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
+1. Download and install Node.js 16.x, which includes npm.
 
-  {% ifversion fpt or ghes or ghae > 3.3 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
-
+   https://nodejs.org/en/download/
 1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
@@ -73,7 +72,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion fpt or ghes or ghae > 3.3 or ghec %}'node16'{% else %}'node12'{% endif %}
+  using: 'node16'
   main: 'index.js'
 ```
 
@@ -268,9 +267,9 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+Click **Hello world action step**, and you should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input printed in the log. To see the timestamp, click **Get the output time**.
 
 ## Template repositories for creating JavaScript actions
 

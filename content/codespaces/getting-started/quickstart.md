@@ -32,66 +32,69 @@ Once your codespace is created, the template repository will be automatically cl
 
 1. When the terminal becomes available, enter the command `npm run dev`. This example uses a Node.js project, and this command runs the script labeled "dev" in the `package.json` file, which starts up the web application defined in the sample repository.
 
-   ![npm run dev in terminal](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
+   ![Screenshot of the Terminal in {% data variables.product.prodname_vscode_shortname %} with the "npm run dev" command entered.](/assets/images/help/codespaces/codespaces-npm-run-dev.png)
 
    If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
+1. When your application starts, the codespace recognizes the port the application is running on and displays a pop-up message to let you know that the port has been forwarded.
 
-   ![Port forwarding "toast" notification](/assets/images/help/codespaces/quickstart-port-toast.png)
+   ![Screenshot of the pop-up message: "Your application running on port 3000 is available." Below this is a green button, labeled "Open in Browser."](/assets/images/help/codespaces/quickstart-port-toast.png)
 
-3. Click **Open in Browser** to view your running application in a new tab.
+1. Click **Open in Browser** to view your running application in a new tab.
 
 ## Edit the application and view changes
 
 1. Switch back to your codespace and open the `haikus.json` file by clicking it in the Explorer.
 
-2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+1. Edit the `text` field of the first haiku to personalize the application with your own haiku.
 
-3. Go back to the running application tab in your browser and refresh to see your changes.
+1. Go back to the running application tab in your browser and refresh to see your changes.
 
-   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the tab, open the Ports panel and click the **Open in browser** icon for the running port.
+   {% octicon "light-bulb" aria-label="The lightbulb icon" %} If you've closed the browser tab, click the Ports tab in {% data variables.product.prodname_vscode_shortname %}, hover over the **Local Address** value for the running port, and click the **Open in Browser** icon.
 
-   ![Port Forwarding Panel](/assets/images/help/codespaces/quickstart-forward-port.png)
+   ![Screenshot of the "Ports" panel. The "Ports" tab and a globe icon, which opens the forwarded port in a browser, are highlighted with orange outlines.](/assets/images/help/codespaces/quickstart-forward-port.png)
 
 ## Committing and pushing your changes
 
 Now that you've made a few changes, you can use the integrated terminal or the source view to publish your work to a new repository.
 
-{% data reusables.codespaces.source-control-display-dark %}
-1. To stage your changes, click  **+** next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
+{% data reusables.codespaces.source-control-activity-bar %}
+1. To stage your changes, click {% octicon "plus" aria-label="Stage Changes" %} next to the `haikus.json` file, or next to **Changes** if you've changed multiple files and you want to stage them all.
 
-   ![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
+   ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-stage.png)
 
-2. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
+1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
 
-   ![Source control side bar with a commit message](/assets/images/help/codespaces/vscode-commit-button.png)
+   ![Screenshot of the "Source control" side bar. A commit message, with "Change haiku text and styles" entered, and the "Commit" button are highlighted with an orange outline.](/assets/images/help/codespaces/vscode-commit-button.png)
 
-3. Click **Publish Branch**.
+1. Click **Publish Branch**.
 
-   ![Screenshot of the "Publish branch" button in VS Code](/assets/images/help/codespaces/vscode-publish-branch-button.png)
+   ![Screenshot of the "Source control" side bar showing the "Publish Branch" button.](/assets/images/help/codespaces/vscode-publish-branch-button.png)
 
-4. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.company_short %} private repository** or **Publish to {% data variables.product.company_short %} public repository**.
+1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %}  private repository** or **Publish to {% data variables.product.prodname_dotcom %}  public repository**.
 
-   ![Screenshot of the "Repository Name" dropdown in VS Code](/assets/images/help/codespaces/choose-new-repository.png)
+   ![Screenshot of the repository name dropdown in VS Code. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
 
    The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
-5. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.company_short %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
+1. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.prodname_dotcom %} ** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
 
-   ![Screenshot of the "Open in GitHub" pop-up in VS Code](/assets/images/help/codespaces/open-on-github.png)
+   ![Screenshot of a confirmation message for a successfully published repository, showing the "Open on {% data variables.product.prodname_dotcom %}" button.](/assets/images/help/codespaces/open-on-github.png)
 
 ## Personalizing with an extension
 
 When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
 
-1. In the left sidebar, click the Extensions icon.
+1. In the Activity Bar, click the Extensions icon.
+
+   ![Screenshot of the Activity Bar. The Extensions icon is highlighted with an orange outline.](/assets/images/help/codespaces/extensions-activity-bar-icon.png)
+
 1. In the search bar, type `fairyfloss` and click **Install**.
 
-   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
+   ![Screenshot of the "Extensions: Marketplace" side bar. "fairyfloss" is entered into the search box and, below it, the "fairyfloss" extension is displayed, with an "Install" button.](/assets/images/help/codespaces/add-extension.png)
 
 1. Select the `fairyfloss` theme by selecting it from the list.
 
-   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
+   ![Screenshot of the "Select Color Theme" dropdown, with the "fairyfloss" theme selected.](/assets/images/help/codespaces/fairyfloss.png)
 
 ### About Settings Sync
 

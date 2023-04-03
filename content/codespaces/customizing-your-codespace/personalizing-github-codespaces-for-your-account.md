@@ -49,9 +49,9 @@ If you're working in a codespace where Settings Sync is disabled, you can enable
 {% endnote %}
 
 1. In {% data variables.product.prodname_vscode_shortname %}, at the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Turn on Settings Sync…**
-1. In the dropdown, select which settings you want to sync.
+1. In the dropdown, select the settings you want to sync.
 
-   ![Screenshot of the Setting Sync options](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
+   ![Screenshot of the "Setting Sync" options. There are seven options, each with a checkbox. The "Sign in & Turn on" button is shown top right.](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
 
 1. Click **Sign in & Turn on**, then select the account to which you want your settings to be synced.
 
@@ -103,9 +103,12 @@ You can use your selected dotfiles repository to personalize your {% data variab
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Dotfiles", select **Automatically install dotfiles** so that {% data variables.product.prodname_github_codespaces %} automatically installs your dotfiles into every new codespace you create.
-   ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
-2. Choose the repository you want to install dotfiles from.
-   ![Selecting a dotfiles repo](/assets/images/help/codespaces/select-dotfiles-repo.png)
+
+   ![Screenshot of the "Dotfiles" section of the codespace settings, with the "Automatically install dotfiles" option cleared.](/assets/images/help/codespaces/install-custom-dotfiles.png)
+
+2. Use the dropdown to choose the repository you want to install dotfiles from.
+
+   ![Screenshot of the "Automatically install dotfiles" option selected and "monalisa/dotfiles" selected from a dropdown list of repositories.](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
 

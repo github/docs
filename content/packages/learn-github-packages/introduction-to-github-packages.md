@@ -29,16 +29,6 @@ You can integrate {% data variables.product.prodname_registry %} with {% ifversi
 
 {% data variables.product.prodname_registry %} offers different package registries for commonly used package managers, such as npm, RubyGems, Apache Maven, Gradle, Docker, and NuGet. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_container_registry %} is optimized for containers and supports Docker and OCI images.{% endif %} For more information on the different package registries that {% data variables.product.prodname_registry %} supports, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)."
 
-{% ifversion fpt or ghec %}
-
-![Diagram showing packages support for the Container registry, RubyGems, npm, Apache Maven, NuGet, and Gradle](/assets/images/help/package-registry/packages-diagram-with-container-registry.png)
-
-{% else %}
-
-![Diagram showing packages support for the Docker registry, RubyGems, npm, Apache Maven, Gradle, NuGet, and Docker](/assets/images/help/package-registry/packages-diagram-without-container-registry.png)
-
-{% endif %}
-
 You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages)."
 
 {% ifversion ghes %}
@@ -47,12 +37,23 @@ For more information about the configuration of {% data variables.product.prodna
 
 {% endif %}
 
-### Overview of package permissions and visibility
+### Overview of package permissions
 
-|                    |        |
-|--------------------|--------------------|
-| Permissions        | {% ifversion packages-registries-v2 %}The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific users or organizations. Some registries only support permissions inherited from a repository. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
-| Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
+{% ifversion packages-registries-v2 %}
+
+The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific users or organizations. Some registries only support permissions inherited from a repository. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+
+{% else %}
+
+Each package inherits the permissions of the repository where the package is hosted.
+
+For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.
+
+{% endif %}
+
+### Overview of package visibility
+
+{% data reusables.package_registry.public-or-private-packages %}
 
 {% ifversion fpt or ghec %}
 ## About billing for {% data variables.product.prodname_registry %}

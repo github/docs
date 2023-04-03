@@ -298,7 +298,7 @@ You can use the web interface to view a list of cache entries for a repository. 
    * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
    * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-entry-list.png)
+   ![Screenshot of the list of cache entries.](/assets/images/help/repository/actions-cache-entry-list.png)
 
 ### Deleting cache entries
 
@@ -307,9 +307,9 @@ Users with `write` access to a repository can use the {% data variables.product.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.actions-cache-list %}
-1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="The trash icon" %}. 
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}. 
 
-   ![Screenshot of the list of cache entries](/assets/images/help/repository/actions-cache-delete.png)
+   ![Screenshot of the list of cache entries. A trash can icon, used to delete a cache, is highlighted with a dark orange outline.](/assets/images/help/repository/actions-cache-delete.png)
 
 {% endif %}
 

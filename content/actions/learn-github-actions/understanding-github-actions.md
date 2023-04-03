@@ -46,13 +46,13 @@ For more information about introducing {% data variables.product.prodname_action
 
 You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Diagram of an event triggering Runner 1 to run Job 1, which triggers Runner 2 to run Job 2. Each of the jobs is broken into multiple steps.](/assets/images/help/actions/overview-actions-simple.png)
 
 ### Workflows
 
 {% data reusables.actions.about-workflows-long %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}You can reference a workflow within another workflow, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."{% endif %}
+You can reference a workflow within another workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 For more information about workflows, see "[AUTOTITLE](/actions/using-workflows)."
 
@@ -64,7 +64,7 @@ For a complete list of events that can be used to trigger workflows, see [Events
 
 ### Jobs
 
-A job is a set of _steps_ in a workflow that execute on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
+A job is a set of _steps_ in a workflow that is executed on the same runner.  Each step is either a shell script that will be executed, or an _action_ that will be run.  Steps are executed in order and are dependent on each other.  Since each step is executed on the same runner, you can share data from one step to another.  For example, you can have a step that builds your application followed by a step that tests the application that was built.
 
 You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
 

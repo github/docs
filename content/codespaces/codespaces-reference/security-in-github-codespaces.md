@@ -96,6 +96,14 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 
 We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
 
+{% note %}
+
+**Note:** The scope of the token in the codespace can change if you create a codespace from a fork to which you only have read access, then make a commit in the codespace. In this situation, as with any other repository, {% data variables.product.prodname_github_codespaces %} automatically creates a new fork, or links your codespace to an existing fork owned by your account, and updates the token to have read and write access to the newly linked fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
+
+When {% data variables.product.prodname_github_codespaces %} links your codespace to an existing fork, this existing fork can be either a fork of the fork from which you created a codespace, or your own fork of the shared upstream repository.
+
+{% endnote %}
+
 ### Additional good practices
 
 There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}.

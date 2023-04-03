@@ -1,6 +1,6 @@
 ---
 title: Creating a GitHub App
-intro: '{% data reusables.shortdesc.creating_github_apps %}'
+intro: 'You can create a {% data variables.product.prodname_github_app %} under your personal account or under any organization you own.'
 redirect_from:
   - /early-access/integrations/creating-an-integration
   - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
@@ -15,71 +15,44 @@ versions:
 topics:
   - GitHub Apps
 ---
-{% ifversion fpt or ghec %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest)."{% endif %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+## About creating {% data variables.product.prodname_github_apps %}
 
-  **Note:** {% data reusables.apps.maximum-github-apps-allowed %}
+You can create a {% data variables.product.prodname_github_app %} owned by your personal account, by an organization that you own, or by an organization that has granted you permission to manage all apps owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization)."
 
-{% endnote %}
-{% endif %}
+{% data reusables.apps.maximum-github-apps-allowed %}
+
+## Creating a {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 1. Click **New GitHub App**.
-![Button to create a new GitHub App](/assets/images/github-apps/github_apps_new.png)
-1. In "GitHub App name", type the name of your app.
-![Field for the name of your GitHub App](/assets/images/github-apps/github_apps_app_name.png)
+1. Under "GitHub App name", enter a name for your app. You should choose a clear and short name. Your app's name (converted to lowercase, with spaces replaced by `-`, and with special characters replaced) will be shown in the user interface when your app takes an action. For example, `My APp Näme` would display as `my-app-name`.
 
-  Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub account, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+   The name must be unique across {% data variables.product.company_short %}. You cannot use same name as an existing GitHub account, unless it is your own user or organization name.
 
-1. Optionally, in "Description", type a description of your app that users will see.
-![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
-1. In "Homepage URL", type the full URL to your app's website.
-![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes or ghec %}
-1. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. This URL is used if your app needs to identify and authorize user-to-server requests.
+1. Optionally, under "Description", type a description of your app. Users and organizations will see this description when they install your app.
+1. Under "Homepage URL", type the full URL to your app's website. If you don’t have a dedicated URL and your app's code is stored in a public repository, you can use that repository URL. Or, you can use the URL of the organization or user that owns the app.
+1. Optionally, under "Callback URL", enter the full URL to redirect to after a user authorizes the installation.
 
-  You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.
+   You can enter up to 10 callback URLs. To add additional callback URLs, click **Add callback URL**.
 
-  ![Button for 'Add callback URL' and field for callback URL](/assets/images/github-apps/github_apps_callback_url_multiple.png)
-{% else %}
-1. In "User authorization callback URL", type the full URL to redirect to after a user authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.
-![Field for the user authorization callback URL of your GitHub App](/assets/images/github-apps/github_apps_user_authorization.png)
+   If your app does not need to act on behalf of a user (does not need to generate a user access token), this field will be ignored. If your app uses device flow instead of web application flow to generate a user access token, this field will be ignored.
 
-{% endif %}
-1. By default, to improve your app's security, your app will use expiring user authorization tokens. To opt-out of using expiring user tokens, you must deselect "Expire user authorization tokens". To learn more about setting up a refresh token flow and the benefits of expiring user tokens, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-to-server-access-tokens)."
-  ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
-1. If your app authorizes users using the OAuth flow, you can select **Request user authorization (OAuth) during installation** to allow people to authorize the app when they install it, saving a step. If you select this option, the "Setup URL" becomes unavailable and users will be redirected to your "User authorization callback URL" after installing the app. See "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#authorizing-users-during-installation)" for more information.
-![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png){% ifversion device-flow-is-opt-in %}
-1. If your GitHub App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
-  ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
-1. If additional setup is required after installation, add a "Setup URL" to redirect users to after they install your app.
-![Field for the setup URL of your GitHub App ](/assets/images/github-apps/github_apps_setup_url.png)
+   For more information about the callback URL, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)." For more information about generating a user access token to act on behalf of a user, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
+1. Optionally, to prevent user access tokens from expiring, deselect **Expire user authorization tokens**. {% data variables.product.company_short %} strongly recommends that you leave this option selected. For more information about refreshing expired tokens and the benefits of user access tokens that expire, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)." If your app does not need to generate a user access token, this field will be ignored.
+1. Optionally, to prompt users to authorize your app when they install it, select **Request user authorization (OAuth) during installation**. If a user authorizes your app, your app can generate a user access token in order make API requests on the user's behalf and attribute app activity to the user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
+1. Optionally, if you want to use device flow to generate a user access token, select **Enable Device Flow**. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
+1. Optionally, under "Setup URL", enter the URL to redirect users to after they install your app. If additional setup is required after installation, you can use this URL to tell users what steps to take after installation.
 
-  {% note %}
-
-  **Note:** When you select **Request user authorization (OAuth) during installation** in the previous step, this field becomes unavailable and people will be redirected to the "User authorization callback URL" after installing the app.
-
-  {% endnote %}
-
-1. In "Webhook URL", type the URL that events will POST to. Each app receives its own webhook which will notify you every time the app is installed or modified, as well as any other events the app subscribes to.
-![Field for the webhook URL of your GitHub App](/assets/images/github-apps/github_apps_webhook_url.png)
-
-1. Optionally, in "Webhook Secret", type an optional secret token used to secure your webhooks.
-![Field to add a secret token for your webhook](/assets/images/github-apps/github_apps_webhook_secret.png)
-
-  {% note %}
-
-  **Note:** We highly recommend that you set a secret token. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks)."
-
-  {% endnote %}
-
-1. Under "Permissions", choose the permissions your app will request. For each type of permission, select the dropdown menu and click **Read-only**, **Read & write**, or **No access**.
-1. In "Subscribe to events", choose the events you want your app to receive.
-1. To choose where the app can be installed, select either **Only on this account** or **Any account**. For more information on installation options, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
-![Installation options for your GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
+   If you selected **Request user authorization (OAuth) during installation** in an earlier step, you will not be able to enter a URL here. Users will instead be redirected to the Callback URL as part of the authorization flow, where you can describe additional setup.
+1. Optionally, if you want to redirect users to the setup URL after they update an installation, select **Redirect on update**. An update includes adding or removing a repository for an installation. If "Setup URL" is blank, this will be ignored.
+1. Optionally, if you do not want your app to receive webhook events, deselect **Active**. For example, if your app will only be used for authentication or does not need to respond to webhooks, deselect this option. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+1. If you selected **Active** in the previous step, under "Webhook URL", enter the URL that {% data variables.product.company_short %} should send webhook events to. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+1. Optionally, if you selected **Active** in the previous step, under "Webhook secret", enter a secret token to secure your webhooks. {% data variables.product.company_short %} highly recommends that you set a webhook secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+1. If you entered a webhook URL, under "SSL verification", select whether to enable SSL verification. {% data variables.product.company_short %} highly recommends that you enable SSL verification.
+1. Under "Permissions", choose the permissions that your app needs. For each permission, select the dropdown menu and click **Read-only**, **Read & write**, or **No access**. You should select the minimum permissions necessary for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
+1. If you selected **Active** in the earlier step to indicate that your app should receive webhook events, under "Subscribe to events", select the webhook events that you want your app to receive. The permissions that you selected in the previous step determine what webhook events are available. For more information about each webhook event, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+1. Under "Where can this GitHub App be installed?", select  **Only on this account** or **Any account**. For more information on installation options, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
 1. Click **Create GitHub App**.
-![Button to create your GitHub App](/assets/images/github-apps/github_apps_create_github_app.png)

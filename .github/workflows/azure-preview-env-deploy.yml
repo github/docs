@@ -47,9 +47,9 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF) 
+        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
          && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
-       ) 
+       )
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
        &&  github.actor != 'dependabot[bot]'
     timeout-minutes: 15
@@ -201,7 +201,7 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
+        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
@@ -213,7 +213,7 @@ jobs:
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
 
-      - name: Check that it can reached
+      - name: Check that it can be reached
         # This introduces a necessary delay. Because the preview evironment
         # URL is announced to the pull request as soon as all the steps
         # finish, what sometimes happens is that a viewer of the PR clicks
@@ -223,4 +223,8 @@ jobs:
         # process requests.
         # By introducing a slight "delay" here we avoid announcing a
         # preview environment URL that isn't actually working just yet.
-        run: curl --retry-connrefused --retry 5 -I ${{ env.APP_URL }}
+        # Note the use of `--fail`. It which means that if it actually
+        # did connect but the error code was >=400, the command will fail.
+        # The `--fail --retry N` combination means that a 4xx response
+        # code will exit immediately but a 5xx will exhaust the retries.
+        run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

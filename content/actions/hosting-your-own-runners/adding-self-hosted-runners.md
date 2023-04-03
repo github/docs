@@ -46,13 +46,11 @@ You can set up automation to scale the number of self-hosted runners. For more i
 
 You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository. For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-runners %}
 1. Click **New self-hosted runner**.
 {% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
@@ -61,13 +59,12 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitor
 
 You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
+
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% ifversion actions-hosted-runners %}1. Click **New runner**, then click **New self-hosted runner**.{% else %}1. Click **New runner**.{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
-{% endif %}
 {% data reusables.actions.self-hosted-runner-check-installation-success %}
 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
@@ -81,7 +78,7 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitor
 {% ifversion ghec or ghes or ghae %}
 New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
 
-{% ifversion ghec or ghes or ghae > 3.3 %}
+{% ifversion ghec or ghes or ghae %}
 
 To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions#self-hosted-runners).
 

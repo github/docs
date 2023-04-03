@@ -32,7 +32,7 @@ The audit log lists events triggered by activities that affect your organization
 
 ### Search based on the action performed
 
-To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
+To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories.
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
@@ -62,8 +62,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
 | [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion ghec %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
-| [`org_secret_scanning_custom_pattern`](#org_secret_scanning_custom_pattern-category-actions) | Contains organization-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
-| [`org_secret_scanning_custom_pattern_push_protection`](#org_secret_scanning_custom_pattern_push_protection-category-actions) | Contains organization-level activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."{% endif %}
+| [`org_secret_scanning_custom_pattern`](#org_secret_scanning_custom_pattern-category-actions) | Contains organization-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
 | [`organization_default_label`](#organization_default_label-category-actions) | Contains all activities related to default labels for repositories in your organization.
 | [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.
 | [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
@@ -326,10 +325,10 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
-| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `delete` | Triggered when an environment is deleted. For more information, see ["Deleting an environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
-| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see ["Environment secrets](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `create_actions_secret` | Triggered when a secret is created in an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `delete` | Triggered when an environment is deleted. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
+| `remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+| `update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 {% endif %}
 
 {% ifversion ghae %}
@@ -473,15 +472,19 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% ifversion fpt or ghec %}
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
-| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion fpt or ghes or ghec %}
+| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion org-enable-code-scanning %}
+| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use the default setup for {% data variables.product.prodname_codeql %}.
+| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use the default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
 | `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
 | `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
-| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}
+| `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}{% ifversion display-ip-org-audit-log %}
+| `disable_source_ip_disclosure` | Triggered when an organization owner disables the display of IP addresses in the audit log for the organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)." | {% endif %}
 | `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
 | `disable_two_factor_requirement` | Triggered when an owner disables a two-factor authentication requirement for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
 | `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/organizations/managing-oauth-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
 | `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}{% endif %}
-| `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." |{% ifversion not ghae %}
+| `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)." |{% ifversion display-ip-org-audit-log %}
+| `enable_source_ip_disclosure` | Triggered when an organization owner enables the display of IP addresses in the audit log for the organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)." | {% endif %}{% ifversion not ghae %}
 | `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.{% endif %}{% ifversion fpt or ghec %}
 | `invite_member` | Triggered when [a new user was invited to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
 | `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization).
@@ -508,7 +511,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 | `runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
 | `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[AUTOTITLE](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[AUTOTITLE](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
+| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[AUTOTITLE](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
+| `secret_scanning_custom_pattern_push_protection_disabled`| Triggered when an organization owner or person with admin access disables push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `secret_scanning_custom_pattern_push_protection_enabled`| Triggered when an organization owner or person with admin access enables push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."{% endif %}
 {%- ifversion code-security-audit-log-events %}
 | `secret_scanning_push_protection_custom_message_disabled` | Triggered when an organization owner or admin disables the custom message triggered by an attempted push to a push-protected repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 | `secret_scanning_push_protection_custom_message_enabled` | Triggered when an organization owner or admin enables the custom message triggered by an attempted push to a push-protected repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
@@ -550,15 +555,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `create` | Triggered when a custom pattern is published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
 | `update` | Triggered when changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 | `delete` | Triggered when a custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-
-{% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
-
-### `org_secret_scanning_custom_pattern_push_protection` category actions
-
-| Action | Description
-|------------------|-------------------
-| `enable` | Triggered when an organization owner or person with admin access enables push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `disable` | Triggered when an organization owner or person with admin access enables push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
 
 {% endif %}
 
@@ -678,12 +674,16 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | Action | Description
 |------------------|-------------------
 | `access` | Triggered when a user [changes the visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) of a repository in the organization.
-| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
+| `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the audit log API](#using-the-audit-log-api)."
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 | `add_topic` | Triggered when a repository admin [adds a topic](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to a repository.
 | `advanced_security_disabled` | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 | `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).".
-| `archived` | Triggered when a repository admin [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).{% ifversion ghes %}
+| `archived` | Triggered when a repository admin [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).
+{%- ifversion remove-code-scanning-configurations %}
+| `code_scanning_configuration_for_branch_deleted` | Triggered when a {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository is deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+{%- endif %}
+{%- ifversion ghes %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
@@ -692,7 +692,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `create_actions_secret` |Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."{% endif %}
 | `destroy` | Triggered when [a repository is deleted](/repositories/creating-and-managing-repositories/deleting-a-repository).{% ifversion fpt or ghec %}
 | `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/billing/managing-your-github-billing-settings/unlocking-a-locked-account)).{% endif %}
-| `download_zip` | A source code archive of a repository was downloaded as a ZIP file.
+| `download_zip` | A source code archive of a repository was downloaded as a ZIP file.  For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)."
 | `enable` | Triggered when a repository is re-enabled.{% ifversion fpt or ghes or ghec %}
 | `remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.{% endif %}
 | `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository).
@@ -903,7 +903,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% data reusables.actions.actions-audit-events-workflow %}
 ## Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
-{%- endif %}

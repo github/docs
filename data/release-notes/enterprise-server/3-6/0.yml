@@ -213,9 +213,6 @@ sections:
         - |
           Repositories with multiple licenses display all of the licenses in the "About" sidebar on the {% octicon "code" aria-label="The code icon" %} **Code** tab. For more information, see "[Licensing a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
 
-        # https://github.com/github/releases/issues/2233
-        - When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
-
         # https://github.com/github/releases/issues/2093
         - |
           Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
@@ -298,7 +295,6 @@ sections:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
@@ -312,6 +308,8 @@ sections:
     - |
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
 
   deprecations:
     - heading: Changes to supported SSH algorithms

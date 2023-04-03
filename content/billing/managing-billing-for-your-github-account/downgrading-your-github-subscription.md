@@ -30,7 +30,7 @@ shortTitle: Downgrade subscription
 ---
 ## Downgrading your {% data variables.product.product_name %} subscription
 
-When you downgrade your personal account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+When you downgrade your personal account, organization, or enterprise account's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid account subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[AUTOTITLE](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
 ## Downgrading your personal account's subscription
 
@@ -48,17 +48,14 @@ If you published a {% data variables.product.prodname_pages %} site in a private
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-If you downgrade your organization from {% data variables.product.prodname_team %} to {% data variables.product.prodname_free_team %} for an organization, the account will lose access to advanced collaboration and management tools for teams.
+After an organization's subscription is downgraded, the organization will lose access to any functionality that is not included its new plan. If an advanced feature, such as {% data variables.product.prodname_pages %}, is not available for private repositories in your new plan, consider whether you'd like to retain access to the feature by making affected repositories public. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 
-If you downgrade your organization from {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}, the account will lose access to advanced security, compliance, and deployment controls. {% data reusables.gated-features.more-info %}
-
+Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SAML settings. If you later purchase {% data variables.product.prodname_enterprise %}, you will need to reconfigure SAML.
 
 
 {% note %}
 
-**Notes:**
-  - If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
-  - If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)."
+**Note:** If your organization is owned by an enterprise account, billing cannot be managed at the organization level. To downgrade, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
 {% endnote %}
 
@@ -89,6 +86,27 @@ To reduce the number of paid seats your organization uses, you can remove member
 1. Under "Current plan", next to your current plan, select the **Edit** dropdown menu, then click **Remove seats**.
 1. Under "Remove seats", select the number of seats you'd like to downgrade to.
 1. Review the information about your new payment on your next billing date, then click **Remove seats**.
+
+{% ifversion ghec %}
+## Downgrading your enterprise account's subscription
+
+Enterprise accounts are only available with {% data variables.product.prodname_enterprise %}, so it's not possible to downgrade an enterprise account to another plan.
+
+To downgrade the subscription of an individual organization within the enterprise account, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+
+If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, you can [contact our sales team](https://github.com/enterprise/contact). All organizations owned by the enterprise account will removed from the enterprise, and the enterprise account will be frozen.
+
+## Removing paid seats for your enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+If your enterprise account is invoiced, you cannot remove seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.enterprise-accounts.manage-seats %}
+{% endif %}
 
 ## Further reading
 

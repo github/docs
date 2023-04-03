@@ -18,15 +18,13 @@ shortTitle: Troubleshoot commits
 
 ## Expected behavior to view commit details
 
-On your profile page's timeline, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
+In the "Contribution activity" section of your profile page, you can click the number of commits next to a specific repository to see more details about your commits from that time period, including a diff of specific changes made in a repository.
 
-![Commit link on profile timeline](/assets/images/help/profile/commit-link-on-profile-timeline.png)
+![Screenshot of the "Contribution activity" section of a user profile. A link, labeled "29 commits" is highlighted with an orange outline.](/assets/images/help/profile/commit-link-on-profile-timeline.png)
 
 ## Missing commit details from commits in your timeline
 
 If you click a commit link from your profile page and don't see all of the expected commits on the repository's commits page, then it's possible the commit history in Git was rewritten and the commit author date and the commit date are different.
-
-![Repository page with message that says "no commits found for octocat"](/assets/images/help/repository/no-commits-found.png)
 
 ## How GitHub uses the Git author date and commit date
 

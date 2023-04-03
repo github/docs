@@ -6,11 +6,6 @@ import featureVersionsMiddleware from '../../middleware/contextualizers/features
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
-const template = `
-  {% if currentVersion ver_gt "enterprise-server@2.13" %}up to date{% endif %}
-  {% if currentVersion ver_lt "enterprise-server@2.13" %}out of date{% endif %}
-`
-
 // Setup these variables so we don't need to manually update tests as GHES
 // versions continually get deprecated.  For example, if we deprecate GHES 3.0,
 // oldestSupportedGhes will be 3.1, secondOldestSupportedGhes will be 3.2, and
@@ -46,37 +41,6 @@ const featureVersionsTemplate = `
 
 describe('liquid template parser', () => {
   jest.setTimeout(60 * 1000)
-
-  describe('custom operators', () => {
-    describe('ver_gt', () => {
-      test('works as expected', async () => {
-        const context = { currentVersion: 'enterprise-server@2.14' }
-        const output = await liquid.parseAndRender(template, context)
-        expect(output.trim()).toBe('up to date')
-      })
-
-      test('returns false when given value is not numeric, like `dotcom`', async () => {
-        const context = { currentVersion: 'free-pro-team@latest' }
-
-        const output = await liquid.parseAndRender(template, context)
-        expect(output.trim()).toBe('')
-      })
-
-      test('returns false when given value is falsy', async () => {
-        const context = {}
-        const output = await liquid.parseAndRender(template, context)
-        expect(output.trim()).toBe('')
-      })
-    })
-
-    describe('ver_lt', () => {
-      test('works as expected', async () => {
-        const context = { currentVersion: 'enterprise-server@2.12' }
-        const output = await liquid.parseAndRender(template, context)
-        expect(output.trim()).toBe('out of date')
-      })
-    })
-  })
 
   describe('short versions', () => {
     // Create a fake req so we can test the shortVersions middleware

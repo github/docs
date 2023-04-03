@@ -11,18 +11,22 @@ shortTitle: Configure basic settings
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-3. To view or change your settings, toggle between these panes:
-  ![The Preferences menu navigation](/assets/images/help/desktop/mac-select-accounts-pane.png)
-{% data reusables.desktop.preferences-options-tabs %}
+3. To view or change your settings, toggle between the panes in the "Preferences" window.
+  
+   ![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
+
+   {% indented_data_reference reusables.desktop.preferences-options-tabs spaces=3 %}
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-2. To view or change your settings, toggle between these panes:
-  ![The Options menu navigation](/assets/images/help/desktop/windows-select-accounts-pane.png)
-{% data reusables.desktop.preferences-options-tabs %}
+3. To view or change your settings, toggle between the panes in the "Options" window.
+  
+   ![Screenshot of the "Options" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/window-select-options-pane.png)
+
+   {% indented_data_reference reusables.desktop.preferences-options-tabs spaces=3 %}
 
 {% endwindows %}
 

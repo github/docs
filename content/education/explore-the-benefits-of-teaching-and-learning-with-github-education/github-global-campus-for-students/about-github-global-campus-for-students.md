@@ -47,3 +47,4 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 
 - "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)"
 - "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)"
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"

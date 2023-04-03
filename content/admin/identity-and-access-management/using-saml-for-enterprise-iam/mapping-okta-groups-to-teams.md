@@ -65,9 +65,7 @@ You can map a team in your enterprise to an Okta group you previously pushed to 
 
 Enterprise owners can use the site admin dashboard to check how Okta groups are mapped to teams on {% data variables.product.prodname_ghe_managed %}.
 
-1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-  ![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
-
+1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
 1. In the left pane, click **External groups**.
 1. To view more details about a group, in the list of external groups, click on a group.
 1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}.
@@ -76,8 +74,12 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
  To monitor SSO activity for mapped groups, you can review the following events in the {% data variables.product.prodname_ghe_managed %} audit log.
 
+For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+
+ ### `external_group` events
+
 {% data reusables.saml.external-group-audit-events %}
 
-{% data reusables.saml.external-identity-audit-events %}
+### `external_identity` events
 
-For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+{% data reusables.saml.external-identity-audit-events %}

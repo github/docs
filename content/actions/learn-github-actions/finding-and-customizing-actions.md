@@ -40,14 +40,14 @@ The actions you use in your workflow can be defined in:
 You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {% data variables.product.prodname_dotcom %} community.
 
 1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-   ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
+1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="Edit file" %}.
+   ![Screenshot of a workflow file showing the header section. The pencil icon for editing files is highlighted with a dark orange outline.](/assets/images/help/repository/actions-edit-workflow-file.png)
+1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="Creator verified by GitHub" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
+   ![Screenshot of a workflow file in edit mode. The right sidebar shows Marketplace actions. A checkmark in a stamp icon, showing that the creator is verified by GitHub, is outlined in orange.](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
 ## Adding an action to your workflow
 
-You can add an action to your workflow by referencing the action in your workflow file. 
+You can add an action to your workflow by referencing the action in your workflow file.
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
@@ -66,8 +66,9 @@ You can view the actions referenced in your {% data variables.product.prodname_a
 An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
 
 1. Navigate to the action you want to use in your workflow.
-1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
-   ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
+1. Click to view the full marketplace listing for the action.
+1. Under "Installation", click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the workflow syntax.
+   ![Screenshot of the marketplace listing for an action. The "Copy to clipboard" icon for the action is highlighted with a dark orange outline.](/assets/images/help/repository/actions-sidebar-detailed-view.png)
 1. Paste the syntax as a new step in your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
 
@@ -158,7 +159,7 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However, this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. {% data reusables.actions.actions-pin-commit-sha %} This example targets an action's SHA:
 
 ```yaml
 steps:

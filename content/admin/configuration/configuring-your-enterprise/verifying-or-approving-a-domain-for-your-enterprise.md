@@ -88,5 +88,6 @@ To verify your enterprise account's domain, you must have access to modify domai
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-    !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)
+1. To the right of the domain to remove, select the {% octicon "kebab-horizontal" aria-label="Show more options" %} dropdown menu, then click **Delete**.
+
+   ![Screenshot of the "Verified & approved domains" page. To the right of a domain, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/continue-verifying-domain.png)

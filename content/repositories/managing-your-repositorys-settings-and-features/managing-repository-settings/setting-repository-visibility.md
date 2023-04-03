@@ -87,17 +87,10 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", to the right of to "Change repository visibility", click **Change visibility**.
-   ![Change visibility button](/assets/images/help/repository/repo-change-vis.png)
-4. Select a visibility.
-{% ifversion fpt or ghec %}
-   ![Dialog of options for repository visibility](/assets/images/help/repository/repo-change-select.png){% else %}
-   ![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
-5. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
-6. Click **I understand, change repository visibility**.
-{% ifversion fpt or ghec %}
-   ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png){% else %}
-   ![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
+1. In the "Danger Zone" section, to the right of to "Change repository visibility", click **Change visibility**.
+1. Select a visibility.
+1. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
+1. Click **I understand, change repository visibility**.
 
 
 ## Further reading

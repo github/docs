@@ -338,7 +338,7 @@ jobs:
 
 {% endpowershell %}
 
-![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
 ## Masking a value in log
 
@@ -873,7 +873,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 #### Example of a multiline string
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+This example selects a random value for `$EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -882,9 +882,10 @@ steps:
   - name: Set the value in bash
     id: step_one
     run: |
-      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+      echo "JSON_RESPONSE<<$EOF" >> $GITHUB_ENV
       curl https://example.com >> $GITHUB_ENV
-      echo 'EOF' >> $GITHUB_ENV
+      echo "$EOF" >> $GITHUB_ENV
 ```
 
 {% endbash %}
@@ -896,9 +897,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
+      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
+      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
       (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
-      "EOF" >> $env:GITHUB_ENV
+      "$EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
@@ -907,7 +909,7 @@ steps:
 {% ifversion actions-save-state-set-output-envs %}
 ## Setting an output parameter
 
-Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value.
+Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the "[Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings)" section to define multi-line environment variables.
 
 {% bash %}
 
@@ -1004,7 +1006,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% endpowershell %}
 
-![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+![Screenshot of the summary page of a workflow run. Under "example summary" is "Hello world!" and a rocket emoji.](/assets/images/help/actions/actions-job-summary-simple-example.png)
 
 ### Multiline Markdown content
 

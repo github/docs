@@ -15,6 +15,10 @@ topics:
 shortTitle: Require 2FA
 ---
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
 ## About two-factor authentication for organizations
 
 {% data reusables.two_fa.about-2fa %} You can require all {% ifversion fpt or ghec %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
@@ -22,6 +26,12 @@ shortTitle: Require 2FA
 {% ifversion fpt or ghec %}
 
 You can also require two-factor authentication for organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)."
+
+{% note %}
+
+**Note**: Some of the users in your organization may have been selected for mandatory two-factor authentication enrollment by  {% data variables.product.prodname_dotcom_the_website %}, but it has no impact on how you enable the 2FA requirement for your organization. If you enable the 2FA requirement in your organization, all users without 2FA currently enabled will be removed from your organization, including those that are required to enable it by {% data variables.product.prodname_dotcom_the_website %}. 
+
+{% endnote %}
 
 {% endif %}
 
@@ -56,7 +66,7 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 
 ## Viewing people who were removed from your organization
 
-To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can search your organization's audit log for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
+To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can search your organization's audit log for people removed from your organization. The audit log event will show if a person was removed for 2FA non-compliance. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#accessing-the-audit-log)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

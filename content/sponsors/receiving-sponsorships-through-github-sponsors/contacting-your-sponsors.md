@@ -22,8 +22,8 @@ For sponsored developer accounts, the update will come from your personal accoun
 ## Contacting your sponsors
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.sponsors-updates-tab %}
-{% data reusables.sponsors.draft-new-update %}
-{% data reusables.sponsors.send-update-to-sponsors %}
-{% data reusables.sponsors.write-sponsor-update %}
+1. In the "Manage" section of the sidebar, click **Newsletters**.
+1. To the right of "Email updates to your sponsors", click **Draft a new update**.
+1. Optionally, to send your email to sponsors on specific tiers, click the **All sponsors** dropdown menu, then select one or more tiers.
+1. Type a subject and message for your update.
 {% data reusables.sponsors.publish-sponsor-update %}

@@ -1,1 +1,1 @@
-1. Review your new payment details, then click **Change plan duration**.
+1. Review your new payment details, then click **Change your account's billing cycle**.

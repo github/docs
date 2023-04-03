@@ -15,6 +15,7 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces
   - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 {% warning %}
@@ -30,10 +31,14 @@ To manage which users in your organization can use {% data variables.product.pro
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-1. Under "Access and security", select the setting you want for your organization.
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-org-access-and-security-radio-buttons.png)
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat for all repositories whose codespaces you want to access other repositories.
-    !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+{% data reusables.organizations.click-general %}
+1. On the {% data variables.product.prodname_codespaces %} settings page, under "Access and security", select the setting you want for your organization:
+
+   - **Disabled** - Limit the access of codespaces to only the repository they were created from.
+   - **All repositories** - All codespaces created from repositories in my organization can access other repositories owned by my organization.
+   - **Selected repositories** - Codespaces created for specific repositories in my organization can access other repositories owned by my organization.
+
+1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories owned by your organization. Repeat this step for all repositories whose codespaces you want to access other repositories.
 
 ## Further reading
 

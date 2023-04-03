@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { Heading } from '@primer/react'
 
-import { sendEvent, EventType } from 'components/lib/events'
+import { sendEvent, EventType } from 'src/events/browser'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useNumberFormatter } from 'components/hooks/useNumberFormatter'

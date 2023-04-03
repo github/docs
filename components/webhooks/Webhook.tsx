@@ -50,7 +50,6 @@ export function Webhook({ webhook }: Props) {
   const version = useVersion()
   const { t } = useTranslation('products')
   const router = useRouter()
-  const { locale } = router
 
   const context = useMainContext()
   // Get more user friendly language for the different availability options in
@@ -62,7 +61,9 @@ export function Webhook({ webhook }: Props) {
   // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
   // The selected webhook action type the user selects via a dropdown
-  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
+  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState(
+    webhook.actionTypes.length > 1 ? webhook.actionTypes[0] : ''
+  )
   // The index of the selected action type so we can highlight which one is selected
   // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
@@ -84,7 +85,6 @@ export function Webhook({ webhook }: Props) {
     const url = new URL(location.href)
     const actionType = url.searchParams.get('actionType')
     const hash = url.hash?.slice(1)
-
     if (actionType && hash && webhook.actionTypes.includes(actionType) && hash === webhookSlug) {
       setSelectedWebhookActionType(actionType)
       setSelectedActionTypeIndex(webhook.actionTypes.indexOf(actionType))
@@ -105,7 +105,7 @@ export function Webhook({ webhook }: Props) {
     setSelectedWebhookActionType(type)
     setSelectedActionTypeIndex(index)
 
-    const { asPath } = router
+    const { asPath, locale } = router
     let [pathRoot, pathQuery = ''] = asPath.split('?')
     const params = new URLSearchParams(pathQuery)
 
@@ -114,10 +114,13 @@ export function Webhook({ webhook }: Props) {
     }
 
     params.set('actionType', type)
-    router.push({ pathname: pathRoot, query: params.toString(), hash: webhookSlug }, undefined, {
-      shallow: true,
-      locale,
-    })
+    router.push(
+      { pathname: `/${locale}${pathRoot}`, query: params.toString(), hash: webhookSlug },
+      undefined,
+      {
+        shallow: true,
+      }
+    )
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked
@@ -147,12 +150,18 @@ export function Webhook({ webhook }: Props) {
     <div>
       <h2 id={webhookSlug}>
         <LinkIconHeading slug={webhookSlug} />
-        {currentWebhookAction.category}
+        <code>{currentWebhookAction.category}</code>
       </h2>
       <div>
         <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
-
-        <h3>{t('webhooks.availability')}</h3>
+        <h3
+          dangerouslySetInnerHTML={{
+            __html: t('webhooks.availability').replace(
+              '{{ WebhookName }}',
+              currentWebhookAction.category
+            ),
+          }}
+        />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
             // TODO: once 3.7 is the oldest supported version of GHES, we won't need this anymore.
@@ -172,7 +181,14 @@ export function Webhook({ webhook }: Props) {
             }
           })}
         </ul>
-        <h3>{t('webhooks.webhook_payload_object')}</h3>
+        <h3
+          dangerouslySetInnerHTML={{
+            __html: t('webhooks.webhook_payload_object').replace(
+              '{{ WebhookName }}',
+              currentWebhookAction.category
+            ),
+          }}
+        />
         {error && (
           <Flash className="mb-5" variant="danger">
             <p>{t('webhooks.action_type_switch_error')}</p>
@@ -185,11 +201,14 @@ export function Webhook({ webhook }: Props) {
         )}
         {webhook.actionTypes.length > 1 && (
           <div className="mb-4">
-            <h4 className="border-bottom pt-2 pb-2 mb-3">{t('webhooks.action_type')}</h4>
             <div className="mb-3">
               <ActionMenu>
-                <ActionMenu.Button aria-label="Select a webhook action type" className="text-bold">
-                  {currentWebhookActionType}
+                <ActionMenu.Button
+                  aria-label="Select a webhook action type"
+                  className="text-normal"
+                >
+                  {t('webhooks.action_type')}:{' '}
+                  <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">

@@ -1,9 +1,9 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Runner image</b></th>
-    <th style="width:25%"><b>YAML workflow label</b></th>
-    <th style="width:40%"><b>Notes</b></th>
+    <th scope="col" style="width:35%"><b>Runner image</b></th>
+    <th scope="col" style="width:25%"><b>YAML workflow label</b></th>
+    <th scope="col" style="width:40%"><b>Notes</b></th>
   </tr>
 </thead>
 <tbody>
@@ -25,7 +25,7 @@ Windows Server 2019
 <td>
 <code>windows-2019</code>
 </td>
-<td>
+<td>None
 </td>
 </tr>
 <tr>
@@ -46,7 +46,7 @@ Ubuntu 20.04
 <td>
 <code>ubuntu-20.04</code>
 </td>
-<td>
+<td>None
 </rd>
 </tr>
 <tr>
@@ -65,10 +65,10 @@ Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more info
 macOS Monterey 12
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-12</code>
+<code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
 </td>
 <td>
-The <code>macos-latest</code> label currently uses the macOS 12 runner image.
+The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
 </td>
 </tr>
 <tr>
@@ -78,7 +78,7 @@ macOS Big Sur 11
 <td>
 <code>macos-11</code>
 </td>
-<td>
+<td>None
 </td>
 </tr>
 <tr>

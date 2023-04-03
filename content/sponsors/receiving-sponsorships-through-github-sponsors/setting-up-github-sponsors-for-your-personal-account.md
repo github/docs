@@ -23,13 +23,10 @@ shortTitle: Set up for personal account
 To join {% data variables.product.prodname_sponsors %} as an organization, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. If you are an organization owner, you have more than one eligible account. Click **Get sponsored**, then in the list of accounts, find your personal account.
-  ![Screenshot of the Get sponsored button](/assets/images/help/sponsors/get-sponsored.png)
-3. Click **Join the waitlist**.
+1. If you are an organization owner, you have more than one eligible account. Click **Get sponsored**, then in the list of accounts, find your personal account.
+1. Click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.payout-choice %}
-  ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/user-waitlist-payout-options.png)
-
 {% data reusables.sponsors.accept-legal-terms %}
 
 If you have a bank account in a supported region, {% data variables.product.prodname_dotcom %} will review your application within two weeks.
@@ -90,6 +87,5 @@ Before you can become a sponsored developer, you must enable 2FA for your accoun
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Click **Request approval**.
-  ![Request approval button](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

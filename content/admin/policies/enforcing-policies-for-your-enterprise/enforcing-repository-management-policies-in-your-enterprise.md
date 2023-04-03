@@ -66,8 +66,6 @@ If an enterprise owner disallows members from creating certain types of reposito
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
-  ![Drop-down menu to choose the default repository visibility for your enterprise](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
-
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
 {% endif %}
@@ -195,10 +193,10 @@ By default, when you enforce repository upload limits, people cannot add or upda
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Repository upload limit", use the drop-down menu and click a maximum object size.
-![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
-![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+1. Under "Repository upload limit", use the drop-down menu and click a maximum object size.
+1. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories**
+
+   ![Screenshot of the "Repository upload limit" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
 {% ifversion profile-name-enterprise-setting %}
 
@@ -206,7 +204,7 @@ By default, when you enforce repository upload limits, people cannot add or upda
 
 Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
 
-![Commenter's profile name displayed in comment](/assets/images/help/issues/commenter-full-name.png)
+![Screenshot of an issue comment. The header says "ashtom (Thomas Dohmke) commented 1 minute ago," with "(Thomas Dohmke)" outlined in dark orange.](/assets/images/help/issues/commenter-full-name.png)
 
 {% note %}
 
@@ -217,10 +215,10 @@ Across all organizations owned by your enterprise, you can allow members to see 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy.
-![Screenshot of Options page with policy drop down emphasized](/assets/images/enterprise/site-admin-settings/comment-authors-profile-name-drop-down.png)
-5. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**.
-![Screenshot of "Enforce for all repositories" option emphasized](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+1. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy.
+1. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**.
+
+   ![Screenshot of the "Allow members to see the comment author's profile name in public and internal repositories" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
 {% endif %}
 
@@ -247,9 +245,8 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Force pushes", use the drop-down menu, and click **Allow**, **Block** or **Block to the default branch**.
-![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
-5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
+1. Under "Force pushes", select the dropdown menu, and click **Allow**, **Block**, or **Block to the default branch**.
+1. Optionally, to override organization and repository level settings for force pushes, select **Enforce on all repositories**.
 
 ### Blocking force pushes to a specific repository
 
@@ -260,9 +257,7 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise_site_admin_settings.repository-search %}
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Select **Block** or **Block to the default branch** under **Push and Pull**.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
+1. Under "Push and Pull", to the right of "Force pushes", select the dropdown menu, and click **Block** or **Block to the default branch**.
 
 ### Blocking force pushes to repositories owned by a user account or organization
 
@@ -275,13 +270,12 @@ You can override the default inherited settings by configuring the settings for 
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Repository default settings" in the "Force pushes" section, select
-    - **Block** to block force pushes to all branches.
-    - **Block to the default branch** to only block force pushes to the default branch.
-  ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an enterprise-wide policy.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+1. Under "Repository default settings" in the "Force pushes" section, select a policy.
+    - To block force pushes to all branches, select **Block**.
+    - To only block force pushes to the default branch, select **Block to the default branch**.
+6. Optionally, to override repository-specific settings, select **Enforce on all repositories**. Note that this will **not** override an enterprise-wide policy.
+
+   ![Screenshot of the "Repository default settings" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 {% endif %}
 
@@ -333,10 +327,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
-![Anonymous Git read access drop-down menu showing menu options "Enabled" and "Disabled"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.
-![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+1. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
+1. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.
 
 ### Setting anonymous Git read access for a specific repository
 
@@ -344,12 +336,9 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% data reusables.enterprise_site_admin_settings.repository-search %}
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-6. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
-!["Enabled" button under "Enable anonymous Git read access" in danger zone of a repository's site admin settings ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
-7. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
-![Confirm anonymous Git read access setting in pop-up window](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
-8. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from changing anonymous Git read access**.
-![Select checkbox to prevent repository admins from changing anonymous Git read access for this repository](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
+1. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
 
+   ![Screenshot of the "Danger Zone" section of a repository's site admin settings. To the right of "Enable anonymous Git read access", the "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
+1. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
+1. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from disabling anonymous Git read access**.
 {% endif %}

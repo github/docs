@@ -48,13 +48,13 @@ Organization members must also have an active SAML session to authorize an {% da
 
 Some IdPs support provisioning access to a {% data variables.product.prodname_dotcom %} organization via SCIM. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
-{% data reusables.scim.enterprise-account-scim %} 
+{% data reusables.scim.enterprise-account-scim %}
 
 ## Adding members to an organization using SAML SSO
 
 After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)" and "[AUTOTITLE](/rest/orgs#add-or-update-organization-membership)."
 
-To provision new users without an invitation from an organization owner, you can use the URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, replacing _ORGANIZATION_ with the name of your organization. For example, you can configure your IdP so that anyone with access to the IdP can click a link on the IdP's dashboard to join your {% data variables.product.prodname_dotcom %} organization.
+To provision new users without an invitation from an organization owner, you can use the URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, replacing ORGANIZATION with the name of your organization. For example, you can configure your IdP so that anyone with access to the IdP can click a link on the IdP's dashboard to join your {% data variables.product.prodname_dotcom %} organization.
 
 {% note %}
 
@@ -65,8 +65,6 @@ To provision new users without an invitation from an organization owner, you can
 If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can automatically invite members to join your organization when you grant access on your IdP. If you remove a member's access to your {% data variables.product.prodname_dotcom %} organization on your SAML IdP, the member will be automatically removed from the {% data variables.product.prodname_dotcom %} organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% data reusables.organizations.team-synchronization %}
-
-{% data reusables.saml.saml-single-logout-not-supported %}
 
 ## Further reading
 

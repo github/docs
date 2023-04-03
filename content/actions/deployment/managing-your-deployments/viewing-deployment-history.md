@@ -17,10 +17,7 @@ redirect_from:
 
 You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." For more information about deployments with the REST API, see "[AUTOTITLE](/rest/repos#deployments)."
 
-To view current and past deployments, click **Environments** on the home page of your repository.
-{% ifversion ghae %}
-![Environments](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
-![Environments](/assets/images/environments-sidebar.png){% endif %}
+To view current and past deployments, click **Environments** in the sidebar of the home page of your repository.
 
 The deployments page displays the last active deployment of each environment for your repository. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
 

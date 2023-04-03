@@ -33,13 +33,17 @@ If you're a member of an organization that uses {% data variables.product.prodna
 
 {% ifversion not ghae %}
 
+{% rowheaders %}
+
 |  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
 |----|---------------|-------|---------------|
-| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Check" %}  |  |  |  
-| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |  
-| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  |  |
-| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
-| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Check" %}  | {% octicon "check" aria-label="Check" %}  | Available to purchase |
+| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
+| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
+
+{% endrowheaders %}
 
 {% endif %}
 
@@ -62,7 +66,7 @@ For more information, see "[AUTOTITLE](/support/learning-about-github-support/ab
 
 {% ifversion fpt or ghec or ghae %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on 
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on
 {%- ifversion fpt or ghec %}
 [{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
 {%- elsif ghae %}
@@ -79,7 +83,7 @@ To report account, security, and abuse issues, or to receive assisted support fo
 
 {% ifversion fpt %}
 If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
-{% else %} 
+{% else %}
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
@@ -134,7 +138,7 @@ If {% data variables.contact.github_support %} needs to access a private reposit
 {% ifversion ghec or ghes %}
 ## Contacting GitHub Sales and GitHub Training
 
-For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %}.
 
 To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
@@ -159,7 +163,7 @@ For urgent issues, we are available 24 hours per day, 7 days per week, even duri
 
 ### Support in Japanese
 
-For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan. 
+For standard non-urgent issues, support in Japanese is available Monday through Friday from 9:00 AM to 5:00 PM JST, excluding national holidays in Japan.
 
 {% ifversion ghes %}
 For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.

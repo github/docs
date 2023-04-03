@@ -35,7 +35,7 @@ When the job begins, {% data variables.product.prodname_dotcom %} automatically 
 
 The following diagram demonstrates how two jobs in a workflow are executed on two different {% data variables.product.prodname_dotcom %}-hosted runners.
 
-![Two runners processing separate jobs](/assets/images/help/images/overview-github-hosted-runner.png)
+![Diagram of a workflow that consists of two jobs. One job runs on Ubuntu and the other runs on Windows.](/assets/images/help/actions/overview-github-hosted-runner.png)
 
 The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job.
 
@@ -79,7 +79,7 @@ jobs:
 
 While the job runs, the logs and output can be viewed in the {% data variables.product.prodname_dotcom %} UI:
 
-![Job output in the Actions UI](/assets/images/help/repository/actions-runner-output.png)
+![Screenshot of a workflow run. The steps for the "Run PSScriptAnalyzer on Windows" job are displayed.](/assets/images/help/repository/actions-runner-output.png)
 
 {% data reusables.actions.runner-app-open-source %}
 
@@ -115,7 +115,7 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 ### Preinstalled software
 
 Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
-![Installed software link](/assets/images/actions-runner-installed-software-link.png)
+
 For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
 For the overall list of included tools for each runner operating system, see the links below:

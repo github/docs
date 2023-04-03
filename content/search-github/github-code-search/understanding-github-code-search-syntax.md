@@ -212,7 +212,7 @@ To search for a filename which contains a special character like `*` or `?`, jus
 path:"file?"
 ```
 
-Since glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
+Glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
 
 ### Symbol qualifier
 
@@ -259,16 +259,22 @@ This query would only match files containing the term `README.md`, rather than m
 
 ### Is qualifier
 
-To filter based on document properties, you can use the `is:` qualifier. At this time, the only value supported in this qualifier is `archived`, which restricts the search to archived repositories. For example:
+To filter based on repository properties, you can use the `is:` qualifier. At this time, `is:` supports two values: `archived`, which restricts the search to archived repositories, and `fork`, which restricts the search to forked repositories. For example:
 
 ```
-path:/MIT.txt is:archived
+path:/^MIT.txt$/ is:archived
 ```
 
 Note that the `is:` qualifier can be inverted with the `NOT` operator. To search for non-archived repositories, you can search:
 
 ```
 log4j NOT is:archived
+```
+
+To exclude forks from your results, you can search:
+
+```
+log4j NOT is:fork
 ```
 
 ## Using regular expressions

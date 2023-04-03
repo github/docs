@@ -31,34 +31,15 @@ To develop in a codespace directly in {% data variables.product.prodname_vscode_
 
 Use the {% data variables.product.prodname_vscode_marketplace %} to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-
-{% mac %}
-
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Click **Sign in to {% data variables.product.prodname_dotcom %}...**.
+1. Select "{% data variables.product.prodname_github_codespaces %}" from the dropdown at the top of the "Remote Explorer" side bar, if it is not already selected.
+1. Click **Sign in to {% data variables.product.prodname_dotcom %}**.
 
-   ![Signing in to {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
+   ![Screenshot of the "Remote Explorer" side bar for "{% data variables.product.prodname_github_codespaces %}" with the "Sign in to {% data variables.product.prodname_dotcom %}" button displayed.](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
-2. To authorize {% data variables.product.prodname_vscode_shortname %} to access your account on {% data variables.product.product_name %}, click **Allow**.
-3. Sign in to {% data variables.product.product_name %} to approve the extension.
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Use the "REMOTE EXPLORER" drop-down, then click **{% data variables.product.prodname_github_codespaces %}**.
-
-   ![The {% data variables.product.prodname_github_codespaces %} header](/assets/images/help/codespaces/codespaces-header-vscode.png)
-
-1. Click **Sign in to view {% data variables.product.prodname_codespaces %}**.
-
-   ![Signing in to view {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
-
-1. To authorize {% data variables.product.prodname_vscode_shortname %} to access your account on {% data variables.product.product_name %}, click **Allow**.
-1. Sign in to {% data variables.product.product_name %} to approve the extension.
-
-{% endwindows %}
+1. If you are not currently signed in to {% data variables.product.prodname_dotcom %} you'll be prompted to do so. Go ahead and sign in.
+1. When you're prompted to specify what you want to authorize, click the **Authorize** button for "{% data variables.product.prodname_dotcom %}."
+1. If the authorization page is displayed, click **Authorize Visual-Studio-Code**.
 
 ## Creating a codespace in {% data variables.product.prodname_vscode_shortname %}
 
@@ -67,10 +48,10 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 ## Opening a codespace in {% data variables.product.prodname_vscode_shortname %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Under "Codespaces", click the codespace you want to develop in.
-1. Click the Connect to Codespace icon.
+1. Under "{% data variables.product.prodname_github_codespaces %}", hover over the codespace you want to develop in.
+1. Click the connection icon (a plug symbol).
 
-   ![The Connect to Codespace icon in {% data variables.product.prodname_vscode_shortname %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
+   ![Screenshot of the "Remote Explorer" side bar. The connection icon for a codespace (a plug symbol) is highlighted with a dark orange outline.](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ## Changing the machine type in {% data variables.product.prodname_vscode_shortname %}
 
@@ -90,16 +71,24 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
-## Switching to the Insiders build of {% data variables.product.prodname_vscode_shortname %}
+## Switching to {% data variables.product.prodname_vscode_shortname %} Insiders in the web client
 
-You can use the [Insiders Build of {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/setup/setup-overview#_insiders-nightly-build) within {% data variables.product.prodname_github_codespaces %}.
+If you are using the {% data variables.product.prodname_vscode_shortname %} web client, you can switch to the Insiders version of the application. For more information about this version of {% data variables.product.prodname_vscode_shortname %}, see [Introducing the Insiders Build](https://code.visualstudio.com/blogs/2016/02/01/introducing_insiders_build) in the {% data variables.product.prodname_vscode_shortname %} blog.
 
-1. In bottom left of your {% data variables.product.prodname_github_codespaces %} window, select **{% octicon "gear" aria-label="The settings icon" %} Settings**.
-2. From the list, select "Switch to Insiders Version".
+After you switch versions in a codespace, the web client will continue to use the Insiders version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Insiders version.
 
-   ![Clicking on "Insiders Build" in {% data variables.product.prodname_github_codespaces %}](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
+1. In bottom left of the browser window that's displaying a codespace, click **{% octicon "gear" aria-label="The settings icon" %}**.
+2. In the menu, select "Switch to Insiders Version."
 
-3. Once selected, {% data variables.product.prodname_github_codespaces %} will continue to open in Insiders Version.
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} web client. A gear icon is highlighted with an orange outline. "Switch to Insiders Version" is shown in the menu.](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
+
+3. Click **Reload**.
+
+To switch back to the Stable version of {% data variables.product.prodname_vscode_shortname %}, repeat the process but choose **Switch to Stable Version**. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Stable version.
+
+## Using the Insiders desktop application for {% data variables.product.prodname_codespaces %}
+		
+To use {% data variables.product.prodname_github_codespaces %} in the Insiders version of the {% data variables.product.prodname_vscode_shortname %} desktop application, start or create your codespaces from within the {% data variables.product.prodname_vscode_shortname %} Insiders application. For more information see "[Creating a codespace in {% data variables.product.prodname_vscode_shortname %}](#creating-a-codespace-in-vs-code)" and "[Opening a codespace in {% data variables.product.prodname_vscode_shortname %}](#opening-a-codespace-in-vs-code)" earlier in this article.
 
 ## Further reading
 

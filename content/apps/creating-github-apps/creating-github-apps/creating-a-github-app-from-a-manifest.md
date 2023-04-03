@@ -52,8 +52,6 @@ You must include the [GitHub App Manifest parameters](#github-app-manifest-param
 
 The person creating the app will be redirected to a GitHub page with an input field where they can edit the name of the app you included in the `manifest` parameter. If you do not include a `name` in the `manifest`, they can set their own name for the app in this field.
 
-![Create a GitHub App Manifest](/assets/images/github-apps/create-github-app-manifest.png)
-
 #### GitHub App Manifest parameters
 
  Name | Type | Description
@@ -71,7 +69,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `request_oauth_on_install` | `boolean` | Set to `true` to request the user to authorize the {% data variables.product.prodname_github_app %}, after the {% data variables.product.prodname_github_app %} is installed.
 `setup_on_update` | `boolean` | Set to `true` to redirect users to the `setup_url` after they update your {% data variables.product.prodname_github_app %} installation.
 
-The `hook_attributes` object has the following key:
+The `hook_attributes` object has the following keys.
 
 Name | Type | Description
 -----|------|-------------
@@ -193,9 +191,7 @@ To create a Probot App that you can share, follow these steps:
 1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
 1. Open the project you created, and customize the settings in the `app.yml` file. Probot uses the settings in `app.yml` as the [GitHub App Manifest parameters](#github-app-manifest-parameters).
 1. Add your application's custom code.
-1. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally) or [host it anywhere you'd like](#hosting-your-app-with-glitch). When you navigate to the hosted app's URL, you'll find a web page with a **Register GitHub App** button that people can click to create a preconfigured app. The web page below is Probot's implementation of [step 1](#1-you-redirect-people-to-github-to-create-a-new-github-app) in the GitHub App Manifest flow:
-
-![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
+1. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally) or [host it anywhere you'd like](#hosting-your-app-with-glitch). When you navigate to the hosted app's URL, you'll find a web page with a **Register GitHub App** button that people can click to create a preconfigured app.
 
 Using [dotenv](https://github.com/bkeepers/dotenv), Probot creates a `.env` file and sets the `APP_ID`, `PRIVATE_KEY`, and `WEBHOOK_SECRET` environment variables with the values [retrieved from the app configuration](#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 

@@ -13,9 +13,18 @@ shortTitle: Creation and deletion
 ## Creating codespaces
 
 ### No access to create a codespace
-{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the options for creating a codespace are not displayed, {% data variables.product.prodname_github_codespaces %} may not be available for that repository. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#access-to-codespaces)."
+{% data variables.product.prodname_github_codespaces %} is not available for all repositories. If the options for creating a codespace are not displayed, {% data variables.product.prodname_github_codespaces %} may not be available for that repository.
 
-Provided you have remaining monthly included usage of {% data variables.product.prodname_github_codespaces %} on your personal account, or you have set up a payment method and a spending limit, you will be able to create codespaces for public repositories. However, you can only create a codespace for a private repository if you can push changes to the repository, or you can fork the repository.
+If you have remaining monthly included usage of {% data variables.product.prodname_github_codespaces %} on your personal account, or you have set up a payment method and a spending limit, you can create a codespace for any public repository. 
+
+You can also create a codespace for any private repository to which you have at least read access, provided this private repository is owned by a personal account. If a repository is private {% ifversion ghec %}or internal {% endif %}and is owned by an organization, you may or may not be able to create a codespace for that repository, depending on the settings of the organization or its parent enterprise.
+
+If you can't create a codespace for a repository, this may be due to one of the following reasons.
+- If you have used up your included monthly usage for {% data variables.product.prodname_github_codespaces %}, and have not set up a payment method and a spending limit, you can only create codespaces that are owned and paid for by an organization.
+- Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."{% ifversion ghec %}
+- {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
+
+For more information about organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
 
 For more information about included usage for personal accounts, and setting a spending limit, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
@@ -50,13 +59,15 @@ If you create a codespace and the creation fails:
    {% note %}
 
    **Note**: To view the logs during a build:
-   * In the browser, click **View logs.**
+   - **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
 
-   ![Screenshot of the Codespaces web UI with the View logs link emphasized](/assets/images/help/codespaces/web-ui-view-logs.png)
+     ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
 
-   * In the VS Code desktop application, click **Building codespace** in the "Setting up remote connection" that's displayed.
+   - **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
 
-   ![Screenshot of VS Code with the Building codespace link emphasized](/assets/images/help/codespaces/vs-code-building-codespace.png)
+     ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
+
+     Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
 
     {% endnote %}
 2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."

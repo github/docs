@@ -1,5 +1,5 @@
 ---
-title: Billing and payments on GitHub
+title: Billing and payments documentation
 shortTitle: Billing and payments
 intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade or downgrade your account''s subscription and manage your billing settings at any time.{% elsif ghec or ghes or ghae %}{% data variables.product.company_short %} bills for your enterprise members'' {% ifversion ghec or ghae %}usage of {% data variables.product.product_name %}{% elsif ghes %} licence seats for {% data variables.product.product_name %}{% ifversion ghes %} and any additional services that you purchase{% endif %}{% endif %}. {% endif %}{% ifversion ghec %} You can view your subscription and manage your billing settings at any time. {% endif %}{% ifversion fpt or ghec %} You can also view usage and manage spending limits for {% data variables.product.product_name %} features such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %}.{% endif %}'
 redirect_from:
@@ -53,6 +53,6 @@ children:
   - /managing-billing-for-github-sponsors
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
-  - /setting-up-paid-organizations-for-procurement-companies
+  - /setting-up-paid-accounts-for-procurement-companies
 ---
 

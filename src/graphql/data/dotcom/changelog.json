@@ -4,6 +4,248 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>SUCCESS</code> was added to enum <code>DeploymentState</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Commit.pushedDate</code>:<code>pushedDate</code> will be removed. <strong>Effective 2023-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-04-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>AddPullRequestReviewCommentInput.body</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddPullRequestReviewCommentInput.body</code>:<code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.commitOID</code>:<code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.inReplyTo</code>:<code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.path</code>:<code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.position</code>:<code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.pullRequestId</code>:<code>pullRequestId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewCommentInput.pullRequestReviewId</code>:<code>pullRequestReviewId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>AddPullRequestReviewInput.comments</code>:<code>comments</code> will be removed. use the <code>threads</code> argument instead <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>PullRequestReviewComment.originalPosition</code>:<code>originalPosition</code> will be removed. <strong>Effective 2023-10-01</strong>.</p>",
+          "<p>On member <code>PullRequestReviewComment.position</code>:<code>position</code> will be removed. Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers <strong>Effective 2023-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2023-03-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PullRequestReviewThreadSubjectType</code> was added</p>",
+          "<p>Input field <code>subjectType</code> was added to input object type <code>AddPullRequestReviewThreadInput</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>subjectType</code> was added to object type <code>PullRequestReviewThread</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>line</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>originalLine</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>originalStartLine</code> was added to object type <code>PullRequestReviewComment</code></p>",
+          "<p>Field <code>startLine</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>EnterpriseServerInstallationMembershipConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseServerInstallationMembershipEdge</code> was added</p>",
+          "<p>Type <code>WorkflowState</code> was added</p>",
+          "<p>Input field <code>CreateMigrationSourceInput.url</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>enterpriseInstallations</code> was added to object type <code>EnterpriseUserAccount</code></p>",
+          "<p>Input field <code>StartRepositoryMigrationInput.accessToken</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Input field <code>StartRepositoryMigrationInput.sourceRepositoryUrl</code> changed type from <code>URI!</code> to <code>URI</code></p>",
+          "<p>Field <code>pronouns</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>state</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CloseDiscussionInput</code> was added</p>",
+          "<p>Type <code>CloseDiscussionPayload</code> was added</p>",
+          "<p>Type 'DeleteProjectV2WorkflowInput' was added</p>",
+          "<p>Type 'DeleteProjectV2WorkflowPayload' was added</p>",
+          "<p>Type <code>DiscussionCloseReason</code> was added</p>",
+          "<p>Type <code>DiscussionState</code> was added</p>",
+          "<p>Type <code>DiscussionStateReason</code> was added</p>",
+          "<p>Type <code>ReopenDiscussionInput</code> was added</p>",
+          "<p>Type <code>ReopenDiscussionPayload</code> was added</p>",
+          "<p>Field <code>viewerCanClose</code> was added to interface <code>Closable</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to interface <code>Closable</code></p>",
+          "<p>Field <code>stateReason</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>closeDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field 'deleteProjectV2Workflow<code>was added to object type</code>Mutation'</p>",
+          "<p>Field <code>reopenDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>Organization.repositoryDiscussions'</p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>Project</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>Project</code></p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type 'ProjectV2'</p>",
+          "<p>Field <code>viewerCanClose</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>viewerCanReopen</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>viewerCanUpdateBranch</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>Repository.discussions'</p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>RepositoryDiscussionAuthor.repositoryDiscussions'</p>",
+          "<p>Argument 'states: [DiscussionState!]<code>added to field</code>User.repositoryDiscussions'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>login: String</code> added to field <code>Repository.collaborators</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>template</code> was added to object type 'ProjectV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SocialAccount</code> was added</p>",
+          "<p>Type <code>SocialAccountConnection</code> was added</p>",
+          "<p>Type <code>SocialAccountEdge</code> was added</p>",
+          "<p>Type <code>SocialAccountProvider</code> was added</p>",
+          "<p>Field <code>socialAccounts</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>requiredDeploymentEnvironments</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Field <code>requiresDeployments</code> was added to object type <code>BranchProtectionRule</code></p>",
+          "<p>Input field <code>requiredDeploymentEnvironments</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requiresDeployments</code> was added to input object type <code>CreateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requiredDeploymentEnvironments</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Input field <code>requiresDeployments</code> was added to input object type <code>UpdateBranchProtectionRuleInput</code></p>",
+          "<p>Field <code>event</code> was added to object type <code>WorkflowRun</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-03-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>expectedHeadOid</code> was added to input object type <code>EnablePullRequestAutoMergeInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type 'CreateProjectV2FieldInput' was added</p>",
+          "<p>Type 'CreateProjectV2FieldPayload' was added</p>",
+          "<p>Type 'DeleteProjectV2FieldInput' was added</p>",
+          "<p>Type 'DeleteProjectV2FieldPayload' was added</p>",
+          "<p>Type 'ProjectV2CustomFieldType' was added</p>",
+          "<p>Type 'ProjectV2SingleSelectFieldOptionColor' was added</p>",
+          "<p>Type 'ProjectV2SingleSelectFieldOptionInput' was added</p>",
+          "<p>Field 'createProjectV2Field<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'deleteProjectV2Field<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-02-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ROADMAP_LAYOUT<code>was added to enum</code>ProjectV2ViewLayout'</p>"
         ]
       }

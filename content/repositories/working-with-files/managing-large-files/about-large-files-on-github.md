@@ -26,11 +26,9 @@ shortTitle: Large files
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
+{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec or ghae %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
 
 ### File size limits
-{% endif %}
 
 {% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
 
@@ -56,6 +54,14 @@ We recommend repositories remain small, ideally less than 1 GB, and less than 5 
 External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
 
 Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
+{% endif %}
+
+{% ifversion ghes %}
+### Repository size recommendations
+
+We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. 
+
+You can prevent your repository from impacting your infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [github/git-sizer](https://github.com/github/git-sizer) repository.
 {% endif %}
 
 ## Removing files from a repository's history

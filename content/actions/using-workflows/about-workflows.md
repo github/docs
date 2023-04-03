@@ -29,7 +29,7 @@ A workflow must contain the following basic components:
 
 For more information on these basic components, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Diagram of an event triggering Runner 1 to run Job 1, which triggers Runner 2 to run Job 2. Each of the jobs is broken into multiple steps.](/assets/images/help/actions/overview-actions-simple.png)
 
 ## Triggering a workflow
 
@@ -193,10 +193,8 @@ To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 ### Using environments
 

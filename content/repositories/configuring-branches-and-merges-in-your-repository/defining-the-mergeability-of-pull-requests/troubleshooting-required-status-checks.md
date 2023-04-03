@@ -40,8 +40,6 @@ remote: error: Required status check "ci-build" is failing
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls#get-a-pull-request)."
 
-![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
-
 ## Handling skipped but required checks
 
 {% note %}
@@ -80,9 +78,7 @@ jobs:
     - run: npm test
 ```
 
-Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. You would see the following status on the pull request:
-
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
 You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
 
@@ -101,8 +97,6 @@ jobs:
 ```
 Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
-
 {% note %}
 
 **Notes:**
@@ -111,7 +105,6 @@ Now the checks will always pass whenever someone sends a pull request that doesn
 
 {% endnote %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## Required status checks from unexpected sources
 
 It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
@@ -119,4 +112,3 @@ It's also possible for a protected branch to require a status check from a speci
 ```
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.
 ```
-{% endif %}

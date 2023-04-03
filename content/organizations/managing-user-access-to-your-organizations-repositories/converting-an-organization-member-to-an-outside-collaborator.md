@@ -49,12 +49,13 @@ When you convert an organization member to an outside collaborator, their privil
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. Select the person or people you'd like to convert to outside collaborators.
-  ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, use the drop-down menu and click **Convert to outside collaborator**.
-  ![Drop-down menu with option to convert members to outside collaborators](/assets/images/help/teams/user-bulk-management-options.png)
-6. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
-  ![Information on outside collaborators permissions and Convert to outside collaborators button](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)
+1. Select the person or people you'd like to convert to outside collaborators.
+
+  ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
+1. Above the list of members, select the **X members selected...** dropdown menu and click **Convert to outside collaborator**.
+
+   ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)
+1. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
 
 ## Further reading
 

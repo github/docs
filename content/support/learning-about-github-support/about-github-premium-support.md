@@ -40,6 +40,8 @@ topics:
 
 There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
+{% rowheaders %}
+
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
@@ -55,6 +57,8 @@ Incident management | None | For Urgent priority tickets, as needed
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |
 
+{% endrowheaders %}
+
   {% note %}
 
   **Notes:**
@@ -65,7 +69,7 @@ Incident management | None | For Urgent priority tickets, as needed
 
 ## Signing up for {% data variables.contact.premium_support %}
 
-To sign up for {% data variables.contact.premium_support %} or upgrade your plan, you can [contact our account management team](https://enterprise.github.com/contact) or call [+1 (877) 448-4820](tel:+1-877-448-4820).
+To sign up for {% data variables.contact.premium_support %} or upgrade your plan, [contact our account management team](https://enterprise.github.com/contact).
 
 ## Scope of support
 

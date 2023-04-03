@@ -9,6 +9,7 @@ versions:
 type: how_to
 topics:
   - Codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 ## Overview
@@ -53,16 +54,10 @@ For example, you could create an organization-wide policy that restricts the bas
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Base images**.
-
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown-image.png)
-
 1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
-
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-image-constraint.png)
-
 1. In the "Allowed values" field, enter the complete URL of an image you want to allow.
 
-   ![Screenshot of an entry in the 'Allowed values' field](/assets/images/help/codespaces/image-allowed-values.png)
+   ![Screenshot of the URL "mcr.microsoft.com/vscode/devcontainers/java" entered in the "Allowed values" field.](/assets/images/help/codespaces/image-allowed-values.png)
 
    {% note %}
 
@@ -95,6 +90,4 @@ You can edit an existing policy. For example, you may want to add or remove cons
 ## Deleting a policy
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
-1. Click the delete button to the right of the policy you want to delete.
-
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+{% data reusables.codespaces.delete-codespace-policy %}
