@@ -3,7 +3,7 @@ title: Configuring code scanning for a repository
 shortTitle: Configure code scanning
 intro: 'You can configure {% data variables.product.prodname_code_scanning %} for a repository to find security vulnerabilities in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can configure {% data variables.product.prodname_code_scanning %} for that repository.  People with write permissions to a repository can also configure {% data variables.product.prodname_code_scanning %}, but only by creating a workflow file or manually uploading a SARIF file.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
