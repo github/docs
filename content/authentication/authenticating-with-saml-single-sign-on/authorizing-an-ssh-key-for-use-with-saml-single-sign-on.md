@@ -12,6 +12,9 @@ topics:
   - SSO
 shortTitle: SSH Key with SAML
 ---
+
+## About authorization of SSH keys
+
 You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% data reusables.saml.must-authorize-linked-identity %}
@@ -23,6 +26,10 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 **Note:** If your SSH key authorization is revoked by an organization, you will not be able to reauthorize the same key. You will need to create a new SSH key and authorize it. For more information about creating a new SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% endnote %}
+
+You do not need to authorize SSH certificates signed by your organization's SSH certificate authority (CA).
+
+## Authorizing an SSH key
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
