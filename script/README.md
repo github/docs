@@ -632,7 +632,7 @@ See how a piece of text gets turned into tokens by the different analyzers. Requ
 
 Example:
 
-   ./script/search/analyze-text.js my words to tokenize
+   ./src/scripts/search/analyze-text.js my words to tokenize
 
 ---
 
