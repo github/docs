@@ -438,17 +438,12 @@ jobs:
         name: Generate, mask, and output a secret
         run: |
           the_secret=$((RANDOM))
-          echo "::add-mask::$the_secret"
-{% ifversion actions-save-state-set-output-envs %}
-          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
-{% else %}
-          echo "::set-output name=secret-number::$the_secret"
-{% endif %}
+          echo "::add-mask::$the_secret"{% ifversion actions-save-state-set-output-envs %}
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"{% else %}
+          echo "::set-output name=secret-number::$the_secret"{% endif %}
       - name: Use that secret output (protected by a mask)
-        run: |
-{% raw %}
-          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
-{% endraw %}
+        run: |{% raw %}
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"{% endraw %}
 ```
 
 {% endbash %}
@@ -466,29 +461,24 @@ jobs:
         shell: pwsh
         run: |
           Set-Variable -Name TheSecret -Value (Get-Random)
-          Write-Output "::add-mask::$TheSecret"
-{% ifversion actions-save-state-set-output-envs %}
-          "secret-number=$TheSecret" >> $env:GITHUB_OUTPUT
-{% else %}
-          Write-Output "::set-output name=secret-number::$TheSecret"
-{% endif %}
+          Write-Output "::add-mask::$TheSecret"{% ifversion actions-save-state-set-output-envs %}
+          "secret-number=$TheSecret" >> $env:GITHUB_OUTPUT{% else %}
+          Write-Output "::set-output name=secret-number::$TheSecret"{% endif %}
       - name: Use that secret output (protected by a mask)
         shell: pwsh
-        run: |
-{% raw %}
-          Write-Output "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
-{% endraw %}
+        run: |{% raw %}
+          Write-Output "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"{% endraw %}
 ```
 
 {% endpowershell %}
 
-### Example: Masking and passing a secret between jobs{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} or workflows{% endif %}
+### Example: Masking and passing a secret between jobs or workflows
 
-If you want to pass a masked secret between jobs{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} or workflows{% endif %}, you should store the secret in a store and then retrieve it in the subsequent job{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %} or workflow{% endif %}.
+If you want to pass a masked secret between jobs or workflows, you should store the secret in a store and then retrieve it in the subsequent job or workflow.
 
 #### Setup
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 #### Workflow
 
@@ -508,38 +498,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: some/secret-store@v1
-      with:
-{% raw %}
+      with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
-        instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-{% endraw %}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: generate secret
       shell: bash
       run: |
         GENERATED_SECRET=$((RANDOM))
         echo "::add-mask::$GENERATED_SECRET"
-        SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET")
-{% ifversion actions-save-state-set-output-envs %}
-        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"
-{% else %}
-        echo "::set-output name=handle::$secret_handle"
-{% endif %}
+        SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
+        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$secret_handle"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
     steps:
     - uses: some/secret-store@v1
-      with:
-{% raw %}
+      with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
-        instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-{% endraw %}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: use secret
       shell: bash
-      run: |
-{% raw %}
-        SECRET_HANDLE="${{ needs.secret-generator.outputs.handle }}"
-{% endraw %}
+      run: |{% raw %}
+        SECRET_HANDLE="${{ needs.secret-generator.outputs.handle }}"{% endraw %}
         RETRIEVED_SECRET=$(secret-store retrieve-secret "$SECRET_HANDLE")
         echo "::add-mask::$RETRIEVED_SECRET"
         echo "We retrieved our masked secret: $RETRIEVED_SECRET"
@@ -547,6 +528,7 @@ jobs:
 {% endbash %}
 
 {% powershell %}
+
 ```yaml{:copy}
 on: push
 
@@ -555,38 +537,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: some/secret-store@v1
-      with:
-{% raw %}
+      with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
-        instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-{% endraw %}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: generate secret
       shell: pwsh
       run: |
         Set-Variable -Name Generated_Secret -Value (Get-Random)
         Write-Output "::add-mask::$Generated_Secret"
-        Set-Variable -Name Secret_Handle -Value (Store-Secret "$Generated_Secret")
-{% ifversion actions-save-state-set-output-envs %}
-        "handle=$Secret_Handle" >> $env:GITHUB_OUTPUT
-{% else %}
-        Write-Output "::set-output name=handle::$Secret_Handle"
-{% endif %}
+        Set-Variable -Name Secret_Handle -Value (Store-Secret "$Generated_Secret"){% ifversion actions-save-state-set-output-envs %}
+        "handle=$Secret_Handle" >> $env:GITHUB_OUTPUT{% else %}
+        Write-Output "::set-output name=handle::$Secret_Handle"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
     steps:
     - uses: some/secret-store@v1
-      with:
-{% raw %}
+      with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
-        instance: ${{ secrets.SECRET_STORE_INSTANCE }}
-{% endraw %}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: use secret
       shell: pwsh
-      run: |
-{% raw %}
-        Set-Variable -Name Secret_Handle -Value "${{ needs.secret-generator.outputs.handle }}"
-{% endraw %}
+      run: |{% raw %}
+        Set-Variable -Name Secret_Handle -Value "${{ needs.secret-generator.outputs.handle }}"{% endraw %}
         Set-Variable -Name Retrieved_Secret -Value (Retrieve-Secret "$Secret_Handle")
         echo "::add-mask::$Retrieved_Secret"
         echo "We retrieved our masked secret: $Retrieved_Secret"
