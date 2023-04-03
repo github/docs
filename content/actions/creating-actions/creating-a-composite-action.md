@@ -35,24 +35,24 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-composite-action
   ```
 
 2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
-  ```bash
+  ```bash{:copy}
   echo "Goodbye"
   ```
 
 3. From your terminal, make `goodbye.sh` executable.
 
-  ```shell
+  ```shell{:copy}
   chmod +x goodbye.sh
   ```
 
 1. From your terminal, check in your `goodbye.sh` file.
-  ```shell
+  ```shell{:copy}
   git add goodbye.sh
   git commit -m "Add goodbye script"
   git push
@@ -64,7 +64,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
     {% raw %}
     **action.yml**
-    ```yaml
+    ```yaml{:copy}
     name: 'Hello World'
     description: 'Greet someone'
     inputs:
@@ -102,7 +102,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, check in your `action.yml` file.
 
-  ```shell
+  ```shell{:copy}
   git add action.yml
   git commit -m "Add action"
   git push
@@ -110,7 +110,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
-  ```shell
+  ```shell{:copy}
   git tag -a -m "Description of this release" v1
   git push --follow-tags
   ```
@@ -122,7 +122,7 @@ The following workflow code uses the completed hello world action that you made 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
