@@ -192,6 +192,12 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: jamestran201
+  - location: Commit.pushedDate
+    description: '`pushedDate` will be removed.'
+    reason: '`pushedDate` is no longer supported.'
+    date: '2023-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: darthwillis
   - location: MergeQueue.headOid
     description: '`headOid` will be removed. Use `entry.headOid` instead.'
     reason: '`headOid` will be removed.'
