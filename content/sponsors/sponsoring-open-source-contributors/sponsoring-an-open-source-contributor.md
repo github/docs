@@ -19,8 +19,6 @@ shortTitle: Sponsor a contributor
 
 {% data reusables.sponsors.paypal-deprecation %}
 
-{% data reusables.sponsors.org-sponsors-release-phase %}
-
 ## About sponsorships
 
 {% data reusables.sponsors.sponsorship-details %}
@@ -31,9 +29,7 @@ You can sponsor an account on behalf of your personal account to invest in proje
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, you can read more at [Paying for {% data variables.product.prodname_sponsors %} via invoice](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice).
-
-{% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
+You can use a credit card to sponsor an account on {% data variables.product.product_name %}. Organizations can also pay by invoice. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)."
 
 When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
@@ -54,6 +50,10 @@ If the account you want to sponsor does not have a profile on {% data variables.
 **Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms).
 
 {% endnote %}
+
+## Sponsorship fees
+
+{% data reusables.sponsors.no-fees %}
 
 ## Tax information
 
