@@ -169,6 +169,14 @@
       "date": "2023-07-01",
       "criticality": "breaking",
       "owner": "github/merge_queue"
+    },
+    {
+      "location": "Commit.pushedDate",
+      "description": "<p><code>pushedDate</code> will be removed.</p>",
+      "reason": "<p><code>pushedDate</code> is no longer supported.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "darthwillis"
     }
   ],
   "2023-04-01": [

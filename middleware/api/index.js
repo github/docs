@@ -2,13 +2,15 @@ import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
 import events from '../../src/events/middleware.js'
-import search from './search.js'
+import anchorRedirect from '../../src/rest/api/anchor-redirect.js'
+import search from '../../src/search/middleware/search.js'
 import webhooks from './webhooks.js'
 
 const router = express.Router()
 
 router.use('/events', events)
 router.use('/webhooks', webhooks)
+router.use('/anchor-redirect', anchorRedirect)
 
 // The purpose of this is for convenience to everyone who runs this code
 // base locally but don't have an Elasticsearch server locally.

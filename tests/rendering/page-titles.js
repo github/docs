@@ -8,7 +8,7 @@ describe('page titles', () => {
 
   test('English homepage', async () => {
     const $ = await getDOM('/en')
-    expect($('title').text()).toBe('GitHub Documentation')
+    expect($('title').text()).toBe('GitHub Docs')
   })
 
   test('dotcom English article', async () => {

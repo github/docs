@@ -29,7 +29,6 @@ import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
 import healthz from './healthz.js'
-import anchorRedirect from './anchor-redirect.js'
 import productIcons from './product-icons.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
@@ -240,7 +239,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))
