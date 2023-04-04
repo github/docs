@@ -808,9 +808,10 @@ input AddPullRequestReviewThreadInput {
   clientMutationId: String
 
   """
-  The line of the blob to which the thread refers. The end of the line range for multi-line comments.
+  The line of the blob to which the thread refers, required for line-level
+  threads. The end of the line range for multi-line comments.
   """
-  line: Int!
+  line: Int
 
   """
   Path to the file being commented on.

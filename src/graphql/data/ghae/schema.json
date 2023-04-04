@@ -68934,8 +68934,8 @@
         },
         {
           "name": "line",
-          "description": "<p>The line of the blob to which the thread refers. The end of the line range for multi-line comments.</p>",
-          "type": "Int!",
+          "description": "<p>The line of the blob to which the thread refers, required for line-level\nthreads. The end of the line range for multi-line comments.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
