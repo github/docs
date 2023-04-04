@@ -48,27 +48,22 @@ You can also convert your personal account directly into an organization. Conver
  - Automatically invites collaborators to teams with permissions equivalent to what they had before
  {% ifversion fpt or ghec %}- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
+When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as outside collaborators. You can then invite outside collaborators to become members of your new organization if you wish. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+
 1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
 2.  [Leave any organizations](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) the personal account you're converting has joined.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
-5. Under "Transform account", click **Turn <username> into an organization**.
- 	![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
-6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article.
- 	![Conversion warning](/assets/images/help/organizations/organization-account-transformation-warning.png)
-7. On the "Transform your user into an organization" page, under "Choose an organization owner", choose either the secondary personal account you created in the previous section or another user you trust to manage the organization.
- 	![Add organization owner page](/assets/images/help/organizations/organization-add-owner.png)
-8. Choose your new organization's subscription and enter your billing information if prompted.
-9. Click **Create Organization**.
-10. Sign in to the new personal account you created in step one, then use the context switcher to access your new organization.
-
-{% tip %}
-
-**Tip**: When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as *outside collaborators*. You can then invite *outside collaborators* to become members of your new organization if you wish. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
-
-{% endtip %}
+1. In the "Transform account" section, click **Turn USERNAME into an organization**.
+1. Review the warning, then click **Turn USERNAME into an organization**.
+1. Under "Choose an organization owner", type either the secondary personal account you created in the previous section, or another user you trust, to manage the organization.
+1. Choose your new organization's subscription and enter your billing information, if prompted.
+1. Click **Create Organization**.
+1. Sign in to the new personal account you created earlier, then use the context switcher to access your new organization.
 
 ## Further reading
 - "[AUTOTITLE](/organizations/organizing-members-into-teams)"
-{% ifversion fpt or ghec %}- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"{% endif %}
+{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"
+{% endif %}
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/accessing-an-organization)"
