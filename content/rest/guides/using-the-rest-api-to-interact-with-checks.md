@@ -23,14 +23,17 @@ For an example of how to use the REST API with a {% data variables.product.prodn
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
 
-The `status` can be `queued`, `in_progress`, or `complete`.
+The `status` can be `queued`, `in_progress`, or `completed`.
 
-If the status is `complete`, the conclusion can be any of the following:
+If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
 - `cancelled`
 - `timed_out`
 - `failure`
 - `neutral`
+- `skipped`
+- `stale`
+- `startup_failure`
 - `success`
 
 The check suite reports the highest priority check run `conclusion` in the check suite's `conclusion`. For example, if three check runs have conclusions of `timed_out`, `success`, and `neutral` the check suite conclusion will be `timed_out`.
@@ -49,7 +52,7 @@ To use the endpoints to manage check suites, the {% data variables.product.prodn
 
 A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
 
-The status can be  `queued`, `in_progress`, or `complete`.
+The status can be  `queued`, `in_progress`, or `completed`.
 
 If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
@@ -57,6 +60,7 @@ If the status is `completed`, the conclusion can be any of the following:
 - `timed_out`
 - `failure`
 - `neutral`
+- `skipped`
 - `success`
 
 If a check run is in an incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/checks#create-a-check-run--parameters).

@@ -1786,6 +1786,12 @@ type BaseRefForcePushedEvent implements Node {
 }
 
 """
+Represents non-fractional signed whole numeric values. Since the value may
+exceed the size of a 32-bit integer, it's encoded as a string.
+"""
+scalar BigInt
+
+"""
 Represents a Git blame.
 """
 type Blame {
@@ -16369,6 +16375,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   editor: Actor
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The hovercard information for this issue
   """
   hovercard(
@@ -16944,6 +16955,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
@@ -28876,6 +28892,11 @@ type PinnedIssue implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
