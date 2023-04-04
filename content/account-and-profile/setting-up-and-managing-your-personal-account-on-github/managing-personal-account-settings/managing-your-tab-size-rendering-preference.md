@@ -4,7 +4,7 @@ intro: You can manage the number of spaces a tab is equal to for your personal a
 versions:
   fpt: '*'
   ghae: '>= 3.4'
-  ghes: '>=3.4'
+  ghes: '*'
   ghec: '*'
 topics:
   - Accounts

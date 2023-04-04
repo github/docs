@@ -10,6 +10,7 @@ export async function get(
     followRedirects: false,
     followAllRedirects: false,
     headers: {},
+    responseType: undefined,
   }
 ) {
   const method = opts.method || 'get'
@@ -23,6 +24,7 @@ export async function get(
       retry: { limit: 0 },
       throwHttpErrors: false,
       followRedirect: opts.followAllRedirects || opts.followRedirects,
+      responseType: opts.responseType,
     },
     isUndefined
   )
@@ -36,16 +38,16 @@ export async function get(
     throw new Error('B')
   }
 
-  const text = res.body
-  const status = res.statusCode
-  const headers = res.headers
+  const { body, statusCode, headers, url } = res
   return {
-    text,
-    status,
-    statusCode: status, // Legacy
+    body,
+    statusCode,
     headers,
-    header: headers, // Legacy
-    url: res.url,
+    url,
+    // Legacy
+    text: body,
+    status: statusCode,
+    header: headers,
   }
 }
 
@@ -56,6 +58,12 @@ export async function head(route, opts = { followRedirects: false }) {
 
 export function post(route, opts) {
   return get(route, Object.assign({}, opts, { method: 'post' }))
+}
+
+const getDOMCache = new Map()
+
+export async function getDOMCached(route, options) {
+  return getDOM(route, Object.assign({ cache: getDOMCache }, options))
 }
 
 export async function getDOM(

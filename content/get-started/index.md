@@ -1,5 +1,5 @@
 ---
-title: Getting started with GitHub
+title: Getting started with GitHub documentation
 shortTitle: Get started
 intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
@@ -25,8 +25,8 @@ layout: product-landing
 introLinks:
   quickstart: /get-started/quickstart
 featuredLinks:
-  guides:
-    - /github/getting-started-with-github/githubs-products
+  startHere:
+    - /get-started/learning-about-github/githubs-products
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
@@ -34,16 +34,16 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /github/getting-started-with-github/signing-up-for-a-new-github-account
+    - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
     - /get-started/quickstart/hello-world
-    - /github/getting-started-with-github/set-up-git
+    - /get-started/quickstart/set-up-git
     - /get-started/learning-about-github/about-versions-of-github-docs
-    - /github/getting-started-with-github/github-glossary
-    - /github/getting-started-with-github/keyboard-shortcuts
+    - /get-started/quickstart/github-glossary
+    - /get-started/using-github/keyboard-shortcuts
   guideCards:
-    - /github/getting-started-with-github/types-of-github-accounts
-    - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
-    - /github/getting-started-with-github/troubleshooting-connectivity-problems
+    - /get-started/learning-about-github/types-of-github-accounts
+    - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
+    - /get-started/using-github/troubleshooting-connectivity-problems
 topics:
   - Pull requests
   - Issues
@@ -56,10 +56,10 @@ children:
   - /signing-up-for-github
   - /using-github
   - /writing-on-github
-  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
-  - /customizing-your-github-workflow
+  - /working-with-subversion-on-github
+  - /exploring-integrations
   - /privacy-on-github
 ---

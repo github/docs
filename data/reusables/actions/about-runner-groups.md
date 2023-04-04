@@ -1,9 +1,5 @@
 {% ifversion fpt %}
-{% note %}
-
-**Note:** All organizations have a single default runner group. Only enterprise accounts and organizations owned by enterprise accounts can create and manage additional runner groups.
-
-{% endnote %}
+{% data reusables.actions.runner-groups-ent-note %}
 
 Runner groups are used to control access to runners. Organization admins can configure access policies that control which repositories in an organization have access to the runner group.
 

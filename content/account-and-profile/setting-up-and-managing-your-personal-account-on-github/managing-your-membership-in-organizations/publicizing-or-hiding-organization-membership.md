@@ -16,7 +16,6 @@ topics:
   - Accounts
 shortTitle: Show or hide membership
 ---
-![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 
 ## Changing the visibility of your organization membership
 

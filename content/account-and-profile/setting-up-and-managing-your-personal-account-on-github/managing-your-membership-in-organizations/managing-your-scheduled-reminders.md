@@ -18,7 +18,7 @@ Scheduled reminders are used to make sure that users focus on the most important
 
 For certain events, you can also enable real-time alerts for scheduled reminders. Real-time alerts get sent to your Slack channel as soon as an important event, such as when you are assigned a review, takes place.
 
-You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
+You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
@@ -33,9 +33,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.days-dropdown %}
 {% data reusables.reminders.times-dropdowns %}
 8. Optionally, to receive scheduled reminders for reviews you've been assigned to, select **Review requests assigned to you**.
-![Review requests assigned to you checkbox](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
-![Review requests assigned to your team checkbox](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
 {% data reusables.reminders.real-time-alerts %}
 ![Enable real-time alerts checkbox](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}
@@ -57,5 +55,5 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 ## Further reading
 
-- "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
-- "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"
+- "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

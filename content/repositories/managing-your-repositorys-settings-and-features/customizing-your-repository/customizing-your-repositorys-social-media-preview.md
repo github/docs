@@ -36,7 +36,7 @@ Until you add an image, repository links expand to show basic information about 
 
 ## About transparency
 
-We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this may not always be the case. 
+We support PNG images with transparency. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial.
 
 When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
 
@@ -44,5 +44,3 @@ When using an image with transparency, keep in mind how it may look on different
 
 **Tip:** If you aren't sure, we recommend using an image with a solid background.
 {% endtip %}
-
-![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)

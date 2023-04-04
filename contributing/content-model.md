@@ -19,17 +19,46 @@ Consistency helps people form mental models of the documentation and understand 
 
 Docs are organized into multiple levels of hierarchy on our site:
 
-Top-level doc set
-- Categories
-  - Map topics
-    - Articles 
+- Top-level doc set
+  - Categories
+    - Map topics
+      - Articles
+
+### Homepage content
+
+The GitHub Docs homepage, [docs.github.com](https://docs.github.com/), highlights the most important topics that people want to find. We limit the number of doc sets on the homepage so that people can find information and the homepage does not become overcrowded and difficult to search.
+
+The homepage includes all top-level doc sets and some categories. Content on the homepage is organized around GitHub concepts and practices. For example, the "CI/CD and DevOps" group includes top-level doc sets for GitHub Actions, GitHub Packages, and GitHub Pages.
+
+#### Adding a doc set to the homepage
+
+The goal of the homepage is to help people find information about the GitHub feature or product that they want to learn about. Every item on the homepage dilutes the discoverability of every other item, so we limit the number of doc sets included on the homepage.
+
+If a new top-level doc set is created, it is added to the homepage. 
+
+If a category serves as the starting point for using a GitHub product or feature, it can be added to the homepage.
+
+For example, under the "Security" grouping on the homepage, in addition to the "[Code security](https://docs.github.com/en/code-security)" top-level doc set, the "[Supply chain security](https://docs.github.com/en/code-security/supply-chain-security)," "[Security advisories](https://docs.github.com/en/code-security/security-advisories)," "[Dependabot](https://docs.github.com/en/code-security/dependabot)," "[Code scanning](https://docs.github.com/en/code-security/code-scanning)," and "[Secret scanning](https://docs.github.com/en/code-security/secret-scanning)" categories are included because each of those categories are the entry point to GitHub products and features. "[Security overview](https://docs.github.com/en/code-security/security-overview)" is not included on the homepage because it provides additional information for using code security products and is not an introduction to a product or feature.
+
+### Top-level doc set
+
+Top-level doc sets are organized around a GitHub product, feature, or core workflow. All top-level doc sets appear on the Docs homepage. You should only create a top-level doc set when there is a large amount of content to be contained in the new doc set, multiple categories that are broken down into map topics, and the topic applies across products, features, or account types. If the content could fit in any existing top-level doc set, it probably belongs in that existing doc set.
+- Top-level doc sets are of roughly equal importance to one another (each is centered on a GitHub product or major feature)
+- Most top-level doc sets have a landing page layout, unless there is a significant exception. For example, the "[Site policy](https://docs.github.com/en/site-policy)" doc set does not have guides or procedural articles like other doc sets, so it does not use a landing page layout.
+
+#### Titles for top-level doc sets
+- Feature or product based.
+- Describes what part of GitHub someone is using.
+- Examples
+  - [Organizations](https://docs.github.com/en/organizations)
+  - [GitHub Issues](https://docs.github.com/en/issues)
 
 ### Category
 
-Categories are usually organized around a feature or a discrete set of tasks within a top-level doc set, aligning with product themes. A category's subject isn't so broad that its contents are hard to manage or the category grows too large to use.
+Categories are usually organized around a feature or a discrete set of tasks within a top-level doc set, aligning with product themes. A category's subject isn't so broad that its contents are hard to manage or the category grows too large to use. Some categories appear on the Docs homepage.
 - Categories often start small and grow with the product.
 - Large categories may contain map topics to subdivide content around more specific user journeys or tasks.
-- Use long procedural articles to group related chunks of content and keep articles within the category streamlined. 
+- Use long procedural articles to group related chunks of content and keep articles within the category streamlined.
 - When categories have more than ten articles, consider breaking the content into map topics or additional categories, unless there's a reason to keep all of the content together.
 
 #### Titles for categories
@@ -80,15 +109,23 @@ We organize content predictably within categories, map topics, and articles, fro
 
 ### Titles
 
-Titles are challenging! Use these general guidelines to help create clear, helpful, descriptive titles, and see below for specific guidelines for each content type.
+Titles fully describe what a page is about, and what a user will know by reading it. 
+
+Titles are challenging! Use these general guidelines to help create clear, helpful, and descriptive titles. See below for specific guidelines for each content type.
 
 #### Titles for all content types
-- Titles are clear, descriptive, and specific, but not wordy
+- Titles clearly describe what a page is about. They are descriptive and specific.
   - Use: Browsing actions in the workflow editor
+  - Use: Example of configuring a codespace
   - Avoid: Using the workflow editor sidebar
+  - Avoid: Example
+  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
+     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
+     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
+     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 - Titles are consistent across a content type
   - See specific guidelines for each content type
-  - Titles aren’t overly repetitive––vary the verbs used for procedure or map topic titles when possible
+  - Titles aren’t repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
   - Use: "GitHub's billing plans"
   - Avoid: "Billing plans for user and organization accounts"
@@ -102,10 +139,6 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
 - Think about how the title will appear in search results for multiple products
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production
-- Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
-  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
-  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
 
 ### Topics
 

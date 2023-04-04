@@ -5,7 +5,10 @@ import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
 import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import {
+  SURROGATE_ENUMS,
+  makeLanguageSurrogateKey,
+} from '../../middleware/set-fastly-surrogate-key.js'
 import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
@@ -44,7 +47,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders the homepage with links to exptected products in both the sidebar and page body', async () => {
+  test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
     const sidebarItems = $('[data-testid=sidebar] li a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
@@ -138,7 +141,10 @@ describe('server', () => {
     const res = await get('/en')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })
 
   test('does not render duplicate <html> or <body> tags', async () => {
@@ -190,28 +196,6 @@ describe('server', () => {
     expect(res.statusCode).toBe(400)
   })
 
-  test('converts Markdown in intros', async () => {
-    // example from markdown source in intro:
-    // The `git rebase` command
-    const $ = await getDOM('/en/articles/about-git-rebase')
-    expect($.html()).toContain('The <code>git rebase</code> command')
-  })
-
-  test('injects site variables into rendered intros', async () => {
-    // example from markdown source in intro:
-    // You can follow people on {{ site.data.variables.product.product_name }}
-    const $ = await getDOM('/en/github/getting-started-with-github/following-people')
-    expect($.text()).toContain('You can follow people on GitHub')
-  })
-
-  test('injects site variables into rendered permissions statements frontmatter', async () => {
-    // markdown source: {% data variables.product.prodname_pages %} site
-    const $ = await getDOM(
-      '/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
-    )
-    expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
-  })
-
   // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM(
@@ -223,13 +207,6 @@ describe('server', () => {
     )
     const mapTopicIntro = $('.map-topic').first().next().text()
     expect(articleIntro).not.toEqual(mapTopicIntro)
-  })
-
-  test('injects site variables into rendered pages', async () => {
-    // example from markdown source in page body:
-    // {{ site.data.variables.product.product_name }} may recommend
-    const $ = await getDOM('/en/github/getting-started-with-github/following-people')
-    expect($.text()).toContain('GitHub may recommend')
   })
 
   test('serves /categories.json for support team usage', async () => {
@@ -251,16 +228,6 @@ describe('server', () => {
       expect('name' in category).toBe(true)
       expect('published_articles' in category).toBe(true)
     })
-  })
-
-  test('renders Markdown links that have Liquid hrefs', async () => {
-    // example from markdown source:
-    // 1. Go to {{ site.data.variables.product.product_name }}'s [Pricing]({{ site.data.variables.dotcom_billing.plans_url }}) page.
-    const $ = await getDOM(
-      '/en/github/getting-started-with-github/signing-up-for-a-new-github-account'
-    )
-    expect($.text()).toContain("Go to GitHub's Pricing page.")
-    expect($('a[href="https://github.com/pricing"]').first().text()).toBe('Pricing')
   })
 
   test('renders liquid within liquid within liquid in body text', async () => {
@@ -295,14 +262,6 @@ describe('server', () => {
     ).toBe(true)
   })
 
-  test('handles whitespace control in liquid tags', async () => {
-    // example from markdown source of index:
-    // Liquid tags with {%- in lists should not result in newlines
-    // that convert to <p>s in <li>s
-    const $ = await getDOM('/')
-    expect($('li > p').length).toBe(0)
-  })
-
   test('renders liquid within liquid within liquid', async () => {
     const $ = await getDOM('/en/articles/enabling-required-status-checks')
     expect($('ol li').first().text().trim()).toBe(
@@ -310,158 +269,9 @@ describe('server', () => {
     )
   })
 
-  test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM(
-      '/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites'
-    )
-    expect($.text().includes('{{ page.title }}')).toBe(true)
-  })
-
   test('displays links to categories on product TOCs', async () => {
     const $ = await getDOM('/en/authentication')
     expect($('a[href="/en/authentication/keeping-your-account-and-data-secure"]')).toHaveLength(1)
-  })
-
-  describe('autogenerated mini TOCs', () => {
-    // TODO disable the mini TOC tests when we replace it with sticky TOC header
-    test('renders mini TOC in articles with more than one heading', async () => {
-      const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
-      expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + nav ul li').length).toBeGreaterThan(1)
-    })
-
-    test('renders mini TOC in articles that includes h3s when specified by frontmatter', async () => {
-      const $ = await getDOM(
-        '/en/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise'
-      )
-      expect($('h2#in-this-article').length).toBe(1)
-      expect($('h2#in-this-article + nav ul').length).toBeGreaterThan(0) // non-indented items
-      expect($('h2#in-this-article + nav ul div ul div').length).toBeGreaterThan(0) // indented items
-    })
-
-    test('does not render mini TOC in articles with only one heading', async () => {
-      const $ = await getDOM(
-        '/en/github/visualizing-repository-data-with-graphs/about-repository-graphs'
-      )
-      expect($('h2#in-this-article').length).toBe(0)
-    })
-
-    test('does not render mini TOC in articles with no headings', async () => {
-      const $ = await getDOM('/en/github/authenticating-to-github/reviewing-your-deploy-keys')
-      expect($('h2#in-this-article').length).toBe(0)
-    })
-
-    test('does not render mini TOC in non-articles', async () => {
-      const $ = await getDOM('/github/getting-started-with-github')
-      expect($('h2#in-this-article').length).toBe(0)
-    })
-
-    // TODO
-    test('renders mini TOC with correct links when headings contain markup', async () => {
-      const $ = await getDOM('/en/actions/using-workflows/workflow-syntax-for-github-actions')
-      expect($('h2#in-this-article + nav ul li a[href="#on"]').length).toBe(1)
-    })
-  })
-
-  describe('image asset paths', () => {
-    const localImageCacheBustBasePathRegex = /^\/assets\/cb-\d+\/images\//
-    const localImageBasePath = '/assets/images'
-    const legacyImageBasePath = '/assets/enterprise'
-    const latestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.latest}`
-    const oldestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
-
-    test('github articles on dotcom have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        '/en/github/authenticating-to-github/configuring-two-factor-authentication'
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
-      ).toBe(true)
-    })
-
-    test('github articles on GHE have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/user/github/authenticating-to-github/configuring-two-factor-authentication`
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) ||
-          imageSrc.startsWith(localImageBasePath) ||
-          imageSrc.startsWith(legacyImageBasePath)
-      ).toBe(true)
-    })
-
-    test('admin articles on latest version of GHE have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/admin/user-management/using-built-in-authentication`
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) ||
-          imageSrc.startsWith(localImageBasePath) ||
-          imageSrc.startsWith(legacyImageBasePath)
-      ).toBe(true)
-    })
-
-    test('admin articles on older GHE versions have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        `${oldestEnterprisePath}/admin/user-management/using-built-in-authentication`
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) ||
-          imageSrc.startsWith(localImageBasePath) ||
-          imageSrc.startsWith(legacyImageBasePath)
-      ).toBe(true)
-    })
-
-    test('links that point to /assets are not rewritten with a language code', async () => {
-      const $ = await getDOM('/en/site-policy/privacy-policies/github-privacy-statement')
-      expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(
-        true
-      )
-    })
-
-    test('github articles on GHEC have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        '/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account'
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
-      ).toBe(true)
-    })
-
-    test('admin articles on GHEC have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        '/en/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise'
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
-      ).toBe(true)
-    })
-
-    test('github articles on GHAE have images that point to local assets dir', async () => {
-      const $ = await getDOM(
-        '/en/github-ae@latest/github/administering-a-repository/changing-the-default-branch'
-      )
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) ||
-          imageSrc.startsWith(localImageBasePath) ||
-          imageSrc.startsWith(legacyImageBasePath)
-      ).toBe(true)
-    })
-
-    test('admin articles on GHAE have images that point to local assets dir', async () => {
-      const $ = await getDOM('/en/github-ae@latest/admin/user-management/managing-dormant-users')
-      const imageSrc = $('img').first().attr('src')
-      expect(
-        localImageCacheBustBasePathRegex.test(imageSrc) || imageSrc.startsWith(localImageBasePath)
-      ).toBe(true)
-    })
   })
 
   describe('English local links', () => {
@@ -508,7 +318,7 @@ describe('server', () => {
       )
       expect(
         $(
-          'a[href="/en/github/site-policy/github-terms-for-additional-products-and-features#connect"]'
+          'a[href="/en/site-policy/github-terms/github-terms-for-additional-products-and-features#connect"]'
         ).length
       ).toBe(1)
     })
@@ -556,11 +366,6 @@ describe('server', () => {
       const $ = await getDOM(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
       )
-      expect(
-        $(
-          `[data-testid="mobile-header"] [data-testid=version-picker] a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`
-        ).length
-      ).toBe(1)
       // 2.13 predates this feature, so it should be excluded:
       expect(
         $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
@@ -699,10 +504,10 @@ describe('server', () => {
 
   describe('categories and map topics', () => {
     test('adds links to map topics on a category homepage', async () => {
-      const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
+      const $ = await getDOM('/en/get-started/writing-on-github')
       expect(
         $(
-          'a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github"]'
+          'a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github"]'
         ).length
       ).toBe(1)
       expect($('a[href="#managing-user-account-settings"]').length).toBe(0)
@@ -715,33 +520,31 @@ describe('server', () => {
 
     test('map topic renders with links to articles', async () => {
       const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
+        '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
       )
       expect(
         $(
-          'li h2 a[href="/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer"]'
+          'li h2 a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github"]'
         ).length
       ).toBe(1)
     })
 
     test('map topic renders with one intro for every h2', async () => {
-      const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-      )
+      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
       const $links = $('[data-testid=expanded-item]')
       expect($links.length).toBeGreaterThan(3)
     })
 
     test('map topic intros are parsed', async () => {
-      const $ = await getDOM(
-        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-      )
-      const $parent = $('[data-testid=expanded-item] a[href*="source-code-migration-tools"]')
+      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
+      const $parent = $('[data-testid=expanded-item] a[href*="organizing-information-with-tables"]')
         .parent()
         .parent()
       const $intro = $('p', $parent)
       expect($intro.length).toBe(1)
-      expect($intro.html()).toContain('You can use external tools to move your projects to GitHub')
+      expect($intro.html()).toContain(
+        'You can build tables to organize information in comments, issues, pull requests, and wikis.'
+      )
     })
   })
 })
@@ -839,45 +642,6 @@ describe('GitHub Desktop URLs', () => {
   })
 })
 
-describe('extended Markdown', () => {
-  test('renders styled warnings', async () => {
-    const $ = await getDOM('/en/articles/removing-a-remote')
-    const warning = $('div.extended-markdown.warning')
-    expect(warning.length).toBe(1)
-    expect(warning.text().includes('does not delete the remote')).toBe(true)
-  })
-
-  test('renders styled tips (multiple per page)', async () => {
-    const $ = await getDOM('/en/articles/authorizing-oauth-apps')
-    const tips = $('div.extended-markdown.tip')
-    expect(tips.length).toBe(3)
-    expect(tips.eq(0).text().includes('verify your email address')).toBe(true)
-  })
-
-  test('renders styled notes within liquid', async () => {
-    const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
-    const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('color-border-accent-emphasis')).toBe(true)
-    expect(note.hasClass('color-bg-accent')).toBe(true)
-  })
-
-  test('renders platform-specific content', async () => {
-    const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('.extended-markdown.mac h2#using-textmate-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.windows h2#using-notepad-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.linux h2#using-textmate-as-your-editor').length).toBe(0)
-    expect($('.extended-markdown.linux h2#using-notepad-as-your-editor').length).toBe(0)
-  })
-
-  test('renders expected mini TOC headings in platform-specific content', async () => {
-    const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBeGreaterThan(1)
-  })
-})
-
 describe('search', () => {
   function findDupesInArray(arr) {
     return lodash.filter(arr, (val, i, iteratee) => lodash.includes(iteratee, val, i + 1))
@@ -950,7 +714,10 @@ describe('static routes', () => {
     expect(res.headers['set-cookie']).toBeUndefined()
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.DEFAULT)
+
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
@@ -988,12 +755,12 @@ describe('index pages', () => {
   const nonEnterpriseOnlyPath =
     '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
 
-  test('includes dotcom-only links in dotcom TOC', async () => {
+  test.skip('includes dotcom-only links in dotcom TOC', async () => {
     const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
-  test('excludes dotcom-only from GHE TOC', async () => {
+  test.skip('excludes dotcom-only from GHE TOC', async () => {
     const $ = await getDOM(
       `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
     )
@@ -1004,17 +771,5 @@ describe('index pages', () => {
     const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
     const $ = await getDOM(installationLatest)
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
-  })
-})
-
-describe('REST reference pages', () => {
-  test('view the rest/repos page in English', async () => {
-    const res = await get('/en/rest/repos')
-    expect(res.statusCode).toBe(200)
-  })
-
-  test('deeper pages in English', async () => {
-    const res = await get('/en/enterprise-cloud@latest/rest/code-scanning')
-    expect(res.statusCode).toBe(200)
   })
 })

@@ -35,9 +35,25 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
+{% ifversion ghec %}
+## Purchasing additional storage and bandwidth for an enterprise account
+
+{% data reusables.enterprise-accounts.billing-perms %}
+
+If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. To the right of "Git LFS", click **Purchase more data packs**.
+1. Select the "Choose an organization" dropdown menu and click the organization you want to purchase a data pack for.
+{% data reusables.large_files.pack_selection %}
+{% data reusables.large_files.pack_confirm %}
+{% endif %}
+
 ## Further reading
 
-- "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
-- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
-- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Versioning large files](/articles/versioning-large-files)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"

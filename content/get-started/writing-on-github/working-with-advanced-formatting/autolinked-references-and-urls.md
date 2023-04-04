@@ -18,9 +18,9 @@ shortTitle: Auto linked references
 
 `Visit https://github.com`
 
-![Rendered autolinked URL](/assets/images/help/writing/url-autolink-rendered.png)
+![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how a URL beginning with "http" becomes as a blue clickable link. The text reads, "Visit https://github.com."](/assets/images/help/writing/url-autolink-rendered.png)
 
-For more information on creating links, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#links)."
+For more information on creating links, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
 
 ## Issues and pull requests
 
@@ -41,7 +41,7 @@ Within conversations on {% data variables.product.product_name %}, references to
 | `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
 {% ifversion fpt or ghec %}
-If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 {% endif %}
 
 ## Labels
@@ -75,4 +75,4 @@ References to a commit's SHA hash are automatically converted into shortened lin
 
 ## Further reading
 
-- "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
+- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"

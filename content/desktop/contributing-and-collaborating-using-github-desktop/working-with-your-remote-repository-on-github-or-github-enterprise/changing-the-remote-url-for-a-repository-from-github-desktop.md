@@ -13,8 +13,7 @@ shortTitle: Change the remote URL for a repository
 {% mac %}
 
 {% data reusables.desktop.mac-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL.
-![Primary remote repository field](/assets/images/help/desktop/repository-settings-remote.png)
+2. On the **Remote** pane, under "Primary remote repository", type the desired URL.
 {% data reusables.desktop.repository-settings-save %}
 
 {% endmac %}
@@ -22,8 +21,7 @@ shortTitle: Change the remote URL for a repository
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. Click **Remote**, and, under **Primary remote repository**, type the desired URL.
-![Primary remote repository field](/assets/images/help/desktop/repository-settings-remote.png)
+2. On the **Remote** pane, under "Primary remote repository", type the desired URL.
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

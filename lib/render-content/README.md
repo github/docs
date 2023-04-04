@@ -30,7 +30,6 @@ Liquid will be looking for includes in `${process.cwd()}/includes`.
 
 Options:
 
-- `encodeEntities`: Encode html entities. Default: `false`.
 - `fileName`: File name for debugging purposes.
 - `textOnly`: Output text instead of html using [cheerio](https://ghub.io/cheerio).
 

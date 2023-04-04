@@ -10,7 +10,7 @@ topics:
   - Codespaces
 ---
 
-If you enable GPG verification, {% data variables.product.prodname_github_codespaces %} automatically signs your commits in codespaces that you create from selected repositories. For more information, see "[Managing GPG verification for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
+If you enable GPG verification, {% data variables.product.prodname_github_codespaces %} automatically signs your commits in codespaces that you create from selected repositories. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
 
 {% data reusables.codespaces.gpg-in-active-codespaces %}
 
@@ -45,7 +45,7 @@ To check that the value has been correctly removed from your configuration, you 
 
 To automatically sign your commits, {% data variables.product.prodname_github_codespaces %} sets certain Git configuration values in your codespace. If you override the values set by {% data variables.product.prodname_github_codespaces %}, you may be unable to sign your commits. 
 
-You may be inadvertently overriding these values if you have linked {% data variables.product.prodname_github_codespaces %} with a dotfiles repository that contains Git configuration files. For more information about using dotfiles with {% data variables.product.prodname_github_codespaces %}, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+You may be inadvertently overriding these values if you have linked {% data variables.product.prodname_github_codespaces %} with a dotfiles repository that contains Git configuration files. For more information about using dotfiles with {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
 
 ### Checking for conflicting configuration
 
@@ -108,5 +108,5 @@ fi
 ```
 
 ## Further reading
-- "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
 - [`git config`](https://git-scm.com/docs/git-config) in the official Git documentation

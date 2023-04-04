@@ -4,9 +4,9 @@ sections:
     - heading: 'GitHub Advanced Security features are generally available'
       notes:
         - |
-          Code scanning and secret scanning are now generally available for GitHub AE. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)."
+          Code scanning and secret scanning are now generally available for GitHub AE. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
         - |
-          Custom patterns for secret scanning is now generally available. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+          Custom patterns for secret scanning is now generally available. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
     - heading: 'View all code scanning alerts for a pull request'
       notes:

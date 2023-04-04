@@ -3,7 +3,12 @@ import parser from 'accept-language-parser'
 
 import { USER_LANGUAGE_COOKIE_NAME } from '../lib/constants.js'
 
-const chineseRegions = ['CN', 'HK']
+const chineseRegions = [
+  'CN', // Mainland
+  'HK', // Hong Kong
+  'SG', // Singapore
+  'TW', // Taiwan
+]
 
 function translationExists(language) {
   if (language.code === 'zh') {
@@ -14,7 +19,7 @@ function translationExists(language) {
 }
 
 function getLanguageCode(language) {
-  return language.code === 'zh' && chineseRegions.includes(language.region) ? 'cn' : language.code
+  return language.code === 'cn' && chineseRegions.includes(language.region) ? 'zh' : language.code
 }
 
 function getUserLanguage(browserLanguages) {

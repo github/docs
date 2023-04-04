@@ -19,7 +19,7 @@ Only owners or team admins can remove organization members. When a user is remov
 
 {% warning %}
 
-**Warning**: When you remove a user from an organization, they will lose access to any private forks they have of your organization's **private repositories**. They may still have local copies of those forks. However, they will be unable to sync them with your organization's repositories. You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property. If the user removed from your organization was an organization member, their access to private forks of organization repositories can be restored if the user is [reinstated as an organization member](/articles/reinstating-a-former-member-of-your-organization) within three months of being removed from an organization.
+**Warning**: When you remove a user from an organization, they will lose access to any private forks they have of your organization's **private repositories**. They may still have local copies of those forks. However, they will be unable to sync them with your organization's repositories. You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property. If the user removed from your organization was an organization member, their access to private forks of organization repositories can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from an organization.
 
 {% endwarning %}
 
@@ -40,10 +40,12 @@ To remove an existing member of a team synced to an LDAP group, contact your LDA
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Select the person or people you'd like to remove.
-![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Remove from team**.
-![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
+1. Select the person or people you'd like to remove.
+
+   ![Screenshot of the first user in a list of team members. To the left of the user, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/team-member-check-box.png)
+1. Above the list of team members, select the **X members selected** dropdown menu and click **Remove from team**.
+
+   {% data reusables.organizations.bulk-edit-team-members %}
 
 ## Removing a user from an organization
 

@@ -113,4 +113,4 @@ shortTitle: Install Git LFS
 
 ## Further reading
 
-- "[Configuring {% data variables.large_files.product_name_long %}](/articles/configuring-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)"

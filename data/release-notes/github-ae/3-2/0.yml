@@ -4,15 +4,15 @@ sections:
     - heading: 'Administration'
       notes:
         - |
-          Customers with active or trial subscriptions for {% data variables.product.product_name %} can now provision {% data variables.product.product_name %} resources from the [Azure Portal](https://portal.azure.com/signin/index/). Your Azure subscription must be feature-flagged to access {% data variables.product.product_name %} resources in the portal. Contact your account manager or {% data variables.contact.contact_enterprise_sales %} to validate your Azure subscription's eligibility. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_managed %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-ae#deploying-github-ae-with-the-azure-portal)."
+          Customers with active or trial subscriptions for {% data variables.product.product_name %} can now provision {% data variables.product.product_name %} resources from the [Azure Portal](https://portal.azure.com/signin/index/). Your Azure subscription must be feature-flagged to access {% data variables.product.product_name %} resources in the portal. Contact your account manager or {% data variables.contact.contact_enterprise_sales %} to validate your Azure subscription's eligibility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/deploying-github-ae#deploying-github-ae-with-the-azure-portal)."
     - heading: 'GitHub Actions'
       notes:
         - |
-          [GitHub Actions](https://github.com/features/actions) is now generally available for {% data variables.product.product_name %}. GitHub Actions is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
+          [GitHub Actions](https://github.com/features/actions) is now generally available for {% data variables.product.product_name %}. GitHub Actions is a powerful, flexible solution for CI/CD and workflow automation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
         - |
-          Self-hosted runners are the default type of runner system on {% data variables.product.product_name %}, and are now generally available for GitHub Actions. With self-hosted runners, you can manage your own machines or containers for the execution of GitHub Actions jobs. For more information, see "[About self-hosted runners](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+          Self-hosted runners are the default type of runner system on {% data variables.product.product_name %}, and are now generally available for GitHub Actions. With self-hosted runners, you can manage your own machines or containers for the execution of GitHub Actions jobs. For more information, see "[About self-hosted runners](https://docs.github.com/en/github-ae@latest/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
         - |
-          Environments, environment protection rules, and environment secrets are now generally available for GitHub Actions on {% data variables.product.product_name %}. For more information, see "[Environments](/actions/reference/environments)."
+          Environments, environment protection rules, and environment secrets are now generally available for GitHub Actions on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
         - |
           GitHub Actions can now generate a visual graph of your workflow on every run. With workflow visualization, you can achieve the following.
 

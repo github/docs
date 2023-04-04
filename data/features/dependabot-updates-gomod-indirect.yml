@@ -1,0 +1,6 @@
+# Reference: issue  #9042
+# gomod ecosystem supports indirect dependencies for Dependabot Updates
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'

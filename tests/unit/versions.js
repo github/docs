@@ -1,14 +1,16 @@
-import path from 'path'
-import { readdir } from 'fs/promises'
 import { jest } from '@jest/globals'
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
 
 import { allVersions } from '../../lib/all-versions.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
 import schema from '../helpers/schemas/versions-schema.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
+
+const ajv = new Ajv({ allErrors: true })
+const validate = ajv.compile(schema)
 
 describe('versions module', () => {
   test('is an object with versions as keys', () => {
@@ -18,31 +20,15 @@ describe('versions module', () => {
 
   test('every version is valid', () => {
     Object.values(allVersions).forEach((versionObj) => {
-      const { valid, errors } = revalidator.validate(versionObj, schema)
-      const expectation = JSON.stringify({ versionObj, errors }, null, 2)
-      expect(valid, expectation).toBe(true)
-    })
-  })
+      const valid = validate(versionObj)
+      let errors
 
-  test('check that the correct REST API versions are versioned and/or unversioned', async () => {
-    const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
-    const files = await readdir(dereferencedPath)
-    for (const file of files) {
-      const version = file.replace('.deref.json', '')
-      const versionObj = Object.values(allVersions).find((versionObj) =>
-        version.startsWith(versionObj.openApiVersionName)
-      )
-      const dateRegex = /\d{4}-\d{2}-\d{2}/
-      const isApiVersioned = dateRegex.test(version)
-
-      if (isApiVersioned) {
-        const apiVersion = version.split(`${versionObj.openApiVersionName}.`)[1]
-        expect(versionObj.apiVersions).toContain(apiVersion)
-        expect()
-      } else {
-        expect(version).toBe(versionObj.openApiVersionName)
+      if (!valid) {
+        errors = `version '${versionObj.version}': ${formatAjvErrors(validate.errors)}`
       }
-    }
+
+      expect(valid, errors).toBe(true)
+    })
   })
 
   test('check REST api calendar date versioned versions set to correct latestApiVersion', () => {

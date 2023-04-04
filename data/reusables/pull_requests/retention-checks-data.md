@@ -1,1 +1,11 @@
-Checks data older than 400 days is archived. As part of the archiving process {% data variables.product.prodname_dotcom %} creates a rollup commit status representing the state of all of the checks for that commit. As a consequence, the merge box in any pull request with archived checks that are required will be in a blocked state and you will need to rerun the checks before you can merge the pull request.
+{% ifversion fpt or ghec %}
+
+{% data variables.location.product_location %} retains check data for 400 days. After 400 days, the data is archived.
+
+{% elsif ghes %}
+
+Site administrators can control the retention policy for checks data on {% data variables.location.product_location %}. For more information, see "[Configuring applications](/admin/configuration/configuring-your-enterprise/configuring-applications#enabling-retention-policy-for-checks)."
+
+{% endif %}
+
+For archived check data, a rollup commit status appears that represents the state of all of the checks for the commit. To merge a pull request with checks that are both required and archived, you must rerun the checks.

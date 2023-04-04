@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Security advisories
   - Vulnerabilities
@@ -25,21 +24,22 @@ When a security researcher reports a vulnerability privately, you are notified a
 
 ## Managing security vulnerabilities that are privately reported
 
-{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-1. Click the advisory you want to review. An advisory that is privately reported will have a status of `Needs triage`.
+1. Click the advisory you want to review. An advisory that was reported privately has a status of `Triage`.
   
-   ![Screenshot showing an example of advisory list](/assets/images/help/security/advisory-list.png)
+   ![Screenshot of a "Security Advisories" list.](/assets/images/help/security/advisory-list.png)
    
-2. Carefully review the report. You can:
-   - Collaborate with the security researcher on a patch in private, by clicking **Start a temporary private fork**. This gives you a place for further discussions with the contributor without changing the status of the proposed advisory from `Needs triage`.
-   - Accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}, by clicking **Accept and open as draft**. If you choose this option:
+2. Carefully review the report, then choose how to proceed.
+   - To collaborate on a patch in private, click **Start a temporary private fork** to create a place for further discussions with the contributor. This does not change the status of the proposed advisory from `Triage`.
+   - To accept the reported vulnerability, click **Accept and open as draft** to accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}. If you choose this option:
       - This doesn't make the report public.
       - The report becomes a draft repository security advisory and you can work on it in the same way as any draft advisory that you create.
-     For more information on security advisories, see "[About repository security advisories](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
-   - Reject the report by clicking **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
+     For more information on security advisories, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+   - To ask for more information, or to open a discussion with the reporter, you can comment on the advisory. Any comments are visible only to the reporter and to any collaborators on the advisory.
+   - If you have enough information to determine that the problem the reporter describes is not a security risk, click **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
 
-     ![Screenshot showing the options available to the repository maintainer when reviewing an externally submitted vulnerability report](/assets/images/help/security/advisory-maintainer-options.png)
+     ![Screenshot showing the options available to the repository maintainer when reviewing an externally submitted vulnerability report.](/assets/images/help/security/advisory-maintainer-options.png)

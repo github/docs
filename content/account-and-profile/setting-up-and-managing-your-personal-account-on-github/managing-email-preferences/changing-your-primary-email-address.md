@@ -29,5 +29,5 @@ shortTitle: Primary email address
    ![Set as primary button](/assets/images/help/settings/set_as_primary_email.png)
 5. To remove the old email address from your account, next to the old email, click {% octicon "trash" aria-label="The trash symbol" %}.
 {% ifversion fpt or ghec %}
-6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
 {% endif %}

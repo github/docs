@@ -1,0 +1,36 @@
+date: '2023-01-12'
+sections:
+  security_fixes:
+    - Sanitize additional secrets in support bundles and the configuration log.
+    - Dependencies for the CodeQL action have been updated to the latest security versions.
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - The metrics `Active workers` and `Queued requests` for `github` (renamed from metadata), `gitauth`, and `unicorn` container services werent correctly read from collectd and displayed in the Management Console.
+    - Dependabot Alert emails would be sent to disabled repositories.
+    - Data migrations could fail when the underlying database table contained only a single record.
+    - When viewing a pull requests diff for a large file with many lines between changes, it was not possible to expand the view to display all of the changes.
+    - The `git-janitor`command was unable to fix outdated `multi-pack-index.lock` files, resulting in the repository failing maintenance.
+    - The `GITHUB_REF_PROTECTED` environment variable and `github.ref_protected` contexts were incorrectly set as `false` when branch protections did exist.
+    - Dropped `launch.*` metrics that can't be parsed by statsd, as the resulting statsd errors caused collectd logs to grow rapidly in size.
+    - When updating custom patterns, the pattern state was immediately set to published.
+  changes:
+    - Improved the reliability of the real time updates service (Alive) to make it more resilient against network issues with Redis.
+    - |
+      The `ghe-support-bundle` and `ghe-cluster-support-bundle` commands were updated to include the `-p/--period` flag to generate a time constrained support bundle. The duration can be specified in days and hours, for example: `-p '2 hours'`, `-p '1 day'`, `-p '2 days 5 hours'`.
+    - When upgrading an instance with a new root partition, running the `ghe-upgrade` command with the `-t/--target` option ensures the preflight check for the minimum disk storage size is executed against the target partition.
+    - The performance of configuration runs started with `ghe-config-apply` has been improved.
+    - When exporting account data, backing up a repository, or performing a migration, the link to a repository archive now expires after 1 hour. Previously the archive link expired after 5 minutes.
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'

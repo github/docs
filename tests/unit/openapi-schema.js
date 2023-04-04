@@ -1,5 +1,4 @@
 import fs from 'fs/promises'
-import { fileURLToPath } from 'url'
 import path from 'path'
 
 import { describe } from '@jest/globals'
@@ -7,10 +6,9 @@ import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
-import getRest from '../../lib/rest/index.js'
+import getRest from '../../src/rest/lib/index.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
+const schemasPath = 'src/rest/data'
 
 async function getFlatListOfOperations(version) {
   const flatList = []
@@ -69,7 +67,7 @@ describe('markdown for each rest version', () => {
       }
     }
 
-    const referenceDir = path.join(__dirname, '../../content/rest')
+    const referenceDir = path.join('content/rest')
     const filenames = (await fs.readdir(referenceDir))
       .filter(
         (filename) =>

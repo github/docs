@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import cx from 'classnames'
 import Cookies from 'js-cookie'
+import { InfoIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
@@ -8,14 +8,7 @@ import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'components/RestRedirect'
 
-import styles from './SidebarProduct.module.scss'
-
 const API_VERSION_SUFFIX = ' (latest)'
-
-type Props = {
-  variant?: 'inline'
-  width?: number
-}
 
 function rememberApiVersion(apiVersion: string) {
   try {
@@ -36,7 +29,7 @@ function rememberApiVersion(apiVersion: string) {
   }
 }
 
-export const ApiVersionPicker = ({ variant, width }: Props) => {
+export const ApiVersionPicker = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
@@ -67,45 +60,52 @@ export const ApiVersionPicker = ({ variant, width }: Props) => {
       text: dateDisplayText,
       selected: router.query.apiVersion === date,
       href: itemLink,
-      info: false,
-      onselect: rememberApiVersion,
+      extra: {
+        info: false,
+        currentDate,
+      },
     }
   })
 
   apiVersionLinks.push({
     text: t('rest.versioning.about_versions'),
     selected: false,
-    info: true,
     href: `/${router.locale}${
       currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
     }/rest/overview/api-versions`,
-    onselect: rememberApiVersion,
+    extra: {
+      info: true,
+      currentDate,
+    },
   })
 
   // This only shows the REST Version picker if it's calendar date versioned
   return allVersions[currentVersion].apiVersions.length > 0 ? (
-    <div
-      className={
-        variant === 'inline'
-          ? 'border-top my-2 pt-2'
-          : cx(
-              'pt-4 px-4 d-flex flex-justify-center pb-4 border-bottom',
-              styles.apiVersionPicker,
-              styles.apiFixedHeader
-            )
-      }
-      style={{ width: `${width}px` }}
-    >
+    <div className="mb-3">
       <div data-testid="api-version-picker" className="width-full">
         <Picker
-          variant={variant}
-          apiVersion={true}
           defaultText={currentDateDisplayText}
-          options={apiVersionLinks}
+          items={apiVersionLinks}
+          pickerLabel="API Version"
+          alignment="start"
+          buttonBorder={true}
+          dataTestId="version"
+          ariaLabel="Select API Version"
+          onSelect={(item) => {
+            if (item.extra?.currentDate) rememberApiVersion(item.extra.currentDate)
+          }}
+          renderItem={(item) => {
+            return item.extra?.info ? (
+              <div className="f6">
+                {item.text}
+                <InfoIcon verticalAlign="middle" size={15} className="ml-1" />
+              </div>
+            ) : (
+              item.text
+            )
+          }}
         />
       </div>
     </div>
-  ) : (
-    <div className={cx(styles.noApiVersion)}></div>
-  )
+  ) : null
 }

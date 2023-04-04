@@ -144,6 +144,7 @@ export default [
   'Support',
   'Swift',
   'Teams',
+  'Transcripts',
   'Travis CI',
   'Trials',
   'Troubleshooting',

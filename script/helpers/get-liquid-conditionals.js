@@ -11,6 +11,7 @@ const tokenize = (str) => {
 // Return an array of just the conditional strings.
 function getLiquidConditionals(str, tagNames) {
   if (!tagNames) throw new Error(`Must provide a tag name!`)
+  if (typeof str !== 'string') throw new Error('Must provide a string!')
   tagNames = Array.isArray(tagNames) ? tagNames : [tagNames]
 
   return tokenize(str)

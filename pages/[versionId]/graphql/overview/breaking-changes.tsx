@@ -11,7 +11,7 @@ import {
 import { getAutomatedPageMiniTocItems } from 'lib/get-mini-toc-items.js'
 import { BreakingChanges } from 'components/graphql/BreakingChanges'
 import { BreakingChangesT } from 'components/graphql/types'
-import { getGraphqlBreakingChanges } from 'lib/graphql/index.js'
+import { getGraphqlBreakingChanges } from 'src/graphql/lib/index.js'
 
 type Props = {
   mainContext: MainContextT

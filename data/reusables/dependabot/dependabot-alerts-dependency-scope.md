@@ -4,8 +4,8 @@ The table below summarizes whether dependency scope is supported for various eco
 |:---|:---:|:---:|:---|{% ifversion dependency-graph-dart-support %}
 | Dart | pub | pubspec.yaml |  ✔ |
 | Dart | pub | pubspec.lock |  ✔ |{% endif %}
-| Go | Go modules | go.mod | No, defaults to runtime |
-| Go | Go modules |	go.sum | No, defaults to runtime |
+| Go | Go modules | go.mod | No, defaults to runtime |{% ifversion ghes < 3.9 or ghae < 3.9 %}
+| Go | Go modules | go.sum | No, defaults to runtime |{% endif %}
 | Java | Maven | pom.xml | ✔ `test` maps to development, else scope defaults to runtime |
 | JavaScript | npm | package.json | ✔ |
 | JavaScript | npm | package-lock.json | ✔ |

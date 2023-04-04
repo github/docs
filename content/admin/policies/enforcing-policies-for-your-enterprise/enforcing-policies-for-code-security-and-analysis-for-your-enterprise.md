@@ -30,7 +30,7 @@ You can enforce policies to manage the use of code security and analysis feature
 ## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
 {% endif %}
 
-{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+{% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization{% ifversion ghec %} owned by your enterprise{% endif %} on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
 
@@ -38,6 +38,8 @@ You can enforce policies to manage the use of code security and analysis feature
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_dependabot_alerts %} in your enterprise
 
 Across all organizations owned by your enterprise, you can allow members with admin permissions for repositories to enable or disable {% data variables.product.prodname_dependabot_alerts %} and change {% data variables.product.prodname_dependabot_alerts %} settings.
+
+{% data reusables.enterprise.role-permission-hierarchy %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -51,6 +53,8 @@ Across all organizations owned by your enterprise, you can allow members with ad
 ## Enforcing a policy for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise's organizations
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
+
+{% data reusables.enterprise.role-permission-hierarchy %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
@@ -78,6 +82,8 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
 
 Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage and configure {% data variables.product.prodname_secret_scanning %} for the repositories. {% data reusables.advanced-security.ghas-must-be-enabled %}
+
+{% data reusables.enterprise.role-permission-hierarchy %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

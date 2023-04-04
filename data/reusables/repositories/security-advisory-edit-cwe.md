@@ -1,0 +1,1 @@
+1. Under "Weaknesses", in the **Common weakness enumerator** field, type common weakness enumerators (CWEs) that describe the kinds of security weaknesses that this security advisory reports. For a full list of CWEs, see the "[Common Weakness Enumeration](https://cwe.mitre.org/index.html)" from MITRE.

@@ -18,13 +18,16 @@ children:
   - /about-code-scanning
   - /about-code-scanning-alerts
   - /triaging-code-scanning-alerts-in-pull-requests
-  - /setting-up-code-scanning-for-a-repository
+  - /configuring-code-scanning-for-a-repository
+  - /about-the-tool-status-page
   - /managing-code-scanning-alerts-for-your-repository
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
-  - /configuring-code-scanning
+  - /customizing-code-scanning
   - /about-code-scanning-with-codeql
   - /recommended-hardware-resources-for-running-codeql
   - /configuring-the-codeql-workflow-for-compiled-languages
+  - /configuring-code-scanning-at-scale
+  - /troubleshooting-your-default-setup-for-codeql
   - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
