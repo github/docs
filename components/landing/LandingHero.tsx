@@ -31,7 +31,7 @@ export const LandingHero = () => {
     <header className="d-lg-flex gutter-lg mb-6">
       <div className={cx('col-12 mb-3 mb-lg-0', productVideo && 'col-lg-6')}>
         <h1>
-          {shortTitle || title}{' '}
+          {title}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
 

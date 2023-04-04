@@ -24,9 +24,7 @@ topics:
 
 You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
-
-For more information about viewing your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
+For more information about viewing your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
@@ -85,7 +83,7 @@ Key            | Value
 `note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}
 {%- ifversion ghes or ghae %}
 `oauth_app_id` | ID of the OAuth application associated with the action.{% endif %}
-`operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`. 
+`operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`.
 {%- ifversion ghes or ghae %}
 `org`          | Name of the organization affected by the action (if applicable).{% endif %}
 {%- ifversion ghes or ghae %}

@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "gear" aria-label="" %} **Settings**.
+1. In the enterprise account sidebar, click {% octicon "gear" aria-hidden="true" %} **Settings**.

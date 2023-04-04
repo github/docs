@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-label="" %} Policies", click **Projects**.
+1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Projects**.

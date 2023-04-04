@@ -488,6 +488,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`GET /teams/{team_id}/members/{username}`](/rest/teams#get-team-member-legacy) (read)
 - [`PUT /teams/{team_id}/members/{username}`](/rest/teams#add-team-member-legacy) (write)
 - [`DELETE /teams/{team_id}/members/{username}`](/rest/teams#remove-team-member-legacy) (write)
+- [`GET /user/teams`](/rest/teams#list-teams-for-the-authenticated-user) (read)
 - [`GET /user/memberships/orgs/{org}`](/rest/orgs#get-an-organization-membership-for-the-authenticated-user) (read)
 - [`PATCH /user/memberships/orgs/{org}`](/rest/orgs#update-an-organization-membership-for-the-authenticated-user) (write)
 {% ifversion ghec or ghes > 3.5 %}- [`GET /orgs/{org}/external-group/{group_id}`](/rest/teams#external-idp-group-info-for-an-organization) (write){% endif %}

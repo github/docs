@@ -8,7 +8,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import glob from 'glob'
+import { globSync } from 'glob'
 import { program } from 'commander'
 import { createOperations, processOperations } from './utils/get-operations.js'
 
@@ -22,7 +22,7 @@ program
 
 const filenames = program.opts().files
 
-const filesToCheck = filenames.flatMap((filename) => glob.sync(filename))
+const filesToCheck = filenames.flatMap((filename) => globSync(filename))
 
 if (filesToCheck.length) {
   check(filesToCheck)

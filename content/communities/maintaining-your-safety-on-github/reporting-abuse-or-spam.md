@@ -32,15 +32,17 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 ## Reporting an issue or pull request
 
 1. Navigate to the issue or pull request you'd like to report.
-1. In the upper-right corner of the issue or pull request, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
-  ![Button to report a comment](/assets/images/help/repository/menu-report-issue-or-pr.png)
+1. In the upper-right corner of the issue or pull request, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Report content**.
+
+   ![Screenshot of an issue description. In the header, a kebab icon is outlined in dark orange.](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ## Reporting a comment
 
 1. Navigate to the comment you'd like to report.
-1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
-![Kebab menu with option to report a comment](/assets/images/help/repository/menu-report-comment.png)
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Report content**.
+
+   ![Screenshot of a comment. In the header, a kebab icon is outlined in dark orange.](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ## Reporting an app in {% data variables.product.prodname_marketplace %}
@@ -55,9 +57,8 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 ## Reporting contact link abuse in the template chooser
 
 1. Navigate to the repository that contains the contact link you'd like to report.
-1. Under the repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
+1. Under the repository name, click {% octicon "issue-opened" aria-hidden="true" %} **Issues**.
 1. In the lower-right corner of the template chooser, click **Report abuse**.
-  ![Link to report an abuse](/assets/images/help/repository/template-chooser-report-abuse.png)
 1. Complete the contact form to tell {% data variables.contact.contact_support %} about the contact link's behavior, then click **Send request**.
 
 ## Further reading
@@ -65,6 +66,5 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 - "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
 - "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
 - "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
 - "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"

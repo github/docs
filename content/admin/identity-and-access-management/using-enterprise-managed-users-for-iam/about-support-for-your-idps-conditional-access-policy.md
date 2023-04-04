@@ -37,7 +37,7 @@ If you're unable to use a service account, another option for unblocking actions
 
 ### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} 
 
-When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} sign a user in and make requests on that user's behalf, also known as a [`user-to-server` request](/get-started/quickstart/github-glossary#user-to-server-request), {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail. 
+When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} sign a user in and make requests on that user's behalf, {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail. 
 
 When {% data variables.product.prodname_github_apps %} call {% data variables.product.prodname_dotcom %} APIs acting either as the app itself or as an installation, these calls are not performed on behalf of a user. Since your IdP's CAP executes and applies policies to user accounts, these application requests cannot be validated against CAP and are always allowed through. For more information on {% data variables.product.prodname_github_apps %} authenticating as themselves or as an installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)".
 

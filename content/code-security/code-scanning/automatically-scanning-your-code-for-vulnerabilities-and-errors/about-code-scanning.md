@@ -7,6 +7,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning
   - /code-security/secure-coding/about-code-scanning
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +19,6 @@ topics:
   - Code scanning
 ---
 
-
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -26,7 +26,7 @@ topics:
 
 {% data reusables.code-scanning.about-code-scanning %}
 
-You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_capc %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
+You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_caps %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
 
 If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
@@ -39,7 +39,7 @@ To get started with {% data variables.product.prodname_code_scanning %}, see "[A
 
 ## About billing for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data variables.product.prodname_code_scanning_caps %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 {% endif %}
 
@@ -56,3 +56,11 @@ You can configure {% data variables.product.prodname_code_scanning %} to use the
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
+
+{% ifversion code-scanning-tool-status-page %}
+
+## About the {% data variables.code-scanning.tool_status_page %}
+
+The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)".
+
+{% endif %}

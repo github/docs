@@ -44,24 +44,25 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 {% webui %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull Requests" list, click the pull request you'd like to merge.
-3. Depending on the merge options enabled for your repository, you can:
-    - [Merge all of the commits into the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, then click the merge drop down menu and select **Create a merge commit**.
-    ![merge-pull-request-button](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-    - [Squash the commits into one commit](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Squash and merge** and then clicking the **Squash and merge** button.
-    ![click-squash-and-merge-button](/assets/images/help/pull_requests/select-squash-and-merge-from-drop-down-menu.png)
-    - [Rebase the commits individually onto the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#rebase-and-merge-your-pull-request-commits) by clicking the merge drop down menu, selecting **Rebase and merge** and then clicking the **Rebase and merge** button.
-    ![select-rebase-and-merge-from-drop-down-menu](/assets/images/help/pull_requests/select-rebase-and-merge-from-drop-down-menu.png)
+1. In the "Pull Requests" list, click the pull request you'd like to merge.
+1. Scroll down to the bottom of the pull request. Depending on the merge options enabled for your repository, you can:
+
+    - [Merge all of the commits into the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, click the merge dropdown menu and select **Create a merge commit**.
+
+     ![Screenshot of the merge options for a pull request. The arrow to expand the dropdown is outlined in dark orange.](/assets/images/help/pull_requests/merge-pull-request-options.png)
+
+    - [Squash the commits into one commit](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Squash and merge** and then clicking **Squash and merge**.
+
+    - [Rebase the commits individually onto the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#rebase-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Rebase and merge** and then clicking **Rebase and merge**.
 
     {% note %}
 
     **Note:** Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
 
     {% endnote %}
-4. If prompted, type a commit message, or accept the default message.
+2. If prompted, type a commit message, or accept the default message.
 
    {% data reusables.pull_requests.default-commit-message-squash-merge %}
-   ![Commit message field](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
 {% data reusables.files.choose-commit-email %}
 
@@ -71,8 +72,8 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
    {% endnote %}
 
-6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
-6. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
+1. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
+2. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
 
 {% endwebui %}
 

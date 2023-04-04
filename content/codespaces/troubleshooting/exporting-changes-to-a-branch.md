@@ -26,9 +26,9 @@ The following steps describe how to export your changes to a branch or fork. For
 
 {% data reusables.codespaces.your-codespaces-procedure-step %} Or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
 1. Click the ellipsis (**...**) to the right of the codespace you want to export from.
-1. Select **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to a branch** or **{% octicon "git-branch" aria-label="The git branch icon" %} Export changes to a fork**.
+1. Select **{% octicon "git-branch" aria-hidden="true" %} Export changes to a branch** or **{% octicon "git-branch" aria-hidden="true" %} Export changes to a fork**.
 
-  ![Export changes to a branch](/assets/images/help/codespaces/export-changes-to-a-branch.png)
+  ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Export changes to a branch" option.](/assets/images/help/codespaces/export-changes-to-a-branch.png)
 
 1. From the popover or dialog box, select **Create branch** or **Create fork**.
 

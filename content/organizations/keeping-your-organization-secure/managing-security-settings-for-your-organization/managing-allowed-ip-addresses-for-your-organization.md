@@ -16,7 +16,9 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 ## About allowed IP addresses
 
-You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+By default, authorized users can access your organization's resources from any IP address. You can restrict access to your organization's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 {% ifversion ghec %}
 {% note %}
@@ -25,8 +27,6 @@ You can restrict access to private organization assets by configuring an allow l
 
 {% endnote %}
 {% endif %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 ## About IP allow list management
 

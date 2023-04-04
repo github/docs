@@ -1,4 +1,4 @@
-1. Under your organization name, click {% octicon "people" aria-label="" %} **Teams**.
+1. Under your organization name, click {% octicon "people" aria-hidden="true" %} **Teams**.
   {% ifversion fpt or ghes or ghec %}
   ![Teams tab](/assets/images/help/organizations/organization-teams-tab-with-overview.png)
   {% else %}

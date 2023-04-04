@@ -116,7 +116,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
 {% data reusables.rest-api.quickstart-location-javascript-admonition %}
 
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
    {% warning %}
 
@@ -279,7 +279,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 {% endnote %}
 
 1. Install `curl` if it isn't already installed on your machine. To check if `curl` is installed, execute `curl --version` in the command line. If the output is information about the version of `curl`, it is installed. If you get a message similar to `command not found: curl`, you need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
-1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
 
    {% warning %}
 

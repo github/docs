@@ -41,9 +41,8 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.email-tab %}
+1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Email**.
 2. Select **Enable email**.
-  !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Type the settings for your email server.
     - In the **Server address** field, type the address of your SMTP server.
     - In the **Port** field, type the port that your SMTP server uses to send email.
@@ -51,13 +50,9 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
     - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
     - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-  !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. Click **Test email settings**.
-  !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)
 6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
-  !["Send test email" button for email settings configuration](/assets/images/enterprise/configuration/ae-send-test-email.png)
 7. Click **Save**.
-  !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
 {% endif %}
 
 {% ifversion ghes %}
@@ -91,9 +86,9 @@ You can enforce TLS encryption for all incoming SMTP connections, which can help
 {%- endif %}
 
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Under "Authentication," select **Enforce TLS auth (recommended)**.
+1. Under "Authentication", select **Enforce TLS auth (recommended)**.
 
-   ![Screenshot of the "Enforce TLS auth (recommended)" checkbox](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
+   ![Screenshot of the "Email" section of the Management Console. A checkbox, labeled "Enforce TLS auth (recommended)", is outlined in dark orange.](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
 

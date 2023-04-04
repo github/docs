@@ -12,17 +12,13 @@ topics:
 
 ## About ticket management
 
+{% data reusables.support.support-portal-notes %}
+
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the [GitHub Support Portal](https://support.github.com/) to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
 Your capabilities in the {% data variables.contact.support_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
-
-{% note %}
-
-**Note**: Urgent priority and Premium Support SLAs apply only to tickets associated with an enterprise account.
-
-{% endnote %}
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
@@ -60,11 +56,20 @@ You can only view archived tickets for an enterprise account.
 1. To add your comment to the ticket, under the text box, click **Comment**.
 
 {% ifversion ghec or ghes %}
+
 ## Collaborating on support tickets
 
 You can collaborate with your colleagues on support tickets using the support portal. Owners, billing managers, and other enterprise members with support entitlements can view tickets associated with an enterprise account or an organization managed by an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
-In addition to viewing tickets, you can also add comments to support tickets if your email address is copied on the ticket or if the person who opened the ticket used an email address with a domain that is verified for the enterprise account or organization managed by an enterprise account. For more information about verifying a domain, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)" and "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+You can also comment on tickets opened by someone else and associated with your enterprise account. {% data reusables.support.enterprise-comment-on-support-tickets %}
+
+## Requesting a callback
+
+If your account includes {% data variables.contact.premium_support %}, you can request a callback for urgent or high priority tickets. From the ticket, click **Request a callback from GitHub Support**.
+
+## Requesting an escalation
+
+If your account includes {% data variables.contact.premium_support %}, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see "[AUTOTITLE](/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket)".
 
 {% endif %}
 

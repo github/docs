@@ -30,7 +30,7 @@ You can review changes in a pull request one file at a time. While reviewing the
 {% data reusables.repositories.changed-files %}
 You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![Screenshot of the "Files changed" tab for a pull request. The "Diff view" menu is outlined in dark orange.](/assets/images/help/pull_requests/diff-settings-menu.png)
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
 1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
@@ -39,11 +39,9 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 {% data reusables.repositories.suggest-changes %}
 1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
 
-   ![Start a review button](/assets/images/help/pull_requests/start-a-review-button.png)
+Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Cancel review**.
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, scroll down to the end of the timeline on the Conversation tab, then click **Cancel review**.
-
-![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
+![Screenshot of the comment field for a review. The "Cancel review" button is outlined in dark orange.](/assets/images/help/pull_requests/cancel-review-button.png)
 {% endwebui %}
 
 {% ifversion fpt or ghec %}
@@ -53,19 +51,19 @@ Before you submit your review, your line comments are _pending_ and only visible
 You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
 
 1. Open the pull request in a codespace, as described in "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
-1. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
+2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
 
-1. To review a specific file, click the **Open File** icon in the Side Bar.
+3. To review a specific file, click the **Open File** icon in the Side Bar.
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
 
-1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
+4. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
 
-1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
+5. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 
    ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
 
@@ -93,9 +91,9 @@ If the pull request contains changes to dependencies you can use the dependency 
 After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
 
 {% data reusables.repositories.changed-files %}
-2. On the right of the header of the file you've finished reviewing, select **Viewed**.
+1. On the right of the header of the file you've finished reviewing, select **Viewed**.
 
-   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
+   ![Screenshot of the header of a file. The "Viewed" option is outlined in dark orange.](/assets/images/help/pull_requests/viewed-checkbox.png)
 
 ## Submitting your review
 
@@ -105,8 +103,6 @@ After you've finished reviewing all the files you want in the pull request, subm
 {% data reusables.repositories.review-changes %}
 {% data reusables.repositories.review-summary-comment %}
 4. Select the type of review you'd like to leave:
-
-   ![Radio buttons with review options](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
     - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
     - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.

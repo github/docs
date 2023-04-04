@@ -1,10 +1,10 @@
 import sharp from 'sharp'
 
-import { get, getDOM } from '../helpers/e2etest.js'
+import { get, head, getDOM } from '../helpers/e2etest.js'
 
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
-    const $ = await getDOM('/get-started/foo/single-image')
+    const $ = await getDOM('/get-started/images/single-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(1)
@@ -38,5 +38,23 @@ describe('render Markdown image tags', () => {
     // The `_fixtures/screenshot.png` is 2000x1494.
     // So if 2000/1494==1000/x, then x becomes 1494*1000/2000=747
     expect(height).toBe(747)
+  })
+
+  test('image inside a list keeps its span', async () => {
+    const $ = await getDOM('/get-started/images/images-in-lists')
+
+    const imageSpan = $('#article-contents > div > ol > li > span.procedural-image-wrapper')
+    expect(imageSpan.length).toBe(1)
+  })
+
+  test("links directly to images aren't rewritten", async () => {
+    const $ = await getDOM('/get-started/images/link-to-image')
+    // There is only 1 link inside that page
+    const links = $('#article-contents a[href^="/"]') // exclude header link
+    expect(links.length).toBe(1)
+    // This proves that the link didn't get rewritten to `/en/...`
+    expect(links.attr('href'), '/assets/images/_fixtures/screenshot.png')
+    const res = await head(links.attr('href'))
+    expect(res.statusCode).toBe(200)
   })
 })

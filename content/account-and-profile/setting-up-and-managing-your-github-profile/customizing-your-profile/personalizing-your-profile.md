@@ -19,6 +19,14 @@ topics:
   - Profiles
 shortTitle: Personalize
 ---
+
+{% note %}
+
+**Note:**
+  Any details you add to your public {% data variables.product.product_name %} profile will be visible to all {% data variables.product.product_name %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.product_name %} profile.
+
+{% endnote %}
+
 ## Changing your profile picture
 
 Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
@@ -37,7 +45,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Upload a photo...**.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Upload a photo...**.
 
    ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-photo.png)
 1. Select an image, then click **Upload**.
@@ -47,7 +55,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Remove photo** to revert to your identicon.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Remove photo** to revert to your identicon.
 
    {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.{% endif %}
 
@@ -99,13 +107,6 @@ For a longer-form and more prominent way of displaying customized information ab
 ## Adding pronouns to your profile
 
 Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
-
-{% note %}
-
-**Note:**
-  Your pronouns will be visible to {% data variables.product.product_name %} users. It is important to consider that for transgender and non-binary people, covering demands in the workplace, at school, or in other contexts, may make it more comfortable not to share their pronouns. Please be aware of any applicable local laws, regulations, or cultural norms that may pose additional risks to transgender or non-binary people as you consider whether to leverage the pronouns feature.
-
-{% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.

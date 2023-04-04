@@ -18,8 +18,6 @@ You can filter for iterations by specifying the iteration name or `@current` for
 
 When you first create an iteration field, three iterations are automatically created.  You can add additional iterations and make other changes on your project's settings page.
 
-![Screenshot showing the settings for an iteration field](/assets/images/help/issues/iterations-example.png)
-
 {% ifversion projects-v2-roadmaps %}
 
 If your project makes use of iteration fields, you can use the roadmap layout to view items on a timeline. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
@@ -75,8 +73,9 @@ You can insert breaks into your iterations to communicate when you are taking ti
 {% data reusables.projects.project-settings %}
 1. Click the name of the iteration field you want to adjust.
    ![Screenshot showing an iteration field](/assets/images/help/projects-v2/select-iteration-field.png)
-2. On the dividing line above an iteration and to the right, click **Insert break**.
-   ![Screenshot showing location of "Insert break" button](/assets/images/help/issues/iteration-insert-break.png)
+2. Hover over the dividing line above an iteration, then click **Insert break**.
+
+   ![Screenshot of the list of iterations for a project. On the dividing line between two iterations, a button, labeled "Insert break," is outlined in dark orange.](/assets/images/help/issues/iteration-insert-break.png)
 3. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
 4. Click **Save changes**.
    ![Screenshot the save button](/assets/images/help/projects-v2/iteration-save.png)

@@ -21,7 +21,8 @@ The Program is offered to verified students on GitHub Global Campus in countries
 ## 2. Ownership and likeness
 ### 2.1 Ownership
 You hereby grant the Octernships Partners a non-exclusive, irrevocable, perpetual, royalty-free, worldwide license to make, have made, use, offer to sell, sell, import, copy, modify, create derivative works based upon, distribute, sublicense, display, perform and transmit any work product you create in connection with the Program or during your internship, including, without limitation, concepts, works, inventions, information, drawings, designs, programs, or software.  
-2.2 Likeness
+
+### 2.2 Likeness
 GitHub and Octernships Partners reserve all rights, including the right to edit, publish, use, adapt, modify or dispose of any work product/description, likenesses, and photographs for advertising and promotional purposes in all media (including, but not limited to, the internet) without additional compensation, except where prohibited by law. 
 
 ## 3. Confidentiality and non-disclosure

@@ -65,19 +65,21 @@ On November 13, 2020 username and password authentication to the REST API and th
 If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
-curl -u my_user:my_password https://api.github.com/user/repos
+curl -u YOUR-USERNAME:YOUR-PASSWORD https://api.github.com/user/repos
 ```
 
-Instead, use a [{% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) when testing endpoints or doing local development:
+Instead, use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %} when testing endpoints or doing local development:
 
 ```bash
-curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer YOUR-TOKEN' https://api.github.com/user/repos
 ```
+
+For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
 For OAuth Apps, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
-curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer YOUR-OAUTH-TOKEN' https://api.github.com/user/repos
 ```
 
 ## Timeouts

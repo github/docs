@@ -50,7 +50,6 @@ export function Webhook({ webhook }: Props) {
   const version = useVersion()
   const { t } = useTranslation('products')
   const router = useRouter()
-  const { locale } = router
 
   const context = useMainContext()
   // Get more user friendly language for the different availability options in
@@ -62,7 +61,9 @@ export function Webhook({ webhook }: Props) {
   // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
   // The selected webhook action type the user selects via a dropdown
-  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
+  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState(
+    webhook.actionTypes.length > 1 ? webhook.actionTypes[0] : ''
+  )
   // The index of the selected action type so we can highlight which one is selected
   // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
@@ -84,7 +85,6 @@ export function Webhook({ webhook }: Props) {
     const url = new URL(location.href)
     const actionType = url.searchParams.get('actionType')
     const hash = url.hash?.slice(1)
-
     if (actionType && hash && webhook.actionTypes.includes(actionType) && hash === webhookSlug) {
       setSelectedWebhookActionType(actionType)
       setSelectedActionTypeIndex(webhook.actionTypes.indexOf(actionType))
@@ -105,7 +105,7 @@ export function Webhook({ webhook }: Props) {
     setSelectedWebhookActionType(type)
     setSelectedActionTypeIndex(index)
 
-    const { asPath } = router
+    const { asPath, locale } = router
     let [pathRoot, pathQuery = ''] = asPath.split('?')
     const params = new URLSearchParams(pathQuery)
 
@@ -114,10 +114,13 @@ export function Webhook({ webhook }: Props) {
     }
 
     params.set('actionType', type)
-    router.push({ pathname: pathRoot, query: params.toString(), hash: webhookSlug }, undefined, {
-      shallow: true,
-      locale,
-    })
+    router.push(
+      { pathname: `/${locale}${pathRoot}`, query: params.toString(), hash: webhookSlug },
+      undefined,
+      {
+        shallow: true,
+      }
+    )
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked

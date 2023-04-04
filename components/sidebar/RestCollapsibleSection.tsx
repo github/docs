@@ -1,45 +1,33 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
-import { useState, useEffect, SyntheticEvent, ReactElement } from 'react'
-import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/react'
+import { useState, useEffect } from 'react'
+import { TreeView } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'components/lib/events'
+import { EventType, sendEvent } from 'src/events/browser'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
-import styles from './SidebarProduct.module.scss'
+
+import styles from './RestCollapsibleSection.module.scss'
+
+let prevTarget: object | undefined
 
 type SectionProps = {
   routePath: string
   page: ProductTreeNode
   title: string
-  defaultOpen: boolean
   isStandaloneCategory: boolean
-}
-
-type ConditionalLinkTypes = {
-  condition: boolean
-  wrapper: Function
-  children: ReactElement
 }
 
 export const RestCollapsibleSection = (props: SectionProps) => {
   const router = useRouter()
-  const { routePath, defaultOpen, title, page, isStandaloneCategory } = props
-  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const { routePath, title, page, isStandaloneCategory } = props
   const [currentAnchor, setCurrentAnchor] = useState('')
   const [visibleAnchor, setVisibleAnchor] = useState('')
-
-  const onToggle = (e: SyntheticEvent) => {
-    const newIsOpen = (e.target as HTMLDetailsElement).open
-    setIsOpen(newIsOpen)
-    sendEvent({
-      type: EventType.navigate,
-      navigate_label: `details ${newIsOpen ? 'open' : 'close'}: ${title}`,
-    })
-  }
+  const isActive = routePath.includes(page.href + '/') || routePath === page.href
+  const [standAloneExpanded, setStandAloneExpanded] = useState(isActive)
+  const [mapTopicExpanded, setMapTopicExpanded] = useState(isActive)
 
   const miniTocItems =
     router.query.productId === 'rest' ||
@@ -100,138 +88,126 @@ export const RestCollapsibleSection = (props: SectionProps) => {
       }
     }
   }, [miniTocItems])
-  // This wrapper solves the issue of having standalone categories not
-  // link to the new page. We want standalone categories to have links
-  // just like maptopics/subcategories.
-  const ConditionalLinkWrapper = ({ condition, wrapper, children }: ConditionalLinkTypes) =>
-    condition ? wrapper(children) : children
+
+  useEffect(() => {
+    setMapTopicExpanded(true)
+  }, [router.query.subcategory])
 
   const renderRestAnchorLink = (miniTocItem: MiniTocItem) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
-    const isCurrent = visibleAnchor === miniTocAnchor
+    const isAnchorCurrent = visibleAnchor === miniTocAnchor
+
     return (
-      <ActionList.Item
+      <a
         key={miniTocAnchor}
-        data-is-current-page={isCurrent}
-        className={cx(
-          'position-relative',
-          styles.sidebarArticle,
-          isCurrent && ['text-bold', styles.sidebarArticleActive]
-        )}
-        sx={{
-          padding: '2px 0',
-          ':hover': {
-            borderRadius: 0,
-          },
-        }}
+        onClick={() => setVisibleAnchor(miniTocAnchor)}
+        href={miniTocAnchor}
+        className={cx(styles.operationWidth, 'color-fg-default no-underline')}
       >
-        <a
-          className={cx(
-            'd-block pl-6 pr-5 py-1 no-underline width-full',
-            isCurrent ? 'color-fg-accent' : 'color-fg-default'
-          )}
-          onClick={() => setVisibleAnchor(miniTocAnchor)}
-          href={miniTocAnchor}
+        <TreeView.Item
+          id={miniTocAnchor}
+          current={isAnchorCurrent}
+          defaultExpanded={isAnchorCurrent}
         >
           {title}
-        </a>
-      </ActionList.Item>
+        </TreeView.Item>
+      </a>
     )
   }
 
   return (
-    <details open={defaultOpen} onToggle={onToggle} className="details-reset">
-      <summary className="outline-none">
-        <ConditionalLinkWrapper
-          condition={isStandaloneCategory}
-          wrapper={(children: ReactElement) => (
-            <Link href={page.href} className="color-fg-default no-underline text-bold">
-              {children}
-            </Link>
-          )}
+    // This is where a category has no subcategory
+    <div className="ml-3" data-testid="rest-category">
+      {isStandaloneCategory ? (
+        <TreeView.Item
+          id={page.href}
+          expanded={isActive && standAloneExpanded}
+          onExpandedChange={setStandAloneExpanded}
+          defaultExpanded={isActive}
         >
-          <div className="d-flex flex-justify-between">
-            <div
-              data-testid="rest-category"
-              className="pl-4 pr-1 py-2 f5 d-block flex-auto mr-3 color-fg-default no-underline text-bold"
-            >
-              {title}
-            </div>
-            <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
-              <ChevronDownIcon className={cx('opacity-60', isOpen && 'rotate-180')} />
-            </span>
-          </div>
-        </ConditionalLinkWrapper>
-      </summary>
-
-      {
-        <>
-          {/* <!-- Render the maptopic level subcategory operation links e.g. --> */}
-          <ul className="list-style-none position-relative">
-            {page.childPages.length <= 0 ? (
-              <div className="pb-0">
-                {miniTocItems.length > 0 && (
-                  <ActionList variant="full">
-                    {miniTocItems.map((item) => {
-                      return renderRestAnchorLink(item)
-                    })}
-                  </ActionList>
-                )}
-              </div>
-            ) : (
-              page.childPages.map((childPage, i) => {
-                const childTitle = childPage.shortTitle || childPage.title
-                const isActive = routePath.includes(childPage.href)
-                const isCurrent = routePath === childPage.href
-
-                // At this point we have the mini-toc data for the current page
-                // so we render this list of operation links.
-                if (routePath === childPage.href) {
-                  return (
-                    <li key={childPage.href + i} data-is-current-page={isCurrent}>
-                      <details
-                        open={isActive}
-                        onToggle={(e) => e.stopPropagation()}
-                        className="details-reset"
-                      >
-                        <summary>
-                          <div className={cx('pl-4 pr-5 py-2 no-underline')}>{childTitle}</div>
-                        </summary>
-                        <div className="pb-0">
+          <Link href={page.href} className="color-fg-default no-underline d-block width-full">
+            {title}
+          </Link>
+          <TreeView.SubTree>
+            {miniTocItems.length > 0 && (
+              <>
+                {miniTocItems.map((item) => {
+                  return renderRestAnchorLink(item)
+                })}
+              </>
+            )}
+          </TreeView.SubTree>
+        </TreeView.Item>
+      ) : (
+        // This is where a category has a subcategory
+        <TreeView.Item id={title} defaultExpanded={isActive}>
+          {title}
+          <TreeView.SubTree>
+            {page.childPages.map((childPage, i) => {
+              const childTitle = childPage.shortTitle || childPage.title
+              const childActive =
+                routePath.includes(childPage.href + '/') || routePath === childPage.href
+              const childCurrent = routePath === childPage.href
+              return (
+                <div
+                  key={childPage.href + i}
+                  className={cx(styles.toggleHover)}
+                  data-testid="rest-subcategory"
+                >
+                  <TreeView.Item
+                    id={childPage.href}
+                    expanded={childCurrent && mapTopicExpanded}
+                    onExpandedChange={() => setMapTopicExpanded(childCurrent && mapTopicExpanded)}
+                    defaultExpanded={childActive}
+                    // We need the subcategory level to router.push so that we can get the operations
+                    // We also want it to open/close on click without doing router.push when toggling
+                    onSelect={(e) => {
+                      e.preventDefault()
+                      const currentTarget = e.target
+                      if (
+                        childPage.href.split('/').pop() === router.query.subcategory &&
+                        mapTopicExpanded
+                      ) {
+                        prevTarget = currentTarget
+                      }
+                      if (prevTarget && prevTarget === currentTarget) {
+                        setMapTopicExpanded(!mapTopicExpanded)
+                      } else {
+                        router.push(childPage.href)
+                        sendEvent({
+                          type: EventType.navigate,
+                          navigate_label: `rest page navigate to: ${childPage.href}`,
+                        })
+                      }
+                      prevTarget = currentTarget
+                    }}
+                  >
+                    {childTitle}
+                    <TreeView.SubTree>
+                      {/* At this point we have the mini-toc data for the current page
+                        so we render this list of operation links. */}
+                      {routePath === childPage.href ? (
+                        <>
                           {miniTocItems.length > 0 && (
-                            <ActionList variant="full" className="my-2">
+                            <>
                               {miniTocItems.map((item) => {
                                 return renderRestAnchorLink(item)
                               })}
-                            </ActionList>
+                            </>
                           )}
-                        </div>
-                      </details>
-                    </li>
-                  )
-                } else {
-                  // We're not on the current page so don't have any minitoc
-                  // data so just render a link to the category page.
-                  return (
-                    <li data-testid="rest-subcategory" key={childTitle} className="pb-0">
-                      <Link
-                        href={childPage.href}
-                        className={cx(
-                          'd-block pl-4 pr-5 py-1 no-underline width-full',
-                          isCurrent ? 'color-fg-accent' : 'color-fg-default'
-                        )}
-                      >
-                        {childTitle}
-                      </Link>
-                    </li>
-                  )
-                }
-              })
-            )}
-          </ul>
-        </>
-      }
-    </details>
+                        </>
+                      ) : (
+                        <div></div>
+                      )}
+                    </TreeView.SubTree>
+                  </TreeView.Item>
+                </div>
+              )
+            })}
+          </TreeView.SubTree>
+        </TreeView.Item>
+      )}
+    </div>
   )
 }

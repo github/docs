@@ -22,7 +22,6 @@ Teachers, students, and researchers can use tools from {% data variables.product
 Administer a classroom, assign and review work from your students, and teach the new generation of software developers with {% data variables.product.prodname_classroom %}.
 
 - [About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
-- [Basics of setting up {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/basics-of-setting-up-github-classroom)
 - [Manage classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)
 - [Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)
 - [Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)

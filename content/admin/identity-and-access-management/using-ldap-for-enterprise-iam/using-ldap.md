@@ -69,24 +69,24 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 ## LDAP attributes
 Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
 
-| Attribute name           | Type     | Description |
+| Attribute name           | Required     | Description |
 |--------------------------|----------|-------------|
-| `Host`                   | Required | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.location.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
-| `Port`                   | Required | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
-| `Encryption`             | Required | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
-| `Domain search user`     | Optional | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
-| `Domain search password` | Optional | The password for the domain search user. |
-| `Administrators group`   | Optional | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
-| `Domain base`            | Required | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
-| `Restricted user groups` | Optional | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
-| `User ID`                | Required | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
-| `Profile name`           | Optional | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
-| `Emails`                 | Optional | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
-| `SSH keys`               | Optional | The public SSH keys attached to a user's {% data variables.product.prodname_ghe_server %} account. The keys must be in OpenSSH format. |
-| `GPG keys`               | Optional | The GPG keys attached to a user's {% data variables.product.prodname_ghe_server %} account. |
-| `Disable LDAP authentication for Git operations` | Optional |If selected, [turns off](#disabling-password-authentication-for-git-operations) users' ability to use LDAP passwords to authenticate Git operations. |
-| `Enable LDAP certificate verification` | Optional |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
-| `Synchronization` | Optional |If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
+| `Host`                   | {% octicon "check" aria-label="Required" %} | The LDAP host, e.g. `ldap.example.com` or `10.0.0.30`. If the hostname is only available from your internal network, you may need to configure {% data variables.location.product_location %}'s DNS first so it can resolve the hostname using your internal nameservers. |
+| `Port`                   | {% octicon "check" aria-label="Required" %} | The port the host's LDAP services are listening on. Examples include: 389 and 636 (for LDAPS). |
+| `Encryption`             | {% octicon "check" aria-label="Required" %} | The encryption method used to secure communications to the LDAP server. Examples include plain (no encryption), SSL/LDAPS (encrypted from the start), and StartTLS (upgrade to encrypted communication once connected). |
+| `Domain search user`     | {% octicon "x" aria-label="Optional" %} | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
+| `Domain search password` | {% octicon "x" aria-label="Optional" %} | The password for the domain search user. |
+| `Administrators group`   | {% octicon "x" aria-label="Optional" %} | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
+| `Domain base`            | {% octicon "check" aria-label="Required" %} | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
+| `Restricted user groups` | {% octicon "x" aria-label="Optional" %} | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
+| `User ID`                | {% octicon "check" aria-label="Required" %} | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
+| `Profile name`           | {% octicon "x" aria-label="Optional" %} | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
+| `Emails`                 | {% octicon "x" aria-label="Optional" %} | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
+| `SSH keys`               | {% octicon "x" aria-label="Optional" %} | The public SSH keys attached to a user's {% data variables.product.prodname_ghe_server %} account. The keys must be in OpenSSH format. |
+| `GPG keys`               | {% octicon "x" aria-label="Optional" %} | The GPG keys attached to a user's {% data variables.product.prodname_ghe_server %} account. |
+| `Disable LDAP authentication for Git operations` | {% octicon "x" aria-label="Optional" %} |If selected, [turns off](#disabling-password-authentication-for-git-operations) users' ability to use LDAP passwords to authenticate Git operations. |
+| `Enable LDAP certificate verification` | {% octicon "x" aria-label="Optional" %} |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
+| `Synchronization` | {% octicon "x" aria-label="Optional" %} | If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
 
 ### Disabling password authentication for Git operations
 
@@ -187,10 +187,8 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **LDAP users**.
-![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
-![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
+1. In the left sidebar, click **LDAP users**.
+1. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 
 ## Updating LDAP accounts
 
@@ -207,9 +205,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
-![LDAP sync now button](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
+1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
 You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap).
 

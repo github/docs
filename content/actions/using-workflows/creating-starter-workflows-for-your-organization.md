@@ -97,9 +97,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
-
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+To add another starter workflow, add your files to the same `workflow-templates` directory.
 
 ## Next steps
 

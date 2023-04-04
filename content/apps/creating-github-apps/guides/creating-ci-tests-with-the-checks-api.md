@@ -47,10 +47,6 @@ The Checks API sends the [`check_suite` webhook event](/webhooks-and-events/webh
   * Create annotations on lines of code that GitHub displays in the **Checks** and **Files Changed** tab of a pull request.
   * Automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
 
-To get an idea of what your Checks API CI server will do when you've completed this quickstart, check out the demo below:
-
-![Demo of Checks API CI sever quickstart](/assets/images/github-apps/github_apps_checks_api_ci_server.gif)
-
 ## Prerequisites
 
 Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps), [Webhooks](/webhooks-and-events/webhooks/about-webhooks), and the [Checks API](/rest/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
@@ -173,9 +169,7 @@ $ ruby template_server.rb
 
 {% data reusables.apps.sinatra_restart_instructions %}
 
-Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see something like this:
-
-![Queued check run](/assets/images/github-apps/github_apps_queued_check_run.png)
+Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see a check run with the name "Octo RuboCop", or whichever name you chose earlier for the check run.
 
 If you see other apps in the Checks tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events.
 
@@ -241,7 +235,7 @@ The code above calls the "[AUTOTITLE](/rest/checks#update-a-check-run)" API endp
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
-You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
+You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
 You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
 
@@ -249,9 +243,7 @@ You could also provide more details about what your check is doing, but you'll g
 $ ruby template_server.rb
 ```
 
-Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper left corner. You should see the check run move from `pending` to `in_progress` and end with `success`:
-
-![Completed check run](/assets/images/github-apps/github_apps_complete_check_run.png)
+Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper right corner. You should see the check run move from `pending` to `in_progress` and end with `success`.
 
 ## Part 2. Creating the Octo RuboCop CI test
 
@@ -585,17 +577,9 @@ The code above doesn't have RuboCop automatically fix errors yet. You'll add tha
 $ ruby template_server.rb
 ```
 
-The annotations will show up in the **Checks** tab.
-
-![Check run annotations in the checks tab](/assets/images/github-apps/github_apps_checks_annotations.png)
-
-Notice the "Fix this" button that you created by adding a requested action.
-
-![Check run requested action button](/assets/images/github-apps/github_apps_checks_fix_this_button.png)
+The annotations will show up in the **Checks** tab. Also notice the "Fix this" button that you created by adding a requested action.
 
 If the annotations are related to a file already included in the PR, the annotations will also show up in the **Files changed** tab.
-
-![Check run annotations in the files changed tab](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
 ## Step 2.6. Automatically fixing RuboCop errors
 
@@ -689,11 +673,7 @@ This time, click the "Fix this" button to automatically fix the errors RuboCop f
 
 In the **Commits** tab, you'll see a brand new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
 
-![A new commit to automatically fix Octo RuboCop notices](/assets/images/github-apps/github_apps_new_requested_action_commit.png)
-
 Because a new commit was pushed to the repo, you'll see a new check suite for Octo RuboCop in the **Checks** tab. But this time there are no errors because RuboCop fixed them all. 🎉
-
-![No check suite or check run errors](/assets/images/github-apps/github_apps_checks_api_success.png)
 
 You can find the completed code for the app you just built in the `server.rb` file in the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
 

@@ -40,6 +40,8 @@ topics:
 
 There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
+{% rowheaders %}
+
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
@@ -54,6 +56,8 @@ Incident management | None | For Urgent priority tickets, as needed
 | Technical advisory hours| None | 4 hours per month  |
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |
+
+{% endrowheaders %}
 
   {% note %}
 

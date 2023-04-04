@@ -20,10 +20,14 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 ## Pulling to your local branch from the remote
 
 1. In {% data variables.product.prodname_desktop %}, use the {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** drop-down, and select the local branch you want to update.
-2.  To check for commits on the remote branch, click **Fetch origin**
-![The Fetch origin button](/assets/images/help/desktop/fetch-button.png)
+2. To check for commits on the remote branch, click **Fetch origin**
+   
+   ![Screenshot of the repository bar. The "Fetch origin" button, displayed with an icon of two arrows forming a circle, is outlined in orange.](/assets/images/help/desktop/fetch-button.png)
+
 3. To pull any commits from the remote branch, click **Pull origin** or **Pull origin with rebase**.
-![The Pull origin button](/assets/images/help/desktop/pull-button.png)
+
+   ![Screenshot of the repository bar. The "Pull origin" button, displayed with an icon of a downward-facing arrow, is outlined in orange.](/assets/images/help/desktop/pull-button.png)
+
 {% data reusables.desktop.resolve-merge-conflicts %}
 
 ## Merging another branch into your project branch
@@ -34,49 +38,52 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% note %}
 
-   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Merge <em>BRANCH</em> into <em>BRANCH</em>** button. You will not be able to merge the branches until you have resolved all conflicts.
+   **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Merge BRANCH into BRANCH** button. You will not be able to merge the branches until you have resolved all conflicts.
 
    {% endnote %}
-
-   ![The Merge button](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
 ## Rebasing your project branch onto another branch
 
-{% mac %}
+1. In the menu bar, select **Branch**, then click **Rebase Current Branch**.
 
-1. In the menu bar, use the **Branch** drop-down and click **Rebase Current Branch**.
-![Rebase Current Branch in branch dropdown](/assets/images/help/desktop/mac-rebase-current-branch.png)
-2. Click the branch you want to rebase into the current branch, then click **Start rebase**.
-![Start rebase button](/assets/images/help/desktop/start-rebase-button.png)
-3. If you're sure you want to rebase, click **Begin rebase**.
-![Begin rebase button](/assets/images/help/desktop/begin-rebase-button.png)
+   {% mac %}
+
+   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor overs over an option labeled "Rebase Current Branch".](/assets/images/help/desktop/mac-rebase-current-branch.png)
+
+   {% endmac %}
+
+   {% windows %}
+
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Rebase Current Branch" is outlined in orange.](/assets/images/help/desktop/windows-rebase-current-branch.png)
+
+   {% endwindows %}
+
+2. Click the branch you want to rebase into the current branch, then click **Rebase**.
+3. If you're sure you want to rebase, click **Begin Rebase**.
 {% data reusables.desktop.resolve-merge-conflicts %}
 4. To push your local changes, click **Force push origin**.
-![Force push origin](/assets/images/help/desktop/force-push-origin.png)
-
-{% endmac %}
-
-{% windows %}
-
-1. Use the **Branch** drop-down and click **Rebase Current Branch**.
-![Rebase Current Branch in branch dropdown](/assets/images/help/desktop/windows-rebase-current-branch.png)
-2. Click the branch you want to rebase into the current branch, then click **Start rebase**.
-![Start rebase button](/assets/images/help/desktop/start-rebase-button.png)
-3. If you're sure you want to rebase, click **Begin rebase**.
-![Begin rebase button](/assets/images/help/desktop/begin-rebase-button.png)
-{% data reusables.desktop.resolve-merge-conflicts %}
-4. To push up your local changes, click **Force push origin**.
-![Force push origin](/assets/images/help/desktop/force-push-origin.png)
-
-{% endwindows %}
+   
+   ![Screenshot of the repository bar. A button, labeled "Force push origin" and displayed with an icon of a double upward arrow, is outlined in orange.](/assets/images/help/desktop/force-push-origin.png)
 
 ## Squashing and merging another branch into your project branch
 
-1. Use the **Branch** drop-down and click **Squash and Merge into Current Branch**.
-![Squash and merge in branch dropdown](/assets/images/help/desktop/squash-and-merge-menu.png)
-2. Click the branch you want to merge into the current branch, then click **Squash and merge**.
-![Squash and merge  button](/assets/images/help/desktop/squash-and-merge-selection.png)
+1. In the menu bar, select **Branch**, then click **Squash and Merge into Current Branch**.
+
+   {% mac %}
+
+   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor hovers over an option labeled "Squash and Merge into Current Branch".](/assets/images/help/desktop/squash-and-merge-menu.png)
+
+   {% endmac %}
+
+   {% windows %}
+
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, option labeled "Squash and merge into curre..." is outlined in orange.](/assets/images/help/desktop/windows-squash-and-merge-menu.png)
+
+   {% endwindows %}
+
+2. In the "Squash and merge" window, click the branch you want to merge into the current branch, then click **Squash and merge**.
+
    {% note %}
 
    **Note:** If there are merge conflicts, {% data variables.product.prodname_desktop %} will warn you above the **Squash and merge** button. You will not be able to squash and merge the branch until you have resolved all conflicts.

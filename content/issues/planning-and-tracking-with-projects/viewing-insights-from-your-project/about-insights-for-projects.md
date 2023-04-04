@@ -25,7 +25,7 @@ You can create current charts to visualize your project items. For example, you 
 
 You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
- ![Screenshot showing an stacked column chart showing item types for each iteration](/assets/images/help/issues/column-chart-example.png)
+ ![Screenshot of a stacked column chart, with a column for each iteration. Each column is divided into sections for "Bug", "Feedback", "Backend", and "UI."](/assets/images/help/issues/column-chart-example.png)
 
 For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
 
@@ -35,7 +35,7 @@ Historical charts are time-based charts that allow you to view your project's tr
 
 The default "Burn up" chart shows item status over time, allowing you to visualize progress and spot patterns over time.
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+![Screenshot of an example burn up chart.](/assets/images/help/issues/burnup-example.png)
 
 To create a historical chart, set your chart's X-axis to "Time." For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
 

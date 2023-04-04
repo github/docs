@@ -77,7 +77,7 @@ You may have a codespace that you want to keep for longer than the retention per
 
 {% endnote %}
 
-Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)."
+Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)."
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "bookmark" aria-label="The bookmark icon" %} Keep codespace**.
@@ -122,6 +122,6 @@ You can check, in the {% data variables.product.prodname_vscode %} desktop appli
 
    If the codespace is nearing the end of its retention period, a line is included telling when this period is due to expire.
 
-   ![Screenshot of the "Remote Explorer" sidebar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![Screenshot of the "Remote Explorer" side bar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}

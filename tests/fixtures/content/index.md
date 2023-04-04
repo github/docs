@@ -18,6 +18,8 @@ children:
   - search
   - get-started
   - early-access
+  - pages
+  - code-security
   # - account-and-profile
   # - authentication
   # - repositories
@@ -25,7 +27,6 @@ children:
   # - billing
   # - site-policy
   # - organizations
-  # - code-security
   # - pull-requests
   # - issues
   # - actions
@@ -40,7 +41,6 @@ children:
   # - discussions
   # - sponsors
   # - communities
-  # - pages
   # - education
   # - desktop
   # - support

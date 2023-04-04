@@ -120,3 +120,7 @@ jest tests/rendering/ -b
 ### Fixture based testing
 
 See [Fixture content](./fixtures/README.md).
+
+### Headless tests with Playwright
+
+See [Headless tests with Playwright](./PLAYWRIGHT.md)

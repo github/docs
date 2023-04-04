@@ -20,40 +20,30 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![Diagram of an event triggering a workflow that uses scripts to test code.](/assets/images/help/actions/overview-actions-using-scripts-ci-example.png)
 
 ## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
 | **Feature**  | **Implementation** |
-| --- | --- | 
+| --- | --- |
 {% data reusables.actions.push-table-entry %}
 {% data reusables.actions.pull-request-table-entry %}
 {% data reusables.actions.workflow-dispatch-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
-| Running a script on the runner: | Using `./script/rendered-content-link-checker.mjs` |
+| Using a third-party action | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
+| Running a script on the runner | Using `./script/rendered-content-link-checker.mjs` |
 
 ## Example workflow
 
 {% data reusables.actions.example-docs-engineering-intro %} [`check-broken-links-github-github.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-broken-links-github-github.yml).
 
 {% data reusables.actions.note-understanding-example %}
-
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
 
 ```yaml{:copy}
 name: 'Link Checker: All English'
@@ -124,10 +114,6 @@ jobs:
             --check-images \
             --level critical
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -136,8 +122,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>

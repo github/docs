@@ -19,9 +19,13 @@ For example, if you want your app to change the `Status` field of an issue on a 
 
 To make an API request as an installation, you must first generate an installation access token. Then, you will send the installation access token in the `Authorization` header of your subsequent API requests. You can also use {% data variables.product.company_short %}'s Octokit SDKs, which can generate an installation access token for you.
 
-API requests that are made by app installations are called "server-to-server requests." If a REST API endpoint works with server-to-server requests, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information about the permissions required for REST API endpoints, see "[Permissions required for GitHub Apps](/rest/overview/permissions-required-for-github-apps)."
+If a REST API endpoint works with a {% data variables.product.prodname_github_app %} installation access token, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test you app to ensure that your app has the required permissions for the GraphQL queries and mutations that you want to make.
+
+You can also use an installation access token to authenticate for HTTP-based Git access. You app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git"`.
+
+Requests made with an installation access token are sometimes called "server-to-server" requests.
 
 For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)".
 
@@ -37,13 +41,13 @@ To authenticate as an installation with an installation access token, first use 
 
 To authenticate with an installation access token, include it in the `Authorization` header of an API request. The access token will work with both the GraphQL API and the REST API.
 
-Your app must have the required permissions to use the endpoint. For more information about the permissions required for REST API endpoints, see "[Permissions required for GitHub Apps](/rest/overview/permissions-required-for-github-apps)." For GraphQL requests, you should test your app to ensure that it has the required permissions for the GraphQL queries and mutations that you want to make.
+Your app must have the required permissions to use the endpoint. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installation access token:
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}meta" \
+--url "{% data variables.product.api_url_pre %}/meta" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %}\
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
@@ -72,7 +76,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
    ```javascript{:copy}
    import { App } from "octokit";
- 
+
    const app = new App({
      appId: APP_ID,
      privateKey: PRIVATE_KEY,
@@ -87,14 +91,14 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 1. Use an `octokit` method to make a request to the API.
 
-   Your app must have the required permissions to use the endpoint. For more information about the permissions required for REST API endpoints, see "[Permissions required for GitHub Apps](/rest/overview/permissions-required-for-github-apps)." For GraphQL requests, you should test you app to ensure that your app has the required permissions for the GraphQL queries and mutations that you want to make.
+   Your app must have the required permissions to use the endpoint. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
    For example, to make a request to the GraphQL API:
 
    ```javascript{:copy}
    await octokit.graphql(`
-     query { 
-       viewer { 
+     query {
+       viewer {
          login
        }
      }
@@ -113,12 +117,12 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
 
 1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
-1. Get the webhook secret that you specified in your app's settings.
+1. Get the webhook secret that you specified in your app's settings. For more information about webhook secrets, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret)."
 1. Import `App` from `octokit`. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `WEBHOOK_SECRET` with the your app's webhook secret.
 
    ```javascript{:copy}
    import { App } from "octokit";
- 
+
    const app = new App({
      appId: APP_ID,
      privateKey: PRIVATE_KEY,

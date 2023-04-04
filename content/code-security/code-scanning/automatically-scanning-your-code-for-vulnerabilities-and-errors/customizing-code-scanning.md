@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/secure-coding/configuring-code-scanning
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -117,8 +118,9 @@ on:
 
 **Notes**
 
-* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."
+* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."{% ifversion code-scanning-alerts-in-pr-diff %}{% else %}
 * For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+{% endif %}
 
 {% endnote %}
 
@@ -373,15 +375,18 @@ Notice the `|` after the `registries` property name. This is important since  {%
 {% endif %}
 To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
+You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
+
 ``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    queries: COMMA-SEPARATED LIST OF PATHS
+    # Comma-separated list of queries / packs / suites to run. 
+    # This may include paths or a built in suite, for example:
+    # security-extended or security-and-quality.
+    queries: security-extended
     # Optional. Provide a token to access queries stored in private repositories.
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-
-You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 

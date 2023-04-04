@@ -32,10 +32,10 @@ To develop in a codespace directly in {% data variables.product.prodname_vscode_
 Use the {% data variables.product.prodname_vscode_marketplace %} to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-1. Select "{% data variables.product.prodname_github_codespaces %}" from the dropdown at the top of the "Remote Explorer" sidebar, if it is not already selected.
+1. Select "{% data variables.product.prodname_github_codespaces %}" from the dropdown at the top of the "Remote Explorer" side bar, if it is not already selected.
 1. Click **Sign in to {% data variables.product.prodname_dotcom %}**.
 
-   ![Screenshot of the "Remote Explorer" sidebar for "{% data variables.product.prodname_github_codespaces %}" with the "Sign in to {% data variables.product.prodname_dotcom %}" button displayed.](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
+   ![Screenshot of the "Remote Explorer" side bar for "{% data variables.product.prodname_github_codespaces %}" with the "Sign in to {% data variables.product.prodname_dotcom %}" button displayed.](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %} you'll be prompted to do so. Go ahead and sign in.
 1. When you're prompted to specify what you want to authorize, click the **Authorize** button for "{% data variables.product.prodname_dotcom %}."
@@ -51,7 +51,7 @@ Use the {% data variables.product.prodname_vscode_marketplace %} to install the 
 1. Under "{% data variables.product.prodname_github_codespaces %}", hover over the codespace you want to develop in.
 1. Click the connection icon (a plug symbol).
 
-   ![Screenshot of the "Remote Explorer" sidebar. The connection icon for a codespace (a plug symbol) is highlighted with a dark orange outline.](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
+   ![Screenshot of the "Remote Explorer" side bar. The connection icon for a codespace (a plug symbol) is highlighted with a dark orange outline.](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ## Changing the machine type in {% data variables.product.prodname_vscode_shortname %}
 
@@ -85,6 +85,10 @@ After you switch versions in a codespace, the web client will continue to use th
 3. Click **Reload**.
 
 To switch back to the Stable version of {% data variables.product.prodname_vscode_shortname %}, repeat the process but choose **Switch to Stable Version**. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Stable version.
+
+## Using the Insiders desktop application for {% data variables.product.prodname_codespaces %}
+		
+To use {% data variables.product.prodname_github_codespaces %} in the Insiders version of the {% data variables.product.prodname_vscode_shortname %} desktop application, start or create your codespaces from within the {% data variables.product.prodname_vscode_shortname %} Insiders application. For more information see "[Creating a codespace in {% data variables.product.prodname_vscode_shortname %}](#creating-a-codespace-in-vs-code)" and "[Opening a codespace in {% data variables.product.prodname_vscode_shortname %}](#opening-a-codespace-in-vs-code)" earlier in this article.
 
 ## Further reading
 

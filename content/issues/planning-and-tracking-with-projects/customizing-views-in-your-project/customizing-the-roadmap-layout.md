@@ -9,8 +9,6 @@ topics:
   - Projects
 ---
 
-{% data reusables.projects.roadmaps-release-stage %}
-
 ## About the roadmap layout
 
 {% data reusables.projects.about-roadmap-layout %}
@@ -32,7 +30,7 @@ You can set the date or iteration fields that your roadmap will use to position 
 1. Select a date or iteration field for "Start date" and "Target date."
 
   ![Screenshot showing the date field options](/assets/images/help/projects-v2/roadmap-select-dates.png)
-  
+
 
 {% ifversion projects-v2-roadmap-markers %}
 
@@ -40,10 +38,10 @@ You can set the date or iteration fields that your roadmap will use to position 
 
 You can configure vertical markers on a roadmap to show your iterations, the dates of items in your project, and the milestones associated with items in your project.
 
-1. In the top right of your roadmap, click {% octicon "location" aria-label="" %} **Markers**.
-  
+1. In the top right of your roadmap, click {% octicon "location" aria-hidden="true" %} **Markers**.
+
   ![Screenshot showing the menu bar in a roadmap layout. The "Markers" button is highlighted with an orange outline.](/assets/images/help/projects-v2/markers.png)
-  
+
 1. In the menu, select which markers you want to display on your roadmap.
 
 {% endif %}

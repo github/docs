@@ -33,7 +33,9 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
               <Link
                 data-testid="sidebar-product-xl"
                 href={currentProductTree.href}
-                className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+                // Note the `_product-title` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
               >
                 {productTitle}
               </Link>

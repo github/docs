@@ -29,9 +29,9 @@ Trials are also available for {% data variables.product.prodname_ghe_server %}. 
 
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 
-You can set up a 30-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
+You can set up a {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 
-During the trial, you can add any number of new and existing organizations to your enterprise. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
+During the trial, you can add any number of new and existing organizations to your enterprise. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_enterprise_sales %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
 
 Your trial also includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats, up to 1,000.
 
@@ -49,6 +49,9 @@ The following features are not included in the trial of {% data variables.produc
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}
 - {% data variables.product.prodname_marketplace %} apps
+- {% data variables.product.prodname_github_connect %}
+- For {% data variables.product.prodname_actions %}, increased minutes and job concurrency
+- If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 

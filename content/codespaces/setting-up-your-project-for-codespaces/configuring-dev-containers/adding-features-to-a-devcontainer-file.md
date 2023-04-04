@@ -67,9 +67,9 @@ To add features in {% data variables.product.prodname_vscode_shortname %} while 
 {% endnote %}
 
 {% data reusables.codespaces.command-palette %}
-1. Start typing "configure" and click **Codespaces: Configure Dev Container**.
+1. Start typing "add dev" then click **Codespaces: Add Dev Container Configuration Files**.
 
-   ![Screenshot of the "Codespaces: Configure Dev Container" option in the Command Palette.](/assets/images/help/codespaces/codespaces-configure-features.png)
+   ![Screenshot of the Command Palette, with "add dev" entered and "Codespaces: Add Dev Container Configuration Files" listed.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
 1. Click **Modify your active configuration**.
 1. Update your feature selections, then click **OK**.

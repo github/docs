@@ -10,7 +10,7 @@
 
    ```shell
    curl --request POST \
-   --url "{% data variables.product.api_url_pre %}app/installations/INSTALLATION_ID/access_tokens" \
+   --url "{% data variables.product.api_url_pre %}/app/installations/INSTALLATION_ID/access_tokens" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer JWT"{% ifversion api-date-versioning %}\
    --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}

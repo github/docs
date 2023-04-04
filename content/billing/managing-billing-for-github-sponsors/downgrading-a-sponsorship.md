@@ -33,5 +33,5 @@ When you downgrade or cancel a sponsorship, the change will become effective on 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.sponsors.billing-switcher %}
-3. Under "{% data variables.product.prodname_sponsors %}", next to the sponsored account, click your current tier amount, then click **Cancel sponsorship**.
-4. Review the alert about canceling your sponsorship, then click **OK**.
+1. Under "{% data variables.product.prodname_sponsors %}", next to the sponsored account, click your current tier amount, then click **Cancel sponsorship**.
+1. Review the alert about canceling your sponsorship, then click **OK**.

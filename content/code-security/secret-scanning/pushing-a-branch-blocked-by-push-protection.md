@@ -15,7 +15,7 @@ shortTitle: Push a blocked branch
 
 ## About push protection for {% data variables.product.prodname_secret_scanning %}
 
-The push protection feature of {% data variables.product.prodname_secret_scanning %} helps to prevent security leaks by scanning for secrets before you push changes to your repository. {% data reusables.secret-scanning.push-protection-overview %} For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+The push protection feature of {% data variables.product.prodname_secret_scanning %} helps to prevent security leaks by scanning for secrets before you push changes to your repository. {% data reusables.secret-scanning.push-protection-overview %} For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% data reusables.secret-scanning.push-protection-remove-secret %}
 

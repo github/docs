@@ -46,12 +46,12 @@ You cannot create a default license file. License files must be added to individ
 ## Creating a repository for default files
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
+1. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
-3. Type **.github** as the name for your repository, and an optional description.
-  ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
+1. In the "Repository name" field, type **.github**.
+1. Optionally, in the "Description" field, type a description.
+1. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
   ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+1. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."

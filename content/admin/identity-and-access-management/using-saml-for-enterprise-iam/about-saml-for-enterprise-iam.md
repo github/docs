@@ -102,12 +102,12 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
-Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | |
-Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-Okta | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
+Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Shibboleth | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% elsif ghes %}
 

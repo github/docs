@@ -157,6 +157,10 @@ export async function getBodyParams(schema, topLevel = false) {
         param.description = param.anyOf[0].description
         param.isRequired = param.anyOf[0].required
       }
+    } else if (param && param.allOf) {
+      for (const prop of param.allOf) {
+        childParamsGroups.push(...(await getBodyParams(prop, false)))
+      }
     }
 
     const paramDecorated = await getTransformedParam(param, paramType, {
@@ -165,6 +169,7 @@ export async function getBodyParams(schema, topLevel = false) {
       childParamsGroups,
       topLevel,
     })
+
     bodyParametersParsed.push(paramDecorated)
   }
   return bodyParametersParsed
@@ -187,7 +192,21 @@ async function getTransformedParam(param, paramType, props) {
     paramDecorated.isRequired = true
   }
   if (childParamsGroups && childParamsGroups.length > 0) {
-    paramDecorated.childParamsGroups = childParamsGroups
+    // Since the allOf properties can have multiple duplicate properties we want to get rid of the duplicates with the same name, but keep the
+    // the one that has isRequired set to true.
+    const mergedChildParamsGroups = Array.from(
+      childParamsGroups
+        .reduce((childParam, obj) => {
+          const curr = childParam.get(obj.name)
+          return childParam.set(
+            obj.name,
+            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj
+          )
+        }, new Map())
+        .values()
+    )
+
+    paramDecorated.childParamsGroups = mergedChildParamsGroups
   }
   if (param.enum) {
     paramDecorated.enum = param.enum

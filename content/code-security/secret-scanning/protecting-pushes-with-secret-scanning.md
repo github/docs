@@ -28,9 +28,11 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 
+You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
+
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
@@ -75,12 +77,6 @@ Up to five detected secrets will be displayed at a time on the command line. If 
 
 Organization admins can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
 
-![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-custom-link.png)
-
-{% else %}
-
-![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
-
 {% endif %}
 
 {% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
@@ -108,10 +104,9 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
 1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked.
-  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-unblock-form.png)
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Click **Allow me to push this secret**.
-2. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
+1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
 ## Using secret scanning as a push protection from the web UI
@@ -126,8 +121,6 @@ Organization admins can provide a custom link that will be displayed when a push
 {% endif %}
 
 You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
-
-  ![Screenshot showing commit in web ui allowed after secret fixed](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
 ### Bypassing push protection for a secret
 
@@ -145,9 +138,6 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
-
-  ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
-
 1. Click **Allow secret**.
 
 

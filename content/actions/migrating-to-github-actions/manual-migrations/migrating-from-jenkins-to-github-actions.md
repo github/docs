@@ -52,7 +52,7 @@ Jenkins splits its Declarative Pipelines into multiple sections. Similarly, {% d
 | Jenkins Directives | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
 | [`agent`](https://jenkins.io/doc/book/pipeline/syntax/#agent)   | [`jobs.<job_id>.runs-on`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) <br> [`jobs.<job_id>.container`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer) |
-| [`post`](https://jenkins.io/doc/book/pipeline/syntax/#post)     |  |
+| [`post`](https://jenkins.io/doc/book/pipeline/syntax/#post)     | None  |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#stages) | [`jobs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobs) |
 | [`steps`](https://jenkins.io/doc/book/pipeline/syntax/#steps)   | [`jobs.<job_id>.steps`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
@@ -91,7 +91,7 @@ Both {% data variables.product.prodname_actions %} and Jenkins let you use a mat
 | ------------- | ------------- |
 | [`axis`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-axes)       | [`strategy/matrix`](/actions/using-workflows/about-workflows#using-a-build-matrix) <br> [`context`](/actions/learn-github-actions/contexts) |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages)   | [`steps-context`](/actions/learn-github-actions/contexts#steps-context) |
-| [`excludes`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages) |  |
+| [`excludes`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages) | None |
 
 ### Using steps to execute tasks
 

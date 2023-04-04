@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghes: '>=3.6'
   ghec: '*'
-  ghae: '>= 3.6'
 topics:
   - API
 children:

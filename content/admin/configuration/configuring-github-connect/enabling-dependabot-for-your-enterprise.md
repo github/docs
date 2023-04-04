@@ -88,7 +88,6 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
 
 {%- else %}
 1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
-   ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 {%- endif %}
    {% tip %}
 

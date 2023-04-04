@@ -1,12 +1,13 @@
 ---
 title: Running CodeQL code scanning in a container
-shortTitle: '{% data variables.product.prodname_code_scanning_capc %} in a container'
+shortTitle: '{% data variables.product.prodname_code_scanning_caps %} in a container'
 intro: 'You can run {% data variables.product.prodname_code_scanning %} in a container by ensuring that all processes run in the same container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container
   - /code-security/secure-coding/running-codeql-code-scanning-in-a-container
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
 versions:
   fpt: '*'
   ghes: '*'

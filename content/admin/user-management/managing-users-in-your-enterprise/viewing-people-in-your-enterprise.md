@@ -71,6 +71,31 @@ You can also remove any enterprise member from all organizations owned by the en
 1. Optionally, to view a list of outside collaborators rather than the list of members, under "Members", click **Outside collaborators**.
 {% endif %}
 
+{% ifversion ghec %}
+
+## Viewing members' email addresses
+
+You may be able to view the email addresses for members of your enterprise on either {% data variables.location.product_location %} or an external identity system. The visibility of the email addresses depends on your enterprise's authentication method, domains, and potentially the member's user profile configuration.
+
+- If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
+
+- If you verify a domain for your enterprise, you can view members' email addresses for the verified domain.
+
+- If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
+
+If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
+
+1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+1. Export the membership report for your enterprise on {% data variables.product.prodname_dotcom %}. The report may contain the user's email address, stored as the following values.
+
+   - `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)")
+   - `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)")
+
+   For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+{% data reusables.saml.use-api-to-get-externalidentity %}
+
+{% endif %}
+
 {% ifversion enterprise-membership-view-improvements %}
 ## Viewing outside collaborators
 
@@ -86,7 +111,7 @@ You can view more information about the person's access to your enterprise, such
 {% ifversion ghec %}
 ## Viewing pending invitations
 
-You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by organization. You can find a specific person by searching for their username or display name.
+You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by license, by organization, or by source. You can find a specific person by searching for their username or display name.
 
 In the list of pending members, for any individual account, you can cancel all invitations to join organizations owned by your enterprise. This does not cancel any invitations for that same person to become an enterprise administrator or outside collaborator.
 
@@ -100,15 +125,14 @@ If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pend
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Pending invitations**.
-
-   ![Screenshot of the "Pending invitations" tab in the sidebar](/assets/images/help/enterprises/pending-invitations-tab.png)
+1. Under "People", click **Invitations**.
 1. Optionally, to cancel all invitations for an account to join organizations owned by your enterprise, to the right of the account, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Cancel invitation**.
 
-   ![Screenshot of the "Cancel invitation" button](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
-1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Pending members", click **Administrators** or **Outside collaborators**.
+   ![Screenshot of a single invitation on the "Invitations" page. A button, titled "Cancel invitation", is highlighted with an orange outline.](/assets/images/help/enterprises/cancel-enterprise-member-invitation.png)
+1. Optionally, to view pending invitations for enterprise administrators or outside collaborators, under "Invitations", click **Administrators** or **Outside collaborators**.
+1. Optionally, to filter the list of pending invitations by license, by organization, or by source, use the dropdown menus at the top of the list.
 
-   ![Screenshot of the "Members", "Administrators", and "Outside collaborators" tabs](/assets/images/help/enterprises/pending-invitations-type-tabs.png)
+   ![Screenshot of the "Invitations" page. Three dropdown menus, titled "License", "Organizations", and "Source" are highlighted with an orange outline.](/assets/images/help/enterprises/enterprise-filter-pending-invitations.png)
 
 ## Viewing suspended members in an {% data variables.enterprise.prodname_emu_enterprise %}
 

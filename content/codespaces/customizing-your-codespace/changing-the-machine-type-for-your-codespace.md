@@ -32,17 +32,19 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The current machine type for each of your codespaces is displayed.
+   The number of cores, and the currently used storage space, are displayed for each codespace. Hover over the number of cores to display a tooltip that also shows the RAM and disk capacity of the machine.
 
-   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Screenshot of a list of codespaces. A tooltip for the first codespace reads "16 core, 32 GB RAM, 128 GB."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 {% data reusables.codespaces.ellipsis-settings %}
 1. Click **Change machine type**.
 
-   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+   ![Screenshot of the dropdown menu for a codespace. The "Change machine type" option is highlighted.](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+
 1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
 
-   ![Dialog showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+   ![Screenshot of a dialog showing two available machine types: 2-core and 4-core.](/assets/images/help/codespaces/change-machine-type-choice.png)
+
 1. Click **Update codespace**.
 
 {% endwebui %}

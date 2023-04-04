@@ -20,7 +20,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 
 You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
 
-You don't need to close a discussion like you close an issue or a pull request.
+{% ifversion discussions-closable %}{% data reusables.discussions.closing-discussions %} For more information, see "[Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion)."{% else %}You don't need to close a discussion like you close an issue or a pull request.{% endif %}
 
 If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who has access to the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 

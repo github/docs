@@ -19,5 +19,5 @@ topics:
 {% data reusables.user-settings.github_apps %}
 {% data reusables.user-settings.modify_github_app %}
 1. In "Basic information", modify the GitHub App information that you'd like to change.{% ifversion device-flow-is-opt-in %}
-1. If your GitHub App will use the device flow to identify and authorize users, click **Enable device flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."{% endif %}
+1. If your GitHub App will use the device flow to generate a user access token, click **Enable device flow**. For more information about device flow, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."{% endif %}
 1. Click **Save changes**.

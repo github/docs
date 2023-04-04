@@ -1,5 +1,6 @@
 ---
-title: Repositories
+title: Repositories documentation
+shortTitle: Repositories
 intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
 introLinks:
   quickstart: /get-started/quickstart/create-a-repo

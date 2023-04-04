@@ -33,4 +33,4 @@ shortTitle: Integrate Jira
 ## Further reading
 
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/integrating-jira-with-your-personal-projects)"
-- <a href="https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html" data-proofer-ignore>Connect Jira Cloud to GitHub</a> (Atlassian documentation)
+- [Connect Jira Cloud to GitHub](https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html) in the Atlassian documentation
