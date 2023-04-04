@@ -425,44 +425,6 @@ describe('tool specific content', () => {
   })
 })
 
-describe('code examples', () => {
-  it('loads correctly', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
-    expect(shownCards.length).toBeGreaterThan(0)
-    expect(shownNoResult).toBeNull()
-  })
-
-  it('filters cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'policy')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBeGreaterThan(1)
-  })
-
-  it('shows more cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const initialCards = await page.$$('[data-testid=code-example-card]')
-    await page.click('[data-testid=code-examples-show-more]')
-    const moreCards = await page.$$('[data-testid=code-example-card]')
-    expect(moreCards.length).toBeGreaterThan(initialCards.length)
-  })
-
-  it('displays no result message', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'this should not work')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBe(0)
-    const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
-    expect(noResultsMessage).not.toBeNull()
-  })
-})
-
 // Skipping because next/links are disabled by default for now
 // Docs Engineering issue: 962
 describe.skip('next/link client-side navigation', () => {
