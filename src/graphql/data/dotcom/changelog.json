@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AddPullRequestReviewThreadInput.line</code> changed type from <code>Int!</code> to <code>Int</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>BigInt</code> was added</p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>Issue</code></p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>IssueComment</code></p>",
