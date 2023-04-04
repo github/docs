@@ -37,7 +37,7 @@ Because you have not enabled overages, your next attempt to create a workflow ar
 Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.billing_plans_spending %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

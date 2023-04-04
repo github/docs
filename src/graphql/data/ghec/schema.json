@@ -26241,6 +26241,14 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "hovercard",
           "description": "<p>The hovercard information for this issue.</p>",
           "type": "Hovercard!",
@@ -27336,6 +27344,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "includesCreatedEdit",
@@ -40619,6 +40635,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "issue",
@@ -94904,6 +94928,13 @@
       "id": "base64string",
       "href": "/graphql/reference/scalars#base64string",
       "description": "<p>A (potentially binary) string encoded using base64.</p>"
+    },
+    {
+      "name": "BigInt",
+      "kind": "scalars",
+      "id": "bigint",
+      "href": "/graphql/reference/scalars#bigint",
+      "description": "<p>Represents non-fractional signed whole numeric values. Since the value may\nexceed the size of a 32-bit integer, it's encoded as a string.</p>"
     },
     {
       "name": "Boolean",

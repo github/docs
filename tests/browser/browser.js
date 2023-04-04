@@ -23,7 +23,7 @@ describe('homepage', () => {
 })
 
 // Note: we can only test Elasticsearch searches on things we have indexed
-// in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
+// in the fixtures. See the contents of /src/search/tests/fixtures/search-indexes
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 

@@ -68,10 +68,10 @@ Name | Type | Required | Description
 ``hub.callback``|`string` | {% octicon "x" aria-label="Optional" %} | The URI to receive the updates to the topic.
 ``hub.secret``|`string` | {% octicon "x" aria-label="Optional" %} | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
 
-A example request with curl looks like:
+An example request with curl looks like:
 
 ``` shell
-curl -u "user" -i \
+curl --header "Authorization: Bearer YOUR-TOKEN" -i \
   {% data variables.product.api_url_pre %}/hub \
   -F "hub.mode=subscribe" \
   -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
