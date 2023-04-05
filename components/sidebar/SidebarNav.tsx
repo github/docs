@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const SidebarNav = ({ variant = 'full' }: Props) => {
-  const { error, currentProduct, currentProductTree } = useMainContext()
+  const { currentProduct, currentProductTree } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
   // we need to roughly account for the site header height plus the height of
@@ -52,8 +52,12 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         style={{ width: 326, height: '100vh', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        <nav>
-          {error === '404' || !currentProduct || currentProduct.id === 'search' ? (
+        <nav
+          aria-label={
+            !currentProduct || currentProduct.id === 'search' ? 'homepage' : currentProduct.name
+          }
+        >
+          {!currentProduct || currentProduct.id === 'search' ? (
             <SidebarHomepage />
           ) : (
             <SidebarProduct />
