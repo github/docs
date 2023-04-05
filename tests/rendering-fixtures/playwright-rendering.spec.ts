@@ -108,6 +108,21 @@ test('filter article cards', async ({ page }) => {
   await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
 })
 
+test('navigate with side bar into article inside a map-topic inside a category', async ({
+  page,
+}) => {
+  // Our TreeView sidebar only shows "2 levels". If you click and expand
+  // the category, you'll be able to see the map-topic and the article
+  // within.
+  await page.goto('/')
+  await page.getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByText('Map & Topic').click()
+  await page.getByRole('link', { name: '<article>' }).click()
+  await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
+  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+})
+
 test('code examples search', async ({ page }) => {
   await page.goto('/code-security')
   const codeExampleResults = page.getByTestId('code-example-results')
