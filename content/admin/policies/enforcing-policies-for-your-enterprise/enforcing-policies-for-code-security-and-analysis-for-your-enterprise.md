@@ -44,9 +44,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Change {% data variables.product.prodname_dependabot_alerts %} settings", use the dropdown menu and choose a policy.
-
-   ![Screenshot of "Change Dependabot alert settings" dropdown](/assets/images/help/enterprises/change-dependabot-alerts-settings.png)
+1. Under "Enable or disable {% data variables.product.prodname_dependabot_alerts %} by repository admins", use the dropdown menu to choose a policy.
 
 {% endif %}
 
@@ -60,9 +58,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 {% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}{% else %}
 {% data reusables.enterprise-accounts.advanced-security-policies %}{% endif %}{% ifversion security-feature-enablement-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Availability", select the dropdown menu and click a policy for the organizations owned by your enterprise.
-
-   ![Screenshot of "Availability" dropdown](/assets/images/help/enterprises/advanced-security-policies-availability.png){% else %}
+1. In the "{% data variables.product.prodname_GH_advanced_security %} policies" section, under "{% data variables.product.prodname_GH_advanced_security %} availability", select the dropdown menu and click a policy for the organizations owned by your enterprise.
 
 {% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}{% endif %}
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
@@ -75,9 +71,7 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Enable or disable {% data variables.product.prodname_GH_advanced_security %}", use the dropdown menu and choose a policy.
-
-   ![Screenshot of the "Enable or disable {% data variables.product.prodname_GH_advanced_security %}" dropdown](/assets/images/help/enterprises/advanced-security-policies-enable-or-disable.png)
+1. In the "{% data variables.product.prodname_GH_advanced_security %} policies" section, under "Enable or disable {% data variables.product.prodname_GH_advanced_security %} by repository admins", select the dropdown menu and click a policy.
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_secret_scanning %} in your enterprise's repositories
 
@@ -88,8 +82,6 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "{% data variables.product.prodname_GH_advanced_security %} policies section, under "Change {% data variables.product.prodname_secret_scanning %} settings", use the dropdown menu and choose a policy.
-
-   ![Screenshot of the "Change {% data variables.product.prodname_secret_scanning %} settings" dropdown](/assets/images/help/enterprises/advanced-security-policies-secret-scanning.png)
+1. In the "{% data variables.product.prodname_GH_advanced_security %} policies" section, under "Enable or disable {% data variables.product.prodname_secret_scanning %} by repository admins", select the dropdown menu and click a policy.
 
 {% endif %}
