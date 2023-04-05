@@ -469,14 +469,6 @@ A helper that returns an array of files for a given path and file extension.
 
 This script lists all local image files, sorted by their dimensions.
 
-NOTE: If you get this error:
-
-   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'image-size' ...
-
-it's because you haven't installed all the *optional* dependencies. To do that, run:
-
-   npm install --include=optional
-
 ---
 
 
@@ -762,5 +754,3 @@ Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root l
 This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
 
 ---
-
-
