@@ -48,16 +48,14 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 {% data reusables.user-settings.personal_access_tokens %}
 {% data reusables.user-settings.generate_new_token %}
 1. Under **Note**, give your token a descriptive name.
-   ![Screenshot showing the token's name](/assets/images/help/enterprises/emu-pat-name.png)
-1. Select the **Expiration** drop-down menu, then click **No expiration**.
-   ![Screenshot showing token expiration set to no expiration](/assets/images/help/enterprises/emu-pat-no-expiration.png)
-1. Select the **admin:enterprise** scope.
+2. Select the **Expiration** dropdown menu, then click **No expiration**.
+3. Select the **admin:enterprise** scope.
    ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
-1. Click **Generate token**.
+4. Click **Generate token**.
    ![Generate token button](/assets/images/help/settings/generate_token.png)
-1. To copy the token to your clipboard, click the {% octicon "paste" aria-label="The copy icon" %}.
+5. To copy the token to your clipboard, click {% octicon "paste" aria-label="Copy to clipboard" %}.
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-2. To save the token for use later, store the new token securely in a password manager.
+6. To save the token for use later, store the new token securely in a password manager.
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
