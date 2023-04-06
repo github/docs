@@ -164,7 +164,6 @@
     "robots-parser": "^3.0.0",
     "sass": "^1.52.3",
     "start-server-and-test": "^2.0.0",
-    "strip-ansi": "^7.0.1",
     "typescript": "^5.0.2",
     "unist-util-remove": "^3.1.1",
     "unist-util-visit-parents": "^5.1.3"
