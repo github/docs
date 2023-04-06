@@ -128,3 +128,4 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 
 * "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
 * "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
