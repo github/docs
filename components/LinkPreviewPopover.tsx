@@ -4,12 +4,21 @@ import { useEffect } from 'react'
 // movement either comes back (mouseover, mouseout, and back to mouseover)
 // or if the user moves the mouse from the link to the popover itself
 // and vice versa.
-const DELAY = 300
+const DELAY = 400
 
 // A global that is used for a slow/delayed closing of the popovers.
 // It can be global because there's only 1 popover DOM node that gets
 // created the first time it's needed.
 let popoverCloseTimer: number | null = null
+let popoverStartTimer: number | null = null
+
+// A global for remembering which target was originated the initial opening
+// of the popover. It's important to know this when the onmouseover
+// of the link is triggered again. If you hover over the popover and back
+// to its link, we don't want to immediately open the popover.
+// If it's the first time, i.e. a different link, then we want to add a
+// slight initial delay.
+let currentlyOpen: HTMLLinkElement | null = null
 
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
@@ -63,6 +72,12 @@ function getOrCreatePopoverGlobal() {
     wrapper.addEventListener('mouseout', () => {
       popoverCloseTimer = window.setTimeout(() => {
         wrapper.style.display = 'none'
+
+        // If you started the popover by moving over the link, then
+        // moved the mouse out of the link and into the popover, then
+        // eventually you move out of the popover. Then, we want to
+        // reset.
+        currentlyOpen = null
       }, DELAY)
     })
 
@@ -199,14 +214,45 @@ function getOffset(element: HTMLElement) {
   return [top, left]
 }
 
+function popoverShow(target: HTMLLinkElement) {
+  if (popoverStartTimer) {
+    window.clearTimeout(popoverStartTimer)
+  }
+
+  // The mouse has been moved over a link. If this is the "first time",
+  // we want to delay showing the popover because it could be that the
+  // *intention* of the user was not to hover over, but they might have
+  // just moved the mouse over the link by "accident", or in a hurry
+  // on their way to something else.
+  // However, if they hover over the link because the popover is already
+  // open, which happens when you hover over the popover and back again
+  // to the link, then we don't want any delay.
+  if (target === currentlyOpen) {
+    popoverWrap(target)
+  } else {
+    popoverStartTimer = window.setTimeout(() => {
+      popoverWrap(target)
+      currentlyOpen = target
+    }, DELAY)
+  }
+}
+
 function popoverHide() {
   // Important to use `window.setTimeout` instead of `setTimeout` so
   // that TypeScript knows which kind of timeout we're talking about.
   // If you use plain `setTimeout` TypeScript might think it's a
   // Node eventloop kinda timer.
+
+  if (popoverStartTimer) {
+    window.clearTimeout(popoverStartTimer)
+  }
+
   popoverCloseTimer = window.setTimeout(() => {
     const popover = getOrCreatePopoverGlobal()
     popover.style.display = 'none'
+
+    // Reset because we're closing the popover, so we have to start from afresh.
+    currentlyOpen = null
   }, DELAY)
 }
 
@@ -228,7 +274,7 @@ export function LinkPreviewPopover() {
     function showPopover(event: MouseEvent) {
       const target = event.target as HTMLLinkElement
       if (testTarget(target)) {
-        popoverWrap(target)
+        popoverShow(target)
       }
     }
     function hidePopover(event: MouseEvent) {
