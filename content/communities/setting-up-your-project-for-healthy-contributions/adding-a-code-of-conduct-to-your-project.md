@@ -49,7 +49,6 @@ If the code of conduct you want to use isn't available in the provided templates
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. In the file name field, type the name and extension for the file.
-  ![New code of conduct file name](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - To make your code of conduct visible in the repository's root directory, type *CODE_OF_CONDUCT* in the file name field.
     - To make your code of conduct visible in the repository's `docs` directory, type *docs/CODE_OF_CONDUCT*.
     - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.

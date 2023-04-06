@@ -32,7 +32,7 @@ The audit log lists events triggered by activities that affect your organization
 
 ### Search based on the action performed
 
-To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped within the following categories:
+To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories.
 
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}

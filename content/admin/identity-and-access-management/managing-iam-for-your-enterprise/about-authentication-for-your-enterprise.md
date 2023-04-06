@@ -37,7 +37,7 @@ By default, each member must create a personal account on {% data variables.loca
 
 If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
-You can choose between configuring SAML at the enterprise level, which applies the same SAML configuration to all organizations within the enterprise, and configuring SAML separately for individual organizations. For more information, see "[AUTOTITLE](#deciding-whether-to-configure-saml-at-the-enterprise-level-or-the-organization-level)."
+You can choose between configuring SAML at the enterprise level, which applies the same SAML configuration to all organizations within the enterprise, and configuring SAML separately for individual organizations. For more information, see "[Deciding whether to configure SAML at the enterprise level or the organization level](#deciding-whether-to-configure-saml-at-the-enterprise-level-or-the-organization-level)."
 
 ### Authentication with {% data variables.product.prodname_emus %} and federation
 

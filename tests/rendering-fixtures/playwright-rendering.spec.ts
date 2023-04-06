@@ -14,7 +14,7 @@ const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
 test('view home page', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle(/GitHub Documentation/)
+  await expect(page).toHaveTitle(/GitHub Docs/)
 })
 
 test('view the for-playwright article', async ({ page }) => {
@@ -32,8 +32,8 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.getByTestId('sidebar').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
-  await page.getByTestId('product-sidebar-items').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar-items').getByRole('link', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByText('Quickstart').click()
+  await page.getByTestId('product-sidebar').getByRole('link', { name: 'Hello World' }).click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
@@ -106,4 +106,47 @@ test('filter article cards', async ({ page }) => {
   await page.getByTestId('types-dropdown').getByText('Quickstart').click()
   await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
   await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
+})
+
+test('navigate with side bar into article inside a map-topic inside a category', async ({
+  page,
+}) => {
+  // Our TreeView sidebar only shows "2 levels". If you click and expand
+  // the category, you'll be able to see the map-topic and the article
+  // within.
+  await page.goto('/')
+  await page.getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByText('Map & Topic').click()
+  await page.getByRole('link', { name: '<article>' }).click()
+  await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
+  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+})
+
+test('code examples search', async ({ page }) => {
+  await page.goto('/code-security')
+  const codeExampleResults = page.getByTestId('code-example-results')
+
+  // more results after clicking the 'Show more' button
+  const initialResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
+  await page.getByTestId('code-examples-show-more').click()
+  const showedMoreResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
+  expect(showedMoreResultsCount).toBeGreaterThan(initialResultsCount)
+
+  // search for the 2 'policy' code examples
+  await page.getByTestId('code-examples-input').click()
+  await page.getByTestId('code-examples-input').fill('policy')
+  await page.getByTestId('code-examples-search-btn').click()
+  expect((await codeExampleResults.getByRole('listitem').all()).length).toBe(2)
+  await expect(codeExampleResults.getByText('Microsoft security policy template')).toBeVisible()
+  await expect(codeExampleResults.getByText('Electron security policy')).toBeVisible()
+
+  // what happens when there's no search results
+  await page.getByTestId('code-examples-input').click()
+  await page.getByTestId('code-examples-input').fill('should be no results')
+  await page.getByTestId('code-examples-search-btn').click()
+  await expect(page.locator('#code-examples').getByText('Matches displayed: 0')).toBeVisible()
+  await expect(
+    page.locator('#code-examples').getByText('Sorry, there is no result for should be no results')
+  ).toBeVisible()
 })

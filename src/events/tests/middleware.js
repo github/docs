@@ -4,7 +4,7 @@ import { post } from '../../../tests/helpers/e2etest.js'
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
 
-  async function checkEvent(data, code) {
+  async function checkEvent(data) {
     const body = JSON.stringify(data)
     const res = await post('/api/events', {
       body,
@@ -12,10 +12,11 @@ describe('POST /events', () => {
         'content-type': 'application/json',
       },
     })
-    expect(res.statusCode).toBe(code)
+    return res
   }
 
-  const baseExample = {
+  const pageExample = {
+    type: 'page',
     context: {
       // Primitives
       event_id: 'a35d7f88-3f48-4f36-ad89-5e3c8ebc3df7',
@@ -45,69 +46,69 @@ describe('POST /events', () => {
     },
   }
 
-  const pageExample = { ...baseExample, type: 'page' }
+  it('should record a page event', async () => {
+    const { statusCode } = await checkEvent(pageExample)
+    expect(statusCode).toBe(200)
+  })
 
-  it('should require a type', () => checkEvent(baseExample, 400))
+  it('should require a type', async () => {
+    const { statusCode, body } = await checkEvent({ ...pageExample, type: undefined })
+    expect(statusCode).toBe(400)
+    expect(body).toEqual('{"message":"Invalid type"}')
+  })
 
-  it('should record a page event', () => checkEvent(pageExample, 200))
-
-  it('should require an event_id in uuid', () =>
-    checkEvent(
-      {
-        ...pageExample,
-        context: {
-          ...pageExample.context,
-          event_id: 'asdfghjkl',
-        },
+  it('should require an event_id in uuid', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        event_id: 'asdfghjkl',
       },
-      400
-    ))
+    })
+    expect(statusCode).toBe(400)
+  })
 
-  it('should require a user in uuid', () =>
-    checkEvent(
-      {
-        ...pageExample,
-        context: {
-          ...pageExample.context,
-          user: 'asdfghjkl',
-        },
+  it('should require a user in uuid', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        user: 'asdfghjkl',
       },
-      400
-    ))
+    })
+    expect(statusCode).toBe(400)
+  })
 
-  it('should require a version', () =>
-    checkEvent(
-      {
-        ...pageExample,
-        context: {
-          ...pageExample.context,
-          version: undefined,
-        },
+  it('should require a version', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        version: undefined,
       },
-      400
-    ))
+    })
+    expect(statusCode).toBe(400)
+  })
 
-  it('should require created timestamp', () =>
-    checkEvent(
-      {
-        ...pageExample,
-        context: {
-          ...pageExample.context,
-          timestamp: 1234,
-        },
+  it('should require created timestamp', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        timestamp: 1234,
       },
-      400
-    ))
+    })
+    expect(statusCode).toBe(400)
+  })
 
-  it('should not allow a honeypot token', () =>
-    checkEvent(
-      {
-        ...pageExample,
-        context: {
-          ...pageExample.context,
-          token: 'zxcv',
-        },
+  it('should not allow a honeypot token', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        token: 'zxcv',
       },
-      400
-    ))
+    })
+    expect(statusCode).toBe(400)
+  })
 })

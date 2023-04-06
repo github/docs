@@ -15,7 +15,7 @@ topics:
 
 In order to authenticate as an app or generate an installation access token, you must generate a JSON Web Token (JWT). If a REST API endpoint requires a JWT, the documentation for that endpoint will indicate that you must use a JWT to access the endpoint.
 
-Your JWT must be signed using the `RS256` algorithm and must contain the following claims:
+Your JWT must be signed using the `RS256` algorithm and must contain the following claims.
 
 |Claim | Meaning | Details |
 |---|---|---|

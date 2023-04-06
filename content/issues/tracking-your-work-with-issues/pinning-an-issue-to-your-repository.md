@@ -20,5 +20,4 @@ shortTitle: Pin an issue
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 1. In the list of issues, click the issue you'd like to pin.
-2. In the right sidebar, click **Pin issue**.
-  ![Button to pin issue](/assets/images/help/repository/pin-issue.png)
+1. In the right sidebar, click **Pin issue**.

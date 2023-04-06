@@ -25,4 +25,3 @@ If you use an external LFS server (configured in your *.lfsconfig*), those LFS f
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Under "Archives", select or deselect **Include {% data variables.large_files.product_name_short %} objects in archives**.
-  ![Checkbox to include {% data variables.large_files.product_name_short %} objects in archives](/assets/images/help/repository/include-git-lfs-objects-checkbox.png)

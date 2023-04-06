@@ -22,26 +22,18 @@ To learn more about {% data variables.product.prodname_github_connect %}, see "[
 
 ## Downloading metrics from your enterprise account
 
-1. In the top-right corner of {% data variables.product.prodname_ghe_cloud %}, click your profile photo, then click **Your enterprises**.
-  ![Drop down menu with "Your enterprises" option](/assets/images/help/enterprises/enterprise-admin-account-settings.png)
+{% data reusables.enterprise-accounts.access-enterprise %}
 
-2. Next to your desired enterprise account, click **Settings**.
-  ![Settings button next to Enterprise admin account](/assets/images/help/enterprises/enterprise-admin-account-settings-button.png)
-
-3. On the left, click **GitHub Connect**.
-  ![GitHub Connect option under enterprise admin account](/assets/images//help/enterprises/enterprise-admin-github-connect.png)
+1. In the enterprise account sidebar, click **GitHub Connect**.
 
 {% data reusables.server-statistics.csv-download %}
 
 ## Downloading metrics from your organization
 
-1. In the top-right corner of {% data variables.product.prodname_ghe_cloud %}, click your profile photo, then click **Your organizations**.
-  ![Drop down menu with "Your organizations" option](/assets/images/help/enterprises/github-enterprise-cloud-organizations.png)
+{% data reusables.profile.access_org %}
 
-2. In the list of organizations, next to the organization that's connected to {% data variables.location.product_location %}, click **Settings**.
-  ![Settings button next to {% data variables.product.prodname_ghe_cloud %} organization](/assets/images/help/enterprises/settings-for-ghec-org.png)
+{% data reusables.profile.org_settings %}
 
-3. On the left, click **GitHub Connect**.
-  ![GitHub Connect option in an organization account settings left sidebar](/assets/images/help/enterprises/github-connect-option-for-ghec-org.png)
+1. In the left sidebar, click **GitHub Connect**.
 
 {% data reusables.server-statistics.csv-download %}

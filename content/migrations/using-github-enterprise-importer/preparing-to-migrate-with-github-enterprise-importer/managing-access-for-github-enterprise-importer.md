@@ -23,7 +23,7 @@ For other tasks, you only need access to the target of the operation. For exampl
 
 To have sufficient access for either the source or destination, you need both of the following:
 - A required role in the {% data variables.product.company_short %} organization or enterprise account
-- For Bitbucket Server, required permissions and SSH or SMB access
+- For Bitbucket Server, required permissions and SFTP or SMB access
 - For {% data variables.product.prodname_dotcom %} products and Azure DevOps, a {% data variables.product.pat_generic %} that can access the organization or enterprise account
   - The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
   - If the source or destination uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
@@ -48,7 +48,7 @@ Reclaiming mannequins | | X | |
 To migrate from Bitbucket Server, you need:
 
 - The username and password of a Bitbucket Server account that has admin or super admin permissions
-- If your Bitbucket Server instances runs on Linux, SSH access to the Bitbucket Server instance (see "[SSH keys](#ssh-keys)")
+- If your Bitbucket Server instances runs on Linux, SFTP access to the Bitbucket Server instance (see "[SSH keys](#ssh-keys)"). In general, if you can access the server via SSH, then you can also use SFTP.
 - If your Bitbucket Server instance runs on Windows, file sharing (SMB) access to the Bitbucket Server instance
 
 ### SSH keys

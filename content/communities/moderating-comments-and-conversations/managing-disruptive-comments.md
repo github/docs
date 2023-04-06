@@ -22,7 +22,7 @@ shortTitle: Manage comments
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
-![Minimized comment](/assets/images/help/repository/hidden-comment.png)
+![Screenshot of a hidden comment. The only visible content is "This comment has been minimized", with a button to show the comment.](/assets/images/help/repository/hidden-comment.png)
 
 1. Navigate to the comment you'd like to hide.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
@@ -39,9 +39,8 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 {% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
-2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
-   ![Show comment text](/assets/images/help/repository/hidden-comment-show.png)
-3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
+1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" %} Show comment**.
+1. On the right side of the expanded comment, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Unhide**.
    ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
 
 ## Editing a comment

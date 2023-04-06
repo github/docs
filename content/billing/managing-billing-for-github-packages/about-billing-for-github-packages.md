@@ -32,6 +32,8 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 Data transfer resets every month, while storage usage does not.
 
+{% rowheaders %}
+
 Product | Storage | Data transfer (per month)
 ------- | ------- | ---------
 {% data variables.product.prodname_free_user %} | 500MB | 1GB
@@ -40,12 +42,18 @@ Product | Storage | Data transfer (per month)
 {% data variables.product.prodname_team %} | 2GB | 10GB
 {% data variables.product.prodname_ghe_cloud %} | 50GB | 100GB
 
+{% endrowheaders %}
+
 All data transferred out, when triggered by {% data variables.product.prodname_actions %}, and data transferred in from any source is free. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
+
+{% rowheaders %}
 
 ||Hosted|Self-Hosted|
 |-|-|-|
 |Access using a `GITHUB_TOKEN`|Free|Free|
 |Access using a {% data variables.product.pat_generic %}|Free|Paid|
+
+{% endrowheaders %}
 
 Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 

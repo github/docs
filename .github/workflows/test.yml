@@ -45,11 +45,15 @@ jobs:
               { name: 'content', path: 'tests/content', },
               { name: 'graphql', path: 'tests/graphql', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'rest', path: 'src/rest/tests', },
+              { name: 'webhooks', path: 'src/webhooks/tests', },
               { name: 'linting', path: 'tests/linting', },
               { name: 'meta', path: 'tests/meta', },
               { name: 'routing', path: 'tests/routing', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
+              { name: 'search', path: 'src/search/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
@@ -73,7 +77,7 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - uses: ./.github/actions/setup-elasticsearch
-        if: ${{ matrix.name == 'content' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -94,10 +98,11 @@ jobs:
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/content \
-            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md
-          ./script/update-internal-links.js --dry-run --check --strict --verbose \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/data
 
       - name: Clone all translations
@@ -149,10 +154,19 @@ jobs:
       - name: Run build script
         run: npm run build
 
+      - name: Disk cache used by getRemoteJSON function in middleware
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: .remotejson-cache
+          # Very liberal cache key. Note, for this to become populated
+          # for other branches, you have to manually run this workflow
+          # at least once using the "Run workflow" button.
+          key: ${{ runner.os }}-remotejson
+
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.name == 'content' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
         run: npm run index-test-fixtures
 
       - name: Run tests

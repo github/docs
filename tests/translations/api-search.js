@@ -10,7 +10,7 @@ describeIfElasticsearchURL('search v1 middleware in non-English', () => {
   test('basic search in Japanese', async () => {
     const sp = new URLSearchParams()
     // To see why this will work,
-    // see tests/content/fixtures/search-indexes/github-docs-dotcom-en-records.json
+    // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
     // which clearly has a record with the title "Foo"
     sp.set('query', 'foo')
     sp.set('language', 'ja')

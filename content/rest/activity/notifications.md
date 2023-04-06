@@ -43,7 +43,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 
 These GET endpoints return a `reason` key. These `reason`s correspond to events that trigger a notification.
 
-These are the potential `reason`s for receiving a notification:
+There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------

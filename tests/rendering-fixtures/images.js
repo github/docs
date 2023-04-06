@@ -1,6 +1,6 @@
 import sharp from 'sharp'
 
-import { get, getDOM } from '../helpers/e2etest.js'
+import { get, head, getDOM } from '../helpers/e2etest.js'
 
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
@@ -45,5 +45,16 @@ describe('render Markdown image tags', () => {
 
     const imageSpan = $('#article-contents > div > ol > li > span.procedural-image-wrapper')
     expect(imageSpan.length).toBe(1)
+  })
+
+  test("links directly to images aren't rewritten", async () => {
+    const $ = await getDOM('/get-started/images/link-to-image')
+    // There is only 1 link inside that page
+    const links = $('#article-contents a[href^="/"]') // exclude header link
+    expect(links.length).toBe(1)
+    // This proves that the link didn't get rewritten to `/en/...`
+    expect(links.attr('href'), '/assets/images/_fixtures/screenshot.png')
+    const res = await head(links.attr('href'))
+    expect(res.statusCode).toBe(200)
   })
 })

@@ -145,7 +145,7 @@ The endpoint takes the following input parameters.
 Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | The scope that your app is requesting access to.
+`scope` | `string` | A space-delimited list of the scopes that your app is requesting access to. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
 
 By default, the response takes the following form:
 

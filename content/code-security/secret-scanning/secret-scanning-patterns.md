@@ -23,9 +23,9 @@ redirect_from:
 
 {% data variables.product.product_name %} maintains these different sets of default {% data variables.product.prodname_secret_scanning %} patterns:
 
-1. **Partner patterns.** Used to detect potential secrets in all public repositories.{% data reusables.secret-scanning.partner-program-link %}
-1. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. {% ifversion secret-scanning-push-protection %}
-1. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.{% endif %}
+1. **Partner patterns.** Used to detect potential secrets in all public repositories as well as public npm packages.{% data reusables.secret-scanning.partner-program-link %}
+2. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. {% ifversion secret-scanning-push-protection %}
+3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.{% endif %}
 
 {% ifversion fpt %}
 Owners of public repositories, as well as organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %}, can enable {% data variables.secret-scanning.user_alerts %} on their repositories. 
@@ -37,7 +37,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 ## About partner alerts
 
-Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)." 
+Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)." 
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
@@ -74,7 +74,8 @@ Push protection alerts are user alerts that are reported by push protection. {% 
 
 ## Supported secrets
 
-This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token{% ifversion secret-scanning-validity-check %}, as well as whether a validity check is performed on the token{% endif %}.{% ifversion fpt or ghec %}
+This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token{% ifversion secret-scanning-validity-check %}, as well as whether a validity check is performed on the token{% endif %}.
+- **Provider**—name of the token provider.{% ifversion fpt or ghec %}
 - **Partner**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
 - **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}{% ifversion ghes or ghae %}
 - **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% ifversion secret-scanning-push-protection %}
@@ -84,10 +85,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- FPT version of table -->
 {% ifversion fpt %}
 
-| Token | Partner | User | Validity check |
-|----|:----:|:----:|:----:|
+| Provider | Token | Partner | User | Validity check |
+|----|:----|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -95,20 +96,20 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHEC version of table -->
 {% ifversion ghec %}
 
-| Token | Partner | User | Push protection | Validity check |
-|----|----|:----:|:----:|:----:|
+| Provider | Token | Partner | User | Push protection | Validity check |
+|----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 {% endif %}
 
 <!-- GHES 3.4 version of table -->
 {% ifversion ghes = 3.4 %}
 
-| Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
-|----|----|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
+|----|:----|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -116,10 +117,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHES 3.5 to GHES 3.8 table -->
 {% ifversion ghes = 3.5 or ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
 
-| Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
-|----|----|:----:|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
+|----|:----|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -127,10 +128,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHES 3.9+ table -->
 {% ifversion ghes > 3.8 %}
 
-| Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
-|----|----|:----:|:----:|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
+|----|:----|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -138,10 +139,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHAE < 3.5 table -->
 {% ifversion ghae < 3.5 %}
 
-| Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
-|----|----|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
+|----|:----|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -149,10 +150,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHAE > 3.5+ table -->
 {% ifversion ghae = 3.5 or ghae > 3.5 %}
 
-| Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
-|----|----|:----:|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
+|----|:----|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}

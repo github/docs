@@ -19,12 +19,16 @@ During an import, depending on the version control system you're importing from,
 
 ## Supported functionality by version control system
 
+{% rowheaders %}
+
 | Import action | Subversion | Mercurial | TFVC | Git |
 |:--------------|:----------:|:---------:|:----------------------:|:---:|
 | Authenticate with remote repository | {% octicon "check" aria-label="Supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | [Update commit author attribution](/migrations/importing-source-code/using-github-importer/updating-commit-author-attribution-with-github-importer) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Move large files to [Git Large File Storage](/repositories/working-with-files/managing-large-files/about-git-large-file-storage) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Remove large files from your repository | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
 
 ## Further reading
 
