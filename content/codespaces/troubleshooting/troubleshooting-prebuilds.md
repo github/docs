@@ -38,6 +38,12 @@ Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not instal
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
+## Checking prebuild usage
+
+You can check whether a repository is using prebuilds in the "{% data variables.product.prodname_codespaces %}" page of the repository's settings.
+
+You can check how much storage space has been consumed by prebuilds in your current billing cycle by reviewing the billing data for your personal or organization account. You can also generate a usage report to see which repositories have been using prebuilds. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+
 ## The "Prebuild Ready" label is sometimes missing
 
 You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
