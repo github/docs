@@ -46,7 +46,7 @@ export const GuidesHero = () => {
     <div>
       <header className="d-flex gutter mb-6 my-4">
         <div className="col-12">
-          <h1>{title} guides</h1>
+          <h1>{title}</h1>
           {intro && <Lead data-search="lead">{intro}</Lead>}
         </div>
       </header>
