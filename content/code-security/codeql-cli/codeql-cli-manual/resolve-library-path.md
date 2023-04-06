@@ -57,7 +57,7 @@ on by default.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Pprint command line arguments on one line each.
+`lines` *(default)*: Print command line arguments on one line each.
 
 `json`: Print a JSON object with all the data.
 

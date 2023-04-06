@@ -1,7 +1,9 @@
 ---
 title: CodeQL CLI commands manual
 shortTitle: CodeQL CLI manual
-intro: 'Reference information for the commands available in the most recent release of {% data variables.product.prodname_codeql_cli %}.'
+intro: >-
+  Reference information for the commands available in the most recent release of
+  {% data variables.product.prodname_codeql_cli %}.
 versions:
   fpt: '*'
   ghae: '*'
@@ -20,10 +22,12 @@ children:
   - /bqrs-hash
   - /bqrs-info
   - /bqrs-interpret
+  - /database-add-diagnostic
   - /database-analyze
   - /database-bundle
   - /database-cleanup
   - /database-create
+  - /database-export-diagnostics
   - /database-finalize
   - /database-import
   - /database-index-files
@@ -39,6 +43,8 @@ children:
   - /dataset-import
   - /dataset-measure
   - /dataset-upgrade
+  - /diagnostic-add
+  - /diagnostic-export
   - /execute-cli-server
   - /execute-language-server
   - /execute-queries

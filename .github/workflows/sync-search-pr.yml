@@ -8,7 +8,7 @@ name: Sync search - PR
 on:
   pull_request:
     paths:
-      - 'script/search/**'
+      - 'src/search/**'
       - 'package*.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
@@ -107,7 +107,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./script/search/index-elasticsearch.js /tmp/records \
+          ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language en \
             --version dotcom
 

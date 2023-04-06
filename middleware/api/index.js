@@ -3,7 +3,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 
 import events from '../../src/events/middleware.js'
 import anchorRedirect from '../../src/rest/api/anchor-redirect.js'
-import search from './search.js'
+import search from '../../src/search/middleware/search.js'
 import webhooks from './webhooks.js'
 
 const router = express.Router()

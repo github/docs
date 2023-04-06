@@ -801,6 +801,12 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 - [`GET /orgs/{org}/secret-scanning/alerts`](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations`](/rest/secret-scanning#list-locations-for-a-secret-scanning-alert)
 
+## security-advisories
+- [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories)
+- [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory)
+- [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory)
+- [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory)
+
 ## teams
 - [`GET /orgs/{org}/teams`](/rest/teams#list-teams)
 - [`POST /orgs/{org}/teams`](/rest/teams#create-a-team)

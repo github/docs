@@ -118,8 +118,6 @@ To prevent confusion from your developers, you can change this behavior so that 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.
-
-   ![Checkbox to automatically redirect users to sign in](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
 {% endif %}
 
 ## Further reading
