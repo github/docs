@@ -31,6 +31,7 @@ Only organization owners and maintainers of a parent team can create a new child
     * If your organization or enterprise account uses team synchronization, under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 {% endif %}
 {% data reusables.organizations.team_visibility %}
+{% data reusables.organizations.team-notifications %}
 {% data reusables.organizations.create_team %}
 1. Optionally, [give the team access to organization repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository).
 

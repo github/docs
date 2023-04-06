@@ -16,7 +16,11 @@ topics:
 
 ## About teams
 
-You can use teams to organize, mention, and manage access for people in an organization. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name.
+
+{% ifversion team-mentions-setting %}Organization owners and team maintainers can disable team notifications. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications)."{% endif %}
+
+Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
 
 For more information, see:
 - "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
