@@ -14,6 +14,10 @@ topics:
   - CodeQL
 redirect_from:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-code-scanning-in-your-ci-system
 ---
 
 On April 1, 2022, the {% data variables.code-scanning.codeql_runner %} was fully deprecated. You should use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.

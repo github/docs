@@ -5,24 +5,24 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        default: 'warning'
         type: choice
         options:
           - info
           - warning
-          - debug {% endif %}
+          - debug
       print_tags:
         description: 'True to print to STDOUT'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
-        type: boolean {% endif %}
+        required: true
+        type: boolean
       tags:
         description: 'Test scenario tags'
-        required: true {% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
+        required: true
         type: string
       environment:
         description: 'Environment to run tests against'
         type: environment
-        required: true {% endif %}
+        required: true
 
 jobs:
   print-tag:

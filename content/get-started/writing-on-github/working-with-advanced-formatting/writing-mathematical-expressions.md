@@ -22,7 +22,7 @@ To include a math expression inline with your text, delimit the expression with 
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Inline math markdown rendering](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %} with a square root symbol and an exponent.](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
 ## Writing expressions as blocks
 
@@ -34,7 +34,7 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Math expression as a block rendering](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %} with appropriate mathematical symbols, including parentheses and sigma notation.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
@@ -48,7 +48,7 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 ```
 ````
 
-![Math expression in a fenced code block](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
+![Screenshot of rendered Markdown showing the bolded text "Here is some math!" followed by notation for the square root of 3.](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
 
 {% endif %}
 
@@ -62,7 +62,7 @@ To display a dollar sign as a character in the same line as a mathematical expre
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
   ```
 
-  ![Dollar sign within math expression](/assets/images/help/writing/dollar-sign-within-math-expression.png)
+  ![Screenshot of rendered Markdown showing how a backslash before a dollar sign displays the sign as part of a mathematical expression.](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
   - Outside a math expression, but on the same line, use span tags around the explicit `$`.
 
@@ -70,7 +70,7 @@ To display a dollar sign as a character in the same line as a mathematical expre
   To split <span>$</span>100 in half, we calculate $100/2$
   ```
 
-  ![Dollar sign inline math expression](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
+  ![Screenshot of rendered Markdown showing how span tags around a dollar sign display the sign as inline text rather than part of a mathematical equation.](/assets/images/help/writing/dollar-sign-inline-math-expression.png)
 
 ## Further reading
 

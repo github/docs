@@ -51,11 +51,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
    {% endnote %}
    {%- endif %}
-   {% ifversion actions-workflow-policy %}
-   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
-   {%- else %}
-   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -64,13 +59,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes or ghae %}
-   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
-   {%- elsif ghae %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
-   {%- endif %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
@@ -189,7 +177,7 @@ However, you can set an enterprise policy to customize both the default total ca
 1. In the "Artifact, log, and cache settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
 1. In the "Artifact, log, and cache settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
 
-{% else %}
+{% elsif ghes < 3.8 %}
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 

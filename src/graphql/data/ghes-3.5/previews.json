@@ -28,7 +28,7 @@
     "href": "/graphql/overview/schema-previews#deployments-preview"
   },
   {
-    "title": "Merge info preview",
+    "title": "Merge info preview more detailed information about a pull request's merge state preview",
     "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
     "toggled_by": "merge-info-preview",
     "toggled_on": [
@@ -39,10 +39,10 @@
       "@github/pe-pull-requests"
     ],
     "accept_header": "application/vnd.github.merge-info-preview+json",
-    "href": "/graphql/overview/schema-previews#merge-info-preview"
+    "href": "/graphql/overview/schema-previews#merge-info-preview-more-detailed-information-about-a-pull-requests-merge-state-preview"
   },
   {
-    "title": "Update refs preview",
+    "title": "Update refs preview update multiple refs in a single operation preview",
     "description": "This preview adds support for updating multiple refs in a single operation.",
     "toggled_by": "update-refs-preview",
     "toggled_on": [
@@ -54,7 +54,7 @@
       "@github/reponauts"
     ],
     "accept_header": "application/vnd.github.update-refs-preview+json",
-    "href": "/graphql/overview/schema-previews#update-refs-preview"
+    "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
   },
   {
     "title": "Project event details preview",

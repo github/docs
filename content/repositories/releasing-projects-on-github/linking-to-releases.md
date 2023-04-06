@@ -24,4 +24,4 @@ To link directly to a download of your latest release asset that was manually up
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.
+1. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.

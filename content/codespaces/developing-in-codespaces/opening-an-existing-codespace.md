@@ -28,7 +28,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 - Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 - Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
-## Opening an existing codespace
+## Reopening a codespace
 
 {% webui %}
 
@@ -41,7 +41,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Open in" dialog box, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
    * Your browser
@@ -69,11 +69,11 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    - To open a codespace in the web editor, select **Codespaces: Open in Browser**
 1. Click the codespace that you want to open.
 
-   ![Screenshot of a list of codespaces in Visual Studio Code](/assets/images/help/codespaces/open-codespace-from-vscode.png)
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Command Palette showing a list of codespaces available to connect to.](/assets/images/help/codespaces/open-codespace-from-vscode.png)
 
 You can also access the commands listed above by navigating to the Remote Explorer view in {% data variables.product.prodname_vscode_shortname %} and right-clicking the codespace that you want to open.
 
-![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
+![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
 {% endvscode %}
@@ -110,6 +110,12 @@ You can also access the commands listed above by navigating to the Remote Explor
      **Note**: {% data reusables.codespaces.jupyterlab-installed-in-codespace %}
 
      {% endnote %}
+
+   - To access a codespace from the command line, over SSH, enter:
+
+     ```shell{:copy}
+     gh codespace ssh
+     ```
 
 1. Using the arrow keys, navigate to the codespace that you want to open.
 1. To open the codespace, press <kbd>Enter</kbd>.

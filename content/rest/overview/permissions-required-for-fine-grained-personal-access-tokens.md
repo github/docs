@@ -488,6 +488,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`GET /teams/{team_id}/members/{username}`](/rest/teams#get-team-member-legacy) (read)
 - [`PUT /teams/{team_id}/members/{username}`](/rest/teams#add-team-member-legacy) (write)
 - [`DELETE /teams/{team_id}/members/{username}`](/rest/teams#remove-team-member-legacy) (write)
+- [`GET /user/teams`](/rest/teams#list-teams-for-the-authenticated-user) (read)
 - [`GET /user/memberships/orgs/{org}`](/rest/orgs#get-an-organization-membership-for-the-authenticated-user) (read)
 - [`PATCH /user/memberships/orgs/{org}`](/rest/orgs#update-an-organization-membership-for-the-authenticated-user) (write)
 {% ifversion ghec or ghes > 3.5 %}- [`GET /orgs/{org}/external-group/{group_id}`](/rest/teams#external-idp-group-info-for-an-organization) (write){% endif %}
@@ -925,6 +926,13 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`POST /projects/{project_id}/columns`](/rest/projects#create-a-project-column) (write)
 - [`GET /repos/{owner}/{repo}/projects`](/rest/projects#list-repository-projects) (read)
 - [`POST /repos/{owner}/{repo}/projects`](/rest/projects#create-a-repository-project) (write)
+
+## Repository security advisories
+
+- [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories) (read)
+- [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory) (write)
+- [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory) (read)
+- [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory) (write)
 
 ## Secret scanning alerts
 

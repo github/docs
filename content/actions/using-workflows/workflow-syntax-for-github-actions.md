@@ -68,7 +68,6 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -83,7 +82,7 @@ In addition to the standard input parameters that are available, `on.workflow_ca
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
-Within the called workflow, you can use the `inputs` context to refer to an input.
+Within the called workflow, you can use the `inputs` context to refer to an input. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#inputs-context)."
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
@@ -192,7 +191,6 @@ A string identifier to associate with the secret.
 #### `on.workflow_call.secrets.<secret_id>.required`
 
 A boolean specifying whether the secret must be supplied.
-{% endif %}
 
 ## `on.workflow_run.<branches|branches-ignore>`
 
@@ -214,11 +212,9 @@ A boolean specifying whether the secret must be supplied.
 
 A boolean specifying whether the input must be supplied.
 
-{% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}
 #### `on.workflow_dispatch.inputs.<input_id>.type`
 
 The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `environment`, or `string`.
-{% endif %}
 
 ## `permissions`
 
@@ -980,7 +976,6 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% endwarning %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -1070,8 +1065,6 @@ jobs:
 ```
 
 {% endraw %}
-
-{%endif%}
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 

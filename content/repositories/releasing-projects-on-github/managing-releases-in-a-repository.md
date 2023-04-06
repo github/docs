@@ -40,9 +40,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% data reusables.releases.previous-release-tag %}
 {% data reusables.releases.release-title %}
 1. In the "Describe this release" field, type a description for your release.
-   {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
-   {%- endif %}
    {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}
 {% data reusables.releases.finish-release %}
 
@@ -63,9 +61,8 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
    ```
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
+
 If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
-{% endif %}
 
 {% endcli %}
 
@@ -76,11 +73,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% data reusables.releases.edit-release %}
-4. Edit the details for the release in the form, then click **Update release**.
-
-   {%- ifversion fpt or ghec or ghes or ghae > 3.3 %}
-   If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
-   {%- endif %}
+4. Edit the details for the release in the form, then click **Update release**. If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
 
 {% endwebui %}
 
@@ -96,14 +89,9 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.3 %}
 3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="Delete" %}.
 
    ![Screenshot of a release in the releases list. A trash icon is highlighted with an orange outline.](/assets/images/help/releases/delete-release-trash.png)
-{% else %}
-3. Click the name of the release you wish to delete.
-4. In the upper-right corner of the page, click **Delete**.
-{% endif %}
 5. Click **Delete this release**.
 
 {% endwebui %}

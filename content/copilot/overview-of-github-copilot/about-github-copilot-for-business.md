@@ -29,4 +29,4 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 ## About billing for {% data variables.product.prodname_copilot_business_short %}
 
-{% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %}or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-for-business)."
+{% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-for-business)."

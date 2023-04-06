@@ -66,7 +66,6 @@
 | `external_group` | Contains activities related to Okta groups.
 | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
-| `gist` | Contains activities related to Gists.
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
 | `integration_installation` | Contains activities related to integrations installed in an account.
@@ -103,12 +102,6 @@
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-{%- endif %}
-{%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
-| `org_secret_scanning_custom_pattern_push_protection` | Contains activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-{%- endif %}
-{%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `org.secret_scanning_push_protection` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
 {%- ifversion fpt or ghec or ghes %}

@@ -29,6 +29,11 @@ describe('autotitle', () => {
       expect(res.statusCode).toBe(500)
     }
   })
+
+  test('AUTOTITLE on anchor links should fail', async () => {
+    const res = await get('/get-started/foo/anchor-autotitling', { followRedirects: true })
+    expect(res.statusCode).toBe(500)
+  })
 })
 
 describe('cross-version-links', () => {
@@ -40,18 +45,105 @@ describe('cross-version-links', () => {
       const links = $('#article-contents a[href]')
 
       // Tests that the hardcoded prefix is always removed
-      const firstLink = links.filter(function () {
-        return $(this).text() === 'Hello world always in free-pro-team'
-      })
+      const firstLink = links.filter(
+        (i, element) => $(element).text() === 'Hello world always in free-pro-team'
+      )
       expect(firstLink.attr('href')).toBe('/en/get-started/quickstart/hello-world')
 
       // Tests that the second link always goes to enterprise-server@X.Y
-      const secondLink = links.filter(function () {
-        return $(this).text() === 'Autotitling page always in enterprise-server latest'
-      })
+      const secondLink = links.filter(
+        (i, element) => $(element).text() === 'Autotitling page always in enterprise-server latest'
+      )
       expect(secondLink.attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/hello-world`
       )
     }
   )
+})
+
+describe('link-rewriting', () => {
+  test('/en is injected', async () => {
+    const $ = await getDOM('/get-started/quickstart/link-rewriting')
+    const links = $('#article-contents a[href]')
+
+    {
+      const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
+      expect(link.attr('href')).toMatch('/en/get-started/')
+    }
+
+    // Some links are left untouched
+
+    {
+      const link = links.filter((i, element) => $(element).text().includes('Enterprise 11.10'))
+      expect(link.attr('href')).toMatch('/en/enterprise/')
+    }
+    {
+      const link = links.filter((i, element) => $(element).text().includes('peterbe'))
+      expect(link.attr('href')).toMatch(/^https:/)
+    }
+    {
+      const link = links.filter((i, element) => $(element).text().includes('Picture'))
+      expect(link.attr('href')).toMatch(/^\/assets\//)
+    }
+    {
+      const link = links.filter((i, element) => $(element).text().includes('GraphQL Schema'))
+      expect(link.attr('href')).toMatch(/^\/public\//)
+    }
+  })
+
+  test('/en and current version (latest) is injected', async () => {
+    const $ = await getDOM('/enterprise-cloud@latest/get-started/quickstart/link-rewriting')
+    const links = $('#article-contents a[href]')
+
+    const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
+    expect(link.attr('href')).toMatch('/en/enterprise-cloud@latest/get-started/')
+  })
+
+  test('/en and current version number is injected', async () => {
+    // enterprise-server, unlike enterprise-cloud, use numbers
+    const $ = await getDOM('/enterprise-server@latest/get-started/quickstart/link-rewriting')
+    const links = $('#article-contents a[href]')
+
+    const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
+    expect(link.attr('href')).toMatch(
+      `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/`
+    )
+  })
+})
+
+describe('data attributes for hover preview cards', () => {
+  test('check that internal links have the data attributes', async () => {
+    const $ = await getDOM('/pages/quickstart')
+    const links = $('#article-contents a[href]')
+
+    // The internal link
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').includes('/get-started/quickstart')
+      )
+      expect(link.attr('data-title')).toBe('Quickstart')
+      expect(link.attr('data-product-title')).toBe('Get started')
+      // See tests/fixtures/content/get-started/quickstart/index.md
+      expect(link.attr('data-intro')).toBe(
+        'Get started using GitHub to manage Git repositories and collaborate with others.'
+      )
+    }
+
+    // The anchor link has none
+    {
+      const link = links.filter((i, element) => $(element).attr('href') === '#introduction')
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
+    // The external link has none
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').startsWith('https://github.com')
+      )
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
+  })
 })

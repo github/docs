@@ -22,23 +22,15 @@ redirect_from:
 
 To create a new repository role, you add permissions to an inherited role and give the custom role a name.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-5. Click **Create a Role**.
-  ![Screenshot of "Create a Role" button](/assets/images/help/organizations/repository-role-create-role.png)
-4. Under "Name", type the name of your repository role.
-  ![Field to type a name for the repository role](/assets/images/help/organizations/repository-role-name.png)
-5. Under "Description", type a description of your repository role.
-  ![Field to type a description for the repository role](/assets/images/help/organizations/repository-role-description.png)
-6. Under "Choose a role to inherit", select the role you want to inherit.
-  ![Selecting repository role base role option](/assets/images/help/organizations/repository-role-base-role-option.png)
-7. Under "Add Permissions", use the drop-down menu to select the permissions you want your custom role to include.
-  ![Selecting permission levels from repository role drop-down](/assets/images/help/organizations/repository-role-drop-down.png)
-7. Click **Create role**.
-  ![Confirm creating a repository role](/assets/images/help/organizations/repository-role-creation-confirm.png)
+1. Scroll to the "Custom roles" section, then click **Create a Role**.
+1. Under "Name", type the name of your repository role.
+1. Under "Description", type a description of your repository role.
+1. Under "Choose a role to inherit", select the role you want to inherit.
+1. Under "Add Permissions", select the dropdown menu and click the permissions you want your custom role to include.
+1. Click **Create role**.
 
 ## Editing a repository role
 
@@ -47,10 +39,10 @@ To create a new repository role, you add permissions to an inherited role and gi
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-edit-setting.png)
-4. Edit, then click **Update role**.
-  ![Edit fields and update repository roles](/assets/images/help/organizations/repository-role-update.png)
+1. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="Show custom role actions" %}, then click **Edit**.
+
+  ![Screenshot of the list of custom roles for an organization. To the right of a role, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/repository-role-edit-setting.png)
+1. Edit, then click **Update role**.
 
 ## Deleting a repository role
 
@@ -61,7 +53,7 @@ If you delete an existing repository role, all pending invitations, teams, and u
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-delete-setting.png)
-4. Review changes for the role you want to remove, then click **Delete role**.
-  ![Confirm deleting a repository role](/assets/images/help/organizations/repository-role-delete-confirm.png)
+1. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="Show custom role actions" %}, then click **Delete**.
+
+   ![Screenshot of the list of custom roles for an organization. To the right of a role, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/repository-role-edit-setting.png)
+1. Review changes for the role you want to remove, then click **Delete role**.

@@ -91,8 +91,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |-----------|------------
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
-|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line{% ifversion fpt or ghae > 3.3 or ghes or ghec %}
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% endif %}{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
+|<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
 |<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text

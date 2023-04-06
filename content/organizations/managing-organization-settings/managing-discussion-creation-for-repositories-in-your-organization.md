@@ -20,10 +20,8 @@ By default, organization members with read access can create discussions if a re
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository discussions", select or deselect **Allow users with read access to create discussions**.
-  ![Checkbox to allow people with read access to create discussions](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
-6. Click **Save**.
-  !["Save" button for discussions settings](/assets/images/help/discussions/click-save.png)
+1. In the "Admin repository permissions" section, under "Repository discussions", select or deselect **Allow users with read access to create discussions**.
+1. Click **Save**.
 
 ## Further reading
 

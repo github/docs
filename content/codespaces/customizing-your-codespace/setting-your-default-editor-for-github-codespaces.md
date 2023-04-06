@@ -31,7 +31,7 @@ If you want to work on a codespace in a JetBrains IDE you must install the JetBr
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Editor preference", select the option you want.
 
-   ![Setting your editor](/assets/images/help/codespaces/select-default-editor.png)
+   ![Screenshot of the "Editor preference" options, with "Visual Studio Code for Web" selected.](/assets/images/help/codespaces/select-default-editor.png)
 
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 

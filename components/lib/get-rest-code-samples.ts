@@ -88,7 +88,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
-  return `curl \\\n  ${args.join(' \\\n  ')}`
+  return `curl -L \\\n  ${args.join(' \\\n  ')}`
 }
 
 /*

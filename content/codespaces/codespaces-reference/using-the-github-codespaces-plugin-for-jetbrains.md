@@ -20,7 +20,7 @@ The {% data variables.product.prodname_github_codespaces %} plugin is already in
 
 Click **{% data variables.product.prodname_github_codespaces %}** at the bottom left of the JetBrains client's application window to open the {% data variables.product.prodname_github_codespaces %} tool window.
 
-![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window](/assets/images/help/codespaces/jetbrains-codespaces-tool-window.png)
+![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window. The "{% data variables.product.prodname_github_codespaces %}" tool window selector is highlighted with an orange outline.](/assets/images/help/codespaces/jetbrains-codespaces-tool-window.png)
 
 ## Using the {% data variables.product.prodname_github_codespaces %} tool window
 
@@ -37,18 +37,18 @@ The icons at the top of the {% data variables.product.prodname_github_codespaces
 
 * **Refresh active codespace**
 
-  ![Screenshot of the refresh button](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
+  ![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window. A refresh icon, which refreshes the active code space, is highlighted.](/assets/images/help/codespaces/jetbrains-plugin-icon-refresh.png)
 
   Refresh the details in the {% data variables.product.prodname_github_codespaces %} tool window. For example, if you used {% data variables.product.prodname_cli %} to change the display name, you could click this button to show the new name.
 
 * **Manage your codespaces from the web**
 
-  ![Screenshot of the list button](/assets/images/help/codespaces/jetbrains-plugin-icon-index.png)
+  ![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window. A world icon, which manages {% data variables.product.prodname_github_codespaces %} from the web, is highlighted.](/assets/images/help/codespaces/jetbrains-plugin-icon-index.png)
 
   Open your list of codespaces at https://github.com/codespaces.
 
 * **View the codespace creation log**
 
-  ![Screenshot of the log button](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
+  ![Screenshot of the {% data variables.product.prodname_github_codespaces %} tool window. A document icon, which allows you to view a code space creation log, is highlighted.](/assets/images/help/codespaces/jetbrains-plugin-icon-log.png)
 
   Open the codespace creation log in the editor window. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)."

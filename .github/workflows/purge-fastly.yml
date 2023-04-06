@@ -30,7 +30,7 @@ env:
 
 jobs:
   send-purges:
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

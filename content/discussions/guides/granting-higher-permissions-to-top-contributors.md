@@ -16,7 +16,8 @@ The most helpful contributors for the past 30 days are highlighted on the {% dat
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. Compare the list of contributors with their access permissions to the repository or, for organization discussions, to the source repository to see who qualifies to moderate the discussion.
-  ![Screenshot of most helpful contributors](/assets/images/help/discussions/most-helpful.png)
+
+   ![Screenshot of the discussions tab in a repository. The "Most helpful" section is outlined in dark orange.](/assets/images/help/discussions/most-helpful.png)
 
 ## Step 2: Review permission levels for {% data variables.product.prodname_discussions %}
 

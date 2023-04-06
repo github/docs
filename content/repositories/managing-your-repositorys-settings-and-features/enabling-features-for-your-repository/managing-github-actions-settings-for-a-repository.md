@@ -46,12 +46,6 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 1. Under "Actions permissions", select an option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
-
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -60,14 +54,6 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
-
-   {% ifversion actions-workflow-policy%}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}
@@ -152,7 +138,7 @@ By default, when you create a new repository in your personal account, workflows
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion ghes or ghae > 3.3 or ghec %}
+{% ifversion ghes or ghae or ghec %}
 ## Allowing access to components in an internal repository
 
 {% ifversion internal-actions %}Actions and reusable workflows in your internal repositories can be shared with internal and private repositories in the same organization or enterprise.{% else %}Members of your enterprise can use internal repositories to work on projects without sharing information publicly.{% endif %} For information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
@@ -248,7 +234,7 @@ You can set a total cache storage size for your repository up to the maximum siz
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit  %}
 
-{% else %}
+{% elsif ghes < 3.8 %}
 
 The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 

@@ -52,11 +52,13 @@ The action is available for all {% ifversion fpt or ghec %}public repositories, 
 
 You can use the {% data variables.dependency-review.action_name %} in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
-![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+![Screenshot of a workflow run that uses the Dependency review action.](/assets/images/help/graphs/dependency-review-action.png)
 
 By default, the {% data variables.dependency-review.action_name %} check will fail if it discovers any vulnerable packages. A failed check blocks a pull request from being merged when the repository owner requires the dependency review check to pass. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
 
+{% ifversion fpt or ghec or ghes %}
 The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[AUTOTITLE](/rest/dependency-graph#dependency-review)."
+{% endif %}
 
 {% ifversion dependency-review-action-configuration %}
 You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review#configuring-the-dependency-review-github-action)." 

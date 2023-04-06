@@ -13,7 +13,7 @@ Runners are automatically assigned to the default group when created, and can on
 
 When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 
-{% ifversion ghec or ghes or ghae > 3.3 %}
+{% ifversion ghec or ghes or ghae %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}

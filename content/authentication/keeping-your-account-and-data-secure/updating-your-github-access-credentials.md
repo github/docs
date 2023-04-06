@@ -34,9 +34,9 @@ shortTitle: Update access credentials
      {% ifversion fpt or ghec %}
      * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with GitHub Mobile** instead.
      {% endif %}
-1. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
-  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
-  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
+1. In the text field under **Password**, type a new password. Then, in the text field under **Confirm password**, type the password again.
+1. Click **Change password**. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
+  {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 

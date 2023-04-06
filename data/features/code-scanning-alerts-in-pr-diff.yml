@@ -1,0 +1,7 @@
+# Reference: #8952
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.10'
+  ghae: '>= 3.10'

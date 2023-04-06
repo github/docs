@@ -34,11 +34,9 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% data reusables.actions.internal-actions-summary %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 ### Using starter workflows
 

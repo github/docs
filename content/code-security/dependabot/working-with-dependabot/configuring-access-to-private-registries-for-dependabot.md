@@ -24,9 +24,9 @@ shortTitle: Configure access to private registries
 
 ## About private registries
 
-{% data variables.product.prodname_dependabot_version_updates %} keeps your dependencies up-to-date. {% data variables.product.prodname_dependabot %} can access public registries. In addition, you can give {% data variables.product.prodname_dependabot_version_updates %} access to private package registries and private {% data variables.product.prodname_dotcom %} repositories so that you can keep your private and innersource dependencies as up-to-date as your public dependencies. 
+{% data variables.product.prodname_dependabot_version_updates %} keeps your dependencies up-to-date. {% data variables.product.prodname_dependabot %} can access public registries. In addition, you can give {% data variables.product.prodname_dependabot_version_updates %} access to private package registries and private {% data variables.product.prodname_dotcom %} repositories so that you can keep your private and innersource dependencies as up-to-date as your public dependencies.
 
-In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication. 
+In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
 
 {% ifversion dependabot-private-registries %}
 For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
@@ -83,8 +83,6 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
    The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value. You can click **Remove** to delete the secret.
 
-   ![Update or remove a repository secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
-
 ### Adding an organization secret for {% data variables.product.prodname_dependabot %}
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
@@ -101,15 +99,12 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. If you chose **Selected repositories**:
 
    * Click {% octicon "gear" aria-label="The Gear icon" %}.
-   * Choose the repositories that can access this secret.
-     ![Select repositories for this secret](/assets/images/help/dependabot/secret-repository-access.png)
+   * In the dialog box, select the repositories that can access this secret.
    * Click **Update selection**.
 
 1. Click **Add secret**.
 
    The name of the secret is listed on the {% data variables.product.prodname_dependabot %} secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
-
-   ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-org-secret.png)
 
 {% ifversion fpt or ghec %}
 ## Configuring firewall IP rules

@@ -47,8 +47,11 @@ You must enable SAML single sign-on for your organization and your supported IdP
 
 You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+{% note %}
 
+**Note**: For team synchronization to work, your SAML settings must contain a valid IdP URL for the "Issuer" field. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)."
+
+{% endnote %}
 
 ### Enabling team synchronization for Azure AD
 
@@ -61,7 +64,6 @@ Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
 6. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
-  ![Pending request to enable team synchronization to a specific IdP tenant with option to approve or cancel request](/assets/images/help/teams/approve-team-synchronization.png)
 
 ### Enabling team synchronization for Okta
 
@@ -82,10 +84,9 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.identity-and-permissions.team-sync-confirm-scim %}
 1. Consider enforcing SAML in your organization to ensure that organization members link their SAML and SCIM identities. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
-7. Under your organization's name, type a valid SSWS token and the URL to your Okta instance.
-  ![Enable team synchronization Okta organization form](/assets/images/help/teams/confirm-team-synchronization-okta-organization.png)
-6. Review the identity provider tenant information you want to connect to your organization, then click **Create**.
-  ![Enable team synchronization create button](/assets/images/help/teams/confirm-team-synchronization-okta.png)
+1. Under your organization's name, in the "SSWS Token" field, type a valid SSWS token.
+1. In the "URL" field, type the URL for your Okta instance.
+1. Review the identity provider tenant information you want to connect to your organization, then click **Create**.
 
 ## Disabling team synchronization
 
@@ -95,4 +96,3 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "Team synchronization", click **Disable team synchronization**.
-  ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)

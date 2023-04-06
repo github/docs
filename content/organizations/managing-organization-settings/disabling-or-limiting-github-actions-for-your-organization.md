@@ -41,12 +41,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select an option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
-
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -55,14 +49,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}
@@ -111,21 +97,15 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Next to "Required Workflows", click **Add workflow**.
+1. To the right of "Required Workflows", click **Add workflow**.
 
-   ![Screenshot showing the 'Add workflow' button](/assets/images/help/settings/actions-required-workflows-add.png)
+1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. {% ifversion actions-required-workflow-improvements %}You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.
 
-1. Select the repository that contains the workflow and enter the path to the workflow.
+1. Optionally, to specify target branches on which to enforce the required workflow, enter the branch or multiple branches in the text field under "Target branches". If you do not enter a target branch, the required workflow will be enforced on the default branch for the repository.{% endif %}
 
-   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflow-locate.png)
+1. Under "Apply to repositories...", use the drop-down menu to select which repositories the required workflow applies to. Select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
 
-1. Under "Apply to repositories...", select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
-
-   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflows-repos.png)
-
-1. Optionally, if you chose "Selected repositories", click {% octicon "gear" aria-label="The Gear icon" %} to open the repository selection modal, then select the repositories, and click **Apply selection**. You can use filters to narrow down your search.
-
-   ![Screenshot showing the controls for locating the required workflow](/assets/images/help/settings/actions-required-workflows-select-repos.png)
+1. Optionally, if you chose "Selected repositories", click {% octicon "gear" aria-label="The Gear icon" %} to open the repository selection modal, then use the checkboxes to select the repositories, and click **Apply selection**. You can use filters to narrow down your search.
 
 1. To add the required workflow, click **Add workflow**.
 

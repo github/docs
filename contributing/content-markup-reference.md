@@ -44,7 +44,7 @@ For example, this is the correct way to write list items with multiple paragraph
 1. This is the next item.
 ```
 
-![Image demonstrating how to write CommnMark-compliant Markdown lists](/assets/images/commonmark-lists.png)
+![Screenshot of a CommonMark-compliant Markdown list, annotated with explanations of the spacing and indentation.](/contributing/images/commonmark-lists.png)
 
 ## Callout tags
 
@@ -74,7 +74,7 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name.
+Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 
@@ -86,7 +86,14 @@ You can also add a header that includes the name of the language and a button to
 
 ## Octicons
 
-Octicons are icons used across GitHub’s interface. We reference Octicons when documenting the user interface. Find the name of the Octicon on the [Octicons site](https://primer.style/octicons). For accessibility purposes, use [the `aria-label` option](https://primer.style/octicons/packages/javascript#aria-label) to describe the meaning of the Octicon, not its visual characteristics. For example "Required", not "Check mark."
+Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons). 
+
+If you're referencing an octicon that appears in the UI, identify whether the octicon is the entire label of the UI element (e.g., a button that is labeled only with "+") or whether it's only decorative, in addition to another label (e.g., a button is labeled "+ Add message").
+
+ - If the octicon is the entire label, use your browser's developer tools to inspect the octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (e.g., `{% octicon "plus" aria-label="Add file" %}`). Occasionally, in the UI, the octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
+ - If the octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs as well (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`). 
+
+If you're using the octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [Tables](./content-style-guide.md#use-clear-consistent-symbols-and-labels) in the style guide.
 
 ### Usage
 
@@ -94,6 +101,7 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 {% octicon "<name of octicon>" %}
 {% octicon "plus" %}
 {% octicon "plus" aria-label="Add file" %}
+"{% octicon "plus" aria-hidden="true" %} Add file"
 ```
 
 ## Operating system tags
@@ -239,6 +247,33 @@ These instructions are pertinent to javascript users.
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).
+
+## Table row headers
+
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag `{% rowheaders %} {% endrowheaders %}`. For more information, see "[Use proper markup for row and column headers](./content-style-guide.md#use-proper-markup-for-row-and-column-headers)" in the style guide.
+
+### Example table with row headers
+
+```
+{% rowheaders %}
+
+| | Mona | Tom | Hobbes |
+|---|---|---|---|
+|Type of cat| Octo | Tuxedo | Tiger |
+|Likes to swim in the ocean| Yes | No | No |
+
+{% endrowheaders %}
+```
+
+### Example table without row headers
+
+```
+| Name | Vocation |
+| --- | --- |
+| Mona | GitHub mascot |
+| Tom | Mouse antagonist |
+| Hobbes | Best friend | 
+```
 
 ## Tables with codeblocks
 

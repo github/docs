@@ -36,7 +36,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your own personal account.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.billing_plans_spending %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
@@ -84,7 +84,7 @@ You can turn off these notifications at any time from the "Billing and plans" pa
 
 For personal accounts only, you can also choose to turn off email notifications that are sent when you have used 75%, 90%, and 100% of the free usage included with your personal account. To do this, clear the **Included resources alerts** checkbox.
 
-![Screenshot of the billing email notification settings](/assets/images/help/codespaces/codespaces-spending-limit-notifications.png)
+![Screenshot of the "Email alerts" settings. The options "Included resources alerts" and "Spending limit alerts" are both selected.](/assets/images/help/codespaces/codespaces-spending-limit-notifications.png)
 
 ## Further reading
 

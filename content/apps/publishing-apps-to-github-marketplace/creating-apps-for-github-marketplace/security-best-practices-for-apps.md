@@ -28,7 +28,7 @@ We recommend creating a GitHub App rather than an OAuth App. {% data reusables.m
 - Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
 - Apps should not use {% data variables.product.pat_generic %}s to authenticate and should authenticate as an [OAuth App](/apps/creating-github-apps/creating-github-apps/about-apps#about-oauth-apps) or a [GitHub App](/apps/creating-github-apps/creating-github-apps/about-apps#about-github-apps):
   - OAuth Apps should authenticate using an [OAuth token](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
-  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app), [OAuth token](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps), or [installation access token](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation).
+  - GitHub Apps should authenticate using either a [JSON Web Token (JWT)](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app), [OAuth token](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps), or [installation access token](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
 
 ## Data protection
 

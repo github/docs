@@ -110,7 +110,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 If additional repository permissions are defined in the `devcontainer.json` file, you will be prompted to review and optionally authorize the permissions when you create a codespace or a prebuild configuration for this repository. When you authorize permissions for a repository, {% data variables.product.prodname_github_codespaces %} will not re-prompt you unless the set of requested permissions has changed for the repository.
 
-![The requested permissions page](/assets/images/help/codespaces/codespaces-accept-permissions.png)
+![Screenshot of the requested permissions page. Two permissions are shown as requested: read permission for metadata and write permission for issues.](/assets/images/help/codespaces/codespaces-accept-permissions.png)
 
 You should only authorize permissions for repositories you know and trust. If you don't trust the set of requested permissions, click **Continue without authorizing** to create the codespace with the base set of permissions. Rejecting additional permissions may impact the functionality of your project within the codespace as the codespace will only have access to the repository from which it was created.
 
@@ -128,10 +128,10 @@ When you enable access and security for a repository owned by your personal acco
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "Access and security", select the setting you want for your personal account.
+1. Under "Access and security," select the setting you want for your personal account:
 
-  ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
+   - **Disabled** - Limit access of your personal codespaces to the repository they were created from.
+   - **All repositories** - All of your personal codespaces can access other repositories you own.
+   - **Selected repositories** - Personal codespaces created from specific repositories can access other repositories you own.
 
-1. If you chose "Selected repositories", select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
-
-  !["Selected repositories" dropdown menu](/assets/images/help/settings/codespaces-access-and-security-repository-drop-down.png)
+1.  If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat this step for all repositories whose codespaces you want to access other repositories you own.

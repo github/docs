@@ -21,6 +21,8 @@ Environments are used to describe a general deployment target like `production`,
 
 You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the environment protection rules pass.
 
+{% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."{% endif %}
+
 {% ifversion fpt %}
 {% note %}
 
@@ -44,6 +46,12 @@ For more information on reviewing jobs that reference an environment with requir
 ### Wait timer
 
 Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+
+{% ifversion actions-break-glass %}
+### Do not let admins bypass protection rules
+
+Prevent admins from being able to bypass the configured environment protection rules.
+{% endif %}
 
 ### Deployment branches
 
@@ -95,21 +103,27 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select **Wait timer**.
    1. Enter the number of minutes to wait.
    1. Click **Save protection rules**.
-3. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
+{%- ifversion actions-break-glass %}
+3. Optionally, prevent admins from bypassing environment protection rules. For more information about bypassing environment protection rules, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
+   1. Select **Do not let admins bypass protection rules**.
+   1. Click **Save protection rules**.
+{%- endif %}
+4. Optionally, specify what branches can deploy to this environment. For more information about the possible values, see "[Deployment branches](#deployment-branches)."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.
-4. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+5. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
    1. Under **Environment secrets**, click **Add Secret**.
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
 {%- ifversion actions-configuration-variables %}
-5. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+6. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
    1. Click **Add variable**.
 {%- endif %}
+
 
 You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[AUTOTITLE](/rest/actions/variables),"{% endif %} and "[AUTOTITLE](/rest/deployments/branch-policies)."
 

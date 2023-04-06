@@ -18,7 +18,7 @@ This article demonstrates how to use the GraphQL API to manage a project. For mo
 
 {% curl %}
 
-In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app)."
+In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)."
 
 {% endcurl %}
 

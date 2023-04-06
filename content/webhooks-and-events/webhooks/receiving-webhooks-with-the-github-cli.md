@@ -11,12 +11,6 @@ redirect_from:
 ---
 ## About receiving webhooks with {% data variables.product.prodname_cli %}
 
-{% note %}
-
-**Note**: Receiving webhooks with the {% data variables.product.prodname_cli %} is currently in limited public beta and subject to change. To sign up for the beta, reply to our GitHub Community [discussion](https://github.com/orgs/community/discussions/38261). You may not be added immediately. You will receive an email notification once you have been added to the beta.
-
-{% endnote %}
-
 When you make changes to your integration code, running the code in a local environment lets you test and iterate quickly without deploying the code. You can use {% data variables.product.prodname_cli %} to forward webhooks to your local environment.
 
 {% note %}

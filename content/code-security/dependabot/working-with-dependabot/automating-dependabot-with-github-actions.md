@@ -32,16 +32,12 @@ redirect_from:
 
 {% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
-{% endif %}
 
 - `GITHUB_TOKEN` has read-only permissions by default.
 - Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
-{% endif %}
 
 {% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
 
@@ -156,7 +152,7 @@ jobs:
       # The following properties are now available:
       #  - steps.metadata.outputs.dependency-names
       #  - steps.metadata.outputs.dependency-type
-      #  - steps.metadata.outputs.update-type      
+      #  - steps.metadata.outputs.update-type
 ```
 
 {% endraw %}

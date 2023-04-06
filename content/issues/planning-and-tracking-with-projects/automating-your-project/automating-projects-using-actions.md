@@ -46,7 +46,7 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 
 3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
 4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[AUTOTITLE](/rest/apps#get-an-app)."
-5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#generating-a-private-key)."
+5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
@@ -142,7 +142,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -154,7 +154,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -254,7 +254,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -266,7 +266,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -283,7 +283,9 @@ jobs:
 The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
 
 <table class="table-fixed">
-
+<tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
 <tr>
 <td>
 
@@ -534,7 +536,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $status_field
-      value: { 
+      value: {
         singleSelectOptionId: $status_value
         }
     }) {
@@ -546,7 +548,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $date_field
-      value: { 
+      value: {
         date: $date_value
       }
     }) {

@@ -2,7 +2,7 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Fixture Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/foo/hello-world
+    - /get-started/quickstart/hello-world
   popular:
     - get-started
 redirect_from:
@@ -17,6 +17,10 @@ children:
   # as if the URL had been `/en/free-pro-team@latest/get-started/anything`.
   - search
   - get-started
+  - early-access
+  - pages
+  - code-security
+  - actions
   # - account-and-profile
   # - authentication
   # - repositories
@@ -24,10 +28,8 @@ children:
   # - billing
   # - site-policy
   # - organizations
-  # - code-security
   # - pull-requests
   # - issues
-  # - actions
   # - copilot
   # - codespaces
   # - packages
@@ -39,10 +41,8 @@ children:
   # - discussions
   # - sponsors
   # - communities
-  # - pages
   # - education
   # - desktop
-  # - early-access
   # - support
 childGroups:
   - name: Get started

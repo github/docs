@@ -18,7 +18,7 @@ redirect_from:
 
 Adding an "Open in {% data variables.product.prodname_github_codespaces %}" badge to a Markdown file gives people an easy way to create a codespace for your repository.
 
-![Screenshot of a Codespaces badge on a README page](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
+![Screenshot of an "Open in {% data variables.product.prodname_github_codespaces %}" badge on a README page.](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
 When you create a badge you can choose specific configuration options for the codespace that the badge will create.
 
@@ -29,21 +29,18 @@ From the advanced options page, users can change the preselected settings if req
 ## Creating an "Open in {% data variables.product.prodname_github_codespaces %}" badge
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under the repository name, use the "Branch" dropdown menu, and select the branch you want to create the badge for.
+1. Under the repository name, click the button labeled with the name of the current branch and, in the dropdown menu, select the branch you want to create the badge for.
 
-   ![Screenshot of the Branch dropdown menu](/assets/images/help/codespaces/branch-drop-down.png)
+   ![Screenshot of the expanded branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is highlighted with a dark orange outline.](/assets/images/help/codespaces/branch-drop-down.png)
 
 1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. At the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and click **New with options**.
 
-   ![Screenshot of the New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
-
-1. Click the ellipsis (**...**) at the top right of the **Codespaces** tab, then click **New with options**.
-
-   ![Screenshot of the "Configure and create codespace" option](/assets/images/help/codespaces/default-machine-type.png)
+   ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, showing the option "New with options."](/assets/images/help/codespaces/default-machine-type.png)
 
 1. On the advanced options page for codespace creation, select the values you want to be preselected in each field.
 
-   ![Screenshot of the advanced options page](/assets/images/help/codespaces/advanced-options.png)
+   ![Screenshot of the advanced options page with dropdown menus for "Branch," "Dev container configuration," "Region," and "Machine type."](/assets/images/help/codespaces/advanced-options.png)
 
 1. Copy the URL from the browser's address bar.
 1. Add the following Markdown to, for example, the `README.md` file of your repository:

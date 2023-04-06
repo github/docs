@@ -30,18 +30,19 @@ After you have installed {% data variables.product.prodname_desktop %}, you can 
 {% mac %}
 
 1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account. For more information about creating an account, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
+{% data reusables.desktop.mac-select-desktop-menu %}
+3. In the "Preferences" window, on the **Accounts** pane, click one of the **Sign In** buttons to sign in to your account on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_enterprise %}.
 
-2. In the {% data variables.product.prodname_desktop %} drop-down menu, click **Preferences**. In the preferences window, click **Accounts** and follow the steps to sign in. For more information on authenticating, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github)."
-  ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
+   ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
+4. Follow the steps to sign in. For more information about authentication, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github)."
 
 {% endmac %}
 
 {% windows %}
 
 1. Before you can authenticate to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you will need an account. For more information about creating an account, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
-
 2. In the File drop-down menu, click **Options**. In the options window, click **Accounts** and follow the steps to sign in. For more information on authenticating, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github)."
-  ![The Sign In button for GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
+  ![Screenshot of the "Accounts" pane in the "Options" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/windows-sign-in-github.png)
 
 {% endwindows %}
 
@@ -52,7 +53,7 @@ After you install {% data variables.product.prodname_desktop %}, you can configu
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Preferences window. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings)."
 
-  ![The basic settings in the Preference window](/assets/images/help/desktop/mac-appearance-tab-themes.png)
+  ![The basic settings in the Preference window](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endmac %}
 
@@ -60,7 +61,7 @@ You can connect or remove accounts on {% data variables.product.prodname_dotcom 
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Options window. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings)."
 
-  ![The basic settings in the Options window](/assets/images/help/desktop/windows-appearance-tab-themes.png)
+  ![The basic settings in the Options window](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endwindows %}
 
@@ -68,32 +69,28 @@ You can connect or remove accounts on {% data variables.product.prodname_dotcom 
 After installing, authenticating, and configuring the app, you are ready to start using {% data variables.product.prodname_desktop %}. You can create, add, or clone repositories and use {% data variables.product.prodname_desktop %} to manage contributions to your repositories.
 
 ### Creating, adding, and cloning repositories
-You can create a new repository by selecting the File menu and clicking **New repository...**. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop)."
+You can create a new repository by selecting **File** in the "{% data variables.product.prodname_desktop %}" menu bar and clicking **New repository...**. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop)."
 
-You can add a repository from your local computer by selecting the File menu and clicking **Add Local Repository...**. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
+You can add a repository from your local computer by selecting **File** and clicking **Add Local Repository...**. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
 
-You can clone a repository from {% data variables.product.prodname_dotcom %} by selecting the File menu and clicking **Clone Repository...**. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)."
+You can clone a repository from {% data variables.product.prodname_dotcom %} by selecting **File** and clicking **Clone Repository...**. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)."
 
 {% mac %}
 
-  ![The File menu options for creating, adding, and cloning repositories](/assets/images/help/desktop/mac-file-menu.png)
+  ![Screenshot of the menu bar on a Mac. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/mac-file-menu.png)
 
 {% endmac %}
 
 {% windows %}
 
-  ![The File menu options for creating, adding, and cloning repositories](/assets/images/help/desktop/windows-file-menu.png)
+  ![Screenshot of the "GitHub Desktop" menu bar on Windows. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/windows-file-menu.png)
 
 {% endwindows %}
 
 ### Making changes in a branch
 You can use {% data variables.product.prodname_desktop %} to create a branch of a project. Branches isolate your development work from other branches in the repository, so that you can safely experiment with changes. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
 
-  ![The New Branch button](/assets/images/help/desktop/new-branch-button-mac.png)
-
 After you make changes to a branch, you can review them in {% data variables.product.prodname_desktop %} and make a commit to keep track of your changes. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project)."
-
-  ![Viewing and making commits](/assets/images/help/desktop/commit-button.png)
 
 If you want to access your changes remotely or share them with other people, you can push your commits to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
 

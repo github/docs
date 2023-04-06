@@ -9,6 +9,7 @@ redirect_from:
   - /code-security/secure-coding/troubleshooting-the-codeql-workflow
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-advanced-setup-for-codeql
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
 versions:
   fpt: '*'
   ghes: '*'
@@ -39,8 +40,6 @@ allowTitleToDifferFromFilename: true
 
 To produce more detailed logging output, you can enable step debug logging. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging)."
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
@@ -48,19 +47,15 @@ The debug artifacts will be uploaded to the workflow run as an artifact named `d
 
 These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
 
-{% endif %}
-
 {% ifversion codeql-action-debug-logging %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs with debug logging enabled
 
 You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling debug logging and re-running the jobs. For more information about re-running {% data variables.product.prodname_actions %} workflows and jobs, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 
-You need to ensure that you select **Enable debug logging** . This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
+You need to ensure that you select **Enable debug logging**. This option enables runner diagnostic logging and step debug logging for the run. You'll then be able to download `debug-artifacts` to investigate further. You do not need to modify the workflow file when creating {% data variables.product.prodname_codeql %} debugging artifacts by re-running jobs.
 
 {% endif %}
-
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts using a workflow flag
 
@@ -73,16 +68,19 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
     debug: true
 ```
 
-{% endif %}
-
 {% ifversion code-scanning-without-workflow %}
 
 ## Results are different than expected
 
-If your {% data variables.product.prodname_code_scanning %} results are different than you expected, your repository may have both default and advanced {% data variables.product.prodname_code_scanning %} setups. When you enable default setup, this blocks any {% data variables.product.prodname_codeql %} workflow files in the repository from uploading results.
+If your {% data variables.product.prodname_code_scanning %} results are different than you expected, your repository may have both default and advanced {% data variables.product.prodname_code_scanning %} setups. When you enable default setup, this disables the existing {% data variables.product.prodname_codeql %} workflow file and blocks any {% data variables.product.prodname_codeql %} API analysis from uploading results.
 
-To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-label="The gear icon" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-label="The {% data variables.product.prodname_code_scanning %} icon" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_capc %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. If there is a {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced** option, you are currently using the default setup. To switch to the advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-label="The stop icon" %} **Disable {% data variables.product.prodname_codeql %}**. This option will only disable default setup, and your pre-existing workflow will start uploading results again. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-label="The gear icon" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-label="The {% data variables.product.prodname_code_scanning %} icon" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. If there is a {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced** option, you are currently using the default setup.
 
+If you want to return to using advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-label="The stop icon" %} **Disable {% data variables.product.prodname_codeql %}** to disable default setup. Then you should re-enable your pre-existing workflows to start triggering and uploading results from advanced setup. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)" and  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+
+{% ifversion remove-code-scanning-configurations %}
+{% data reusables.code-scanning.troubleshooting-multiple-configurations %}
+{% endif %}
 {% endif %}
 
 ## Automatic build for a compiled language fails

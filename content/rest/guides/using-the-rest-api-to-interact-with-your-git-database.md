@@ -13,14 +13,12 @@ redirect_from:
   - /rest/guides/getting-started-with-the-git-database-api
 ---
 
-## Overview 
+## Overview
 
 This basically allows you to reimplement a lot of Git functionality with the REST API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
 
 The REST API will return a `409 Conflict` if the Git repository is empty
 or unavailable.  An unavailable repository typically means {% data variables.product.product_name %} is in the process of creating the repository. For an empty repository, you can use the "[AUTOTITLE](/rest/repos#create-or-update-file-contents)" endpoint to create content and initialize the repository so you can use the API to manage the Git database. Contact {% data variables.contact.contact_support %} if this response status persists.
-
-![git database overview](/assets/images/git-database-overview.png)
 
 For more information on the Git object database, please read the
 [Git Internals](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain) chapter of

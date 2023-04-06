@@ -15,12 +15,11 @@ shortTitle: GitHub Archive program
 
 {% data reusables.repositories.about-github-archive-program %} For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
 
-If you opt out of the {% data variables.product.prodname_archive %} for a repository, the repository will be excluded from any long-term archives that {% data variables.product.prodname_dotcom %} may create in the future. We will also send a request to each of our partner organizations to remove the repository from their data.
+If you opt out of the {% data variables.product.prodname_archive %} for a repository, the repository will be excluded from any long-term archives that {% data variables.product.prodname_dotcom %} may create in the future.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Features", select or unselect **Preserve this repository**.
-    ![Checkbox for allowing {% data variables.product.prodname_dotcom %} to include your code in the {% data variables.product.prodname_archive %}](/assets/images/help/repository/github-archive-program-checkbox.png)
+1. Under "Features", select or deselect **Preserve this repository**.
 
 ## Further reading
 - [{% data variables.product.prodname_archive %} FAQ](https://archiveprogram.github.com/faq/)

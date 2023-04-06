@@ -19,31 +19,25 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 ## Creating a custom label
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
  {% data reusables.actions.settings-sidebar-actions-runner-selection %}
  1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
  1. In the "Find or create a label" field, type the name of your new label and click **Create new label**.
  The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
-{% endif %}
 
 ## Assigning a label to a self-hosted runner
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
-  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label. 
-{% endif %}
+  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label.
 
 ## Removing a custom label from a self-hosted runner
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 {% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.runner-label-settings %}
-  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner. 
-{% endif %}
+  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner.
 
 ## Programmatically assign labels
 
@@ -53,9 +47,9 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 * To programmatically assign labels to a self-hosted runner during the initial runner configuration, you can pass label names to the `config` script using the `labels` parameter.
 
   {% note %}
-  
+
   **Note:** You cannot use the `config` script to assign labels to an existing self-hosted runner.
-  
+
   {% endnote %}
 
   For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:

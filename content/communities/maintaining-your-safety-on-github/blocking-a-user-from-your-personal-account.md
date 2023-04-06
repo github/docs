@@ -69,8 +69,7 @@ In repositories you own, blocked users also cannot:
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
-3. Click **Block user**.
-   ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-blockuser.png)
+1. Click **Block user**.
 
 {% note %}
 

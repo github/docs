@@ -93,7 +93,7 @@ When you're prompted to "Enter a file in which to save the key", you can press *
 
    {% endlinux %}
 
-4. At the prompt, type a secure passphrase. For more information, see ["Working with SSH key passphrases](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+4. At the prompt, type a secure passphrase. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]

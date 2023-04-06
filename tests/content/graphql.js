@@ -1,4 +1,5 @@
 import { jest } from '@jest/globals'
+import Ajv from 'ajv'
 
 import readJsonFile from '../../lib/read-json-file.js'
 import {
@@ -6,13 +7,23 @@ import {
   previewsValidator,
   upcomingChangesValidator,
 } from '../../src/graphql/lib/validator.js'
-import revalidator from 'revalidator'
+import { formatAjvErrors } from '../helpers/schemas.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { GRAPHQL_DATA_DIR } from '../../src/graphql/lib/index.js'
 
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
 const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.kind)
+
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+const previewsValidate = ajv.compile(previewsValidator)
+const upcomingChangesValidate = ajv.compile(upcomingChangesValidator)
+// setup ajv validator functions for each graphql type (e.g. queries, mutations,
+// etc.)
+const schemaValidatorFunctions = {}
+graphqlTypes.forEach((type) => {
+  schemaValidatorFunctions[type] = ajv.compile(schemaValidator[type])
+})
 
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -31,9 +42,16 @@ describe('graphql json files', () => {
           if (typeObjsTested.has(key)) return
           typeObjsTested.add(key)
 
-          const { valid, errors } = revalidator.validate(typeObj, schemaValidator[type])
-          const errorMessage = JSON.stringify(errors, null, 2)
-          expect(valid, errorMessage).toBe(true)
+          const valid = schemaValidatorFunctions[type](typeObj)
+          let errors
+
+          if (!valid) {
+            errors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
+              schemaValidatorFunctions[type].errors
+            )}`
+          }
+
+          expect(valid, errors).toBe(true)
         })
       })
     })
@@ -43,9 +61,14 @@ describe('graphql json files', () => {
     graphqlVersions.forEach((version) => {
       const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`)
       previews.forEach((preview) => {
-        const { valid, errors } = revalidator.validate(preview, previewsValidator)
-        const errorMessage = JSON.stringify(errors, null, 2)
-        expect(valid, errorMessage).toBe(true)
+        const valid = previewsValidate(preview)
+        let errors
+
+        if (!valid) {
+          errors = formatAjvErrors(previewsValidate.errors)
+        }
+
+        expect(valid, errors).toBe(true)
       })
     })
   })
@@ -56,9 +79,14 @@ describe('graphql json files', () => {
       for (const changes of Object.values(upcomingChanges)) {
         // each object value is an array of changes
         changes.forEach((changeObj) => {
-          const { valid, errors } = revalidator.validate(changeObj, upcomingChangesValidator)
-          const errorMessage = JSON.stringify(errors, null, 2)
-          expect(valid, errorMessage).toBe(true)
+          const valid = upcomingChangesValidate(changeObj)
+          let errors
+
+          if (!valid) {
+            errors = formatAjvErrors(upcomingChangesValidate.errors)
+          }
+
+          expect(valid, errors).toBe(true)
         })
       }
     })

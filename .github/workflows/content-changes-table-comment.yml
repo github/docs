@@ -59,7 +59,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version-file: '.node-version'
+          node-version-file: 'package.json'
           cache: npm
 
       - name: Install temporary dependencies
@@ -84,7 +84,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.changes.outputs.changesTable != '' }}
-        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
+        uses: peter-evans/create-or-update-comment@3383acd359705b10cb1eeef05c0e88c056ea4666
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}

@@ -25,9 +25,7 @@ To learn about accessing your personal dashboard, see "[AUTOTITLE](/account-and-
 
 When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard.
 
-Click **Follow** on a person's profile page to follow them.
-
-![Follow user button](/assets/images/help/profile/follow-user-button.png)
+To follow someone, click **Follow** on a person's profile page.
 
 For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)."
 
@@ -35,9 +33,9 @@ For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github
 
 You can subscribe to a repository to watch it and receive notifications for activity in it. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions)."
 
-Click **Watch** at the top of a repository to watch it.
+To watch a repository, at the top of the page, click **Watch**.
 
-![Watch repository button](/assets/images/help/repository/repo-actions-watch.png)
+![Screenshot of the main page of the github/docs repository. A button, labeled with an eye icon and "Watch 2.1k", is outlined in dark orange.](/assets/images/help/repository/repo-actions-watch.png)
 
 ## Joining the conversation
 
@@ -65,7 +63,7 @@ From your dashboard, click the drop down menu of your username on the left side 
 
 To follow an organization, in the header of the organization's page, click **Follow**.
 
-![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+![Screenshot of @octo-org's profile page. A button, labeled "Follow", is outlined in dark orange.](/assets/images/help/profile/organization-profile-following.png)
 
 For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-organizations)."
 

@@ -13,25 +13,29 @@ topics:
   - Fundamentals
 ---
 
+## Assign multiple owners
+
+{% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see "[Inviting people to manage your enterprise](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."{% endif %}
+
 {% ifversion ghec %}
 ## Identify the best authentication method for your enterprise
 
 {% data reusables.enterprise.ghec-authentication-options %}
 
-For help identifying the authentication method that will best meet your needs, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)." 
+For help identifying the authentication method that will best meet your needs, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
 {% endif %}
 
 ## Use policies
 
-We recommend using policies to enforce business rules and regulatory compliance. 
+We recommend using policies to enforce business rules and regulatory compliance.
 
 {% data reusables.enterprise.about-policies %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
 
 ## Minimize the number of organizations
 
-Large enterprises often need multiple organizations, but try to create as few as possible to reflect top-level corporate divisions. A smaller number of organizations encourages innersource practices and allows discussions to involve a wider audience.
+Most businesses are best served by a single organization. Some enterprises may need multiple organizations for compliance or security reasons, but try to create as few as possible. A smaller number of organizations encourages innersource practice, allows discussions to involve a wider audience, and reduces administrative overhead.
 
-Instead, you can manage repository access and security requirements at a more granular level within each organization by using teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+For more guidance on how many organizations to create and how to structure them, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise)."
 
 ## Avoid extensive collaboration in user-owned repositories
 

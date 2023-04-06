@@ -56,11 +56,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 To help GitHub send webhooks to your local machine without exposing it to the internet, you can use a tool called Smee. First, go to https://smee.io and click **Start a new channel**. If you're already comfortable with other tools that expose your local machine to the internet like [`ngrok`](https://dashboard.ngrok.com/get-started) or [`localtunnel`](https://localtunnel.github.io/www/), feel free to use those.
 
-![The Smee new channel button](/assets/images/smee-new-channel.png)
-
-Starting a new Smee channel creates a unique domain where GitHub can send webhook payloads. You'll need to know this domain for the next step. Here is an example of a unique domain at `https://smee.io/qrfeVRbFbffd6vD`:
-
-![A Smee unique channel](/assets/images/smee-unique-domain.png)
+Starting a new Smee channel creates a unique domain where GitHub can send webhook payloads. Smee calls the URL for this unique domain the "Webhook Proxy URL." You'll need to know this URL for the next step.
 
 Next, go back to the Terminal and follow these steps to run the Smee command-line interface (CLI) client:
 
@@ -97,8 +93,6 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a [great time to join](https://github.com/join). Don't forget to verify your email before continuing! To register a new app, visit the [app settings page](https://github.com/settings/apps) in your GitHub profile, and click **New GitHub App**.
 
-![GitHub website, showing the **New App**](/assets/images/new-app.png)
-
 You'll see a form where you can enter details about your app. See "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
 
 {% note %}
@@ -107,38 +101,27 @@ You'll see a form where you can enter details about your app. See "[AUTOTITLE](/
 
 {% endnote %}
 
-* For the "Homepage URL", use the domain issued by Smee. For example:
-
-    ![Form with Smee domain filled in for homepage URL](/assets/images/homepage-url.png)
-
-* For the "Webhook URL", again use the domain issued by Smee. For example:
-
-    ![Form with Smee domain filled in for webhook URL](/assets/images/webhook-url.png)
+* For the "Homepage URL", use the domain issued by Smee.
+* For the "Webhook URL", again use the domain issued by Smee.
 
 * For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
-
-    ![Form with webhook secret filled in](/assets/images/webhook-secret.png)
 
 * On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions"
  section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
 
-* At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
+* At the bottom of the Permissions & Webhooks page, under "Where can this {% data variables.product.prodname_github_app %} be installed?", specify whether this is a private app or a public app.
 
-    ![GitHub App privacy](/assets/images/create_app.png)
+   This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
 Click **Create GitHub App** to create your app!
 
 ## Step 3. Save your private key and App ID
 
-After you create your app, you'll be taken back to the [app settings page](https://github.com/settings/apps). You have two more things to do here:
+After you create your app, you'll be taken back to the app settings page. You have two more things to do here:
 
-* **Generate a private key for your app.** This is necessary to authenticate your app later on. Scroll down on the page and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
+* **Note the app ID GitHub has assigned your app**, which is displayed in the "About" section. You'll need this to prepare your runtime environment.
 
-    ![The private key generation dialog](/assets/images/private_key.png)
-
-* **Note the app ID GitHub has assigned your app.** You'll need this to prepare your runtime environment.
-
-    <img src="/assets/images/app_id.png" alt="Your app's ID number" width="200px"/>
+* **Generate a private key for your app**. This is necessary to authenticate your app later on. Scroll down to the "Private keys" section and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
 
 ## Step 4. Prepare the runtime environment
 
@@ -254,7 +237,7 @@ To make API calls, you'll be using the [Octokit library](http://octokit.github.i
 
 You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
 
-[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app) lets you do a couple of things:
+[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) lets you do a couple of things:
 
  * You can retrieve high-level management information about your GitHub App.
  * You can request access tokens for an installation of the app.
@@ -289,7 +272,7 @@ def authenticate_app
 end
 ```
 
-The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app)."
+The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)."
 
 #### Authenticating as an installation
 
@@ -310,7 +293,7 @@ The [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb
 * Installation (integer): The ID of a GitHub App installation
 * Options (hash, defaults to `{}`): A customizable set of options
 
-Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. If you look back at [the docs](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation), you can see the response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
+Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
 
 With this method in place, each time your app receives a new webhook payload, it creates a client for the installation that triggered the event. This authentication process enables your GitHub App to work for all installations on any account.
 
@@ -352,9 +335,7 @@ You should see a response like:
 
 If you see an error, make sure you've created the `.env` file in the directory that contains `template_server.rb`.
 
-Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page:
-
-<img src="/assets/images/sinatra-404.png" alt="Sinatra's 404 error page" width="500px"/>
+Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page that says, "Sinatra doesn't know this ditty."
 
 This is good! Even though it's an error page, it's a _Sinatra_ error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
 
@@ -365,8 +346,6 @@ You can test that the server is listening to your app by triggering an event for
 To install the app, visit the [app settings page](https://github.com/settings/apps), choose your app, and click **Install App** in the sidebar. Next to your username, click **Install**.
 
 You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on _all_ of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
-
-<img src="/assets/images/install_permissions.png" alt="App installation permissions" width="500px"/>
 
 After you click **Install**, look at the output in your Terminal. You should see something like this:
 

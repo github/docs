@@ -32,13 +32,13 @@ To use OIDC with HashiCorp Vault, you will need to add a trust configuration for
 
 To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
-1. Enable the JWT `auth` method, and use `write` to apply the configuration to your Vault. 
+1. Enable the JWT `auth` method, and use `write` to apply the configuration to your Vault.
   For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters allow the Vault server to verify the received JSON Web Tokens (JWT) during the authentication process.
 
     ```sh{:copy}
     vault auth enable jwt
     ```
-    
+
     ```sh{:copy}
     vault write auth/jwt/config \
       bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
@@ -48,7 +48,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    {% ifversion ghec %}
    {% note %}
 
-   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[Switching to a unique token URL](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
+   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
 
    {% endnote %}
    {% endif %}
@@ -83,7 +83,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 - `ttl` defines the validity of the resulting access token.
 - Ensure that the `bound_claims` parameter is defined for your security requirements, and has at least one condition. Optionally, you can also set the `bound_subject` as well as the `bound_audiences` parameter.
 - To check arbitrary claims in the received JWT payload, the `bound_claims` parameter contains a set of claims and their required values. In the above example, the role will accept any incoming authentication requests from the `repo-name` repository owned by the `user-or-org-name` account.
-- To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
+- To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)."
 
 For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
@@ -143,7 +143,7 @@ jobs:
             namespace: <Vault Namespace - HCP Vault and Vault Enterprise only>
             role: <Role name>
             secrets: <Secret-Path>
-                
+
       - name: Use secret from Vault
         run: |
           # This step has access to the secret retrieved above; see hashicorp/vault-action for more details.

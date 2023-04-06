@@ -1,6 +1,6 @@
 ---
 title: About organizations
-intro: 'Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.'
+intro: '{% data reusables.organizations.short-summary %}'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations

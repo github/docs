@@ -1,5 +1,5 @@
 ---
-title: Apps
+title: GitHub Apps documentation
 shortTitle: Apps
 intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
 introLinks:
@@ -10,11 +10,10 @@ featuredLinks:
     - /apps/creating-github-apps/creating-github-apps/about-apps
     - /apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps
     - /apps/creating-github-apps/creating-github-apps/creating-a-github-app
-    - /apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps
-    - /apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps
+    - /apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app
   popular:
     - /apps/creating-github-apps/creating-github-apps/creating-a-github-app
-    - /apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps
+    - /apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app
     - /apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace
   guideCards:
     - /apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api

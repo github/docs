@@ -204,7 +204,7 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 #### Example of `toJSON`
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` might return `{ "status": "success" }`
 
 ### fromJSON
 
@@ -283,14 +283,9 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)" and "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif)".
-{% else %}
-## Check Functions
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)".
-{% endif %}
 
 ### success
 

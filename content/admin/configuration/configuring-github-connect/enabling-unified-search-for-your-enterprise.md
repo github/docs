@@ -26,7 +26,7 @@ topics:
 
 {% data reusables.github-connect.beta %}
 
-When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. 
+When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
@@ -47,7 +47,9 @@ Before you can enable {% data variables.enterprise.prodname_unified_search %}, y
 {% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. Sign into {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
-1. Under "Users can search {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-  ![Enable search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
-1. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
-    ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
+1. To the right of "Unified search", click **Enable**.
+
+   ![Screenshot of the "Unified search" option on the GitHub Connect page. The "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
+1. Optionally, to the right of "Users can search private repositories on ENTERPRISE ACCOUNT/ORGANIZATION when searching from Enterprise Server", click **Enable**.
+
+   ![Screenshot of the "Unified search" option on the GitHub Connect page. To the right of the setting to allow search of private repositories, the "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enable-private-search.png)

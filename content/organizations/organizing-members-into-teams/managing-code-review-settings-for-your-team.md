@@ -38,9 +38,9 @@ When code owners are automatically requested for review, the team is still remov
 
 ### Routing algorithms
 
-Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
-The round robin algorithm chooses reviewers based on who's received the least recent review request, focusing on alternating between all members of the team regardless of the number of outstanding reviews they currently have. 
+The round robin algorithm chooses reviewers based on who's received the least recent review request, focusing on alternating between all members of the team regardless of the number of outstanding reviews they currently have.
 
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
@@ -57,14 +57,13 @@ Any team members that have set their status to "Busy" will not be selected for r
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. In the left sidebar, click **Code review**
-![Code review button](/assets/images/help/teams/review-button.png)
 {% endif %}
 1. Select **Only notify requested team members.**
-![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
 1. Click **Save changes**.
 {% endif %}
 
 ## Configuring auto assignment
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
@@ -73,29 +72,21 @@ Any team members that have set their status to "Busy" will not be selected for r
 1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
 {% else %}
 1. In the left sidebar, click **Code review**
-![Code review button](/assets/images/help/teams/review-button.png)
 {% endif %}
 1. Select **Enable auto assignment**.
-![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
-1. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request.
-![Number of reviewers dropdown](/assets/images/help/teams/review-assignment-number.png)
-1. Under "Routing algorithm", use the drop-down menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
-![Routing algorithm dropdown](/assets/images/help/teams/review-assignment-algorithm.png)
+1. Under "How many team members should be assigned to review?", select the dropdown menu and choose a number of reviewers to be assigned to each pull request.
+1. Under "Routing algorithm", use the dropdown menu and choose which algorithm you'd like to use. For more information, see "[Routing algorithms](#routing-algorithms)."
 1. Optionally, to always skip certain members of the team, select **Never assign certain team members**. Then, select one or more team members you'd like to always skip.
-![Never assign certain team members checkbox and dropdown](/assets/images/help/teams/review-assignment-skip-members.png)
-
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
 1. Optionally, to include members of child teams as potential reviewers when assigning requests, select **Child team members**.
 1. Optionally, to count any members whose review has already been requested against the total number of members to assign, select **Count existing requests**.
 1. Optionally, to remove the review request from the team when assigning team members, select **Team review request**.
-{%- endif %}
 1. Click **Save changes**.
 
 ## Disabling auto assignment
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-1. Select **Enable auto assignment** to remove the checkmark.
-![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
+1. Deselect **Enable auto assignment**.
 1. Click **Save changes**.

@@ -48,7 +48,7 @@ export const CodeExamples = () => {
           htmlFor="searchCodeExamples"
           id="searchCodeExamples"
         >
-          Search code examples:
+          {t('code_example.search_examples')}
         </Text>
         <input
           data-testid="code-examples-input"
@@ -61,7 +61,7 @@ export const CodeExamples = () => {
           value={typed}
         />
         <button data-testid="code-examples-search-btn" className="btn ml-2 py-2" type="submit">
-          Search
+          {t('code_example.search_button')}
         </button>
       </form>
 
@@ -75,7 +75,7 @@ export const CodeExamples = () => {
           </p>
         </div>
       )}
-      <ul className="d-flex flex-wrap gutter">
+      <ul data-testid="code-example-results" className="d-flex flex-wrap gutter">
         {(isSearching ? searchResults : productCodeExamples.slice(0, numVisible)).map((example) => {
           return (
             <li key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4 list-style-none">

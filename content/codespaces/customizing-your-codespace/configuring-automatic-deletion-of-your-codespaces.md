@@ -43,7 +43,7 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Default retention period", enter the number of days for which you want your codespaces to be retained, by default, after they have been stopped.
 
-   ![Selecting your retention period](/assets/images/help/codespaces/setting-default-retention.png)
+   ![Screenshot of the "Default retention period" setting, currently set to 1 day. Next to the number of days is the "Save" button.](/assets/images/help/codespaces/setting-default-retention.png)
 
    You can set your default retention period between `0` and `30` days.
 
@@ -65,7 +65,7 @@ You can check whether a codespace is due to be automatically deleted soon.
 
 When an inactive codespace is approaching the end of its retention period, this is indicated in your list of codespaces on {% data variables.product.prodname_dotcom %} at [https://github.com/codespaces](https://github.com/codespaces).
 
-![The pre-deletion message in the codespaces list on {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/retention-deletion-message.png)
+![Screenshot of a list of three codespaces. The third of these is labeled "Expiring in 4 days" which is highlighted with a dark orange outline.](/assets/images/help/codespaces/retention-deletion-message.png)
 
 ## Avoiding automatic deletion of codespaces
 
@@ -77,16 +77,16 @@ You may have a codespace that you want to keep for longer than the retention per
 
 {% endnote %}
 
-Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)."
+Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)."
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "bookmark" aria-label="The bookmark icon" %} Keep codespace**.
 
-   ![Screenshot of the 'Keep codespace' button](/assets/images/help/codespaces/keep-codespace.png)
+   ![Screenshot of the dropdown menu for an active codespace. The "Keep codespace" option has a tooltip saying "Expires 10 days after shutdown."](/assets/images/help/codespaces/keep-codespace.png)
 
 Codespaces that you have exempted from automatic deletion are indicated in your list of codespaces with the bookmark icon ({% octicon "bookmark" aria-label="The bookmark icon" %}).
 
-![Screenshot of a codespace with the bookmark the bookmark icon](/assets/images/help/codespaces/keep-codespace-bookmarked.png)
+![Screenshot of a section of the codespaces list, showing a codespace labeled with the bookmark icon.](/assets/images/help/codespaces/keep-codespace-bookmarked.png)
 
 {% endwebui %}
 
@@ -120,8 +120,8 @@ You can check, in the {% data variables.product.prodname_vscode %} desktop appli
 1. Choose **{% data variables.product.prodname_github_codespaces %}** from the dropdown menu at the top right of the Remote Explorer, if it is not already selected.
 1. Under "GITHUB CODESPACES," position the mouse pointer over the codespace that you're interested in. A pop-up box is displayed showing you information about the codespace.
 
-   If the codespace is nearing the end of its retention period, a line is included telling you when the codespace will be deleted.
+   If the codespace is nearing the end of its retention period, a line is included telling when this period is due to expire.
 
-   ![Codespace information showing the time until deletion](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
+   ![Screenshot of the "Remote Explorer" side bar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}

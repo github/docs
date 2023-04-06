@@ -7,8 +7,10 @@ const inputOrPayload = /(Input|Payload)$/m
 export default function processPreviews(previews) {
   // clean up raw yml data
   previews.forEach((preview) => {
-    // remove any extra info that follows a hyphen
-    preview.title = sentenceCase(preview.title.replace(/ -.+/, '')).replace('it hub', 'itHub') // fix overcorrected `git hub` from sentenceCasing
+    preview.title = sentenceCase(preview.title)
+      .replace(/ -.+/, '') // remove any extra info that follows a hyphen
+      .replace('it hub', 'itHub') // fix overcorrected `git hub` from sentenceCasing
+      .replace(' s ', "'s ") // sentenceCase replaces apostrophes with spaces
 
     // Add `preview` to the end of titles if needed
     preview.title = preview.title.endsWith('preview') ? preview.title : `${preview.title} preview`

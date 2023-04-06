@@ -21,6 +21,5 @@ Enterprise owners can set limitations for viewing organization dependency insigh
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Member organization permissions", select or unselect **Allow members to view dependency insights**.
-![Checkbox to allow members to view insights](/assets/images/help/organizations/allow-members-to-view-insights.png)
-6. Click **Save**.
+1. Under "Member organization permissions", select or deselect **Allow members to view dependency insights**.
+1. Click **Save**.
