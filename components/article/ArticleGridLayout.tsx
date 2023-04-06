@@ -23,7 +23,11 @@ export const ArticleGridLayout = ({ intro, topper, toc, children, className }: P
         </SidebarContent>
       )}
 
-      {intro && <Box gridArea="intro">{intro}</Box>}
+      {intro && (
+        <Box id="article-intro" gridArea="intro">
+          {intro}
+        </Box>
+      )}
 
       <Box gridArea="content" data-search="article-body">
         {children}
