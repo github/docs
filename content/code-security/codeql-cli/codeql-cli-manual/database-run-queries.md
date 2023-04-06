@@ -73,9 +73,9 @@ absolute. It is considered relative to the root of the CodeQL pack.
 
 If no queries are specified, the CLI will automatically determine a
 suitable set of queries to run. In particular, if a Code Scanning
-configuation file was specfied at database creation time using
+configuration file was specified at database creation time using
 `--codescanning-config` then the queries from this will be used.
-Otherwise, the default queries for the langauge being analyzed will be
+Otherwise, the default queries for the language being analyzed will be
 used.
 
 #### `--no-rerun`
@@ -235,7 +235,7 @@ Emit source location info in RA for debugging.
 portability.
 
 From time to time, new QL language features and evaluator optimizations
-will be supported by the QL evauator a few releases before they are
+will be supported by the QL evaluator a few releases before they are
 enabled by default in the QL compiler. This helps ensure that the
 performance you experience when developing queries in the newest CodeQL
 release can be matched by slightly older releases that may still be in

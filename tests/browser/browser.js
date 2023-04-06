@@ -23,7 +23,7 @@ describe('homepage', () => {
 })
 
 // Note: we can only test Elasticsearch searches on things we have indexed
-// in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
+// in the fixtures. See the contents of /src/search/tests/fixtures/search-indexes
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
@@ -422,44 +422,6 @@ describe('tool specific content', () => {
         await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
       }
     }
-  })
-})
-
-describe('code examples', () => {
-  it('loads correctly', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
-    expect(shownCards.length).toBeGreaterThan(0)
-    expect(shownNoResult).toBeNull()
-  })
-
-  it('filters cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'policy')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBeGreaterThan(1)
-  })
-
-  it('shows more cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const initialCards = await page.$$('[data-testid=code-example-card]')
-    await page.click('[data-testid=code-examples-show-more]')
-    const moreCards = await page.$$('[data-testid=code-example-card]')
-    expect(moreCards.length).toBeGreaterThan(initialCards.length)
-  })
-
-  it('displays no result message', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'this should not work')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBe(0)
-    const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
-    expect(noResultsMessage).not.toBeNull()
   })
 })
 
