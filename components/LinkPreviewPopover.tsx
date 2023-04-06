@@ -258,11 +258,13 @@ function popoverHide() {
 
 function testTarget(target: HTMLLinkElement) {
   // Return true if the element is an A tag, whose `href` starts with
-  // a `/`, and it's not one of those permalink ones next to headings
-  // (with the chain looking icon).
+  // a `/`, is contained in either the article-contents (the meat of the article)
+  // or the article-intro (which contain product callouts), and it's not one of
+  // those permalink ones next to headings (with the chain looking icon).
   return (
     target.tagName === 'A' &&
     target.href.startsWith(window.location.origin) &&
+    target.closest('#article-contents, #article-intro') &&
     !target.classList.contains('doctocat-link')
   )
 }
@@ -289,7 +291,7 @@ export function LinkPreviewPopover() {
     // this way we're prepared for the fact that new `a` elements
     // might get introduced some other way. For example, if there's
     // some any other code that does a `container.appendChild(newLink)`
-    const container = document.querySelector<HTMLDivElement>('#article-contents')
+    const container = document.querySelector<HTMLDivElement>('#main-content')
     if (container) {
       container.addEventListener('mouseover', showPopover)
       container.addEventListener('mouseout', hidePopover)
