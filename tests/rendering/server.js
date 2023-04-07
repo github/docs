@@ -34,7 +34,7 @@ describe('server', () => {
     const res = await head('/en')
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-length']).toBe('0')
-    expect(res.text).toBe('')
+    expect(res.body).toBe('')
     // Because the HEAD requests can't be different no matter what's
     // in the request headers (Accept-Language or Cookies)
     // it's safe to let it cache. The only key is the URL.
@@ -221,7 +221,7 @@ describe('server', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
 
-    const categories = JSON.parse(res.text)
+    const categories = JSON.parse(res.body)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
     categories.forEach((category) => {
@@ -396,7 +396,7 @@ describe('server', () => {
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
       expect(res.statusCode).toBe(302)
-      expect(res.text).toBe(
+      expect(res.body).toBe(
         'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
     })
@@ -638,14 +638,14 @@ describe('?json query param for context debugging', () => {
   it('uses query param value as a key', async () => {
     const res = await get('/en?json=page')
     expect(res.statusCode).toBe(200)
-    const page = JSON.parse(res.text)
+    const page = JSON.parse(res.body)
     expect(typeof page.title).toBe('string')
   })
 
   it('returns a helpful message with top-level keys if query param has no value', async () => {
     const res = await get('/en?json')
     expect(res.statusCode).toBe(200)
-    const context = JSON.parse(res.text)
+    const context = JSON.parse(res.body)
 
     expect(context.message.includes('context object is too big to display')).toBe(true)
     expect(Array.isArray(context.keys)).toBe(true)
