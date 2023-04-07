@@ -164,14 +164,6 @@ upcoming_changes:
     date: '2023-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/pull_requests
-  - location: RepositoryVulnerabilityAlert.fixReason
-    description: '`fixReason` will be removed.'
-    reason:
-      The `fixReason` field is being removed. You can still use `fixedAt` and
-      `dismissReason`.
-    date: '2023-04-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jamestran201
   - location: Commit.pushedDate
     description: '`pushedDate` will be removed.'
     reason: '`pushedDate` is no longer supported.'

@@ -50554,16 +50554,6 @@
           "href": "/graphql/reference/objects#user"
         },
         {
-          "name": "fixReason",
-          "description": "<p>The reason the alert was marked as fixed.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2023-04-01 UTC.</p>"
-        },
-        {
           "name": "fixedAt",
           "description": "<p>When was the alert fixed?.</p>",
           "type": "DateTime",
