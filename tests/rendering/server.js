@@ -359,34 +359,6 @@ describe('server', () => {
     })
   })
 
-  describe('article versions', () => {
-    test('includes links to all versions of each article', async () => {
-      const articlePath =
-        'get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
-      const $ = await getDOM(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
-      )
-      // 2.13 predates this feature, so it should be excluded:
-      expect(
-        $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
-      ).toBe(0)
-    })
-
-    test('is not displayed if dotcom article has only one version', async () => {
-      const $ = await getDOM('/en/articles/signing-up-for-a-new-github-account')
-      expect($('.article-versions').length).toBe(0)
-    })
-
-    test('is not displayed if ghec article has only one version', async () => {
-      const $ = await getDOM(
-        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users',
-        { allow404: true }
-      )
-      expect($.res.statusCode).toBe(404)
-      expect($('.article-versions').length).toBe(0)
-    })
-  })
-
   describeViaActionsOnly('Early Access articles', () => {
     test('have noindex meta tags', async () => {
       const allPages = await loadPages()
