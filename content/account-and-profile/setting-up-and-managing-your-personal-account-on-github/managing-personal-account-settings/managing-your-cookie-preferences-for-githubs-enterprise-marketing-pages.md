@@ -22,12 +22,10 @@ You can customize how non-essential cookies behave on any {% data variables.prod
 1. Navigate to the {% data variables.product.company_short %} enterprise marketing page where you'd like to change your cookie preferences. For example, navigate to [{% data variables.product.company_short %} Resources](https://resources.github.com/).
 1. Scroll to the bottom of the page, then click **Manage Cookies**.
 
-   ![Screenshot of button to manage cookie settings.](/assets/images/help/settings/cookie-settings-manage.png)
+   ![Screenshot of the footer of the "Resources" page. In a line of links, the final option, labeled "Manage cookies," is outlined in orange.](/assets/images/help/settings/cookie-settings-manage.png)
 
 1. Under "Manage cookie preferences," to accept or reject each non-essential cookie, click **Accept** or **Reject**.
 
-   ![Screenshot of radio buttons to choose "Accept" or "Reject" for non-essential cookies.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
+   ![Screenshot of the "Manage cookie preferences" dialog window. Under "Analytics," two radio buttons, labeled "Accept" and "Reject," are outlined in orange.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
 
 1. Click **Save changes**.
-
-   ![Screenshot of button to save changes.](/assets/images/help/settings/cookie-settings-save.png)

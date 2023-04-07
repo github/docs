@@ -22,7 +22,6 @@ When you push commits from the command line, the email address that you've [set 
 {% data reusables.user-settings.emails %}
 {% data reusables.user-settings.keeping_your_email_address_private %}
 4. To keep your email address private in commits you push from the command line, select **Block command line pushes that expose my email**.
-![Option to block command line pushes that expose your emails](/assets/images/help/settings/email_privacy_block_command_line_pushes.png)
 
 ## Further reading
 
