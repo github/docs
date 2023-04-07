@@ -38,6 +38,7 @@ function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
     const wrapper = document.createElement('div')
+    wrapper.setAttribute('data-testid', 'popover')
     wrapper.classList.add('Popover', 'position-absolute')
     wrapper.style.display = 'none'
     wrapper.style.outline = 'none'
