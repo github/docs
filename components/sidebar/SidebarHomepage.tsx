@@ -35,7 +35,7 @@ export const SidebarHomepage = () => {
                   {product.name}
                   {product.external && (
                     <span className="ml-1">
-                      <LinkExternalIcon size="small" />
+                      <LinkExternalIcon aria-label="(external site)" size="small" />
                     </span>
                   )}
                 </Link>
