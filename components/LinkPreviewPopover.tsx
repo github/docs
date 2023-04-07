@@ -24,6 +24,16 @@ let popoverStartTimer: number | null = null
 // slight initial delay.
 let currentlyOpen: HTMLLinkElement | null = null
 
+// Number of pixels from the top of the page that implies that we should
+// display the popover *underneath* the link.
+// The number is based on the height of popovers when they are quite high.
+// We can't know the size of the popover on screen until after it's been
+// inserted into the visible DOM. So before that, as a `div` element,
+// its `offsetHeight` and `.getBoundingClientRect().height` are always 0.
+// We *could* "change our mind" and wait till it's been inserted and then
+// change accoding to the popover's true height. But this can cause a flicker.
+const BOUNDING_TOP_MARGIN = 300
+
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
@@ -33,10 +43,11 @@ function getOrCreatePopoverGlobal() {
     wrapper.style.outline = 'none'
     wrapper.style.zIndex = `100`
     const inner = document.createElement('div')
+    // Note that this is lacking the 'Popover-message--bottom-left'
+    // or 'Popover-message--top-right`. These get set later when we
+    // know where the popover message should appear on the screen.
     inner.classList.add(
-      ...'Popover-message Popover-message--large p-3 Box color-shadow-large Popover-message--bottom-left'.split(
-        /\s+/g
-      )
+      ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g)
     )
     inner.style.width = `360px`
 
@@ -185,14 +196,43 @@ function popoverWrap(element: HTMLLinkElement) {
   }
 
   const [top, left] = getOffset(element)
+  const [boundingTop] = getBoundingOffset(element)
+
+  const popoverMessageElement = popover.querySelector('.Popover-message') as HTMLDivElement
+
+  const below = boundingTop < BOUNDING_TOP_MARGIN
+  if (below) {
+    // The caret pointing upwards
+    popoverMessageElement.classList.remove('Popover-message--bottom-left')
+    popoverMessageElement.classList.add('Popover-message--top-left')
+  } else {
+    // Default
+    popoverMessageElement.classList.remove('Popover-message--top-left')
+    popoverMessageElement.classList.add('Popover-message--bottom-left')
+  }
 
   // We can't know what the height of the popover element is when it's
   // `display:none` so we guess offset to the offset and adjust it later.
-  popover.style.top = `${top - 100}px`
+  popover.style.top = `${top}px`
   popover.style.left = `${left}px`
   popover.style.display = 'block'
 
-  popover.style.top = `${top - popover.offsetHeight - 10}px`
+  if (below) {
+    // This moves the popover about the height of the <a> element down.
+    // You can't use element.getBoundingClientRect() because that could
+    // give a height that is twice that of a single line of text.
+    // For example:
+    //
+    //     <p>Bla bla <a href="...">Link</a> ble and <a href="...">Other
+    //     Link Text</a> yada yada</p>
+    //
+    // In this case the second `<a>` element will have a height that is
+    // twice of the first `<a>` because the second one spans two lines.
+    const approximateElementHeight = 33
+    popover.style.top = `${top + approximateElementHeight}px`
+  } else {
+    popover.style.top = `${top - popover.offsetHeight - 10}px`
+  }
 }
 
 // The top/left offset of an element is only relative to its parent.
@@ -215,6 +255,11 @@ function getOffset(element: HTMLElement) {
     top += offsetParent.offsetTop
     offsetParent = offsetParent.offsetParent as HTMLElement | null
   }
+  return [top, left]
+}
+
+function getBoundingOffset(element: HTMLElement) {
+  const { top, left } = element.getBoundingClientRect()
   return [top, left]
 }
 
