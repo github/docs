@@ -16,13 +16,14 @@ Subjects do not need every element below. Not every element needs to be a folder
 src/
   xsubject/
     README.md
-    components/
-    lib/
-    tests/
-    scripts/
-    stylesheets/
-    pages/
     docs/
+    lib/
+    middleware/
+    pages/
+    components/
+    stylesheets/
+    scripts/
+    tests/
 ```
 
 If subject depends on another subject, please make this explicit in the README.
