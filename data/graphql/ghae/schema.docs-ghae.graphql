@@ -36239,14 +36239,6 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dismisser: User
 
   """
-  The reason the alert was marked as fixed.
-  """
-  fixReason: String
-    @deprecated(
-      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC."
-    )
-
-  """
   When was the alert fixed?
   """
   fixedAt: DateTime

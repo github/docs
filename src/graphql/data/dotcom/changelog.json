@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>fixReason</code> (deprecated) was removed from object type <code>RepositoryVulnerabilityAlert</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>AddPullRequestReviewThreadInput.line</code> changed type from <code>Int!</code> to <code>Int</code></p>"
         ]
       }
