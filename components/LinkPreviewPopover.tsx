@@ -1,10 +1,14 @@
 import { useEffect } from 'react'
 
-// We delay the closing over the popover slightly in case the mouse
-// movement either comes back (mouseover, mouseout, and back to mouseover)
-// or if the user moves the mouse from the link to the popover itself
-// and vice versa.
-const DELAY = 400
+// We postpone the initial delay a bit in case the user didn't mean to
+// hover over the link. Perhaps they just dragged the mouse over on their
+// way to something else.
+const DELAY_SHOW = 300
+// The reason the hiding doesn't happens instantly is when the mouse is
+// first hovering over the link, then over the popover itself and then
+// back to the link. Because there's a slight cap between the popover
+// and the link we want to introduce a slight delay so it doesn't flicker.
+const DELAY_HIDE = 200
 
 // A global that is used for a slow/delayed closing of the popovers.
 // It can be global because there's only 1 popover DOM node that gets
@@ -78,7 +82,7 @@ function getOrCreatePopoverGlobal() {
         // eventually you move out of the popover. Then, we want to
         // reset.
         currentlyOpen = null
-      }, DELAY)
+      }, DELAY_HIDE)
     })
 
     popoverGlobal = wrapper
@@ -233,7 +237,7 @@ function popoverShow(target: HTMLLinkElement) {
     popoverStartTimer = window.setTimeout(() => {
       popoverWrap(target)
       currentlyOpen = target
-    }, DELAY)
+    }, DELAY_SHOW)
   }
 }
 
@@ -253,7 +257,7 @@ function popoverHide() {
 
     // Reset because we're closing the popover, so we have to start from afresh.
     currentlyOpen = null
-  }, DELAY)
+  }, DELAY_HIDE)
 }
 
 function testTarget(target: HTMLLinkElement) {
