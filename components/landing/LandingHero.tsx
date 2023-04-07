@@ -111,7 +111,7 @@ export const FullLink = ({ href, id, children, className }: Props) => {
       {children}{' '}
       {isExternal && (
         <span className="ml-1">
-          <LinkExternalIcon size="small" />
+          <LinkExternalIcon aria-label="(external site)" size="small" />
         </span>
       )}
     </Link>
