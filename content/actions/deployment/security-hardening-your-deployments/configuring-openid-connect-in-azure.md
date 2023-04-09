@@ -2,7 +2,6 @@
 title: Configuring OpenID Connect in Azure
 shortTitle: OpenID Connect in Azure
 intro: Use OpenID Connect within your workflows to authenticate with Azure.
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +16,7 @@ topics:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Azure, without needing to store the Azure credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide gives an overview of how to configure Azure to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`azure/login`](https://github.com/Azure/login) action that uses tokens to authenticate to Azure and access resources.
 
@@ -39,7 +38,7 @@ To configure the OIDC identity provider in Azure, you will need to perform the f
 
 Additional guidance for configuring the identity provider:
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
+- For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
 - For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
@@ -66,7 +65,7 @@ on: [push]
 permissions:
       id-token: write
       contents: read
-jobs: 
+jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -76,7 +75,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-  
+
       - name: 'Run az commands'
         run: |
           az account show

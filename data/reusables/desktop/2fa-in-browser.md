@@ -3,4 +3,3 @@
     - If you set up 2FA with a TOTP application, generate a 2FA code.
 
   Then enter your 2FA code in the prompt on {% data variables.product.prodname_dotcom %} and click **Verify**.
-    ![The 2FA Authentication code field](/assets/images/help/desktop/2fa-code-field.png)

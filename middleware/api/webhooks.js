@@ -1,5 +1,5 @@
 import express from 'express'
-import { getWebhook } from '../../lib/webhooks/index.js'
+import { getWebhook } from '../../src/webhooks/lib/index.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { defaultCacheControl } from '../cache-control.js'
 

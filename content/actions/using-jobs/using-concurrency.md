@@ -7,7 +7,6 @@ versions:
   ghes: '> 3.1'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}

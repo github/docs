@@ -1,14 +1,16 @@
 import { jest } from '@jest/globals'
 import fs from 'fs/promises'
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import addErrors from 'ajv-errors'
+import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import cleanUpDeprecatedGhaeFlagErrors from '../../lib/temporary-ghae-deprecated-flag-error-cleanup.js'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -24,30 +26,26 @@ const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+addErrors(ajv)
+// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
+ajv.addFormat('semver', {
+  validate: (x) => semver.validRange(x),
+})
+// *** End TODO ***
+const validate = ajv.compile(featureVersionsSchema)
+
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
   test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
-    let { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+    const valid = validate(featureVersion)
+    let errors
 
-    // TODO temporary kludge! See notes in the module.
-    if (errors.length) {
-      errors = cleanUpDeprecatedGhaeFlagErrors(errors)
+    if (!valid) {
+      errors = formatAjvErrors(validate.errors)
     }
 
-    const errorMessage = errors
-      .map((error) => {
-        // Make this one message a little more readable than the error we get from revalidator
-        // when additionalProperties is set to false and an additional prop is found.
-        const errorToReport =
-          error.message === 'must not exist' && error.actual.feature
-            ? `feature: '${error.actual.feature}'`
-            : JSON.stringify(error.actual, null, 2)
-
-        return `- [${error.property}]: ${errorToReport}, ${error.message}`
-      })
-      .join('\n')
-
-    expect(errors.length, errorMessage).toBe(0)
+    expect(valid, errors).toBe(true)
   })
 })
 
@@ -98,22 +96,7 @@ describe('lint Liquid versioning', () => {
 
 // Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
 function validateVersion(version) {
-  return (
-    allowedVersionNames.includes(version) ||
-    // TODO - REMOVE THE FOLLOWING 'OR' WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
-    /ghae-issue-\d{4}/.test(version)
-  )
-}
-
-// TODO: Temporary check for presence of deprecated GHAE feature flags in FM.
-// See details in docs-internal#29178.
-// We can remove this after semantic versioning has been in place for a while.
-function checkForDeprecatedGhaeVersioning(version, errors) {
-  if (/ghae-issue-\d+/.test(version)) {
-    errors.push(`
-      Lightweight feature flags ('${version}') are no longer supported in content. Use semantic versioning instead (ghae > 3.x or ghae: '> 3.x').
-    `)
-  }
+  return allowedVersionNames.includes(version)
 }
 
 function validateIfversionConditionals(conds) {
@@ -133,9 +116,6 @@ function validateIfversionConditionals(conds) {
       // if length = 1, this should be a valid short version or feature version name.
       if (strParts.length === 1) {
         const version = strParts[0]
-        // TODO: This is temporary, see comment on the function.
-        checkForDeprecatedGhaeVersioning(version, errors)
-        // END TODO.
         const isValidVersion = validateVersion(version)
         if (!isValidVersion) {
           errors.push(`"${version}" is not a valid short version or feature version name`)
@@ -145,9 +125,6 @@ function validateIfversionConditionals(conds) {
       // if length = 2, this should be 'not' followed by a valid short version name.
       if (strParts.length === 2) {
         const [notKeyword, version] = strParts
-        // TODO: This is temporary, see comment on the function.
-        checkForDeprecatedGhaeVersioning(version, errors)
-        // END TODO.
         const isValidVersion = validateVersion(version)
         const isValid = notKeyword === 'not' && isValidVersion
         if (!isValid) {

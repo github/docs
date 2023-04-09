@@ -1,28 +1,32 @@
+import { jest } from '@jest/globals'
+import Ajv from 'ajv'
+
 import readJsonFile from '../../lib/read-json-file.js'
 import {
   schemaValidator,
   previewsValidator,
   upcomingChangesValidator,
-} from '../../lib/graphql/validator.js'
-import revalidator from 'revalidator'
+} from '../../src/graphql/lib/validator.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 import { allVersions } from '../../lib/all-versions.js'
-import { jest } from '@jest/globals'
+import { GRAPHQL_DATA_DIR } from '../../src/graphql/lib/index.js'
 
-const previewsJson = readJsonFile('./lib/graphql/static/previews.json')
-const upcomingChangesJson = readJsonFile('./lib/graphql/static/upcoming-changes.json')
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
-const graphqlTypes = readJsonFile('./lib/graphql/types.json').map((t) => t.kind)
+const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.kind)
+
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+const previewsValidate = ajv.compile(previewsValidator)
+const upcomingChangesValidate = ajv.compile(upcomingChangesValidator)
+// setup ajv validator functions for each graphql type (e.g. queries, mutations,
+// etc.)
+const schemaValidatorFunctions = {}
+graphqlTypes.forEach((type) => {
+  schemaValidatorFunctions[type] = ajv.compile(schemaValidator[type])
+})
 
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
-
-  test('static files have versions as top-level keys', () => {
-    graphqlVersions.forEach((version) => {
-      expect(version in previewsJson).toBe(true)
-      expect(version in upcomingChangesJson).toBe(true)
-    })
-  })
 
   test('schemas object validation', () => {
     // The typeObj is repeated thousands of times in each .json file
@@ -30,7 +34,7 @@ describe('graphql json files', () => {
     // test up significantly.
     const typeObjsTested = new Set()
     graphqlVersions.forEach((version) => {
-      const schemaJsonPerVersion = readJsonFile(`lib/graphql/static/schema-${version}.json`)
+      const schemaJsonPerVersion = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/schema.json`)
       // all graphql types are arrays except for queries
       graphqlTypes.forEach((type) => {
         schemaJsonPerVersion[type].forEach((typeObj) => {
@@ -38,9 +42,16 @@ describe('graphql json files', () => {
           if (typeObjsTested.has(key)) return
           typeObjsTested.add(key)
 
-          const { valid, errors } = revalidator.validate(typeObj, schemaValidator[type])
-          const errorMessage = JSON.stringify(errors, null, 2)
-          expect(valid, errorMessage).toBe(true)
+          const valid = schemaValidatorFunctions[type](typeObj)
+          let errors
+
+          if (!valid) {
+            errors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
+              schemaValidatorFunctions[type].errors
+            )}`
+          }
+
+          expect(valid, errors).toBe(true)
         })
       })
     })
@@ -48,24 +59,36 @@ describe('graphql json files', () => {
 
   test('previews object validation', () => {
     graphqlVersions.forEach((version) => {
-      previewsJson[version].forEach((previewObj) => {
-        const { valid, errors } = revalidator.validate(previewObj, previewsValidator)
-        const errorMessage = JSON.stringify(errors, null, 2)
-        expect(valid, errorMessage).toBe(true)
+      const previews = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/previews.json`)
+      previews.forEach((preview) => {
+        const valid = previewsValidate(preview)
+        let errors
+
+        if (!valid) {
+          errors = formatAjvErrors(previewsValidate.errors)
+        }
+
+        expect(valid, errors).toBe(true)
       })
     })
   })
 
   test('upcoming changes object validation', () => {
     graphqlVersions.forEach((version) => {
-      Object.values(upcomingChangesJson[version]).forEach((changes) => {
+      const upcomingChanges = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/upcoming-changes.json`)
+      for (const changes of Object.values(upcomingChanges)) {
         // each object value is an array of changes
         changes.forEach((changeObj) => {
-          const { valid, errors } = revalidator.validate(changeObj, upcomingChangesValidator)
-          const errorMessage = JSON.stringify(errors, null, 2)
-          expect(valid, errorMessage).toBe(true)
+          const valid = upcomingChangesValidate(changeObj)
+          let errors
+
+          if (!valid) {
+            errors = formatAjvErrors(upcomingChangesValidate.errors)
+          }
+
+          expect(valid, errors).toBe(true)
         })
-      })
+      }
     })
   })
 })

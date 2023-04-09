@@ -11,7 +11,6 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-miniTocMaxHeadingLevel: 3
 defaultPlatform: linux
 shortTitle: Monitor & troubleshoot
 ---
@@ -42,7 +41,7 @@ You can use the self-hosted runner application's `run` script with the `--check`
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For example:
 
@@ -66,7 +65,7 @@ run.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
 
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
 
 ### Disabling TLS certificate verification
 {% ifversion ghes %}
@@ -136,7 +135,7 @@ Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction co
 ```
 
 To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
 
 {% endlinux %}
 
@@ -164,7 +163,7 @@ Started:
 The resulting output includes the process ID and the name of the application’s `launchd` service.
 
 To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[Configuring the self-hosted runner application as a service](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
 
 {% endmac %}
 

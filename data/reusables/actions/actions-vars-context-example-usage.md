@@ -4,7 +4,7 @@ The following example shows using configuration variables with the `vars` contex
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 on:
   workflow_dispatch:
 env:

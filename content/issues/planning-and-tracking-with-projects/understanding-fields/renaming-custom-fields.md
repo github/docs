@@ -1,7 +1,6 @@
 ---
 title: Renaming custom fields
 intro: 'Learn about renaming existing custom fields in your {% data variables.projects.project_v2 %}.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial

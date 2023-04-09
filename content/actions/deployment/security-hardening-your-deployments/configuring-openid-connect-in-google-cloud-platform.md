@@ -2,7 +2,6 @@
 title: Configuring OpenID Connect in Google Cloud Platform
 shortTitle: OpenID Connect in Google Cloud Platform
 intro: Use OpenID Connect within your workflows to authenticate with Google Cloud Platform.
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +16,7 @@ topics:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Google Cloud Platform (GCP), without needing to store the GCP credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide gives an overview of how to configure GCP to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action that uses tokens to authenticate to GCP and access resources.
 
@@ -33,11 +32,11 @@ To configure the OIDC identity provider in GCP, you will need to perform the fol
 
 1. Create a new identity pool.
 2. Configure the mapping and add conditions.
-3. Connect the new pool to a service account. 
+3. Connect the new pool to a service account.
 
 Additional guidance for configuring the identity provider:
 
-- For security hardening, make sure you've reviewed ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud). For an example, see ["Configuring the subject in your cloud provider"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider).
+- For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
 - For the service account to be available for configuration, it needs to be assigned to the `roles/iam.workloadIdentityUser` role. For more information, see [the GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.114275588.-285296507.1634918453#conditions).
 - The Issuer URL to use: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 

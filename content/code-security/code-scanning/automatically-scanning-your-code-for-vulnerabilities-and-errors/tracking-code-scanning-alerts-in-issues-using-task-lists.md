@@ -66,7 +66,7 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% ifversion fpt or ghes or ghae %}
 {% data reusables.code-scanning.explore-alert %}
-1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
 {% endif %}
 1. Towards the top of the page, on the right side, click **Create issue**. 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}

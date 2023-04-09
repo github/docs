@@ -15,7 +15,7 @@ shortTitle: Integrator best practices
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API. 
+Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API.
 
 ## Secure payloads delivered from GitHub
 
@@ -24,8 +24,8 @@ It's very important that you secure [the payloads sent from GitHub][event-types]
 There are several steps you can take to secure receipt of payloads delivered by GitHub:
 
 1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
-1. You can add [the IP address we use when delivering hooks](/github/authenticating-to-github/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/reference/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks/securing/) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. You can add [the IP address we use when delivering hooks](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/meta#meta) to find the address we use.{% endif %}
+1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
 
 ## Favor asynchronous work over synchronous
 
@@ -39,7 +39,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
 
 You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
 
@@ -47,7 +47,7 @@ You should make use of proper HTTP status codes in order to inform users. You ca
 
 Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)
 
 ## Follow any redirects that the API sends you
 
@@ -61,7 +61,7 @@ Often, API responses contain data in the form of URLs. For example, when request
 
 For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
+For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Check the event type and action before processing the event
 
@@ -109,7 +109,7 @@ def receive
 end
 ```
 
-Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks/event-payloads/#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
+Because each event can also have multiple actions, it's recommended that actions are checked similarly. For example, the [`IssuesEvent`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) has several possible actions. These include `opened` when the issue is created, `closed` when the issue is closed, and `assigned` when the issue is assigned to someone.
 
 As with adding event types, we may add new actions to existing events. It is therefore again **not recommended to use any sort of catch-all else clause** when checking an event's action. Instead, we suggest explicitly checking event actions as we did with the event type. An example of this looks very similar to what we suggested for event types above:
 
@@ -137,11 +137,11 @@ In this example the `closed` action is checked first before calling the `process
 
 The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
 
-If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ## Dealing with secondary rate limits
 
-{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
 
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 

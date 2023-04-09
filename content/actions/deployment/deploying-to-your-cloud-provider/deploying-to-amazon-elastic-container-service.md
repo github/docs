@@ -30,7 +30,7 @@ On every new push to `main` in your {% data variables.product.company_short %} r
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)."
 
 {% endnote %}
 
@@ -74,7 +74,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 4. Create {% data variables.product.prodname_actions %} secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to store the values for your Amazon IAM access key.
 
-   For more information on creating secrets for {% data variables.product.prodname_actions %}, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+   For more information on creating secrets for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 
    See the documentation for each action used below for the recommended IAM policies for the IAM user, and methods for handling the access key credentials.
 

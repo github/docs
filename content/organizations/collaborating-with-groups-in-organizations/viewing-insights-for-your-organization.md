@@ -66,7 +66,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
   ![My organizations vulnerable dependents](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
 ## Further reading
- - "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
- - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
- - "[Changing the visibility of your organization's dependency insights](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
-- "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}
+ - "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+ - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
+ - "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
+- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}

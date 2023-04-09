@@ -1,7 +1,6 @@
 ---
 title: Security in GitHub Codespaces
 intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} security architecture, with guidelines to help you maintain security and minimize the risk of attack.'
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -43,8 +42,8 @@ Every time a codespace is created or restarted, it's assigned a new {% data vari
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
 - **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository, and the token is updated to have read and write access to the fork. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
-- **If you've authorized your codespace to access other repositories**: The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
+- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository, and the token is updated to have read and write access to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
+- **If you've authorized your codespace to access other repositories**: The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
 
 ### Codespace connections
 
@@ -56,7 +55,7 @@ If you need to allow external access to services running on a codespace, you can
 
 If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet.
 
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 
 **Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
 
@@ -68,7 +67,7 @@ All forwarded ports are private by default, which means that you will need to au
 
 A public forwarded port will automatically revert back to private when you remove and re-add the port, or if you restart the codespace.
 
-You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+You can use the "Ports" panel to configure a port for public or private access, and can stop port forwarding when it's no longer required. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
 
 ## Good security practices for your codespaces
 
@@ -86,8 +85,8 @@ The secret values are copied to environment variables whenever the codespace is 
 Secrets are not copied into the environment if you don't have write access to the codespace's repository.
 
 For more information on secrets, see:
-- "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_github_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
 
 ### Working with other people's contributions and repositories
 
@@ -97,6 +96,14 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 
 We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
 
+{% note %}
+
+**Note:** The scope of the token in the codespace can change if you create a codespace from a fork to which you only have read access, then make a commit in the codespace. In this situation, as with any other repository, {% data variables.product.prodname_github_codespaces %} automatically creates a new fork, or links your codespace to an existing fork owned by your account, and updates the token to have read and write access to the newly linked fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
+
+When {% data variables.product.prodname_github_codespaces %} links your codespace to an existing fork, this existing fork can be either a fork of the fork from which you created a codespace, or your own fork of the shared upstream repository.
+
+{% endnote %}
+
 ### Additional good practices
 
 There are some additional good practices and risks that you should be aware of when using {% data variables.product.prodname_github_codespaces %}.
@@ -105,7 +112,7 @@ There are some additional good practices and risks that you should be aware of w
 
 When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
 
-For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 #### Granting access through features
 

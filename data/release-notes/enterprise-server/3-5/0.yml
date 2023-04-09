@@ -1,14 +1,14 @@
 date: '2022-05-31'
 intro: |
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   features:
     - heading: IP exception list for validation testing after maintenance
       notes:
         # https://github.com/github/releases/issues/2109
         - |
-          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+          You can now configure an allow list of IP addresses that can access application services on your GitHub Enterprise Server instance while maintenance mode is enabled. Administrators who visit the instance's web interface from an allowed IP address can validate the instance's functionality post-maintenance and before disabling maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 
     - heading: Custom repository roles are generally available
       notes:
@@ -429,7 +429,6 @@ sections:
       - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
       - Custom firewall rules are removed during the upgrade process.
       - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-      - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
       - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
       - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
       - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

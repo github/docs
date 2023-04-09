@@ -1,17 +1,14 @@
 ---
 title: Configuring GitHub Copilot
 shortTitle: Configure GitHub Copilot
-intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
+intro: 'You can manage the configuration of {% data variables.product.prodname_copilot %} in a supported IDE, in your organization, or on {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
 children:
   - /configuring-github-copilot-settings-on-githubcom
-  - /configuring-github-copilot-in-visual-studio-code
-  - /configuring-github-copilot-in-visual-studio
-  - /configuring-github-copilot-in-a-jetbrains-ide
-  - /configuring-github-copilot-in-neovim
+  - /configuring-github-copilot-in-your-environment
   - /configuring-github-copilot-settings-in-your-organization
 ---
 

@@ -59,12 +59,12 @@ if (!languageKeys.includes(language)) {
 
 // Gather popularity data the search uses to prioritize errors
 const scores = {}
-const popularPagesRaw = await fs.readFile('lib/search/popular-pages.json', 'utf8')
-for (const line of popularPagesRaw.split('\n')) {
-  try {
-    const row = JSON.parse(line)
+const { POPULAR_PAGES_JSON } = process.env
+if (POPULAR_PAGES_JSON) {
+  const popularPagesRaw = await fs.readFile(POPULAR_PAGES_JSON, 'utf8')
+  for (const row of JSON.parse(popularPagesRaw)) {
     scores[row.path_article] = row.path_count
-  } catch {}
+  }
 }
 
 // Load all pages in language

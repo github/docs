@@ -2,7 +2,6 @@
 title: Troubleshooting GitHub Codespaces clients
 shortTitle: Codespaces clients
 intro: 'This article provides troubleshooting information for issues you may encounter with the client you use for {% data variables.product.prodname_github_codespaces %}.'
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -75,7 +74,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 ### Performance issues
 
-A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+A {% data variables.product.prodname_github_codespaces %} machine type with at least 4 cores is recommended for running any of the JetBrains IDEs. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
 If you are using a machine with 4 or more cores and the performance you are experiencing in JetBrains feels a little sluggish, you may need to increase the maximum Java heap size.
 
@@ -90,21 +89,21 @@ The recommended heap size varies according to the machine type of your codespace
 
 If the heap size is below the recommended value, a message is displayed when your codespace starts, suggesting that you increase the heap size. You can click the link in the message to increase the heap size automatically.
 
-<img alt="Screenshot of the message recommending you increase the heap size" src="/assets/images/help/codespaces/heap-size-message.png" width="400px" />
+![Screenshot of the message recommending you increase the heap size.](/assets/images/help/codespaces/heap-size-message.png)
 
 Depending on the size of your codebase, and the memory needed to run your application, you may need to increase the heap size further. You should set the heap size to somewhere between the size shown in the table above and 60% of the remote host's RAM. If you have a large application, you should not set too large a heap size, so that you allow the application adequate memory.
 
 1. On the left of the navigation bar, at the top of the application window, click the name of the codespace.
 
-   ![Screenshot of the resources button in JetBrains](/assets/images/help/codespaces/jetbrains-resources-button.png)
+   ![Screenshot of the JetBrains client. The codespace name "urban meme," labeled "Resources critical," is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-resources-button.png)
 
 1. In the Performance tab, note the CPU Load and Memory details. These will indicate whether the machine is overloaded.
 
-   ![Screenshot of a the Localhost button in JetBrains](/assets/images/help/codespaces/jetbrains-performance.png)
+   ![Screenshot of the "Performance" tab in the resources dropdown, showing CPU Load at 97.5%, Memory at 60.6%, and Disk at 28.8%.](/assets/images/help/codespaces/jetbrains-performance.png)
 
 1. Click the Settings tab and edit the heap size, increasing it to no more than 60% of the available memory for your codespace.
 
-   ![Screenshot of the maximum heap size setting](/assets/images/help/codespaces/jetbrains-heap-setting.png)
+   ![Screenshot of the "Performance" tab. In the "Maximum heap size" field, 3072 is entered and outlined in dark orange. Below this are "Save" and "Save and restart" buttons.](/assets/images/help/codespaces/jetbrains-heap-setting.png)
 
 1. Click **Save and restart**.
 
@@ -124,7 +123,7 @@ To work around this problem with older versions of the Gateway:
 1. Click the Apple icon, top left of the screen, and click **System Settings**.
 1. Click **Privacy & Security** and scroll down to the "Security" section.
 
-   ![Screenshot of the Privacy & Security dialog](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
+   ![Screenshot of MacOS "Privacy & Security" dialog, with a security message above the JetBrains Client and the "Open Anyway" button.](/assets/images/help/codespaces/jetbrains-privacy-and-security.png)
 
    You will see a message telling you that the JetBrains Client was blocked from use.
 
@@ -139,7 +138,7 @@ To work around this problem with older versions of the Gateway:
 
 ### SSH connection issues
 
-To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
+To connect via the SSH server running in your codespace, you must have an SSH key in your `~/.ssh` directory (MacOS and Linux) or `%HOMEPATH%\.ssh` directory (Windows) that has already been added to your {% data variables.product.prodname_dotcom %} account. If you do not have any keys in this directory, {% data variables.product.prodname_cli %} will generate keys for you. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows&tool=webui)."
 
 If you encounter problems with key validation, try upgrading your version of {% data variables.product.prodname_cli %}. For information, see the [upgrade instructions](https://github.com/cli/cli#installation) in the README for {% data variables.product.prodname_cli %}.
 

@@ -2,7 +2,6 @@
 title: 'Copying an existing {% data variables.projects.project_v2 %}'
 shortTitle: Copying a project
 intro: You can use an existing project as a template by copying it.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2-copy-a-project
 type: tutorial

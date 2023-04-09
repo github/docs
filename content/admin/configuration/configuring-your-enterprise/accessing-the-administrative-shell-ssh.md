@@ -27,7 +27,7 @@ If you have SSH access to the administrative shell, you can run {% data variable
 
 ## Enabling access to the administrative shell via SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% tip %}
 
@@ -37,8 +37,7 @@ To enable administrative SSH access, you must add your SSH public key to your in
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. Under "SSH access", paste your key into the text box, then click **Add key**.
-  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
+3. Under "SSH access", paste your key into the "Add new SSH key" text box, then click **Add key**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Connecting to the administrative shell over SSH

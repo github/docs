@@ -26,7 +26,6 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 {% data reusables.enterprise_management_console.access-monitoring %}
 {% data reusables.enterprise_management_console.enable-snmp %}
 4. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
-![Field to add the community string](/assets/images/enterprise/management-console/community-string.png)
 {% data reusables.enterprise_management_console.save-settings %}
 5. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
   ```shell
@@ -51,28 +50,22 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 {% data reusables.enterprise_management_console.access-monitoring %}
 {% data reusables.enterprise_management_console.enable-snmp %}
 4. Select **SNMP v3**.
-![Button to enable SNMP v3](/assets/images/enterprise/management-console/enable-snmpv3.png)
-5. In "Username", type the unique username of your SNMP v3 user.
-![Field to type the SNMP v3 username](/assets/images/enterprise/management-console/snmpv3-username.png)
-6. In the **Security Level** dropdown menu, click the security level for your SNMP v3 user.
-![Dropdown menu for the SNMP v3 user's security level](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
-7. For SNMP v3 users with the `authnopriv` security level:
-  ![Settings for the authnopriv security level](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
+5. Under "Username", type the unique username of your SNMP v3 user.
+6. Select the **Security Level** dropdown menu, then click the security level for your SNMP v3 user.
+7. For SNMP v3 users with the `authnopriv` security level, configure authentication.
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
-8. For SNMP v3 users with the `authpriv` security level:
-  ![Settings for the authpriv security level](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
+8. For SNMP v3 users with the `authpriv` security level, configure authentication.
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
-    - Optionally, in "Privacy password", type the privacy password.
-    - On the right side of "Privacy password", in the **Protocol** dropdown menu, click the privacy protocol method you want to use.
+    - Optionally, under "Privacy password", type the privacy password.
+    - Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
 9. Click **Add user**.
-![Button to add SNMP v3 user](/assets/images/enterprise/management-console/snmpv3-adduser.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-#### Querying SNMP data
+### Querying SNMP data
 
-Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](https://oidref.com/1.3.6.1.2.1.25.4)." 
+Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](https://oidref.com/1.3.6.1.2.1.25.4)."
 
 With SNMP v2c, only hardware-level information about your appliance is available. The applications and services within {% data variables.product.prodname_enterprise %} do not have OIDs configured to report metrics. Several MIBs are available, which you can see by running `snmpwalk` on a separate workstation with SNMP support in your network:
 

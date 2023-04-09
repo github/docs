@@ -14,7 +14,7 @@ topics:
   - Teams
 shortTitle: Approve OAuth Apps
 ---
-When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members and outside collaborators must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
+When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members and outside collaborators must [request approval](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
 
 {% ifversion limit-app-access-requests %}
 {% data reusables.organizations.restricted-app-access-requests %}{% endif %}
@@ -29,4 +29,4 @@ When {% data variables.product.prodname_oauth_app %} access restrictions are ena
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)"
+- "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"

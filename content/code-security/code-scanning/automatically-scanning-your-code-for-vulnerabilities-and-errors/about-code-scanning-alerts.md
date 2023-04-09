@@ -19,9 +19,11 @@ topics:
 
 ## About alerts from {% data variables.product.prodname_code_scanning %}
 
-You can configure {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} for a repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+You can configure {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
+By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
+
+{% data reusables.code-scanning.audit-code-scanning-events %}
 
 ## About alert details
 
@@ -39,26 +41,33 @@ Each alert highlights a problem with the code and the name of the tool that iden
 
 If you configure {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 
-When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_caps %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
 ### About severity levels
 
 Alert severity levels may be `Error`, `Warning`, or `Note`.
 
-If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+If {% data variables.product.prodname_code_scanning %} is enabled as a pull request check, the check will fail if it detects any results with a severity of `error`. You can specify which severity level of code scanning alerts causes a check failure. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
 
 ### About security severity levels
 
-{% data variables.product.prodname_code_scanning_capc %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
+{% data variables.product.prodname_code_scanning_caps %} displays security severity levels for alerts that are generated by security queries. Security severity levels can be `Critical`, `High`, `Medium`, or `Low`.
 
 To calculate the security severity of an alert, we use Common Vulnerability Scoring System (CVSS) data. CVSS is an open framework for communicating the characteristics and severity of software vulnerabilities, and is commonly used by other security products to score alerts. For more information about how severity levels are calculated, see [this blog post](https://github.blog/changelog/2021-07-19-codeql-code-scanning-new-severity-levels-for-security-alerts/).
 
-By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
+By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
 
 {% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
-### About analysis origins
+### About {% ifversion remove-code-scanning-configurations %}alerts from multiple configurations{% else %}analysis origins{% endif %}
 
-You can run multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+{% ifversion remove-code-scanning-configurations %}
+You can run multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of {% data variables.product.prodname_code_scanning %} generates a unique set of alerts. For example, an alert generated using the default {% data variables.product.prodname_codeql %} analysis with {% data variables.product.prodname_actions %} comes from a different configuration than an alert generated externally and uploaded via the {% data variables.product.prodname_code_scanning %} API.
+
+If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts generated by multiple configurations. If an alert exists in more than one configuration, the number of configurations appears next to the branch name in the "Affected branches" section on the right-hand side of the alert page. To view the configurations for an alert, in the "Affected branches" section, click a branch. A "Configurations analyzing" modal appears with the names of each configuration generating the alert for that branch. Below each configuration, you can see when that configuration's alert was last updated.
+
+An alert may display different statuses from different configurations. To update the alert statuses, re-run each out-of-date configuration. Alternatively, you can delete stale configurations from a branch to remove outdated alerts. For more information on deleting stale configurations and alerts, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+{% else %}
+You can run multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of {% data variables.product.prodname_code_scanning %} is the analysis origin for all the alerts it generates. For example, an alert generated using the default {% data variables.product.prodname_codeql %} analysis with {% data variables.product.prodname_actions %} will have a different analysis origin from an alert generated externally and uploaded via the {% data variables.product.prodname_code_scanning %} API.
 
 If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
 
@@ -66,10 +75,10 @@ If you use multiple configurations to analyze a file, any problems detected by t
 
 {% note %}
 
-**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+**Note:** Sometimes a {% data variables.product.prodname_code_scanning %} alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second {% data variables.product.prodname_code_scanning %} configuration to update the alert status for that analysis origin.
 
 {% endnote %}
-
+{% endif %}
 {% endif %}
 ### About labels for alerts that are not found in application code
 
@@ -80,7 +89,7 @@ If you use multiple configurations to analyze a file, any problems detected by t
 - **Library**: Library or third-party code
 - **Documentation**: Documentation
 
-{% data variables.product.prodname_code_scanning_capc %} categorizes files by file path. You cannot manually categorize source files.
+{% data variables.product.prodname_code_scanning_caps %} categorizes files by file path. You cannot manually categorize source files.
 
 Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
 
@@ -129,7 +138,7 @@ When you update your workflow to run an additional query suite this will increas
     queries: security-extended
 ```
 
-For more information, see "[Customizing {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-queries-in-ql-packs)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-queries-in-ql-packs)."
 
 ## Disabling experimental alerts
 

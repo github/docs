@@ -10,11 +10,11 @@ topics:
   - Legal
 ---
 
-Your participation in the GitHub Sponsors Program (the "Program") is subject to the [GitHub Terms of Service](/github/site-policy/github-terms-of-service) (the "Agreement"), as well as the following additional terms ("Additional Terms"). Any use of the GitHub Sponsors Program that violates the Agreement will also be a violation of these Additional Terms. Any capitalized terms used but not defined below have the meanings in the Agreement. These Additional Terms for the GitHub Sponsors Program describe the relationship between GitHub and you, the "Sponsored Developer", for the Program. The Additional Terms are effective as of the date you accept them ("Effective Date").
+Your participation in the GitHub Sponsors Program (the "Program") is subject to the [GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service) (the "Agreement"), as well as the following additional terms ("Additional Terms"). Any use of the GitHub Sponsors Program that violates the Agreement will also be a violation of these Additional Terms. Any capitalized terms used but not defined below have the meanings in the Agreement. These Additional Terms for the GitHub Sponsors Program describe the relationship between GitHub and you, the "Sponsored Developer", for the Program. The Additional Terms are effective as of the date you accept them ("Effective Date").
 
 ## 1. Definitions.
 
-"**GitHub Policies**" means all then-current policies and procedures of GitHub that Sponsored Developer must follow as noted in the Program, including the [GitHub Community Guidelines](/github/site-policy/github-community-guidelines).
+"**GitHub Policies**" means all then-current policies and procedures of GitHub that Sponsored Developer must follow as noted in the Program, including the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
 
 "**Sponsor**" means the User who purchased a Subscription from or paid a Sponsorship to you through your Sponsored Developer Account.
 
@@ -34,7 +34,7 @@ Your participation in the GitHub Sponsors Program (the "Program") is subject to 
 
 ### 2.1. GitHub Sponsors Program
 
-In order to participate in the Program, you must comply with your country's minimum age laws (for example, you must be at least 13 years of age if you live in the United States), have a valid GitHub account, and have agreed to the [Acceptable Use section](/github/site-policy/github-terms-of-service#c-acceptable-use) in the Agreement and applicable GitHub Policies, and these GitHub Sponsors Additional Terms.
+In order to participate in the Program, you must comply with your country's minimum age laws (for example, you must be at least 13 years of age if you live in the United States), have a valid GitHub account, and have agreed to the [Acceptable Use section](/site-policy/github-terms/github-terms-of-service#c-acceptable-use) in the Agreement and applicable GitHub Policies, and these GitHub Sponsors Additional Terms.
 
 If you are over the age of 13 but are under 18, you can give and receive Sponsor funds, provided that Stripe, our payment processor, can collect verification information from your legal guardian.
 
@@ -62,7 +62,7 @@ Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case
 
 * You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
 
-* Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/github/site-policy/github-community-guidelines).
+* Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
 
 * You cannot receive matching for any sponsorship that originates from a user or organization account with a published GitHub Sponsors profile.
 
@@ -86,7 +86,7 @@ The matching period begins after GitHub accepts an individual Sponsored Develope
 You will: (A) create a Sponsored Developer Account; (B) make Sponsored Developer Content available via the Program and Service; and, (C) comply with all GitHub Policies. You will be solely responsible for support, development, and maintenance of your Sponsored Developer Account and Sponsored Developer Content, and any complaints about them.
 
 ### 3.2. Registration.
-If you choose to apply for the Program, entry into the Program is contingent upon your completion of the registration process and acceptance into the Program by GitHub. In addition, you may be required to register with the payment service provider(s) selected by GitHub (such as Stripe) in order to access and use certain features of the Program. You must register with your true identity, and you agree to provide and maintain true, accurate, current and complete information about yourself as requested by the Program's registration form. Registration data and certain other information about you are governed by our [Privacy Statement](/github/site-policy/github-privacy-statement), as well as any privacy statement provided by our payment processor. GitHub reserves the right to refuse acceptance into the Program.
+If you choose to apply for the Program, entry into the Program is contingent upon your completion of the registration process and acceptance into the Program by GitHub. In addition, you may be required to register with the payment service provider(s) selected by GitHub (such as Stripe) in order to access and use certain features of the Program. You must register with your true identity, and you agree to provide and maintain true, accurate, current and complete information about yourself as requested by the Program's registration form. Registration data and certain other information about you are governed by our [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement), as well as any privacy statement provided by our payment processor. GitHub reserves the right to refuse acceptance into the Program.
 
 ### 3.3. Content Monetization.
 Through the Program and Service, GitHub may provide you various options to monetize your Sponsored Developer Content. Some options may require you to update certain settings in your Sponsored Developer Account. In addition, the ways in which the Program supports each monetization option may vary. If you utilize one (or more) of these options by changing the applicable settings, then you agree to the terms that apply to that option. Some monetization options may require you to provide additional information to GitHub or its service providers, or to accept additional GitHub terms or third-party terms.
@@ -98,7 +98,7 @@ The Program provides you with the capability to offer Subscriptions. If you choo
 The Program or Service may provide you with the ability to accept a donation or other type of direct Sponsorship from another User without a Subscription offer. However, because GitHub does not fulfill those types of Sponsorships, you must establish a merchant account with a third-party payment service provider (such as Stripe) and be subject to that service provider's merchant account terms, conditions, and privacy policies. Any amounts contributed to you, donation or otherwise, will be paid directly to your merchant account and not included in any Sponsored Developer Payments. You agree that you will not have any claim or remedy against GitHub relating to donations and any disputes relating to a donation are solely between you and the third-party payment service provider. You are responsible for compliance with any third-party payment service provider's agreements, policies, and laws or regulations that may apply. GitHub may elect to provide you with information or a report on the amount of donations made to you for your convenience.
 
 #### 3.3.3. Advertising.
-While we understand that you may want to promote your Sponsors by posting their names or logos in your account, the primary focus of your Sponsored Developer Content should not be advertising or promotional marketing. In addition, you may not enter into any advertising agreement to promote any product or brand if doing so would be prohibited by the [Agreement](/github/site-policy/github-terms-of-service) or GitHub's Community Guidelines. If you decide to host any advertising or promotional materials in your Sponsored Developer Content, you are solely responsible for complying with all applicable laws and regulations, including the U.S. Federal Trade Commission's Guidelines on Endorsements and Testimonials.
+While we understand that you may want to promote your Sponsors by posting their names or logos in your account, the primary focus of your Sponsored Developer Content should not be advertising or promotional marketing. In addition, you may not enter into any advertising agreement to promote any product or brand if doing so would be prohibited by the [Agreement](/site-policy/github-terms/github-terms-of-service) or GitHub's Community Guidelines. If you decide to host any advertising or promotional materials in your Sponsored Developer Content, you are solely responsible for complying with all applicable laws and regulations, including the U.S. Federal Trade Commission's Guidelines on Endorsements and Testimonials.
 
 ## 4. Financial Terms.
 

@@ -20,7 +20,7 @@ When you verify a domain, any immediate subdomains are also included in the veri
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
 
 ## Verifying a domain for your user site
 
@@ -41,7 +41,7 @@ Organization owners can verify custom domains for their organization.
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. Wait for your DNS configuration to change. This may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```

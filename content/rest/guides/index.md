@@ -13,7 +13,6 @@ topics:
   - API
 children:
   - /getting-started-with-the-rest-api
-  - /basics-of-authentication
   - /scripting-with-the-rest-api-and-javascript
   - /discovering-resources-for-a-user
   - /delivering-deployments
@@ -29,4 +28,3 @@ This section of the documentation is intended to get you up-and-running with
 real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll go over everything you need to know, from authentication to results manipulation to integrating results with other apps.
 Every tutorial will include a project, and each project will be saved and documented in our public
 [platform-samples](https://github.com/github/platform-samples) repository.
-![The Octocat](/assets/images/electrocat.png)

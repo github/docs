@@ -11,7 +11,7 @@ changelog:
   label: sponsors
 examples_source: data/product-examples/sponsors/user-examples.yml
 featuredLinks:
-  guides:
+  startHere:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
     - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization
     - /sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors
@@ -24,7 +24,7 @@ featuredLinks:
     - /sponsors/getting-started-with-github-sponsors/about-github-sponsors
     - /sponsors/receiving-sponsorships-through-github-sponsors/tax-information-for-github-sponsors
     - /sponsors/sponsoring-open-source-contributors
-    - /sponsors/about-github-sponsors-for-open-source-contributors
+    - /sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors
 layout: product-landing
 versions:
   fpt: '*'

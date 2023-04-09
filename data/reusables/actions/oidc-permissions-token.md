@@ -20,4 +20,6 @@ permissions:
   id-token: write # This is required for requesting the JWT
 ```
 
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+You may need to specify additional permissions here, depending on your workflow's requirements.
+
+For reusable workflows, the `permissions` setting for `id-token` should be set to `write` at the caller workflow level or in the specific job that calls the reusable workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."

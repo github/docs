@@ -6,7 +6,7 @@ introLinks:
   overview: /codespaces/overview
   quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization
     - /codespaces/getting-started/the-codespace-lifecycle
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
@@ -29,6 +29,7 @@ featuredLinks:
 changelog:
   label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
+product_video_transcript: /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/codespaces'

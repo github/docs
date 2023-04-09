@@ -3,6 +3,8 @@ import { nextApp } from './next.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
 import { errorCacheControl } from './cache-control.js'
 
+const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
+
 function shouldLogException(error) {
   const IGNORED_ERRORS = [
     // Client connected aborted
@@ -43,7 +45,7 @@ export default async function handleError(error, req, res, next) {
       // loading all the middlewares.
       setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
     }
-  } else if (process.env.NODE_ENV === 'test') {
+  } else if (DEBUG_MIDDLEWARE_TESTS) {
     console.warn('An error occurrred in some middleware handler', error)
   }
 

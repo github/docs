@@ -24,11 +24,8 @@ The Activity dashboard provides weekly, monthly, and yearly graphs of the number
 - New organizations
 - New teams
 
-![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
-
 ## Accessing the Activity dashboard
 
 1. At the top of any page, click **Explore**.
-![Explore tab](/assets/images/enterprise/settings/ent-new-explore.png)
-2. In the upper-right corner, click **Activity**.
-![Activity button](/assets/images/enterprise/activity/activity-button.png)
+![Screenshot of the navigation bar at the top of the web UI for GitHub Enterprise Server. The word "Explore" is highlighted with an orange outline.](/assets/images/enterprise/settings/ent-new-explore.png)
+2. In the upper-right corner of the page, click {% octicon "pulse" aria-hidden="true" %} **Activity**.

@@ -17,7 +17,7 @@ topics:
   - Repositories
 shortTitle: Move a file
 ---
-In addition to changing the file location, you can also [update the contents of your file](/articles/editing-files-in-your-repository), or [give it a new name](/articles/renaming-a-file) in the same commit.
+In addition to changing the file location, you can also [update the contents of your file](/repositories/working-with-files/managing-files/editing-files), or [give it a new name](/repositories/working-with-files/managing-files/renaming-a-file) in the same commit.
 
 ## Moving a file to a new location on {% data variables.product.product_name %}
 
@@ -26,27 +26,27 @@ In addition to changing the file location, you can also [update the contents of 
 **Tips**:
 
 - If you try to move a file in a repository that you don’t have access to, we'll fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
-- Some files, such as images, require that you move them from the command line. For more information, see "[Moving a file to a new location using the command line](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
+- Some files, such as images, require that you move them from the command line. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)".
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
 1. In your repository, browse to the file you want to move.
-2. In the upper right corner of the file view, click {% octicon "pencil" aria-label="The edit icon" %} to open the file editor.
-![Edit file icon](/assets/images/help/repository/move-file-edit-file-icon.png)
-3. In the filename field, change the name of the file using these guidelines:
-  ![Editing a file name](/assets/images/help/repository/moving_files.gif)
+1. In the upper right corner of the file view, click {% octicon "pencil" aria-label="Edit file" %} to open the file editor.
+
+   ![Screenshot of a file. In the header, a button, labeled with a pencil icon, is outlined in dark orange.](/assets/images/help/repository/edit-file-edit-button.png)
+1. In the filename field, change the name of the file using these guidelines:
     - To move the file **into a subfolder**, type the name of the folder you want, followed by `/`. Your new folder name becomes a new item in the navigation breadcrumbs.
     - To move the file into a directory **above the file's current location**, place your cursor at the beginning of the filename field, then either type `../` to jump up one full directory level, or type the `backspace` key to edit the parent folder's name.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## Moving a file to a new location using the command line 
+## Moving a file to a new location using the command line
 
 You can use the command line to move files within a repository by removing the file from the old location and then adding it in the new location.
 
-Many files can be [moved directly on {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), but some files, such as images, require that you move them from the command line.
+Many files can be [moved directly on {% data variables.product.product_name %}](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location), but some files, such as images, require that you move them from the command line.
 
 {% data reusables.command_line.manipulating_file_prereqs %}
 

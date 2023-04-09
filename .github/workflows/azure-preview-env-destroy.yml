@@ -65,7 +65,7 @@ jobs:
           az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
-      - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0
+      - uses: strumwolf/delete-deployment-environment@3cb547f8ec03ee6c0473d90cce57c74c688c2510
         with:
           # The token provided by the workflow does not have the permissions to delete created environments
           token: ${{ secrets.DOCUBOT_REPO_PAT }}

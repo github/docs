@@ -11,7 +11,8 @@ import {
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { RestRedirect } from 'components/RestRedirect'
-import { getEnabledForApps, categoriesWithoutSubcategories } from 'lib/rest/index.js'
+import { categoriesWithoutSubcategories } from 'src/rest/lib/index.js'
+import { getEnabledForApps } from 'src/github-apps/lib/index.js'
 
 type OperationT = {
   slug: string
@@ -85,26 +86,21 @@ export default function Category({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as object
-  const res = context.res as object
-  const mainContext = await getMainContext(req, res)
+  const req = context.req as any
+  const res = context.res as any
+
   const currentVersion = context.query.versionId as string
-  const apiVersion =
-    context.query.apiVersion || mainContext.allVersions[currentVersion].latestApiVersion
+  const allVersions = req.context.allVersions
+  const queryApiVersion = context.query.apiVersion
+  const apiVersion = allVersions[currentVersion].apiVersions.includes(queryApiVersion)
+    ? queryApiVersion
+    : allVersions[currentVersion].latestApiVersion
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const enabledForApps = await getEnabledForApps(currentVersion, apiVersion)
 
-  // If getEnabledForApps came back as undefined, it means that nothing
-  // could be found for that `apiVersion`
-  if (!enabledForApps) {
-    return {
-      notFound: true,
-    }
-  }
-
   return {
     props: {
-      mainContext,
+      mainContext: await getMainContext(req, res),
       currentVersion,
       enabledForApps,
       automatedPageContext,

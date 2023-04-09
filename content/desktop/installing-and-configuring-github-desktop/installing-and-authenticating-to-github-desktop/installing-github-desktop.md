@@ -10,7 +10,7 @@ versions:
 ---
 ## About {% data variables.product.prodname_desktop %} installation
 
-You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
+You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
 
 {% windows %}
 
@@ -30,10 +30,8 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 
 {% data reusables.desktop.download-desktop-page %}
 2. Click **Download for macOS**.
-  ![The Download for macOS button](/assets/images/help/desktop/download-for-mac.png)
 3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** zip file.
-  ![The GitHubDesktop.zip file](/assets/images/help/desktop/mac-zipfile.png)
-4. After the file has been unzipped, double-click **{% data variables.product.prodname_desktop %}**.
+4. After the file has been unzipped, double-click the **{% data variables.product.prodname_desktop %}** application file.
 5. {% data variables.product.prodname_desktop %} will launch after installation is complete.
 
 {% endmac %}
@@ -50,9 +48,7 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 
 {% data reusables.desktop.download-desktop-page %}
 2. Click **Download for Windows**.
-  ![The Download for Windows button](/assets/images/help/desktop/download-for-windows.png)
 3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** setup file.
-  ![The GitHubDesktopSetup file](/assets/images/help/desktop/windows-githubdesktopsetup.png)
 4. {% data variables.product.prodname_desktop %} will launch after installation is complete.
 
 {% endwindows %}

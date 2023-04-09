@@ -88,7 +88,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     `${operation.serverUrl}${requestPath}`,
     requestBodyParams,
   ].filter(Boolean)
-  return `curl \\\n  ${args.join(' \\\n  ')}`
+  return `curl -L \\\n  ${args.join(' \\\n  ')}`
 }
 
 /*
@@ -104,10 +104,18 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
 export function getGHExample(operation: Operation, codeSample: CodeSample) {
   const defaultAcceptHeader = getAcceptHeader(codeSample)
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath
+
+  const apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `-H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
 
   const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
@@ -141,9 +149,11 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
       requestBodyParams = `-f '${codeSample.request.bodyParameters}'`
     }
   }
+
   const args = [
     operation.verb !== 'get' && `--method ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}"`,
+    apiVersionHeader,
     hostname,
     requestPath,
     requestBodyParams,
@@ -167,7 +177,10 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
 
 */
 export function getJSExample(operation: Operation, codeSample: CodeSample) {
-  const parameters: { [key: string]: string } = {}
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+  const parameters: { [key: string]: string | object } = {}
+
   if (codeSample.request) {
     Object.assign(parameters, codeSample.request.parameters)
     // Most of the time the example body parameters have a name and value
@@ -185,13 +198,16 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
 
   let queryParameters = ''
 
-  // Add query parameters to the request path for POST, PUT, DELETE, GET, operations in
-  // URL template format e.g. 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
+  // Query parameters are set automatically for GET and HEAD requests, we
+  // otherwise have to handle it ourselves for other request methods by adding
+  // the parameters to the request path in URL template format e.g.:
+  //
+  // 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
   if (
-    operation.verb === 'post' ||
-    operation.verb === 'put' ||
     operation.verb === 'delete' ||
-    operation.verb === 'get'
+    operation.verb === 'patch' ||
+    operation.verb === 'post' ||
+    operation.verb === 'put'
   ) {
     const queryParams = operation.parameters
       .filter((param) => {
@@ -204,6 +220,16 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
       queryParameters = `{?${queryParams.join(',')}}`
     }
   }
+
+  if (
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+  ) {
+    parameters.headers = {
+      'X-GitHub-Api-Version': `${allVersions[currentVersion].latestApiVersion}`,
+    }
+  }
+
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
   const require = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
 
