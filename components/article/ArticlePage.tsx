@@ -137,7 +137,7 @@ export const ArticlePage = () => {
             {productVideoUrl && (
               <div className="my-2">
                 <Link id="product-video" href={productVideoUrl} target="_blank">
-                  <LinkExternalIcon className="octicon-link mr-2" />
+                  <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
                   {t('video_from_transcript')}
                 </Link>
               </div>
