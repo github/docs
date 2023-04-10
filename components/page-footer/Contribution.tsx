@@ -20,7 +20,6 @@ export const Contribution = () => {
         {t`button`}
       </a>
       <p className="color-fg-muted f6 mt-2">
-        {t`or`}{' '}
         <a
           href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
           target="_blank"

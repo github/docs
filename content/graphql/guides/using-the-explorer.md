@@ -24,21 +24,22 @@ topics:
 
 {% endif %}
 
-## Using GraphiQL
+## Using the Altair GraphQL Client IDE
 
-To use the GraphiQL app, download and install it from https://github.com/skevy/graphiql-app.
+There are many open source GraphQL client IDEs. For example, you can use Altair to access {% data variables.product.company_short %}'s GraphQL API. To access the GraphQL API with Altair, download and install it from [altair-graphql/altair](https://github.com/altair-graphql/altair). Then, follow the configuration steps below.
 
-### Configuring GraphiQL
+### Configuring Altair
 
-1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-1. Launch GraphiQL.
-1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
-1. In the **Key** field, enter `Authorization`. 
-1. In the **Value** field, enter `Bearer TOKEN`, replacing `TOKEN` with your OAuth token from the first step.
-1. Click the checkmark to the right of the token to save it.
-1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
-1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
-1. In the **Method** dropdown menu, select **POST**.
+1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
+2. Launch Altair.
+3. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
+4. In the "Header key" field, enter `Authorization`.
+5. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
+6. Click **Save** in the bottom right corner of the window to save your authorization header.
+8. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
+9. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
+10. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
+11. Select the file public schema that you downloaded in an earlier step.
 
 {% note %}
 

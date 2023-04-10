@@ -1,29 +1,54 @@
 import { useEffect } from 'react'
 
-// We delay the closing over the popover slightly in case the mouse
-// movement either comes back (mouseover, mouseout, and back to mouseover)
-// or if the user moves the mouse from the link to the popover itself
-// and vice versa.
-const DELAY = 300
+// We postpone the initial delay a bit in case the user didn't mean to
+// hover over the link. Perhaps they just dragged the mouse over on their
+// way to something else.
+const DELAY_SHOW = 300
+// The reason the hiding doesn't happens instantly is when the mouse is
+// first hovering over the link, then over the popover itself and then
+// back to the link. Because there's a slight cap between the popover
+// and the link we want to introduce a slight delay so it doesn't flicker.
+const DELAY_HIDE = 200
 
 // A global that is used for a slow/delayed closing of the popovers.
 // It can be global because there's only 1 popover DOM node that gets
 // created the first time it's needed.
 let popoverCloseTimer: number | null = null
+let popoverStartTimer: number | null = null
+
+// A global for remembering which target was originated the initial opening
+// of the popover. It's important to know this when the onmouseover
+// of the link is triggered again. If you hover over the popover and back
+// to its link, we don't want to immediately open the popover.
+// If it's the first time, i.e. a different link, then we want to add a
+// slight initial delay.
+let currentlyOpen: HTMLLinkElement | null = null
+
+// Number of pixels from the top of the page that implies that we should
+// display the popover *underneath* the link.
+// The number is based on the height of popovers when they are quite high.
+// We can't know the size of the popover on screen until after it's been
+// inserted into the visible DOM. So before that, as a `div` element,
+// its `offsetHeight` and `.getBoundingClientRect().height` are always 0.
+// We *could* "change our mind" and wait till it's been inserted and then
+// change accoding to the popover's true height. But this can cause a flicker.
+const BOUNDING_TOP_MARGIN = 300
 
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
     const wrapper = document.createElement('div')
+    wrapper.setAttribute('data-testid', 'popover')
     wrapper.classList.add('Popover', 'position-absolute')
     wrapper.style.display = 'none'
     wrapper.style.outline = 'none'
     wrapper.style.zIndex = `100`
     const inner = document.createElement('div')
+    // Note that this is lacking the 'Popover-message--bottom-left'
+    // or 'Popover-message--top-right`. These get set later when we
+    // know where the popover message should appear on the screen.
     inner.classList.add(
-      ...'Popover-message Popover-message--large p-3 Box color-shadow-large Popover-message--bottom-left'.split(
-        /\s+/g
-      )
+      ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g)
     )
     inner.style.width = `360px`
 
@@ -63,7 +88,13 @@ function getOrCreatePopoverGlobal() {
     wrapper.addEventListener('mouseout', () => {
       popoverCloseTimer = window.setTimeout(() => {
         wrapper.style.display = 'none'
-      }, DELAY)
+
+        // If you started the popover by moving over the link, then
+        // moved the mouse out of the link and into the popover, then
+        // eventually you move out of the popover. Then, we want to
+        // reset.
+        currentlyOpen = null
+      }, DELAY_HIDE)
     })
 
     popoverGlobal = wrapper
@@ -166,14 +197,43 @@ function popoverWrap(element: HTMLLinkElement) {
   }
 
   const [top, left] = getOffset(element)
+  const [boundingTop] = getBoundingOffset(element)
+
+  const popoverMessageElement = popover.querySelector('.Popover-message') as HTMLDivElement
+
+  const below = boundingTop < BOUNDING_TOP_MARGIN
+  if (below) {
+    // The caret pointing upwards
+    popoverMessageElement.classList.remove('Popover-message--bottom-left')
+    popoverMessageElement.classList.add('Popover-message--top-left')
+  } else {
+    // Default
+    popoverMessageElement.classList.remove('Popover-message--top-left')
+    popoverMessageElement.classList.add('Popover-message--bottom-left')
+  }
 
   // We can't know what the height of the popover element is when it's
   // `display:none` so we guess offset to the offset and adjust it later.
-  popover.style.top = `${top - 100}px`
+  popover.style.top = `${top}px`
   popover.style.left = `${left}px`
   popover.style.display = 'block'
 
-  popover.style.top = `${top - popover.offsetHeight - 10}px`
+  if (below) {
+    // This moves the popover about the height of the <a> element down.
+    // You can't use element.getBoundingClientRect() because that could
+    // give a height that is twice that of a single line of text.
+    // For example:
+    //
+    //     <p>Bla bla <a href="...">Link</a> ble and <a href="...">Other
+    //     Link Text</a> yada yada</p>
+    //
+    // In this case the second `<a>` element will have a height that is
+    // twice of the first `<a>` because the second one spans two lines.
+    const approximateElementHeight = 33
+    popover.style.top = `${top + approximateElementHeight}px`
+  } else {
+    popover.style.top = `${top - popover.offsetHeight - 10}px`
+  }
 }
 
 // The top/left offset of an element is only relative to its parent.
@@ -199,24 +259,62 @@ function getOffset(element: HTMLElement) {
   return [top, left]
 }
 
+function getBoundingOffset(element: HTMLElement) {
+  const { top, left } = element.getBoundingClientRect()
+  return [top, left]
+}
+
+function popoverShow(target: HTMLLinkElement) {
+  if (popoverStartTimer) {
+    window.clearTimeout(popoverStartTimer)
+  }
+
+  // The mouse has been moved over a link. If this is the "first time",
+  // we want to delay showing the popover because it could be that the
+  // *intention* of the user was not to hover over, but they might have
+  // just moved the mouse over the link by "accident", or in a hurry
+  // on their way to something else.
+  // However, if they hover over the link because the popover is already
+  // open, which happens when you hover over the popover and back again
+  // to the link, then we don't want any delay.
+  if (target === currentlyOpen) {
+    popoverWrap(target)
+  } else {
+    popoverStartTimer = window.setTimeout(() => {
+      popoverWrap(target)
+      currentlyOpen = target
+    }, DELAY_SHOW)
+  }
+}
+
 function popoverHide() {
   // Important to use `window.setTimeout` instead of `setTimeout` so
   // that TypeScript knows which kind of timeout we're talking about.
   // If you use plain `setTimeout` TypeScript might think it's a
   // Node eventloop kinda timer.
+
+  if (popoverStartTimer) {
+    window.clearTimeout(popoverStartTimer)
+  }
+
   popoverCloseTimer = window.setTimeout(() => {
     const popover = getOrCreatePopoverGlobal()
     popover.style.display = 'none'
-  }, DELAY)
+
+    // Reset because we're closing the popover, so we have to start from afresh.
+    currentlyOpen = null
+  }, DELAY_HIDE)
 }
 
 function testTarget(target: HTMLLinkElement) {
   // Return true if the element is an A tag, whose `href` starts with
-  // a `/`, and it's not one of those permalink ones next to headings
-  // (with the chain looking icon).
+  // a `/`, is contained in either the article-contents (the meat of the article)
+  // or the article-intro (which contain product callouts), and it's not one of
+  // those permalink ones next to headings (with the chain looking icon).
   return (
     target.tagName === 'A' &&
     target.href.startsWith(window.location.origin) &&
+    target.closest('#article-contents, #article-intro') &&
     !target.classList.contains('doctocat-link')
   )
 }
@@ -228,7 +326,7 @@ export function LinkPreviewPopover() {
     function showPopover(event: MouseEvent) {
       const target = event.target as HTMLLinkElement
       if (testTarget(target)) {
-        popoverWrap(target)
+        popoverShow(target)
       }
     }
     function hidePopover(event: MouseEvent) {
@@ -243,7 +341,7 @@ export function LinkPreviewPopover() {
     // this way we're prepared for the fact that new `a` elements
     // might get introduced some other way. For example, if there's
     // some any other code that does a `container.appendChild(newLink)`
-    const container = document.querySelector<HTMLDivElement>('#article-contents')
+    const container = document.querySelector<HTMLDivElement>('#main-content')
     if (container) {
       container.addEventListener('mouseover', showPopover)
       container.addEventListener('mouseout', hidePopover)

@@ -16,7 +16,7 @@ export const SmallFooter = () => {
             <a href="https://aka.ms/impressum_de" target="_blank" rel="noopener">
               Impressum
             </a>
-            <LinkExternalIcon size={12} />
+            <LinkExternalIcon aria-label="(external site)" size={12} />
           </li>
         )}
         <li className="mr-3 mr-xl-0">

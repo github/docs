@@ -15,7 +15,7 @@ describe('webhooks v1 middleware', () => {
     sp.set('version', 'free-pro-team@latest')
     const res = await get('/api/webhooks/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     const actionTypes = Object.keys(results)
     expect(actionTypes.length).toBeGreaterThan(2)
     expect(Object.keys(results[actionTypes[0]]).includes('category')).toBeTruthy()
@@ -37,7 +37,7 @@ describe('webhooks v1 middleware', () => {
     sp.set('version', 'enterprise-cloud@latest')
     const res = await get('/api/webhooks/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     const actionTypes = Object.keys(results)
     expect(actionTypes.length).toBeGreaterThan(2)
     expect(Object.keys(results[actionTypes[0]]).includes('category')).toBeTruthy()
@@ -52,7 +52,7 @@ describe('webhooks v1 middleware', () => {
     const res = await get('/api/webhooks/v1?' + sp)
 
     expect(res.statusCode).toBe(404)
-    expect(JSON.parse(res.text).error).toBeTruthy()
+    expect(JSON.parse(res.body).error).toBeTruthy()
   })
 
   test('unknown version', async () => {
@@ -62,6 +62,6 @@ describe('webhooks v1 middleware', () => {
     const res = await get('/api/webhooks/v1?' + sp)
 
     expect(res.statusCode).toBe(404)
-    expect(JSON.parse(res.text).error).toBeTruthy()
+    expect(JSON.parse(res.body).error).toBeTruthy()
   })
 })

@@ -35,7 +35,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('query', 'foo')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
 
     expect(results.meta).toBeTruthy()
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
@@ -77,7 +77,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('debug', '1') // Note!
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     // safe because we know exactly the fixtures
     const hit = results.hits[0]
     expect(hit.popularity).toBeTruthy()
@@ -92,7 +92,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('query', 'sill')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(200)
-      const results = JSON.parse(res.text)
+      const results = JSON.parse(res.body)
       // Fixtures contains no word called 'sill'. It does contain the term
       // 'silly' which, in English, becomes 'silli` when stemmed.
       // Because we don't use `&autocomplete=true` this time, we expect
@@ -107,7 +107,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('autocomplete', 'true')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(200)
-      const results = JSON.parse(res.text)
+      const results = JSON.parse(res.body)
       expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
       const hit = results.hits[0]
       const contentHighlights = hit.highlights.content
@@ -120,7 +120,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('query', 'xojixjoiwejhfoiuwehjfioweufhj')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     expect(results.hits.length).toBe(0)
     expect(results.meta.found.value).toBe(0)
   })
@@ -132,7 +132,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.append('highlights', 'content')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
     for (const hit of results.hits) {
       expect(hit.highlights.title).toBeFalsy()
@@ -148,7 +148,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('highlights', 'headings')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
     for (const hit of results.hits) {
       expect(hit.highlights.headings).toBeTruthy()
@@ -163,12 +163,12 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('version', 'dotcom')
     const res1 = await get('/api/search/v1?' + sp)
     expect(res1.statusCode).toBe(200)
-    const results1 = JSON.parse(res1.text)
+    const results1 = JSON.parse(res1.body)
 
     sp.set('version', 'free-pro-team@latest')
     const res2 = await get('/api/search/v1?' + sp)
     expect(res2.statusCode).toBe(200)
-    const results2 = JSON.parse(res2.text)
+    const results2 = JSON.parse(res2.body)
     expect(results1.hits[0].id).toBe(results2.hits[0].id)
   })
 
@@ -177,7 +177,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     {
       const res = await get('/api/search/v1')
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toBeTruthy()
+      expect(JSON.parse(res.body).error).toBeTruthy()
     }
     // query is just whitespace
     {
@@ -185,7 +185,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('query', '  ')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toBeTruthy()
+      expect(JSON.parse(res.body).error).toBeTruthy()
     }
     // unrecognized language
     {
@@ -194,7 +194,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('language', 'xxx')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('language')
+      expect(JSON.parse(res.body).error).toMatch('language')
     }
     // unrecognized page
     {
@@ -203,7 +203,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('page', '9999')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('page')
+      expect(JSON.parse(res.body).error).toMatch('page')
     }
     // unrecognized version
     {
@@ -212,8 +212,8 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('version', 'xxxxx')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch("'xxxxx'")
-      expect(JSON.parse(res.text).field).toMatch('version')
+      expect(JSON.parse(res.body).error).toMatch("'xxxxx'")
+      expect(JSON.parse(res.body).field).toMatch('version')
     }
     // unrecognized size
     {
@@ -222,7 +222,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('size', 'not a number')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('size')
+      expect(JSON.parse(res.body).error).toMatch('size')
     }
     // unrecognized sort
     {
@@ -231,7 +231,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('sort', 'neverheardof')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('sort')
+      expect(JSON.parse(res.body).error).toMatch('sort')
     }
     // unrecognized highlights
     {
@@ -240,7 +240,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.set('highlights', 'neverheardof')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.text).error).toMatch('neverheardof')
+      expect(JSON.parse(res.body).error).toMatch('neverheardof')
     }
   })
 
@@ -249,7 +249,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     sp.set('query', 'breadcrumbs')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     // safe because we know exactly the fixtures
     const hit = results.hits[0]
     expect(hit.breadcrumbs).toBe('')
@@ -264,7 +264,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     sp.set('query', 'foo')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
     expect(firstKeys.includes('intro')).toBeFalsy()
     expect(firstKeys.includes('headings')).toBeFalsy()
@@ -276,7 +276,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     sp.set('include', 'intro')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
     expect(firstKeys.includes('intro')).toBeTruthy()
     expect(firstKeys.includes('headings')).toBeFalsy()
@@ -289,7 +289,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     sp.append('include', 'headings')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
     expect(firstKeys.includes('intro')).toBeTruthy()
     expect(firstKeys.includes('headings')).toBeTruthy()
@@ -301,7 +301,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     sp.set('include', 'xxxxx')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(400)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
     expect(results.error).toMatch(`Not a valid value (["xxxxx"]) for key 'include'`)
   })
 })

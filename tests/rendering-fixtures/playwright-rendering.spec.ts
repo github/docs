@@ -108,6 +108,21 @@ test('filter article cards', async ({ page }) => {
   await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
 })
 
+test('navigate with side bar into article inside a map-topic inside a category', async ({
+  page,
+}) => {
+  // Our TreeView sidebar only shows "2 levels". If you click and expand
+  // the category, you'll be able to see the map-topic and the article
+  // within.
+  await page.goto('/')
+  await page.getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByText('Map & Topic').click()
+  await page.getByRole('link', { name: '<article>' }).click()
+  await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
+  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+})
+
 test('code examples search', async ({ page }) => {
   await page.goto('/code-security')
   const codeExampleResults = page.getByTestId('code-example-results')
@@ -134,4 +149,45 @@ test('code examples search', async ({ page }) => {
   await expect(
     page.locator('#code-examples').getByText('Sorry, there is no result for should be no results')
   ).toBeVisible()
+})
+
+test('hovercards', async ({ page }) => {
+  await page.goto('/pages/quickstart')
+
+  // hover over a link and check for intro content from hovercard
+  await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
+  await expect(
+    page.getByText(
+      'Get started using GitHub to manage Git repositories and collaborate with others.'
+    )
+  ).toBeVisible()
+
+  // now move the mouse away from hovering over the link, the hovercard should
+  // no longer be visible
+  await page.mouse.move(0, 0)
+  await expect(
+    page.getByText(
+      'Get started using GitHub to manage Git repositories and collaborate with others.'
+    )
+  ).not.toBeVisible()
+
+  // external links don't have a hovercard
+  await page.getByRole('link', { name: 'github.com/github/docs' }).hover()
+  await expect(page.getByTestId('popover')).not.toBeVisible()
+
+  // links in the main navigation sidebar don't have a hovercard
+  await page.getByTestId('sidebar').getByRole('link', { name: 'Quickstart' }).hover()
+  await expect(page.getByTestId('popover')).not.toBeVisible()
+
+  // links in the secondary minitoc sidebar don't have a hovercard
+  await page.getByRole('link', { name: 'Internal link' }).hover()
+  await expect(page.getByTestId('popover')).not.toBeVisible()
+
+  // links in the article intro have a hovercard
+  await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
+  await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+
+  // same page anchor links have a hovercard
+  await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
+  await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
 })

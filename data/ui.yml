@@ -84,8 +84,7 @@ contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
-  or: Or,
-  to_guidelines: learn how to contribute.
+  to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
   default: Default
@@ -249,13 +248,12 @@ product_landing:
     search_button: Search
     search_examples: 'Search code examples:'
 product_guides:
+  learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path
-  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
   load_more: Load more guides
-  all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  all_guides_title: 'All {{ name }} guides'
   filter_instructions: Filter the guide list using these controls
   filters:
     type: Type
