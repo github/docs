@@ -181,7 +181,7 @@ With issue and pull request search terms, you can:
 For issues, you can also use search to:
 
 - Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
-- Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
+- Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`{% endif %}
 
 For pull requests, you can also use search to:
 - Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
