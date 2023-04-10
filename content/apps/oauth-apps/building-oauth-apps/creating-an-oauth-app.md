@@ -52,3 +52,7 @@ topics:
 {% endif %}{% ifversion device-flow-is-opt-in %}
 1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."{% endif %}
 1. Click **Register application**.
+
+## Limitations
+
+OAuth specification RFC 6749 [defines two client types](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1): confidential and public. GitHub assumes all OAuth Apps to be confidential clients.
