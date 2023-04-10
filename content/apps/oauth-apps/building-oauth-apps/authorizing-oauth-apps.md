@@ -316,6 +316,10 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% endtip %}
 
+## Limitations
+
+There is no support for PKCE ([RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)), see [feature request](https://github.com/orgs/community/discussions/15752).
+
 ## Troubleshooting
 
 * "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
