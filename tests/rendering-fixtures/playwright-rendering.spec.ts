@@ -80,6 +80,43 @@ test.describe('platform picker', () => {
   })
 })
 
+test.describe('tool picker', () => {
+  test('switch tools', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await expect(page.getByText('this is cli content')).toBeVisible()
+    await expect(page.getByText('this is webui content')).not.toBeVisible()
+
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(page).toHaveURL(/\?tool=webui/)
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    await expect(page.getByText('this is desktop content')).not.toBeVisible()
+    await expect(page.getByText('this is webui content')).toBeVisible()
+  })
+
+  test('prefer default tool', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+
+    // defaultTool is set in the fixture frontmatter
+    await expect(page.getByText('this is desktop content')).toBeVisible()
+    await expect(page.getByText('this is webui content')).not.toBeVisible()
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+  })
+
+  test('remember last clicked tool', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+
+    // Return and now the cookie should start us off with Web UI content again
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    await expect(page.getByText('this is desktop content')).not.toBeVisible()
+    await expect(page.getByText('this is webui content')).toBeVisible()
+  })
+})
+
 test('filter article cards', async ({ page }) => {
   await page.goto('/code-security/guides')
   const articleCards = page.getByTestId('article-cards')
