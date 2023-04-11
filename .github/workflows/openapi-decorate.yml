@@ -36,11 +36,6 @@ jobs:
 
       - name: Checkout repository code
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          # In order to fail gracefully when a branch already exists
-          # in the "Create pull request" step, we need to be able
-          # to get all existing branches.
-          fetch-depth: 0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
@@ -89,11 +84,14 @@ jobs:
 
           branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
 
-          branchCheckout=$(git checkout -b $branchname)
-          if ! [[ $? -eq 0 ]]; then
-            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+          remotesha=$(git ls-remote --heads origin $branchname)
+          if [ -n "$remotesha" ]; then
+            # output is not empty, it means the remote branch exists
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
+
+          git checkout -b $branchname
           git add .
           git commit -m "Add decorated OpenAPI schema files"
           git push origin $branchname
