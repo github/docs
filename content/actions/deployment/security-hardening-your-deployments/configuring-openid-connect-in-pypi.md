@@ -38,12 +38,12 @@ This guide gives an overview of how to configure PyPI to trust {% data variables
 
 To use OIDC with PyPI, you will need to add a trust configuration that links each project on PyPI to each repository and workflow combination that's allowed to publish for it.
 
-To configure a PyPI project to allow OIDC publishing:
+To configure a PyPI project to allow trusted publishing:
 
-1. Log into PyPI, and navigate to the OIDC publishing settings for the project you'd like to configure. For a project named `myproject`, this will be at `https://pypi.org/manage/project/myproject/settings/publishing/`.
+1. Log into PyPI, and navigate to the trusted publishing settings for the project you'd like to configure. For a project named `myproject`, this will be at `https://pypi.org/manage/project/myproject/settings/publishing/`.
 
 2. Configure a trust relationship between the PyPI project and a GitHub repository (and workflow within the repository). For example, if your GitHub repository is at `myorg/myproject` and your release workflow is defined in `release.yml`,
-then you should use the following settings for your GitHub OIDC publisher on PyPI:
+then you should use the following settings for your trusted publisher on PyPI:
 
     * Owner: `myorg`
     * Repository name: `myproject`
@@ -54,9 +54,9 @@ then you should use the following settings for your GitHub OIDC publisher on PyP
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once your OIDC publisher is registered on PyPI, you can update your release workflow to use OIDC publishing.
+Once your trusted publisher is registered on PyPI, you can update your release workflow to use trusted publishing.
 
-The [`pypa/gh-action-pypi-publish`](https://github.com/pypa/gh-action-pypa-publish) has built-in support for OIDC publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the ordinary `username` and `password` action settings.
+The [`pypa/gh-action-pypi-publish`](https://github.com/pypa/gh-action-pypa-publish) has built-in support for trusted publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the ordinary `username` and `password` action settings.
 
 The following example uses `pypa/gh-action-pypi-publish` to exchange an OIDC token for a PyPI API token, which is then used to upload a package's release distributions to PyPI.
 
