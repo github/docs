@@ -55495,6 +55495,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -57690,7 +57698,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -73994,6 +74002,14 @@
       "description": "<p>A subset of repository info.</p>",
       "fields": [
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -74179,7 +74195,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
