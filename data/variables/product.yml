@@ -138,6 +138,7 @@ prodname_discussions: 'GitHub Discussions'
 prodname_emu_idp_application: 'GitHub Enterprise Managed User'
 prodname_emu_idp_oidc_application: 'GitHub Enterprise Managed User (OIDC)'
 prodname_emus: 'Enterprise Managed Users'
+prodname_emu: 'Enterprise Managed User'
 
 # GitHub Issues
 prodname_github_issues: 'GitHub Issues'

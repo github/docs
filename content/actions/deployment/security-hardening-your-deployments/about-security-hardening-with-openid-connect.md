@@ -76,12 +76,14 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
-  "run_attempt": "2",
+  "run_attempt": "2",{% ifversion actions-OIDC-custom-claim-runner-environment %}
+  "runner_environment": "github-hosted"{% endif %}
   "actor": "octocat",
   "workflow": "example-workflow",
   "head_ref": "",
   "base_ref": "",
-  "event_name": "workflow_dispatch",
+  "event_name": "workflow_dispatch",{% ifversion actions-OIDC-custom-claim-enterprise %}
+  "enterprise": "avocado-corp"{% endif %}
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
   "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
@@ -121,6 +123,9 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `actor`| The personal account that initiated the workflow run.                   |
 | `actor_id`| The ID of personal account that initiated the workflow run.             |
 | `base_ref`| The target branch of the pull request in a workflow run.                   |
+{%- ifversion actions-OIDC-custom-claim-enterprise %}
+| `enterprise`| The name of the enterprise that contains the repository from where the workflow is running.                  |
+{%- endif %}
 | `environment`| The name of the environment used by the job.                    |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
@@ -138,6 +143,9 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `run_id`| The ID of the workflow run that triggered the workflow.                   |
 | `run_number`| The number of times this workflow has been run.                   |
 | `run_attempt`| The number of times this workflow run has been retried.                    |
+{%- ifversion actions-OIDC-custom-claim-runner-environment %}
+| `runner_environment`| The type of runner used by the job. Accepts the following values: `github-hosted` or `self-hosted`.                  |
+{%- endif %}
 | `workflow`| The name of the workflow.                   |
 {%- ifversion actions-oidc-custom-claims %}
 | `workflow_ref`| {% data reusables.actions.workflow-ref-description %}                   |

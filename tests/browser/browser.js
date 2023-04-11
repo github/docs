@@ -23,7 +23,7 @@ describe('homepage', () => {
 })
 
 // Note: we can only test Elasticsearch searches on things we have indexed
-// in the fixtures. See the contents of /tests/content/fixtures/search-indexes/
+// in the fixtures. See the contents of /src/search/tests/fixtures/search-indexes
 describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
@@ -333,133 +333,6 @@ describe('survey', () => {
     // (sent a PUT request to /events/{id})
     // I see the feedback
     await page.waitForSelector('[data-testid=survey-end]')
-  })
-})
-
-describe('tool specific content', () => {
-  const pageWithSingleSwitcher =
-    'http://localhost:4000/en/actions/managing-workflow-runs/manually-running-a-workflow'
-  const pageWithoutSwitcher =
-    'http://localhost:4000/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
-  const pageWithMultipleSwitcher =
-    'http://localhost:4000/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
-
-  it('should have a tool switcher if a tool switcher is included', async () => {
-    await page.goto(pageWithSingleSwitcher)
-    const nav = await page.$$('[data-testid="tool-picker"]')
-    const switches = await page.$$('[data-testid="tool-picker"] div a')
-    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-    expect(nav).toHaveLength(1)
-    expect(switches.length).toBeGreaterThan(1)
-    expect(selectedSwitch).toHaveLength(1)
-  })
-
-  it('should NOT have a tool switcher if no tool switcher is included', async () => {
-    await page.goto(pageWithoutSwitcher)
-    const nav = await page.$$('[data-testid="tool-picker"]')
-    const switches = await page.$$('[data-testid="tool-picker"] div a')
-    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-    expect(nav).toHaveLength(0)
-    expect(switches).toHaveLength(0)
-    expect(selectedSwitch).toHaveLength(0)
-  })
-
-  it('should use cli if no defaultTool is specified and if webui is not one of the tools', async () => {
-    await page.goto(pageWithMultipleSwitcher)
-    const selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub CLI')
-  })
-
-  it('should use webui if no defaultTool is specified and if webui is one of the tools', async () => {
-    await page.goto(pageWithSingleSwitcher)
-    const selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('Web browser')
-  })
-
-  it('should use the recorded user selection', async () => {
-    // With no user data, the selected tool is GitHub.com
-    await page.goto(pageWithSingleSwitcher)
-    let selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('Web browser')
-
-    await page.click('[data-testid="tool-picker"] [data-tool="cli"]')
-
-    // Revisiting the page after CLI is selected results in CLI as the selected tool
-    await page.goto(pageWithSingleSwitcher)
-    selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub CLI')
-  })
-
-  it('should show the content for the selected tool only', async () => {
-    await page.goto(pageWithSingleSwitcher)
-
-    const tools = ['webui', 'cli']
-    for (const tool of tools) {
-      await page.click(`[data-tool="${tool}"]`)
-
-      // content for selected tool is expected to become visible
-      await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
-
-      // only a single tab should be selected
-      const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-      expect(selectedSwitch).toHaveLength(1)
-
-      // content for NOT selected tools is expected to become hidden
-      const otherTools = tools.filter((e) => e !== tool)
-      for (const other of otherTools) {
-        await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
-      }
-    }
-  })
-})
-
-describe('code examples', () => {
-  it('loads correctly', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
-    expect(shownCards.length).toBeGreaterThan(0)
-    expect(shownNoResult).toBeNull()
-  })
-
-  it('filters cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'policy')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBeGreaterThan(1)
-  })
-
-  it('shows more cards', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    const initialCards = await page.$$('[data-testid=code-example-card]')
-    await page.click('[data-testid=code-examples-show-more]')
-    const moreCards = await page.$$('[data-testid=code-example-card]')
-    expect(moreCards.length).toBeGreaterThan(initialCards.length)
-  })
-
-  it('displays no result message', async () => {
-    await page.goto('http://localhost:4000/en/code-security')
-    await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'this should not work')
-    await page.click('[data-testid=code-examples-search-btn]')
-    const shownCards = await page.$$('[data-testid=code-example-card]')
-    expect(shownCards.length).toBe(0)
-    const noResultsMessage = await page.$('[data-testid=code-examples-no-results]')
-    expect(noResultsMessage).not.toBeNull()
   })
 })
 

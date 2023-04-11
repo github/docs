@@ -170,7 +170,7 @@ The following examples are designed to give you an idea of some of the build com
 - C/C++ project built using `make`:
 
    ```
-   {% data variables.product.prodname_codeql %} database create cpp-database --language=cpp --command=make
+   codeql database create cpp-database --language=cpp --command=make
    ```
 
 - C# project built using `dotnet build`:
@@ -178,37 +178,38 @@ The following examples are designed to give you an idea of some of the build com
    It is a good idea to add `/t:rebuild` to ensure that all code will be built, or do a prior `dotnet clean` (code that is not built will not be included in the {% data variables.product.prodname_codeql %} database):
 
    ```
-   {% data variables.product.prodname_codeql %} database create csharp-database --language=csharp --command='dotnet build /t:rebuild'
+   codeql database create csharp-database --language=csharp --command='dotnet build /t:rebuild'
    ```
 
 - Go project built using the `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` environment variable:
 
    ```
-   CODEQL_EXTRACTOR_GO_BUILD_TRACING=on {% data variables.product.prodname_codeql %} database create go-database --language=go
+   CODEQL_EXTRACTOR_GO_BUILD_TRACING=on codeql database create go-database --language=go
    ```
 
 - Go project built using a custom build script:
 
    ```
-   {% data variables.product.prodname_codeql %} database create go-database --language=go --command='./scripts/build.sh'
+   codeql database create go-database --language=go --command='./scripts/build.sh'
    ```
 
 - Java project built using Gradle:
 
    ```
-   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL: {% data variables.product.prodname_codeql %} database create java-database --language=java --command='gradle --no-daemon clean test'
+   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL:
+   codeql database create java-database --language=java --command='gradle --no-daemon clean test'
    ```
 
 - Java project built using Maven:
 
    ```
-   {% data variables.product.prodname_codeql %} database create java-database --language=java --command='mvn clean install'
+   codeql database create java-database --language=java --command='mvn clean install'
    ```
 
 - Java project built using Ant:
 
    ```
-   {% data variables.product.prodname_codeql %} database create java-database --language=java --command='ant -f build.xml'
+   codeql database create java-database --language=java --command='ant -f build.xml'
    ```
 
 - Project built using Bazel:
@@ -224,7 +225,7 @@ The following examples are designed to give you an idea of some of the build com
    # `--spawn_strategy=local`: build locally, instead of using a distributed build
    # `--nouse_action_cache`: turn off build caching, which might prevent recompilation of source code
    # `--noremote_accept_cached`, `--noremote_upload_local_results`: avoid using a remote cache
-   {% data variables.product.prodname_codeql %} database create new-database --language=<language> \
+   codeql database create new-database --language=<language> \
    --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results //path/to/package:target'
 
    # After building, stop all running Bazel server processes.
@@ -236,7 +237,7 @@ The following examples are designed to give you an idea of some of the build com
 - Project built using a custom build script:
 
    ```
-   {% data variables.product.prodname_codeql %} database create new-database --language=<language> --command='./scripts/build.sh'
+   codeql database create new-database --language=<language> --command='./scripts/build.sh'
    ```
 
 This command runs a custom script that contains all of the commands required to build the project.

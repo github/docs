@@ -23,7 +23,7 @@ If a REST API endpoint requires you to authenticate as an app, the documentation
 1. Include the JWT in the `Authorization` header of your request. In the following example, replace `YOUR_JWT` with your JWT.
 
    ```shell
-   curl --request POST \
+   curl --request GET \
    --url "{% data variables.product.api_url_pre %}/app/installations" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %}\

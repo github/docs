@@ -176,7 +176,6 @@ To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT --bbs-repo CURRENT-NAME \
   --github-org DESTINATION --github-repo NEW-NAME \
-  --wait \
   # Use the following options if your Bitbucket Server instance runs on Linux
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
   # Use the following options if your Bitbucket Server instance runs on Windows
@@ -184,8 +183,6 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   # Use the following option if you're using AWS S3 as your blob storage provider
   --aws-bucket-name AWS-BUCKET-NAME
 ```
-
-{% data reusables.enterprise-migration-tool.wait-flag %}
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
 {% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}

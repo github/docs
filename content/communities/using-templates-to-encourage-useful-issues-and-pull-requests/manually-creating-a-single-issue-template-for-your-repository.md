@@ -73,4 +73,3 @@ assignees: octocat
 - "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)"
 - "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)"
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"

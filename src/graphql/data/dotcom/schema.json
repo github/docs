@@ -12890,7 +12890,9 @@
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>pushedDate</code> is no longer supported. Removal on 2023-07-01 UTC.</p>"
         },
         {
           "name": "repository",
@@ -26239,6 +26241,14 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "hovercard",
           "description": "<p>The hovercard information for this issue.</p>",
           "type": "Hovercard!",
@@ -27334,6 +27344,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "includesCreatedEdit",
@@ -38533,6 +38551,16 @@
               }
             },
             {
+              "name": "notificationSetting",
+              "description": "<p>If non-null, filters teams according to notification setting.</p>",
+              "type": {
+                "name": "TeamNotificationSetting",
+                "id": "teamnotificationsetting",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#teamnotificationsetting"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for teams returned from the connection.</p>",
               "type": {
@@ -40617,6 +40645,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "issue",
@@ -55459,6 +55495,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -57654,7 +57698,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -59585,16 +59629,6 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "fixReason",
-          "description": "<p>The reason the alert was marked as fixed.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -64137,6 +64171,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "notificationSetting",
+          "description": "<p>The notification setting that the team has set.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#teamnotificationsetting"
         },
         {
           "name": "organization",
@@ -73960,6 +74002,14 @@
       "description": "<p>A subset of repository info.</p>",
       "fields": [
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -74145,7 +74195,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -75910,6 +75960,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The deployment has queued.</p>"
+        },
+        {
+          "name": "SUCCESS",
+          "description": "<p>The deployment was successful.</p>"
         },
         {
           "name": "WAITING",
@@ -81078,6 +81132,23 @@
       ]
     },
     {
+      "name": "TeamNotificationSetting",
+      "kind": "enums",
+      "id": "teamnotificationsetting",
+      "href": "/graphql/reference/enums#teamnotificationsetting",
+      "description": "<p>The possible team notification values.</p>",
+      "values": [
+        {
+          "name": "NOTIFICATIONS_DISABLED",
+          "description": "<p>No one will receive notifications.</p>"
+        },
+        {
+          "name": "NOTIFICATIONS_ENABLED",
+          "description": "<p>Everyone will receive notifications when the team is @mentioned.</p>"
+        }
+      ]
+    },
+    {
       "name": "TeamOrderField",
       "kind": "enums",
       "id": "teamorderfield",
@@ -83816,8 +83887,8 @@
         },
         {
           "name": "line",
-          "description": "<p>The line of the blob to which the thread refers. The end of the line range for multi-line comments.</p>",
-          "type": "Int!",
+          "description": "<p>The line of the blob to which the thread refers, required for line-level\nthreads. The end of the line range for multi-line comments.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -94898,6 +94969,13 @@
       "id": "base64string",
       "href": "/graphql/reference/scalars#base64string",
       "description": "<p>A (potentially binary) string encoded using base64.</p>"
+    },
+    {
+      "name": "BigInt",
+      "kind": "scalars",
+      "id": "bigint",
+      "href": "/graphql/reference/scalars#bigint",
+      "description": "<p>Represents non-fractional signed whole numeric values. Since the value may\nexceed the size of a 32-bit integer, it's encoded as a string.</p>"
     },
     {
       "name": "Boolean",

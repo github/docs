@@ -53,6 +53,7 @@ jobs:
               { name: 'routing', path: 'tests/routing', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
+              { name: 'search', path: 'src/search/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
@@ -76,7 +77,7 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
       - uses: ./.github/actions/setup-elasticsearch
-        if: ${{ matrix.name == 'content' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -165,7 +166,7 @@ jobs:
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.name == 'content' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
         run: npm run index-test-fixtures
 
       - name: Run tests

@@ -1,0 +1,6 @@
+# Reference: #9959
+# Optionally disable notifications from team mentions
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

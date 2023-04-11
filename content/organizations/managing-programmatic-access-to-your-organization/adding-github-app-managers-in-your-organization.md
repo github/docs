@@ -31,7 +31,6 @@ For more information about {% data variables.product.prodname_github_app %} mana
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to add a {% data variables.product.prodname_github_app %} manager for.
-![Select {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. At the bottom of the "App managers" section, in the search field, type the username of the person you want to designate as a GitHub App manager for the app, then click **Grant**.
 

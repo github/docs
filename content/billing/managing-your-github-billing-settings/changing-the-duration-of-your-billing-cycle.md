@@ -48,7 +48,11 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-You cannot change the duration of your billing cycle if your enterprise account is invoiced.
+{% note %}
+
+**Note:** You cannot change the duration of your billing cycle if your enterprise account is invoiced.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

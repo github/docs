@@ -18,7 +18,7 @@ describe('redirects', () => {
   let redirects
   beforeAll(async () => {
     const res = await get('/en?json=redirects')
-    redirects = JSON.parse(res.text)
+    redirects = JSON.parse(res.body)
   })
 
   test('page.buildRedirects() returns an array', async () => {

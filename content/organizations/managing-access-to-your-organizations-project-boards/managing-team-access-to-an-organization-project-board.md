@@ -43,10 +43,10 @@ You can give an entire team the same permission level to a {% data variables.pro
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
-8. In the left sidebar, click **Teams**.
-9. To add a team, click **Add a team: Select team**. Then, choose a team from the drop-down menu or search for the team you'd like to add.
+1. In the left sidebar, click **Teams**.
+1. To add a team, click **Add a team: Select team**. Then, choose a team from the dropdown menu or search for the team you'd like to add.
  ![Add a team drop-down menu with list of teams in organization](/assets/images/help/projects/add-a-team.png)
-10. Next to the team name, use the drop-down menu to select the desired permission level: **Read**, **Write**, or **Admin**.
+1. Next to the team name, use the dropdown menu to select the desired permission level: **Read**, **Write**, or **Admin**.
  ![Team permissions drop-down menu with read, write, and admin options](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
 ## Configuring a team's access to a {% data variables.projects.projects_v1_board %}
@@ -56,10 +56,9 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-4. Above the team's conversation, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
+1. Above the team's conversation, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
   ![The team repositories tab](/assets/images/help/organizations/team-project-board-button.png)
-5. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the drop-down. To remove a {% data variables.projects.projects_v1_board %}, click **{% octicon "trash" aria-label="The trash icon" %}**.
-  ![Remove a project board from your team trash button](/assets/images/help/organizations/trash-button.png)
+1. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the permission level dropdown menu.
 
 {% ifversion projects-v2-add-to-team %}
 
