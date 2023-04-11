@@ -74,12 +74,25 @@ Try default setup if you don't need to run extra queries, change the scan schedu
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Default**.
 
   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
-1. In the {% data variables.product.prodname_codeql %} default configuration window that is displayed, review the settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
+
+1. Optionally, in the "Query suites" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select the **Default** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the {% data variables.product.prodname_codeql %} query suite you would like to use.
+
+  ![Screenshot of the default setup modal for {% data variables.product.prodname_code_scanning %}. A button labeled "Default", with an arrow indicating a dropdown menu, is outlined in dark orange.](/assets/images/help/security/default-setup-query-suite-dropdown.png)
+
+  If you choose the **Extended** query suite, your {% data variables.product.prodname_code_scanning %} configuration will run lower severity and precision queries in addition to the queries included in the **Default** query suite.
+
+  {% note %}
+
+  **Note:** If you configure {% data variables.product.prodname_code_scanning %} to use the **Extended** query suite, you may experience a higher rate of false positive alerts.
+
+  {% endnote %}
+
+1. Review the settings for the default setup on your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
 
   {% note %}
 
   **Notes:**
-     - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which query suites will run, what events will trigger a new scan, or other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+     - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which events will trigger a new scan or customize other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
      - If you are switching to the default setup from the advanced setup, you will see a warning informing you that the default setup will override existing configurations. {% data variables.product.prodname_codeql %} default setup will disable the existing workflow file, and block any {% data variables.product.prodname_codeql %} analysis API uploads.
      - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "gear" aria-label="The gear icon" %} **View {% data variables.product.prodname_codeql %} configuration**.
 
