@@ -55,7 +55,7 @@ With the `in` qualifier you can restrict your search to the contents of the sour
 | ------------- | -------------
 | `in:file` | [**octocat in:file**](https://github.com/search?q=octocat+in%3Afile&type=Code) matches code where "octocat" appears in the file contents.
 | `in:path` | [**octocat in:path**](https://github.com/search?q=octocat+in%3Apath&type=Code) matches code where "octocat" appears in the file path.
-| | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
+| `in:file,path` | [**octocat in:file,path**](https://github.com/search?q=octocat+in%3Afile%2Cpath&type=Code) matches code where "octocat" appears in the file contents or the file path.
 
 ## Search within a user's or organization's repositories
 
@@ -84,8 +84,8 @@ You can search for code based on what language it's written in. The `language` q
 | Qualifier  | Example
 | ------------- | -------------
 | <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
-| | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
-| | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
+| <code>language:<em>LANGUAGE</em></code> | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
+| <code>language:<em>LANGUAGE</em></code> | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
 
 ## Search by file size
 
@@ -102,8 +102,8 @@ The `filename` qualifier matches code files with a certain filename. You can als
 | Qualifier  | Example
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
-| | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
-| | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
+| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
+| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
 
 ## Search by file extension
 
@@ -112,7 +112,7 @@ The `extension` qualifier matches code files with a certain file extension.
 | Qualifier  | Example
 | ------------- | -------------
 | <code>extension:<em>EXTENSION</em></code> | [**form path:cgi-bin extension:pm**](https://github.com/search?q=form+path%3Acgi-bin+extension%3Apm&type=Code) matches code with the word "form," under <em>cgi-bin</em>, with the <em>.pm</em> file extension.
-| | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
+| <code>extension:<em>EXTENSION</em></code> | [**icon size:>200000 extension:css**](https://github.com/search?utf8=%E2%9C%93&q=icon+size%3A%3E200000+extension%3Acss&type=Code) matches files larger than 200 KB that end in .css and have the word "icon."
 
 ## Further reading
 

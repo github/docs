@@ -21,10 +21,6 @@ For each pending collaborator, you can cancel all invitations to join organizati
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-{% data reusables.organizations.people_tab_outside_collaborators %}
-5. Click **X pending collaborators**.
-  !["Pending collaborators" button](/assets/images/help/organizations/pending-collaborator-list.png)
-6. To the right of the person you want to cancel invitations for, click **Cancel invitations**.
-  !["Cancel invitation" button](/assets/images/help/organizations/cancel-pending-collaborators.png)
-7. Click **Cancel invitations for pending collaborators**.
-  ![Button to confirm cancellation](/assets/images/help/organizations/confirm-cancelation-of-pending-collaborators.png)
+1. In the "Organization permissions" sidebar, click **Pending collaborators**
+1. To the right of the person you want to cancel invitations for, click **Cancel invitations**.
+1. Click **Cancel invitations for pending collaborators**.

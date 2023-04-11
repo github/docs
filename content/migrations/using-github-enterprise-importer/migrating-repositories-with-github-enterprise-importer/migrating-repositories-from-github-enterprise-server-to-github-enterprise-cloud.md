@@ -388,7 +388,7 @@ If you configure your blob storage credentials in the {% data variables.product.
 
 {% data reusables.enterprise-migration-tool.gh-gei-generate-script %}
 
-For Azure Blob Storage, use the following flags:
+For {% data variables.product.prodname_ghe_server %} 3.8 or later, or if you're using 3.7 or lower with Azure Blob Storage, use the following flags:
 
 ```shell{:copy}
 gh gei generate-script --github-source-org SOURCE \
@@ -397,7 +397,7 @@ gh gei generate-script --github-source-org SOURCE \
   --ghes-api-url GHES-API-URL
 ```
 
-For AWS S3, use the following flags:
+If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower with AWS S3, use the following flags:
 
 ```shell{:copy}
 gh gei generate-script --github-source-org SOURCE \
@@ -432,15 +432,16 @@ When you migrate repositories, the {% data variables.product.prodname_gei_cli %}
 
 ### Migrate multiple repositories
 
-Before running the script you generated above, you must set additional environment variables to authenticate to your blob storage provider.
+If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier, before you run your script, you must set additional environment variables to authenticate to your blob storage provider.
 
 - For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
 
    {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
 - For AWS S3, set the following environment variables.
-  - `AWS_BUCKET_NAME`: The name of your bucket
   - `AWS_ACCESS_KEY`: The access key for your bucket
   - `AWS_SECRET_KEY`: The secret key for your bucket
+  - `AWS_REGION`: The AWS region where your bucket is located
+  - `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 
 {% data reusables.enterprise-migration-tool.migrate-multiple-repos %}
 
@@ -450,19 +451,24 @@ Before running the script you generated above, you must set additional environme
 
 {% data reusables.enterprise-migration-tool.gei-migrate-repo %}
 
-If you're using Azure Blob Storage, use the following flags to authenticate:
+If you're using {% data variables.product.prodname_ghe_server %} 3.8 or later, use the following flags:
+
+```shell{:copy}
+gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --ghes-api-url GHES-API-URL
+```
+
+If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Azure Blob Storage as your blob storage provider, use the following flags to authenticate:
 
 ```shell{:copy}
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
     --ghes-api-url GHES-API-URL --azure-storage-connection-string "AZURE_STORAGE_CONNECTION_STRING"
 ```
 
-If you're using AWS S3, use the following flags to authenticate:
+If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Amazon S3 as your blob storage provider, use the following flags to authenticate:
 
 ```shell{:copy}
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
-    --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME" --aws-access-key "AWS_ACCESS_KEY" \
-    --aws-secret-key "AWS_SECRET_KEY"
+    --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME"
 ```
 
 {% data reusables.enterprise-migration-tool.ssl-flag %}
@@ -473,7 +479,6 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 {% data reusables.enterprise-migration-tool.ghes-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.azure-storage-connection-string-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
-{% data reusables.enterprise-migration-tool.aws-key-placeholders %}
 
 ## Step 7: Validate your migration and check the error log
 

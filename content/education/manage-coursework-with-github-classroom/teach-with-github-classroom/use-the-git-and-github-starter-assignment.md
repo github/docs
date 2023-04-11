@@ -60,6 +60,8 @@ For an individual assignment, {% data variables.product.prodname_classroom %} na
 
 {% data reusables.classroom.assignments-guide-assign-a-deadline %}
 
+{% data reusables.classroom.assignments-guide-make-cutoff-date %}
+
 ### Choosing a visibility for assignment repositories
 
 The repositories for an assignment can be public or private. If you use private repositories, only the student can see the feedback you provide. Under "Repository visibility," select a visibility.

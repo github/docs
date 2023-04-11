@@ -172,6 +172,10 @@ The relevant settings are explained in the following table. For full details abo
 
 <table>
 <tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
+</tr>
+<tr>
 <td>
 {% raw %}
 ```yaml
@@ -240,7 +244,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  This job installs npm and uses it to build the app.
 </td>
 </tr>
 

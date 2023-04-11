@@ -1,6 +1,6 @@
 ---
 title: Issue event types
-intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+intro: 'For the REST APIs for issue events and timeline events, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
 redirect_from:
   - /v3/issues/issue-event-types
   - /developers/webhooks-and-events/issue-event-types
@@ -13,13 +13,13 @@ versions:
 topics:
   - Events
 ---
-Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/issues#events) and the [Timeline Events API](/rest/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
+Issue events are triggered by activity in issues and pull requests and are available in the REST API for [Issue events](/rest/issues#events) and [Timeline events](/rest/issues#timeline). Each event type specifies whether the event is available in the REST API for issue events or timeline events.
 
 GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
 ## Issue event object common properties
 
-Issue events all have the same object structure, except events that are only available in the Timeline Events API. Some events also include additional properties that provide more context about the event resources. Refer to the specific event for details about any properties that differ from this object format.
+Issue events all have the same object structure, except events that are only available in the REST API for timeline events. Some events also include additional properties that provide more context about the event resources. Refer to the specific event for details about any properties that differ from this object format.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -27,11 +27,16 @@ Issue events all have the same object structure, except events that are only ava
 
 The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull request</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for added_to_project
 
@@ -45,11 +50,16 @@ This event is available for the following issue types:
 
 The issue or pull request was assigned to a user.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X**  |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for assigned
 
@@ -60,11 +70,15 @@ This event is available for the following issue types:
 
 GitHub unsuccessfully attempted to automatically change the base branch of the pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |  |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for automatic_base_change_failed
 
@@ -74,11 +88,15 @@ This event is available for the following issue types:
 
 GitHub successfully attempted to automatically change the base branch of the pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for automatic_base_change_succeeded
 
@@ -88,11 +106,15 @@ This event is available for the following issue types:
 
 The base reference branch of the pull request changed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for base_ref_changed
 
@@ -102,11 +124,16 @@ This event is available for the following issue types:
 
 The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for closed
 
@@ -116,11 +143,16 @@ This event is available for the following issue types:
 
 A comment was added to the issue or pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for commented
 
@@ -145,11 +177,15 @@ Name | Type | Description
 
 A commit was added to the pull request's `HEAD` branch.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> |  | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for committed
 
@@ -173,11 +209,16 @@ Name | Type | Description
 
 The issue or pull request was linked to another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for connected
 
@@ -187,11 +228,15 @@ This event is available for the following issue types:
 
 The pull request was converted to draft mode.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for convert_to_draft
 
@@ -201,11 +246,15 @@ This event is available for the following issue types:
 
 The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for converted_note_to_issue
 
@@ -219,11 +268,15 @@ This event is available for the following issue types:
 
 The issue was closed and converted to a discussion.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|-----|-----|-----|
-| <ul><li>Issues</li></ul> | **X** | |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %}|
+
+{% endrowheaders %}
 
 ### Properties for converted_to_discussion
 
@@ -233,11 +286,16 @@ This event is available for the following issue types:
 
 The issue or pull request was referenced from another issue or pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for cross-referenced
 
@@ -249,7 +307,7 @@ Name | Type | Description
 `created_at` | `string` | The timestamp indicating when the cross-reference was added.
 `updated_at` | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.
 `source` | `object` | The issue or pull request that added a cross-reference.
-`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request]` object exists.
+`source[type]` | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the REST API for timeline events. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request]` object exists.
 `source[issue]` | `object` | The `issue` object that added the cross-reference.
 `event` | `string` | The event value is `"cross-referenced"`.
 
@@ -257,11 +315,16 @@ Name | Type | Description
 
 The issue or pull request was removed from a milestone.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for demilestoned
 
@@ -273,11 +336,15 @@ This event is available for the following issue types:
 
 The pull request was deployed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for deployed
 
@@ -287,11 +354,15 @@ This event is available for the following issue types:
 
 The pull request deployment environment was changed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** |  |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for deployment_environment_changed
 
@@ -301,11 +372,17 @@ This event is available for the following issue types:
 
 The issue or pull request was unlinked from another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
+
 
 ### Properties for disconnected
 
@@ -315,11 +392,15 @@ This event is available for the following issue types:
 
 The pull request's `HEAD` branch was deleted.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for head_ref_deleted
 
@@ -329,21 +410,28 @@ This event is available for the following issue types:
 
 The pull request's `HEAD` branch was restored to the last known commit.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
 
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 ## head_ref_force_pushed
 
 The pull request's HEAD branch was force pushed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for head_ref_force_pushed
 
@@ -353,11 +441,16 @@ This event is available for the following issue types:
 
 A label was added to the issue or pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for labeled
 
@@ -368,11 +461,16 @@ This event is available for the following issue types:
 
 The issue or pull request was locked.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for locked
 
@@ -383,11 +481,16 @@ This event is available for the following issue types:
 
 The `actor` was `@mentioned` in an issue or pull request body.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for mentioned
 
@@ -397,11 +500,16 @@ This event is available for the following issue types:
 
 A user with write permissions marked an issue as a duplicate of another issue, or a pull request as a duplicate of another pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for marked_as_duplicate
 
@@ -411,11 +519,15 @@ This event is available for the following issue types:
 
 The pull request was merged. The `commit_id` attribute is the SHA1 of the `HEAD` commit that was merged. The `commit_repository` is always the same as the main repository.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for merged
 
@@ -425,11 +537,16 @@ This event is available for the following issue types:
 
 The issue or pull request was added to a milestone.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for milestoned
 
@@ -441,11 +558,16 @@ This event is available for the following issue types:
 
 The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for moved_columns_in_project
 
@@ -460,11 +582,15 @@ This event is available for the following issue types:
 
 The issue was pinned.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for pinned
 
@@ -474,11 +600,15 @@ This event is available for the following issue types:
 
 A draft pull request was marked as ready for review.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for ready_for_review
 
@@ -488,11 +618,16 @@ This event is available for the following issue types:
 
 The issue was referenced from a commit message. The `commit_id` attribute is the commit SHA1 of where that happened and the commit_repository is where that commit was pushed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for referenced
 
@@ -502,11 +637,16 @@ This event is available for the following issue types:
 
 The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for removed_from_project
 
@@ -520,11 +660,16 @@ This event is available for the following issue types:
 
 The issue or pull request title was changed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for renamed
 
@@ -537,11 +682,16 @@ This event is available for the following issue types:
 
 The issue or pull request was reopened.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for reopened
 
@@ -551,11 +701,15 @@ This event is available for the following issue types:
 
 The pull request review was dismissed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for review_dismissed
 
@@ -566,11 +720,15 @@ This event is available for the following issue types:
 
 A pull request review was requested.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for review_requested
 
@@ -581,11 +739,15 @@ This event is available for the following issue types:
 
 A pull request review request was removed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for review_request_removed
 
@@ -596,11 +758,15 @@ This event is available for the following issue types:
 
 The pull request was reviewed.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Pull requests</li></ul> |  | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Pull requests| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for reviewed
 
@@ -625,11 +791,16 @@ Name | Type | Description
 
 Someone subscribed to receive notifications for an issue or pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for subscribed
 
@@ -639,11 +810,15 @@ This event is available for the following issue types:
 
 The issue was transferred to another repository.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for transferred
 
@@ -653,11 +828,16 @@ This event is available for the following issue types:
 
 A user was unassigned from the issue.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for unassigned
 
@@ -668,11 +848,16 @@ This event is available for the following issue types:
 
 A label was removed from the issue.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for unlabeled
 
@@ -683,11 +868,16 @@ This event is available for the following issue types:
 
 The issue was unlocked.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for unlocked
 
@@ -698,11 +888,16 @@ This event is available for the following issue types:
 
 An issue that a user had previously marked as a duplicate of another issue is no longer considered a duplicate, or a pull request that a user had previously marked as a duplicate of another pull request is no longer considered a duplicate.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for unmarked_as_duplicate
 
@@ -712,12 +907,15 @@ This event is available for the following issue types:
 
 The issue was unpinned.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li></ul> | **X** | **X** |
+{% rowheaders %}
 
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 ### Properties for unpinned
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -726,11 +924,16 @@ This event is available for the following issue types:
 
 Someone unsubscribed from receiving notifications for an issue or pull request.
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> |  | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for unsubscribed
 
@@ -741,11 +944,16 @@ This event is available for the following issue types:
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
-This event is available for the following issue types:
+This event is available for the following issue types.
 
-|Issue type | Issue events API | Timeline events API|
-|:----------|:----------------:|:-----------------:|
-| <ul><li>Issues</li><li>Pull requests</li></ul> | **X** | **X** |
+{% rowheaders %}
+
+|  | REST API for issue events | REST API for timeline events |
+|---|---|---|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+|Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Properties for user_blocked
 

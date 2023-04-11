@@ -48,8 +48,6 @@ It is possible to manually create a single issue template in Markdown using the 
 
 When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body.
 
-![Sample pull request template](/assets/images/help/pull_requests/pr-template-sample.png)
-
 You must create templates on the repository's default branch. Templates created in other branches are not available for collaborators to use. You can store your pull request template in the repository's visible root directory, the `docs` folder, or the hidden `.github` directory. Pull request template filenames are not case sensitive, and can have an extension such as *.md* or *.txt*.
 
 For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."

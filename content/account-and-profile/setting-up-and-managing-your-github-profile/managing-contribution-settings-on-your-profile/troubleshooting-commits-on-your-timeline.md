@@ -26,8 +26,6 @@ In the "Contribution activity" section of your profile page, you can click the n
 
 If you click a commit link from your profile page and don't see all of the expected commits on the repository's commits page, then it's possible the commit history in Git was rewritten and the commit author date and the commit date are different.
 
-![Repository page with message that says "no commits found for octocat"](/assets/images/help/repository/no-commits-found.png)
-
 ## How GitHub uses the Git author date and commit date
 
 In Git, the author date is when someone first creates a commit with `git commit`. The commit date is identical to the author date unless someone changes the commit date by using `git commit --amend`, a force push, a rebase, or other Git commands.

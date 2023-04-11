@@ -29,6 +29,11 @@ describe('autotitle', () => {
       expect(res.statusCode).toBe(500)
     }
   })
+
+  test('AUTOTITLE on anchor links should fail', async () => {
+    const res = await get('/get-started/foo/anchor-autotitling', { followRedirects: true })
+    expect(res.statusCode).toBe(500)
+  })
 })
 
 describe('cross-version-links', () => {

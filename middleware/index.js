@@ -29,7 +29,6 @@ import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
 import api from './api/index.js'
 import healthz from './healthz.js'
-import anchorRedirect from './anchor-redirect.js'
 import productIcons from './product-icons.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
@@ -62,6 +61,7 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
+import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -207,6 +207,10 @@ export default function (app) {
     app.use(fastlyBehavior) // FOR TESTING.
   }
 
+  if (process.env.NODE_ENV === 'development') {
+    app.use(mockVaPortal) // FOR TESTING.
+  }
+
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
@@ -235,7 +239,6 @@ export default function (app) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
-  app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))

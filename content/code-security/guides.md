@@ -67,9 +67,9 @@ includeGuides:
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
   - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
-  - /code-security/security-overview/about-the-security-overview
-  - /code-security/security-overview/filtering-alerts-in-the-security-overview
-  - /code-security/security-overview/viewing-the-security-overview
+  - /code-security/security-overview/about-security-overview
+  - /code-security/security-overview/filtering-alerts-in-security-overview
+  - /code-security/security-overview/assessing-code-security-risk
   - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
   - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
   - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
@@ -94,6 +94,7 @@ includeGuides:
   - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---

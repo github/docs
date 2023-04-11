@@ -42,6 +42,8 @@ When you create a codespace, various steps happen in the background before the c
 
 When you create a codespace, a [shallow clone](https://github.blog/2020-12-21-get-up-to-speed-with-partial-clone-and-shallow-clone/) is made of your repository, or of the template repository if you're creating a codespace from a template. The repository is cloned to a Linux virtual machine that is both dedicated and private to you. Having a dedicated VM ensures that you have the entire set of compute resources from that machine available to you. If necessary, this also allows you to have full root access to your container.
 
+Your repository is cloned into the `/workspaces` directory in the codespace. For more information, see "[About the directory structure of a codespace](#about-the-directory-structure-of-a-codespace)" below.
+
 ### Step 2: Container is created
 
 {% data variables.product.prodname_github_codespaces %} uses a container as the development environment. This container is created based on configurations that you can define in a `devcontainer.json` file and, optionally, a Dockerfile. If you create a codespace from {% data variables.product.company_short %}'s blank template, or from a repository with no `devcontainer.json` file, {% data variables.product.prodname_github_codespaces %} uses a default image, which has many languages and runtimes available. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)." For details of what the default image contains, see the [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal) repository.
@@ -152,6 +154,18 @@ If you work on your codespaces in a JetBrains IDE, you can add plugins from the 
    ![Screenshot of the "Preferences" dialog, with the "Marketplace" tab displayed. The "Plugins On Host" option is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-preferences-plugins.png)
 
 1. Click **Install** beside the required plugin.
+
+## About the directory structure of a codespace
+
+{% data reusables.codespaces.workspaces-directory %} For more information on the `/tmp` directory, see "[AUTOTITLE](/codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files#preventing-temporary-files-from-being-automatically-deleted)."
+
+Clearing the directories outside `/workspaces` helps to ensure the rebuilt container is in the same state as it would be in a newly created codespace. If you're rebuilding a container to apply configuration changes to the codespace you're working in, you can be confident that any configuration changes you have made will work the same for users creating new codespaces with the same configuration. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+
+If you want to make changes to your codespace that will be more robust over rebuilds and across different codespaces, you have several options.
+
+- To install programs and tools in all codespaces created from a repository, in your dev container configuration, you can use lifecycle command properties such as `postCreateCommand` to run custom installation commands, or you can choose from pre-written installation commands called "features." For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
+- To install tools or customize your setup in every codespace you create, such as configuring your `bash` profile, you can link {% data variables.product.prodname_github_codespaces %} with a dotfiles repository. The dotfiles repository is also cloned into the persistent `/workspaces` directory. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+- If you want to preserve specific files over a rebuild, you can use a `devcontainer.json` file to create a symlink between the files and a persistent directory within `/workspaces`. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
 ## Further reading
 

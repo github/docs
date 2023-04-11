@@ -114,10 +114,11 @@ You can filter a repository's list of pull requests to find:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. In the upper-right corner, select the Reviews drop-down menu.
-  ![Reviews drop-down menu in the filter menu above the list of pull requests](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
-4. Choose a filter to find all of the pull requests with that filter's status.
-  ![List of filters in the Reviews drop-down menu](/assets/images/help/pull_requests/pr-review-filters.png)
+1. In the upper-right corner, select the **Reviews** dropdown menu.
+
+   ![Screenshot of the filter menu above the list of pull requests. The "Reviews" dropdown is outlined in dark orange.](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
+
+1. Choose a filter to find all of the pull requests with that filter's status.
 
 ## Using search to filter issues and pull requests
 
@@ -180,7 +181,7 @@ With issue and pull request search terms, you can:
 For issues, you can also use search to:
 
 - Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
-- Filter issues by the reason they were closed: `is:closed reason:complete` or `is:closed reason:"not planned"`{% endif %}
+- Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`{% endif %}
 
 For pull requests, you can also use search to:
 - Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`

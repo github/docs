@@ -141,7 +141,7 @@ You can migrate multiple repositories with a migration script or a single reposi
 When you migrate repositories, the {% data variables.product.prodname_bbs2gh_cli %} performs the following steps:
 
 1. Connects to your Bitbucket Server instance and generates a migration archive per repository
-1. Downloads the migration archive from the Bitbucket Server instance to the machine where you're running the {% data variables.product.prodname_bbs2gh_cli %}, using SSH (Linux) or SMB (Windows)
+1. Downloads the migration archive from the Bitbucket Server instance to the machine where you're running the {% data variables.product.prodname_bbs2gh_cli %}, using SFTP (Linux) or SMB (Windows)
 1. Uploads the migration archives to the blob storage provider of your choice
 1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
 1. Deletes the migration archive
@@ -149,7 +149,7 @@ When you migrate repositories, the {% data variables.product.prodname_bbs2gh_cli
 You must follow this step from a computer that can access:
 
 - Your Bitbucket Server instance via HTTPS
-- Your Bitbucket Server instance via SSH, if your Bitbucket Server instance runs on Linux
+- Your Bitbucket Server instance via SFTP, if your Bitbucket Server instance runs on Linux. In general, if you can access the server via SSH, then you can also use SFTP.
 - Your Bitbucket Server instance via SMB, if your Bitbucket Server instance runs on Windows
 - Your chosen blob storage provider
 
@@ -158,9 +158,10 @@ You must follow this step from a computer that can access:
 Before running the script you generated above, you must set additional environment variables to authenticate to your blob storage provider.
 
 - For AWS S3, set the following environment variables.
-  - `AWS_BUCKET_NAME`: The name of your bucket
   - `AWS_ACCESS_KEY`: The access key for your bucket
   - `AWS_SECRET_KEY`: The secret key for your bucket
+  - `AWS_REGION`: The AWS region where your bucket is located
+  - `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 - For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
 
    {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
@@ -179,6 +180,8 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
   # Use the following options if your Bitbucket Server instance runs on Windows
   --smb-user SMB-USER
+  # Use the following option if you're using AWS S3 as your blob storage provider
+  --aws-bucket-name AWS-BUCKET-NAME
 ```
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
@@ -190,10 +193,11 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
+{% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
 
 {% note %}
 
-**Note:** If you get an error like `cipher name aes256-ctr for openssh key file is not supported` when running your migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
+**Note:** If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
 
 {% endnote %}
 

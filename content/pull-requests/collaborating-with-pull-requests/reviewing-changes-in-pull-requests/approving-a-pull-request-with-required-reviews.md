@@ -30,7 +30,7 @@ You can comment on a pull request, approve the changes, or request improvements 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
 {% data reusables.repositories.changed-files %}
-4. Review the changes in the pull request, and optionally, [comment on specific lines](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#starting-a-review).
+4. Review the changes in the pull request, and optionally, comment on specific lines{% ifversion pull-request-comment-on-file %} or files{% endif %}. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#starting-a-review)."
 {% data reusables.repositories.review-changes %}
 {% data reusables.repositories.review-summary-comment %}
 7. Select **Approve** to approve merging the changes proposed in the pull request.

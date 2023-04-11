@@ -84,11 +84,14 @@ jobs:
 
           branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
 
-          branchCheckout=$(git checkout -b $branchname)
-          if [[! $? -eq 0 ]]; then
-            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+          remotesha=$(git ls-remote --heads origin $branchname)
+          if [ -n "$remotesha" ]; then
+            # output is not empty, it means the remote branch exists
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
+
+          git checkout -b $branchname
           git add .
           git commit -m "Add decorated OpenAPI schema files"
           git push origin $branchname
@@ -109,4 +112,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-openapi.yml
+          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/openapi-decorate.yml

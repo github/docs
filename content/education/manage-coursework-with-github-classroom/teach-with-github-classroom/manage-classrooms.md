@@ -25,6 +25,8 @@ When you're done using a classroom, you can archive the classroom and refer to t
 
 {% data reusables.classroom.reuse-assignment-link %}
 
+You can also view your classrooms and assignments directly from the {% data variables.product.product_name %} command line interface with the {% data variables.product.prodname_classroom %} extension. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)."
+
 ## About classroom rosters
 
 Each classroom has a roster. A roster is a list of identifiers for the students who participate in your course.
@@ -125,3 +127,7 @@ You can archive a classroom that you no longer use on {% data variables.product.
 1. **Read the warnings**.
 1. To verify that you're deleting the correct classroom, type the name of the classroom you want to delete.
 1. Click **Delete classroom**.
+
+## Further reading
+
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)"

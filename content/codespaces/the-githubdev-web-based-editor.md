@@ -48,6 +48,8 @@ You can open any {% data variables.product.prodname_dotcom %} repository in {% d
 
 Both {% data variables.codespaces.serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
 
+{% rowheaders %}
+
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
 | **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing)."|
@@ -56,6 +58,8 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
+
+{% endrowheaders %}
 
 ### Continue working on {% data variables.product.prodname_codespaces %}
 
@@ -88,7 +92,7 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 
 1. In the text box, type a commit message describing the change you've made.
 
-   ![Screenshot of the "Source control" side bar with a commit message entered into the text box above the "Commit" button.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-message.png)  
+   ![Screenshot of the "Source control" side bar with a commit message entered into the text box above the "Commit" button.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-message.png)
 
 1. Click **Commit & Push**.
 

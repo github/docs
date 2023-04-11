@@ -20,6 +20,10 @@ shortTitle: Edit repository advisories
 
 ## Editing a security advisory
 
+{% ifversion repository-security-advisories-API %}
+You can also use the REST API to edit repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)" in the REST API documentation.
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}

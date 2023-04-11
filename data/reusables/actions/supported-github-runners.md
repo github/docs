@@ -1,9 +1,9 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th style="width:35%"><b>Runner image</b></th>
-    <th style="width:25%"><b>YAML workflow label</b></th>
-    <th style="width:40%"><b>Notes</b></th>
+    <th scope="col" style="width:35%"><b>Runner image</b></th>
+    <th scope="col" style="width:25%"><b>YAML workflow label</b></th>
+    <th scope="col" style="width:40%"><b>Notes</b></th>
   </tr>
 </thead>
 <tbody>
@@ -68,7 +68,7 @@ macOS Monterey 12
 <code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
 </td>
 <td>
-The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
+The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image. For information about macOS XL runner (12-core) per-minute pricing, see "<a href="https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates">About billing for {% data variables.product.prodname_actions %}</a>."
 </td>
 </tr>
 <tr>

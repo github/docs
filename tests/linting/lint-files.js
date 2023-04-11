@@ -496,34 +496,26 @@ describe('lint markdown content', () => {
       }
     })
 
-    //   TODO 47F50CA3 unskip the following tests (3 in total) when all the required videos are transcribed
-    //     'content/codespaces/index.md',
-    //     'content/discussions/index.md',
-
-    // ---- START SKIPPED TRANSCRIPTION TESTS ----
-
     // see contributing/videos.md
-    test.skip('transcripts must contain intro link to video being transcribed', async () => {
+    test('transcripts must contain intro link to video being transcribed', async () => {
       if (isTranscript && !isTranscriptLanding) {
         expect(frontmatterData.product_video).toBeDefined()
       }
     })
 
     // see contributing/videos.md
-    test.skip('transcripts must be prepended with "Transcript - "', async () => {
+    test('transcripts must be prepended with "Transcript - "', async () => {
       if (isTranscript && !isTranscriptLanding) {
         expect(frontmatterData.title.startsWith('Transcript - ')).toBe(true)
       }
     })
 
     // see contributing/videos.md
-    test.skip('videos on product landing pages must contain transcript', async () => {
+    test('videos on product landing pages must contain transcript', async () => {
       if (frontmatterData.layout === 'product-landing' && frontmatterData.product_video) {
         expect(frontmatterData.product_video_transcript).toMatch(/^\/video-transcripts\/.+/)
       }
     })
-
-    // ---- END SKIPPED TRANSCRIPTION TESTS ----
 
     test('relative URLs must start with "/"', async () => {
       const matches = links.filter((link) => {

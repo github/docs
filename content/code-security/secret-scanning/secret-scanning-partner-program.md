@@ -14,9 +14,9 @@ topics:
 shortTitle: Partner program
 ---
 
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
+{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories and public npm packages. Repository administrators and organization owners can also enable {% data variables.product.prodname_secret_scanning %} on private repositories. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
 
-When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
+When a match of your secret format is found in a public source, a payload is sent to an HTTP endpoint of your choice.
 
 When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -24,7 +24,7 @@ This article describes how you can partner with {% data variables.product.prodna
 
 ## The {% data variables.product.prodname_secret_scanning %} process
 
-The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
+The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint. A similar process sends service providers tokens exposed in public packages on the npm registry.
 
 ![Diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint.](/assets/images/help/security/secret-scanning-flow.png)
 
@@ -32,7 +32,7 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
 1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
+1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
 1. Provide feedback for false positives (optional).
@@ -55,7 +55,7 @@ Send this information to <a href="mailto:secret-scanning@github.com">secret-scan
 
 ### Create a secret alert service
 
-Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
+Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found publicly, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
 #### Example request body
 
@@ -90,6 +90,7 @@ The list of valid values for `source` are:
 * commit_comment
 * gist_content
 * gist_comment
+* npm_package
 * unknown
 
 ### Implement signature verification in your secret alert service
@@ -363,7 +364,7 @@ const verify_signature = async (payload, signature, keyID) => {
 
 ### Implement secret revocation and user notification in your secret alert service
 
-For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+For {% data variables.product.prodname_secret_scanning %} found publicly, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
 
 ### Provide feedback for false positives
 

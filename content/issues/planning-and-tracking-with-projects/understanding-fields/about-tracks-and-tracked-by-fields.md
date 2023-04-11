@@ -11,7 +11,7 @@ topics:
 
 {% data reusables.projects.tasklists-release-stage %}
 
-You can enable the Tracks and Tracked by fields on your projects to see the relationships between your issues as you add subtasks in Tasklists. For more information about creating issue hierarchies in Tasklists, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can enable the Tracks and Tracked by fields on your projects to see the relationships between your issues as you add subtasks in tasklists. For more information about creating issue hierarchies in tasklists, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 The Tracked by field can be used to group items, creating a view that clearly shows the subtasks of each issue and the work required to complete them. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#grouping-by-field-values-in-table-layout)."
 

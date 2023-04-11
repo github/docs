@@ -35,11 +35,15 @@ Actions can run directly on a machine or in a Docker container. You can define a
 
 You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
+{% rowheaders %}
+
 | Type | Linux | macOS | Windows |
 | ---- | ----- | ----- | -------- |
 | Docker container | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | JavaScript | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Composite Actions | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Docker container actions
 

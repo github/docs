@@ -41,7 +41,7 @@ Once a repository is archived, you cannot add or remove collaborators or teams. 
 
 When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, comments and permissions become read-only. To make changes in an archived repository, you must unarchive the repository first.
 
-You can search for archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived)."  
+You can search for archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived)."
 
 ## Archiving a repository
 
@@ -60,9 +60,7 @@ You can search for archived repositories. For more information, see "[AUTOTITLE]
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Unarchive this repository**
-  ![Unarchive this repository button](/assets/images/help/repository/unarchive-repository.png)
-4. Read the warnings.
-5. Type the name of the repository you want to unarchive.
-  ![Unarchive repository warnings](/assets/images/help/repository/unarchive-repository-warnings.png)
-6. Click **I understand the consequences, unarchive this repository**.  
+1. In the "Danger Zone" section, click **Unarchive this repository**
+1. Read the warnings.
+1. In the text box, type the name of the repository you want to unarchive.
+1. Click **I understand the consequences, unarchive this repository**.

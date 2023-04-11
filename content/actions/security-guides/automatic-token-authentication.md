@@ -77,6 +77,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 
 The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
+{% rowheaders %}
+
 | Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories [1] |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
@@ -92,6 +94,8 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | repository-projects | read/write | none | read |
 | security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
+
+{% endrowheaders %}
 
 [1] Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
 
