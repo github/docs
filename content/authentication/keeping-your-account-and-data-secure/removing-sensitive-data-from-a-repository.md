@@ -40,7 +40,7 @@ You can purge a file from your repository's history using either the `git filter
 
 {% note %}
 
- **Note:** If the data is located in a file that is identified as a binary file the file will need to be removed from the history and cannot be modified to remove/replace the data.
+ **Note:** If sensitive data is located in a file that's identified as a binary file, you'll need to remove the file from the history, as you can't modify it to remove or replace the data.
 
 {% endnote %}
 
