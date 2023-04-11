@@ -174,7 +174,7 @@
   "optionalDependencies": {
     "esm": "^3.2.25",
     "jest-puppeteer": "^5.0.4",
-    "puppeteer": "^9.1.1",
+    "puppeteer": "^19.8.5",
     "website-scraper": "^5.0.0"
   },
   "private": true,
