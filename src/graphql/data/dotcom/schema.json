@@ -38551,6 +38551,16 @@
               }
             },
             {
+              "name": "notificationSetting",
+              "description": "<p>If non-null, filters teams according to notification setting.</p>",
+              "type": {
+                "name": "TeamNotificationSetting",
+                "id": "teamnotificationsetting",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#teamnotificationsetting"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for teams returned from the connection.</p>",
               "type": {
@@ -64155,6 +64165,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "notificationSetting",
+          "description": "<p>The notification setting that the team has set.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#teamnotificationsetting"
+        },
+        {
           "name": "organization",
           "description": "<p>The organization that owns this team.</p>",
           "type": "Organization!",
@@ -81094,6 +81112,23 @@
         {
           "name": "IMMEDIATE",
           "description": "<p>Includes only immediate members of the team.</p>"
+        }
+      ]
+    },
+    {
+      "name": "TeamNotificationSetting",
+      "kind": "enums",
+      "id": "teamnotificationsetting",
+      "href": "/graphql/reference/enums#teamnotificationsetting",
+      "description": "<p>The possible team notification values.</p>",
+      "values": [
+        {
+          "name": "NOTIFICATIONS_DISABLED",
+          "description": "<p>No one will receive notifications.</p>"
+        },
+        {
+          "name": "NOTIFICATIONS_ENABLED",
+          "description": "<p>Everyone will receive notifications when the team is @mentioned.</p>"
         }
       ]
     },
