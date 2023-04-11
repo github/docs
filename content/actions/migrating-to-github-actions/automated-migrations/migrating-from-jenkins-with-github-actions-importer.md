@@ -336,41 +336,36 @@ source_files:
 
 ### Supported syntax for Jenkins pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manual-migrations/migrating-from-jenkins-to-github-actions)".
-
-| Jenkins Designer Pipeline | Jenkinsfile | GitHub Actions                     |              Status |
-| :------------------------ | :---------- | :--------------------------------- | :------------------ |
-| general                   | agent       | `runners`                          | Partially supported |
-|                           |             | `self hosted runners`              | Partially supported |
-| build                     | stages      | `jobs`                             | Partially supported |
-|                           | stage       | `jobs.<job_id>`                    |           Supported |
-| docker template           | docker      | `jobs.<job_id>.container`          |           Supported |
-|                           |             | `jobs.<job_id>.name`               |           Supported |
-|                           | steps       | `jobs.<job_id>.steps`              | Partially supported |
-|                           | options     | `jobs.<job_id>.strategy`           |         Unsupported |
-|                           |             | `jobs.<job_id>.strategy.fail-fast` |         Unsupported |
-|                           | matrix      | `jobs.<job_id>.strategy.matrix`    |         Unsupported |
-|                           |             | `jobs.<job_id>.timeout-minutes`    |         Unsupported |
-|                           | when        | `jobs.<job_id>.if`                 |         Unsupported |
-|                           | parameters  | `inputs`                           |         Unsupported |
-|                           |             | `output`                           |         Unsupported |
-|                           | inputs      | `inputs`                           |         Unsupported |
-| build environment         | environment | `env`                              | Partially supported |
-|                           |             | `jobs.<job_id>.env`                |         Unsupported |
-|                           |             | `jobs.<job_id>.steps.env`          |         Unsupported |
-|                           |             | `jobs.<job_id>.timeout-minutes`    | Partially supported |
-| build triggers            | triggers    | `on`                               | Partially supported |
-|                           |             | `on.<event_name>.types`            | Partially supported |
-|                           |             | `on.<push>.<branches>`             |           Supported |
-|                           |             | `on.<push>.<tags>`                 |           Supported |
-|                           |             | `on.<push>.paths`                  |           Supported |
-|                           |             | `on.<pull_request>.<branches>`     |           Supported |
-|                           |             | `on.<pull_request>.<tags>`         |         Unsupported |
-|                           |             | `on.<pull_request>.paths`          |           Supported |
-|                           |             | `on.schedule`                      | Partially supported |
-|                           |             | `on.workflow_run`                  |           Supported |
+The following tables show the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how Jenkins pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manual-migrations/migrating-from-jenkins-to-github-actions)".
 
 For information about supported Jenkins plugins, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/jenkins/index.md).
+
+#### Supported syntax for Freestyle pipelines
+
+| Jenkins                   | GitHub Actions                     |              Status |
+| :------------------------ | :--------------------------------- | :------------------ |
+| docker template           | `jobs.<job_id>.container`          |           Supported |
+| build                     | `jobs`                             | Partially supported |
+| build environment         | `env`                              | Partially supported |
+| build triggers            | `on`                               | Partially supported |
+| general                   | `runners`                          | Partially supported |
+
+#### Supported syntax for Jenkinsfile pipelines
+
+| Jenkins     | GitHub Actions                     |              Status |
+| :---------- | :--------------------------------- | :------------------ |
+| docker      | `jobs.<job_id>.container`          |           Supported |
+| stage       | `jobs.<job_id>`                    |           Supported |
+| agent       | `runners`                          | Partially supported |
+| environment | `env`                              | Partially supported |
+| stages      | `jobs`                             | Partially supported |
+| steps       | `jobs.<job_id>.steps`              | Partially supported |
+| triggers    | `on`                               | Partially supported |
+| when        | `jobs.<job_id>.if`                 | Partially supported |
+| inputs      | `inputs`                           |         Unsupported |
+| matrix      | `jobs.<job_id>.strategy.matrix`    |         Unsupported |
+| options     | `jobs.<job_id>.strategy`           |         Unsupported |
+| parameters  | `inputs`                           |         Unsupported |
 
 ### Environment variables syntax
 

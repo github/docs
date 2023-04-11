@@ -350,31 +350,30 @@ The following table shows the type of properties {% data variables.product.prodn
 
 | GitLab Pipelines                        | GitHub Actions                  | Status                      |
 | :-------------------------------------- | :------------------------------ | :-------------------------- |
-| `stages`                                | `jobs`                          |                   Supported |
-| `workflow`                              | `if`                            |         Partially supported |
-| `include`                               | [1]                             |         Partially supported |
-| `default`                               |                                 |                   Supported |
-| `auto_cancel_pending_pipelines`         | `concurrency`                   |                   Supported |
-| `job`                                   | `jobs.<job_id>`                 |                   Supported |
-| `tags`                                  | `jobs.<job_id>.runs-on`         |                   Supported |
-| `environment`                           | `jobs.<job_id>.environment`     |         Partially supported |
-| `services`                              | `jobs.<job_id>.services`        |         Partially supported |
-| `resource_group`                        | `jobs.<job_id>.concurrency`     |                   Supported |
-| `build_timeout` or `timeout`            | `jobs.<job_id>.timeout-minutes` |                   Supported |
-| `image`                                 | `jobs.<job_id>.container`       |                   Supported |
-| `parallel`                              | `jobs.<job_id>.strategy`        |         Partially supported |
-| `before_script`                         | `jobs.<job_id>.steps`           |                   Supported |
-| `script`                                | `jobs.<job_id>.steps`           |                   Supported |
 | `after_script`                          | `jobs.<job_id>.steps`           |                   Supported |
+| `auto_cancel_pending_pipelines`         | `concurrency`                   |                   Supported |
+| `before_script`                         | `jobs.<job_id>.steps`           |                   Supported |
+| `build_timeout` or `timeout`            | `jobs.<job_id>.timeout-minutes` |                   Supported |
+| `default`                               |  Not applicable                 |                   Supported |
+| `image`                                 | `jobs.<job_id>.container`       |                   Supported |
+| `job`                                   | `jobs.<job_id>`                 |                   Supported |
 | `needs`                                 | `jobs.<job_id>.needs`           |                   Supported |
-| `rules`                                 | `jobs.<job_id>.if`              |         Partially supported |
-| `only` or `except`                      | `jobs.<job_id>.if`              |         Partially supported |
-| `variables`                             | `env`                           |                   Supported |
-|                                         | `jobs.<job_id>.env`             |                   Supported |
 | `only_allow_merge_if_pipeline_succeeds` | `on.pull_request`               |                   Supported |
-| Run pipelines for new commits           | `on.push`                       |                   Supported |
+| `resource_group`                        | `jobs.<job_id>.concurrency`     |                   Supported |
 | `schedule`                              | `on.schedule`                   |                   Supported |
+| `script`                                | `jobs.<job_id>.steps`           |                   Supported |
+| `stages`                                | `jobs`                          |                   Supported |
+| `tags`                                  | `jobs.<job_id>.runs-on`         |                   Supported |
+| `variables`                             | `env`, `jobs.<job_id>.env`      |                   Supported |
+| Run pipelines for new commits           | `on.push`                       |                   Supported |
 | Run pipelines manually                  | `on.workflow_dispatch`          |                   Supported |
+| `environment`                           | `jobs.<job_id>.environment`     |         Partially supported |
+| `include`                               | [1]                             |         Partially supported |
+| `only` or `except`                      | `jobs.<job_id>.if`              |         Partially supported |
+| `parallel`                              | `jobs.<job_id>.strategy`        |         Partially supported |
+| `rules`                                 | `jobs.<job_id>.if`              |         Partially supported |
+| `services`                              | `jobs.<job_id>.services`        |         Partially supported |
+| `workflow`                              | `if`                            |         Partially supported |
 
 [1] Files referenced in an `include` statement are merged into a single job graph before being transformed.
 
