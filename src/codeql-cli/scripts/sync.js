@@ -17,7 +17,7 @@ const { targetDirectory, sourceDirectory, frontmatterDefaults, markdownPrefix } 
 )
 const SOURCE_REPO = sourceDirectory.split('/')[0]
 const TEMP_DIRECTORY = path.join(SOURCE_REPO, 'tempCliDocs')
-const MARKDOWN_PREFIX = `${markdownPrefix}\n\n`
+const MARKDOWN_PREFIX = `\n${markdownPrefix}\n\n`
 
 main()
 
