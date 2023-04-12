@@ -153,4 +153,4 @@ The following information **must be included** in your credit request:
 
 ## Accessing premium content
 
-You can access premium content by signing in to the {% data variables.contact.contact_landing_page_portal %}.
+You can access premium content by signing into the {% data variables.contact.contact_landing_page_portal %}, then clicking **Premium**.
