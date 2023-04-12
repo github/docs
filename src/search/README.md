@@ -8,7 +8,7 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 ---
 
-![search-screenshot](https://user-images.githubusercontent.com/2289/65067899-68bd1c80-d93c-11e9-93ec-f57293e56113.png)
+![Screenshot of the search results page for GitHub docs with the example keywords "private key".](/assets/images/internal-docs/search-results.png)
 
 ---
 

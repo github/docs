@@ -1,6 +1,6 @@
 import { expect } from '@jest/globals'
 import { tmpdir } from 'os'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import { cp, rm, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'

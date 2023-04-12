@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 
-import glob from 'glob'
+import { glob } from 'glob'
 
 /*
  * Verify that a list of file paths are present and optionally have a CODEOWNERS entry

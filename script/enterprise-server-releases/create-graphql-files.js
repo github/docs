@@ -9,7 +9,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { program } from 'commander'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import { allVersions } from '../../lib/all-versions.js'
 
 const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')

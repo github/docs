@@ -51,7 +51,7 @@ The items in the table below can be migrated with a repository. Any items not sh
 | Issue comments | Cross-references to comments are rewritten for the target instance.
 | Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.
 | Pull request reviews | Pull request reviews and associated data are migrated.
-| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
+| Pull request review comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved. File-level comments are not migrated.
 | Commit comments | Cross-references to comments are rewritten for the target instance. Timestamps are preserved.
 | Releases | All releases data is migrated.
 | Actions taken on pull requests or issues | All modifications to pull requests or issues, such as assigning users, renaming titles, and modifying labels are preserved, along with timestamps for each action.
