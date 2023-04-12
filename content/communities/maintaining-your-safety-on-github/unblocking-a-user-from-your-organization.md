@@ -25,9 +25,10 @@ If you selected a specific amount of time to block the user, they will be automa
 ## Unblocking a user in a comment
 
 1. Navigate to the comment whose author you would like to unblock.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Unblock user**.
-![The horizontal kebab icon and comment moderation menu showing the unblock user option](/assets/images/help/repository/comment-menu-unblock-user.png)
-3. To confirm you would like to unblock the user, click **OK**.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Unblock user**.
+
+   ![The horizontal kebab icon and comment moderation menu showing the unblock user option](/assets/images/help/repository/comment-menu-unblock-user.png)
+1. To confirm you would like to unblock the user, click **OK**.
 
 ## Unblocking a user in the organization settings
 
@@ -36,7 +37,6 @@ If you selected a specific amount of time to block the user, they will be automa
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 1. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
-![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Further reading
 

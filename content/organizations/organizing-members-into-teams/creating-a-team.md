@@ -5,6 +5,9 @@ redirect_from:
   - /articles/creating-a-team-early-access-program
   - /articles/creating-a-team
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team
+  - /enterprise/admin/user-management/creating-teams
+  - /admin/user-management/creating-teams
+  - /admin/user-management/managing-organizations-in-your-enterprise/creating-teams
 versions:
   fpt: '*'
   ghes: '*'

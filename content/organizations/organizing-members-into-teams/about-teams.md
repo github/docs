@@ -47,8 +47,6 @@ Each team has its own page within an organization. On a team's page, you can vie
 
 Organization members can create and participate in discussions with the team. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
 
-![Team page listing team members and discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
-
 ## Nested teams
 
 You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
