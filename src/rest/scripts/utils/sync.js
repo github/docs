@@ -109,7 +109,7 @@ async function formatRestData(operations) {
 async function updateRestConfigData(schemas) {
   const restConfigFilename = 'src/rest/lib/config.json'
   const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8'))
-  const restApiVersionData = restConfigData['api-versions']
+  const restApiVersionData = restConfigData['api-versions'] || {}
   // If the version isn't one of the OpenAPI version,
   // then it's an api-versioned schema
   for (const schema of schemas) {
@@ -118,6 +118,9 @@ async function updateRestConfigData(schemas) {
       const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(ver))
       const date = schemaBaseName.split(`${openApiVer}-`)[1]
 
+      if (!restApiVersionData[openApiVer]) {
+        restApiVersionData[openApiVer] = []
+      }
       if (!restApiVersionData[openApiVer].includes(date)) {
         const dates = restApiVersionData[openApiVer]
         dates.push(date)
