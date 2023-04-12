@@ -7,7 +7,7 @@ import { mkdirp } from 'mkdirp'
 import { execSync } from 'child_process'
 import path from 'path'
 import matter from 'gray-matter'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 
 import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown.js'
 import { convertContentToDocs } from './convert-markdown-for-docs.js'
