@@ -8,7 +8,7 @@
 //
 // [end-readme]
 
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'

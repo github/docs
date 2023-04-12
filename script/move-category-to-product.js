@@ -8,7 +8,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import { program } from 'commander'
 import { execSync } from 'child_process'
 import frontmatter from '../lib/read-frontmatter.js'

@@ -7,7 +7,7 @@
 // [end-readme]
 
 import fs from 'fs'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import path from 'path'
 import { program } from 'commander'
 import { allVersions } from '../../lib/all-versions.js'

@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown.js'
 import { allVersions } from '../../../../lib/all-versions.js'
