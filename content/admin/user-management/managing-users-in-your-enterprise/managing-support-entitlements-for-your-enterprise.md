@@ -19,9 +19,11 @@ Enterprise owners and billing managers automatically have a support entitlement.
 
 ## Adding a support entitlement to an enterprise member
 
+To add a support entitlement to a user, the user must already be a member of an organization that is owned by your enterprise.
+
 {% note %}
 
-**Note**: After you add a support entitlement, the enterprise member may need to sign out and sign in again to manage tickets.
+**Note**: After you add a support entitlement, the enterprise member may need to sign out from {% data variables.contact.contact_landing_page_portal %}, then sign in again, before they can manage tickets.
 
 {% endnote %}
 
@@ -33,13 +35,14 @@ Enterprise owners and billing managers automatically have a support entitlement.
 
 ## Removing a support entitlement from an enterprise member
 
-You can remove a support entitlement from an enterprise member. You cannot remove a support entitlement from enterprise owners or billing managers.
+When a user is removed from the enterprise, their support entitlement will be automatically removed.
+
+If a user remains an enterprise member, you can manually remove their support entitlement. You cannot remove a support entitlement from enterprise owners or billing managers.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. In the sidebar under "Settings", click **Support**.
 4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="remove support entitlement" %}.
-
 
 ## Further reading
 

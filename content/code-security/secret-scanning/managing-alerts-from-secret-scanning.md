@@ -35,8 +35,8 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
-2. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view.{% ifversion secret-scanning-validity-check %}
-3. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps.
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view.{% ifversion secret-scanning-validity-check %}
+1. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps. {% ifversion secret-scanning-github-token-metadata %}If the {% data variables.product.company_short %} token is currently active, you can also review the token metadata. For more information on reviewing token metadata, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}
 
    ![Screenshot of the UI for a {% data variables.product.company_short %} token, showing the validity check and suggested remediation steps.](/assets/images/help/repository/secret-scanning-validity-check.png)
 
@@ -66,6 +66,34 @@ shortTitle: Manage secret alerts
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
+{% endif %}
+
+{% ifversion secret-scanning-github-token-metadata %}
+## Reviewing {% data variables.product.company_short %} token metadata
+
+{% note %}
+
+**Note:** Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+
+{% endnote %}
+
+In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)." 
+
+Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
+
+   ![Screenshot of the UI for a {% data variables.product.company_short %} token, showing the token metadata.](/assets/images/help/repository/secret-scanning-github-token-metadata.png)
+
+ Metadata for {% data variables.product.company_short %} tokens is available for active tokens in any repository with secret scanning enabled. If a token has been revoked or its status cannot be validated, metadata will not be available. {% data variables.product.company_short %} auto-revokes {% data variables.product.company_short %} tokens in public repositories, so metadata for {% data variables.product.company_short %} tokens in public repositories is unlikely to be available. The following metadata is available for active {% data variables.product.company_short %} tokens:
+
+|Metadata|Description|
+|-------------------------|--------------------------------------------------------------------------------|
+|Secret name| The name given to the {% data variables.product.company_short %} token by its creator|
+|Secret owner| The {% data variables.product.company_short %} handle of the token's owner|
+|Created on| Date the token was created|
+|Expired on| Date the token expired|
+|Last used on| Date the token was last used|
+|Access| Whether the token has organization access|
+
 {% endif %}
 
 ## Securing compromised secrets

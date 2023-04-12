@@ -79,10 +79,10 @@ const IGNORE_PATHS = [
   '.vscode', // Not part of the repo but could be for a developer locally
   'node_modules',
   'translations',
-  '.linkinator',
   '**/*.png', // Do not check images or font files.
   '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
   '**/*.gif', // READMEs or other text-based files from being checked.
+  '**/*.webp',
   '**/*.pdf',
   '**/*.ico',
   '**/*.woff',
@@ -90,7 +90,6 @@ const IGNORE_PATHS = [
   '**/*.br', // E.g. the search index .json.br files
   '**/*.graphql', // E.g. data/graphql/ghec/schema.docs.graphql
   'package-lock.json', // At the time of writing it's 1.5MB!
-  '.linkinator/full.log', // Only present if you've run linkinator
   'tests/**/*.json',
   'src/**/*.json', // OpenAPI schema files
   'content/early-access', // Not committed to public repository.

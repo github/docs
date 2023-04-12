@@ -61,4 +61,6 @@ jobs:
             🚀 **This pull request has gone into production!**
 
             The SHA of https://docs.github.com/_build matches the merge commit in this PR.
+
+            If you don't see updates when expected, try opening the page(s) in a private browser window as the content may be cached. The content should be visible within a few hours even on non-private browser windows if this happens.
           edit-mode: replace

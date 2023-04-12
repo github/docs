@@ -44,10 +44,6 @@ export async function get(
     statusCode,
     headers,
     url,
-    // Legacy
-    text: body,
-    status: statusCode,
-    header: headers,
   }
 }
 
@@ -81,7 +77,7 @@ export async function getDOM(
   if (!allow404 && res.status === 404) {
     throw new Error(`Page not found on ${route}`)
   }
-  const $ = cheerio.load(res.text || '', { xmlMode: true })
+  const $ = cheerio.load(res.body || '', { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
 }
@@ -96,5 +92,5 @@ export async function getJSON(route, opts) {
   if (res.status >= 400) {
     console.warn(`${res.status} on ${route} and the response might not be JSON`)
   }
-  return JSON.parse(res.text)
+  return JSON.parse(res.body)
 }

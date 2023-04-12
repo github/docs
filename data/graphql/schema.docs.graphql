@@ -27075,6 +27075,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     ldapMapped: Boolean
 
     """
+    If non-null, filters teams according to notification setting
+    """
+    notificationSetting: TeamNotificationSetting
+
+    """
     Ordering options for teams returned from the connection
     """
     orderBy: TeamOrder
@@ -40230,6 +40235,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   allowUpdateBranch: Boolean!
 
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -41370,7 +41380,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): PullRequestConnection!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -42123,6 +42133,11 @@ A subset of repository info.
 """
 interface RepositoryInfo {
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -42238,7 +42253,7 @@ interface RepositoryInfo {
   owner: RepositoryOwner!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -43173,14 +43188,6 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
-
-  """
-  The reason the alert was marked as fixed.
-  """
-  fixReason: String
-    @deprecated(
-      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC."
-    )
 
   """
   When was the alert fixed?
@@ -48980,6 +48987,11 @@ type Team implements MemberStatusable & Node & Subscribable {
   newTeamUrl: URI!
 
   """
+  The notification setting that the team has set.
+  """
+  notificationSetting: TeamNotificationSetting!
+
+  """
   The organization that owns this team.
   """
   organization: Organization!
@@ -50319,6 +50331,21 @@ enum TeamMembershipType {
   Includes only immediate members of the team.
   """
   IMMEDIATE
+}
+
+"""
+The possible team notification values.
+"""
+enum TeamNotificationSetting {
+  """
+  No one will receive notifications.
+  """
+  NOTIFICATIONS_DISABLED
+
+  """
+  Everyone will receive notifications when the team is @mentioned.
+  """
+  NOTIFICATIONS_ENABLED
 }
 
 """

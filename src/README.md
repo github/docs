@@ -16,27 +16,38 @@ Subjects do not need every element below. Not every element needs to be a folder
 src/
   xsubject/
     README.md
-    components/
-    lib/
-    tests/
-    scripts/
-    stylesheets/
-    pages/
     docs/
+    lib/
+    middleware/
+    pages/
+    components/
+    stylesheets/
+    scripts/
+    tests/
 ```
 
-We compose subjects together like TBD - still a work in progress!
+If subject depends on another subject, please make this explicit in the README.
 
-How to declare a subject depends on another subject TBD - still a work in progress!
+If you are deciding which subject folder between two or three options to put code in, choose the _most specific_ option available.
 
 ## When to use subject folders
 
-TBD - still a work in progress!
+When a significant capability requires its _own specific tests_, that is a great sign the capability should have its own subject folder.
 
 ## When not to use subject folders
 
-How to deal with things that don't fit into the pattern TBD - still a work in progress!
+A few things are harder to categorize, so there's a few more broad folders for a few things:
+
+- `content/`, for things that make the `content/` or `data/` directories work and there's no more specific option.
+- `environments/`, for things that make local, testing, preview, staging, production work and there's no more specific option.
+- `frame/`, for things that make the header, footer, global sidebar functional and there's no more specific option.
+
+But don't hestitate to make a new subject folder if there's at least a few files closely related.
 
 ## Where to get help
 
-TBD - still a work in progress!
+Check the README.md in the subject folder for questions specific to a subject.
+
+For internal folks, please ask in the Docs Engineering Slack or repository.
+
+For open source folks, please ask on the [discussion board](https://github.com/github/docs/discussions).

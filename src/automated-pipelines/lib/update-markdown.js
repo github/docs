@@ -11,8 +11,7 @@ import { allVersions } from '../../../lib/all-versions.js'
 import getApplicableVersions from '../../../lib/get-applicable-versions.js'
 
 const ROOT_INDEX_FILE = 'content/index.md'
-export const MARKDOWN_COMMENT =
-  '\n\n<!-- Content after this section is automatically generated -->\n\n'
+export const MARKDOWN_COMMENT = '\n<!-- Content after this section is automatically generated -->\n'
 
 // Main entrypoint into this module. This function adds, removes, and updates
 // versions frontmatter in all directories under the targetDirectory.
@@ -100,11 +99,15 @@ async function updateMarkdownFile(
       throw new Error(`Error: ${file} has multiple comment delimiters`)
     }
 
-    // Only proceed if the content or versions have changed
-    const [manuallyCreatedContent, automatedContent] = content.split(commentDelimiter)
+    const [manuallyCreatedContent, automatedContent] = matches
+      ? content.split(commentDelimiter)
+      : [content, '']
+
+    const isDelimiterMissing = !matches
     const isContentSame = automatedContent === sourceContent
     const isVersionsSame = isEqual(sourceData.versions, data.versions)
-    if (isContentSame && isVersionsSame) {
+    // Only proceed if the content or versions have changed
+    if (isContentSame && isVersionsSame && !isDelimiterMissing) {
       return
     }
 
@@ -116,7 +119,7 @@ async function updateMarkdownFile(
     await writeFile(file, matter.stringify(targetContent, newData))
   } else {
     await createDirectory(path.dirname(file))
-    await writeFile(file, matter.stringify(sourceContent, sourceData))
+    await writeFile(file, matter.stringify(commentDelimiter + sourceContent, sourceData))
   }
 }
 

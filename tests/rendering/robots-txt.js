@@ -30,12 +30,12 @@ describe('robots.txt', () => {
         host: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
       },
     })
-    expect(res.text).toEqual('User-agent: *\nDisallow: /')
+    expect(res.body).toEqual('User-agent: *\nDisallow: /')
   })
 
   it('does not have duplicate lines', () => {
     const lines = new Set()
-    for (const line of res.text.split('\n')) {
+    for (const line of res.body.split('\n')) {
       if (/^\s*$/.test(line)) continue
       expect(lines.has(line)).toBe(false)
       lines.add(line)

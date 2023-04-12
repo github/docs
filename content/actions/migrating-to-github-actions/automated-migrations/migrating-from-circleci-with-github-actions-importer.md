@@ -345,26 +345,21 @@ The following table shows the type of properties that {% data variables.product.
 
 | CircleCI Pipelines  | GitHub Actions                     |              Status |
 | :------------------ | :--------------------------------- | :------------------ |
-| setup               |                                    |         Unsupported |
-| version             |                                    |         Unsupported |
-| orbs                | `actions`                          | Partially Supported |
-| parameters          | `env`                              |           Supported |
-|                     | `workflow-dispatch.inputs`         |           Supported |
-| executors           | `container`, `services`            | Partially Supported |
-|                     | `runs-on`                          |           Supported |
-|                     | `self hosted runners`              |         Unsupported |
-| jobs                | `jobs`                             |           Supported |
-| job                 | `jobs.<job_id>`                    |           Supported |
-|                     | `jobs.<job_id>.name`               |           Supported |
-| steps               | `jobs.<job_id>.steps`              |           Supported |
-| matrix              | `jobs.<job_id>.strategy`           |           Supported |
-|                     | `jobs.<job_id>.strategy.matrix`    |           Supported |
-| when, unless        | `jobs.<job_id>.if`                 |           Supported |
-| environment         | `env`                              |           Supported |
-|                     | `jobs.<job_id>.env`                |           Supported |
-|                     | `jobs.<job_id>.steps.env`          |           Supported |
-| triggers            | `on`                               |           Supported |
-| cron triggers       | `on.schedule`                      |           Supported |
+| cron triggers       | <ul><li>`on.schedule`</li></ul>    |           Supported |
+| environment         | <ul><li>`env`</li><li>`jobs.<job_id>.env`</li><li>`jobs.<job_id>.steps.env`</li></ul>          |           Supported |
+| executors           | <ul><li>`runs-on`</li></ul>                          |           Supported |
+| jobs                | <ul><li>`jobs`</li></ul>                             |           Supported |
+| job                 | <ul><li>`jobs.<job_id>`</li><li>`jobs.<job_id>.name`</li></ul> |           Supported |
+| matrix              | <ul><li>`jobs.<job_id>.strategy`</li><li>`jobs.<job_id>.strategy.matrix`</li></ul>    |           Supported |
+| parameters          | <ul><li>`env`</li><li>`workflow-dispatch.inputs`</li></ul>  |           Supported |
+| steps               | <ul><li>`jobs.<job_id>.steps`</li></ul>              |           Supported |
+| when, unless        | <ul><li>`jobs.<job_id>.if`</li></ul>                 |           Supported |
+| triggers            | <ul><li>`on`</li></ul>                               |           Supported |
+| executors           | <ul><li>`container`</li><li>`services`</li></ul>     | Partially Supported |
+| orbs                | <ul><li>`actions`</li></ul>                          | Partially Supported |
+| executors           | <ul><li>`self hosted runners`</li></ul>              |         Unsupported |
+| setup               | Not applicable                                       |         Unsupported |
+| version             | Not applicable                                       |         Unsupported |
 
 For more information about supported CircleCI concept and orb mappings, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/circle_ci/index.md).
 
