@@ -3,7 +3,7 @@ import { existsSync, lstatSync, unlinkSync } from 'fs'
 import path from 'path'
 import { readFile, writeFile, readdir } from 'fs/promises'
 import matter from 'gray-matter'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import rimraf from 'rimraf'
 import { difference, isEqual } from 'lodash-es'
 
