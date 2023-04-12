@@ -53,7 +53,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         role="banner"
       >
         <nav
-          aria-label={
+          aria-labelledby={
             !currentProduct || currentProduct.id === 'search' ? 'homepage' : currentProduct.name
           }
         >

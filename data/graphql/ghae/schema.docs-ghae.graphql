@@ -33509,6 +33509,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   allowUpdateBranch: Boolean!
 
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -34554,7 +34559,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): PullRequestConnection!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -35282,6 +35287,11 @@ A subset of repository info.
 """
 interface RepositoryInfo {
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -35402,7 +35412,7 @@ interface RepositoryInfo {
   owner: RepositoryOwner!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
