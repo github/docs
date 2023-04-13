@@ -1,0 +1,6 @@
+# Reference: Issue #9973
+# 30 day cutoff for Dependabot Pull Request Rebases
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

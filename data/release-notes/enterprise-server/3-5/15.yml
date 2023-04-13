@@ -1,5 +1,10 @@
 date: '2023-03-23'
 sections:
+  security_fixes:
+    - |
+      **HIGH**: Addressed an improper authentication vulnerability that allowed an unauthorized actor to modify other users' secret gists by authenticating through an SSH certificate authority. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23761](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23761). [Updated: 2023-04-07]
+    - |
+      **MEDIUM**: Addressed an incorrect comparison vulnerability that allowed commit smuggling by displaying an incorrect diff. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23762](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23762). [Updated: 2023-04-07]
   bugs:
     - "In the Management Console's monitor dashboard, the `Cached Requests` and `Served Requests` graphs, which are retrieved by the `git fetch catching` command, did not display metrics for the instance."
     - After a site administrator exempted the **@github-actions\[bot]** user from rate limiting by using the `ghe-config app.github.rate-limiting-exempt-users "github-actions[bot]"` command, running `ghe-config-check` caused a `Validation is-valid-characterset failed` warning to appear. 

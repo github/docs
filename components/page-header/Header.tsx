@@ -306,7 +306,7 @@ export const Header = () => {
                         className="d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
                       >
                         {t`sign_up_cta`}
-                        <LinkExternalIcon />
+                        <LinkExternalIcon aria-label="(external site)" />
                       </Link>
                     )}
                   </div>

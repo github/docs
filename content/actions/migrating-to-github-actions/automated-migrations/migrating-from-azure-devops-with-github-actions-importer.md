@@ -381,35 +381,24 @@ The following table shows the type of properties that {% data variables.product.
 
 | Azure Pipelines       | {% data variables.product.prodname_actions %}                        |              Status |
 | :-------------------- | :------------------------------------ | :------------------ |
-| pool                  | `runners`                             | Partially supported |
-|                       | `self hosted runners`                 | Partially supported |
-| stage                 | `jobs`                                |           Supported |
-| job                   | `jobs.<job_id>`                       |           Supported |
-| container             | `jobs.<job_id>.container`             |           Supported |
-|                       | `jobs.<job_id>.name`                  |           Supported |
-| steps                 | `jobs.<job_id>.steps`                 |           Supported |
-| manual deployment     | `jobs.<job_id>.environment`           | Partially supported |
-| strategy              | `jobs.<job_id>.strategy`              | Partially supported |
-|                       | `jobs.<job_id>.strategy.fail-fast`    |           Supported |
-|                       | `jobs.<job_id>.strategy.max-parallel` |           Supported |
-|                       | `jobs.<job_id>.strategy.matrix`       |           Supported |
-| services              | `jobs.<job_id>.services`              | Partially supported |
-| condition             | `jobs.<job_id>.if`                    |           Supported |
-|                       | `jobs.<job_id>.steps[*].if`           |           Supported |
-| variables             | `env`                                 |           Supported |
-|                       | `jobs.<job_id>.env`                   |           Supported |
-|                       | `jobs.<job_id>.steps.env`             |           Supported |
-| timeoutInMinutes      | `jobs.<job_id>.timeout-minutes`       |           Supported |
-| triggers              | `on`                                  | Partially supported |
-|                       | `on.<event_name>.types`               |         Unsupported |
-| continuousIntegration | `on.<push>.<branches>`                |           Supported |
-|                       | `on.<push>.<tags>`                    |           Supported |
-|                       | `on.<push>.paths`                     |           Supported |
-| pullRequest           | `on.<pull_request>.<branches>`        |           Supported |
-|                       | `on.<pull_request>.<tags>`            |         Unsupported |
-|                       | `on.<pull_request>.paths`             |           Supported |
-| schedules             | `on.schedule`                         |         Unsupported |
-|                       | `on.workflow_run`                     |         Unsupported |
+| condition             | <ul><li>`jobs.<job_id>.if`</li><li>`jobs.<job_id>.steps[*].if`</li></ul> |           Supported |
+| container             | <ul><li>`jobs.<job_id>.container`</li><li>`jobs.<job_id>.name`</li></ul>                  |           Supported |
+| continuousIntegration | <ul><li>`on.<push>.<branches>`</li><li>`on.<push>.<tags>`</li><li>`on.<push>.paths`</li></ul> |           Supported |
+| job                   | <ul><li>`jobs.<job_id>`</li></ul> |           Supported |
+| pullRequest           | <ul><li>`on.<pull_request>.<branches>`</li><li>`on.<pull_request>.paths`</li></ul> |           Supported |
+| stage                 | <ul><li>`jobs`</li></ul> |           Supported |
+| steps                 | <ul><li>`jobs.<job_id>.steps`</li></ul> |           Supported |
+| strategy              | <ul><li>`jobs.<job_id>.strategy.fail-fast`</li><li>`jobs.<job_id>.strategy.max-parallel`</li><li>`jobs.<job_id>.strategy.matrix`</li></ul>       |           Supported |
+| timeoutInMinutes      | <ul><li>`jobs.<job_id>.timeout-minutes`</li></ul> |           Supported |
+| variables             | <ul><li>`env`</li><li>`jobs.<job_id>.env`</li><li>`jobs.<job_id>.steps.env`</li></ul> |           Supported |
+| manual deployment     | <ul><li>`jobs.<job_id>.environment`</li></ul> | Partially supported |
+| pool                  | <ul><li>`runners`</li><li>`self hosted runners`</li></ul> | Partially supported |
+| services              | <ul><li>`jobs.<job_id>.services`</li></ul> | Partially supported |
+| strategy              | <ul><li>`jobs.<job_id>.strategy`</li></ul> | Partially supported |
+| triggers              | <ul><li>`on`</li></ul>                        | Partially supported |
+| pullRequest           | <ul><li>`on.<pull_request>.<tags>`</li></ul>  |         Unsupported |
+| schedules             | <ul><li>`on.schedule`</li><li>`on.workflow_run`</li></ul> |         Unsupported |
+| triggers              | <ul><li>`on.<event_name>.types`</li></ul>     |         Unsupported |
 
 For more information about supported Azure DevOps tasks, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/azure_devops/index.md).
 
@@ -455,8 +444,8 @@ For more information about supported Azure DevOps tasks, see the [`github/gh-act
 | {% raw %}`$(Release.DeploymentID)`{% endraw %}                   | {% raw %}`${{ github.run_id }}`{% endraw %}                              |
 | {% raw %}`$(Release.EnvironmentId)`{% endraw %}                 | {% raw %}`${{ github.job }}`{% endraw %}                                 |
 | {% raw %}`$(Release.EnvironmentName)`{% endraw %}                | {% raw %}`${{ github.job }}`{% endraw %}                                 |
-| {% raw %}`$(Release.Reason")`{% endraw %}                        | {% raw %}`${{ github.event_name }}`{% endraw %}                          |
-| {% raw %}`$(Release.RequestedFor")`{% endraw %}                  | {% raw %}`${{ github.actor }}`{% endraw %}                               |
+| {% raw %}`$(Release.Reason)`{% endraw %}                        | {% raw %}`${{ github.event_name }}`{% endraw %}                          |
+| {% raw %}`$(Release.RequestedFor)`{% endraw %}                  | {% raw %}`${{ github.actor }}`{% endraw %}                               |
 | {% raw %}`$(System.ArtifactsDirectory)`{% endraw %}              | {% raw %}`${{ github.workspace }}`{% endraw %}                           |
 | {% raw %}`$(System.DefaultWorkingDirectory)`{% endraw %}         | {% raw %}`${{ github.workspace }}`{% endraw %}                           |
 | {% raw %}`$(System.HostType)`{% endraw %}                        | {% raw %}`build`{% endraw %}                                             |
@@ -498,16 +487,17 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 | Azure Pipelines               | {% data variables.product.prodname_actions %}                        |              Status |
 | :---------------------------- | :------------------------------------ | ------------------: |
 | Extending from a template     | `Reusable workflow`                   |           Supported |
-| Step templates                | `Composite action`                    |           Supported |
 | Job templates                 | `Reusable workflow`                   |           Supported |
 | Stage templates               | `Reusable workflow`                   |           Supported |
-| Templates with parameters     | <varies>                              | Partially supported |
+| Step templates                | `Composite action`                    |           Supported |
+| Task groups in classic editor | Varies                                |           Supported |
+| Templates in a different Azure DevOps organization, project, or repository    | Varies                              |           Supported |
+| Templates in a {% data variables.product.prodname_dotcom %} repository | Varies                              |           Supported |
 | Variable templates            | `env`                                 |           Supported |
-| Templates in a different Azure DevOps organization, project, or repository    | <varies>                              |           Supported |
-| Templates in a {% data variables.product.prodname_dotcom %} repository | <varies>                              |           Supported |
 | Conditional insertion         | `if` conditions on job/steps          | Partially supported |
-| Iterative insertion           | n/a                                   | Partially supported |
-| Task groups in classic editor | <varies>                              |           Supported |
+| Iterative insertion           | Not applicable                        | Partially supported |
+| Templates with parameters     | Varies                                | Partially supported |
+
 
 #### Template file path names
 

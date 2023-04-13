@@ -33726,6 +33726,16 @@
               }
             },
             {
+              "name": "notificationSetting",
+              "description": "<p>If non-null, filters teams according to notification setting.</p>",
+              "type": {
+                "name": "TeamNotificationSetting",
+                "id": "teamnotificationsetting",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#teamnotificationsetting"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for teams returned from the connection.</p>",
               "type": {
@@ -46697,6 +46707,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "assignableUsers",
           "description": "<p>A list of users that can be assigned to issues in this repository.</p>",
           "type": "UserConnection!",
@@ -48704,7 +48722,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -50552,16 +50570,6 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "fixReason",
-          "description": "<p>The reason the alert was marked as fixed.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>. Removal on 2023-04-01 UTC.</p>"
         },
         {
           "name": "fixedAt",
@@ -53727,6 +53735,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "notificationSetting",
+          "description": "<p>The notification setting that the team has set.</p>",
+          "type": "TeamNotificationSetting!",
+          "id": "teamnotificationsetting",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#teamnotificationsetting"
         },
         {
           "name": "organization",
@@ -62000,6 +62016,14 @@
       "description": "<p>A subset of repository info.</p>",
       "fields": [
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the repository was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -62193,7 +62217,7 @@
         },
         {
           "name": "pushedAt",
-          "description": "<p>Identifies when the repository was last pushed to.</p>",
+          "description": "<p>Identifies the date and time when the repository was last pushed to.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -65408,10 +65432,6 @@
       "description": "<p>The possible item types found in a timeline.</p>",
       "values": [
         {
-          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
-        },
-        {
           "name": "ADDED_TO_PROJECT_EVENT",
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
@@ -65574,10 +65594,6 @@
         {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
-        },
-        {
-          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
@@ -66635,6 +66651,23 @@
         {
           "name": "IMMEDIATE",
           "description": "<p>Includes only immediate members of the team.</p>"
+        }
+      ]
+    },
+    {
+      "name": "TeamNotificationSetting",
+      "kind": "enums",
+      "id": "teamnotificationsetting",
+      "href": "/graphql/reference/enums#teamnotificationsetting",
+      "description": "<p>The possible team notification values.</p>",
+      "values": [
+        {
+          "name": "NOTIFICATIONS_DISABLED",
+          "description": "<p>No one will receive notifications.</p>"
+        },
+        {
+          "name": "NOTIFICATIONS_ENABLED",
+          "description": "<p>Everyone will receive notifications when the team is @mentioned.</p>"
         }
       ]
     },
