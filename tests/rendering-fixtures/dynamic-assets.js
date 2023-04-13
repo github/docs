@@ -14,7 +14,7 @@ describe('dynamic assets', () => {
     })
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/webp')
-    const { mime } = await fileTypeFromBuffer(res.text)
+    const { mime } = await fileTypeFromBuffer(res.body)
     expect(mime).toBe('image/webp')
   })
 
@@ -39,7 +39,7 @@ describe('dynamic assets', () => {
     })
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/webp')
-    const image = sharp(res.text)
+    const image = sharp(res.body)
     const { width, height } = await image.metadata()
     expect(width).toBe(1000)
     expect(height).toBe(747)
@@ -52,7 +52,7 @@ describe('dynamic assets', () => {
     })
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/webp')
-    const image = sharp(res.text)
+    const image = sharp(res.body)
     const { width, height } = await image.metadata()
     expect(width).toBe(448)
     expect(height).toBe(448)
@@ -69,14 +69,14 @@ describe('dynamic assets', () => {
       const res = await get('/assets/images/mw-0/_fixtures/screenshot.webp')
       expect(res.statusCode).toBe(400)
       expect(res.headers['content-type']).toMatch('text/plain')
-      expect(res.text).toMatch('Error: width number (0) is not a valid number')
+      expect(res.body).toMatch('Error: width number (0) is not a valid number')
     }
     // 1234 is not a number that is recognized
     {
       const res = await get('/assets/images/mw-1234/_fixtures/screenshot.webp')
       expect(res.statusCode).toBe(400)
       expect(res.headers['content-type']).toMatch('text/plain')
-      expect(res.text).toMatch('Error: width number (1234) is not a valid number')
+      expect(res.body).toMatch('Error: width number (1234) is not a valid number')
     }
   })
 

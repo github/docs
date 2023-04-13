@@ -151,7 +151,7 @@ You can add a predefined dev container configuration either while working in a c
 
 1. Follow the prompts to customize your definition.
 1. Click **OK**.
-1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. If you are working in a codespace, apply your changes by clicking **Rebuild now** in the pop-up at the bottom right of the window. For more information about rebuilding your container, see "[Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace)."
 
    ![Screenshot of the message: "We've noticed a change to the dev container configuration." Below this is the "Rebuild Now" button.](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -227,31 +227,12 @@ You can define default interface settings for {% data variables.product.prodname
 
 Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
 
+{% data reusables.codespaces.rebuild-note %}
+
 ### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.rebuild-command %}
-1. {% data reusables.codespaces.recovery-mode %}
-
-   ![Screenshot of a message saying that the codespace is running in recovery mode. Below the message are buttons labeled "Cancel" and "View creation log."](/assets/images/help/codespaces/recovery-mode-error-message.png)
-
-   - To diagnose the error by reviewing the creation logs, click **View creation log**.
-   - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container.
-
-### Using {% data variables.product.prodname_cli %} to rebuild a dev container
-
-If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
-
-1. In a terminal, enter the following command.
-
-   ```
-   gh cs rebuild
-   ```
-
-   Your codespaces are listed.
-
-1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
-
+{% data reusables.codespaces.rebuilding-container-procedures %}
 
 ## Further reading
 

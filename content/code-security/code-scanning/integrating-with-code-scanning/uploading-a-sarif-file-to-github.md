@@ -9,6 +9,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github
   - /code-security/secure-coding/uploading-a-sarif-file-to-github
   - /code-security/secure-coding/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 versions:
   fpt: '*'
   ghes: '*'

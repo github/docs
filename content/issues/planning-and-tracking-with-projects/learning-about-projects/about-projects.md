@@ -43,15 +43,13 @@ You can {% ifversion projects-v2-workflows %}also{% endif %} use the GraphQL API
 
 {% data reusables.projects.tasklists-release-stage %}
 
-You can use Tasklists to build hierarchies of issues, dividing your issues into smaller subtasks, and creating new relationships between your issues. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can use tasklists to build hierarchies of issues, dividing your issues into smaller subtasks, and creating new relationships between your issues. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 These relationships are displayed on the issue, as well as the Tracked by and Tracks fields in your projects. You can filter by issues which are tracked by another issue, and you can also group your table views by the Tracked by field to show all parent issues with a list of their subtasks.
 
 {% endif %}
 
 ### Viewing your project from different perspectives
-
-{% ifversion projects-v2-roadmaps %}{% data reusables.projects.roadmaps-release-stage %}{% endif %}
 
 Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
 

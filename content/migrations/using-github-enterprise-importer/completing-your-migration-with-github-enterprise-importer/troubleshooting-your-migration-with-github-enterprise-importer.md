@@ -42,6 +42,7 @@ The log contains a record of each command you issued and all of the API requests
 - [`404 Not Found` response](#404-not-found-response)
 - [`Archive generation failed` response](#archive-generation-failed-response)
 - [`cipher name is not supported` error](#cipher-name-is-not-supported-error)
+- [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
 
 ### Unable to run migrations
 
@@ -88,6 +89,12 @@ ssh-keygen -t ed25519 -Z aes256-cbc -C "your_email@example.com"
 ```
 
 After generating a new SSH keypair, before you can use the key, you must add the public key to your Bitbucket Server instance's `authorized_keys`.
+
+### `Subsystem 'sftp' could not be executed` error
+
+If you're migrating from Bitbucket Server and receive an error like `Subsystem 'sftp' could not be executed`, SFTP is not enabled on your server or your user account does not have SFTP access.
+
+You should contact your server administrator and ask them to enable SFTP access for your user account.
 
 ## Troubleshooting successful migrations
 

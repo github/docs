@@ -14,11 +14,14 @@ topics:
   - Codespaces
   - Billing
   - Administrator
+product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can enable use of {% data variables.product.prodname_github_codespaces %}, billable to the organization. These organizations can then access settings that apply to codespaces paid for by the organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
 ---
 
 ## About enabling {% data variables.product.prodname_github_codespaces %} for your organization
 
-Organization owners can control which users in your organization can create and use codespaces at the organization's expense. For information about pricing, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+Owners of organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can allow certain users to create and use codespaces at the organization's expense. This applies to codespaces created from repositories owned by the organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+
+If a user can access one of your organization's repositories, but you haven't allowed them to create a codespace at your organization's expense, the user can still create codespaces from the repository. These codespaces will incur usage on the user's personal account.
 
 Regardless of who pays for a codespace, only people who can either push changes to a repository, or fork the repository, can create a codespace for that repository. To allow a user to create codespaces for a repository owned by your organization, you must do one of the following things.
 
@@ -31,6 +34,10 @@ To allow people to create codespaces for which your organization will be billed,
 
 - [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)
 - [Choose who can create codespaces that are billed to your organization](#choose-who-can-create-codespaces-that-are-billed-to-your-organization)
+
+When you have set a spending limit, you can access settings for {% data variables.product.prodname_github_codespaces %} in your organization's settings and in repositories owned by your organization. For example, you can set up prebuilds for a repository, or you can set a policy to restrict the base image or machine type that can be used in your organization's codespaces. These policies apply to codespaces that your organization pays for, but not to codespaces created from your repositories that are billed to a user's personal account. 
+
+You can also use the REST API to manage codespaces owned by your organization, for example to stop or delete a codespace. For more information, see "[AUTOTITLE](/rest/codespaces/organizations)" in the REST API documentation.
 
 {% ifversion ghec %}
 {% note %}

@@ -26,9 +26,9 @@ Success, normal termination.
 
 ## 1
 
-The command successfully determined that the answer to your question is “no”.
+The command successfully determined that the answer to your question is "no".
 
-This exit code is only used by a few commands, such as [codeql test run](https://codeql.github.com/docs/codeql-cli/manual/test-run/), [codeql database check](https://codeql.github.com/docs/codeql-cli/manual/dataset-check/), [codeql query format](https://codeql.github.com/docs/codeql-cli/manual/query-format/),and [codeql resolve extractor](https://codeql.github.com/docs/codeql-cli/manual/resolve-extractor/).
+This exit code is only used by a few commands, such as "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/)", "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/dataset-check/)", "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-format/)",and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-extractor/)."
 For more details, see the documentation for those commands.
 
 ## 2
@@ -46,7 +46,7 @@ In this case, the launcher can’t start the Java code for the {% data variables
 
 ## 32
 
-The extractor didn’t find any code to analyze when running [codeql database create](https://codeql.github.com/docs/codeql-cli/manual/database-create/) or [codeql database finalize](https://codeql.github.com/docs/codeql-cli/manual/database-finalize/).
+The extractor didn’t find any code to analyze when running "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create/)" or "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-finalize/)."
 
 ## 33
 

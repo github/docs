@@ -10,8 +10,6 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-Your project can track draft issues, issues, and pull requests.
-
 {% note %}
 
 **Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
@@ -31,6 +29,12 @@ You can add issues and pull requests to your project individually{% ifversion pr
 {% endnote %}
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
+
+{% endif %}
+
+{% ifversion projects-v2-bulk-table-editing %}
+
+For more information about making bulk changes to your items after adding them, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project)."
 
 {% endif %}
 
@@ -75,10 +79,14 @@ You can also add issues and pull requests to your project from a repository's is
 
 1. On {% data variables.location.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project.
-  ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all.
-  ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
+1. Select the issues or pull requests you want to add to your project.
+
+   - To select individual issues or pull requests, to the left of the title of each issue or pull request you want to add to your project, select the checkbox.
+
+      ![Screenshot of the first two issues in the list of issues for a repository. To the left of each issue, a checkbox is outlined in dark orange.](/assets/images/help/issues/select-issue-checkbox.png)
+   - To select every issue or pull request on the page, at the top of the list of issues or pull requests, select all.
+
+      ![Screenshot of the list of issues for a repository. In the header above the list, a checkbox to select all issues is outlined in dark orange.](/assets/images/help/issues/select-all-checkbox.png)
 1. Above the list of issues or pull requests, click **Projects**.
   ![Screenshot showing projects option](/assets/images/help/projects-v2/issue-index-project-menu.png)
 1. Click the projects you want to add the selected issues or pull requests to.

@@ -67,7 +67,7 @@ You can create and participate in issues, pull requests and team discussions, de
 
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created an issue in our documentation open source repository to make us aware of a bug, and discuss a fix.
 
-![Example of issue](/assets/images/help/issues/issue-example.png)
+![Screenshot of an issue, with the title "Blue link text in notices is unreadable due to blue background."](/assets/images/help/issues/issue-example.png)
 
 - A user noticed that the blue color of the banner at the top of the page in the Chinese version of the {% data variables.product.prodname_dotcom %} Docs makes the text in the banner unreadable.
 - The user created an issue in the repository, stating the problem and suggesting a fix (which is, use a different background color for the banner).
@@ -87,11 +87,11 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 
 In the **Conversation** tab of the pull request, the author explains why they created the pull request.
 
-![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
+![Screenshot of the "Conversation" tab of a pull request.](/assets/images/help/pull_requests/pr-conversation-example.png)
 
 The **Files changed** tab of the pull request shows the implemented fix.
 
-![Example of pull request - Files changed tab](/assets/images/help/pull_requests/pr-files-changed-example.png)
+![Screenshot of the "Files changed" tab of a pull request.](/assets/images/help/pull_requests/pr-files-changed-example.png)
 
 - This contributor notices a typo in the repository.
 - The user creates a pull request with the fix.

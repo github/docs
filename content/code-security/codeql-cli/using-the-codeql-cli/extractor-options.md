@@ -19,7 +19,7 @@ make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs
 
 ## About extractors
 
-The {% data variables.product.prodname_codeql_cli %}uses special programs, called extractors, to extract information from the source code of a software system into a database that can be queried. You can customize the behavior of extractors by setting extractor configuration options through the {% data variables.product.prodname_codeql_cli %}.
+The {% data variables.product.prodname_codeql_cli %} uses special programs, called extractors, to extract information from the source code of a software system into a database that can be queried. You can customize the behavior of extractors by setting extractor configuration options through the {% data variables.product.prodname_codeql_cli %}.
 
 ## About extractor options
 

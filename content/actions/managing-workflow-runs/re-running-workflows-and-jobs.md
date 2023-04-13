@@ -17,7 +17,7 @@ versions:
 
 ## About re-running workflows and jobs
 
-Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion not ghae %}{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy."{% endif %}{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
+Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. {% ifversion actions-stable-actor-ids %}The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. {% endif %}You can re-run a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.{% ifversion not ghae %}{% ifversion re-run-jobs %} You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."{% endif %}{% endif %}{% ifversion debug-reruns %} When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."{% endif %}
 
 ## Re-running all the jobs in a workflow
 
@@ -28,16 +28,14 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% ifversion fpt or ghes > 3.4 or ghae or ghec -%}
-1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run all jobs**.
+1. In the upper-right corner of the workflow, re-run jobs.
 
-   If no jobs failed, you will not see the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**.
+   - If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
-   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+   - If no jobs failed, click **Re-run all jobs**.
 {%- endif %}
 {% ifversion ghes < 3.5 or ghae -%}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run all jobs**.
-
-   ![Re-run checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
+1. In the upper-right corner of the workflow, select the **Re-run jobs** dropdown menu and click **Re-run all jobs**.
 {%- endif %}
 {% data reusables.actions.enable-debug-logging %}
 
@@ -81,9 +79,7 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, use the **{% octicon "sync" aria-label="The sync icon" %} Re-run jobs** drop-down menu, and select **Re-run failed jobs**.
-
-   ![Rerun checks drop-down menu](/assets/images/help/repository/rerun-checks-drop-down.png)
+1. In the upper-right corner of the workflow, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu, and click **Re-run failed jobs**.
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
@@ -117,10 +113,8 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}.
-   ![Re-run selected job](/assets/images/help/repository/re-run-selected-job.png)
 
-   Alternatively, click on a job to view the log. In the log, click {% octicon "sync" aria-label="The re-run icon" %}.
-   ![Re-run selected job](/assets/images/help/repository/re-run-single-job-from-log.png)
+   ![Screenshot of the page for a workflow run. In the left sidebar, to the right of a job, a sync icon is outlined in dark orange.](/assets/images/help/actions/re-run-selected-job.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
@@ -163,12 +157,11 @@ You can view the results from your previous attempts at running a workflow. You 
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {%- ifversion re-run-jobs %}
-1. Any previous run attempts are shown in the **Latest** drop-down menu.
-   ![Previous run attempts](/assets/images/help/repository/previous-run-attempts.png)
+1. To the right of the run name, select the **Latest** dropdown menu and click a previous run attempt.
+
+   ![Screenshot of the page for a workflow run. A dropdown menu, labeled "Latest #2," is outlined in dark orange.](/assets/images/help/actions/previous-run-attempts.png)
 {%- else %}
-1. Any previous run attempts are shown in the left pane.
+1. In the left pane, click a previous run attempt.
     ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}
-1. Click an entry to view its results.
-
 {% endif %}

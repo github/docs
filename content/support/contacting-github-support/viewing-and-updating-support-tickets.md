@@ -1,7 +1,7 @@
 ---
 title: Viewing and updating support tickets
 intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
-shortTitle: Managing your tickets
+shortTitle: View and update tickets
 versions:
   fpt: '*'
   ghec: '*'
@@ -69,7 +69,7 @@ If your account includes {% data variables.contact.premium_support %}, you can r
 
 ## Requesting an escalation
 
-If your account includes {% data variables.contact.premium_support %}, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see "[AUTOTITLE](/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket)".
+If your account includes {% data variables.contact.premium_support %}, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see "[AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket)".
 
 {% endif %}
 

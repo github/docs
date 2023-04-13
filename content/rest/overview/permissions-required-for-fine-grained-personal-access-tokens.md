@@ -927,6 +927,13 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 - [`GET /repos/{owner}/{repo}/projects`](/rest/projects#list-repository-projects) (read)
 - [`POST /repos/{owner}/{repo}/projects`](/rest/projects#create-a-repository-project) (write)
 
+## Repository security advisories
+
+- [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories) (read)
+- [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory) (write)
+- [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory) (read)
+- [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory) (write)
+
 ## Secret scanning alerts
 
 - [`GET /repos/{owner}/{repo}/secret-scanning/alerts`](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository) (read)

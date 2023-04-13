@@ -77,7 +77,7 @@ export function GHESReleaseNotes({ context }: Props) {
                         className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       >
                         {release.version}
-                        <LinkExternalIcon />
+                        <LinkExternalIcon aria-label="(external site)" />
                       </LinkComponent>
                     </li>
                   )

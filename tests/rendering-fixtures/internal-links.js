@@ -29,6 +29,11 @@ describe('autotitle', () => {
       expect(res.statusCode).toBe(500)
     }
   })
+
+  test('AUTOTITLE on anchor links should fail', async () => {
+    const res = await get('/get-started/foo/anchor-autotitling', { followRedirects: true })
+    expect(res.statusCode).toBe(500)
+  })
 })
 
 describe('cross-version-links', () => {
@@ -103,5 +108,42 @@ describe('link-rewriting', () => {
     expect(link.attr('href')).toMatch(
       `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/`
     )
+  })
+})
+
+describe('data attributes for hover preview cards', () => {
+  test('check that internal links have the data attributes', async () => {
+    const $ = await getDOM('/pages/quickstart')
+    const links = $('#article-contents a[href]')
+
+    // The internal link
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').includes('/get-started/quickstart')
+      )
+      expect(link.attr('data-title')).toBe('Quickstart')
+      expect(link.attr('data-product-title')).toBe('Get started')
+      // See tests/fixtures/content/get-started/quickstart/index.md
+      expect(link.attr('data-intro')).toBe(
+        'Get started using GitHub to manage Git repositories and collaborate with others.'
+      )
+    }
+
+    // The anchor link has none
+    {
+      const link = links.filter((i, element) => $(element).attr('href') === '#introduction')
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
+    // The external link has none
+    {
+      const link = links.filter((i, element) =>
+        $(element).attr('href').startsWith('https://github.com')
+      )
+      expect(link.attr('data-title')).toBeUndefined()
+      expect(link.attr('data-product-title')).toBeUndefined()
+      expect(link.attr('data-intro')).toBeUndefined()
+    }
   })
 })

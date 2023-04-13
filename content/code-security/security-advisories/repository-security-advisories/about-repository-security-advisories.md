@@ -36,6 +36,10 @@ With repository security advisories, you can:
 
 {% data reusables.repositories.security-advisories-republishing %}
 
+{% ifversion repository-security-advisories-API %}
+You can also use the REST API to create, list, and update repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)" in the REST API documentation.
+{% endif %}
+
 You can give credit to individuals who contributed to a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
 
 {% data reusables.repositories.security-guidelines %}
@@ -48,7 +52,7 @@ If a security advisory is specifically for npm, we also publish the advisory to 
 
 ## CVE identification numbers
 
-{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format. 
+{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format.
 
 {% data variables.product.prodname_dotcom %} is a CVE Numbering Authority (CNA) and is authorized to assign CVE identification numbers. For more information, see "[About CVE](https://www.cve.org/About/Overview)" and "[CVE Numbering Authorities](https://www.cve.org/ProgramOrganization/CNAs)" on the CVE website.
 

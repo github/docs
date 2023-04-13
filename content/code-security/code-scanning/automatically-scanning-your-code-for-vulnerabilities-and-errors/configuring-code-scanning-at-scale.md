@@ -36,7 +36,7 @@ A repository must meet all the following criteria to be eligible for default set
 
 - {% data variables.product.prodname_code_scanning_caps %} is not already enabled.
 - {% data variables.product.prodname_actions %} are enabled.
-- Uses JavaScript/TypeScript, Python, or Ruby.
+- Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.
 - Does not use any other languages supported by {% data variables.product.prodname_codeql %}, but may include other languages, such as R. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."
 - {% ifversion fpt %}Publicly visible.
    {%- elsif ghec %}Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.
@@ -60,7 +60,7 @@ The security coverage page, part of security overview, makes it easy to filter t
 {%- endif %}
 - `code-scanning-default-setup:not-eligible` shows repositories that either have advanced setup configured already, or where the languages not are suitable for default setup.
 
-For more information about the security coverage page, see "[AUTOTITLE](/code-security/security-overview/about-the-security-overview#security-coverage-view)."
+For more information about the security coverage page, see "[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)."
 
 {% endif %}
 

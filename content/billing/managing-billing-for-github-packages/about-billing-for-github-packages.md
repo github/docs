@@ -26,11 +26,11 @@ shortTitle: About billing
 
 {% endnote %}
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
-{% endif %}
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
 
 Data transfer resets every month, while storage usage does not.
+
+{% rowheaders %}
 
 Product | Storage | Data transfer (per month)
 ------- | ------- | ---------
@@ -40,12 +40,18 @@ Product | Storage | Data transfer (per month)
 {% data variables.product.prodname_team %} | 2GB | 10GB
 {% data variables.product.prodname_ghe_cloud %} | 50GB | 100GB
 
+{% endrowheaders %}
+
 All data transferred out, when triggered by {% data variables.product.prodname_actions %}, and data transferred in from any source is free. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
+
+{% rowheaders %}
 
 ||Hosted|Self-Hosted|
 |-|-|-|
 |Access using a `GITHUB_TOKEN`|Free|Free|
 |Access using a {% data variables.product.pat_generic %}|Free|Paid|
+
+{% endrowheaders %}
 
 Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 

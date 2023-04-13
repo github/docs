@@ -15,7 +15,6 @@ topics:
   - Secret scanning
 ---
 
-
 ## About custom patterns for {% data variables.product.prodname_secret_scanning %}
 
 You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For example, you might have a secret pattern that is internal to your organization. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
@@ -189,9 +188,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 ## Editing a custom pattern
 
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**. For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
+{% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
@@ -204,10 +201,28 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
 ## Removing a custom pattern
 
-1. Navigate to where the custom pattern was created. A custom pattern can be created in a repository, organization, or enterprise account.
-
-   * For a repository or organization, display the "Security & analysis" settings for the repository or organization where the custom pattern was created. For more information, see "[Defining a custom pattern for a repository](#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](#defining-a-custom-pattern-for-an-organization)" above.
-   * For an enterprise, under "Policies" display the "Advanced Security" area, and then click **Security features**.  For more information, see "[Defining a custom pattern for an enterprise account](#defining-a-custom-pattern-for-an-enterprise-account)" above.
+{% data reusables.secret-scanning.view-custom-pattern %}
 1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.
+
+{% ifversion secret-scanning-custom-patterns-metrics %}
+
+## Metrics for custom patterns
+
+Organization owners and people with admin permissions can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
+
+{% note %}
+
+**Note:** Metrics for custom patterns are in public beta and subject to change.
+
+{% endnote %}
+
+### Viewing metrics for custom patterns
+
+{% data reusables.secret-scanning.view-custom-pattern %}
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the custom pattern you want to view.
+
+The metrics are displayed under the custom pattern's name.
+
+{% endif %}

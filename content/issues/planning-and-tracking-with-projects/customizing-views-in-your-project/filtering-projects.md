@@ -130,11 +130,11 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a Tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a Tasklist in issue #11 of the `octocat/game` repository.
+| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
 
 {% endif %}
 

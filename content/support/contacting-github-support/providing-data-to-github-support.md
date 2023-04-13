@@ -134,15 +134,13 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. In the left sidebar, click **Enterprise licensing**.
-  ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
-  ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. Under "Select an enterprise account", select the support bundle's associated account from the drop-down menu.
-  ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
-6. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
-  ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
-7. Click **Upload**.
+{% data reusables.enterprise-accounts.license-tab %}
+1. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
+
+   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is highlighted with a dark orange rectangle.](/assets/images/enterprise/support/upload-support-bundle.png)
+1. Under "Select an enterprise account", use the drop-down menu to select the support bundle's associated account.
+1. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
+1. Click **Upload**.
 
 ### Uploading a support bundle directly using SSH
 

@@ -133,7 +133,7 @@ Each email notification that {% data variables.location.product_location %} send
 
 If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
 
-Email notifications from {% data variables.location.product_location %} contain the following header information:
+Email notifications from {% data variables.location.product_location %} contain header information.
 
 | Header | Information |
 | --- | --- |

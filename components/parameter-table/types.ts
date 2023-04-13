@@ -29,4 +29,5 @@ export interface ChildParameter {
   enum?: Array<string | null>
   default?: string | boolean | number | undefined | string[]
   childParamsGroups?: ChildParameter[]
+  oneOfObject?: boolean
 }
