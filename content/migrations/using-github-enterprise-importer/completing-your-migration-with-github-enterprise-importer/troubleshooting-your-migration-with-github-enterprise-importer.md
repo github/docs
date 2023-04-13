@@ -43,6 +43,7 @@ The log contains a record of each command you issued and all of the API requests
 - [`Archive generation failed` response](#archive-generation-failed-response)
 - [`cipher name is not supported` error](#cipher-name-is-not-supported-error)
 - [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
+- [`Source export archive... does not exist` error](#source-export-archive-does-not-exist-error)
 
 ### Unable to run migrations
 
@@ -95,6 +96,20 @@ After generating a new SSH keypair, before you can use the key, you must add the
 If you're migrating from Bitbucket Server and receive an error like `Subsystem 'sftp' could not be executed`, SFTP is not enabled on your server or your user account does not have SFTP access.
 
 You should contact your server administrator and ask them to enable SFTP access for your user account.
+
+### `Source export archive... does not exist` error
+
+If you're migrating from Bitbucket Server and you receive an error like `Source export archive (/var/atlassian/application-data/bitbucket/shared/migration/export/Bitbucket_export_1.tar) does not exist`, the {% data variables.product.prodname_cli %} is looking for your migration archive in the wrong place on your Bitbucket Server instance.
+
+To resolve this issue, set the `--bbs-shared-home` argument for `gh bbs2gh migrate-repo` to your Bitbucket Server or Data Center's shared home directory. The default shared home directory is `/var/atlassian/application-data/bitbucket/shared`, but your configuration may be different.
+
+You can identify the shared home directory in Bitbucket Server.
+
+1. Navigate to the Administration area of your Bitbucket Server or Data Center instance.
+1. In the sidebar, under "System," click "Storage." 
+1. Under "Shared directory," view the location of your server's shared home directory.
+
+If you're running Bitbucket Data Center in cluster mode with multiple notes, your shared directory will be shared between cluster nodes and should be mounted in the same location on each node.
 
 ## Troubleshooting successful migrations
 
