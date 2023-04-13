@@ -22,7 +22,7 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
         <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-          <h1>{page.title}</h1>
+          <h1 id="title-h1">{page.title}</h1>
         </div>
 
         <div>
