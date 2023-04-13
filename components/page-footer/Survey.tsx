@@ -193,7 +193,7 @@ export const Survey = () => {
       )}
 
       <Link
-        className="f6 text-normal color-fg-accent"
+        className="f6 text-underline"
         href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
         target="_blank"
       >

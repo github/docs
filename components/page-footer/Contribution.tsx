@@ -21,6 +21,7 @@ export const Contribution = () => {
       </a>
       <p className="color-fg-muted f6 mt-2">
         <a
+          className="text-underline"
           href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
           target="_blank"
           rel="noopener"
