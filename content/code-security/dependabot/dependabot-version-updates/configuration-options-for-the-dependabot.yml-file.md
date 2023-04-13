@@ -80,6 +80,7 @@ In general, security updates use any configuration options that affect pull requ
 
 {% data reusables.dependabot.supported-package-managers %}
 
+#### Example of a basic setup for three package managers
 ```yaml
 # Basic set up for three package managers
 
