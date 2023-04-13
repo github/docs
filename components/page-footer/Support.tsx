@@ -14,18 +14,14 @@ export const Support = () => {
         <a
           id="ask-community"
           href={communityRedirect.href || 'https://github.com/orgs/community/discussions'}
-          className="Link—secondary text-bold"
+          className="text-underline"
         >
           <PeopleIcon size="small" className="octicon mr-1" />
           {Object.keys(communityRedirect).length === 0 ? t`ask_community` : communityRedirect.name}
         </a>
       </div>
       <div>
-        <a
-          id="contact-us"
-          href="https://support.github.com/contact"
-          className="Link—secondary text-bold"
-        >
+        <a id="contact-us" href="https://support.github.com/contact" className="text-underline">
           <CommentDiscussionIcon size="small" className="octicon mr-1" />
           {t`contact_support`}
         </a>
