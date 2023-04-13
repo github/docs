@@ -112,19 +112,6 @@ function popoverWrap(element: HTMLLinkElement) {
   let anchor = ''
 
   if (!title) {
-    // TEMPORARY
-    // We're currently only activating this functionalty on a subset of pages.
-    // In fact, only on /$locale/pages/
-    // On the server-side, we decide this by setting or not setting the
-    // data attributes on the tags. But for in-page anchor links we don't
-    // rely on the server.
-    // We can remove this if statement once preview hover cards are
-    // enabled everywhere.
-    const pathnameSplit = new URL(element.href).pathname.split('/')
-    // Check for both when you're on free-pro-team@latest and any
-    // other version too.
-    if (!(pathnameSplit[2] === 'pages' || pathnameSplit[3] === 'pages')) return
-
     // But, is it an in-page anchor link? If so, get the title, intro
     // and product from within the DOM. But only if we can use the anchor
     // destination to find a DOM node that has text.
@@ -307,14 +294,21 @@ function popoverHide() {
 }
 
 function testTarget(target: HTMLLinkElement) {
-  // Return true if the element is an A tag, whose `href` starts with
-  // a `/`, is contained in either the article-contents (the meat of the article)
-  // or the article-intro (which contain product callouts), and it's not one of
-  // those permalink ones next to headings (with the chain looking icon).
+  // Return true if:
+  //
+  // * the element is an A tag
+  // * whose `href` starts with a `/`
+  // * is contained in either the article-contents (the meat of the article)
+  //   or the article-intro (which contain product callouts)
+  // * the window width is > 767px, hovercards are less useful at the smaller
+  //   widths
+  // * it's not one of those permalink ones next to headings (with the chain
+  //   looking icon).
   return (
     target.tagName === 'A' &&
     target.href.startsWith(window.location.origin) &&
     target.closest('#article-contents, #article-intro') &&
+    window.innerWidth > 767 &&
     !target.classList.contains('doctocat-link')
   )
 }
