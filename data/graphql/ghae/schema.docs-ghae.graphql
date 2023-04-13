@@ -28801,11 +28801,6 @@ The possible item types found in a timeline.
 """
 enum PullRequestTimelineItemsItemType {
   """
-  Represents an 'added_to_merge_queue' event on a given pull request.
-  """
-  ADDED_TO_MERGE_QUEUE_EVENT
-
-  """
   Represents a 'added_to_project' event on a given issue or pull request.
   """
   ADDED_TO_PROJECT_EVENT
@@ -29009,11 +29004,6 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
-
-  """
-  Represents a 'removed_from_merge_queue' event on a given pull request.
-  """
-  REMOVED_FROM_MERGE_QUEUE_EVENT
 
   """
   Represents a 'removed_from_project' event on a given issue or pull request.

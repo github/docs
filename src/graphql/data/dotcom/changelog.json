@@ -4,6 +4,37 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddedToMergeQueueEvent</code> was added</p>",
+          "<p>Type <code>DequeuePullRequestInput</code> was added</p>",
+          "<p>Type <code>DequeuePullRequestPayload</code> was added</p>",
+          "<p>Type <code>EnqueuePullRequestInput</code> was added</p>",
+          "<p>Type <code>EnqueuePullRequestPayload</code> was added</p>",
+          "<p>Type <code>MergeQueue</code> was added</p>",
+          "<p>Type <code>MergeQueueConfiguration</code> was added</p>",
+          "<p>Type <code>MergeQueueEntry</code> was added</p>",
+          "<p>Type <code>MergeQueueEntryConnection</code> was added</p>",
+          "<p>Type <code>MergeQueueEntryEdge</code> was added</p>",
+          "<p>Type <code>MergeQueueEntryState</code> was added</p>",
+          "<p>Type <code>MergeQueueMergingStrategy</code> was added</p>",
+          "<p>Type <code>RemovedFromMergeQueueEvent</code> was added</p>",
+          "<p>Field <code>dequeuePullRequest</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>enqueuePullRequest</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>mergeQueueEntry</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Member <code>AddedToMergeQueueEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>RemovedFromMergeQueueEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Field <code>mergeQueue</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>archivedAt</code> was added to object type <code>Repository</code></p>",
           "<p>Field <code>archivedAt</code> was added to interface <code>RepositoryInfo</code></p>"
         ]

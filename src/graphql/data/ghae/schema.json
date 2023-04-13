@@ -65432,10 +65432,6 @@
       "description": "<p>The possible item types found in a timeline.</p>",
       "values": [
         {
-          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
-        },
-        {
           "name": "ADDED_TO_PROJECT_EVENT",
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
@@ -65598,10 +65594,6 @@
         {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
-        },
-        {
-          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
-          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
