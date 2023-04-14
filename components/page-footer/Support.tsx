@@ -9,7 +9,7 @@ export const Support = () => {
 
   return (
     <div>
-      <h2 className="mb-3 f4">{t`still_need_help`}</h2>
+      <h3 className="mb-3 f4">{t`still_need_help`}</h3>
       <div className="mb-2">
         <a
           id="ask-community"

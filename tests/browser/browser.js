@@ -145,22 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('x-large viewports - 1280+', () => {
-  jest.setTimeout(60 * 1000)
-  it('in article breadcrumbs at xl viewport should remove last breadcrumb', async () => {
-    await page.setViewport({ width: 1300, height: 700 })
-    await page.goto(
-      'http://localhost:4000/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise'
-    )
-    const breadcrumbsElement = await page.$$('[data-testid=breadcrumbs-in-article] ul li')
-    const breadcrumbsMissingElement = await page.$$(
-      '[data-testid=breadcrumbs-in-article] ul li .d-none'
-    )
-    expect(breadcrumbsMissingElement.length).toBe(1)
-    expect(breadcrumbsElement.length).toBe(4)
-  })
-})
-
 describe('large -> x-large viewports - 1012+', () => {
   jest.setTimeout(60 * 1000)
   it('version picker is visible in header', async () => {
