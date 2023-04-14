@@ -22,7 +22,6 @@ import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
-import { SupportPortalVaIframe } from 'components/article/SupportPortalVaIframe'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -50,10 +49,6 @@ export const ArticlePage = () => {
 
   return (
     <DefaultLayout>
-      {supportPortalVaIframeProps.supportPortalUrl &&
-        supportPortalVaIframeProps.vaFlowUrlParameter && (
-          <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
-        )}
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
@@ -63,6 +58,7 @@ export const ArticlePage = () => {
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
+          supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
