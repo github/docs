@@ -30,7 +30,7 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 curl --request GET \
 --url "{% data variables.product.api_url_pre %}/app" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
