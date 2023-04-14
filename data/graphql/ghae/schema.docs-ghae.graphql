@@ -36209,6 +36209,11 @@ A Dependabot alert for a repository with a dependency affected by a security vul
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
+  When was the alert auto-dismissed?
+  """
+  autoDismissedAt: DateTime
+
+  """
   When was the alert created?
   """
   createdAt: DateTime!
@@ -36349,6 +36354,11 @@ type RepositoryVulnerabilityAlertEdge {
 The possible states of an alert
 """
 enum RepositoryVulnerabilityAlertState {
+  """
+  An alert that has been automatically closed by Dependabot.
+  """
+  AUTO_DISMISSED
+
   """
   An alert that has been manually closed by a user.
   """
