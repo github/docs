@@ -5,10 +5,11 @@ intro: Use OpenID Connect within your workflows to authenticate with PyPI
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
+  - Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
