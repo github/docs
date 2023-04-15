@@ -254,6 +254,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                   onClick={() => {
                     handleLanguageSelection(optionKey)
                   }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      handleLanguageSelection(optionKey)
+                    }
+                  }}
+                  tabIndex={0}
                   selected={optionKey === selectedLanguage}
                   className="pr-3 mr-0"
                   sx={{
@@ -311,6 +317,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                   onClick={() => {
                     handleResponseSelection(optionKey)
                   }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      handleResponseSelection(optionKey)
+                    }
+                  }}
+                  tabIndex={0}
                   selected={optionKey === selectedResponse}
                   className="pr-3 mr-0 ml-2"
                   sx={{

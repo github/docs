@@ -43,16 +43,13 @@ In your organization's repositories, blocked users also cannot:
 ## Blocking a user in a comment
 
 1. Navigate to the comment whose author you would like to block.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block user**.
-![The horizontal kebab icon and comment moderation menu showing the block user option](/assets/images/help/repository/comment-menu-block-user.png)
-3. If you'd like to set a time limit for the block, use the Block user drop-down menu, and select the amount of time you'd like to block the user.
-![Block time limit in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-from-comment.png)
-4. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
-![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-hide-user-comments.png)
-5. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**.
-![Send a notification in the block user drop-down menu](/assets/images/help/organizations/org-block-options-menu-send-notification.png)
-6. To block the user, click **Block user from organization** or **Block user from organization and send message**.
-![Block user button](/assets/images/help/organizations/org-block-user-button-in-comment.png)
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
+
+   ![The horizontal kebab icon and comment moderation menu showing the block user option](/assets/images/help/repository/comment-menu-block-user.png)
+1. If you'd like to set a time limit for the block, select the **Block user** dropdown menu, and click the amount of time you'd like to block the user.
+1. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
+1. If you'd like to notify the user why they're being blocked, select **Send a notification to this user**.
+1. To block the user, click **Block user from organization** or **Block user from organization and send message**.
 
 ## Blocking a user in the organization settings
 
@@ -61,12 +58,9 @@ In your organization's repositories, blocked users also cannot:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
-6. Under "Block a user", type the username of the user you'd like to block.
-![Username field](/assets/images/help/organizations/org-block-username-field.png)
-7. If you'd like to set a time limit for the block, use the Block options drop-down menu, and select the amount of time you'd like to block the user.
-![Block options drop-down menu](/assets/images/help/organizations/org-block-options-menu.png)
-8. Click **Block user**.
-![Block button](/assets/images/help/organizations/org-block-user-button.png)
+1. Under "Block a user", in the text field, type the username of the user you'd like to block.
+1. If you'd like to set a time limit for the block, next to the text field, select the **Block options** dropdown menu, and click the amount of time you'd like to block the user.
+1. Click **Block user**.
 
 ## Further reading
 

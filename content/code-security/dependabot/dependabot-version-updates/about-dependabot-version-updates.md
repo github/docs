@@ -85,6 +85,8 @@ If your repository already uses an integration for dependency management, you wi
 
 {% endif %}
 
+{% ifversion dependabot-updates-rebase-30-days-cutoff %}{% data variables.product.prodname_dependabot %} also stops rebasing pull requests for version and security updates after 30 days, reducing notifications for inactive {% data variables.product.prodname_dependabot %} pull requests.{% endif %}
+
 ## About notifications for {% data variables.product.prodname_dependabot %} version updates
 
 You can filter your notifications on {% data variables.product.company_short %} to show notifications for pull requests created by {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)."

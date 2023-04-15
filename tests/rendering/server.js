@@ -155,7 +155,7 @@ describe('server', () => {
 
   test('renders a 404 page', async () => {
     const $ = await getDOM('/not-a-real-page', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
       $.text().includes(
@@ -176,7 +176,7 @@ describe('server', () => {
 
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
       $.text().includes(

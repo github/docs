@@ -228,3 +228,17 @@ test('hovercards', async ({ page }) => {
   await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
 })
+
+test('x-large viewports - 1280+', async ({ page }) => {
+  page.setViewportSize({
+    width: 1300,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // in article breadcrumbs at xl viewport should remove last breadcrumb so
+  // for this page we should only have 'Get Started / Foo'
+  expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
+  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
+  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+})
