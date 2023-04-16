@@ -101,10 +101,10 @@ Notice that all of the examples use a short version number for the action (`v3`)
      {% ifversion ghes %}runs-on: self-hosted
        {% else %}runs-on: ubuntu-latest
        {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
+       - name: 'Checkout Repository'
+         uses: {% data reusables.actions.action-checkout %}
+       - name: Dependency Review
+         uses: actions/dependency-review-action@v3
    ```
 1. Specify your settings.
 
@@ -121,13 +121,14 @@ Notice that all of the examples use a short version number for the action (`v3`)
      {% ifversion ghes %}runs-on: self-hosted
        {% else %}runs-on: ubuntu-latest
        {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
-           with:
-           # Possible values: "critical", "high", "moderate", "low"
-           fail-on-severity: critical
+       - name: 'Checkout Repository'
+         uses: {% data reusables.actions.action-checkout %}
+       - name: Dependency Review
+         uses: actions/dependency-review-action@v3
+         with:
+         # Possible values: "critical", "high", "moderate", "low" 
+         fail-on-severity: critical
+
   {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
@@ -163,21 +164,22 @@ Notice that all of the examples use a short version number for the action (`v3`)
        {% ifversion ghes %}runs-on: self-hosted
        {% else %}runs-on: ubuntu-latest
        {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
-           with:
-            # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
-            # Possible values: An absolute path to a local file or an external file.
-            config-file: './.github/dependency-review-config.yml'
-            # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
-            config-file: 'github/octorepo/dependency-review-config.yml@main'
+       - name: 'Checkout Repository'
+         uses: {% data reusables.actions.action-checkout %}
+       - name: Dependency Review
+         uses: actions/dependency-review-action@v3
+         with:
+          # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
+          # Possible values: An absolute path to a local file or an external file.
+          config-file: './.github/dependency-review-config.yml'   
+          # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
+          config-file: 'github/octorepo/dependency-review-config.yml@main'
 
-            # ([Token]) Use if your configuration file resides in a private external repository.
-            # Possible values: Any GitHub token with read access to the private external repository.
-            external-repo-token: 'ghp_123456789abcde'
-   ```
+          # ([Token]) Use if your configuration file resides in a private external repository.
+          # Possible values: Any GitHub token with read access to the private external repository.  
+          external-repo-token: 'ghp_123456789abcde'
+  ```
+  
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.

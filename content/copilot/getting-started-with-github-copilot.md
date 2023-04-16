@@ -367,8 +367,6 @@ If you use Neovim, you can view and incorporate suggestions from {% data variabl
 ## Installing the Neovim extension on macOS
 
 {% data reusables.copilot.install-copilot-in-neovim %}
-
-{% data reusables.copilot.install-copilot-in-neovim %}
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
 
          git clone https://github.com/github/copilot.vim \

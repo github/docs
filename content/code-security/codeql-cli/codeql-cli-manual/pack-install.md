@@ -81,12 +81,12 @@ qlpack.yml, the lock file will be updated as necessary.
 
 `upgrade`: Update or create the codeql-pack.lock.yml to use the latest
 versions of all dependencies, subject to the constraints in the
-qlpack.yml file. This mode has been superceded by the 'codeql pack
+qlpack.yml file. This mode has been superseded by the 'codeql pack
 upgrade' command.
 
 `verify`: Verify that the existing codeql-pack.lock.yml is still valid
 with respect to the dependencies specified in the qlpack.yml file, or
-fail the lock file if it does not exist. This mode has been superceded
+fail the lock file if it does not exist. This mode has been superseded
 by the 'codeql pack ci' command.
 
 `no-lock`: Ignore the existing codeql-pack.lock.yml and perform
@@ -98,7 +98,7 @@ dependencies, or create the lock file if it does not exist.
 
 `update`: \[Deprecated] Update or create the codeql-pack.lock.yml to
 use the latest versions of all dependencies, subject to the constraints
-in the qlpack.yml file. This mode has been superceded by the 'codeql
+in the qlpack.yml file. This mode has been superseded by the 'codeql
 pack upgrade' command.
 
 ### Options for resolving QL packs outside of the package registry

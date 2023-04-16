@@ -1088,12 +1088,12 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 
 ```yaml
 # Valid
-branches:
+paths:
   - '**/README.md'
 
 # Invalid - creates a parse error that
 # prevents your workflow from running.
-branches:
+paths:
   - **/README.md
 
 # Valid

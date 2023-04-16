@@ -1,3 +1,4 @@
+import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
 
 describe('extended Markdown', () => {
@@ -210,4 +211,22 @@ describe('extended Markdown', () => {
       })
     }
   )
+})
+
+describe('misc Liquid', () => {
+  test('links with liquid from data', async () => {
+    const $ = await getDOM('/get-started/liquid/links-with-liquid')
+    // The URL comes from variables.product.pricing_url
+    const url = getDataByLanguage('variables.product.pricing_url', 'en')
+    if (!url) throw new Error('variable could not be found')
+    const links = $(`#article-contents a[href="${url}"]`)
+    expect(links.length).toBe(2)
+    const texts = links
+      .map((i, element) => {
+        return $(element).text()
+      })
+      .get()
+    expect(texts[0]).toBe(url)
+    expect(texts[1]).toBe('Pricing')
+  })
 })

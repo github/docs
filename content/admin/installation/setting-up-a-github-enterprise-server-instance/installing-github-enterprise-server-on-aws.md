@@ -134,6 +134,10 @@ Both primary and replica instances should be assigned separate EIPs in productio
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
+{% data reusables.enterprise_installation.new-instance-config-summary %}
+
+{% data reusables.enterprise_installation.new-instance-attack-vector-warning %}
+
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."

@@ -21,5 +21,14 @@
     "allowTitleToDifferFromFilename": true
   },
   "targetDirectory": "content/rest",
-  "sha": "4aac28959ee19a97c78a7c6ac92b1a5dd0fa325c"
+  "indexOrder": {
+    "content/rest/index.md": {
+      "startsWith": [
+        "quickstart",
+        "overview",
+        "guides"
+      ]
+    }
+  },
+  "sha": "0ab300c12457e24960c4405b2112c2437d6c2260"
 }

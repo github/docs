@@ -5,7 +5,6 @@ import { readFile } from 'fs/promises'
 import {
   updateContentDirectory,
   convertVersionsToFrontmatter,
-  MARKDOWN_COMMENT,
 } from '../../../automated-pipelines/lib/update-markdown.js'
 import { getDocsVersion } from '../../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
@@ -17,7 +16,11 @@ const { frontmatterDefaults, targetDirectory } = JSON.parse(
 export async function updateRestFiles() {
   const restVersions = await getDataFrontmatter(REST_DATA_DIR, REST_SCHEMA_FILENAME)
   const restMarkdownContent = await getMarkdownContent(restVersions)
-  await updateContentDirectory(targetDirectory, restMarkdownContent, frontmatterDefaults)
+  await updateContentDirectory({
+    targetDirectory,
+    sourceContent: restMarkdownContent,
+    frontmatter: frontmatterDefaults,
+  })
 }
 
 // Reads data files from the directory provided and returns a
@@ -80,10 +83,12 @@ async function getMarkdownContent(versions) {
 
   for (const category of Object.keys(versions)) {
     const subcategories = Object.keys(versions[category])
-    // When there is only a single subcategory, the Markdown file
-    // will be at the root of the content/rest directory. The
-    // file path will be content/rest/<category>.md
-    if (subcategories.length === 1) {
+    // When there is only a single subcategory and the name
+    // matches the category, this is an override due to a
+    // subcategory not being defined. In this case,
+    // the markdown file will be in the content/rest directory.
+    // The file path will be content/rest/<category>.md
+    if (subcategories.length === 1 && category === subcategories[0]) {
       // this will be a file in the root of the rest directory
       const filepath = path.join('content/rest', `${category}.md`)
       markdownUpdates[filepath] = {
@@ -96,7 +101,7 @@ async function getMarkdownContent(versions) {
           ),
           ...frontmatterDefaults,
         },
-        content: MARKDOWN_COMMENT,
+        content: '',
       }
       continue
     }
@@ -112,7 +117,7 @@ async function getMarkdownContent(versions) {
           versions: await convertVersionsToFrontmatter(versions[category][subcategory].versions),
           ...frontmatterDefaults,
         },
-        content: MARKDOWN_COMMENT,
+        content: '',
       }
     }
   }

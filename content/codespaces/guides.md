@@ -1,5 +1,5 @@
 ---
-title: Codespaces guides
+title: Guides for Codespaces
 shortTitle: Guides
 intro: Learn how to make the most of GitHub
 allowTitleToDifferFromFilename: true

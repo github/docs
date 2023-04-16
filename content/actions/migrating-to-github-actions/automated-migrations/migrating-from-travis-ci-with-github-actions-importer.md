@@ -99,7 +99,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    Updating ghcr.io/actions-importer/cli:latest...
-   ghcr.io/actions-importer/cli:latest up-to-date  
+   ghcr.io/actions-importer/cli:latest up-to-date
    ```
 
 ## Perform an audit of Travis CI
@@ -185,7 +185,7 @@ You can use the `forecast` command to forecast potential {% data variables.produ
 To perform a forecast of potential {% data variables.product.prodname_actions %} usage, run the following command in your terminal. By default, {% data variables.product.prodname_actions_importer %} includes the previous seven days in the forecast report.
 
 ```shell
-gh actions-importer forecast travis-ci --output-dir tmp/forecast 
+gh actions-importer forecast travis-ci --output-dir tmp/forecast
 ```
 
 ### Inspecting the forecast report
@@ -239,14 +239,14 @@ $ gh actions-importer migrate travis-ci --target-url https://github.com/octo-org
 
 ### Inspecting the pull request
 
-The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository. 
+The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository.
 
 Some important elements of the pull request include:
 
-- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows. 
+- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows.
 - The converted workflows file. Select the **Files changed** tab in the pull request to view the workflow file that will be added to your {% data variables.product.product_name %} repository.
 
-When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository. 
+When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository.
 
 ## Reference
 
@@ -323,48 +323,50 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--travis-ci-repository` option. The `path` is then used to pull the specified source file.
 
 ```bash
-gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/travis-repo-name --output-dir ./output/ --config-file-path ./path/to/travis-ci/config.yml 
+gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/travis-repo-name --output-dir ./output/ --config-file-path ./path/to/travis-ci/config.yml
 ```
 
 ### Supported project languages
 
 {% data variables.product.prodname_actions_importer %} supports migrating Travis CI projects in the following languages.
 
-- `android`
-- `bash`
-- `c`
-- `clojure`
-- `c++`
-- `crystal`
-- `c#`
-- `d`
-- `dart`
-- `elixir`
-- `erlang`
-- `generic`
-- `go`
-- `groovy`
-- `haskell`
-- `haxe`
-- `java`
-- `julia`
-- `matlab`
-- `minimal`
-- `nix`
-- `node_js`
-- `objective-c`
-- `perl`
-- `perl6`
-- `php`
-- `python`
-- `r`
-- `ruby`
-- `rust`
-- `scala`
-- `sh`
-- `shell`
-- `smalltalk`
-- `swift`
+<ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
+<li><code>android</code></li>
+<li><code>bash</code></li>
+<li><code>c</code></li>
+<li><code>clojure</code></li>
+<li><code>c++</code></li>
+<li><code>crystal</code></li>
+<li><code>c#</code></li>
+<li><code>d</code></li>
+<li><code>dart</code></li>
+<li><code>elixir</code></li>
+<li><code>erlang</code></li>
+<li><code>generic</code></li>
+<li><code>go</code></li>
+<li><code>groovy</code></li>
+<li><code>haskell</code></li>
+<li><code>haxe</code></li>
+<li><code>java</code></li>
+<li><code>julia</code></li>
+<li><code>matlab</code></li>
+<li><code>minimal</code></li>
+<li><code>nix</code></li>
+<li><code>node_js</code></li>
+<li><code>objective-c</code></li>
+<li><code>perl</code></li>
+<li><code>perl6</code></li>
+<li><code>php</code></li>
+<li><code>python</code></li>
+<li><code>r</code></li>
+<li><code>ruby</code></li>
+<li><code>rust</code></li>
+<li><code>scala</code></li>
+<li><code>sh</code></li>
+<li><code>shell</code></li>
+<li><code>smalltalk</code></li>
+<li><code>swift</code></li>
+</ul>
 
 ### Supported syntax for Travis CI pipelines
 
@@ -372,34 +374,24 @@ The following table shows the type of properties {% data variables.product.prodn
 
 | Travis CI    | GitHub Actions                     |              Status |
 | :------------------ | :--------------------------------- | ------------------: |
-| os & dist           | `runners`                          |           Supported |
-|                     | `self hosted runners`              |         Unsupported |
-| stages              | `jobs`                             |           Supported |
-| job                 | `jobs.<job_id>`                    |           Supported |
-|                     | `jobs.<job_id>.container`          |         Unsupported |
-|                     | `jobs.<job_id>.name`               |           Supported |
-| scripts             | `jobs.<job_id>.steps`              |           Supported |
-| matrix              | `jobs.<job_id>.strategy`           |           Supported |
-|                     | `jobs.<job_id>.strategy.fail-fast` |           Supported |
-|                     | `jobs.<job_id>.strategy.matrix`    |           Supported |
-| if                  | `jobs.<job_id>.if`                 |           Supported |
-| env                 | `env`                              |           Supported |
-|                     | `jobs.<job_id>.env`                |           Supported |
-|                     | `jobs.<job_id>.steps.env`          |           Supported |
-|                     | `jobs.<job_id>.timeout-minutes`    |         Unsupported |
-|                     | `on`                               | Partially supported |
-|                     | `on.<event_name>.types`            |         Unsupported |
-| branches            | `on.<push>.<branches>`             |           Supported |
-|                     | `on.<push>.<tags>`                 |         Unsupported |
-|                     | `on.<push>.paths`                  |         Unsupported |
-| build_pull_requests | `on.<pull_request>`                |           Supported |
-|                     | `on.<pull_request>.<branches>`     |         Unsupported |
-|                     | `on.<pull_request>.<tags>`         |         Unsupported |
-|                     | `on.<pull_request>.paths`          |         Unsupported |
-| cron triggers       | `on.schedule`                      |         Unsupported |
-|                     | `on.workflow_run`                  |         Unsupported |
+| branches            | <ul><li>`on.<push>.<branches>`</li>|           Supported |
+| build_pull_requests | <ul><li>`on.<pull_request>`</li>   |           Supported |
+| env                 | <ul><li>`env`</li> <li>`jobs.<job_id>.env`</li><li>`jobs.<job_id>.steps.env`</li>                                                               |           Supported |
+| if                  | <ul><li>`jobs.<job_id>.if`</li></ul>       |           Supported |
+| job                 | <ul><li>`jobs.<job_id>`</li><li>`jobs.<job_id>.name`</li></ul> |           Supported |
+| matrix              | <ul><li>`jobs.<job_id>.strategy`</li><li>`jobs.<job_id>.strategy.fail-fast`</li><li>`jobs.<job_id>.strategy.matrix`</li>                 |           Supported |
+| os & dist           | <ul><li>`runners`</li></ul>        |           Supported |
+| scripts             | <ul><li>`jobs.<job_id>.steps`</li></ul>    |           Supported |
+| stages              | <ul><li>`jobs`</li></ul>           |           Supported |
+| env                 | <ul><li>`on`</li>                               | Partially supported |
+| branches            | <ul><li>`on.<push>.<tags>`</li><li>`on.<push>.paths`</li>                                                                     |         Unsupported |
+| build_pull_requests | <ul><li>`on.<pull_request>.<branches>`</li><li>`on.<pull_request>.<tags>`</li><li>`on.<pull_request>.paths`</li>                          |         Unsupported |
+| cron triggers       | <ul><li>`on.schedule`</li><li>`on.workflow_run`</li></ul> |         Unsupported |
+| env                 | <ul><li>`jobs.<job_id>.timeout-minutes`</li><li>`on.<event_name>.types`</li>                                                                     |         Unsupported |
+| job                 | <ul><li>`jobs.<job_id>.container`</li>          |         Unsupported |
+| os & dist           | <ul><li>`self hosted runners`</li></ul>         |         Unsupported |
 
-For information about supported Travis CI constructs, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/travis-ci/index.md).
+For information about supported Travis CI constructs, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/travis_ci/index.md).
 
 ### Environment variables syntax
 

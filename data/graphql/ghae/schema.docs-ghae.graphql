@@ -641,9 +641,10 @@ input AddPullRequestReviewThreadInput {
   clientMutationId: String
 
   """
-  The line of the blob to which the thread refers. The end of the line range for multi-line comments.
+  The line of the blob to which the thread refers, required for line-level
+  threads. The end of the line range for multi-line comments.
   """
-  line: Int!
+  line: Int
 
   """
   Path to the file being commented on.
@@ -1517,6 +1518,12 @@ type BaseRefForcePushedEvent implements Node {
   """
   ref: Ref
 }
+
+"""
+Represents non-fractional signed whole numeric values. Since the value may
+exceed the size of a 32-bit integer, it's encoded as a string.
+"""
+scalar BigInt
 
 """
 Represents a Git blame.
@@ -4229,7 +4236,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   """
   The datetime when this commit was pushed.
   """
-  pushedDate: DateTime
+  pushedDate: DateTime @deprecated(reason: "`pushedDate` is no longer supported. Removal on 2023-07-01 UTC.")
 
   """
   The Repository this commit belongs to
@@ -8931,6 +8938,11 @@ enum DeploymentState {
   The deployment has queued
   """
   QUEUED
+
+  """
+  The deployment was successful.
+  """
+  SUCCESS
 
   """
   The deployment is waiting.
@@ -14734,6 +14746,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   editor: Actor
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The hovercard information for this issue
   """
   hovercard(
@@ -15174,6 +15191,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
@@ -23758,6 +23780,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     ldapMapped: Boolean
 
     """
+    If non-null, filters teams according to notification setting
+    """
+    notificationSetting: TeamNotificationSetting
+
+    """
     Ordering options for teams returned from the connection
     """
     orderBy: TeamOrder
@@ -25005,6 +25032,11 @@ type PinnedIssue implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
@@ -28769,11 +28801,6 @@ The possible item types found in a timeline.
 """
 enum PullRequestTimelineItemsItemType {
   """
-  Represents an 'added_to_merge_queue' event on a given pull request.
-  """
-  ADDED_TO_MERGE_QUEUE_EVENT
-
-  """
   Represents a 'added_to_project' event on a given issue or pull request.
   """
   ADDED_TO_PROJECT_EVENT
@@ -28977,11 +29004,6 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
-
-  """
-  Represents a 'removed_from_merge_queue' event on a given pull request.
-  """
-  REMOVED_FROM_MERGE_QUEUE_EVENT
 
   """
   Represents a 'removed_from_project' event on a given issue or pull request.
@@ -33477,6 +33499,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   allowUpdateBranch: Boolean!
 
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -34522,7 +34549,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   ): PullRequestConnection!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -35250,6 +35277,11 @@ A subset of repository info.
 """
 interface RepositoryInfo {
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -35370,7 +35402,7 @@ interface RepositoryInfo {
   owner: RepositoryOwner!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -36177,6 +36209,11 @@ A Dependabot alert for a repository with a dependency affected by a security vul
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
+  When was the alert auto-dismissed?
+  """
+  autoDismissedAt: DateTime
+
+  """
   When was the alert created?
   """
   createdAt: DateTime!
@@ -36210,14 +36247,6 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
-
-  """
-  The reason the alert was marked as fixed.
-  """
-  fixReason: String
-    @deprecated(
-      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC."
-    )
 
   """
   When was the alert fixed?
@@ -36326,6 +36355,11 @@ The possible states of an alert
 """
 enum RepositoryVulnerabilityAlertState {
   """
+  An alert that has been automatically closed by Dependabot.
+  """
+  AUTO_DISMISSED
+
+  """
   An alert that has been manually closed by a user.
   """
   DISMISSED
@@ -36363,7 +36397,7 @@ input RequestReviewsInput {
   """
   Add users to the set rather than replace.
   """
-  union: Boolean
+  union: Boolean = false
 
   """
   The Node IDs of the user to request.
@@ -38980,6 +39014,11 @@ type Team implements MemberStatusable & Node & Subscribable {
   newTeamUrl: URI!
 
   """
+  The notification setting that the team has set.
+  """
+  notificationSetting: TeamNotificationSetting!
+
+  """
   The organization that owns this team.
   """
   organization: Organization!
@@ -40269,6 +40308,21 @@ enum TeamMembershipType {
   Includes only immediate members of the team.
   """
   IMMEDIATE
+}
+
+"""
+The possible team notification values.
+"""
+enum TeamNotificationSetting {
+  """
+  No one will receive notifications.
+  """
+  NOTIFICATIONS_DISABLED
+
+  """
+  Everyone will receive notifications when the team is @mentioned.
+  """
+  NOTIFICATIONS_ENABLED
 }
 
 """
