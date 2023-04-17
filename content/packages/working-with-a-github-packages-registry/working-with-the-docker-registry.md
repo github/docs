@@ -57,7 +57,6 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
   ```
 {% endraw %}
 {% endif %}
-
 {% ifversion ghes or ghae %}
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -76,7 +75,6 @@ If your instance has subdomain isolation disabled:
 ```
 {% endraw %}
 {% endif %}
-
 {% endif %}
 
 To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
@@ -168,7 +166,6 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   {% endnote %}
 
 ### Example publishing a Docker image
-
 {% ifversion ghes %}
 These examples assume your instance has subdomain isolation enabled.
 {% endif %}
@@ -188,9 +185,7 @@ $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 # Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
-
 {% else %}
-
 ```shell
 $ docker images
 
@@ -254,7 +249,6 @@ $ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 ```
 {% endif %}
 {% endif %}
-
 {% note %}
 
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
