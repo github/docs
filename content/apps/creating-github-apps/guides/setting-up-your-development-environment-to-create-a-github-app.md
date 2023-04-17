@@ -237,7 +237,7 @@ To make API calls, you'll be using the [Octokit library](http://octokit.github.i
 
 You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
 
-[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) lets you do a couple of things:
+[Authenticating as a GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) lets you do a couple of things:
 
  * You can retrieve high-level management information about your GitHub App.
  * You can request access tokens for an installation of the app.
