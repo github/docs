@@ -19,6 +19,8 @@ When you create a ruleset for an organization, you use `fnmatch` syntax to defin
 
 {% data reusables.repositories.ruleset-bypass %}
 
+You can use the REST API to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)."
+
 If a repository is targeted by a ruleset created at organization level, only owners of the organization can edit this ruleset. However, people with admin access to the repository, or with a custom role including the "edit repository rules" permission, can create additional rulesets at the repository level. The rules in these rulesets will be aggregated with the rules defined at organization level. The result is that creating a new ruleset can make the rules targeting a branch or tag more restrictive, but never less restrictive. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
 {% data reusables.repositories.rulesets-sudo-mode %}

@@ -14,6 +14,8 @@ shortTitle: Manage a ruleset
 
 You can create rulesets to control how users can interact with selected branches and tags in a repository. When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain permissions, specific teams, or {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
+You can use the REST API to manage rulesets. For more information, see "[AUTOTITLE](/rest/repos/rules)".
+
 {% data reusables.repositories.rulesets-sudo-mode %}
 
 {% ifversion repo-rules-enterprise %}
