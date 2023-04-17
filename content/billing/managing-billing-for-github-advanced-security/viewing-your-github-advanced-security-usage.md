@@ -92,21 +92,38 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
   ![Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are highlighted with an orange outline.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
 
 {% endif %}
+
+{% ifversion ghec %}
 #### At the organization-level
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," next to "Committers", click **{% octicon "download" aria-label="The download icon" %} CSV report**.
+{% endif %}
 
+{% ifversion ghas-billing-table-ui-update %}
 #### At the enterprise-level
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
+
+{%- ifversion ghec %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click the **Manage** dropdown and then click **Download report**.
 
   ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
+
+{%- elsif ghes > 3.8 %}
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
+
+  ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
+
+{%- else %}
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," {% octicon "download" aria-label="The download icon" %} in the header of the "Committers" table.
+
+{%- endif %}
 
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the REST API
 
