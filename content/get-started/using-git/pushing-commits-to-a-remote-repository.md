@@ -71,7 +71,7 @@ git push REMOTE-NAME --tags
 The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
-git push REMOTE-NAME:BRANCH-NAME
+git push REMOTE-NAME :BRANCH-NAME
 ```
 
 Note that there is a space before the colon. The command resembles the same steps
