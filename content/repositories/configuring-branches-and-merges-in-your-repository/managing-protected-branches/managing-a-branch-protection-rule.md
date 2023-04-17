@@ -18,6 +18,7 @@ redirect_from:
   - /github/administering-a-repository/enabling-deletion-of-a-protected-branch
   - /github/administering-a-repository/managing-a-branch-protection-rule
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule
+  - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule
 versions:
   fpt: '*'
   ghes: '*'
@@ -32,7 +33,7 @@ shortTitle: Branch protection rule
 
 {% data reusables.repositories.branch-rules-example %}
 
-You can create a rule for all current and future branches in your repository with the wildcard syntax `*`. Because {% data variables.product.company_short %} uses the `File::FNM_PATHNAME` flag for the `File.fnmatch` syntax, the wildcard does not match directory separators (`/`). For example, `qa/*` will match all branches beginning with `qa/` and containing a single slash. You can include multiple slashes with `qa/**/*`, and you can extend the `qa` string with `qa**/**/*` to make the rule more inclusive. For more information about syntax options for branch rules, see the [fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+You can create a rule for all current and future branches in your repository with the wildcard syntax `*`. {% data reusables.repositories.about-fnmatch %}
 
 If a repository has multiple protected branch rules that affect the same branches, the rules that include a specific branch name have the highest priority. If there is more than one protected branch rule that references the same specific branch name, then the branch rule created first will have higher priority.
 
@@ -40,7 +41,15 @@ Protected branch rules that mention a special character, such as `*`, `?`, or `]
 
 To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name.
 
-For more information about each of the available branch protection settings, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+For more information about each of the available branch protection settings, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+
+{% ifversion repo-rules %}
+{% tip %}
+
+**Tip:** Only a single branch protection rule can apply at a time, which means it can be difficult to know how which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endtip %}
+{% endif %}
 
 ## Creating a branch protection rule
 
@@ -99,7 +108,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
    - Select **Specify who can force push** to allow only specific actors to force push to the branch. Then, search for and select those actors.
 
-    For more information about force pushes, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#allow-force-pushes)."
+    For more information about force pushes, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#allow-force-pushes)."
 1. Optionally, select **Allow deletions**.
 1. Click **Create**.
 
