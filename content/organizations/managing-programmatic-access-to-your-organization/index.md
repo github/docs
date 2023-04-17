@@ -15,7 +15,8 @@ topics:
   - Organizations
   - Teams
 children:
-  - /adding-and-removing-github-app-managers-in-your-organization
+  - /adding-github-app-managers-in-your-organization
+  - /removing-github-app-managers-from-your-organization
   - /reviewing-github-apps-installed-in-your-organization
   - /setting-a-personal-access-token-policy-for-your-organization
   - /managing-requests-for-personal-access-tokens-in-your-organization
@@ -23,3 +24,4 @@ children:
   - /limiting-oauth-app-and-github-app-access-requests
 shortTitle: Manage programmatic access
 ---
+
