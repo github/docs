@@ -24,7 +24,7 @@ If you integrate your {% data variables.product.prodname_classroom %} with an ID
 
 You can reuse existing assignments in any other classroom you have admin access to, including classrooms in a different organization. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
-You must create a classroom before you can create an assignment. For more information, see [AUTOTITLE](en/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-classroom).
+You must create a classroom before you can create an assignment. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-classroom).
 
 ## Types of assignments 
 
