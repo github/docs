@@ -1,6 +1,7 @@
 ---
 title: About assignments in GitHub Classroom
 intro: 'Assignment in {% data variables.product.prodname_classroom %} is a coursework created to be completed by an individual student or a group of students either for grading purposes or for practice.'
+shortTitle: About assignments
 type: overview
 topics: 
   - Fundamentals
