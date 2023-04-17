@@ -57,6 +57,10 @@ You can enable or disable features for all repositories.
 
 {% endif %}
 
+{% ifversion code-security-multi-repo-enablement %}
+You can use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+{% endif %}
+
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 {% ifversion ghes or ghec or ghae %}
