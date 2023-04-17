@@ -68,4 +68,4 @@ SVN is configured to assume that the history of a project never changes. Git all
 ## Further reading
 
 - ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/source-code-migration-tools)"
+- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
