@@ -4,6 +4,25 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>BulkSponsorship</code> was added</p>",
+          "<p>Type <code>CreateSponsorshipsInput</code> was added</p>",
+          "<p>Type <code>CreateSponsorshipsPayload</code> was added</p>",
+          "<p>Field <code>createSponsorships</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>autoDismissedAt</code> was added to object type <code>RepositoryVulnerabilityAlert</code></p>",
+          "<p>Enum value 'AUTO_DISMISSED<code>was added to enum</code>RepositoryVulnerabilityAlertState'</p>",
+          "<p>Field <code>viaBulkSponsorship</code> was added to object type <code>SponsorsActivity</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddedToMergeQueueEvent</code> was added</p>",
           "<p>Type <code>DequeuePullRequestInput</code> was added</p>",
           "<p>Type <code>DequeuePullRequestPayload</code> was added</p>",

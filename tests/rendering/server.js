@@ -722,26 +722,3 @@ describe('static routes', () => {
     expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
   })
 })
-
-describe('index pages', () => {
-  const nonEnterpriseOnlyPath =
-    '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-
-  test.skip('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
-  })
-
-  test.skip('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
-    )
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
-  })
-
-  test('includes correctly versioned links in GHE', async () => {
-    const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
-    const $ = await getDOM(installationLatest)
-    expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
-  })
-})

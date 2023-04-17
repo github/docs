@@ -42,38 +42,35 @@ export default function Category({
 }: Props) {
   const { locale } = useRouter()
 
-  const content = Object.entries(enabledForApps).map(([category, operations]) => (
-    <Fragment key={category}>
-      {operations.length > 0 && (
+  const version = currentVersion === 'free-pro-team@latest' ? '' : `/${currentVersion}`
+  const pathnamePrefix = `/${locale}${version}/rest/`
+
+  const content = Object.entries(enabledForApps)
+    .filter(([, operations]) => operations.length)
+    .map(([category, operations]) => (
+      <Fragment key={category}>
         <h3 id={category}>
-          <Link
-            href={`/${locale}${
-              currentVersion === 'free-pro-team@latest' ? '' : '/' + currentVersion
-            }/rest/${category}`}
-          >
-            {category}
-          </Link>
+          <Link href={`${pathnamePrefix}${category}`}>{category}</Link>
         </h3>
-      )}
-      <ul>
-        {operations.map((operation, index) => (
-          <li key={`enabledAppOperation-${operation.slug}-${index}`}>
-            <Link
-              href={`/${locale}${
-                currentVersion === 'free-pro-team@latest' ? '' : '/' + currentVersion
-              }/rest/${category}${
-                categoriesWithoutSubcategories.includes(category) ? '' : '/' + operation.subcategory
-              }#${operation.slug}`}
-            >
-              <code>
-                <span className="text-uppercase">{operation.verb}</span> {operation.requestPath}
-              </code>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
-  ))
+        <ul>
+          {operations.map((operation, index) => (
+            <li key={`${category}-${operation.slug}-${index}`}>
+              <Link
+                href={`${pathnamePrefix}${category}${
+                  categoriesWithoutSubcategories.includes(category)
+                    ? ''
+                    : '/' + operation.subcategory
+                }#${operation.slug}`}
+              >
+                <code>
+                  <span className="text-uppercase">{operation.verb}</span> {operation.requestPath}
+                </code>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Fragment>
+    ))
 
   return (
     <MainContext.Provider value={mainContext}>

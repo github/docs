@@ -28,7 +28,7 @@ export const SupportSection = () => {
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
-      <h1 className="f3">{t('support_heading')}</h1>
+      <h2 className="f3">{t('support_heading')}</h2>
       <div className="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
         {showSurvey && (
           <div

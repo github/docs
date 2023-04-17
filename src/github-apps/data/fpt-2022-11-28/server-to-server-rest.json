@@ -2545,6 +2545,36 @@
       "requestPath": "/orgs/{org}/public_members/{username}"
     },
     {
+      "slug": "get-all-organization-repository-rulesets",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets"
+    },
+    {
+      "slug": "create-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/rulesets"
+    },
+    {
+      "slug": "get-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
+    },
+    {
       "slug": "list-security-manager-teams",
       "subcategory": "security-managers",
       "verb": "get",
@@ -3289,6 +3319,42 @@
       "subcategory": "contents",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/readme/{dir}"
+    },
+    {
+      "slug": "get-rules-for-a-branch",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rules/branches/{branch}"
+    },
+    {
+      "slug": "get-all-repository-rulesets",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "create-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "get-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
     },
     {
       "slug": "list-repository-tags",
