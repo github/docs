@@ -16312,7 +16312,7 @@
         },
         {
           "name": "packageName",
-          "description": "<p>The name of the package in the canonical form used by the package manager.\nThis may differ from the original textual form (see packageLabel), for example\nin a package manager that uses case-insensitive comparisons.</p>",
+          "description": "<p>The name of the package in the canonical form used by the package manager.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",

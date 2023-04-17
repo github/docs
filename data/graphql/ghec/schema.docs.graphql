@@ -9177,8 +9177,6 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
 
   """
   The name of the package in the canonical form used by the package manager.
-  This may differ from the original textual form (see packageLabel), for example
-  in a package manager that uses case-insensitive comparisons.
   """
   packageName: String!
 
