@@ -44,6 +44,7 @@ children:
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
   - /allowing-project-visibility-changes-in-your-organization
+  - /managing-rulesets-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}

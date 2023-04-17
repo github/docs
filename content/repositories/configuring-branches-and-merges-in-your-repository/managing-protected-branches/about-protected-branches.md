@@ -17,6 +17,7 @@ redirect_from:
   - /github/administering-a-repository/about-required-reviews-for-pull-requests
   - /github/administering-a-repository/about-protected-branches
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
+  - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
 versions:
   fpt: '*'
   ghes: '*'
@@ -36,9 +37,17 @@ By default, the restrictions of a branch protection rule don't apply to people w
 {% else %}
 By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.{% endif %}
 
-{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
 {% data reusables.pull_requests.you-can-auto-merge %}
+
+{% ifversion repo-rules %}
+{% tip %}
+
+**Tip:** Only a single branch protection rule can apply at a time, which means it can be difficult to know which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endtip %}
+{% endif %}
 
 ## About branch protection settings
 
@@ -62,7 +71,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Allow force pushes](#allow-force-pushes)
 - [Allow deletions](#allow-deletions)
 
-For more information on how to set up branch protection, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+For more information on how to set up branch protection, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
 ### Require pull request reviews before merging
 
@@ -81,21 +90,23 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Changes have been requested.
 ```
 
-Optionally, you can choose to dismiss stale pull request approvals when commits are pushed. If anyone pushes a commit that modifies code to an approved pull request, the approval will be dismissed, and the pull request cannot be merged. This doesn't apply if the collaborator pushes commits that don't modify code, like merging the base branch into the pull request's branch. For information about the base branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+Optionally, you can choose to dismiss stale pull request approvals when commits are pushed that affect the diff in the pull request. {% data variables.product.company_short %} records the state of the diff at the point when a pull request is approved. This state represents the set of changes that the reviewer approved. If the diff changes from this state (for example, because a contributor pushes new changes to the pull request branch or clicks **Update branch**, or because a related pull request is merged into the target branch), the approving review is dismissed as stale, and the pull request cannot be merged until someone approves the work again. For information about the base branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
 Optionally, you can restrict the ability to dismiss pull request reviews to specific people or teams. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 Optionally, you can choose to require reviews from code owners. If you do, any pull request that affects code with a code owner must be approved by that code owner before the pull request can be merged into the protected branch.
 
 {% ifversion last-pusher-require-approval %}
-Optionally, you can require approvals from someone other than the last person to push to a branch before a pull request can be merged. This ensures more than one person sees pull requests in their final state before they are merged into a protected branch. If you enable this feature, the most recent user to push their changes will need an approval regardless of the required approvals branch protection. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement.
+Optionally, you can require an approval from someone other than the last person to push to a branch before a pull request can be merged. This means at least one other authorized reviewer has approved any changes. For example, the "last reviewer" can check that the latest set of changes incorporates feedback from other reviews, and does not add new, unreviewed content.
+
+For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
 {% endif %}
 
 ### Require status checks before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 
-Before you can enable required status checks, you must configure the repository to use the commit status API. For more information, see "[AUTOTITLE](/rest/commits/statuses)" in the REST API documentation.
+You can use the commit status API to allow external services to mark commits with an appropriate status.. For more information, see "[AUTOTITLE](/rest/commits/statuses)" in the REST API documentation.
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
@@ -105,11 +116,11 @@ You can set up required status checks to either be "loose" or "strict." The type
 
 | Type of required status check | Setting | Merge requirements | Considerations |
 | --- | --- | --- | --- |
-| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators merge pull requests to the protected base branch.|
+| **Strict** | The **Require branches to be up to date before merging** checkbox is checked. | The branch **must** be up to date with the base branch before merging. | This is the default behavior for required status checks. More builds may be required, as you'll need to bring the head branch up to date after other collaborators update the target branch.|
 | **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
-For troubleshooting information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks)."
+For troubleshooting information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/troubleshooting-required-status-checks)."
 
 ### Require conversation resolution before merging
 
@@ -196,7 +207,7 @@ By default, {% data variables.product.product_name %} blocks force pushes on all
 1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
 1. Allow only specific people or teams to force push to the branch.
 
-If someone force pushes to a branch, the force push may overwrite commits that other collaborators based their work on. People may have merge conflicts or corrupted pull requests.
+If someone force pushes to a branch, the force push may mean commits that other collaborators based their work on are removed from the history of the branch. People may have merge conflicts or corrupted pull requests. Force pushing can also be used to delete branches or point a branch to commits that were not approved in a pull request.
 
 Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
