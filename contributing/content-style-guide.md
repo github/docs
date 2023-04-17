@@ -231,7 +231,7 @@ To learn about creating and versioning images, see "[Creating and updating scree
 
 ## Inclusive language
 
-As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. All of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
 
 Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
@@ -830,7 +830,13 @@ Videos on the GitHub Docs website must be well-produced and accessible, and conf
 
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. Be authentic, empathetic, and confident with your writing.
+
+Write for your audience: some jargon and technical terms are necessary, but don't rely on the assumption that every reader has the same level of technical expertise.
+
+We are a global developer community. Avoid turns of phrase, idioms, and slang that are specific to a particular region or country.
+
+To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
@@ -942,10 +948,6 @@ Where the first reference concerns `cents` or a non-dollar amount, capitalize th
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
-
-### Inclusive language
-
-See the “Inclusive language” section of this guide.
 
 ### Permissions
 
