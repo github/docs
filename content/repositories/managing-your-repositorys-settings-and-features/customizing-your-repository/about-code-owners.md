@@ -37,6 +37,14 @@ Each CODEOWNERS file assigns the code owners for a single branch in the reposito
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
+## CODEOWNERS and forks
+
+Asides being used to tell at a glance who is responsible for a given file, CODEOWNERS are also used for triggering review requests for a pull request that modifies an owned file.
+
+Pull requests use the version of CODEOWNERS from the base branch of a pull request. A base branch is the branch that a pull request will modify if the pull request is merged. If the repo that you forked from is the base of your PR, then the PR will use the CODEOWNERS file from the repo that you forked from. If your PR is targeting a branch within your forked repo, then the PR will use the CODEOWNERS on that base branch in your forked repo.
+
+When seeing who responsible for a file, the CODEOWNERS for whatever branch you're looking at on whatever repo you're looking at is used.
+
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
