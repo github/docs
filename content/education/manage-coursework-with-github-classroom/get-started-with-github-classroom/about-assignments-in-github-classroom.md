@@ -44,7 +44,7 @@ A group assignment is collaborative coursework for groups of students on GitHub 
 
 When a student accepts a group assignment, the student can create a new team or join an existing team. GitHub Classroom saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
 
-For more information, see "[AUTOTITLE](education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
+For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
 
 ## Further reading
 
