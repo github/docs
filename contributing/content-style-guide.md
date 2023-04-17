@@ -804,6 +804,17 @@ Describe a user interface element’s location with standard terms.
 - Upper-left, upper-right, lower-left, lower-right
 - Top of the page, bottom of the page, right side of the page, left side of the page
 
+### Panels
+
+When possible, avoid referring to panels. Instead, describe what someone needs to do.
+- **Use:** Click **View charts and graphs** for your repository, then select the time period you want to view from the dropdown menu.
+- **Avoid:** Click the **View charts and graphs** to open the panel for your selected repository, then select the time period you want to view from the dropdown menu.
+
+If you need to refer to a panel to describe a change to the UI or to explain how to interact with the UI, format the panel name as [user interface text](#user-interface-text). Only include the word panel if it adds clarity or if the panel has no name in the UI.
+
+- **Use:** In the "Security coverage" panel, select **Enable** or **Disable**.
+- **Use:** In the panel, select **Enable** or **Disable**.
+
 ### Radio buttons
 
 Format radio button labels in bold and omit the words “radio button” or any other descriptor. To describe using a radio button, write "select."
