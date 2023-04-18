@@ -41,7 +41,7 @@ Some events have multiple activity types. For these events, you can specify whic
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -1261,6 +1261,8 @@ on: workflow_call
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
 | [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | Not applicable | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
+
+{% data reusables.actions.branch-requirement %}
 
 To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
 

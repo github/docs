@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.sponsors.sponsorship-details %}
 
-{% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.no-fees %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 

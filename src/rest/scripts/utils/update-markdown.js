@@ -5,7 +5,6 @@ import { readFile } from 'fs/promises'
 import {
   updateContentDirectory,
   convertVersionsToFrontmatter,
-  MARKDOWN_COMMENT,
 } from '../../../automated-pipelines/lib/update-markdown.js'
 import { getDocsVersion } from '../../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
@@ -102,7 +101,7 @@ async function getMarkdownContent(versions) {
           ),
           ...frontmatterDefaults,
         },
-        content: MARKDOWN_COMMENT,
+        content: '',
       }
       continue
     }
@@ -118,7 +117,7 @@ async function getMarkdownContent(versions) {
           versions: await convertVersionsToFrontmatter(versions[category][subcategory].versions),
           ...frontmatterDefaults,
         },
-        content: MARKDOWN_COMMENT,
+        content: '',
       }
     }
   }

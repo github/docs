@@ -205,7 +205,7 @@ sections:
         # https://github.com/github/releases/issues/1973
         - |
           Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
-          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
 
         # https://github.com/github/releases/issues/2179
         - |
@@ -224,7 +224,7 @@ sections:
 
         # https://github.com/github/releases/issues/2093
         - |
-          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
         # https://github.com/github/releases/issues/2073
         - |
@@ -232,7 +232,7 @@ sections:
 
         # https://github.com/github/releases/issues/2173
         - |
-          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
     - heading: Commits
       notes:

@@ -22,7 +22,7 @@ describe('anchor-redirect api', () => {
     sp.set('hash', hash)
     const res = await get('/api/anchor-redirect?' + sp)
     expect(res.statusCode).toBe(200)
-    const { to } = JSON.parse(res.text)
+    const { to } = JSON.parse(res.body)
     expect(to).toBe(value)
   })
   test('errors when path is not passed', async () => {
@@ -48,7 +48,7 @@ describe('anchor-redirect api', () => {
     sp.set('path', 'foo')
     sp.set('hash', 'bar')
     const res = await get('/api/anchor-redirect?' + sp)
-    const { to } = JSON.parse(res.text)
+    const { to } = JSON.parse(res.body)
     expect(to).toBe(undefined)
   })
   test('reasonably aggressive cache-control headers', async () => {

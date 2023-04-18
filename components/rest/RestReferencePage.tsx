@@ -49,7 +49,9 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
         className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}
         data-search="article-body"
       >
-        <h1 className="mb-3">{title}</h1>
+        <h1 id="title-h1" className="mb-3">
+          {title}
+        </h1>
         {intro && (
           <Lead data-testid="lead" data-search="lead" className="markdown-body">
             {intro}

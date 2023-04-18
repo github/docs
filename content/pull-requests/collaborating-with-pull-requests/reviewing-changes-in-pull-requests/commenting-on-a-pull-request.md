@@ -22,9 +22,9 @@ shortTitle: Comment on a PR
 
 You can comment on a pull request's **Conversation** tab to leave general comments, questions, or props. You can also suggest changes that the author of the pull request can apply directly from your comment.
 
-You can also comment on specific sections of a file on a pull request's **Files changed** tab in the form of individual line comments or as part of a [pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Adding line comments is a great way to discuss questions about implementation or provide feedback to the author.
+You can also comment on specific {% ifversion pull-request-comment-on-file %}files or {% endif %}sections of a file in a pull request's **Files changed** tab in the form of individual line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments, or as part of a pull request review. Adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments is a great way to discuss questions about implementation or provide feedback to the author. For more information about pull request reviews, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."
 
-For more information on adding line comments to a pull request review, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+For more information on adding line {% ifversion pull-request-comment-on-file %}or file {% endif %}comments to a pull request review, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% note %}
 
@@ -32,7 +32,7 @@ For more information on adding line comments to a pull request review, see "[AUT
 
 {% endnote %}
 
-To reply to an existing line comment, you'll need to navigate to the comment on either the **Conversation** tab or **Files changed** tab and add an additional line comment below it.
+To reply to an existing line {% ifversion pull-request-comment-on-file %}or file {% endif %}comment, you'll need to navigate to the comment on either the **Conversation** tab or **Files changed** tab and add an additional comment below it.
 
 {% tip %}
 
@@ -42,15 +42,17 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 
 {% endtip %}
 
-## Adding line comments to a pull request
+## Adding comments to a pull request
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request where you'd like to leave line comments.
+1. In the list of pull requests, click the pull request where you'd like to leave line comments.
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
-5. When you're done, click **Add single comment**.
+{% ifversion pull-request-comment-on-file %}
+{% data reusables.repositories.start-file-comment %}{% endif %}
+1. When you're done, click **Add single comment**.
 
 Anyone watching the pull request or repository will receive a notification of your comment.
 

@@ -1,7 +1,7 @@
 ---
 title: Reporting abuse or spam
 intro: You can report behavior and content that violates community guidelines and terms.
-permissions: 'Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.'
+permissions: 'Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, discussions, and comments on issues, pull requests, discussions, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /articles/reporting-abuse-or-spam
   - /github/building-a-strong-community/reporting-abuse-or-spam
@@ -36,6 +36,15 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 
    ![Screenshot of an issue description. In the header, a kebab icon is outlined in dark orange.](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
+
+## Reporting a discussion
+
+1. Navigate to the discussion you'd like to report.
+1. In the upper-right corner of the discussion, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+
+   ![Screenshot of a discussion. The option to report content in the kebab menu is outlined with dark orange.](/assets/images/help/discussions/report-discussion.png)
+
+1. Select an email address and a category, then click **Send request**.
 
 ## Reporting a comment
 

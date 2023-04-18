@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'fs/promises'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, listMatchingRefs } from '../../../script/helpers/git-utils.js'

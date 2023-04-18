@@ -284,12 +284,48 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 - [Inviting people to manage your enterprise account](https://docs.github.com/en/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 - [Setting up continuous integration using workflow templates](https://docs.github.com/en/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
+### Troubleshooting
+
+Troubleshooting content includes built-in errors we expect users to encounter, common problems reported to support, and situations people might encounter while completing tasks. Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support and product managers to surface common errors and include them in the documentation.
+
+#### Known issues
+Known issues are a subset of troubleshooting content specifically designed to respond to bugs, UX/UI issues, and other product quirks that generate a high volume of support tickets. Where troubleshooting content can describe errors that people *might* encounter, known issues explain problems that people *will* encounter.
+
+Like all troubleshooting content, known issues can be a section in an article or a standalone article. If a known issue applies to a specific article, document it in that article. If a known issue applies to a specific set of articles or conceptual grouping of features, or if a product or feature has multiple known issues that should be grouped together, create a dedicated "Known issues with NAME" article.
+
+Known issue content for a product or feature does not need to be comprehensive. Unlike other troubleshooting content, some known issues may not have workarounds. The goal of documenting an issue without a workaround is to help people confirm that the issue exists and save them time searching for a solution that doesn't exist yet after GitHub has already determined there isn't a workaround.
+
+Product and feature owners (PMs and EMs) should help plan and review known issue content.
+
+Use known issues to explain the following situations.
+
+- Product behavior that regularly contradicts user expectations, but is not yet prioritized for remediation.
+- Behavior that regularly prevents the use of the product or feature for a common purpose.
+- Rare or severe bugs that GitHub has not yet prioritized fixing, and that are not explained in the product or by existing content on GitHub Docs.
+
+#### How to write troubleshooting content 
+- Use any GitHub Docs content type to create troubleshooting sections.
+- Whenever possible, keep troubleshooting content contained within procedural content or guides.
+- You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
+- You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example "[Troubleshooting SSH](https://docs.github.com/en/authentication/troubleshooting-ssh)."
+
+#### Title guidelines for troubleshooting content
+- Troubleshooting FEATURE
+- Error: ERROR NAME
+- Known issues for PRODUCT
+
+#### Examples of troubleshooting content
+- "[Troubleshooting SSH](https://docs.github.com/authentication/troubleshooting-ssh)"
+- "[Using GitHub Enterprise Server with a load balancer](https://docs.github.com/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)"
+- [Known issues](https://docs.github.com/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues) in the GitHub Enterprise Server release notes
+- "[Error: We're doing an SSH key audit](https://docs.github.com/en/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)"
+
 ### Combining multiple content types
 
 Often, it's helpful to group information in context to help people complete a complex task, understand a set of related tasks, or illustrate an entire workflow. Use longer articles combining content types to ensure people find contextual content in the right place. Longer articles also help eliminate duplication of content and prepare content to scale as more options are added to the product. People most often need longer articles while actively using the product, and they may need to consult the article at different points on their journey.
 
 #### How to combine multiple content types in an article
-- Use conceptual, procedural, referential, or troubleshooting content in a longer article, and do not use quickstart or tutorials
+- Use conceptual, procedural, referential, troubleshooting, or known issue content in a longer article, and do not use quickstart or tutorials
 - Use sections of different content types in the article as needed, and follow title guidelines for the content type
 - Most often, these articles will contain at least one procedural section plus at least one additional conceptual, referential, or procedural section
 - Use the content ordering guidelines to organize headers within the article.
@@ -393,7 +429,7 @@ Language and framework guides:
 - [Building and testing Python](https://docs.github.com/en/actions/guides/building-and-testing-python)
 - [Publishing Java packages with Maven](https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven)
 
-### Guides 
+### Guides
 
 We collectively refer to tutorials and quickstarts as "guides" across the site. On `/guides` landing pages, we include tutorials, quickstarts, and certain procedural articles in the list of guides for a doc set.
 
@@ -413,28 +449,12 @@ Within an article, there is a standard order of content sections. Every article 
 8. Referential content
 9. Prerequisites
 10. Procedural content
-11. Troubleshooting
+11. Troubleshooting content
 12. Further reading (conditional)
 
 Here's what some of these elements look like rendered in an article.
 
 ![Article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled](/contributing/images/illustration-of-article-contents.png)
-
-### Intro
-
-The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
-
-#### How to write an intro
-- Article intros are one to two sentences long.
-- Map topic and category intros are one sentence long.
-- API reference intros are one sentence long.
-  - The intro for an API page should define the feature so that a user knows whether the feature meets their needs without reading the entire article.
-- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail. 
-  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible. 
-- Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-- For searchability, include keywords on the page's subject in the intro. 
-- When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
-- Intros generally don't contain permissions for any tasks contained within the article.
 
 ### Product callout
 
@@ -454,6 +474,22 @@ Check the source files and `gated-features` to see how source content is written
 - [Roles in an enterprise](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)
 - [Managing a branch protection rule](https://docs.github.com/en/github/administering-a-repository/managing-a-branch-protection-rule)
 - [Managing team synchronization for an organization](https://docs.github.com/en/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)
+
+### Intro
+
+The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
+
+#### How to write an intro
+- Article intros are one to two sentences long.
+- Map topic and category intros are one sentence long.
+- API reference intros are one sentence long.
+  - The intro for an API page should define the feature so that a user knows whether the feature meets their needs without reading the entire article.
+- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail. 
+  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible. 
+- Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
+- For searchability, include keywords on the page's subject in the intro. 
+- When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
+- Intros generally don't contain permissions for any tasks contained within the article.
 
 ### Permissions statements
 
@@ -482,6 +518,12 @@ Some articles have content that varies depending on what tool someone uses to co
 ### Table of contents
 Tables of contents are automatically generated. For more information see "[Autogenerated mini-TOCs](https://github.com/github/docs/tree/main/content#autogenerated-mini-tocs)."
 
+### Conceptual content
+Conceptual content helps people understand or learn about a topic. See "[Conceptual](#conceptual)" above.
+
+### Referential content
+Referential content provides structured information related to actively using a product or feature. See "[Referential](#referential)" above.
+
 ### Prerequisites
 
 Prerequisites are information that people need to know before proceeding with a procedure, so that they can prepare everything they need before starting the task.
@@ -501,22 +543,12 @@ Prerequisites are information that people need to know before proceeding with a 
 - [Installing GitHub Enterprise Server on AWS](https://docs.github.com/en/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 - [Enabling subdomain isolation](https://docs.github.com/en/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
 
+### Procedural content
+Procedural content helps people complete tasks. See "[Procedural](#procedural)" above.
+
 ### Troubleshooting content
 
-Troubleshooting content includes built-in errors we expect users to encounter, or common problems reported to support. Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support ombuds and product managers to surface common errors and include them in the documentation.
-
-#### How to write troubleshooting content 
-- Use any GitHub Docs content type to create troubleshooting sections.
-- Whenever possible, keep troubleshooting content contained within procedural content or guides. 
-- You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
-
-#### Title guidelines for troubleshooting content
-- Troubleshooting [noun]
-- Error: [error name]
-
-#### Examples of troubleshooting content
-- Troubleshooting SSH key generation
-- Placeholder: Upcoming Pages error article
+Troubleshooting content helps people avoid or work through errors. See "[Troubleshooting](#troubleshooting)" above.
 
 ### Further reading
 

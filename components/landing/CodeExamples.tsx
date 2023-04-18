@@ -75,7 +75,7 @@ export const CodeExamples = () => {
           </p>
         </div>
       )}
-      <ul className="d-flex flex-wrap gutter">
+      <ul data-testid="code-example-results" className="d-flex flex-wrap gutter">
         {(isSearching ? searchResults : productCodeExamples.slice(0, numVisible)).map((example) => {
           return (
             <li key={example.href} className="col-12 col-xl-4 col-lg-6 mb-4 list-style-none">

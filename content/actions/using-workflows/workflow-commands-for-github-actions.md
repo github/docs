@@ -74,23 +74,19 @@ You can use the `error` command in your workflow to create the same error annota
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Create annotation for build error
         run: echo "::error file=app.js,line=1::Missing semicolon"
 ```
-{% endraw %}
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Create annotation for build error
         run: Write-Output "::error file=app.js,line=1::Missing semicolon"
 ```
-{% endraw %}
 
 {% endpowershell %}
 {%- else %}
@@ -106,29 +102,29 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
+{% raw %}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
         id: random-color-generator
       - name: Get color
+{% raw %}
         run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 
@@ -344,7 +340,7 @@ jobs:
 
 ![Screenshot of the log for the workflow step. The second line, "My title", is prefaced by a downward arrow, indicating an expanded group. The next line, "Inside group", is indented below.](/assets/images/help/actions/actions-log-group.png)
 
-## Masking a value in log
+## Masking a value in a log
 
 ```{:copy}
 ::add-mask::{value}
@@ -412,6 +408,164 @@ jobs:
 
 {% endpowershell %}
 
+### Example: Masking a generated output within a single job
+
+{% ifversion actions-save-state-set-output-envs %}
+{% else %}
+{% note %}
+**Note**: You must use `add-mask` before you use `set-output`. Otherwise, the output will not be masked.
+{% endnote %}
+{% endif %}
+
+If you do not need to pass your secret from one job to another job, you can:
+1. Generate the secret (without outputting it).
+1. Mask it with `add-mask`.
+{% ifversion actions-save-state-set-output-envs %}
+1. Use `GITHUB_OUTPUT` to make the secret available to other steps within the job.
+{% else %}
+1. Use `set-output` to make the secret available to other steps within the job.
+{% endif %}
+
+{% bash %}
+
+```yaml{:copy}
+on: push
+jobs:
+  generate-a-secret-output:
+    runs-on: ubuntu-latest
+    steps:
+      - id: sets-a-secret
+        name: Generate, mask, and output a secret
+        run: |
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"{% ifversion actions-save-state-set-output-envs %}
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"{% else %}
+          echo "::set-output name=secret-number::$the_secret"{% endif %}
+      - name: Use that secret output (protected by a mask)
+        run: |{% raw %}
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"{% endraw %}
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+on: push
+jobs:
+  generate-a-secret-output:
+    runs-on: ubuntu-latest
+    steps:
+      - id: sets-a-secret
+        name: Generate, mask, and output a secret
+        shell: pwsh
+        run: |
+          Set-Variable -Name TheSecret -Value (Get-Random)
+          Write-Output "::add-mask::$TheSecret"{% ifversion actions-save-state-set-output-envs %}
+          "secret-number=$TheSecret" >> $env:GITHUB_OUTPUT{% else %}
+          Write-Output "::set-output name=secret-number::$TheSecret"{% endif %}
+      - name: Use that secret output (protected by a mask)
+        shell: pwsh
+        run: |{% raw %}
+          Write-Output "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"{% endraw %}
+```
+
+{% endpowershell %}
+
+### Example: Masking and passing a secret between jobs or workflows
+
+If you want to pass a masked secret between jobs or workflows, you should store the secret in a store and then retrieve it in the subsequent job or workflow.
+
+#### Setup
+1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+
+#### Workflow
+
+{% note %}
+
+**Note**: This workflow uses an imaginary secret store, `secret-store`, which has imaginary commands `store-secret` and `retrieve-secret`. `some/secret-store@ 27b31702a0e7fc50959f5ad993c78deac1bdfc29` is an imaginary action that installs the `secret-store` application and configures it to connect to an `instance` with `credentials`.
+
+{% endnote %}
+
+{% bash %}
+
+```yaml{:copy}
+on: push
+
+jobs:
+  secret-generator:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: some/secret-store@v1
+      with:{% raw %}
+        credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
+    - name: generate secret
+      shell: bash
+      run: |
+        GENERATED_SECRET=$((RANDOM))
+        echo "::add-mask::$GENERATED_SECRET"
+        SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
+        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$secret_handle"{% endif %}
+  secret-consumer:
+    runs-on: macos-latest
+    needs: secret-generator
+    steps:
+    - uses: some/secret-store@v1
+      with:{% raw %}
+        credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
+    - name: use secret
+      shell: bash
+      run: |{% raw %}
+        SECRET_HANDLE="${{ needs.secret-generator.outputs.handle }}"{% endraw %}
+        RETRIEVED_SECRET=$(secret-store retrieve-secret "$SECRET_HANDLE")
+        echo "::add-mask::$RETRIEVED_SECRET"
+        echo "We retrieved our masked secret: $RETRIEVED_SECRET"
+```
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+on: push
+
+jobs:
+  secret-generator:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: some/secret-store@v1
+      with:{% raw %}
+        credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
+    - name: generate secret
+      shell: pwsh
+      run: |
+        Set-Variable -Name Generated_Secret -Value (Get-Random)
+        Write-Output "::add-mask::$Generated_Secret"
+        Set-Variable -Name Secret_Handle -Value (Store-Secret "$Generated_Secret"){% ifversion actions-save-state-set-output-envs %}
+        "handle=$Secret_Handle" >> $env:GITHUB_OUTPUT{% else %}
+        Write-Output "::set-output name=handle::$Secret_Handle"{% endif %}
+  secret-consumer:
+    runs-on: macos-latest
+    needs: secret-generator
+    steps:
+    - uses: some/secret-store@v1
+      with:{% raw %}
+        credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
+        instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
+    - name: use secret
+      shell: pwsh
+      run: |{% raw %}
+        Set-Variable -Name Secret_Handle -Value "${{ needs.secret-generator.outputs.handle }}"{% endraw %}
+        Set-Variable -Name Retrieved_Secret -Value (Retrieve-Secret "$Secret_Handle")
+        echo "::add-mask::$Retrieved_Secret"
+        echo "We retrieved our masked secret: $Retrieved_Secret"
+```
+{% endpowershell %}
+
 ## Stopping and starting workflow commands
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
@@ -436,8 +590,6 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% bash %}
 
-{% raw %}
-
 ```yaml{:copy}
 jobs:
   workflow-command-job:
@@ -452,13 +604,10 @@ jobs:
           echo "::$stopMarker::"
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
-{% endraw %}
-
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
 jobs:
   workflow-command-job:
@@ -473,8 +622,6 @@ jobs:
           Write-Output "::$stopMarker::"
           Write-Output '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
-
-{% endraw %}
 
 {% endpowershell %}
 
@@ -647,7 +794,6 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% bash %}
 
-{% raw %}
 ```yaml{:copy}
 steps:
   - name: Set the value
@@ -657,15 +803,15 @@ steps:
   - name: Use the value
     id: step_two
     run: |
+{% raw %}
       echo "${{ env.action_state }}" # This will output 'yellow'
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 ```yaml{:copy}
 steps:
   - name: Set the value
@@ -675,9 +821,10 @@ steps:
   - name: Use the value
     id: step_two
     run: |
+{% raw %}
       Write-Output "${{ env.action_state }}" # This will output 'yellow'
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 
@@ -758,21 +905,20 @@ echo "{name}={value}" >> $GITHUB_OUTPUT
 
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
-{% raw %}
 ```yaml{:copy}
       - name: Set color
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
       - name: Get color
+{% raw %}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endbash %}
 
 {% powershell %}
 
-{% raw %}
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
 ```yaml{:copy}
@@ -781,9 +927,10 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: |
             "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
+{% raw %}
         run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-```
 {% endraw %}
+```
 
 {% endpowershell %}
 {% endif %}

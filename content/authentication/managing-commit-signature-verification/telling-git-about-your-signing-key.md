@@ -14,7 +14,7 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Tell Git your signing key
+shortTitle: Tell Git about your signing key
 ---
 
 ## Telling Git about your GPG key
