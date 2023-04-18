@@ -51,4 +51,4 @@ For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-
 
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)"
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)."
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
