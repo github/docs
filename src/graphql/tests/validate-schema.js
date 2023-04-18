@@ -1,15 +1,11 @@
 import { jest } from '@jest/globals'
 import Ajv from 'ajv'
 
-import readJsonFile from '../../lib/read-json-file.js'
-import {
-  schemaValidator,
-  previewsValidator,
-  upcomingChangesValidator,
-} from '../../src/graphql/lib/validator.js'
-import { formatAjvErrors } from '../helpers/schemas.js'
-import { allVersions } from '../../lib/all-versions.js'
-import { GRAPHQL_DATA_DIR } from '../../src/graphql/lib/index.js'
+import readJsonFile from '../../../lib/read-json-file.js'
+import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.js'
+import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
 const allVersionValues = Object.values(allVersions)
 const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
