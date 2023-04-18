@@ -17,7 +17,7 @@ With {% data variables.product.prodname_classroom %}, you can create individual 
 
 When student(s) accept(s) an assignment - either individual or group -, GitHub Classroom automatically creates a new repository or adds them to a team in an existing repository. The repositories can be empty, or you can create the repositories from a template repository with starter code, documentation, tests, and other resources. Each assignment repository belongs to your organization account on {% data variables.product.prodname_dotcom %}.
 
-Each assignment has a title and an optional deadline. You can choose the visibility of repositories that GitHub Classroom creates and choose access permissions. You can also automatically grade assignments and create a dedicated space to discuss the assignment with the student.
+{% data reusables.classroom.about-assignments %}
 
 Optionally, you can enable feedback pull requests on anv assignment. If you enable this feature for an assignment, {% data variables.product.prodname_classroom %} creates a special pull request titled **Feedback** in the assignment repository for each student or group. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
 
