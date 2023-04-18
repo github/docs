@@ -35,7 +35,7 @@ You can create both individual assignments and group assignments with {% data va
 
 {% data reusables.classroom.assignments-individual-definition %}
 
-When a student accepts an assignment, GitHub Classroom automatically creates a new repository for the student. 
+{% data reusables.classroom.classroom-creates-individual-repositories %}
 
 For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
 
