@@ -61,7 +61,7 @@ jobs:
 
           gh pr create \
             --title "Delete orphaned assets ($date)" \
-            --body "Found with the find-orphaned-assets.js script" \
+            --body "Found with the find-orphaned-assets.js script.\n\nFor more info see https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md" \
             --repo github/docs-internal \
             --label docs-content-fr
 
