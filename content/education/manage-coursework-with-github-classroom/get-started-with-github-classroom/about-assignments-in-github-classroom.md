@@ -33,7 +33,7 @@ You can create both individual assignments and group assignments with {% data va
 
 ### Individual assignments
 
-An individual assignment is coursework for each student who participates in a course on GitHub Classroom. The student is intended to complete an individual assignment without help from other students.
+{% data reusables.classroom.assignments-individual-definition %}
 
 When a student accepts an assignment, GitHub Classroom automatically creates a new repository for the student. 
 
