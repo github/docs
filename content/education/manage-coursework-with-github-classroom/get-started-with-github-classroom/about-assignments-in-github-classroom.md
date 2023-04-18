@@ -11,7 +11,7 @@ versions:
 
 ## About assignments in {% data variables.product.prodname_classroom %}
 
-Assignment is a coursework created to be completed by an individual student or a group of students in {% data variables.product.prodname_classroom %}. You can either use assignments as a grading tool to test and grade your students or a means for your students to get practice on a coursework. 
+Assignments are coursework created for students in {% data variables.product.prodname_classroom %}. You can use assignments to test and grade your students, or to help your students practice their learnings.
 
 You can either create a group and let students collaborate, or create an individual assignment for each student who participates in a course on {% data variables.product.prodname_classroom %}. 
 
