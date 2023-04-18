@@ -23,7 +23,7 @@ Optionally, you can enable feedback pull requests on assignments. If you enable 
 
 You can integrate a classroom with an IDE. Students can make changes to their assignment repositories through the IDE, or by checking out and running code locally with the appropriate software. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
-You can reuse existing assignments in any other classroom you have admin access to, including classrooms in a different organization. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+{% data reusables.classroom.reuse-assignment-link %}
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}
 
