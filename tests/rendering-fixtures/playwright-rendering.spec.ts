@@ -217,16 +217,27 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the secondary minitoc sidebar don't have a hovercard
-  await page.getByRole('link', { name: 'Internal link' }).hover()
+  await page.getByRole('link', { name: 'Regular internal link' }).hover()
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the article intro have a hovercard
   await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+  // this page's intro has two links; one in-page and one internal
+  await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
+  await expect(
+    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+  ).toBeVisible()
 
   // same page anchor links have a hovercard
   await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+
+  // links with formatted text need to work too
+  await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
+  await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
+  await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
+  await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
 })
 
 test('x-large viewports - 1280+', async ({ page }) => {
