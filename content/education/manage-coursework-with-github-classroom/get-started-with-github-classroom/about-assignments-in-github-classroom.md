@@ -29,7 +29,7 @@ You can reuse existing assignments in any other classroom you have admin access 
 
 ## Types of assignments 
 
-You can either create a group assignment or n individual assignment in {% data variables.product.prodname_classroom %}.
+You can create both individual assignments and group assignments with {% data variables.product.prodname_classroom %}.
 
 ### Individual assignments
 
