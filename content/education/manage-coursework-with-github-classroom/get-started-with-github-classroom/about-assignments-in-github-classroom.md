@@ -13,7 +13,7 @@ versions:
 
 Assignments are coursework created for students in {% data variables.product.prodname_classroom %}. You can use assignments to test and grade your students, or to help your students practice their learnings.
 
-You can either create a group and let students collaborate, or create an individual assignment for each student who participates in a course on {% data variables.product.prodname_classroom %}. 
+With {% data variables.product.prodname_classroom %}, you can create individual assignments, to be completed by a single student, or group assignments, to be completed in teams. For more information, see "[Types of assignments](#types-of-assignments)."
 
 When student(s) accept(s) an assignment - either individual or group -, GitHub Classroom automatically creates a new repository or adds them to a team in an existing repository. The repositories can be empty, or you can create the repositories from a template repository with starter code, documentation, tests, and other resources. Each assignment repository belongs to your organization account on {% data variables.product.prodname_dotcom %}.
 
