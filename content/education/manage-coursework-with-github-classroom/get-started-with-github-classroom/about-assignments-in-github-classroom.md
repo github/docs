@@ -1,5 +1,5 @@
 ---
-title: About assignments in GitHub Classroom
+title: About assignments
 intro: 'You can use individual or group assignments in {% data variables.product.prodname_classroom %} to teach students and grade their work.'
 shortTitle: About assignments
 type: overview
