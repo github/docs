@@ -10,8 +10,6 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-Your project can track draft issues, issues, and pull requests.
-
 {% note %}
 
 **Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
@@ -31,6 +29,12 @@ You can add issues and pull requests to your project individually{% ifversion pr
 {% endnote %}
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
+
+{% endif %}
+
+{% ifversion projects-v2-bulk-table-editing %}
+
+For more information about making bulk changes to your items after adding them, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project)."
 
 {% endif %}
 

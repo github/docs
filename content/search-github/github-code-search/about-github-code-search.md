@@ -35,8 +35,9 @@ The new code search (beta) is tightly integrated with a redesigned code view (be
 We have indexed many public repositories for the new code search (beta), and continue to index more. Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
-   - Vendored and generated code is excluded (as determined by [Enry](https://github.com/go-enry/go-enry))
+   - Vendored and generated code is excluded
    - Empty files and files over 350 KiB are excluded
+   - Lines over 1,024 characters long are truncated
    - Only UTF-8 encoded files are included
    - Very large repositories may not be indexed
 

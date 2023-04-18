@@ -13,11 +13,13 @@ redirect_from:
 
 When you make changes to your integration code, running the code in a local environment lets you test and iterate quickly without deploying the code. You can use {% data variables.product.prodname_cli %} to forward webhooks to your local environment.
 
-{% note %}
+Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test sponsorship, GitHub App, enterprise, or Marketplace webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks).
 
-**Note:** Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test sponsorship, GitHub App, enterprise, or Marketplace webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
+{% warning %}
 
-{% endnote %}
+**Warning**: Webhook forwarding is only designed for use during testing and development. It is not supported for use in production environments for handling live webhooks.
+
+{% endwarning %}
 
 ## Receiving webhooks with {% data variables.product.prodname_cli %}
 
@@ -45,3 +47,9 @@ When you make changes to your integration code, running the code in a local envi
    ```
 
   Leave the command running in the background. It will receive all of the specified events for the specified repository and forward them to your webhook handler running at the specified URL.
+
+   {% note %}
+
+   **Note**: Only one person can use webhook forwarding at a time for each repository and organization. If you try to set up webhook forwarding and someone else is already working with that organization or repository, you'll receive a `Hook already exists` error.
+
+   {% endnote %}

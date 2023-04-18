@@ -52,11 +52,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         style={{ width: 326, height: '100vh', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        <nav
-          aria-label={
-            !currentProduct || currentProduct.id === 'search' ? 'homepage' : currentProduct.name
-          }
-        >
+        <nav aria-labelledby="title-h1">
           {!currentProduct || currentProduct.id === 'search' ? (
             <SidebarHomepage />
           ) : (

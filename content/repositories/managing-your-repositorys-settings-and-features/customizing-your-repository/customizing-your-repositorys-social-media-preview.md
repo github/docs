@@ -18,7 +18,7 @@ Until you add an image, repository links expand to show basic information about 
 
 ## Adding an image to customize the social media preview of your repository
 
-{% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
+{% ifversion repo-rules %}You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.{% else %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
 

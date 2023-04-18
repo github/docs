@@ -40,7 +40,7 @@ describe('release notes', () => {
     const res = await get(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
     expect(res.statusCode).toBe(200)
     const $ = await getDOM(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
-    expect($('h1').text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
+    expect($('h1').first().text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
     expect(
       $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`)
     ).toBe(true)
@@ -50,7 +50,7 @@ describe('release notes', () => {
     const res = await get('/en/github-ae@latest/admin/release-notes')
     expect(res.statusCode).toBe(200)
     const $ = await getDOM('/en/github-ae@latest/admin/release-notes')
-    expect($('h1').text()).toBe('GitHub AE release notes')
+    expect($('h1').first().text()).toBe('GitHub AE release notes')
     const sectionTitleRegex = /GitHub AE \d\d?\.\d\d?/ // E.g., GitHub AE 3.3
 
     const releaseNotesH2 = $('h2').first().text().trim()

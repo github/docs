@@ -145,22 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('x-large viewports - 1280+', () => {
-  jest.setTimeout(60 * 1000)
-  it('in article breadcrumbs at xl viewport should remove last breadcrumb', async () => {
-    await page.setViewport({ width: 1300, height: 700 })
-    await page.goto(
-      'http://localhost:4000/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise'
-    )
-    const breadcrumbsElement = await page.$$('[data-testid=breadcrumbs-in-article] ul li')
-    const breadcrumbsMissingElement = await page.$$(
-      '[data-testid=breadcrumbs-in-article] ul li .d-none'
-    )
-    expect(breadcrumbsMissingElement.length).toBe(1)
-    expect(breadcrumbsElement.length).toBe(4)
-  })
-})
-
 describe('large -> x-large viewports - 1012+', () => {
   jest.setTimeout(60 * 1000)
   it('version picker is visible in header', async () => {
@@ -333,95 +317,6 @@ describe('survey', () => {
     // (sent a PUT request to /events/{id})
     // I see the feedback
     await page.waitForSelector('[data-testid=survey-end]')
-  })
-})
-
-describe('tool specific content', () => {
-  const pageWithSingleSwitcher =
-    'http://localhost:4000/en/actions/managing-workflow-runs/manually-running-a-workflow'
-  const pageWithoutSwitcher =
-    'http://localhost:4000/en/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors'
-  const pageWithMultipleSwitcher =
-    'http://localhost:4000/en/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects'
-
-  it('should have a tool switcher if a tool switcher is included', async () => {
-    await page.goto(pageWithSingleSwitcher)
-    const nav = await page.$$('[data-testid="tool-picker"]')
-    const switches = await page.$$('[data-testid="tool-picker"] div a')
-    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-    expect(nav).toHaveLength(1)
-    expect(switches.length).toBeGreaterThan(1)
-    expect(selectedSwitch).toHaveLength(1)
-  })
-
-  it('should NOT have a tool switcher if no tool switcher is included', async () => {
-    await page.goto(pageWithoutSwitcher)
-    const nav = await page.$$('[data-testid="tool-picker"]')
-    const switches = await page.$$('[data-testid="tool-picker"] div a')
-    const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-    expect(nav).toHaveLength(0)
-    expect(switches).toHaveLength(0)
-    expect(selectedSwitch).toHaveLength(0)
-  })
-
-  it('should use cli if no defaultTool is specified and if webui is not one of the tools', async () => {
-    await page.goto(pageWithMultipleSwitcher)
-    const selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub CLI')
-  })
-
-  it('should use webui if no defaultTool is specified and if webui is one of the tools', async () => {
-    await page.goto(pageWithSingleSwitcher)
-    const selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    const selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('Web browser')
-  })
-
-  it('should use the recorded user selection', async () => {
-    // With no user data, the selected tool is GitHub.com
-    await page.goto(pageWithSingleSwitcher)
-    let selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    let selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('Web browser')
-
-    await page.click('[data-testid="tool-picker"] [data-tool="cli"]')
-
-    // Revisiting the page after CLI is selected results in CLI as the selected tool
-    await page.goto(pageWithSingleSwitcher)
-    selectedToolElement = await page.waitForSelector(
-      '[data-testid="tool-picker"] div a.PRC-selected'
-    )
-    selectedTool = await page.evaluate((el) => el.textContent, selectedToolElement)
-    expect(selectedTool).toBe('GitHub CLI')
-  })
-
-  it('should show the content for the selected tool only', async () => {
-    await page.goto(pageWithSingleSwitcher)
-
-    const tools = ['webui', 'cli']
-    for (const tool of tools) {
-      await page.click(`[data-tool="${tool}"]`)
-
-      // content for selected tool is expected to become visible
-      await page.waitForSelector(`.extended-markdown.${tool}`, { visible: true, timeout: 3000 })
-
-      // only a single tab should be selected
-      const selectedSwitch = await page.$$('[data-testid="tool-picker"] div a.PRC-selected')
-      expect(selectedSwitch).toHaveLength(1)
-
-      // content for NOT selected tools is expected to become hidden
-      const otherTools = tools.filter((e) => e !== tool)
-      for (const other of otherTools) {
-        await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
-      }
-    }
   })
 })
 

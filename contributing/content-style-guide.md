@@ -231,7 +231,7 @@ To learn about creating and versioning images, see "[Creating and updating scree
 
 ## Inclusive language
 
-As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. All of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
 
 Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
@@ -603,6 +603,184 @@ For more information about GitHub's personal access tokens, see "[Creating a per
 
 Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
+## Release notes
+
+A set of release notes on GitHub Docs tell readers about administrator- or user-facing changes to a versioned release of a product like GitHub Enterprise Server (GHES). Release notes appear in the [Enterprise administrator docs](https://docs.github.com/en/enterprise-server/admin/release-notes).
+
+A good release note is a few sentences that sequentially answer the reader's questions about the change. For more information, see [Content model for GitHub Docs](/contributing/content-model.md#release-notes).
+
+Each release note in a set describes one of the following changes.
+
+- [Features](#features): brand-new behavior or functionality
+- [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
+- [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
+- [Changes](#changes): notable changes to past behavior
+- [Deprecations](#deprecations): removal of a feature or behavior
+
+You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+### Features
+
+A release note for a feature summarizes brand-new behavior. Generally, notes for features are only part of feature releases.
+
+#### Writing release notes for features
+
+A release note for a feature answers the following questions.
+
+1. Does this new functionality apply to me, with my role or access?
+1. What need does the functionality satisfy?
+1. What is the functionality?
+1. If applicable, where can I read more about the functionality?
+
+> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Categorize each feature in a section, under a feature heading.
+- Write in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of feature release notes
+
+- > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](https://docs.github.com/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+
+- > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](https://docs.github.com/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+
+- > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](https://docs.github.com/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
+
+### Security fixes
+
+A release note for a security fix summarizes a change that mitigates or prevents exploitation of a security-related issue in the product. Generally, notes for security fixes are only part of patch releases.
+
+#### Writing release notes for security fixes
+
+A release note for a security fix answers the following questions.
+
+1. If available, what is the [NVD vulnerability severity rating](https://nvd.nist.gov/vuln-metrics/cvss) for the vulnerability that's fixed?
+1. What is the attack that an attacker could accomplish by exploiting the vulnerability?
+1. What type of vulnerability is exploitable?
+1. If available, what is the vulnerability's [CVE identifier](https://cve.mitre.org/cve/identifiers/), pending or active?
+1. Did someone report the vulnerability via the [GitHub Bug Bounty program](https://bounty.github.com)?
+
+> _SEVERITY_ (**1**): An attacker could _DESCRIPTION OF IMPACT_ (**2**) by _DESCRIPTION OF EXPLOIT_ (**3**). GitHub has requested CVE ID [_CVE-####-#####_]() (**4**) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com) (**5**).
+
+#### Examples of release notes for security fixes
+
+- > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, GitHub has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). GitHub has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+
+- > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+
+### Bug fixes
+
+A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.
+
+#### Writing release notes for bug fixes
+
+A release note for a bug fix answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. What behavior would the reader experience prior to the fix?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
+
+- Because the bug is now fixed, write in the past tense.
+- To reduce repetition and unnecessary words, language like
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of release notes for bug fixes
+
+- > After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
+
+- > On an instance with GitHub Actions enabled, a workflow job for GitHub Actions would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
+
+- > Commands that site administrators ran via SSH on any of the instances nodes were not logged in ``/var/log/ssh-console-audit.log``.
+
+### Changes
+
+A release note for a change describes a notable, but minor change to existing behavior. Notes for changes answer the following questions.
+
+#### Writing release notes for changes
+
+A release note for a change answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What's the new behavior?
+1. If relevant, what was the behavior before the change?
+
+> _AUDIENCE_ (**1**) / _DESCRIPTION OF PROBLEM CHANGE SOLVES_ (**2**) _DESCRIPTION OF NEW BEHAVIOR_ (**3**) _DESCRIPTION OF OLD BEHAVIOR_ (**4**).
+
+- Because the change applies to the release in question, write notes for changes in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Often, the audience is implied.
+- If useful, include relevant links to GitHub Docs.
+
+#### Examples of release notes for changes
+
+- > On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+
+- > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+
+- > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
+
+### Known issues
+
+A release note for a known issue describes an issue that GitHub has identified, but cannot or has not yet prioritized.
+
+#### Writing release notes for known issues
+
+A release note for a known issue answers the following questions.
+
+1. Does the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What are any error messages or other recognizable UI elements that appear?
+1. Do I need to act? If so, what should I do?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
+
+- To clarify actors and impact, avoid passive language when possible.sent tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- If useful, include relevant links to GitHub Docs.
+- Known issues are also a [type of content on GitHub Docs](/contributing/content-model.md#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
+
+#### Examples of release notes for known issues
+
+- > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
+
+- > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+
+### Deprecations
+
+A deprecation release note summarizes a behavior or feature that GitHub has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
+
+#### Writing release notes for deprecations
+
+A release note for a deprecation answers the following questions.
+
+1. Does this existing functionality apply to me, with my role or access?
+1. What is the functionality that's being deprecated?
+1. If applicable, what replaces the deprecated functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for deprecations
+
+- > **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
+- > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+### Adding or updating a release note
+
+If you add or update an individual release note after initial publication, to signal to readers that the note has changed, append a datestamp in the format "[Updated: YYYY-MM-DD]".
+
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
@@ -804,6 +982,17 @@ Describe a user interface element’s location with standard terms.
 - Upper-left, upper-right, lower-left, lower-right
 - Top of the page, bottom of the page, right side of the page, left side of the page
 
+### Panels
+
+When possible, avoid referring to panels. Instead, describe what someone needs to do.
+- **Use:** Click **View charts and graphs** for your repository, then select the time period you want to view from the dropdown menu.
+- **Avoid:** Click the **View charts and graphs** to open the panel for your selected repository, then select the time period you want to view from the dropdown menu.
+
+If you need to refer to a panel to describe a change to the UI or to explain how to interact with the UI, format the panel name as [user interface text](#user-interface-text). Only include the word panel if it adds clarity or if the panel has no name in the UI.
+
+- **Use:** In the "Security coverage" panel, select **Enable** or **Disable**.
+- **Use:** In the panel, select **Enable** or **Disable**.
+
 ### Radio buttons
 
 Format radio button labels in bold and omit the words “radio button” or any other descriptor. To describe using a radio button, write "select."
@@ -830,7 +1019,13 @@ Videos on the GitHub Docs website must be well-produced and accessible, and conf
 
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. Be authentic, empathetic, and confident with your writing.
+
+Write for your audience: some jargon and technical terms are necessary, but don't rely on the assumption that every reader has the same level of technical expertise.
+
+We are a global developer community. Avoid turns of phrase, idioms, and slang that are specific to a particular region or country.
+
+To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
@@ -942,10 +1137,6 @@ Where the first reference concerns `cents` or a non-dollar amount, capitalize th
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
-
-### Inclusive language
-
-See the “Inclusive language” section of this guide.
 
 ### Permissions
 

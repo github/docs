@@ -80,6 +80,43 @@ test.describe('platform picker', () => {
   })
 })
 
+test.describe('tool picker', () => {
+  test('switch tools', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
+    await expect(page).toHaveURL(/\?tool=cli/)
+    await expect(page.getByText('this is cli content')).toBeVisible()
+    await expect(page.getByText('this is webui content')).not.toBeVisible()
+
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(page).toHaveURL(/\?tool=webui/)
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    await expect(page.getByText('this is desktop content')).not.toBeVisible()
+    await expect(page.getByText('this is webui content')).toBeVisible()
+  })
+
+  test('prefer default tool', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+
+    // defaultTool is set in the fixture frontmatter
+    await expect(page.getByText('this is desktop content')).toBeVisible()
+    await expect(page.getByText('this is webui content')).not.toBeVisible()
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+  })
+
+  test('remember last clicked tool', async ({ page }) => {
+    await page.goto('/get-started/liquid/tool-specific')
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+
+    // Return and now the cookie should start us off with Web UI content again
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    await expect(page.getByText('this is desktop content')).not.toBeVisible()
+    await expect(page.getByText('this is webui content')).toBeVisible()
+  })
+})
+
 test('filter article cards', async ({ page }) => {
   await page.goto('/code-security/guides')
   const articleCards = page.getByTestId('article-cards')
@@ -180,14 +217,39 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the secondary minitoc sidebar don't have a hovercard
-  await page.getByRole('link', { name: 'Internal link' }).hover()
+  await page.getByRole('link', { name: 'Regular internal link' }).hover()
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the article intro have a hovercard
   await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+  // this page's intro has two links; one in-page and one internal
+  await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
+  await expect(
+    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+  ).toBeVisible()
 
   // same page anchor links have a hovercard
   await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+
+  // links with formatted text need to work too
+  await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
+  await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
+  await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
+  await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
+})
+
+test('x-large viewports - 1280+', async ({ page }) => {
+  page.setViewportSize({
+    width: 1300,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // in article breadcrumbs at xl viewport should remove last breadcrumb so
+  // for this page we should only have 'Get Started / Foo'
+  expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
+  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
+  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
 })

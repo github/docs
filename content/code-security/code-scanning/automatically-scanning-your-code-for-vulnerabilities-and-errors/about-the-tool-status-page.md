@@ -61,9 +61,11 @@ This view will also show error messages. For more information, see "[Debugging u
 
 ### How {% data variables.product.prodname_codeql %} defines scanned files
 
-A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use an advanced setup, you can optionally define which files for interpreted languages should be scanned using the the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use an advanced setup, you can optionally define which files for interpreted languages should be scanned using the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
 For compiled languages, the {% data variables.code-scanning.tool_status_page %} reports files that were present before running autobuild or any manual build steps. This means that files generated during the build process are not shown in the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#about-autobuild-for-codeql)."
+
+The tool status page will calculate the percentage of files that were scanned by CodeQL for each language supported by CodeQL. This percentage respects any files excluded by the `paths` and `paths-ignore` configuration properties.
 
 ### Downloading details of the files analyzed
 
@@ -90,6 +92,12 @@ To download a report, select a configuration you're interested in. Then click **
 ## Debugging using the {% data variables.code-scanning.tool_status_page %}
 
 If you see that there is a problem with your analysis from the {% data variables.product.prodname_code_scanning %} alerts page, you can use the {% data variables.code-scanning.tool_status_page %} to identify the problem. For integrated tools, you can see specific error messages in the detailed information section, related to specific {% data variables.product.prodname_code_scanning %} tools. These error messages contain information about why the tool may not be performing as expected, and actions you can take. For more information about how to access this section of the {% data variables.code-scanning.tool_status_page %}, see "[Accessing detailed information about tools](#accessing-detailed-information-about-tools)."
+
+For integrated tools such as {% data variables.product.prodname_codeql %}, you can also use file coverage information to improve your analysis. For each language displayed on the {% data variables.code-scanning.tool_status_page %}:
+
+- If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
+- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by CodeQL for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+- If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by CodeQL but not currently being analyzed with CodeQL. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed)."
 
 {% note %}
 

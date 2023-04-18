@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box, themeGet } from '@primer/react'
+import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPortalVaIframe'
 
 type Props = {
   intro?: React.ReactNode
@@ -8,8 +9,16 @@ type Props = {
   toc?: React.ReactNode
   children?: React.ReactNode
   className?: string
+  supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
-export const ArticleGridLayout = ({ intro, topper, toc, children, className }: Props) => {
+export const ArticleGridLayout = ({
+  intro,
+  topper,
+  toc,
+  children,
+  className,
+  supportPortalVaIframeProps,
+}: Props) => {
   return (
     <Container className={className}>
       {topper && <Box gridArea="topper">{topper}</Box>}
@@ -30,6 +39,11 @@ export const ArticleGridLayout = ({ intro, topper, toc, children, className }: P
       )}
 
       <Box gridArea="content" data-search="article-body">
+        {supportPortalVaIframeProps &&
+          supportPortalVaIframeProps.supportPortalUrl &&
+          supportPortalVaIframeProps.vaFlowUrlParameter && (
+            <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
+          )}
         {children}
       </Box>
     </Container>
