@@ -253,3 +253,48 @@ test('x-large viewports - 1280+', async ({ page }) => {
   await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
   await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
 })
+
+test('large -> x-large viewports - 1012+', async ({ page }) => {
+  page.setViewportSize({
+    width: 1013,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // version picker should be visible
+  await page
+    .getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+    .click()
+  expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+  await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+  // language picker is visible
+  // TODO: currently no languages enabled for headless tests
+  // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+  // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+  // header sign up button is visible
+  await expect(page.getByTestId('header-signup')).toBeVisible()
+})
+
+test('large viewports - 1012-1279', async ({ page }) => {
+  page.setViewportSize({
+    width: 1013,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // breadcrumbs show up in the header, for this page we should have
+  // 3 items 'Get Started / Foo / Bar'
+  // in-article breadcrumbs don't show up
+  await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
+  expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
+  await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+})
