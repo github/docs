@@ -1,4 +1,4 @@
-When maintainers of a repository stop interacting with {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.prodname_dependabot %} temporarily pauses its updates and lets you know. This automatic opt-out behavior reduces noise because {% data variables.product.prodname_dependabot %} doesn't create pull requests for version and security updates, and doesn't rebase {% data variables.product.prodname_dependabot %} pulls requests for inactive repositories.
+When maintainers of a repository stop interacting with {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.prodname_dependabot %} temporarily pauses its updates and lets you know. This automatic opt-out behavior reduces noise because {% data variables.product.prodname_dependabot %} doesn't create pull requests for version and security updates, and doesn't rebase {% data variables.product.prodname_dependabot %} pull requests for inactive repositories.
 
 The automatic deactivation of {% data variables.product.prodname_dependabot %} updates only applies to repositories where {% data variables.product.prodname_dependabot %} has opened pull requests but the pull requests remain untouched. If {% data variables.product.prodname_dependabot %} hasn't opened any pull requests, {% data variables.product.prodname_dependabot %} will never become paused.
 
@@ -16,4 +16,4 @@ When {% data variables.product.prodname_dependabot %} is paused, {% data variabl
 
 As soon as a maintainer interacts with a {% data variables.product.prodname_dependabot %} pull request again, {% data variables.product.prodname_dependabot %} will unpause itself:
 - Security updates are automatically resumed for {% data variables.product.prodname_dependabot_alerts %}.
-- Version updates are automatically resumed with the schedule specified in the *dependabot.yml* file. 
+- Version updates are automatically resumed with the schedule specified in the *dependabot.yml* file.

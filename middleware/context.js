@@ -5,7 +5,7 @@ import { productMap } from '../lib/all-products.js'
 import pathUtils from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
-import searchVersions from '../lib/search/versions.js'
+import searchVersions from '../src/search/lib/versions.js'
 import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 

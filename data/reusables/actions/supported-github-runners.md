@@ -51,24 +51,13 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 [deprecated]
-</td>
-<td>
-<code>ubuntu-18.04</code>
-</td>
-<td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
 macOS Monterey 12
 </td>
 <td>
 <code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
 </td>
 <td>
-The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
+The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image. For information about macOS XL runner (12-core) per-minute pricing, see "<a href="https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates">About billing for {% data variables.product.prodname_actions %}</a>."
 </td>
 </tr>
 <tr>

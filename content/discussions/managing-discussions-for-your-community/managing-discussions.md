@@ -1,7 +1,7 @@
 ---
 title: Managing discussions
 intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
-permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
+permissions: Repository administrators and people with {% ifversion discussions-moderators-control-who-can-report %}triage{% else %}write{% endif %} or greater access to a repository can manage discussions in the repository. Repository administrators and people with {% ifversion discussions-moderators-control-who-can-report %}triage{% else %}write{% endif %} or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   feature: discussions
 shortTitle: Manage discussions
@@ -146,7 +146,6 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% ifversion discussions-category-specific-pins %}
 
    ![Screenshot of the right sidebar of a discussion. The "Transfer this discussion" option is outlined in dark orange.](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
-
 
    ![Screenshot of the right sidebar of a discussion. The "Transfer this discussion" option is outlined in dark orange.](/assets/images/help/discussions/click-transfer-discussion.png){% endif %}
 

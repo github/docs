@@ -17,7 +17,7 @@ To perform any actions on {% data variables.product.product_name %}, such as cre
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-You can have more granular control over the permissions you grant at the repository level by creating up to {% ifversion authz-increased-custom-repo-roles %}five {% else %}three {% endif %} custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+You can have more granular control over the permissions you grant at the repository level by creating up to {% ifversion authz-increased-custom-repo-roles %}five {% else %}three {% endif %} custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
 
 After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
 
@@ -65,18 +65,18 @@ You can only choose an additional permission if it's not already included in the
 
 - Create a discussion category
 - Edit a discussion category
-- Delete a discussion category 
-- Mark or unmark discussion answers 
-- Hide or unhide discussion comments 
-- Convert issues to discussions 
+- Delete a discussion category
+- Mark or unmark discussion answers
+- Hide or unhide discussion comments
+- Convert issues to discussions
 
 For more information, see "[AUTOTITLE](/discussions)."
 {% endif %}
 
 ### Issue and Pull Requests
 
-- Assign or remove a user 
-- Add or remove a label 
+- Assign or remove a user
+- Add or remove a label
 
 ### Issue
 
@@ -94,17 +94,17 @@ For more information, see "[AUTOTITLE](/discussions)."
 ### Repository
 
 - Set milestones
-- Manage wiki settings 
+- Manage wiki settings
 - Manage project settings
-- Manage pull request merging settings 
+- Manage pull request merging settings
 - Manage {% data variables.product.prodname_pages %} settings (see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
-- Manage webhooks 
-- Manage deploy keys 
+- Manage webhooks
+- Manage deploy keys
 - Edit repository metadata
 {%- ifversion ghec %}
 - Set interaction limits
 {%- endif %}
-- Set the social preview 
+- Set the social preview
 - Push commits to protected branches (branch protection rules will still apply)
 - Create protected tags
 - Delete protected tags
@@ -117,13 +117,13 @@ For more information, see "[AUTOTITLE](/discussions)."
 
 ### Security
 
-- View {% data variables.product.prodname_code_scanning %} results 
+- View {% data variables.product.prodname_code_scanning %} results
 - Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
-- Delete {% data variables.product.prodname_code_scanning %} results 
-- View {% data variables.product.prodname_dependabot_alerts %} 
-- Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %} 
-- View {% data variables.product.prodname_secret_scanning %} results 
-- Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results 
+- Delete {% data variables.product.prodname_code_scanning %} results
+- View {% data variables.product.prodname_dependabot_alerts %}
+- Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}
+- View {% data variables.product.prodname_secret_scanning %} results
+- Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
 
 ## Precedence for different levels of access
 

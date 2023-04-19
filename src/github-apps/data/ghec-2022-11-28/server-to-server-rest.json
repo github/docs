@@ -673,6 +673,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
     },
     {
+      "slug": "review-custom-deployment-protection-rules-for-a-workflow-run",
+      "subcategory": "workflow-runs",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule"
+    },
+    {
       "slug": "list-jobs-for-a-workflow-run",
       "subcategory": "workflow-jobs",
       "verb": "get",
@@ -1841,6 +1847,36 @@
       "subcategory": "branch-policies",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+    },
+    {
+      "slug": "get-all-deployment-protection-rules-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+    },
+    {
+      "slug": "create-a-custom-deployment-protection-rule-on-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+    },
+    {
+      "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "get-a-custom-deployment-protection-rule",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
+    },
+    {
+      "slug": "disable-a-custom-protection-rule-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     }
   ],
   "emojis": [
@@ -2400,49 +2436,49 @@
     },
     {
       "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "get",
       "requestPath": "/organizations/{org}/personal-access-token-requests"
     },
     {
       "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "post",
       "requestPath": "/organizations/{org}/personal-access-token-requests"
     },
     {
       "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "post",
       "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}"
     },
     {
       "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "get",
       "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories"
     },
     {
       "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "get",
       "requestPath": "/organizations/{org}/personal-access-tokens"
     },
     {
       "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "post",
       "requestPath": "/organizations/{org}/personal-access-tokens"
     },
     {
       "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "post",
       "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}"
     },
     {
       "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
-      "subcategory": "orgs",
+      "subcategory": "personal-access-tokens",
       "verb": "get",
       "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}/repositories"
     },
@@ -2739,6 +2775,36 @@
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/orgs/{org}/repository-fine-grained-permissions"
+    },
+    {
+      "slug": "get-all-organization-repository-rulesets",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets"
+    },
+    {
+      "slug": "create-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/rulesets"
+    },
+    {
+      "slug": "get-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-an-organization-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
     },
     {
       "slug": "list-security-manager-teams",
@@ -3487,6 +3553,42 @@
       "requestPath": "/repos/{owner}/{repo}/readme/{dir}"
     },
     {
+      "slug": "get-rules-for-a-branch",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rules/branches/{branch}"
+    },
+    {
+      "slug": "get-all-repository-rulesets",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "create-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "get-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "update-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "delete-a-repository-ruleset",
+      "subcategory": "rules",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
       "slug": "list-repository-tags",
       "subcategory": "repos",
       "verb": "get",
@@ -3697,6 +3799,12 @@
       "subcategory": "repository-advisories",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/security-advisories"
+    },
+    {
+      "slug": "privately-report-a-security-vulnerability",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/reports"
     },
     {
       "slug": "get-a-repository-security-advisory",

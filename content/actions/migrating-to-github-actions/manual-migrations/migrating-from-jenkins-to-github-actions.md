@@ -105,17 +105,7 @@ Jenkins groups `steps` together in `stages`. Each of these steps can be a script
 
 ### Scheduling a pipeline to run with `cron`
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline with `cron`
 
 ```yaml
 pipeline {
@@ -126,8 +116,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow with `cron`
 
 ```yaml
 on:
@@ -135,23 +124,9 @@ on:
     - cron: '*/15 * * * 1-5'
 ```
 
-</td>
-</tr>
-</table>
-
 ### Configuring environment variables in a pipeline
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline with an environment variable
 
 ```yaml
 pipeline {
@@ -162,8 +137,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow with an environment variable
 
 ```yaml
 jobs:
@@ -172,23 +146,9 @@ jobs:
       MAVEN_PATH: '/usr/local/maven'
 ```
 
-</td>
-</tr>
-</table>
-
 ### Building from upstream projects
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline that builds from an upstream project
 
 ```yaml
 pipeline {
@@ -201,8 +161,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow that builds from an upstream project
 
 ```yaml
 jobs:
@@ -213,23 +172,9 @@ jobs:
     needs: [job1, job2]
 ```
 
-</td>
-</tr>
-</table>
-
 ### Building with multiple operating systems
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline that builds with multiple operating systems
 
 ```yaml
 pipeline {
@@ -261,8 +206,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow that builds with multiple operating systems
 
 ```yaml
 name: demo-workflow
@@ -284,7 +228,3 @@ jobs:
       - run: bats tests
         working-directory: scripts/myapp
 ```
-
-</td>
-</tr>
-</table>

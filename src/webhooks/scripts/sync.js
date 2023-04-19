@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 
 import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../lib/index.js'
 import Webhook from '../lib/webhook.js'

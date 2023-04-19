@@ -18,7 +18,9 @@ export function GHAEReleaseNotes({ context }: GitHubAEProps) {
     <div className="d-flex">
       <article className="min-width-0 flex-1">
         <div className="d-flex flex-items-center flex-justify-between color-bg-default px-5 py-2">
-          <h1 className="f4 py-3 m-0">{currentVersion.planTitle} release notes</h1>
+          <h1 id="title-h1" className="f4 py-3 m-0">
+            {currentVersion.planTitle} release notes
+          </h1>
         </div>
 
         <MarkdownContent data-search="article-body">

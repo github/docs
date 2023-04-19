@@ -234,7 +234,6 @@ Requiring users to resolve merge conflicts locally on their computer can prevent
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
- ![Drop-down menu with option to disable the merge conflict editor](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
 ## Configuring force pushes
 

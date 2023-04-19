@@ -12,15 +12,18 @@ versions:
   ghec: '*'
 shortTitle: Import a repository
 ---
-{% tip %}
 
-**Tip:** GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/migrations/importing-source-code/using-the-command-line-to-import-source-code/source-code-migration-tools) for projects imported from other version control systems.
+## About repository imports with GitHub Importer
 
-{% endtip %}
+GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/migrations/importing-source-code/using-the-command-line-to-import-source-code) for projects imported from other version control systems.
+
+{% data reusables.migrations.github-importer-non-git-deprecation %}
 
 If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
 
 {% data reusables.repositories.repo-size-limit %}
+
+## Importing a repository with GitHub Importer
 
 1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Create new..." %}, and then click **Import repository**.
 

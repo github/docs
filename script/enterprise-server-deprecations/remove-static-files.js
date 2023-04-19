@@ -8,7 +8,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import walk from 'walk-sync'
 import { allVersions } from '../../lib/all-versions.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'

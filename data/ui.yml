@@ -84,8 +84,7 @@ contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
-  or: Or,
-  to_guidelines: learn how to contribute.
+  to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
   default: Default
@@ -178,43 +177,15 @@ products:
       marketplace: GitHub Marketplace
       sponsors_listing: Sponsored accounts
 footer:
-  all_rights_reserved: All rights reserved
+  support_heading: Help and support
+  legal_heading: Legal
+  imprint: Imprint
   terms: Terms
   privacy: Privacy
-  security: Security
-  product:
-    heading: Product
-    links:
-      features: Features
-      security: Security
-      enterprise: Enterprise
-      case_studies: Case Studies
-      pricing: Pricing
-      resources: Resources
-  platform:
-    heading: Platform
-    links:
-      developer_api: Developer API
-      partners: Partners
-      atom: Atom
-      electron: Electron
-      github_desktop: GitHub Desktop
-  support:
-    heading: Support
-    links:
-      help: Help
-      community_forum: Community Forum
-      training: Training
-      status: Status
-      contact_github: Contact GitHub
-  company:
-    heading: Company
-    links:
-      about: About
-      blog: Blog
-      careers: Careers
-      press: Press
-      shop: Shop
+  status: Status
+  pricing: Pricing
+  expert_services: Expert services
+  blog: Blog
 product_landing:
   quickstart: Quickstart
   reference: Reference
@@ -249,13 +220,12 @@ product_landing:
     search_button: Search
     search_examples: 'Search code examples:'
 product_guides:
+  learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path
-  learning_paths: '{{ productMap[currentProduct].name }} learning paths'
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
-  guides: '{{ productMap[currentProduct].name }} guides'
   more_guides: more guides
   load_more: Load more guides
-  all_guides: 'All {{ productMap[currentProduct].name }} guides'
+  all_guides_title: 'All {{ name }} guides'
   filter_instructions: Filter the guide list using these controls
   filters:
     type: Type

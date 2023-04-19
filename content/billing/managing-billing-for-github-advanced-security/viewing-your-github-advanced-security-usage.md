@@ -37,9 +37,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
    The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage.
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-licenses.png)
+
   If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
-  ![{% data variables.product.prodname_GH_advanced_security %} in enterprise licensing settings showing "Limit exceeded"](/assets/images/help/enterprises/enterprise-licensing-tab-ghas-no-licenses.png)
 
 {% elsif ghes %}
 
@@ -63,7 +62,7 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
 {% else %}
    - On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
-  ![{% data variables.product.prodname_GH_advanced_security %} repositories section](/assets/images/help/enterprises/settings-security-analysis-ghas-repos-list.png)
+
   For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% endif %}
@@ -93,20 +92,38 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
   ![Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are highlighted with an orange outline.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
 
 {% endif %}
+
+{% ifversion ghec %}
 #### At the organization-level
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 1. Underneath "{% data variables.product.prodname_GH_advanced_security %}," next to "Committers", click **{% octicon "download" aria-label="The download icon" %} CSV report**.
+{% endif %}
 
+{% ifversion ghas-billing-table-ui-update %}
 #### At the enterprise-level
+{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
+
+{%- ifversion ghec %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click the **Manage** dropdown and then click **Download report**.
-  ![Download button for enterprise-level data](/assets/images/help/enterprises/ghas-download-report.png)
+
+  ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
+
+{%- elsif ghes > 3.8 %}
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
+
+  ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
+
+{%- else %}
+1. Under "{% data variables.product.prodname_GH_advanced_security %}," {% octicon "download" aria-label="The download icon" %} in the header of the "Committers" table.
+
+{%- endif %}
 
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the REST API
 

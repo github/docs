@@ -38,9 +38,8 @@ Each Azure AD tenant can support only one OIDC integration with {% data variable
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Select **Require OIDC single sign-on**.  
-   ![Screenshot showing the "Require OIDC single sign-on" checkbox](/assets/images/help/enterprises/require-oidc.png)
-1. To continue setup and be redirected to Azure AD, click **Save**.
+1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.  
+2. To continue setup and be redirected to Azure AD, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 

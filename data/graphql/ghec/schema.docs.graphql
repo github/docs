@@ -808,9 +808,10 @@ input AddPullRequestReviewThreadInput {
   clientMutationId: String
 
   """
-  The line of the blob to which the thread refers. The end of the line range for multi-line comments.
+  The line of the blob to which the thread refers, required for line-level
+  threads. The end of the line range for multi-line comments.
   """
-  line: Int!
+  line: Int
 
   """
   Path to the file being commented on.
@@ -1017,6 +1018,37 @@ type AddVerifiableDomainPayload {
   The verifiable domain that was added.
   """
   domain: VerifiableDomain
+}
+
+"""
+Represents an 'added_to_merge_queue' event on a given pull request.
+"""
+type AddedToMergeQueueEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who added this Pull Request to the merge queue
+  """
+  enqueuer: User
+  id: ID!
+
+  """
+  The merge queue where this pull request was added to.
+  """
+  mergeQueue: MergeQueue
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
 }
 
 """
@@ -1786,6 +1818,12 @@ type BaseRefForcePushedEvent implements Node {
 }
 
 """
+Represents non-fractional signed whole numeric values. Since the value may
+exceed the size of a 32-bit integer, it's encoded as a string.
+"""
+scalar BigInt
+
+"""
 Represents a Git blame.
 """
 type Blame {
@@ -1924,6 +1962,56 @@ type Bot implements Actor & Node & UniformResourceLocatable {
 Types which can be actors for `BranchActorAllowance` objects.
 """
 union BranchActorAllowanceActor = App | Team | User
+
+"""
+Parameters to be used for the branch_name_pattern rule
+"""
+type BranchNamePatternParameters {
+  """
+  How this rule will appear to users.
+  """
+  name: String!
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean!
+
+  """
+  The operator to use for matching.
+  """
+  operator: String
+
+  """
+  The pattern to match with.
+  """
+  pattern: String
+}
+
+"""
+Parameters to be used for the branch_name_pattern rule
+"""
+input BranchNamePatternParametersInput {
+  """
+  How this rule will appear to users.
+  """
+  name: String
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean
+
+  """
+  The operator to use for matching.
+  """
+  operator: String!
+
+  """
+  The pattern to match with.
+  """
+  pattern: String!
+}
 
 """
 A branch protection rule.
@@ -2316,6 +2404,32 @@ type BranchProtectionRuleEdge {
   """
   node: BranchProtectionRule
 }
+
+"""
+Information about a sponsorship to make for a user or organization with a GitHub
+Sponsors profile, as part of sponsoring many users or organizations at once.
+"""
+input BulkSponsorship {
+  """
+  The amount to pay to the sponsorable in US dollars. Valid values: 1-12000.
+  """
+  amount: Int!
+
+  """
+  The ID of the user or organization who is receiving the sponsorship. Required if sponsorableLogin is not given.
+  """
+  sponsorableId: ID @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "Sponsorable")
+
+  """
+  The username of the user or organization who is receiving the sponsorship. Required if sponsorableId is not given.
+  """
+  sponsorableLogin: String
+}
+
+"""
+Types that can represent a repository ruleset bypass actor.
+"""
+union BypassActor = App | Team
 
 """
 A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
@@ -4734,6 +4848,56 @@ input CommitAuthor {
 }
 
 """
+Parameters to be used for the commit_author_email_pattern rule
+"""
+type CommitAuthorEmailPatternParameters {
+  """
+  How this rule will appear to users.
+  """
+  name: String!
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean!
+
+  """
+  The operator to use for matching.
+  """
+  operator: String
+
+  """
+  The pattern to match with.
+  """
+  pattern: String
+}
+
+"""
+Parameters to be used for the commit_author_email_pattern rule
+"""
+input CommitAuthorEmailPatternParametersInput {
+  """
+  How this rule will appear to users.
+  """
+  name: String
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean
+
+  """
+  The operator to use for matching.
+  """
+  operator: String!
+
+  """
+  The pattern to match with.
+  """
+  pattern: String!
+}
+
+"""
 Represents a comment on a given Commit.
 """
 type CommitComment implements Comment & Deletable & Minimizable & Node & Reactable & RepositoryNode & Updatable & UpdatableComment {
@@ -5193,6 +5357,56 @@ input CommitMessage {
 }
 
 """
+Parameters to be used for the commit_message_pattern rule
+"""
+type CommitMessagePatternParameters {
+  """
+  How this rule will appear to users.
+  """
+  name: String!
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean!
+
+  """
+  The operator to use for matching.
+  """
+  operator: String
+
+  """
+  The pattern to match with.
+  """
+  pattern: String
+}
+
+"""
+Parameters to be used for the commit_message_pattern rule
+"""
+input CommitMessagePatternParametersInput {
+  """
+  How this rule will appear to users.
+  """
+  name: String
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean
+
+  """
+  The operator to use for matching.
+  """
+  operator: String!
+
+  """
+  The pattern to match with.
+  """
+  pattern: String!
+}
+
+"""
 A git ref for a commit to be appended to.
 
 The ref must be a branch, i.e. its fully qualified name must start
@@ -5230,6 +5444,56 @@ input CommittableBranch {
   The nameWithOwner of the repository to commit to.
   """
   repositoryNameWithOwner: String
+}
+
+"""
+Parameters to be used for the committer_email_pattern rule
+"""
+type CommitterEmailPatternParameters {
+  """
+  How this rule will appear to users.
+  """
+  name: String!
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean!
+
+  """
+  The operator to use for matching.
+  """
+  operator: String
+
+  """
+  The pattern to match with.
+  """
+  pattern: String
+}
+
+"""
+Parameters to be used for the committer_email_pattern rule
+"""
+input CommitterEmailPatternParametersInput {
+  """
+  How this rule will appear to users.
+  """
+  name: String
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean
+
+  """
+  The operator to use for matching.
+  """
+  operator: String!
+
+  """
+  The pattern to match with.
+  """
+  pattern: String!
 }
 
 """
@@ -7407,6 +7671,71 @@ type CreateRepositoryPayload {
 }
 
 """
+Autogenerated input type of CreateRepositoryRuleset
+"""
+input CreateRepositoryRulesetInput {
+  """
+  A list of Team or App IDs allowed to bypass rules in this ruleset.
+  """
+  bypassActorIds: [ID!]
+
+  """
+  The bypass mode for this ruleset
+  """
+  bypassMode: RuleBypassMode
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The set of conditions for this ruleset
+  """
+  conditions: RepositoryRuleConditionsInput!
+
+  """
+  The enforcement level for this ruleset
+  """
+  enforcement: RuleEnforcement!
+
+  """
+  The name of the ruleset.
+  """
+  name: String!
+
+  """
+  The list of rules for this ruleset
+  """
+  rules: [RepositoryRuleInput!]
+
+  """
+  The global relay id of the source in which a new ruleset should be created in.
+  """
+  sourceId: ID! @possibleTypes(concreteTypes: ["Organization", "Repository"], abstractType: "RuleSource")
+
+  """
+  The target of the ruleset.
+  """
+  target: RepositoryRulesetTarget
+}
+
+"""
+Autogenerated return type of CreateRepositoryRuleset
+"""
+type CreateRepositoryRulesetPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The newly created Ruleset.
+  """
+  ruleset: RepositoryRuleset
+}
+
+"""
 Autogenerated input type of CreateSponsorsListing
 """
 input CreateSponsorsListingInput {
@@ -7637,6 +7966,53 @@ type CreateSponsorshipPayload {
   The sponsorship that was started.
   """
   sponsorship: Sponsorship
+}
+
+"""
+Autogenerated input type of CreateSponsorships
+"""
+input CreateSponsorshipsInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Specify whether others should be able to see that the sponsor is sponsoring
+  the sponsorables. Public visibility still does not reveal the dollar value of
+  the sponsorship.
+  """
+  privacyLevel: SponsorshipPrivacy = PUBLIC
+
+  """
+  Whether the sponsor should receive email updates from the sponsorables.
+  """
+  receiveEmails: Boolean = false
+
+  """
+  The username of the user or organization who is acting as the sponsor, paying for the sponsorships.
+  """
+  sponsorLogin: String!
+
+  """
+  The list of maintainers to sponsor and for how much apiece.
+  """
+  sponsorships: [BulkSponsorship!]!
+}
+
+"""
+Autogenerated return type of CreateSponsorships
+"""
+type CreateSponsorshipsPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The users and organizations who received a sponsorship.
+  """
+  sponsorables: [Sponsorable!]
 }
 
 """
@@ -8902,6 +9278,31 @@ type DeleteRefPayload {
 }
 
 """
+Autogenerated input type of DeleteRepositoryRuleset
+"""
+input DeleteRepositoryRulesetInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The global relay id of the repository ruleset to be deleted.
+  """
+  repositoryRulesetId: ID! @possibleTypes(concreteTypes: ["RepositoryRuleset"])
+}
+
+"""
+Autogenerated return type of DeleteRepositoryRuleset
+"""
+type DeleteRepositoryRulesetPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+}
+
+"""
 Autogenerated input type of DeleteTeamDiscussionComment
 """
 input DeleteTeamDiscussionCommentInput {
@@ -9071,8 +9472,6 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
 
   """
   The name of the package in the canonical form used by the package manager.
-  This may differ from the original textual form (see packageLabel), for example
-  in a package manager that uses case-insensitive comparisons.
   """
   packageName: String!
 
@@ -10127,6 +10526,36 @@ enum DeploymentStatusState {
   The deployment is waiting.
   """
   WAITING
+}
+
+"""
+Autogenerated input type of DequeuePullRequest
+"""
+input DequeuePullRequestInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the pull request to be dequeued.
+  """
+  id: ID! @possibleTypes(concreteTypes: ["PullRequest"])
+}
+
+"""
+Autogenerated return type of DequeuePullRequest
+"""
+type DequeuePullRequestPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The merge queue entry of the dequeued pull request.
+  """
+  mergeQueueEntry: MergeQueueEntry
 }
 
 """
@@ -11542,6 +11971,46 @@ type EnablePullRequestAutoMergePayload {
   The pull request auto-merge was enabled on.
   """
   pullRequest: PullRequest
+}
+
+"""
+Autogenerated input type of EnqueuePullRequest
+"""
+input EnqueuePullRequestInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The expected head OID of the pull request.
+  """
+  expectedHeadOid: GitObjectID
+
+  """
+  Add the pull request to the front of the queue.
+  """
+  jump: Boolean
+
+  """
+  The ID of the pull request to enqueue.
+  """
+  pullRequestId: ID! @possibleTypes(concreteTypes: ["PullRequest"])
+}
+
+"""
+Autogenerated return type of EnqueuePullRequest
+"""
+type EnqueuePullRequestPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The merge queue entry for the enqueued pull request.
+  """
+  mergeQueueEntry: MergeQueueEntry
 }
 
 """
@@ -16369,6 +16838,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   editor: Actor
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The hovercard information for this issue
   """
   hovercard(
@@ -16944,6 +17418,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
@@ -17393,6 +17872,36 @@ type IssueTemplate {
   The template filename.
   """
   filename: String!
+
+  """
+  The suggested issue labels
+  """
+  labels(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for labels returned from the connection.
+    """
+    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+  ): LabelConnection
 
   """
   The template name.
@@ -19628,6 +20137,249 @@ type MergePullRequestPayload {
 }
 
 """
+The queue of pull request entries to be merged into a protected branch in a repository.
+"""
+type MergeQueue implements Node {
+  """
+  The configuration for this merge queue
+  """
+  configuration: MergeQueueConfiguration
+
+  """
+  The entries in the queue
+  """
+  entries(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): MergeQueueEntryConnection
+  id: ID!
+
+  """
+  The estimated time in seconds until a newly added entry would be merged
+  """
+  nextEntryEstimatedTimeToMerge: Int
+
+  """
+  The repository this merge queue belongs to
+  """
+  repository: Repository
+
+  """
+  The HTTP path for this merge queue
+  """
+  resourcePath: URI!
+
+  """
+  The HTTP URL for this merge queue
+  """
+  url: URI!
+}
+
+"""
+Configuration for a MergeQueue
+"""
+type MergeQueueConfiguration {
+  """
+  The amount of time in minutes to wait for a check response before considering it a failure.
+  """
+  checkResponseTimeout: Int
+
+  """
+  The maximum number of entries to build at once.
+  """
+  maximumEntriesToBuild: Int
+
+  """
+  The maximum number of entries to merge at once.
+  """
+  maximumEntriesToMerge: Int
+
+  """
+  The merge method to use for this queue.
+  """
+  mergeMethod: PullRequestMergeMethod
+
+  """
+  The strategy to use when merging entries.
+  """
+  mergingStrategy: MergeQueueMergingStrategy
+
+  """
+  The minimum number of entries required to merge at once.
+  """
+  minimumEntriesToMerge: Int
+
+  """
+  The amount of time in minutes to wait before ignoring the minumum number of
+  entries in the queue requirement and merging a collection of entries
+  """
+  minimumEntriesToMergeWaitTime: Int
+}
+
+"""
+Entries in a MergeQueue
+"""
+type MergeQueueEntry implements Node {
+  """
+  The base commit for this entry
+  """
+  baseCommit: Commit
+
+  """
+  The date and time this entry was added to the merge queue
+  """
+  enqueuedAt: DateTime!
+
+  """
+  The actor that enqueued this entry
+  """
+  enqueuer: Actor!
+
+  """
+  The estimated time in seconds until this entry will be merged
+  """
+  estimatedTimeToMerge: Int
+
+  """
+  The head commit for this entry
+  """
+  headCommit: Commit
+  id: ID!
+
+  """
+  Whether this pull request should jump the queue
+  """
+  jump: Boolean!
+
+  """
+  The merge queue that this entry belongs to
+  """
+  mergeQueue: MergeQueue
+
+  """
+  The position of this entry in the queue
+  """
+  position: Int!
+
+  """
+  The pull request that will be added to a merge group
+  """
+  pullRequest: PullRequest
+
+  """
+  Does this pull request need to be deployed on its own
+  """
+  solo: Boolean!
+
+  """
+  The state of this entry in the queue
+  """
+  state: MergeQueueEntryState!
+}
+
+"""
+The connection type for MergeQueueEntry.
+"""
+type MergeQueueEntryConnection {
+  """
+  A list of edges.
+  """
+  edges: [MergeQueueEntryEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [MergeQueueEntry]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type MergeQueueEntryEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: MergeQueueEntry
+}
+
+"""
+The possible states for a merge queue entry.
+"""
+enum MergeQueueEntryState {
+  """
+  The entry is currently waiting for checks to pass.
+  """
+  AWAITING_CHECKS
+
+  """
+  The entry is currently locked.
+  """
+  LOCKED
+
+  """
+  The entry is currently mergeable.
+  """
+  MERGEABLE
+
+  """
+  The entry is currently queued.
+  """
+  QUEUED
+
+  """
+  The entry is currently unmergeable.
+  """
+  UNMERGEABLE
+}
+
+"""
+The possible merging strategies for a merge queue.
+"""
+enum MergeQueueMergingStrategy {
+  """
+  Entries only allowed to merge if they are passing.
+  """
+  ALLGREEN
+
+  """
+  Failing Entires are allowed to merge if they are with a passing entry.
+  """
+  HEADGREEN
+}
+
+"""
 Detailed status information about a pull request merge.
 """
 enum MergeStateStatus {
@@ -20996,6 +21748,16 @@ type Mutation {
   ): CreateRepositoryPayload
 
   """
+  Create a repository ruleset
+  """
+  createRepositoryRuleset(
+    """
+    Parameters for CreateRepositoryRuleset
+    """
+    input: CreateRepositoryRulesetInput!
+  ): CreateRepositoryRulesetPayload
+
+  """
   Create a GitHub Sponsors profile to allow others to sponsor you or your organization.
   """
   createSponsorsListing(
@@ -21024,6 +21786,18 @@ type Mutation {
     """
     input: CreateSponsorshipInput!
   ): CreateSponsorshipPayload
+
+  """
+  Make many one-time sponsorships for different sponsorable users or
+  organizations at once. Can only sponsor those who have a public GitHub
+  Sponsors profile.
+  """
+  createSponsorships(
+    """
+    Parameters for CreateSponsorships
+    """
+    input: CreateSponsorshipsInput!
+  ): CreateSponsorshipsPayload
 
   """
   Creates a new team discussion.
@@ -21266,6 +22040,16 @@ type Mutation {
   ): DeleteRefPayload
 
   """
+  Delete a repository ruleset
+  """
+  deleteRepositoryRuleset(
+    """
+    Parameters for DeleteRepositoryRuleset
+    """
+    input: DeleteRepositoryRulesetInput!
+  ): DeleteRepositoryRulesetPayload
+
+  """
   Deletes a team discussion.
   """
   deleteTeamDiscussion(
@@ -21294,6 +22078,16 @@ type Mutation {
     """
     input: DeleteVerifiableDomainInput!
   ): DeleteVerifiableDomainPayload
+
+  """
+  Remove a pull request from the merge queue.
+  """
+  dequeuePullRequest(
+    """
+    Parameters for DequeuePullRequest
+    """
+    input: DequeuePullRequestInput!
+  ): DequeuePullRequestPayload
 
   """
   Disable auto merge on the given pull request
@@ -21334,6 +22128,16 @@ type Mutation {
     """
     input: EnablePullRequestAutoMergeInput!
   ): EnablePullRequestAutoMergePayload
+
+  """
+  Add a pull request to the merge queue.
+  """
+  enqueuePullRequest(
+    """
+    Parameters for EnqueuePullRequest
+    """
+    input: EnqueuePullRequestInput!
+  ): EnqueuePullRequestPayload
 
   """
   Follow an organization.
@@ -22482,6 +23286,16 @@ type Mutation {
     """
     input: UpdateRepositoryInput!
   ): UpdateRepositoryPayload
+
+  """
+  Update a repository ruleset
+  """
+  updateRepositoryRuleset(
+    """
+    Parameters for UpdateRepositoryRuleset
+    """
+    input: UpdateRepositoryRulesetInput!
+  ): UpdateRepositoryRulesetPayload
 
   """
   Sets whether contributors are required to sign off on web-based commits for a repository.
@@ -26747,6 +27561,36 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   resourcePath: URI!
 
   """
+  A list of rulesets for this organization.
+  """
+  rulesets(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Return rulesets configured at higher levels that apply to this organization
+    """
+    includeParents: Boolean = false
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): RepositoryRulesetConnection
+
+  """
   The Organization's SAML identity providers
   """
   samlIdentityProvider: OrganizationIdentityProvider
@@ -27056,6 +27900,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     If true, filters teams that are mapped to an LDAP Group (Enterprise only)
     """
     ldapMapped: Boolean
+
+    """
+    If non-null, filters teams according to notification setting
+    """
+    notificationSetting: TeamNotificationSetting
 
     """
     Ordering options for teams returned from the connection
@@ -28876,6 +29725,11 @@ type PinnedIssue implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
   id: ID!
 
   """
@@ -32933,6 +33787,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   mergeCommit: Commit
 
   """
+  The merge queue entry of the pull request in the base branch's merge queue
+  """
+  mergeQueueEntry: MergeQueueEntry
+
+  """
   Detailed information about the current pull request merge state status.
   """
   mergeStateStatus: MergeStateStatus! @preview(toggledBy: "merge-info-preview")
@@ -33823,6 +34682,66 @@ enum PullRequestOrderField {
   Order pull_requests by update time
   """
   UPDATED_AT
+}
+
+"""
+Parameters to be used for the pull_request rule
+"""
+type PullRequestParameters {
+  """
+  New, reviewable commits pushed will dismiss previous pull request review approvals.
+  """
+  dismissStaleReviewsOnPush: Boolean
+
+  """
+  Require an approving review in pull requests that modify files that have a designated code owner.
+  """
+  requireCodeOwnerReview: Boolean
+
+  """
+  Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
+  """
+  requireLastPushApproval: Boolean
+
+  """
+  The number of approving reviews that are required before a pull request can be merged.
+  """
+  requiredApprovingReviewCount: Int
+
+  """
+  All conversations on code must be resolved before a pull request can be merged.
+  """
+  requiredReviewThreadResolution: Boolean
+}
+
+"""
+Parameters to be used for the pull_request rule
+"""
+input PullRequestParametersInput {
+  """
+  New, reviewable commits pushed will dismiss previous pull request review approvals.
+  """
+  dismissStaleReviewsOnPush: Boolean!
+
+  """
+  Require an approving review in pull requests that modify files that have a designated code owner.
+  """
+  requireCodeOwnerReview: Boolean!
+
+  """
+  Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
+  """
+  requireLastPushApproval: Boolean!
+
+  """
+  The number of approving reviews that are required before a pull request can be merged.
+  """
+  requiredApprovingReviewCount: Int!
+
+  """
+  All conversations on code must be resolved before a pull request can be merged.
+  """
+  requiredReviewThreadResolution: Boolean!
 }
 
 """
@@ -34987,7 +35906,8 @@ type PullRequestTimelineItemEdge {
 An item in a pull request timeline
 """
 union PullRequestTimelineItems =
-    AddedToProjectEvent
+    AddedToMergeQueueEvent
+  | AddedToProjectEvent
   | AssignedEvent
   | AutoMergeDisabledEvent
   | AutoMergeEnabledEvent
@@ -35028,6 +35948,7 @@ union PullRequestTimelineItems =
   | PullRequestRevisionMarker
   | ReadyForReviewEvent
   | ReferencedEvent
+  | RemovedFromMergeQueueEvent
   | RemovedFromProjectEvent
   | RenamedTitleEvent
   | ReopenedEvent
@@ -36597,6 +37518,40 @@ type RefEdge {
 }
 
 """
+Parameters to be used for the ref_name condition
+"""
+type RefNameConditionTarget {
+  """
+  Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+  """
+  exclude: [String!]
+
+  """
+  Array of ref names or patterns to include. One of these patterns must match
+  for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the
+  default branch or `~ALL` to include all branches.
+  """
+  include: [String!]
+}
+
+"""
+Parameters to be used for the ref_name condition
+"""
+input RefNameConditionTargetInput {
+  """
+  Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
+  """
+  exclude: [String!]!
+
+  """
+  Array of ref names or patterns to include. One of these patterns must match
+  for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the
+  default branch or `~ALL` to include all branches.
+  """
+  include: [String!]!
+}
+
+"""
 Ways in which lists of git refs can be ordered upon return.
 """
 input RefOrder {
@@ -37658,6 +38613,47 @@ type RemoveUpvotePayload {
   The votable subject.
   """
   subject: Votable
+}
+
+"""
+Represents a 'removed_from_merge_queue' event on a given pull request.
+"""
+type RemovedFromMergeQueueEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the before commit SHA for the 'removed_from_merge_queue' event.
+  """
+  beforeCommit: Commit
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who removed this Pull Request from the merge queue
+  """
+  enqueuer: User
+  id: ID!
+
+  """
+  The merge queue where this pull request was removed from.
+  """
+  mergeQueue: MergeQueue
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+
+  """
+  The reason this pull request was removed from the queue.
+  """
+  reason: String
 }
 
 """
@@ -40208,6 +41204,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   allowUpdateBranch: Boolean!
 
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -40983,6 +41984,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   mergeCommitTitle: MergeCommitTitle!
 
   """
+  The merge queue for a specified branch, otherwise the default branch if not provided.
+  """
+  mergeQueue(
+    """
+    The name of the branch to get the merge queue for. Case sensitive.
+    """
+    branch: String
+  ): MergeQueue
+
+  """
   Returns a single milestone from the current repository by number.
   """
   milestone(
@@ -41348,7 +42359,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): PullRequestConnection!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -41507,6 +42518,36 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   The HTTP path for this repository
   """
   resourcePath: URI!
+
+  """
+  A list of rulesets for this repository.
+  """
+  rulesets(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Return rulesets configured at higher levels that apply to this repository
+    """
+    includeParents: Boolean = false
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): RepositoryRulesetConnection
 
   """
   The security policy URL.
@@ -42101,6 +43142,11 @@ A subset of repository info.
 """
 interface RepositoryInfo {
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -42216,7 +43262,7 @@ interface RepositoryInfo {
   owner: RepositoryOwner!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -42614,6 +43660,48 @@ enum RepositoryMigrationOrderField {
 }
 
 """
+Parameters to be used for the repository_name condition
+"""
+type RepositoryNameConditionTarget {
+  """
+  Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+  """
+  exclude: [String!]
+
+  """
+  Array of repository names or patterns to include. One of these patterns must
+  match for the condition to pass. Also accepts `~ALL` to include all repositories.
+  """
+  include: [String!]
+
+  """
+  Target changes that match these patterns will be prevented except by those with bypass permissions.
+  """
+  protected: Boolean!
+}
+
+"""
+Parameters to be used for the repository_name condition
+"""
+input RepositoryNameConditionTargetInput {
+  """
+  Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
+  """
+  exclude: [String!]!
+
+  """
+  Array of repository names or patterns to include. One of these patterns must
+  match for the condition to pass. Also accepts `~ALL` to include all repositories.
+  """
+  include: [String!]!
+
+  """
+  Target changes that match these patterns will be prevented except by those with bypass permissions.
+  """
+  protected: Boolean
+}
+
+"""
 Represents a object that belongs to a repository.
 """
 interface RepositoryNode {
@@ -42817,6 +43905,395 @@ enum RepositoryPrivacy {
   Public
   """
   PUBLIC
+}
+
+"""
+A repository rule.
+"""
+type RepositoryRule implements Node {
+  id: ID!
+
+  """
+  The parameters for this rule.
+  """
+  parameters: RuleParameters
+
+  """
+  The type of rule.
+  """
+  type: RepositoryRuleType!
+}
+
+"""
+Set of conditions that determine if a ruleset will evaluate
+"""
+type RepositoryRuleConditions {
+  """
+  Configuration for the ref_name condition
+  """
+  refName: RefNameConditionTarget
+
+  """
+  Configuration for the repository_name condition
+  """
+  repositoryName: RepositoryNameConditionTarget
+}
+
+"""
+Specifies the conditions required for a ruleset to evaluate
+"""
+input RepositoryRuleConditionsInput {
+  """
+  Configuration for the ref_name condition
+  """
+  refName: RefNameConditionTargetInput
+
+  """
+  Configuration for the repository_name condition
+  """
+  repositoryName: RepositoryNameConditionTargetInput
+}
+
+"""
+The connection type for RepositoryRule.
+"""
+type RepositoryRuleConnection {
+  """
+  A list of edges.
+  """
+  edges: [RepositoryRuleEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [RepositoryRule]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type RepositoryRuleEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: RepositoryRule
+}
+
+"""
+Specifies the attributes for a new or updated rule.
+"""
+input RepositoryRuleInput {
+  """
+  Optional ID of this rule when updating
+  """
+  id: ID @possibleTypes(concreteTypes: ["RepositoryRule"])
+
+  """
+  The parameters for the rule.
+  """
+  parameters: RuleParametersInput
+
+  """
+  The type of rule to create.
+  """
+  type: RepositoryRuleType!
+}
+
+"""
+The rule types supported in rulesets
+"""
+enum RepositoryRuleType {
+  """
+  Branch name pattern
+  """
+  BRANCH_NAME_PATTERN
+
+  """
+  Committer email pattern
+  """
+  COMMITTER_EMAIL_PATTERN
+
+  """
+  Commit author email pattern
+  """
+  COMMIT_AUTHOR_EMAIL_PATTERN
+
+  """
+  Commit message pattern
+  """
+  COMMIT_MESSAGE_PATTERN
+
+  """
+  Creation
+  """
+  CREATION
+
+  """
+  Deletion
+  """
+  DELETION
+
+  """
+  Non fast forward
+  """
+  NON_FAST_FORWARD
+
+  """
+  Pull request
+  """
+  PULL_REQUEST
+
+  """
+  Required deployments
+  """
+  REQUIRED_DEPLOYMENTS
+
+  """
+  Required linear history
+  """
+  REQUIRED_LINEAR_HISTORY
+
+  """
+  Required signatures
+  """
+  REQUIRED_SIGNATURES
+
+  """
+  Required status checks
+  """
+  REQUIRED_STATUS_CHECKS
+
+  """
+  Tag name pattern
+  """
+  TAG_NAME_PATTERN
+
+  """
+  Update
+  """
+  UPDATE
+}
+
+"""
+A repository ruleset.
+"""
+type RepositoryRuleset implements Node {
+  """
+  The actors that can bypass this ruleset
+  """
+  bypassActors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): RepositoryRulesetBypassActorConnection
+
+  """
+  The bypass mode of this ruleset
+  """
+  bypassMode: RuleBypassMode!
+
+  """
+  The set of conditions that must evaluate to true for this ruleset to apply
+  """
+  conditions: RepositoryRuleConditions!
+
+  """
+  Identifies the primary key from the database.
+  """
+  databaseId: Int
+
+  """
+  The enforcement level of this ruleset
+  """
+  enforcement: RuleEnforcement!
+  id: ID!
+
+  """
+  Name of the ruleset.
+  """
+  name: String!
+
+  """
+  List of rules.
+  """
+  rules(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    The type of rule.
+    """
+    type: RepositoryRuleType
+  ): RepositoryRuleConnection
+
+  """
+  Source of ruleset.
+  """
+  source: RuleSource!
+
+  """
+  Target of the ruleset.
+  """
+  target: RepositoryRulesetTarget
+}
+
+"""
+A team or app that has the ability to bypass a rules defined on a ruleset
+"""
+type RepositoryRulesetBypassActor implements Node {
+  """
+  The actor that can bypass rules.
+  """
+  actor: BypassActor
+  id: ID!
+
+  """
+  Identifies the ruleset associated with the allowed actor
+  """
+  repositoryRuleset: RepositoryRuleset
+}
+
+"""
+The connection type for RepositoryRulesetBypassActor.
+"""
+type RepositoryRulesetBypassActorConnection {
+  """
+  A list of edges.
+  """
+  edges: [RepositoryRulesetBypassActorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [RepositoryRulesetBypassActor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type RepositoryRulesetBypassActorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: RepositoryRulesetBypassActor
+}
+
+"""
+The connection type for RepositoryRuleset.
+"""
+type RepositoryRulesetConnection {
+  """
+  A list of edges.
+  """
+  edges: [RepositoryRulesetEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [RepositoryRuleset]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type RepositoryRulesetEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: RepositoryRuleset
+}
+
+"""
+The targets supported for rulesets
+"""
+enum RepositoryRulesetTarget {
+  """
+  Branch
+  """
+  BRANCH
+
+  """
+  Tag
+  """
+  TAG
 }
 
 """
@@ -43118,6 +44595,11 @@ A Dependabot alert for a repository with a dependency affected by a security vul
 """
 type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   """
+  When was the alert auto-dismissed?
+  """
+  autoDismissedAt: DateTime
+
+  """
   When was the alert created?
   """
   createdAt: DateTime!
@@ -43151,14 +44633,6 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
-
-  """
-  The reason the alert was marked as fixed.
-  """
-  fixReason: String
-    @deprecated(
-      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC."
-    )
 
   """
   When was the alert fixed?
@@ -43266,6 +44740,11 @@ type RepositoryVulnerabilityAlertEdge {
 The possible states of an alert
 """
 enum RepositoryVulnerabilityAlertState {
+  """
+  An alert that has been automatically closed by Dependabot.
+  """
+  AUTO_DISMISSED
+
   """
   An alert that has been manually closed by a user.
   """
@@ -43433,6 +44912,26 @@ interface RequirableByPullRequest {
 }
 
 """
+Parameters to be used for the required_deployments rule
+"""
+type RequiredDeploymentsParameters {
+  """
+  The environments that must be successfully deployed to before branches can be merged.
+  """
+  requiredDeploymentEnvironments: [String!]
+}
+
+"""
+Parameters to be used for the required_deployments rule
+"""
+input RequiredDeploymentsParametersInput {
+  """
+  The environments that must be successfully deployed to before branches can be merged.
+  """
+  requiredDeploymentEnvironments: [String!]!
+}
+
+"""
 Represents a required status check for a protected branch, but not any specific run of that check.
 """
 type RequiredStatusCheckDescription {
@@ -43462,6 +44961,40 @@ input RequiredStatusCheckInput {
   Status check context that must pass for commits to be accepted to the matching branch.
   """
   context: String!
+}
+
+"""
+Parameters to be used for the required_status_checks rule
+"""
+type RequiredStatusChecksParameters {
+  """
+  Status checks that are required.
+  """
+  requiredStatusChecks: [StatusCheckConfiguration!]
+
+  """
+  Whether pull requests targeting a matching branch must be tested with the
+  latest code. This setting will not take effect unless at least one status
+  check is enabled.
+  """
+  strictRequiredStatusChecksPolicy: Boolean
+}
+
+"""
+Parameters to be used for the required_status_checks rule
+"""
+input RequiredStatusChecksParametersInput {
+  """
+  Status checks that are required.
+  """
+  requiredStatusChecks: [StatusCheckConfigurationInput!]!
+
+  """
+  Whether pull requests targeting a matching branch must be tested with the
+  latest code. This setting will not take effect unless at least one status
+  check is enabled.
+  """
+  strictRequiredStatusChecksPolicy: Boolean!
 }
 
 """
@@ -44016,6 +45549,116 @@ enum RoleInOrganization {
   """
   UNAFFILIATED
 }
+
+"""
+The bypass mode for a rule or ruleset.
+"""
+enum RuleBypassMode {
+  """
+  Bypassing is disabled
+  """
+  NONE
+
+  """
+  Those with bypass permission at the organization level can bypass
+  """
+  ORGANIZATION
+
+  """
+  Those with bypass permission at the repository level can bypass
+  """
+  REPOSITORY
+}
+
+"""
+The level of enforcement for a rule or ruleset.
+"""
+enum RuleEnforcement {
+  """
+  Rules will be enforced
+  """
+  ACTIVE
+
+  """
+  Do not evaluate or enforce rules
+  """
+  DISABLED
+
+  """
+  Allow admins to test rules before enforcing them. Admins can view insights on
+  the Rule Insights page (`evaluate` is only available with GitHub Enterprise).
+  """
+  EVALUATE
+}
+
+"""
+Types which can be parameters for `RepositoryRule` objects.
+"""
+union RuleParameters =
+    BranchNamePatternParameters
+  | CommitAuthorEmailPatternParameters
+  | CommitMessagePatternParameters
+  | CommitterEmailPatternParameters
+  | PullRequestParameters
+  | RequiredDeploymentsParameters
+  | RequiredStatusChecksParameters
+  | TagNamePatternParameters
+  | UpdateParameters
+
+"""
+Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
+"""
+input RuleParametersInput {
+  """
+  Parameters used for the `branch_name_pattern` rule type
+  """
+  branchNamePattern: BranchNamePatternParametersInput
+
+  """
+  Parameters used for the `commit_author_email_pattern` rule type
+  """
+  commitAuthorEmailPattern: CommitAuthorEmailPatternParametersInput
+
+  """
+  Parameters used for the `commit_message_pattern` rule type
+  """
+  commitMessagePattern: CommitMessagePatternParametersInput
+
+  """
+  Parameters used for the `committer_email_pattern` rule type
+  """
+  committerEmailPattern: CommitterEmailPatternParametersInput
+
+  """
+  Parameters used for the `pull_request` rule type
+  """
+  pullRequest: PullRequestParametersInput
+
+  """
+  Parameters used for the `required_deployments` rule type
+  """
+  requiredDeployments: RequiredDeploymentsParametersInput
+
+  """
+  Parameters used for the `required_status_checks` rule type
+  """
+  requiredStatusChecks: RequiredStatusChecksParametersInput
+
+  """
+  Parameters used for the `tag_name_pattern` rule type
+  """
+  tagNamePattern: TagNamePatternParametersInput
+
+  """
+  Parameters used for the `update` rule type
+  """
+  update: UpdateParametersInput
+}
+
+"""
+Types which can have `RepositoryRule` objects.
+"""
+union RuleSource = Organization | Repository
 
 """
 The possible digest algorithms used to sign SAML requests for an identity provider.
@@ -45631,6 +47274,11 @@ type SponsorsActivity implements Node {
   The timestamp of this event.
   """
   timestamp: DateTime
+
+  """
+  Was this sponsorship made alongside other sponsorships at the same time from the same sponsor?
+  """
+  viaBulkSponsorship: Boolean!
 }
 
 """
@@ -48157,6 +49805,36 @@ type Status implements Node {
 }
 
 """
+Required status check
+"""
+type StatusCheckConfiguration {
+  """
+  The status check context name that must be present on the commit.
+  """
+  context: String
+
+  """
+  The optional integration ID that this status check must originate from.
+  """
+  integrationId: Int!
+}
+
+"""
+Required status check
+"""
+input StatusCheckConfigurationInput {
+  """
+  The status check context name that must be present on the commit.
+  """
+  context: String!
+
+  """
+  The optional integration ID that this status check must originate from.
+  """
+  integrationId: Int
+}
+
+"""
 Represents the rollup for both the check runs and status for a commit.
 """
 type StatusCheckRollup implements Node {
@@ -48668,6 +50346,56 @@ type Tag implements GitObject & Node {
 }
 
 """
+Parameters to be used for the tag_name_pattern rule
+"""
+type TagNamePatternParameters {
+  """
+  How this rule will appear to users.
+  """
+  name: String!
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean!
+
+  """
+  The operator to use for matching.
+  """
+  operator: String
+
+  """
+  The pattern to match with.
+  """
+  pattern: String
+}
+
+"""
+Parameters to be used for the tag_name_pattern rule
+"""
+input TagNamePatternParametersInput {
+  """
+  How this rule will appear to users.
+  """
+  name: String
+
+  """
+  If true, the rule will fail if the pattern matches.
+  """
+  negate: Boolean
+
+  """
+  The operator to use for matching.
+  """
+  operator: String!
+
+  """
+  The pattern to match with.
+  """
+  pattern: String!
+}
+
+"""
 A team of users in an organization.
 """
 type Team implements MemberStatusable & Node & Subscribable {
@@ -48956,6 +50684,11 @@ type Team implements MemberStatusable & Node & Subscribable {
   The HTTP URL creating a new team
   """
   newTeamUrl: URI!
+
+  """
+  The notification setting that the team has set.
+  """
+  notificationSetting: TeamNotificationSetting!
 
   """
   The organization that owns this team.
@@ -50297,6 +52030,21 @@ enum TeamMembershipType {
   Includes only immediate members of the team.
   """
   IMMEDIATE
+}
+
+"""
+The possible team notification values.
+"""
+enum TeamNotificationSetting {
+  """
+  No one will receive notifications.
+  """
+  NOTIFICATIONS_DISABLED
+
+  """
+  Everyone will receive notifications when the team is @mentioned.
+  """
+  NOTIFICATIONS_ENABLED
 }
 
 """
@@ -53341,6 +55089,26 @@ type UpdateOrganizationWebCommitSignoffSettingPayload {
 }
 
 """
+Parameters to be used for the update rule
+"""
+type UpdateParameters {
+  """
+  Branch can pull changes from its upstream repository
+  """
+  updateAllowsFetchAndMerge: Boolean
+}
+
+"""
+Parameters to be used for the update rule
+"""
+input UpdateParametersInput {
+  """
+  Branch can pull changes from its upstream repository
+  """
+  updateAllowsFetchAndMerge: Boolean!
+}
+
+"""
 Autogenerated input type of UpdateProjectCard
 """
 input UpdateProjectCardInput {
@@ -53999,6 +55767,71 @@ type UpdateRepositoryPayload {
   The updated repository.
   """
   repository: Repository
+}
+
+"""
+Autogenerated input type of UpdateRepositoryRuleset
+"""
+input UpdateRepositoryRulesetInput {
+  """
+  A list of Team or App IDs allowed to bypass rules in this ruleset.
+  """
+  bypassActorIds: [ID!]
+
+  """
+  The bypass mode for this ruleset
+  """
+  bypassMode: RuleBypassMode
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The list of conditions for this ruleset
+  """
+  conditions: RepositoryRuleConditionsInput
+
+  """
+  The enforcement level for this ruleset
+  """
+  enforcement: RuleEnforcement
+
+  """
+  The name of the ruleset.
+  """
+  name: String
+
+  """
+  The global relay id of the repository ruleset to be updated.
+  """
+  repositoryRulesetId: ID! @possibleTypes(concreteTypes: ["RepositoryRuleset"])
+
+  """
+  The list of rules for this ruleset
+  """
+  rules: [RepositoryRuleInput!]
+
+  """
+  The target of the ruleset.
+  """
+  target: RepositoryRulesetTarget
+}
+
+"""
+Autogenerated return type of UpdateRepositoryRuleset
+"""
+type UpdateRepositoryRulesetPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The newly created Ruleset.
+  """
+  ruleset: RepositoryRuleset
 }
 
 """
@@ -56434,7 +58267,7 @@ interface Votable {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node {
+type Workflow implements Node & UniformResourceLocatable {
   """
   Identifies the date and time when the object was created.
   """
@@ -56450,6 +58283,11 @@ type Workflow implements Node {
   The name of the workflow.
   """
   name: String!
+
+  """
+  The HTTP path for this workflow
+  """
+  resourcePath: URI!
 
   """
   The runs of the workflow.
@@ -56490,6 +58328,11 @@ type Workflow implements Node {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this workflow
+  """
+  url: URI!
 }
 
 """

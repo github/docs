@@ -26,7 +26,7 @@ export function GHESReleaseNotes({ context }: Props) {
     <div className="d-flex">
       <article className="min-width-0 flex-1">
         <div className="d-flex flex-items-center flex-justify-center color-bg-default text-bold px-5 py-2">
-          <h1 className="f4 py-3 m-0">
+          <h1 id="title-h1" className="f4 py-3 m-0">
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
         </div>
@@ -77,7 +77,7 @@ export function GHESReleaseNotes({ context }: Props) {
                         className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       >
                         {release.version}
-                        <LinkExternalIcon />
+                        <LinkExternalIcon aria-label="(external site)" />
                       </LinkComponent>
                     </li>
                   )
