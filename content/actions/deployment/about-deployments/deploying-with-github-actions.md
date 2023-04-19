@@ -11,6 +11,7 @@ redirect_from:
   - /actions/deployment/deploying-with-github-actions
 topics:
   - CD
+  - Deployment
 shortTitle: Deploy with GitHub Actions
 ---
 
@@ -114,7 +115,7 @@ You can also use `cancel-in-progress` to cancel any currently running job or wor
 ```yaml
 name: Deployment
 
-concurrency: 
+concurrency:
   group: production
   cancel-in-progress: true
 

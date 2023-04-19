@@ -53,6 +53,7 @@ export default [
   'Dependencies',
   'Dependency graph',
   'Dependency review',
+  'Deployment',
   'Desktop',
   'Developer',
   'Device verification',
