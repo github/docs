@@ -12,7 +12,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Import Git repo
+shortTitle: External Git repo
 ---
 Before you start, make sure you know:
 

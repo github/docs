@@ -9,6 +9,7 @@
 //    res.send(body)
 //
 // Max age is in seconds
+// Max age should not be greater than 31536000 https://www.ietf.org/rfc/rfc2616.txt
 function cacheControlFactory(
   maxAge = 60 * 60,
   { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {}

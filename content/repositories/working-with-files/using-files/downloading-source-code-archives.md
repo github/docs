@@ -50,7 +50,7 @@ Source code archives are available at specific URLs for each repository. For exa
 | Type of archive | Example | URL     |
 |-----------------|---------|---------|
 | Branch          | `main`  | [https://github.com/github/codeql/archive/refs/**heads/main**.tar.gz](https://github.com/github/codeql/archive/refs/heads/main.tar.gz) |
-| Tag             | `codeql-cli/latest` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/latest**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/latest.zip)  |
+| Tag             | `codeql-cli/v2.12.0` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/v2.12.0**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.12.0.zip)  |
 | Commit          | `aef66c4` | [https://github.com/github/codeql/archive/**aef66c462abe817e33aad91d97aa782a1e2ad2c7**.zip](https://github.com/github/codeql/archive/aef66c462abe817e33aad91d97aa782a1e2ad2c7.zip) |
 
 {% note %}

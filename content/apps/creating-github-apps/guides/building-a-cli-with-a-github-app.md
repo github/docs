@@ -151,7 +151,7 @@ These steps lead you through building a CLI and using device flow to get a user 
    end
    ```
 
-1. Update the `main` method to call the `help` function when the `help` command is given:
+1. Update the `main` function to call the `help` function when the `help` command is given:
 
    ```ruby{:copy}
    def main
@@ -327,7 +327,7 @@ The `login` command will run the device flow to get a user access token. For mor
    end
    ```
 
-1. Update the `main` method to call the `login` function when the `login` command is given:
+1. Update the `main` function to call the `login` function when the `login` command is given:
 
    ```ruby{:copy}
    def main
@@ -485,7 +485,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 Now that your app can generate a user access token, you can make API requests on behalf of the user. Add a `whoami` command to get the username of the authenticated user.
 
-1. Add the following `whoami` function to `app_cli.rb`. This function gets information about the user with the `/user` REST API endpoint. It outputs the username that corresponds to the user access token. If the `.token` file was not found, it prompts the user to run the `login` method.
+1. Add the following `whoami` function to `app_cli.rb`. This function gets information about the user with the `/user` REST API endpoint. It outputs the username that corresponds to the user access token. If the `.token` file was not found, it prompts the user to run the `login` function.
 
    ```ruby{:copy}
    def whoami
@@ -528,7 +528,7 @@ Now that your app can generate a user access token, you can make API requests on
    end
    ```
 
-1. Update the `main` method to call the `whoami` function when the `whoami` command is given:
+1. Update the `main` function to call the `whoami` function when the `whoami` command is given:
 
    ```ruby{:copy}
    def main

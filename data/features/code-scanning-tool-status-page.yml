@@ -1,4 +1,4 @@
-# Reference: #8882
+# Reference: #8882 for the new page and #10029 for CodeQL CLI information
 versions:
   fpt: '*'
   ghec: '*'

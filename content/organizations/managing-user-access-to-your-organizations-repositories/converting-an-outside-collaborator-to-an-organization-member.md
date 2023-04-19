@@ -28,11 +28,11 @@ If your organization [requires members to use two-factor authentication](/organi
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% ifversion fpt or ghec %}
-5. To the right of the name of the outside collaborator you want to become a member, select the {% octicon "kebab-horizontal" aria-label="Collaborator settings" %} dropdown menu and click **Invite to organization**. 
+1. To the right of the name of the outside collaborator you want to become a member, select the {% octicon "kebab-horizontal" aria-label="Collaborator settings" %} dropdown menu and click **Invite to organization**.
 
-   ![Invite outside collaborators to organization](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
+   ![Screenshot of the outside collaborator list for an organization. To the right of a collaborator, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/manage-outside-collaborator.png)
 {% else %}
-5. To the right of the name of the outside collaborator you want to become a member, click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
+1. To the right of the name of the outside collaborator you want to become a member, click **Invite to organization**.
 {% endif %}
 {% data reusables.organizations.choose-to-restore-privileges %}
 {% data reusables.organizations.choose-user-role-send-invitation %}

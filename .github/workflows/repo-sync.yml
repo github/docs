@@ -242,7 +242,7 @@ jobs:
 
       - name: Approve pull request
         if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
-        uses: juliangruber/approve-pull-request-action@c67a4808d52e44ea03656f6646ba24a010304f03
+        uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.find-pull-request.outputs.number }}

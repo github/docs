@@ -19,7 +19,7 @@ import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { Search } from 'components/Search'
+import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { VersionPicker } from 'components/page-header/VersionPicker'
 import { SidebarNav } from 'components/sidebar/SidebarNav'
@@ -306,7 +306,7 @@ export const Header = () => {
                         className="d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
                       >
                         {t`sign_up_cta`}
-                        <LinkExternalIcon />
+                        <LinkExternalIcon aria-label="(external site)" />
                       </Link>
                     )}
                   </div>

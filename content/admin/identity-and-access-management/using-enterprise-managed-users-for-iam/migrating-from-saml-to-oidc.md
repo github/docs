@@ -58,24 +58,23 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
    {% endnote %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.
-   ![Screenshot showing the "Configure with Azure" button](/assets/images/help/enterprises/saml-to-oidc-button.png)
-1. Read the warning, then click "I understand, begin migrating to OpenID Connect".
+2. Read the warning, then click "I understand, begin migrating to OpenID Connect".
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 1. After you grant consent, a new browser window will open to {% data variables.location.product_location %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click "Enable OIDC authentication".
-1. Wait for the migration to complete, which can take up to an hour. To check the status of the migration, navigate to your enterprise's authentication security settings page. If "Require SAML authentication" is selected, the migration is still in progress.
+2. Wait for the migration to complete, which can take up to an hour. To check the status of the migration, navigate to your enterprise's authentication security settings page. If "Require SAML authentication" is selected, the migration is still in progress.
 
    {% warning %}
 
    **Warning:** Do not provision new users from the application on Azure AD during the migration.
 
    {% endwarning %}
-1. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
-1. In the provisioning settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in Azure Portal, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
+3. In a new tab or window, while signed in as the setup user on {% data variables.product.prodname_dotcom_the_website %}, create a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope and **no expiration** and copy it to your clipboard. For more information about creating a new token, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+4. In the provisioning settings for the {% data variables.product.prodname_emu_idp_oidc_application %} application in Azure Portal, under "Tenant URL", type `https://api.github.com/scim/v2/enterprises/YOUR_ENTERPRISE`, replacing YOUR_ENTERPRISE with the name of your enterprise account.
 
    For example, if your enterprise account's URL is `https://github.com/enterprises/octo-corp`, the name of the enterprise account is `octo-corp`.
-1. Under "Secret token", paste the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that you created earlier.
-1. To test the configuration, click **Test Connection**.
-1. To save your changes, at the top of the form, click **Save**.
-1. In Azure Portal, copy the users and groups from the old {% data variables.product.prodname_emu_idp_application %} application to the new {% data variables.product.prodname_emu_idp_oidc_application %} application.
-1. Test your configuration by provisioning a single new user.
-1. If your test is successful, start provisioning for all users by clicking **Start provisioning**.
+5. Under "Secret token", paste the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that you created earlier.
+6. To test the configuration, click **Test Connection**.
+7. To save your changes, at the top of the form, click **Save**.
+8. In Azure Portal, copy the users and groups from the old {% data variables.product.prodname_emu_idp_application %} application to the new {% data variables.product.prodname_emu_idp_oidc_application %} application.
+9. Test your configuration by provisioning a single new user.
+10. If your test is successful, start provisioning for all users by clicking **Start provisioning**.

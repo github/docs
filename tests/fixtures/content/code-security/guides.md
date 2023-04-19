@@ -1,6 +1,6 @@
 ---
-title: Guides
-intro: Guides
+title: Guides for cool security
+intro: This page has a deliberately whimsical `title` for testing purposes.
 layout: product-guides
 versions:
   fpt: '*'
@@ -15,4 +15,7 @@ topics:
 includeGuides:
   - /code-security/getting-started/quickstart
   - /code-security/getting-started/securing-your-organization
+learningTracks:
+  - foo_bar
+  - bar_foo
 ---

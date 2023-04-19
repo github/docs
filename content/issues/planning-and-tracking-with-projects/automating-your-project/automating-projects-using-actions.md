@@ -142,7 +142,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -154,7 +154,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -254,7 +254,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -266,7 +266,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -283,7 +283,9 @@ jobs:
 The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
 
 <table class="table-fixed">
-
+<tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
 <tr>
 <td>
 
@@ -534,7 +536,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $status_field
-      value: { 
+      value: {
         singleSelectOptionId: $status_value
         }
     }) {
@@ -546,7 +548,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $date_field
-      value: { 
+      value: {
         date: $date_value
       }
     }) {

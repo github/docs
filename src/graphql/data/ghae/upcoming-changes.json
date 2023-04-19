@@ -91,86 +91,6 @@
       "owner": "stevepopovich"
     },
     {
-      "location": "MergeQueueEntry.isSolo",
-      "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
-      "reason": "<p><code>isSolo</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueueEntry.headOid",
-      "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
-      "reason": "<p><code>headOid</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueueEntry.hasJumpedQueue",
-      "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
-      "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueueEntry.checkStatus",
-      "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
-      "reason": "<p><code>checkStatus</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueueEntry.blockedByMergeConflicts",
-      "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
-      "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueueEntry.baseOid",
-      "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
-      "reason": "<p><code>baseOid</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueue.pendingRemovalEntries",
-      "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
-      "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueue.mergingEntries",
-      "description": "<p><code>mergingEntries</code> will be removed.</p>",
-      "reason": "<p><code>mergingEntries</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueue.mergeMethod",
-      "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
-      "reason": "<p><code>mergeMethod</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
-      "location": "MergeQueue.headOid",
-      "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
-      "reason": "<p><code>headOid</code> will be removed.</p>",
-      "date": "2023-07-01",
-      "criticality": "breaking",
-      "owner": "github/merge_queue"
-    },
-    {
       "location": "Commit.pushedDate",
       "description": "<p><code>pushedDate</code> will be removed.</p>",
       "reason": "<p><code>pushedDate</code> is no longer supported.</p>",
@@ -180,14 +100,6 @@
     }
   ],
   "2023-04-01": [
-    {
-      "location": "RepositoryVulnerabilityAlert.fixReason",
-      "description": "<p><code>fixReason</code> will be removed.</p>",
-      "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
-      "date": "2023-04-01",
-      "criticality": "breaking",
-      "owner": "jamestran201"
-    },
     {
       "location": "Repository.squashPrTitleUsedAsDefault",
       "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",

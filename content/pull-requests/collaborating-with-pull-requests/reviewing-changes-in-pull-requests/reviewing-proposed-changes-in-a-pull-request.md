@@ -37,6 +37,8 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
+{% ifversion pull-request-comment-on-file %}
+{% data reusables.repositories.start-file-comment %}{% endif %}
 1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
 
 Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Cancel review**.
@@ -113,5 +115,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
