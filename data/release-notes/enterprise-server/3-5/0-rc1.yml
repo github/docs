@@ -92,7 +92,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1963
         - |
-          You can now configure GitHub Enterprise Server to automatically sign commits made in the web interface, such as from editing a file or merging a pull request. Signed commits increase confidence that changes come from trusted sources. This feature allows the [Require signed commits](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits) branch protection setting to block unsigned commits from entering a repository, while allowing entry of signed commits – even those made in the web interface. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
+          You can now configure GitHub Enterprise Server to automatically sign commits made in the web interface, such as from editing a file or merging a pull request. Signed commits increase confidence that changes come from trusted sources. This feature allows the [Require signed commits](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-signed-commits) branch protection setting to block unsigned commits from entering a repository, while allowing entry of signed commits – even those made in the web interface. For more information, see "[Configuring web commit signing](/admin/configuration/configuring-your-enterprise/configuring-web-commit-signing)."
 
     - heading: Sync license usage any time
       notes:

@@ -48,7 +48,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 ## Required reviews
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
 
 {% tip %}
 
