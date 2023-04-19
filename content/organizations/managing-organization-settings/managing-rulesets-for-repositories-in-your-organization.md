@@ -15,7 +15,7 @@ shortTitle: Manage rulesets
 
 You can create rulesets in your organization to control how users can interact with repositories in your organization. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
 
-When you create a ruleset for an organization, you use `fnmatch` syntax to define which repositories in your organization, and which branches or tags in those repositories, are targeted by the ruleset. For more information, see "[Using fnmatch syntax](#using-fnmatch-syntax)." This provides a quicker way for managing rulesets than creating a separate ruleset for each repository you want to target.
+When you create a ruleset for an organization, you use `fnmatch` syntax to define which repositories in your organization, and which branches or tags in those repositories, are targeted by the ruleset. For more information, see "[Using `fnmatch` syntax](#using-fnmatch-syntax)." This provides a quicker way for managing rulesets than creating a separate ruleset for each repository you want to target.
 
 {% data reusables.repositories.ruleset-bypass %}
 
