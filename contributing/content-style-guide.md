@@ -683,7 +683,7 @@ A release note for a bug fix answers the following questions.
 > _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
 
 - Because the bug is now fixed, write in the past tense.
-- To reduce repetition and unnecessary words, language like
+- Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
 - To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
 
