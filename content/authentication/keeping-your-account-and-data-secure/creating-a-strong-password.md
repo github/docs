@@ -33,6 +33,5 @@ You can only use your password to log on to {% data variables.product.product_na
 {% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
 ## Further reading
-
 - "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
 - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
