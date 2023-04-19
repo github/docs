@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>labels</code> was added to object type <code>IssueTemplate</code></p>",
+          "<p><code>Workflow</code> object implements <code>UniformResourceLocatable</code> interface</p>",
+          "<p>Field <code>resourcePath</code> was added to object type <code>Workflow</code></p>",
+          "<p>Field <code>url</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>BranchNamePatternParameters</code> was added</p>",
           "<p>Type <code>BranchNamePatternParametersInput</code> was added</p>",
           "<p>Type <code>BypassActor</code> was added</p>",
