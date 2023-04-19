@@ -90,10 +90,10 @@ Use [codeql resolve languages](/code-security/codeql-cli/codeql-cli-manual/resol
 When the `--db-cluster` option is given, this can appear multiple times,
 or the value can be a comma-separated list of languages.
 
-If this option is omitted, and the source root being analysed is a
+If this option is omitted, and the source root being analyzed is a
 checkout of a GitHub repository, the CodeQL CLI will make a call to the
 GitHub API to attempt to automatically determine what languages to
-analyse. Note that to be able to do this, a GitHub PAT token must be
+analyze. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
 
