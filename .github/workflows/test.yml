@@ -43,9 +43,9 @@ jobs:
             // repos.
             return [
               { name: 'content', path: 'tests/content', },
-              { name: 'graphql', path: 'tests/graphql', },
-              { name: 'events', path: 'src/events/tests', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'events', path: 'src/events/tests', },
+              { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'webhooks', path: 'src/webhooks/tests', },
               { name: 'linting', path: 'tests/linting', },
