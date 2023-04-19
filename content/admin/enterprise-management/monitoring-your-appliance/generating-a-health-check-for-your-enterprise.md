@@ -29,7 +29,7 @@ A Health Check provides the following information about {% data variables.locati
 - Analysis of Git requests, with details about the busiest repositories and Git users
 - Analysis of API requests, including the busiest times, most frequently requested endpoints, and most active callers
 
-If you want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+If you're a Premium Plus customer and want to generate a Health Check for {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 
 ## Generating a Health Check
 
