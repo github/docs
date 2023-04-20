@@ -5,8 +5,8 @@ import { describe } from '@jest/globals'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
-import { isApiVersioned, allVersions } from '../../lib/all-versions.js'
-import getRest from '../../src/rest/lib/index.js'
+import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
+import getRest from '../lib/index.js'
 
 const schemasPath = 'src/rest/data'
 
