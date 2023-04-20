@@ -37,6 +37,8 @@ This command determines the set of files to be included in the pack
 based on the patterns specified in any `.gitignore` files present in the
 pack or in an ancestor directory.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<dir>`

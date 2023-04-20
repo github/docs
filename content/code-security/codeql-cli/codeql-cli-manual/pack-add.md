@@ -36,15 +36,27 @@ ranges as dependencies of the current package, and then installs them.
 This command modifies the qlpack.yml file of the current package.
 Formatting and comments will be removed.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<scope/name[@range]>...`
 
 \[Mandatory] The scope, name, and optional version range of the pack to
-add to the dependency list. The latest version that satisfies the
-specified range is downloaded and the specified range is added to the
-qlpack.yml. If the version is missing, then the latest version of this
-pack is retrieved and that version is added to the qlpack.yml.
+add to the dependency list.
+
+If no version range is specified, or if the version range is specified
+as 'latest', the latest version of the pack is downloaded, and a
+dependency is added to qlpack.yml that allows any version that is
+compatible with the downloaded version.
+
+If a single version is specified, that version of the pack is
+downloaded, and a dependency is added to qlpack.yml that allows any
+version that is compatible with the specified version.
+
+If a version range is specified, the latest version of the pack that
+satisfies the specified range is downloaded, and a dependency is added
+to qlpack.yml with the specified version range.
 
 #### `--dir=<dir>`
 
@@ -81,6 +93,8 @@ This overrides the GITHUB\_TOKEN environment variable.
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
 
 ### Common options
 

@@ -202,6 +202,8 @@ Follow any symbolic links to their targets.
 
 Find at most one match (as opposed to all matches).
 
+Available since `v2.11.3`.
+
 ### Common options
 
 #### `-h, --help`
