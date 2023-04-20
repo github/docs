@@ -25,7 +25,7 @@ For invoiced {% data variables.product.prodname_enterprise %} customers{% ifvers
 
 In addition to enterprise owners, billing managers can view the subscription and usage for your enterprise account. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#billing-manager)" and "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% data reusables.enterprise-accounts.billing-azure-subscription-enterprise-only %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
 
 {% endif %}
 

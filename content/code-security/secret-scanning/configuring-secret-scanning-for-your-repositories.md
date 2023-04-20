@@ -42,6 +42,15 @@ You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifver
 {% endnote %}
 {% endif %}
 
+{% ifversion code-security-multi-repo-enablement %}
+You can use security overview to find a set of repositories and enable or disable {% data variables.secret-scanning.user_alerts %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.secret-scanning.user_alerts %} for all public repositories in an organization:
+{% else %}
+You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all public repositories in an organization:
+{% endif %}
+
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghec or ghes or ghae %}

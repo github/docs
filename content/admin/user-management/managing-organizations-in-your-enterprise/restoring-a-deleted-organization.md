@@ -25,11 +25,9 @@ You can also use the audit log to help you manually re-add teams and organizatio
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. Under "Search users, organizations, enterprises, teams, repositories, gists, and applications", search for the organization.
 
-  ![Screenshot of the search field and Search button](/assets/images/enterprise/stafftools/search-field.png)
+   ![Screenshot of the "Search" page of the "Site admin" settings. The button to search users, labeled "Search," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/search-for-things.png)
 
-1. Under "Deleted accounts", to the right of the organization you want to restore, select the {% octicon "kebab-horizontal" aria-label="The edit icon" %} dropdown menu, then click **Recreate**.
-
-   ![Screenshot of the dropdown menu for a deleted organization](/assets/images/enterprise/stafftools/recreate-organization.png)
+1. Under "Deleted accounts", to the right of the organization you want to restore, select the {% octicon "kebab-horizontal" aria-label="Show more options" %} dropdown menu, then click **Recreate**.
 
 ## Restoring members and teams
 

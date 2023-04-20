@@ -12,7 +12,7 @@ export const HomePageHero = () => {
             <OctocatHeader />
           </div>
           <div className="col-lg-6 col-xl-5">
-            <h1>{t('github_docs')}</h1>
+            <h1 id="title-h1">{t('github_docs')}</h1>
             <p className="color-fg-muted f2 mb-0">{t('description')}</p>
           </div>
         </div>

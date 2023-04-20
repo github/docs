@@ -34,6 +34,10 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
 <table>
 <tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
+</tr>
+<tr>
 <td>
 
   ```yaml

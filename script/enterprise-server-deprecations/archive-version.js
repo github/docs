@@ -22,7 +22,7 @@ import fs from 'fs'
 import { execSync } from 'child_process'
 import scrape from 'website-scraper'
 import { program } from 'commander'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import http from 'http'
 
 import createApp from '../../lib/app.js'

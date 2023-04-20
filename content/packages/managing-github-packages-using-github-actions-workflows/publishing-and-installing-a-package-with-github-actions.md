@@ -172,6 +172,10 @@ The relevant settings are explained in the following table. For full details abo
 
 <table>
 <tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
+</tr>
+<tr>
 <td>
 {% raw %}
 ```yaml

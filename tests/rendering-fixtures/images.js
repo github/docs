@@ -32,7 +32,7 @@ describe('render Markdown image tags', () => {
     // When transformed as a source in a `<picture>` tag, it's automatically
     // injected with the `mw-XXXXX` virtual indicator in the URL that
     // resizes it on-the-fly.
-    const image = sharp(res.text)
+    const image = sharp(res.body)
     const { width, height } = await image.metadata()
     expect(width).toBe(1000)
     // The `_fixtures/screenshot.png` is 2000x1494.

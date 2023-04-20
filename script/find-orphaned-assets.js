@@ -66,6 +66,12 @@ async function main(opts) {
     )
     for (const [language, { dir }] of Object.entries(languages)) {
       if (language !== 'en') {
+        if (!fs.existsSync(dir)) {
+          throw new Error(
+            `${dir} does not exist. ` +
+              'Get around this by using the flag `--exclude-translations`. Or set up the TRANSLATION_ROOT.'
+          )
+        }
         const languageFiles = []
         languageFiles.push(...walkFiles(path.join(dir, 'content'), ['.md']))
         languageFiles.push(...walkFiles(path.join(dir, 'data'), ['.md', '.yml']))
@@ -139,11 +145,7 @@ async function main(opts) {
     for (const imagePath of [...allImages].sort((a, b) => a.localeCompare(b))) {
       // It's important to escape spaces if we're ever going to pipe this
       // to xargs.
-      if (imagePath.includes(' ')) {
-        console.log(`"${imagePath}"`)
-      } else {
-        console.log(imagePath)
-      }
+      console.log(`"${imagePath}"`)
     }
   }
 

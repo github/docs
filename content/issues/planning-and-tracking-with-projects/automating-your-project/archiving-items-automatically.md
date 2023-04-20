@@ -22,21 +22,15 @@ Projects also have a limit on the number of archived items they can contain. You
 ## Configuring automatic archiving in your project
 
 {% data reusables.projects.access-workflows %}
-1. In the "Default workflows" list, click **Auto-archive items**.
-   
-   ![Screenshot showing auto archive workflows](/assets/images/help/projects-v2/archive-workflows.png)
-   
-1. Next to **When**, check the item type(s) that you want to automatically archive.
-   
-   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when-archive.png)
+1. In the "Default workflows" list, click **Auto-archive items**.{% ifversion projects-v2-workflows-ui-refresh %}
+1. In the top right, click **Edit**.
 
-1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
-   
-   ![Screenshot showing filter text area](/assets/images/help/projects-v2/auto-archive-filter.png)
-   
-1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
-   
-   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
+   ![Screenshot showing a project's menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
+   {% endif %}
+1. Next to **When**, check the item type(s) that you want to automatically archive.
+1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."{% ifversion projects-v2-workflows-ui-refresh %}
+1. To save your changes and enable the workflow, click **Save and turn on workflow**.{% else %}
+1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.{% endif %}
    
 
 ## Further reading

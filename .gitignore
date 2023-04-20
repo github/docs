@@ -6,7 +6,6 @@
 /node_modules/
 npm-debug.log
 coverage/
-.linkinator
 /assets/images/early-access
 /content/early-access
 /data/early-access

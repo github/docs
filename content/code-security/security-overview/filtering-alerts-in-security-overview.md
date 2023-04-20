@@ -107,10 +107,9 @@ These qualifiers are available in the enterprise-level view.
 | `secret-scanning:NUMBER` | Display repositories that have NUMBER {% data variables.secret-scanning.alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 | `dependabot:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 
-
 ## Filter by team
 
-These qualifiers are available in the main summary views.
+These qualifiers are available in the main summary views{% ifversion security-overview-acv-filters %} and the alert-centric views for {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %}, and {% data variables.product.prodname_secret_scanning %}{% endif %}.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -118,11 +117,11 @@ These qualifiers are available in the main summary views.
 
 ## Filter by topic
 
-These qualifiers are available in the main summary views.
+These qualifiers are available in the main summary views{% ifversion security-overview-acv-filters %} and the alert-centric views for {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %}, and {% data variables.product.prodname_secret_scanning %}{% endif %}.
 
 | Qualifier | Description |
 | -------- | -------- |
-| `topic:TOPIC-NAME` | Displays repositories that are classified with TOPIC-NAME. |
+| `topic:TOPIC-NAME` | Displays repositories that are classified with TOPIC-NAME. For more information on repository topics, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)." |
 
 {% ifversion security-overview-alert-views %}
 

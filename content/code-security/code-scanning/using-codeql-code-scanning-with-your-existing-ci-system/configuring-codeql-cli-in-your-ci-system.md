@@ -53,10 +53,11 @@ You can display the command-line help for any command using the <nobr>`--help`</
 
   ```shell
   # Single supported language - create one CodeQL database
-  codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
+  codeql database create &lt;database&gt; --command &lt;build&gt; \
+        --language=&lt;language-identifier&gt;
 
   # Multiple supported languages - create one CodeQL database per language
-  codeql database create &lt;database&gt; --command&lt;build&gt; \
+  codeql database create &lt;database&gt; --command &lt;build&gt; \
         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
   ```
 
@@ -68,11 +69,11 @@ You can display the command-line help for any command using the <nobr>`--help`</
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed.|
-| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once.
+| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
 | <nobr>`--command`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
-| <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>.
-| <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript).
+| <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
+| <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
 | <nobr>`--source-root`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |
 | <nobr>`--codescanning-config`</nobr> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile)." |
 
@@ -153,7 +154,8 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
 | `<packs,queries>` | {% octicon "x" aria-label="Optional" %} | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in `/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites`. For information about creating your own query suite, see [Creating CodeQL query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites) in the documentation for the {% data variables.product.prodname_codeql_cli %}.
 | <nobr>`--format`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the format for the results file generated by the command. For upload to {% data variables.product.company_short %} this should be: {% ifversion fpt or ghae or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)."
 | <nobr>`--output`</nobr> | {% octicon "check" aria-label="Required" %} | Specify where to save the SARIF results file.
-| <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|
+| <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% ifversion code-scanning-tool-status-page %}
+| <nobr>`--sarif-add-baseline-file-info`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page#how-codeql-defines-scanned-files)." | {% endif %}
 | <nobr>`--sarif-add-query-help`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
 | `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include CodeQL query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](#downloading-and-using-codeql-query-packs)."
 | <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
@@ -167,7 +169,7 @@ For more information, see [Analyzing databases with the {% data variables.produc
 This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
 ```
-$ codeql database analyze /codeql-dbs/example-repo  \
+$ codeql database analyze /codeql-dbs/example-repo \
     javascript-code-scanning.qls --sarif-category=javascript \
     --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
@@ -178,6 +180,21 @@ $ codeql database analyze /codeql-dbs/example-repo  \
 > Interpreting results.
 ```
 
+{% ifversion code-scanning-tool-status-page %}
+### Adding file coverage information to your results for monitoring
+
+You can optionally submit file coverage information to {% data variables.product.product_name %} for display on the tool status page for {% data variables.product.prodname_code_scanning %}. For more information about file coverage information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page#how-codeql-defines-scanned-files)."
+
+To include file coverage information with your {% data variables.product.prodname_code_scanning %} results, add the `--sarif-add-baseline-file-info` flag to the `codeql database analyze` invocation in your CI system, for example:
+
+```
+$ codeql database analyze /codeql-dbs/example-repo \
+    javascript-code-scanning.qls --sarif-category=javascript \
+    --sarif-add-baseline-file-info \ --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --output=/temp/example-repo-js.sarif
+```
+
+{% endif %}
 ## Uploading results to {% data variables.product.product_name %}
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
@@ -190,9 +207,11 @@ Before you can upload results to {% data variables.product.product_name %}, you 
 When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
   ```shell
-  echo "$UPLOAD_TOKEN" | codeql github upload-results --repository=&lt;repository-name&gt; \
-      --ref=&lt;ref&gt; --commit=&lt;commit&gt; --sarif=&lt;file&gt; \
-      {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; {% endif %}--github-auth-stdin
+  echo "$UPLOAD_TOKEN" | codeql github upload-results \
+      --repository=&lt;repository-name&gt; \
+      --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
+      --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+      {% endif %}--github-auth-stdin
   ```
 
 | Option | Required | Usage |
@@ -211,13 +230,51 @@ For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manu
 This example uploads results from the SARIF file `temp/example-repo-js.sarif` to the repository `my-org/example-repo`. It tells the {% data variables.product.prodname_code_scanning %} API that the results are for the commit `deb275d2d5fe9a522a0b7bd8b6b6a1c939552718` on the `main` branch.
 
 ```
-$ echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
+$ echo $UPLOAD_TOKEN | codeql github upload-results \
+    --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=/temp/example-repo-js.sarif {% ifversion ghes or ghae %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}--github-auth-stdin
 ```
 
 There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
+
+
+{% ifversion code-scanning-tool-status-page %}
+## Uploading diagnostic information to {% data variables.product.product_name %} if the analysis fails
+
+When {% data variables.product.prodname_codeql_cli %} finishes analyzing a database successfully, it gathers diagnostic information such as file coverage, warnings, and errors, and includes it in the SARIF file with the results. When you upload the SARIF file to {% data variables.product.company_short %} the diagnostic information is displayed on the {% data variables.product.prodname_code_scanning %} tool status page for the repository to make it easy to see how well {% data variables.product.prodname_codeql %} is working and debug any problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)."
+
+However, if `codeql database analyze` fails for any reason there is no SARIF file to upload to {% data variables.product.company_short %} and no diagnostic information to show on the {% data variables.product.prodname_code_scanning %} tool status page for the repository. This makes it difficult for users to troubleshoot analysis unless they have access to log files in your CI system.
+
+We recommend that you configure your CI workflow to export and upload diagnostic information to {% data variables.product.product_name %} when an analysis fails. You can do this using the following simple commands to export diagnostic information and upload it to {% data variables.product.company_short %}.
+
+### Exporting diagnostic information if the analysis fails
+
+You can create a SARIF file for the failed analysis using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-export-diagnostics)", for example:
+
+```bash
+$ codeql database export-diagnostics codeql-dbs/example-repo \
+    --sarif-category=javascript --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --output=/temp/example-repo-js.sarif
+```
+
+This SARIF file will contain diagnostic information for the failed analysis, including any file coverage information, warnings, and errors generated during the analysis.
+
+### Uploading diagnostic information if the analysis fails
+
+You can make this diagnostic information available on the tool status page by uploading the SARIF file to {% data variables.product.product_name %} using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results/)", for example:
+
+```bash
+$ echo $UPLOAD_TOKEN | codeql github upload-results \
+    --repository=my-org/example-repo \
+    --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes or ghae %}--github-url={% data variables.command_line.git_url_example %} \
+    {% endif %}--github-auth-stdin
+```
+
+This is the same as the process for uploading SARIF files from successful analyses.
+{% endif %}
 
 {% ifversion codeql-packs %}
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
@@ -311,13 +368,15 @@ codeql database analyze codeql-dbs/python python-code-scanning.qls \
 
 # Upload the SARIF file with the Java results: 'java-results.sarif'
 
-echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
+echo $UPLOAD_TOKEN | codeql github upload-results \
+    --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=java-results.sarif --github-auth-stdin
 
 # Upload the SARIF file with the Python results: 'python-results.sarif'
 
-echo $UPLOAD_TOKEN | codeql github upload-results --repository=my-org/example-repo \
+echo $UPLOAD_TOKEN | codeql github upload-results \
+    --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=python-results.sarif --github-auth-stdin
 ```
