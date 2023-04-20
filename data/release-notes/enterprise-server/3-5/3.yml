@@ -15,8 +15,8 @@ sections:
     - The GitHub Enterprise Importer did not correctly migrate settings for projects within repositories. 
     - On instances using LDAP authentication, the authentication prompt for sudo mode incorrectly placed the cursor within the password field by default when text fields for both a username and password were visible. 
     - The site admin dashboard erroneously included an option to export a report listing dormant users. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
-    - The Billing API's "[Get GitHub Advanced Security active committers for an organization](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns `Link` headers to provide information about pagination. 
+    - The Billing API's "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)" endpoint now returns the correct number of total committers. 
     - In the sidebar for an organization's settings, the **Archive** navigation item contained no children.
     - |
       VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
@@ -28,7 +28,6 @@ sections:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.

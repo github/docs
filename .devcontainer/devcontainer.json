@@ -5,8 +5,8 @@
 	"name": "docs.github.com",
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "16" }
+		// Update 'VARIANT' to pick a Node version
+		"args": { "VARIANT": "18" }
 	},
 
 	// Set *default* container specific settings.json values on container create.
@@ -17,7 +17,6 @@
 
 	// Install features. Type 'feature' in the VS Code command palette for a full list.
 	"features": {
-		"git-lfs": "latest",
 		"sshd": "latest"
 	 },
 
@@ -42,7 +41,7 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "git lfs pull && npm ci",
+	"postCreateCommand": "npm ci",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"

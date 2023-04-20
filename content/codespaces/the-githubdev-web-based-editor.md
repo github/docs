@@ -5,7 +5,6 @@ intro: 'You can use the {% data variables.codespaces.serverless %} web-based edi
 versions:
   feature: githubdev-editor
 type: how_to
-miniTocMaxHeadingLevel: 3
 topics:
   - Codespaces
   - Visual Studio Code
@@ -32,31 +31,35 @@ The {% data variables.codespaces.serverless %} editor runs entirely in your br
 
 You must be signed in to {% data variables.product.prodname_dotcom_the_website %} to use the {% data variables.codespaces.serverless %} editor.
 
-## Opening the {% data variables.codespaces.serverless %} editor 
+## Opening the {% data variables.codespaces.serverless %} editor
 
 You can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} in either of the following ways:
 
 - To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
- 
+
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
 - Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **Open in github.dev**.
+- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **github.dev**.
 
-  ![Edit file button dropdown menu](/assets/images/help/repository/edit-file-edit-dropdown.png)
+  ![Screenshot of the dropdown menu for the edit icon. The option "github.dev" is highlighted with a dark orange outline.](/assets/images/help/codespaces/github-dev-dropdown-option.png)
 
 ## {% data variables.product.prodname_codespaces %} and {% data variables.codespaces.serverless %}
 
 Both {% data variables.codespaces.serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
 
+{% rowheaders %}
+
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
-| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#github-codespaces-pricing)."|
+| **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing)."|
 | **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
-| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
+| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
+
+{% endrowheaders %}
 
 ### Continue working on {% data variables.product.prodname_codespaces %}
 
@@ -64,7 +67,7 @@ You can start your workflow in {% data variables.codespaces.serverless %} and co
 
 To continue your work in a codespace, click **Continue Working on…** and select **Create New Codespace** to create a codespace on your current branch. Before you choose this option, you must commit any changes.
 
-![A screenshot that shows the "Continue Working on" button in the UI](/assets/images/help/codespaces/codespaces-continue-working.png)
+<img src="/assets/images/help/codespaces/codespaces-continue-working.png" width="400rem" alt='Screenshot of the "Run and Debug" side bar with a message saying that this feature is not available, and a "Continue Working On" button.' />
 
 ## Using source control
 
@@ -79,8 +82,22 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 
 ### Commit your changes
 
-{% data reusables.codespaces.source-control-commit-changes %} 
-5. Once you have committed your changes, they will automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
+1. In the Activity Bar, click the **Source Control** view.
+
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar with the source control button, labeled with a branch icon, highlighted with an orange outline.](/assets/images/help/codespaces/githubdotdev-source-control-activity-bar-button.png)
+
+1. To stage your changes, click  {% octicon "plus" aria-label="Stage changes" %} next to the file you've changed, or next to **Changes** if you've changed multiple files and you want to stage them all.
+
+   ![Screenshot of the "Source control" side bar with the staging button (a plus sign), to the right of "Changes," highlighted with a dark orange outline.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-stage.png)
+
+1. In the text box, type a commit message describing the change you've made.
+
+   ![Screenshot of the "Source control" side bar with a commit message entered into the text box above the "Commit" button.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-message.png)
+
+1. Click **Commit & Push**.
+
+   Your changes are automatically be pushed to your branch on {% data variables.product.prodname_dotcom %}.
+
 ### Create a pull request
 
 {% data reusables.codespaces.source-control-pull-request %}
@@ -101,14 +118,14 @@ Extensions that can run in {% data variables.codespaces.serverless %} will appea
 
 ## Using {% data variables.codespaces.serverless %} behind a firewall
 
-If you are working behind a firewall you will need to add the following URLs to your firewall's allow list:
+If you are working behind a firewall you will need to add the following URLs to your firewall's allow list.
 
 | URL | Use |
 | --- | --- |
 | `https://*.vscode-cdn.net` | {% data variables.codespaces.serverless %} runs entirely in the browser. To do so it needs to download {% data variables.product.prodname_vscode_shortname %} assets from endpoints at this URL. |
-| `https://update.code.visualstudio.com` | As above.  |
+| `https://update.code.visualstudio.com` | {% data variables.codespaces.serverless %} runs entirely in the browser. To do so it needs to download {% data variables.product.prodname_vscode_shortname %} assets from endpoints at this URL. |
 | `https://api.github.com` | Used to retrieve source files from {% data variables.product.prodname_dotcom %} |
-| `https://vscode-sync-insiders.trafficmanager.net` | _Optional. To allow settings to be synchronized via Settings Sync._ |
+| `https://vscode-sync-insiders.trafficmanager.net` | _Optional._ To allow settings to be synchronized via Settings Sync. |
 
 Every extension installed in {% data variables.codespaces.serverless %} is run under an independent web worker. This adds a layer of security between multiple extensions running in the same browser. As a result, request URLs coming from extensions are similar to this: `https://v--151hfiju3s93ktt2rqh65902gukb27osot905m4g52k40kaea3h6.vscode-cdn.net`.
 

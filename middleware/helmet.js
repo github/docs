@@ -17,7 +17,7 @@ const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
   crossOriginEmbedderPolicy: false, // doesn't work with youtube
   referrerPolicy: {
-    policy: 'strict-origin-when-cross-origin',
+    policy: 'no-referrer-when-downgrade', // See docs-engineering #2426
   },
   // This module defines a Content Security Policy (CSP) to disallow
   // inline scripts and content from untrusted sources.
@@ -38,9 +38,14 @@ const DEFAULT_OPTIONS = {
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
+        // This URL is also set in ArticleContext.tsx. We don't rely on importing a constant as we may run into an import conflict where the env variable is not yet set.
+        process.env.NODE_ENV === 'production'
+          ? 'https://support.github.com'
+          : // Assume that a developer is not testing the VA iframe locally if this env var is not set
+            process.env.SUPPORT_PORTAL_URL || '',
         'https://www.youtube-nocookie.com',
       ].filter(Boolean),
-      frameAncestors: [...GITHUB_DOMAINS],
+      frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
       upgradeInsecureRequests: isDev ? null : [],

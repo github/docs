@@ -9,14 +9,14 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { program } from 'commander'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import { allVersions } from '../../lib/all-versions.js'
 
-const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
 program
-  .description('Create GraphQL files in lib/graphql/static based on an existing version.')
+  .description('Create GraphQL files in src/graphql/data based on an existing version.')
   .option(
     '-n, --newVersion <version>',
     'The version to copy the files to. Must be in <plan@release> format.'

@@ -98,15 +98,6 @@ describe('renderContent', () => {
     expect(output).toBe('')
   })
 
-  test('encodes entities', async () => {
-    const template = '<beep></beep>'
-    const context = {}
-    const output = await renderContent(template, context, {
-      encodeEntities: true,
-    })
-    expect(output).toBe('&lt;p&gt;&lt;beep&gt;&lt;/beep&gt;&lt;/p&gt;')
-  })
-
   test('does not render newlines around links in tables', async () => {
     const template = nl(`
 | Keyboard shortcut | Description

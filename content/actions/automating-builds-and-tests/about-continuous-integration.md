@@ -31,8 +31,8 @@ Building and testing your code requires a server. You can build and test updates
 
 ## About continuous integration using {% data variables.product.prodname_actions %}
 
-{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on runner systems that you host. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-{% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
+{% ifversion ghae %}CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on runner systems that you host. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+{% else %} CI using {% data variables.product.prodname_actions %} offers workflows that can build the code in your repository and run your tests. Workflows can run on {% data variables.product.prodname_dotcom %}-hosted virtual machines, or on machines that you host yourself. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
 
 You can configure your CI workflow to run when a {% data variables.product.prodname_dotcom %} event occurs (for example, when new code is pushed to your repository), on a set schedule, or when an external event occurs using the repository dispatch webhook.
@@ -43,9 +43,9 @@ When you set up CI in your repository, {% data variables.product.product_name %}
 
 ![Screenshot of suggested continuous integration starter workflows](/assets/images/help/repository/ci-with-actions-template-picker.png)
 
-In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[About {% data variables.product.prodname_actions %}](/articles/about-github-actions)."
+In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
-For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
+For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
 ## Starter workflow
 
@@ -56,5 +56,5 @@ Browse the complete list of CI starter workflow offered by {% data variables.pro
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 {% endif %}

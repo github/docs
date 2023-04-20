@@ -136,7 +136,7 @@ GitHub will provide standard technical Support for the Software and Service at n
 
 #### 1.9.2 Enhanced Support Offerings.
 
-GitHub may provide enhanced Support offerings for the Software and Service (including the Premium, Premium Plus, and Engineering Direct Support offerings) in accordance with the [Support terms](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise), and at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
+GitHub may provide enhanced Support offerings for the Software and Service (including the Premium, Premium Plus, and Engineering Direct Support offerings) in accordance with the [Support terms](/support/learning-about-github-support/about-github-premium-support), and at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
 
 #### 1.9.3 Exclusions.
 
@@ -248,7 +248,7 @@ Upon creation of a Corporate Account and/or an Organization on the Service by Cu
 
 #### 3.1.1 Account Controls.
 
-**(i) Users.** Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/github/site-policy/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section 3.
+**(i) Users.** Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/site-policy/github-terms/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section 3.
 
 **(ii) Organizations.** Customer retains ultimate administrative control over any Organization created on Customer’s behalf and User-Generated Content posted to the repositories within its Organization(s), subject to this Section 3. This Section 3 will govern the use of Customer’s Organization(s).
 
@@ -260,7 +260,7 @@ In order to create an account, Customer must adhere to the following:
 
 **(ii)** A User’s login may not be shared by multiple people.
 
-**(iii)** Customer must not use the Service (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction, (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC), or (c) if Customer is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see [GitHub’s Export Controls policy](/articles/github-and-export-controls).
+**(iii)** Customer must not use the Service (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction, (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC), or (c) if Customer is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see [GitHub’s Export Controls policy](/site-policy/other-site-policies/github-and-trade-controls).
 
 #### 3.1.3 Account Security.
 
@@ -272,7 +272,7 @@ In some situations, third parties' terms may apply to Customer’s use of the Se
 
 #### 3.1.5 U.S. Federal Government Terms.
 
-If Customer is a U.S. federal government agency or otherwise accessing or using any portion of the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+If Customer is a U.S. federal government agency or otherwise accessing or using any portion of the Service in a government capacity, the [U.S. Federal Government Amendment](/site-policy/site-policy-deprecated/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
 
 ### 3.2 Compliance with Laws; Acceptable Use; Privacy.
 
@@ -280,10 +280,10 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 Customer’s use of the Service must not violate any applicable laws, including copyright or trademark laws, export control laws, or regulations in its jurisdiction.
 
 #### 3.2.2 Acceptable Use.
-Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/articles/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/articles/github-community-guidelines). Customer must not use the Service in any jurisdiction for unlawful, obscene, offensive or fraudulent Content or activity, such as advocating or causing harm, interfering with or violating the integrity or security of a network or system, evading filters, sending unsolicited, abusive, or deceptive messages, viruses or harmful code, or violating third party rights.
+Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/site-policy/github-terms/github-community-guidelines). Customer must not use the Service in any jurisdiction for unlawful, obscene, offensive or fraudulent Content or activity, such as advocating or causing harm, interfering with or violating the integrity or security of a network or system, evading filters, sending unsolicited, abusive, or deceptive messages, viruses or harmful code, or violating third party rights.
 
 #### 3.2.3 Privacy.
-[The GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](https://github.com/customer-terms) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of Users' Personal Information (as defined in the GitHub Privacy Statement). If Customer collects any User Personal Information from GitHub, Customer will only use it for the purpose for which the External User has authorized it. Customer will reasonably secure any such Personal Information, and Customer will respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or External Users.
+[The GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) and the [GitHub Data Protection Addendum](https://github.com/customer-terms) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement), particularly in regards to the collection of Users' Personal Information (as defined in the GitHub Privacy Statement). If Customer collects any User Personal Information from GitHub, Customer will only use it for the purpose for which the External User has authorized it. Customer will reasonably secure any such Personal Information, and Customer will respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or External Users.
 
 ### 3.3 Content Responsibility; Ownership; License Rights.
 
@@ -302,7 +302,7 @@ Customer grants to GitHub the right to store, parse, and display Customer Conten
 #### 3.3.4 License Grant to External Users.
 **(i)** Any Content that Customer posts publicly, including issues, comments, and contributions to External Users' repositories, may be viewed by others. By setting its repositories to be viewed publicly, Customer agree to allow External Users to view and Fork Customer’s repositories.
 
-**(ii)** If Customer sets its pages and repositories to be viewed publicly, Customer grants to External Users a nonexclusive, worldwide license to use, display, and perform Customer Content through the Service and to reproduce Customer Content solely on the Service as permitted through functionality provided by GitHub (for example, through Forking). Customer may grant further rights to Customer Content if Customer [adopts a license](/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository). If Customer is uploading Customer Content that it did not create or own, Customer is responsible for ensuring that the Customer Content it uploads is licensed under terms that grant these permissions to External Users.
+**(ii)** If Customer sets its pages and repositories to be viewed publicly, Customer grants to External Users a nonexclusive, worldwide license to use, display, and perform Customer Content through the Service and to reproduce Customer Content solely on the Service as permitted through functionality provided by GitHub (for example, through Forking). Customer may grant further rights to Customer Content if Customer [adopts a license](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository#including-an-open-source-license-in-your-repository). If Customer is uploading Customer Content that it did not create or own, Customer is responsible for ensuring that the Customer Content it uploads is licensed under terms that grant these permissions to External Users.
 
 #### 3.3.5 Contributions Under Repository License.
 Whenever Customer makes a contribution to a repository containing notice of a license, Customer licenses such contribution under the same terms and agrees that it has the right to license such contribution under those terms. If Customer has a separate agreement to license its contributions under different terms, such as a contributor license agreement, that agreement will supersede.
@@ -319,13 +319,13 @@ Customer is responsible for managing access to its Private Repositories, includi
 GitHub considers Customer Content in Customer’s Private Repositories to be Customer’s Confidential Information. GitHub will protect and keep strictly confidential the Customer Content of Private Repositories in accordance with Section 1.4.
 
 #### 3.4.3 Access.
-GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement#repository-contents).
 
 Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
 
-Additionally, we may be [compelled by law](/github/site-policy/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories.
+Additionally, we may be [compelled by law](/site-policy/privacy-policies/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories.
 
-GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/site-policy/privacy-policies/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### 3.5. Intellectual Property Notices.
 
@@ -345,14 +345,14 @@ GitHub has the right to suspend access to all or any part of the Service, includ
 
 ### 3.7 Service Level Agreement.
 
-GitHub’s quarterly uptime commitment for the Service is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). Customer will be entitled to a service credit if GitHub does not meet its service level.
+GitHub’s quarterly uptime commitment for the Service is provided in the [Enterprise Service Level Agreement](/site-policy/site-policy-deprecated/github-enterprise-service-level-agreement). Customer will be entitled to a service credit if GitHub does not meet its service level.
 
 ### 3.8 Service Changes.
 GitHub changes the Service via Updates and addition of new features. Subject to Section 3.7, GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part of it) with or without notice.
 
 ### 3.9 Additional Service Features.
 
-Some Service features may be subject to additional terms as set forth in the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms). By accessing or using these features, Customer agrees to the GitHub Additional Product Terms.
+Some Service features may be subject to additional terms as set forth in the [GitHub Additional Product Terms](/site-policy/github-terms/github-terms-for-additional-products-and-features). By accessing or using these features, Customer agrees to the GitHub Additional Product Terms.
 
 ## EXHIBIT A: DEFINITIONS
 
@@ -372,7 +372,7 @@ Some Service features may be subject to additional terms as set forth in the [Gi
 
 **"Confidential Information"** means all non-public information disclosed by either Party to the others, whether in writing, orally or by other means, designated as confidential or that the receiving Party knows or reasonably should know, under the circumstances surrounding the disclosure and the nature of the information, is confidential to the disclosing Party. For the avoidance of doubt, no Content posted on the Service will be considered Confidential Information except for Customer Content stored solely in Customer’s Private Repositories. Confidential Information does not include any information that (i) was or becomes publicly known through no fault of the receiving party; (ii) was rightfully known or becomes rightfully known to the receiving Party without confidential or proprietary restriction from a source other than the disclosing party who has a right to disclose it; (iii) is approved by the disclosing Party for disclosure without restriction in a written document which is signed by a duly authorized officer of such disclosing Party; (iv) the receiving Party independently develops without access to or use of the other Party's Confidential Information; or (v) is or has been stored or posted on the Service and outside of Customer’s Private Repositories.
 
-**“Connect”** or **“GitHub Connect”** means a feature included in the Software that enables Customer to connect the Software with the Service. Use of GitHub Connect is subject to the GitHub Connect terms set forth in the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms).
+**“Connect”** or **“GitHub Connect”** means a feature included in the Software that enables Customer to connect the Software with the Service. Use of GitHub Connect is subject to the GitHub Connect terms set forth in the [GitHub Additional Product Terms](/site-policy/github-terms/github-terms-for-additional-products-and-features).
 
 **"Content"** means, without limitation, text, data, articles, images, photographs, graphics, software, applications, designs, features, and other materials that are featured, displayed, or otherwise made available through the Service.
 

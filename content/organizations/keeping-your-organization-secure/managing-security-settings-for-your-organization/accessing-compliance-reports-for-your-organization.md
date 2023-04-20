@@ -23,6 +23,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 **Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
+If you are not using {% data variables.product.prodname_ghe_cloud %}, you can find similar reports at [GitHub Security](https://www.github.com/security).
 {% endnote %}
 
 {% data reusables.profile.access_org %}
@@ -34,4 +35,4 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## Further reading
 
-- "[Accessing compliance reports for your enterprise](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+- "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"

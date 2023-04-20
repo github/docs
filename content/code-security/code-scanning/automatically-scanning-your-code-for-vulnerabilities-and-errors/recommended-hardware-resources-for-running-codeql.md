@@ -16,9 +16,9 @@ topics:
   - Integration
   - CI
 ---
-You can set up {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
+You can configure {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
 
-If you're using an external CI system, or self-hosted runners on {% data variables.product.prodname_actions %} for private repositories, you're responsible for configuring your own hardware. The optimal hardware configuration for running {% data variables.product.prodname_codeql %} may vary based on the size and complexity of your codebase, the programming languages and build systems being used, and your CI workflow setup.
+If you're using an external CI system, or self-hosted runners on {% data variables.product.prodname_actions %} for private repositories, you're responsible for configuring your own hardware. The optimal hardware configuration for running {% data variables.product.prodname_codeql %} may vary based on the size and complexity of your codebase, the programming languages and build systems being used, and your CI workflow configuration.
 
 The table below provides recommended hardware specifications for running {% data variables.product.prodname_codeql %} analysis, based on the size of your codebase. Use these as a starting point for determining your choice of hardware or virtual machine. A machine with greater resources may improve analysis performance, but may also be more expensive to maintain.
 

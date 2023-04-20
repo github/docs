@@ -1,0 +1,4 @@
+# Webhooks for Projects
+versions:
+  fpt: '*'
+  ghec: '*'

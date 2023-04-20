@@ -12,7 +12,6 @@ topics:
   - Organizations
   - Teams
 shortTitle: Disable or limit actions
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +19,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+{% data reusables.actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
 
@@ -32,7 +31,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endnote %}
 
@@ -42,12 +41,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 1. Under "Policies", select an option.
 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
-
-   {% ifversion actions-workflow-policy %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
-   {%- else %}
-   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
@@ -56,14 +49,6 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
-
-   {% ifversion actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
-   {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
-   {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
-   {%- endif %}
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}
@@ -79,6 +64,51 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
+{% endif %}
+
+{% ifversion required-workflows %}
+
+## Adding a required workflow to an organization
+
+{% data reusables.actions.workflows.required-workflow-beta %}
+
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
+
+### Prerequisites
+
+Before configuring a required workflow, note the following prerequisites:
+
+{% data reusables.actions.workflows.required-workflow-prerequisites %}
+
+### Restrictions and behaviors for the source repository
+
+Note the following restrictions and behaviors for the source repository and workflow:
+
+{% data reusables.actions.workflows.required-workflow-source-notes %}
+
+### Restrictions and behaviors for the target repository
+
+Note the following restrictions and behaviors for the target repositories:
+
+{% data reusables.actions.workflows.required-workflow-target-notes %}
+
+### Configuring a required workflow for your organization
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. To the right of "Required Workflows", click **Add workflow**.
+
+1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. {% ifversion actions-required-workflow-improvements %}You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.
+
+1. Optionally, to specify target branches on which to enforce the required workflow, enter the branch or multiple branches in the text field under "Target branches". If you do not enter a target branch, the required workflow will be enforced on the default branch for the repository.{% endif %}
+
+1. Under "Apply to repositories...", use the drop-down menu to select which repositories the required workflow applies to. Select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
+
+1. Optionally, if you chose "Selected repositories", click {% octicon "gear" aria-label="The Gear icon" %} to open the repository selection modal, then use the checkboxes to select the repositories, and click **Apply selection**. You can use filters to narrow down your search.
+
+1. To add the required workflow, click **Add workflow**.
+
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
@@ -108,24 +138,28 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo  %}
-By default, when you create a new organization, `GITHUB_TOKEN` only has read access for the `contents` scope.
+{% ifversion actions-default-workflow-permissions-restrictive %}
+By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
 
    {% ifversion allow-actions-to-approve-pr %}
       {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+         {% ifversion actions-default-workflow-permissions-restrictive %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-default-restrictive.png)
+         {% else %}
    ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+         {% endif %}
       {% else %}
    ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
       {% endif %}
    {% else %}
-   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
    {% endif %}
 1. Click **Save** to apply the settings.
 
@@ -142,15 +176,16 @@ By default, when you create a new organization, workflows are not allowed to {% 
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests** setting to configure whether `GITHUB_TOKEN` can {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create and {% endif %}approve pull requests.
 
-   {% ifversion allow-actions-to-approve-pr %}
-      {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
+   {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+      {% ifversion actions-default-workflow-permissions-restrictive %}
+   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-default-restrictive.png)
       {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-creation-approval.png)
       {% endif %}
    {% else %}
-   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+   ![Set GITHUB_TOKEN pull request approval permission for this organization](/assets/images/help/settings/actions-workflow-permissions-organization-with-pr-approval.png)
    {% endif %}
+
 1. Click **Save** to apply the settings.
 
 {% endif %}
@@ -159,11 +194,11 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
-Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization. 
+Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
 
 ### Viewing {% data variables.product.prodname_actions %} cache storage by repository
 
-For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+For each repository in your organization, you can see how much cache storage a repository is using, the number of active caches, and if a repository is near the total cache size limit. For more information about the cache usage and eviction process, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

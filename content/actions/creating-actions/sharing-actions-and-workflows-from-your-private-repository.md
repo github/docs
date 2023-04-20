@@ -26,9 +26,9 @@ Any actions or reusable workflows stored in the private repository can be used i
 
 ## Sharing actions and workflows from your private repository
 
-1. Store the action or reusable workflow in a private repository. For more information, see "[About repository visibility](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
-1. Configure the repository to allow access to workflows in other private repositories. For more information, see "[Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)."
+1. Store the action or reusable workflow in a private repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+1. Configure the repository to allow access to workflows in other private repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)."
 
 ## Further reading
 
-- "[Reusing workflows](/actions/using-workflows/reusing-workflows)"
+- "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"

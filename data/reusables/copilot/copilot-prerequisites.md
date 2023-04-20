@@ -1,2 +1,0 @@
-- {% data variables.product.prodname_copilot %} is free to use for verified students, teachers, and open source maintainers. 
-- If you are not a student, teacher, or open source maintainer, you will need an active trial or subscription. For more information, see "[About billing for {% data variables.product.prodname_copilot %}](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."

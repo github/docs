@@ -23,7 +23,7 @@
 
   {% tip %}
 
-  **Tip:** If `clip` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+  **Tip:** With Windows Subsystem for Linux (WSL), you can use `clip.exe`. Otherwise if `clip` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
   {% endtip %}
 {% endwindows %}

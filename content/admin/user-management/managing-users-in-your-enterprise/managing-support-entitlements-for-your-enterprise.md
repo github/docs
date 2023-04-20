@@ -19,32 +19,31 @@ Enterprise owners and billing managers automatically have a support entitlement.
 
 ## Adding a support entitlement to an enterprise member
 
+To add a support entitlement to a user, the user must already be a member of an organization that is owned by your enterprise.
+
 {% note %}
 
-**Note**: After you add a support entitlement, the enterprise member may need to sign out and sign in again to manage tickets.
+**Note**: After you add a support entitlement, the enterprise member may need to sign out from {% data variables.contact.contact_landing_page_portal %}, then sign in again, before they can manage tickets.
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. Under "Settings", click **Support**.
-![Support menu item](/assets/images/help/enterprises/settings-support.png)
-4. Under "Add support member", start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches.
-![Add support entitlement search](/assets/images/help/enterprises/settings-support-entitlement-search.png)
+4. In the search bar, start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches.
 5. Click **Add support entitlement**.
-![Add support entitlement button](/assets/images/help/enterprises/settings-support-add-entitlement.png)
 
 ## Removing a support entitlement from an enterprise member
 
-You can remove a support entitlement from an enterprise member. You cannot remove a support entitlement from enterprise owners or billing managers.
+When a user is removed from the enterprise, their support entitlement will be automatically removed.
+
+If a user remains an enterprise member, you can manually remove their support entitlement. You cannot remove a support entitlement from enterprise owners or billing managers.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. In the sidebar under "Settings", click **Support**.
-![Support menu item](/assets/images/help/enterprises/settings-support.png)
-4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="The trash icon" %}.
-![Remove support entitlement](/assets/images/help/enterprises/settings-support-remove-entitlement.png)
+4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="remove support entitlement" %}.
 
 ## Further reading
 
-- "[Working with GitHub support](/github/working-with-github-support)"
+- "[AUTOTITLE](/support)"

@@ -41,20 +41,20 @@ describe('static assets', () => {
   it('should 404 on /assets/cb-* with plain text', async () => {
     const res = await get('/assets/cb-1234/never/heard/of.png')
     expect(res.statusCode).toBe(404)
-    expect(res.header['content-type']).toContain('text/plain')
+    expect(res.headers['content-type']).toContain('text/plain')
     // Only a tiny amount of Cache-Control on these
     checkCachingHeaders(res, true, 60)
   })
   it('should 404 on /assets/ with plain text', async () => {
     const res = await get('/assets/never/heard/of.png')
     expect(res.statusCode).toBe(404)
-    expect(res.header['content-type']).toContain('text/plain')
+    expect(res.headers['content-type']).toContain('text/plain')
     checkCachingHeaders(res, true, 60)
   })
   it('should 404 on /_next/static/ with plain text', async () => {
     const res = await get('/_next/static/never/heard/of.css')
     expect(res.statusCode).toBe(404)
-    expect(res.header['content-type']).toContain('text/plain')
+    expect(res.headers['content-type']).toContain('text/plain')
     checkCachingHeaders(res, true, 60)
   })
 })

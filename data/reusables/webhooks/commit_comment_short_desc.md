@@ -1,1 +1,1 @@
-A commit comment is created. {% data reusables.webhooks.action_type_desc %} For more information, see the "[commit comment](/rest/reference/repos#comments)" REST API.
+A commit comment is created. {% data reusables.webhooks.action_type_desc %} For more information, see the "[AUTOTITLE](/rest/commits/comments)" REST API.

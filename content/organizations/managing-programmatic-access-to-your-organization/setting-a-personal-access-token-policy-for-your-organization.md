@@ -12,7 +12,7 @@ shortTitle: Set a token policy
 
 Organization owners can prevent {% data variables.product.pat_v2 %}s from accessing resources owned by the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization. This setting only controls access by {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}. For more information about restricting access by {% data variables.product.pat_v1_plural %}, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -26,7 +26,7 @@ Organization owners can prevent {% data variables.product.pat_v2 %}s from access
 
 Organization owners can require approval for each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
 
 {% note %}
 
@@ -46,7 +46,7 @@ Organization owners can require approval for each {% data variables.product.pat_
 
 Organization owners can prevent {% data variables.product.pat_v1_plural %} from accessing resources owned by the organization. {% data variables.product.pat_v1_caps_plural %} will still be able to read public resources within the organization. This setting only controls access by {% data variables.product.pat_v1_plural %}, not {% data variables.product.pat_v2 %}s. For more information about restricting access by {% data variables.product.pat_v2 %}s, see "[Restricting access by {% data variables.product.pat_v2 %}s](#restricting-access-by-fine-grained-personal-access-tokens)" on this page.
 
-{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v1_plural %}, then you cannot override the policy in your organization. For more information, see "[Enforcing policies for {% data variables.product.pat_generic %}s in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v1_plural %}, then you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

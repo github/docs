@@ -2,7 +2,6 @@
 title: Customizing the table layout
 shortTitle: Customizing tables
 intro: 'You can use the table layout to build a spreadsheet using your project''s items,  {% data variables.product.company_short %} metadata, and your custom fields.'
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
@@ -14,7 +13,7 @@ topics:
 
 {% data reusables.projects.about-table-layout %}
 
-For more information about changing a view to use the table layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the table layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 
@@ -55,23 +54,17 @@ You can change the order of rows.
 
 You can sort items by a field value.
 
+{% ifversion projects-v2-consistent-sorting %}{% else %}
+
 {% note %}
 
 **Note:** When a table is sorted, you cannot manually reorder rows.
 
 {% endnote %}
 
-{% data reusables.projects.open-view-menu %}
-1. Click **Sort**.
-   ![Screenshot showing the sort menu item](/assets/images/help/projects-v2/sort-menu-item.png)
-1. Click the field you want to sort by.
-   ![Screenshot showing the sort menu](/assets/images/help/projects-v2/sort-menu.png)
-2. Optionally, to change the direction of the sort, click {% octicon "sort-desc" aria-label="the sort icon" %}.
-   ![Screenshot showing sort order option](/assets/images/help/projects-v2/sort-order.png)
-3. Optionally, to remove a sort, click {% octicon "x" aria-label="the x icon" %} **No sorting** at the bottom of the list.
-   ![Screenshot showing "no sorting"](/assets/images/help/projects-v2/no-sorting.png)
+{% endif %}
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Sort by."
+{% data reusables.projects.customize.sort %}
 
 {% ifversion projects-v2-numeric-summary %}
 

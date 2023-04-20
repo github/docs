@@ -3,6 +3,11 @@ import { allVersions } from '../../lib/all-versions.js'
 import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghaeReleaseNotesContext(req, res, next) {
+  // For example, the URL is something like /github-ae@latest/xxx/admin
+  // or /github-ae@latest/xxxx/release-notes
+  // Then it should not bother because it'll be a 404 anyway.
+  if (!req.context.page) return next()
+
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
   if (
     !allVersions[req.context.currentVersion] ||

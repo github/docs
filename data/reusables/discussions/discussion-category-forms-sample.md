@@ -7,18 +7,18 @@ body:
       value: |
         This is text that will show up in the template!
   - type: textarea
-  id: improvements
-  attributes:
-    label: Top 3 improvements
-    description: "What are the top 3 improvements we could make to this project?"
-    value: |
-      1.
-      2.
-      3.
-      ...
-    render: bash
-  validations:
-    required: true
+    id: improvements
+    attributes:
+      label: Top 3 improvements
+      description: "What are the top 3 improvements we could make to this project?"
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |
@@ -32,16 +32,16 @@ body:
     validations:
       required: true
   - type: dropdown
-  id: download
-  attributes:
-    label: Which area of this project could be most improved?
-    options:
-      - Documentation
-      - Pull request review time
-      - Bug fix time
-      - Release cadence
-  validations:
-    required: true
+    id: download
+    attributes:
+      label: Which area of this project could be most improved?
+      options:
+        - Documentation
+        - Pull request review time
+        - Bug fix time
+        - Release cadence
+    validations:
+      required: true
   - type: checkboxes
     attributes:
       label: Check that box!
@@ -54,5 +54,5 @@ body:
       value: |
         ### The thrilling conclusion
         _to our template_
-      
+
 ```
