@@ -79,7 +79,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 
 {% rowheaders %}
 
-| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories [1] |
+| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
@@ -97,7 +97,11 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 
 {% endrowheaders %}
 
-[1] Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+{% note %}
+
+**Note:** Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+
+{% endnote %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 

@@ -96,7 +96,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    Updating ghcr.io/actions-importer/cli:latest...
-   ghcr.io/actions-importer/cli:latest up-to-date  
+   ghcr.io/actions-importer/cli:latest up-to-date
    ```
 
 ## Perform an audit of GitLab
@@ -261,14 +261,14 @@ $ gh actions-importer migrate gitlab --target-url https://github.com/octo-org/oc
 
 ### Inspecting the pull request
 
-The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository. 
+The output from a successful run of the `migrate` command contains a link to the new pull request that adds converted workflows to your repository.
 
 Some important elements of the pull request include:
 
-- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows. 
+- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section may direct you to set up any secrets used in your workflows.
 - The converted workflows file. Select the **Files changed** tab in the pull request to view the workflow file that will be added to your {% data variables.product.product_name %} repository.
 
-When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository. 
+When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository.
 
 ## Reference
 
@@ -341,7 +341,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--namespace` and `--project` options. The `path` is then used to pull the specified source file.
 
 ```bash
-gh actions-importer dry-run gitlab --namespace my-gitlab-namespace --project my-gitlab-project-name --output-dir ./output/ --config-file-path ./path/to/gitlab/config.yml  
+gh actions-importer dry-run gitlab --namespace my-gitlab-namespace --project my-gitlab-project-name --output-dir ./output/ --config-file-path ./path/to/gitlab/config.yml
 ```
 
 ### Supported syntax for GitLab pipelines
@@ -368,14 +368,12 @@ The following table shows the type of properties {% data variables.product.prodn
 | Run pipelines for new commits           | `on.push`                       |                   Supported |
 | Run pipelines manually                  | `on.workflow_dispatch`          |                   Supported |
 | `environment`                           | `jobs.<job_id>.environment`     |         Partially supported |
-| `include`                               | [1]                             |         Partially supported |
+| `include`                               | Files referenced in an `include` statement are merged into a single job graph before being transformed. |         Partially supported |
 | `only` or `except`                      | `jobs.<job_id>.if`              |         Partially supported |
 | `parallel`                              | `jobs.<job_id>.strategy`        |         Partially supported |
 | `rules`                                 | `jobs.<job_id>.if`              |         Partially supported |
 | `services`                              | `jobs.<job_id>.services`        |         Partially supported |
 | `workflow`                              | `if`                            |         Partially supported |
-
-[1] Files referenced in an `include` statement are merged into a single job graph before being transformed.
 
 For information about supported GitLab constructs, see the [`github/gh-actions-importer` repository](https://github.com/github/gh-actions-importer/blob/main/docs/gitlab/index.md).
 
