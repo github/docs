@@ -239,6 +239,8 @@ If your instance has subdomain isolation disabled:
 {% ifversion ghes %}
 ## Using the official npm registry
 
+{% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+
 {% data variables.product.prodname_registry %} is a powerful tool that enables you to access the official npm registry at registry.npmjs.com directly from your {% data variables.product.prodname_ghe_server %}. This feature is particularly useful for organizations that rely heavily on Node.js packages and want to manage them in a centralized location. With {% data variables.product.prodname_registry %}, you can easily search for, download, and publish Node.js packages, all from within your {% data variables.product.prodname_ghe_server %} environment.
 
 To use {% data variables.product.prodname_registry %}, your {% data variables.product.prodname_ghe_server %} administrator must first enable the feature. Once enabled, you can connect to the official npm registry through the {% data variables.product.prodname_registry %} interface and begin managing your Node.js packages. For more information on how to configure {% data variables.product.prodname_registry %}, please see our documentation on configuring package ecosystem support for your enterprise.
