@@ -212,7 +212,7 @@ For example, the following {% data variables.product.prodname_actions %} workflo
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 - name: Build and push Docker image
-  uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+  uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
   with:
     context: .
     file: ./Dockerfile
