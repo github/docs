@@ -208,7 +208,7 @@ git push --follow-tags
 
 ## Testing out your action in a workflow
 
-Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
+Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository. Actions in an internal reposiroty can be used by workflows in any repository within the same organization.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
