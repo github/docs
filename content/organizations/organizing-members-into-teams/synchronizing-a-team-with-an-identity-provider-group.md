@@ -54,7 +54,7 @@ After you connect a team to an IdP group, team synchronization will add each mem
 
 {%- ifversion team-sync-manage-org-invites %}
 - If team synchronization is not allowed to invite non-members to your organization, the person is already a member of the organization on {% data variables.product.product_name %}.
--{%- endif %}
+{%- endif %}
 - The person has already logged in with their personal account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
 - The person's SSO identity is a member of the IdP group.
 
