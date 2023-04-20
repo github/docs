@@ -1,5 +1,5 @@
 ---
-title: Publicizing or hiding organization membership
+title: Publicizing or hiding organization membership 
 intro: 'If you''d like to tell the world which organizations you belong to, you can display the avatars of the organizations on your profile.'
 redirect_from:
   - /articles/publicizing-or-concealing-organization-membership
