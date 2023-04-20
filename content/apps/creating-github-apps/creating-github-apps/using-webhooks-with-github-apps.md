@@ -21,6 +21,8 @@ To receive webhook events in your {% data variables.product.prodname_github_app 
 
 If your app does not need to respond to webhooks or will only be used for authentication, you can turn off the webhook function in your app settings. You do not need to specify a webhook URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
+For information about changing the webhooks that a {% data variables.product.prodname_github_app %} subscribes to, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
+
 ## Choosing a webhook URL
 
 When you activate webhooks in the settings for your {% data variables.product.prodname_github_app %}, you will need to specify a webhook URL. The webhook URL is the address of a web server that will receive the webhook event payloads sent to your {% data variables.product.prodname_github_app %}. The server can then take action based on the content of the payload. You should choose a web server that's appropriate for the volume of webhook traffic that your {% data variables.product.prodname_github_app %} will encounter.
@@ -53,7 +55,7 @@ After creating a webhook secret for your app, you will need to configure your se
 
 ## Subscribing to webhook events
 
-You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. The specific webhook events that you can select in your app settings are determined by the type of permissions you selected for your app. You will first need to select the permissions you would like your app to have, and then you can subscribe your app to webhook events that are related to that set of permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
+You can subscribe your {% data variables.product.prodname_github_app %} to receive webhook payloads for specific events. {% data reusables.apps.webhooks-and-apps %} For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 For example, if you would like your app to receive a webhook event payload whenever a new issue is opened in your repository, you would first need to give your app permission to access "Issues" under "Repository permissions." Then under "Subscribe to events" you can select "Issues."
 

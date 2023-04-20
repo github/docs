@@ -33,13 +33,11 @@ If you want to make your app available to {% ifversion ghes %}other {% endif %}{
 
 If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see "[AUTOTITLE](/github-ae@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" and "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
-For information about changing the visibility of an existing {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
+For information about changing the visibility of a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 ### Public installation flow
 
-Public {% data variables.product.prodname_github_apps %} have a landing page with an **Install** button, so that other people can install the app in their repositories. If you don't want to use the default landing page, you can modify the "Public link" field on the settings page for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
-
-{% ifversion fpt or ghec %}If your {% data variables.product.prodname_github_app %} is public to all users on {% data variables.product.prodname_dotcom_the_website %}, you can also choose to publish it to {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)."{% endif %}
+Public {% data variables.product.prodname_github_apps %} have a landing page with an **Install** button, so that other people can install the app in their repositories. {% ifversion fpt or ghec %}If your {% data variables.product.prodname_github_app %} is public to all users on {% data variables.product.prodname_dotcom_the_website %}, you can also choose to publish it to {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)."{% endif %}
 
 ### Private installation flow
 
