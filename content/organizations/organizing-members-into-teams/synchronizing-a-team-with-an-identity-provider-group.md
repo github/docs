@@ -28,6 +28,10 @@ Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP 
 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
+{% ifversion team-sync-manage-org-invites %}
+{% data reusables.identity-and-permissions.team-sync-org-invites %} For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#managing-whether-team-synchronization-can-invite-non-members-to-your-organization)" and "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise#managing-whether-team-synchronization-can-invite-non-members-to-organizations)."
+{% endif %}
+
 {% ifversion ghec %}
 All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Team synchronization will fetch group information from your IdP at least once every hour, and reflect any changes in IdP group membership into {% data variables.product.product_name %}.
 Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
@@ -47,7 +51,10 @@ To manage repository access for any {% data variables.product.prodname_dotcom %}
 ## Requirements for members of synchronized teams
 
 After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
-- The person is a member of the organization on {% data variables.product.product_name %}.
+
+{%- ifversion team-sync-manage-org-invites %}
+- If team synchronization is not allowed to invite non-members to your organization, the person is already a member of the organization on {% data variables.product.product_name %}.
+{%- endif %}
 - The person has already logged in with their personal account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
 - The person's SSO identity is a member of the IdP group.
 

@@ -35,6 +35,8 @@ codeql pack ls <options>... -- <dir>
 this directory. This directory must contain a qlpack.yml or
 .codeqlmanifest.json file.
 
+Available since `v2.7.1`.
+
 ## Primary options
 
 #### `<dir>`

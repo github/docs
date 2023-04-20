@@ -35,6 +35,8 @@ IDEs. It is started by the IDE plugin in the background and communicates
 with it through a special protocol on its standard input and output
 streams.
 
+Available since `v2.10.11`.
+
 ## Primary options
 
 #### `--[no-]tuple-counting`

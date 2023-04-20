@@ -33,6 +33,8 @@ codeql pack init [--dir=<dir>] [--extractor=<extractor>] <options>... -- <packag
 The pack will be created in a child directory of the specified
 directory.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<package-name>`
