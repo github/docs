@@ -30,6 +30,8 @@ codeql diagnostic export --format=<format> [--output=<output>] <options>...
 
 \[Experimental] Export diagnostic information for a failed analysis.
 
+Available since `v2.12.6`.
+
 ## Primary options
 
 #### `--format=<format>`

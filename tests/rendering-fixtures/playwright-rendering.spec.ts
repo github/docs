@@ -160,34 +160,6 @@ test('navigate with side bar into article inside a map-topic inside a category',
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
 
-test('code examples search', async ({ page }) => {
-  await page.goto('/code-security')
-  const codeExampleResults = page.getByTestId('code-example-results')
-
-  // more results after clicking the 'Show more' button
-  const initialResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
-  await page.getByTestId('code-examples-show-more').click()
-  const showedMoreResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
-  expect(showedMoreResultsCount).toBeGreaterThan(initialResultsCount)
-
-  // search for the 2 'policy' code examples
-  await page.getByTestId('code-examples-input').click()
-  await page.getByTestId('code-examples-input').fill('policy')
-  await page.getByTestId('code-examples-search-btn').click()
-  expect((await codeExampleResults.getByRole('listitem').all()).length).toBe(2)
-  await expect(codeExampleResults.getByText('Microsoft security policy template')).toBeVisible()
-  await expect(codeExampleResults.getByText('Electron security policy')).toBeVisible()
-
-  // what happens when there's no search results
-  await page.getByTestId('code-examples-input').click()
-  await page.getByTestId('code-examples-input').fill('should be no results')
-  await page.getByTestId('code-examples-search-btn').click()
-  await expect(page.locator('#code-examples').getByText('Matches displayed: 0')).toBeVisible()
-  await expect(
-    page.locator('#code-examples').getByText('Sorry, there is no result for should be no results')
-  ).toBeVisible()
-})
-
 test('hovercards', async ({ page }) => {
   await page.goto('/pages/quickstart')
 

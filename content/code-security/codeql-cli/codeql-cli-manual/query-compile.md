@@ -65,6 +65,8 @@ changes to the QL source in favor of the precompiled version.
 Some rarely used compilation options are incompatible with this and will
 lead to a run-time error.
 
+Available since `v2.12.0`.
+
 #### `--[no-]dump-dil`
 
 \[Advanced] Print the optimized DIL intermediate representation to
@@ -115,9 +117,9 @@ How to handle warnings from the QL compiler. One of:
 
 `error`: Treat warnings as errors.
 
-#### `--[no-]debug-info`
+#### `--no-debug-info`
 
-Emit source location info in RA for debugging.
+Don't emit source location info in RA for debugging.
 
 #### `--[no-]fast-compilation`
 
@@ -142,9 +144,9 @@ improvements in the compiler early.
 
 In releases where there are no recent improvements to enable, this
 option silently does nothing. Thus it is safe to set it once and for all
-in you global CodeQL config file.
+in your global CodeQL config file.
 
-The newest features are always on by default in [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run).
+Available since `v2.11.1`.
 
 #### `--[no-]local-checking`
 
