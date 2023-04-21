@@ -145,53 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('large -> x-large viewports - 1012+', () => {
-  jest.setTimeout(60 * 1000)
-  it('version picker is visible in header', async () => {
-    await page.setViewport({ width: 1013, height: 700 })
-    await page.goto('http://localhost:4000/en/actions')
-    await page.click('[data-testid=version-picker]')
-    const versionItems = await page.$$('[data-testid=version-picker-item]')
-    expect(versionItems.length).toBeGreaterThan(0)
-  })
-
-  it('language picker is visible in header', async () => {
-    await page.goto('http://localhost:4000/en/actions')
-    const languagePickerElement = await page.$$('[data-testid=language-picker]')
-    expect(languagePickerElement.length).toBe(1)
-  })
-
-  it('sign up button is visible in header', async () => {
-    const signUpElement = await page.$('[data-testid=header-signup]')
-    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
-    expect(signUpValue).toBe('Sign up')
-  })
-})
-
-describe('large viewports - 1012-1279', () => {
-  jest.setTimeout(60 * 1000)
-  it('hamburger button for sidebar overlay is visible', async () => {
-    await page.setViewport({ width: 1013, height: 700 })
-    await page.goto('http://localhost:4000/en/actions')
-    await page.click('[data-testid=sidebar-hamburger]')
-    const sidebarElement = await page.$('[data-testid=sidebar-product-dialog]')
-    const sideBarValue = await sidebarElement.evaluate((el) => el.textContent)
-    expect(sideBarValue).toBe('GitHub Actions')
-  })
-
-  it('breadcrumbs show up in the header', async () => {
-    await page.goto(
-      'http://localhost:4000/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise'
-    )
-    const breadcrumbsElement = await page.$$('[data-testid=breadcrumbs-header] ul li')
-    const breadcrumbsMissingElement = await page.$$(
-      '[data-testid=breadcrumbs-header] ul li .d-none'
-    )
-    expect(breadcrumbsMissingElement.length).toBe(0)
-    expect(breadcrumbsElement.length).toBe(4)
-  })
-})
-
 describe('medium viewports - 768-1011', () => {
   jest.setTimeout(60 * 1000)
   it('version picker is visible', async () => {

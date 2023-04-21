@@ -40,13 +40,16 @@ For more information on creating polls, see "[AUTOTITLE](/discussions/collaborat
 
 ## About discussion organization
 
-You can organize discussions with categories and labels.
+You can organize discussions with categories{% ifversion discussions-category-section %}, sections, {% endif %} and labels.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
 
 {% data reusables.discussions.about-announcement-format %}
+
+{% ifversion discussions-category-section %}
+{% data reusables.discussions.category-sections %}{% endif %}
 
 For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 

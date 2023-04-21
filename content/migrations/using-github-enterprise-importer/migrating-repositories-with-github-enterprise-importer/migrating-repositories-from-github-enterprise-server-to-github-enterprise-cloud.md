@@ -382,6 +382,8 @@ If you configure your blob storage credentials in the {% data variables.product.
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
 
+If you want to migrate a single repository, skip to the next step.
+
 ### Generating a migration script
 
 {% data reusables.enterprise-migration-tool.follow-step-from-computer-with-access %}

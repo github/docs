@@ -37,7 +37,6 @@ changelog:
   versions:
     fpt: '*'
     ghec: '*'
-examples_source: data/product-examples/code-security/code-examples.yml
 layout: product-landing
 versions:
   fpt: '*'

@@ -1,0 +1,1 @@
+1. Navigate to the settings page for the app you'd like to modify. For more information, see "[Navigating to your {% data variables.product.prodname_github_app %} settings](#navigating-to-your-github-app-settings)" in this article.
