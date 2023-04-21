@@ -104,7 +104,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
     - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
     - **Overwrite your existing tags**
         ```shell
-        $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
+        $ git-filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
         Parsed 197 commits
         New history written in 0.11 seconds; now repacking/cleaning...
         Repacking your repo and cleaning out old unneeded objects
