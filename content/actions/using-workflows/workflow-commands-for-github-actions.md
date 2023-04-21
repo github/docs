@@ -767,7 +767,7 @@ jobs:
 {% bash %}
 
 ```bash{:copy}
-echo "{environment_variable_name}={value}" >> $GITHUB_ENV
+echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 ```
 
 {% endbash %}
@@ -799,7 +799,7 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-      echo "action_state=yellow" >> $GITHUB_ENV
+      echo "action_state=yellow" >> "$GITHUB_ENV"
   - name: Use the value
     id: step_two
     run: |
@@ -856,9 +856,9 @@ steps:
     id: step_one
     run: |
       EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-      echo "JSON_RESPONSE<<$EOF" >> $GITHUB_ENV
-      curl https://example.com >> $GITHUB_ENV
-      echo "$EOF" >> $GITHUB_ENV
+      echo "JSON_RESPONSE<<$EOF" >> "$GITHUB_ENV"
+      curl https://example.com >> "$GITHUB_ENV"
+      echo "$EOF" >> "$GITHUB_ENV"
 ```
 
 {% endbash %}
@@ -887,7 +887,7 @@ Sets a step's output parameter. Note that the step will need an `id` to be defin
 {% bash %}
 
 ```bash{:copy}
-echo "{name}={value}" >> $GITHUB_OUTPUT
+echo "{name}={value}" >> "$GITHUB_OUTPUT"
 ```
 {% endbash %}
 
@@ -908,7 +908,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 ```yaml{:copy}
       - name: Set color
         id: random-color-generator
-        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
 {% raw %}
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
