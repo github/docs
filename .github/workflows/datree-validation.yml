@@ -1,0 +1,53 @@
+# |=========================== Datree Policy Check ===================================|
+# | This workflow will verify that all committed config files in the PR are valid.    |
+# | If one of the config files is happened to be a K8s config file (manifest),        |
+# | It will also automatically be tested for schema validation and misconfigurations. |
+# | For more info visit: https://github.com/marketplace/datree                        |
+# |===================================================================================|
+
+name: Datree Workflow
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  configs-validation:
+    runs-on: ubuntu-latest
+    env:
+      DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v19
+        with:
+          files: |
+            *.yaml
+            *.yml
+      - name: List all changed files
+        run: echo ${{ steps.changed-files.outputs.all_changed_files }}
+
+      - name: Install Datree's CLI
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: curl https://get.datree.io | /bin/bash -s
+
+      # |=========================== Datree Policy Check ===================================|
+      # | Prevent Kubernetes misconfigurations from reaching production!                    |
+      # | Datree is a CLI tool to ensure K8s configs follow stability & security            |
+      # | best practices as well as your organization’s policies.                           |
+      # | For more info visit: https://github.com/datreeio/datree                           |
+      # |===================================================================================|
+
+      - name: Datree validate config files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: datreeio/action-datree@main # For more info about this Actions visit 👉 https://github.com/datreeio/action-datree
+        with:
+          path: ${{ steps.changed-files.outputs.all_changed_files }}
+          cliArguments: --only-k8s-files
+          isHelmChart: false
+          isKustomization: false
