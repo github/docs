@@ -9,7 +9,8 @@ import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  // Checks that every version of the /rest/checks
+  // This test ensures that the page component and the Markdown file are
+  // in sync. It checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
     for (const version in allVersions) {
