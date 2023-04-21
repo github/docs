@@ -20,5 +20,6 @@ children:
   - /using-github-classroom-with-github-cli
   - /register-a-learning-management-system-with-github-classroom
   - /connect-a-learning-management-system-course-to-a-classroom
+  - /about-assignments
 shortTitle: Teach
 ---
