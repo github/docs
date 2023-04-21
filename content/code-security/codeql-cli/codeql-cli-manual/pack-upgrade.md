@@ -37,6 +37,8 @@ This command installs the latest compatible version of each dependency
 of the pack, updating the lock file with the newly acquired versions.
 Any existing lock file is ignored.
 
+Available since `v2.6.3`.
+
 ## Primary options
 
 #### `<dir>`
@@ -56,6 +58,13 @@ Allow overwriting already existing packs.
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
+
+#### `--lock-override=<file>`
+
+\[Advanced] Specifies an alternate lock file to use as the input to
+dependency resolution.
 
 #### `--no-strict-mode`
 

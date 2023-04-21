@@ -30,6 +30,8 @@ codeql diagnostic add (--diagnostic-dir=<diagnosticDir>) --source-id=<id> --sour
 
 \[Experimental] \[Plumbing] Add a piece of diagnostic information.
 
+Available since `v2.12.6`.
+
 ## Primary options
 
 #### `--markdown-message=<markdownMessage>`

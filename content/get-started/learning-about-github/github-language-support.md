@@ -39,4 +39,8 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.scala %}
 {% data reusables.supported-languages.typescript %}
 
-[1] These languages are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+{% note %}
+
+**Note:** PHP{% ifversion ghae %}, Ruby,{% endif %} and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+
+{% endnote %}

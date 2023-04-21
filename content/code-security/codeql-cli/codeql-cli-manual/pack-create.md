@@ -37,6 +37,8 @@ This command builds the complete contents of a QL package, including the
 original source code, library dependencies, compiled queries, and
 package metadata.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<dir>`

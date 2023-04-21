@@ -215,6 +215,31 @@ variable.
 
 This overrides the GITHUB\_TOKEN environment variable.
 
+### Options to control query compilation
+
+#### `--no-release-compatibility`
+
+\[Advanced] Use the newest compiler features, at the cost of
+portability.
+
+From time to time, new QL language features and evaluator optimizations
+will be supported by the QL evaluator a few releases before they are
+enabled by default in the QL compiler. This helps ensure that the
+performance you experience when developing queries in the newest CodeQL
+release can be matched by slightly older releases that may still be in
+use for Code Scanning or CI integrations.
+
+If you do not care about your queries being compatible with other
+(earlier or later) CodeQL releases, you can sometimes achieve a small
+amount of extra performance by using this flag to enable recent
+improvements in the compiler early.
+
+In releases where there are no recent improvements to enable, this
+option silently does nothing. Thus it is safe to set it once and for all
+in your global CodeQL config file.
+
+Available since `v2.11.1`.
+
 ### Options that control the evaluation of test queries
 
 #### `--[no-]tuple-counting`
