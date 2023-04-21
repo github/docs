@@ -7954,7 +7954,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -7970,7 +7970,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -7978,7 +7978,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11112,7 +11112,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11128,7 +11128,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11136,7 +11136,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11917,7 +11917,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11933,7 +11933,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11941,7 +11941,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11958,7 +11958,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11974,7 +11974,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -11982,7 +11982,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -39384,7 +39384,7 @@
         {
           "name": "dismissStaleReviewsOnPush",
           "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -39392,7 +39392,7 @@
         {
           "name": "requireCodeOwnerReview",
           "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -39400,7 +39400,7 @@
         {
           "name": "requireLastPushApproval",
           "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -39408,7 +39408,7 @@
         {
           "name": "requiredApprovingReviewCount",
           "description": "<p>The number of approving reviews that are required before a pull request can be merged.</p>",
-          "type": "Int",
+          "type": "Int!",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -39416,7 +39416,7 @@
         {
           "name": "requiredReviewThreadResolution",
           "description": "<p>All conversations on code must be resolved before a pull request can be merged.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -42250,7 +42250,7 @@
         {
           "name": "exclude",
           "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -42258,7 +42258,7 @@
         {
           "name": "include",
           "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -50577,7 +50577,7 @@
         {
           "name": "exclude",
           "description": "<p>Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -50585,7 +50585,7 @@
         {
           "name": "include",
           "description": "<p>Array of repository names or patterns to include. One of these patterns must\nmatch for the condition to pass. Also accepts <code>~ALL</code> to include all repositories.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -51795,7 +51795,7 @@
         {
           "name": "requiredDeploymentEnvironments",
           "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -51837,7 +51837,7 @@
         {
           "name": "requiredStatusChecks",
           "description": "<p>Status checks that are required.</p>",
-          "type": "[StatusCheckConfiguration!]",
+          "type": "[StatusCheckConfiguration!]!",
           "id": "statuscheckconfiguration",
           "kind": "objects",
           "href": "/graphql/reference/objects#statuscheckconfiguration"
@@ -51845,7 +51845,7 @@
         {
           "name": "strictRequiredStatusChecksPolicy",
           "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -53661,7 +53661,7 @@
         {
           "name": "context",
           "description": "<p>The status check context name that must be present on the commit.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -53669,7 +53669,7 @@
         {
           "name": "integrationId",
           "description": "<p>The optional integration ID that this status check must originate from.</p>",
-          "type": "Int!",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -54316,7 +54316,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -54332,7 +54332,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -54340,7 +54340,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -58494,7 +58494,7 @@
         {
           "name": "updateAllowsFetchAndMerge",
           "description": "<p>Branch can pull changes from its upstream repository.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
