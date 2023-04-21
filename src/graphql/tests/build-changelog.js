@@ -1,15 +1,19 @@
 import yaml from 'js-yaml'
+import fs from 'fs/promises'
+import MockDate from 'mockdate'
+
 import {
   createChangelogEntry,
   cleanPreviewTitle,
   previewAnchor,
   prependDatedEntry,
-} from '../../src/graphql/scripts/build-changelog.js'
-import fs from 'fs/promises'
-import MockDate from 'mockdate'
-import readJsonFile from '../../lib/read-json-file.js'
-const expectedChangelogEntry = readJsonFile('./tests/fixtures/changelog-entry.json')
-const expectedUpdatedChangelogFile = readJsonFile('./tests/fixtures/updated-changelog-file.json')
+} from '../scripts/build-changelog.js'
+import readJsonFile from '../../../lib/read-json-file.js'
+
+const expectedChangelogEntry = readJsonFile('src/graphql/tests/fixtures/changelog-entry.json')
+const expectedUpdatedChangelogFile = readJsonFile(
+  'src/graphql/tests/fixtures/updated-changelog-file.json'
+)
 
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {
@@ -124,7 +128,7 @@ describe('updating the changelog file', () => {
   })
 
   it('modifies the entry object and the file on disk', async () => {
-    const testTargetPath = 'tests/graphql/example_changelog.json'
+    const testTargetPath = 'src/graphql/tests/fixtures/example-changelog.json'
     const previousContents = await fs.readFile(testTargetPath)
 
     const exampleEntry = { someStuff: true }

@@ -19,6 +19,11 @@ export default async function ghesReleaseNotesContext(req, res, next) {
       : next()
   }
 
+  // For example, the URL is something like /enterprise-server@3.7/xxx/admin
+  // or /enterprise-server@3.7/xxxx/release-notes
+  // Then it should not bother because it'll be a 404 anyway.
+  if (!req.context.page) return next()
+
   // Returns [{version, patches: [{version, patchVersion, intro, date, sections: { features: [], bugs: []...}} ]}]
   req.context.ghesReleases = formatReleases(ghesReleaseNotes)
 

@@ -1970,7 +1970,7 @@ type BranchNamePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -1980,12 +1980,12 @@ type BranchNamePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -4854,7 +4854,7 @@ type CommitAuthorEmailPatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -4864,12 +4864,12 @@ type CommitAuthorEmailPatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -5363,7 +5363,7 @@ type CommitMessagePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -5373,12 +5373,12 @@ type CommitMessagePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -5453,7 +5453,7 @@ type CommitterEmailPatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -5463,12 +5463,12 @@ type CommitterEmailPatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -17864,6 +17864,31 @@ type IssueTemplate {
   about: String
 
   """
+  The suggested assignees.
+  """
+  assignees(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): UserConnection!
+
+  """
   The suggested issue body.
   """
   body: String
@@ -17872,6 +17897,36 @@ type IssueTemplate {
   The template filename.
   """
   filename: String!
+
+  """
+  The suggested issue labels
+  """
+  labels(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for labels returned from the connection.
+    """
+    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+  ): LabelConnection
 
   """
   The template name.
@@ -34661,27 +34716,27 @@ type PullRequestParameters {
   """
   New, reviewable commits pushed will dismiss previous pull request review approvals.
   """
-  dismissStaleReviewsOnPush: Boolean
+  dismissStaleReviewsOnPush: Boolean!
 
   """
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
-  requireCodeOwnerReview: Boolean
+  requireCodeOwnerReview: Boolean!
 
   """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
   """
-  requireLastPushApproval: Boolean
+  requireLastPushApproval: Boolean!
 
   """
   The number of approving reviews that are required before a pull request can be merged.
   """
-  requiredApprovingReviewCount: Int
+  requiredApprovingReviewCount: Int!
 
   """
   All conversations on code must be resolved before a pull request can be merged.
   """
-  requiredReviewThreadResolution: Boolean
+  requiredReviewThreadResolution: Boolean!
 }
 
 """
@@ -37494,14 +37549,14 @@ type RefNameConditionTarget {
   """
   Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
-  exclude: [String!]
+  exclude: [String!]!
 
   """
   Array of ref names or patterns to include. One of these patterns must match
   for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the
   default branch or `~ALL` to include all branches.
   """
-  include: [String!]
+  include: [String!]!
 }
 
 """
@@ -43636,13 +43691,13 @@ type RepositoryNameConditionTarget {
   """
   Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
-  exclude: [String!]
+  exclude: [String!]!
 
   """
   Array of repository names or patterns to include. One of these patterns must
   match for the condition to pass. Also accepts `~ALL` to include all repositories.
   """
-  include: [String!]
+  include: [String!]!
 
   """
   Target changes that match these patterns will be prevented except by those with bypass permissions.
@@ -44888,7 +44943,7 @@ type RequiredDeploymentsParameters {
   """
   The environments that must be successfully deployed to before branches can be merged.
   """
-  requiredDeploymentEnvironments: [String!]
+  requiredDeploymentEnvironments: [String!]!
 }
 
 """
@@ -44940,14 +44995,14 @@ type RequiredStatusChecksParameters {
   """
   Status checks that are required.
   """
-  requiredStatusChecks: [StatusCheckConfiguration!]
+  requiredStatusChecks: [StatusCheckConfiguration!]!
 
   """
   Whether pull requests targeting a matching branch must be tested with the
   latest code. This setting will not take effect unless at least one status
   check is enabled.
   """
-  strictRequiredStatusChecksPolicy: Boolean
+  strictRequiredStatusChecksPolicy: Boolean!
 }
 
 """
@@ -49781,12 +49836,12 @@ type StatusCheckConfiguration {
   """
   The status check context name that must be present on the commit.
   """
-  context: String
+  context: String!
 
   """
   The optional integration ID that this status check must originate from.
   """
-  integrationId: Int!
+  integrationId: Int
 }
 
 """
@@ -50322,7 +50377,7 @@ type TagNamePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -50332,12 +50387,12 @@ type TagNamePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -55065,7 +55120,7 @@ type UpdateParameters {
   """
   Branch can pull changes from its upstream repository
   """
-  updateAllowsFetchAndMerge: Boolean
+  updateAllowsFetchAndMerge: Boolean!
 }
 
 """
@@ -58237,7 +58292,7 @@ interface Votable {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node {
+type Workflow implements Node & UniformResourceLocatable {
   """
   Identifies the date and time when the object was created.
   """
@@ -58253,6 +58308,11 @@ type Workflow implements Node {
   The name of the workflow.
   """
   name: String!
+
+  """
+  The HTTP path for this workflow
+  """
+  resourcePath: URI!
 
   """
   The runs of the workflow.
@@ -58293,6 +58353,11 @@ type Workflow implements Node {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this workflow
+  """
+  url: URI!
 }
 
 """

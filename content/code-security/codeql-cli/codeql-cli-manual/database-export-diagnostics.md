@@ -33,6 +33,8 @@ codeql database export-diagnostics --format=<format> [--output=<output>] <option
 \[Experimental] Export diagnostic information from a database for a
 failed analysis.
 
+Available since `v2.12.6`.
+
 ## Primary options
 
 #### `<database>`
