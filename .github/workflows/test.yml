@@ -54,6 +54,7 @@ jobs:
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'search', path: 'src/search/tests', },
+              { name: 'pageinfo', path: 'src/pageinfo/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
@@ -177,5 +178,5 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
-          ROOT: ${{ matrix.name == 'rendering-fixtures' && 'tests/fixtures' || ''}}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || ''}}
         run: npm test -- ${{ matrix.path }}/
