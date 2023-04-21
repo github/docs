@@ -4,6 +4,48 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>BranchNamePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>BranchNamePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>BranchNamePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>PullRequestParameters.dismissStaleReviewsOnPush</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requireCodeOwnerReview</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requireLastPushApproval</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requiredApprovingReviewCount</code> changed type from <code>Int</code> to <code>Int!</code></p>",
+          "<p>Field <code>PullRequestParameters.requiredReviewThreadResolution</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>RefNameConditionTarget.exclude</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RefNameConditionTarget.include</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RepositoryNameConditionTarget.exclude</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RepositoryNameConditionTarget.include</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RequiredDeploymentsParameters.requiredDeploymentEnvironments</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RequiredStatusChecksParameters.requiredStatusChecks</code> changed type from '[StatusCheckConfiguration!]<code>to</code>[StatusCheckConfiguration!]!'</p>",
+          "<p>Field <code>RequiredStatusChecksParameters.strictRequiredStatusChecksPolicy</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>StatusCheckConfiguration.context</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>StatusCheckConfiguration.integrationId</code> changed type from <code>Int!</code> to <code>Int</code></p>",
+          "<p>Field <code>TagNamePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>TagNamePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>TagNamePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>UpdateParameters.updateAllowsFetchAndMerge</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>assignees</code> was added to object type <code>IssueTemplate</code></p>"
         ]
       }
