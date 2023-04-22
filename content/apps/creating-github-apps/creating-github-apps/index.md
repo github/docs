@@ -15,12 +15,11 @@ children:
   - /differences-between-github-apps-and-oauth-apps
   - /rate-limits-for-github-apps
   - /creating-a-github-app
-  - /using-webhooks-with-github-apps
   - /choosing-permissions-for-a-github-app
+  - /using-webhooks-with-github-apps
   - /making-a-github-app-public-or-private
   - /creating-a-github-app-from-a-manifest
   - /creating-a-github-app-using-url-parameters
   - /creating-a-custom-badge-for-your-github-app
   - /about-the-user-authorization-callback-url
 ---
-
