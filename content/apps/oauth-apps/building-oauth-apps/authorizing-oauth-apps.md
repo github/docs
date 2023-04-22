@@ -56,6 +56,8 @@ Parameter name | Type | Description
 `state` | `string` | {% data reusables.apps.state_description %}
 `allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
+The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time.
+
 ### 2. Users are redirected back to your site by GitHub
 
 If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
@@ -315,10 +317,6 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 **Tip:** To learn more about the resources that your OAuth App can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 {% endtip %}
-
-## Limitations
-
-There is no support for PKCE ([RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)), see [feature request](https://github.com/orgs/community/discussions/15752).
 
 ## Troubleshooting
 
