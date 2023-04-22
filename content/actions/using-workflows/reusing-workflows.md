@@ -246,7 +246,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 * [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)
 * [`jobs.<job_id>.if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)
 * [`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions)
-* [`jobs.<job_id>.concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#concurrency)
+* [`jobs.<job_id>.concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idconcurrency)
 
    {% note %}
 
