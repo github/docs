@@ -13,7 +13,7 @@ export const Contribution = () => {
 
   return (
     <div className="f5 contribution">
-      <h2 className="f4 mb-3">{t`title`}</h2>
+      <h3 className="f4 mb-3">{t`title`}</h3>
       <p className="max-w-xs color-fg-muted mb-3">{t`body`}</p>
       <a className="btn color-border-accent-emphasis" href={contributionHref}>
         <GitPullRequestIcon size="small" className="octicon mr-1" />
@@ -21,6 +21,7 @@ export const Contribution = () => {
       </a>
       <p className="color-fg-muted f6 mt-2">
         <a
+          className="text-underline"
           href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
           target="_blank"
           rel="noopener"

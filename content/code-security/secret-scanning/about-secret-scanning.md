@@ -28,6 +28,17 @@ If your project communicates with an external service, you might use a token or 
 
 {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}, even if the repository is archived{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %}
 
+{% ifversion secret-scanning-backfills-historical-issues %}
+{% data variables.product.prodname_secret_scanning_caps %} also scans the titles, descriptions, and comments, in open and closed historical issues, and reports leaked secrets as alerts on {% data variables.product.prodname_dotcom %}{% ifversion ghec %}. A notification is sent to the relevant partner when a historical partner pattern is detected{% endif %}.
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_secret_scanning_caps %} for historical secret leaks is currently in public beta and subject to change.
+
+{% endnote %}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 {% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
 

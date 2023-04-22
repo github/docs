@@ -38,6 +38,8 @@ name or implicitly inside of a query suite (.qls) file.
 The packs will be downloaded and unzipped into the package cache by
 default.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<scope/name[@version]|suite.qls>...`
@@ -67,6 +69,8 @@ for each pack will be determined by the 'registries' property of
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
 
 #### `-f, --[no-]force`
 

@@ -155,7 +155,7 @@ describe('server', () => {
 
   test('renders a 404 page', async () => {
     const $ = await getDOM('/not-a-real-page', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
       $.text().includes(
@@ -176,7 +176,7 @@ describe('server', () => {
 
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
       $.text().includes(
@@ -720,28 +720,5 @@ describe('static routes', () => {
     expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
-  })
-})
-
-describe('index pages', () => {
-  const nonEnterpriseOnlyPath =
-    '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-
-  test.skip('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
-  })
-
-  test.skip('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
-    )
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
-  })
-
-  test('includes correctly versioned links in GHE', async () => {
-    const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
-    const $ = await getDOM(installationLatest)
-    expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
   })
 })

@@ -284,6 +284,22 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 - [Inviting people to manage your enterprise account](https://docs.github.com/en/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 - [Setting up continuous integration using workflow templates](https://docs.github.com/en/actions/guides/setting-up-continuous-integration-using-workflow-templates)
 
+### Release notes
+
+Release notes enable readers to understand and prepare for the customer-facing changes in each release of GitHub's versioned enterprise products (e.g., GitHub Enterprise Server). Good release notes provide administrators the necessary information to plan system upgrades in environments that require change control, and support end users who want to understand and prepare to use new GitHub features and functionality. 
+
+Writers source, edit, and publish release notes in collaboration with product DRIs, feature owners, and individual engineers at GitHub. For each individual release, we group release notes by predefined types.
+
+We publish the release notes for [GitHub Enterprise Server](https://docs.github.com/enterprise-server/admin/release-notes) (GHES) and [GitHub AE](https://docs.github.com/github-ae@latest/admin/release-notes) (GHAE) on GitHub Docs, in the "Enterprise administrators" documentation set. 
+
+#### Types of releases
+
+GitHub Docs provides release notes for feature releases of GHES and GHAE, and for patch releases of GHES. For more information about releases of each product, see "About upgrades to new releases" in the [GHES](https://docs.github.com/enterprise-server/admin/overview/about-upgrades-to-new-releases) or [GHAE](https://docs.github.com/github-ae@latest/admin/overview/about-upgrades-to-new-releases) documentation.
+
+#### Guidance and example release notes
+
+You can find guidance for the format, style, and tone of release notes, as well as examples of each type of note, in the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#release-notes).
+
 ### Troubleshooting
 
 Troubleshooting content includes built-in errors we expect users to encounter, common problems reported to support, and situations people might encounter while completing tasks. Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support and product managers to surface common errors and include them in the documentation.

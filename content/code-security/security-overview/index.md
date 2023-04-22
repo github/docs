@@ -16,4 +16,5 @@ children:
   - /assessing-adoption-code-security
   - /assessing-code-security-risk
   - /filtering-alerts-in-security-overview
+  - /enabling-security-features-for-multiple-repositories
 ---

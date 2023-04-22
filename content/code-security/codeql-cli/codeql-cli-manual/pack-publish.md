@@ -33,6 +33,8 @@ codeql pack publish [--dry-run] [--threads=<num>] [--ram=<MB>] [--pack=<folder> 
 This command publishes a pack to a package registry. Before publishing,
 the pack is first compiled (if necessary) and bundled.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<dir>`
@@ -94,6 +96,8 @@ without trying to create or bundle anything new.
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
 
 ### Options for configuring which CodeQL packs to apply this command to.
 

@@ -3,11 +3,11 @@
 import { readFile, writeFile, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'
-import mkdirp from 'mkdirp'
-import { execSync } from 'child_process'
+import { mkdirp } from 'mkdirp'
+import { execFileSync, execSync } from 'child_process'
 import path from 'path'
 import matter from 'gray-matter'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 
 import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown.js'
 import { convertContentToDocs } from './convert-markdown-for-docs.js'
@@ -92,6 +92,6 @@ async function rstToMarkdown(sourceDirectory) {
       throw new Error(errorMsg)
     }
 
-    execSync(`pandoc ${tempFilePath} -f rst -t commonmark_x -o ${outputFilepath}`)
+    execFileSync('pandoc', [tempFilePath, '-f', 'rst', '-t', 'commonmark_x', '-o', outputFilepath])
   }
 }
