@@ -119,13 +119,13 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 {% endvscode %}
 
-{% neovim %}
+{% vimneovim %}
 
 ## Checking if {% data variables.product.prodname_copilot%} is operational
 
-To check if GitHub Copilot is operational, run the following command in Neovim:
+To check if GitHub Copilot is operational, run the following command in Vim/Neovim:
 
 
     :Copilot status
 
-{% endneovim %}
+{% endvimneovim %}

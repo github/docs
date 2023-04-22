@@ -323,16 +323,16 @@ You can configure {% data variables.product.prodname_copilot %} to connect throu
 
 {% endvscode %}
 
-{% neovim %}
+{% vimneovim %}
 
-## Configuring {% data variables.product.prodname_copilot %} in Neovim
+## Configuring {% data variables.product.prodname_copilot %} in Vim/Neovim
 
-For guidance on configuring {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
+For guidance on configuring {% data variables.product.prodname_copilot %} in Vim/Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Vim/Neovim by running the following command:
 
 
     :help copilot
 
 {% data reusables.copilot.dotcom-settings %}
 
-{% endneovim %}
+{% endvimneovim %}
 
