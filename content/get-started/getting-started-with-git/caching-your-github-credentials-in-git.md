@@ -104,3 +104,13 @@ For more options for storing your credentials on Linux, see [Credential Storage]
 <br>
 
 For more information or to report issues with GCM, see the official GCM docs at "[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)."
+
+## git-credential-oauth
+
+[git-credential-oauth](https://github.com/hickford/git-credential-oauth) authenticates to GitHub (and other hosts) using OAuth.
+
+1. [Download and install](https://github.com/hickford/git-credential-oauth/releases/latest). {% linux %}git-credential-oauth is also included in [multiple Linux distributions](https://repology.org/project/git-credential-oauth/versions).{% endlinux %}
+2. Configure Git to use git-credential-oauth `git credential-oauth configure`.
+
+For more information, see the [README](https://github.com/hickford/git-credential-oauth#readme).
+
