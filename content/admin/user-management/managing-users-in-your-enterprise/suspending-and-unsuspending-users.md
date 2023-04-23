@@ -30,11 +30,11 @@ ERROR: Your account is suspended. Please check with your installation administra
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[Promoting or demoting a site administrator](/enterprise/admin/user-management/promoting-or-demoting-a-site-administrator)."
+Before suspending site administrators, you must demote them to regular users. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
 
 {% tip %}
 
-**Note:** If [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+**Note:** If [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
 
 {% endtip %}
 
@@ -44,32 +44,26 @@ Before suspending site administrators, you must demote them to regular users. Fo
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Account suspension," in the red Danger Zone box, click **Suspend**.
-![Suspend button](/assets/images/enterprise/site-admin-settings/suspend.png)
-6. Provide a reason to suspend the user.
-![Suspend reason](/assets/images/enterprise/site-admin-settings/suspend-reason.png)
+1. Under "Account suspension," in the "Danger Zone" section, click **Suspend**.
+1. In the "Log reason" field, type a reason to suspend the user.
+1. Click **Suspend**.
 
 ## Unsuspending a user from the user admin dashboard
 
 As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Suspended users**.
-![Suspended users tab](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
-2. Click the name of the user account that you would like to unsuspend.
-![Suspended user](/assets/images/enterprise/site-admin-settings/user/suspended-user.png)
+1. In the left sidebar, click **Suspended users**.
+1. Click the name of the user account that you would like to unsuspend.
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
-{% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Under "Account suspension," in the red Danger Zone box, click **Unsuspend**.
-![Unsuspend button](/assets/images/enterprise/site-admin-settings/unsuspend.png)
-5. Provide a reason to unsuspend the user.
-![Unsuspend reason](/assets/images/enterprise/site-admin-settings/unsuspend-reason.png)
+1. Under "Account suspension," in the "Danger Zone" section, click **Unsuspend**.
+1. In the "Log reason" field, type a reason to unsuspend the user.
+1. Click **Unsuspend.**
 
 ## Suspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-suspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-suspend) with the username to suspend.
+2. Run [ghe-user-suspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-suspend) with the username to suspend.
   ```shell
   $ ghe-user-suspend USERNAME
   ```
@@ -81,23 +75,20 @@ You can create a custom message that suspended users will see when attempting to
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. Click **Add message**.
-![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
-6. Type your message into the **Suspended user message** box. You can type Markdown, or use the Markdown toolbar to style your message.
-![Suspended user message](/assets/images/enterprise/site-admin-settings/suspended-user-message.png)
-7. Click the **Preview** button under the **Suspended user message** field to see the rendered message.
-![Preview button](/assets/images/enterprise/site-admin-settings/suspended-user-message-preview-button.png)
-8. Review the rendered message.
-![Suspended user message rendered](/assets/images/enterprise/site-admin-settings/suspended-user-message-rendered.png)
+1. To the right of "Suspended user page", click **Add message**.
+
+   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/add-message.png)
+1. In the "Suspend user message" field, type your message. You can type Markdown, or use the Markdown toolbar to style your message.
+1. To see the rendered message, click **Preview**.
 {% data reusables.enterprise_site_admin_settings.save-changes %}
 
 ## Unsuspending a user from the command line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. Run [ghe-user-unsuspend](/enterprise/admin/guides/installation/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+2. Run [ghe-user-unsuspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
   ```shell
   $ ghe-user-unsuspend USERNAME
   ```
 
 ## Further reading
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+- "[AUTOTITLE](/rest/enterprise-admin#suspend-a-user)"

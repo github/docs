@@ -16,7 +16,7 @@ shortTitle: Use staging environment
 
 ## About staging environments for {% data variables.product.product_name %}
 
-It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+It can be useful to have a staging or testing environment for {% data variables.location.product_location %}, so that you can test updates or new features before implementing them in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 ## Using a staging environment with {% data variables.product.prodname_actions %}
 
@@ -34,7 +34,7 @@ When you set up a staging environment that includes a {% data variables.product.
 
 {% endwarning %}
 
-For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
+For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
 
 ### Copying files from production to staging
 

@@ -1,20 +1,14 @@
-import { useTranslation } from 'components/hooks/useTranslation'
-
 type Props = {
   slug: string
   previews: Array<string>
+  heading: string
 }
 
-export function RestPreviewNotice({ slug, previews }: Props) {
-  const { t } = useTranslation('products')
+export function RestPreviewNotice({ slug, previews, heading }: Props) {
   return (
     <>
       <h3 className="h4" id={`${slug}-preview-notices`}>
-        <a href={`#${slug}-preview-notices`}>
-          {previews.length > 1
-            ? `${t('rest.reference.preview_notices')}`
-            : `${t('rest.reference.preview_notice')}`}
-        </a>
+        <a href={`#${slug}-preview-notices`}>{heading}</a>
       </h3>
       {previews.map((preview, index) => (
         <div

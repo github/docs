@@ -35,31 +35,15 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     steps:
-      - name: Install a local Elasticsearch for testing
-        # For the sake of saving time, only run this step if the test-group
-        # is one that will run tests against an Elasticsearch on localhost.
-        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          # Make sure this matches production and `sync-search-pr.yml`
-          elasticsearch version: '7.11.1'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-
       - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-        with:
-          lfs: true
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
 
-      - name: Checkout LFS objects
-        run: git lfs checkout
+      - uses: ./.github/actions/setup-elasticsearch
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
         with:
-          node-version: '16.17.0'
+          node-version-file: 'package.json'
           cache: npm
 
       - name: Install dependencies
@@ -70,8 +54,13 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
         run: npm ci --include=optional
 
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
       - name: Cache nextjs build
-        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}

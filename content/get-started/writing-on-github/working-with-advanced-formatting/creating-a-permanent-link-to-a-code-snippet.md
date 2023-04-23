@@ -15,28 +15,29 @@ topics:
   - Pull requests
 shortTitle: Permanent links to code
 ---
+
 ## Linking to code
 
 This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL.
 
-![Code snippet rendered in a comment](/assets/images/help/repository/rendered-code-snippet.png)
+![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
 {% tip %}
 
-**Tip:** To create a permalink for an entire file, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."
+**Tip:** To create a permalink for an entire file, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Locate the code you'd like to link to:
+1. Locate the code you'd like to link to:
     - To link to code from a file, navigate to the file.
     - To link to code from a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
-4. To the left of the line or range of lines, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. In the drop-down menu, click **Copy permalink**.
-  ![Kebab menu with option to copy a permanent link for a selected line](/assets/images/help/repository/copy-permalink-specific-line.png)
-5. Navigate to the conversation where you want to link to the code snippet.
-6. Paste your permalink into a comment, and click **Comment**.
-  ![Pasted permalink in a comment in the same repository](/assets/images/help/repository/code-snippet-permalink-in-comment.png)
+1. To the left of the line or range of lines, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the drop-down menu, click **Copy permalink**.
+
+   ![Screenshot of a file, with 8 lines selected. To the left of the first selected line, a button labeled with a kebab icon is outlined in dark orange.](/assets/images/help/repository/open-new-issue-specific-line.png)
+1. Navigate to the conversation where you want to link to the code snippet.
+1. Paste your permalink into a comment, and click **Comment**.
 
 ## Linking to Markdown
 
@@ -46,6 +47,5 @@ You can link to a specific line in the Markdown file the same way you can in cod
 
 ## Further reading
 
-- "[Creating an issue](/articles/creating-an-issue/)"
-- "[Opening an issue from code](/articles/opening-an-issue-from-code/)"
-- "[Reviewing changes in pull requests](/articles/reviewing-changes-in-pull-requests/)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)"

@@ -32,7 +32,7 @@ This guide shows you workflow examples that configure a service container using 
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and PostgreSQL. For more information, see:
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 - "[PostgreSQL tutorial](https://www.postgresqltutorial.com/)" in the PostgreSQL documentation
 
 ## Running jobs in containers
@@ -91,7 +91,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs in containers
 
 {% data reusables.actions.service-container-host %}
 
@@ -123,7 +123,7 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs in containers
 
 {% data reusables.actions.service-template-steps %}
 
@@ -213,13 +213,13 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs directly on the runner machine
 
 {% data reusables.actions.service-container-host-runner %}
 
 {% data reusables.actions.postgres-label-description %}
 
-The workflow maps port 5432 on the PostgreSQL service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+The workflow maps port 5432 on the PostgreSQL service container to the Docker host. For more information about the `ports` keyword, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
 ```yaml{:copy}
 jobs:
@@ -248,7 +248,7 @@ jobs:
           - 5432:5432
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs directly on the runner machine
 
 {% data reusables.actions.service-template-steps %}
 

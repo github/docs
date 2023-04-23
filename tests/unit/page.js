@@ -3,11 +3,10 @@ import path from 'path'
 import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
-import Page from '../../lib/page.js'
+import Page, { FrontmatterErrorsError } from '../../lib/page.js'
 import { allVersions } from '../../lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import loadSiteData from '../../lib/site-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
@@ -70,146 +69,6 @@ describe('Page class', () => {
   })
 
   describe('page.render(context)', () => {
-    const siteData = loadSiteData()
-
-    test('rewrites links to include the current language prefix and version', async () => {
-      const page = await Page.init(opts)
-      const context = {
-        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
-        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        currentPath:
-          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
-        currentLanguage: 'en',
-        site: siteData.en.site,
-      }
-      const rendered = await page.render(context)
-      const $ = cheerio.load(rendered)
-      expect(
-        page.markdown.includes(
-          '(/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
-        )
-      ).toBe(true)
-      expect(
-        page.markdown.includes(
-          '(/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
-        )
-      ).toBe(false)
-      expect(
-        $(
-          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
-        ).length
-      ).toBe(0)
-      expect(
-        $(
-          `a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]`
-        ).length
-      ).toBeGreaterThan(0)
-    })
-
-    // Much of this test is based on making sure we don't
-    // repeat the bug introduced in issue 1545.
-    test('rewrites links correctly for unsupported enterprise-server links', async () => {
-      const page = await Page.init({
-        relativePath: 'page-with-deprecated-enterprise-links.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-      const context = {
-        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
-        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        currentPath: '/en/page-with-deprecated-enterprise-links',
-        currentLanguage: 'en',
-        site: siteData.en.site,
-      }
-      const rendered = await page.render(context)
-      // That page only contains exactly 2 links. And we can know
-      // exactly what we expect each one to be.
-      const $ = cheerio.load(rendered)
-      const first = $('a[href]').first()
-      expect(first.text()).toBe('Version 2.22')
-      expect(first.attr('href')).toBe('/en/enterprise-server@2.22')
-      const last = $('a[href]').last()
-      expect(last.text()).toBe('Version 3.2')
-      expect(last.attr('href')).toBe('/en/enterprise-server@3.2')
-    })
-
-    test('rewrites links in the intro to include the current language prefix and version', async () => {
-      const page = await Page.init(opts)
-      page.rawIntro =
-        '[Pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)'
-      const context = {
-        page: { version: nonEnterpriseDefaultVersion },
-        currentVersion: nonEnterpriseDefaultVersion,
-        currentPath:
-          '/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
-        currentLanguage: 'en',
-        site: siteData.en.site,
-      }
-      // This is needed because unit tests are weird. The page.render()
-      // method is dependent on module global cache.
-      // We need to fudge the `currentPath` so it appears to be different.
-      context.currentPath += Math.random()
-      await page.render(context)
-      const $ = cheerio.load(page.intro)
-      expect(
-        $(
-          'a[href="/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
-        ).length
-      ).toBe(0)
-      expect(
-        $(
-          'a[href="/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]'
-        ).length
-      ).toBeGreaterThan(0)
-    })
-
-    test('does not rewrite links that include deprecated enterprise release numbers', async () => {
-      const page = await Page.init({
-        relativePath:
-          'admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en',
-      })
-      const context = {
-        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
-        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        currentPath: `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123`,
-        currentLanguage: 'en',
-        site: siteData.en.site,
-      }
-      const rendered = await page.render(context)
-      const $ = cheerio.load(rendered)
-      expect(
-        page.markdown.includes(
-          '(/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)'
-        )
-      ).toBe(true)
-      expect(
-        $(
-          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/11.10.340/admin/articles/upgrading-to-the-latest-release"]`
-        ).length
-      ).toBe(0)
-      expect(
-        $('a[href="/en/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release"]')
-          .length
-      ).toBeGreaterThan(0)
-    })
-
-    test('does not rewrite links to external redirects', async () => {
-      const page = await Page.init(opts)
-      page.markdown = `${page.markdown}\n\nSee [Capistrano](/capistrano).`
-      const context = {
-        page: { version: nonEnterpriseDefaultVersion },
-        currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: `/en/${nonEnterpriseDefaultVersion}/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
-        currentLanguage: 'en',
-        site: siteData.en.site,
-      }
-      const rendered = await page.render(context)
-      const $ = cheerio.load(rendered)
-      expect($('a[href="/capistrano"]').length).toBe(1)
-    })
-
     // Most of our Liquid versioning tests are in https://github.com/docs/render-content,
     // But they don't have access to our currently supported versions, which we're testing here.
     // This test ensures that this works as expected: {% if enterpriseServerVersions contains currentVersion %}
@@ -224,7 +83,6 @@ describe('Page class', () => {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
         enterpriseServerVersions,
-        site: siteData.en.site,
       }
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page.relativePath}`
       let rendered = await page.render(context)
@@ -268,7 +126,6 @@ describe('Page class', () => {
       const context = {
         currentVersion: 'enterprise-server@3.0',
         currentLanguage: 'en',
-        site: siteData.en.site,
       }
       await expect(() => {
         return page.render(context)
@@ -359,20 +216,6 @@ describe('Page class', () => {
             `enterprise-server@${enterpriseServerReleases.oldestSupported}`
         ).href
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
-    })
-
-    test('permalinks for dotcom-only pages', async () => {
-      const page = await Page.init({
-        relativePath: 'authentication/troubleshooting-ssh/using-ssh-over-the-https-port.md',
-        basePath: path.join(__dirname, '../../content'),
-        languageCode: 'en',
-      })
-      const expectedPath = '/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port'
-      expect(
-        page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
-      ).toBe(expectedPath)
-      expect(page.permalinks.length).toBe(2)
     })
 
     test('permalinks for enterprise-only pages', async () => {
@@ -552,15 +395,15 @@ describe('Page class', () => {
       expect(page.featuredLinks.videos).toStrictEqual([
         {
           title: 'codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
         {
           title: 'more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
         {
           title: 'even more codespaces',
-          href: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU',
+          href: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc',
         },
       ])
 
@@ -727,7 +570,7 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    await expect(getPage).rejects.toThrowError('invalid frontmatter entry')
+    await expect(getPage).rejects.toThrow(FrontmatterErrorsError)
   })
 
   test('missing versions frontmatter', async () => {

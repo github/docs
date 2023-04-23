@@ -1,13 +1,9 @@
 import cx from 'classnames'
-import { useState } from 'react'
 
-import { ChevronDownIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
-
-const maxArticles = 5
 
 export const ProductArticlesList = () => {
   const { currentProductTree } = useMainContext()
@@ -30,8 +26,6 @@ export const ProductArticlesList = () => {
 }
 
 const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
-  const [isShowingMore, setIsShowingMore] = useState(false)
-
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
@@ -46,10 +40,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
             <ActionList.Item
               as="li"
               key={childNode.href + index}
-              className={cx(
-                'width-full pl-0',
-                !isShowingMore && index >= maxArticles ? 'd-none' : null
-              )}
+              className={cx('width-full pl-0')}
               sx={{
                 borderRadius: 0,
                 ':hover': {
@@ -69,12 +60,6 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
           )
         })}
       </ActionList>
-      {!isShowingMore && treeNode.childPages.length > maxArticles && (
-        <button onClick={() => setIsShowingMore(true)} className="mt-2 btn-link Link--secondary">
-          Show {treeNode.childPages.length - maxArticles} more{' '}
-          <ChevronDownIcon className="v-align-text-bottom" />
-        </button>
-      )}
     </div>
   )
 }

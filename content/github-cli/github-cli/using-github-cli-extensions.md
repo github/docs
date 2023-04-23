@@ -18,7 +18,7 @@ topics:
 
 {% endnote %}
 
-{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see "[Creating {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/creating-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
 
 Extensions are locally installed and are scoped to the user. Therefore, if you access {% data variables.product.prodname_cli %} from a different machine or another user accesses {% data variables.product.prodname_cli %} from the same machine, the extension will not be available.
 

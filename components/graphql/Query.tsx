@@ -28,7 +28,14 @@ export function Query({ item }: Props) {
       <div>
         {item.args.length > 0 && (
           <>
-            <h4>{t('graphql.reference.arguments')}</h4>
+            <h4
+              dangerouslySetInnerHTML={{
+                __html: t('graphql.reference.arguments').replace(
+                  '{{ GraphQLItemTitle }}',
+                  item.name
+                ),
+              }}
+            />
             <Table fields={item.args} />
           </>
         )}

@@ -1,8 +1,10 @@
 import { getLiquidConditionalsWithContent } from './get-liquid-conditionals.js'
 import getVersionBlocks from './get-version-blocks.js'
 import { allVersions } from '../../lib/all-versions.js'
+import supportedOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import { Tokenizer } from 'liquidjs'
 const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName)
+const ghaeRangeRegex = new RegExp(`ghae (${supportedOperators.join('|')})`)
 const updateRangeKeepGhes = 'updateRangeKeepGhes'
 const updateRangeRemoveGhes = 'updateRangeRemoveGhes'
 const removeRangeAndContent = 'removeRangeAndContent'
@@ -35,7 +37,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
     const isSafeToRemoveContent =
       versionBlock.isGhesOnly && (versionBlock.hasSingleRange || versionBlock.andGhesRanges.length)
 
-    if (isConditionalNecessary(supportedShortVersions, versionBlock.condArgs)) {
+    if (canConditionalBeRemoved(supportedShortVersions, versionBlock.condOnly)) {
       actionMap[removeConditionals] = true
     }
 
@@ -140,7 +142,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
       }
 
       // ----- UPDATE RANGE AND KEEP `GHES` -----
-      let containsAllSupportedVersions
+      let canBeRemoved
       if (versionBlock.action.updateRangeKeepGhes) {
         const replacement = versionBlock.action.updateRangeKeepGhes.replace(/ghes.+$/, 'ghes')
 
@@ -152,12 +154,9 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        containsAllSupportedVersions = isConditionalNecessary(
-          supportedShortVersions,
-          newCondWithLiquid
-        )
+        canBeRemoved = canConditionalBeRemoved(supportedShortVersions, newCondWithLiquid)
 
-        if (!containsAllSupportedVersions) {
+        if (!canBeRemoved) {
           versionBlock.newContent = versionBlock.content.replace(
             versionBlock.condWithLiquid,
             newCondWithLiquid
@@ -169,7 +168,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
       // this happens if either:
       // (a) the the conditional was updated in a previous step to contain all the currently supported versions, or
       // (b) the conditional was not touched but its arguments already contained all supported versions, making it unnecessary
-      if (containsAllSupportedVersions || versionBlock.action.removeConditionals) {
+      if (canBeRemoved || versionBlock.action.removeConditionals) {
         versionBlock.newContent = versionBlock.content
 
         // If this block does not contain else/elsifs, start by removing the final endif.
@@ -197,7 +196,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // leaving the content inside the elsif block as is. Also leave the endif in this scenario.
         if (versionBlock.hasElsif) {
           versionBlock.newContent = versionBlock.newContent.replace(
-            /({%-) elsif/,
+            /({%-?) elsif/,
             `$1 ${versionBlock.condKeyword}`
           )
         }
@@ -259,10 +258,10 @@ function lastIndexOfRegex(str, regex, fromIndex) {
 // Checks if a conditional is necessary given all the supported versions and the arguments in a conditional
 // If all supported versions show up in the arguments, it's not necessary! Additionally, builds in support
 // for when feature-based versioning is used, which looks like "issue" versions for upcoming GHAE releases
-function isConditionalNecessary(supportedVersions, conditionalArguments) {
-  return supportedVersions.every(
-    (arg) =>
-      (conditionalArguments.includes(arg) || conditionalArguments.includes('or ' + arg)) &&
-      !conditionalArguments.includes('issue')
-  )
+function canConditionalBeRemoved(supportedVersions, conditional) {
+  if (typeof conditional !== 'string') throw new Error('Expecting a string.')
+
+  const containsAllVersions = supportedVersions.every((arg) => conditional.includes(arg))
+  const hasGhaeRange = ghaeRangeRegex.test(conditional)
+  return containsAllVersions && !hasGhaeRange
 }

@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { KeyboardEventHandler } from 'react'
 
 import { ParameterRow } from './ParameterRow'
 import { BodyParameter, ChildParameter, Parameter } from './types'
@@ -8,20 +9,24 @@ import styles from './ParameterTable.module.scss'
 
 type Props = {
   slug: string
-  numPreviews: number
-  heading: string
-  headers: Array<ChildParameter>
-  parameters: Array<Parameter>
+  numPreviews?: number
+  heading?: string
+  headers?: Array<ChildParameter>
+  parameters?: Array<Parameter>
   bodyParameters: Array<BodyParameter>
+  bodyParamExpandCallback?: KeyboardEventHandler<HTMLButtonElement> | undefined
+  clickedBodyParameterName?: string | undefined
 }
 
 export function ParameterTable({
   slug,
-  numPreviews,
+  numPreviews = 0,
   heading = '',
   headers = [],
-  parameters,
+  parameters = [],
   bodyParameters,
+  bodyParamExpandCallback = undefined,
+  clickedBodyParameterName = '',
 }: Props) {
   const { t } = useTranslation(['parameter_table', 'products'])
   const queryParams = parameters.filter((param) => param.in === 'query')
@@ -41,7 +46,11 @@ export function ParameterTable({
       >
         <thead>
           <tr>
-            <th id="header" scope="col" className="text-bold pl-0">
+            <th
+              id="header"
+              scope="col"
+              className={cx(headers.length === 0 && 'visually-hidden', 'text-bold pl-0')}
+            >
               {t('headers')}
             </th>
           </tr>
@@ -122,7 +131,9 @@ export function ParameterTable({
           {bodyParameters.length > 0 && (
             <>
               <tr className="border-top-0">
-                <th scope="colgroup" className="text-bold pl-0">
+                {/* webhooks don't have a 'Parameters' table heading text so
+                 we adjust the size of the body params heading in that case */}
+                <th scope="colgroup" className={cx(heading ? 'text-bold' : 'h4', 'pl-0')}>
                   {t('body')}
                 </th>
               </tr>
@@ -131,7 +142,13 @@ export function ParameterTable({
               </tr>
 
               {bodyParameters.map((param, index) => (
-                <ParameterRow rowParams={param} slug={slug} key={`${index}-${param}`} />
+                <ParameterRow
+                  bodyParamExpandCallback={bodyParamExpandCallback}
+                  clickedBodyParameterName={clickedBodyParameterName}
+                  rowParams={param}
+                  slug={slug}
+                  key={`${index}-${param}`}
+                />
               ))}
             </>
           )}

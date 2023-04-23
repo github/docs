@@ -11,7 +11,7 @@ import {
 import { getAutomatedPageMiniTocItems } from 'lib/get-mini-toc-items.js'
 import { Previews } from 'components/graphql/Previews'
 import { PreviewT } from 'components/graphql/types'
-import { getPreviews } from 'lib/graphql/index.js'
+import { getPreviews } from 'src/graphql/lib/index.js'
 
 type Props = {
   mainContext: MainContextT

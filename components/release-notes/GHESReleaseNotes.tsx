@@ -26,11 +26,11 @@ export function GHESReleaseNotes({ context }: Props) {
     <div className="d-flex">
       <article className="min-width-0 flex-1">
         <div className="d-flex flex-items-center flex-justify-center color-bg-default text-bold px-5 py-2">
-          <h1 className="f4 py-3 m-0">
+          <h1 id="title-h1" className="f4 py-3 m-0">
             {currentVersion.planTitle} {currentVersion.currentRelease} release notes
           </h1>
         </div>
-        <MarkdownContent data-search="article-content">
+        <MarkdownContent data-search="article-body">
           {releaseNotes.map((patch) => {
             return (
               <GHESReleaseNotePatch
@@ -56,7 +56,7 @@ export function GHESReleaseNotes({ context }: Props) {
         )}
       >
         <nav className="height-full overflow-auto">
-          <MarkdownContent data-search="article-content">
+          <MarkdownContent>
             <ul className="list-style-none pl-0 text-bold">
               {releases.map((release) => {
                 const releaseLink = `/${router.locale}/${currentVersion.plan}@${release.version}/${currentProduct?.id}/release-notes`
@@ -77,7 +77,7 @@ export function GHESReleaseNotes({ context }: Props) {
                         className="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between"
                       >
                         {release.version}
-                        <LinkExternalIcon />
+                        <LinkExternalIcon aria-label="(external site)" />
                       </LinkComponent>
                     </li>
                   )

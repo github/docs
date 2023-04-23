@@ -1,9 +1,9 @@
 import FailBot from '../lib/failbot.js'
 import { nextApp } from './next.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { cacheControlFactory } from './cache-control.js'
+import { errorCacheControl } from './cache-control.js'
 
-const cacheControl = cacheControlFactory(60) // 1 minute
+const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
 function shouldLogException(error) {
   const IGNORED_ERRORS = [
@@ -39,13 +39,13 @@ export default async function handleError(error, req, res, next) {
       // Let's cache our 404'ing assets conservatively.
       // The Cache-Control is short, and let's use the default surrogate
       // key just in case it was a mistake.
-      cacheControl(res)
+      errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
       // loading all the middlewares.
       setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
     }
-  } else if (process.env.NODE_ENV === 'test') {
+  } else if (DEBUG_MIDDLEWARE_TESTS) {
     console.warn('An error occurrred in some middleware handler', error)
   }
 
@@ -69,6 +69,7 @@ export default async function handleError(error, req, res, next) {
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
+      // Note that if this fails, it will swallow that error.
       return nextApp.render404(req, res)
     }
 

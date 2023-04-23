@@ -19,11 +19,6 @@ children:
   - /creating-a-personal-access-token
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
-  - /authorizing-oauth-apps
-  - /authorizing-github-apps
-  - /reviewing-your-authorized-integrations
-  - /connecting-with-third-party-applications
-  - /reviewing-your-authorized-applications-oauth
   - /token-expiration-and-revocation
   - /reviewing-your-security-log
   - /removing-sensitive-data-from-a-repository
@@ -32,6 +27,7 @@ children:
   - /githubs-ssh-key-fingerprints
   - /sudo-mode
   - /preventing-unauthorized-access
+  - /viewing-and-managing-your-sessions
 shortTitle: Account security
 ---
 

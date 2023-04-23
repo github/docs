@@ -31,7 +31,7 @@ topics:
 
 {% data reusables.actions.starter-workflow-categories %}
 
-You can also create your own starter workflow to share with your organization. These starter workflows will appear alongside the {% data variables.product.product_name %}-provided starter workflows. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+You can also create your own starter workflow to share with your organization. These starter workflows will appear alongside the {% data variables.product.product_name %}-provided starter workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 
 ## Using starter workflows
 
@@ -44,17 +44,17 @@ Anyone with write permission to a repository can set up {% data variables.produc
 
    {% ifversion actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
 1. If the starter workflow contains comments detailing additional setup steps, follow these steps. Many of the starter workflow have corresponding guides. For more information, see the [{% data variables.product.prodname_actions %} guides](/actions/guides).
-1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
 1. Click **Start commit**.
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
 ## Further reading
 
-- "[About continuous integration](/articles/about-continuous-integration)"
-- "[Managing workflow runs](/actions/managing-workflow-runs)"
-- "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)"
+- "[AUTOTITLE](/actions/managing-workflow-runs)"
+- "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 {% ifversion fpt or ghec %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
+- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 {% endif %}
