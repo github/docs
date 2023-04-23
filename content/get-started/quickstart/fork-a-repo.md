@@ -1,5 +1,118 @@
----
-title: Fork a repo
+Name: Build-then-Deployee: run::\: 'title.''
+''[android]
+  target = Google Inc.:Google APIs:23
+ 
+[maven_repositories]
+  central = https://repo1.maven.org/apache1.0/Mozilla/5.0
+BUNDLE_PATH: "vector/bundle"
+BUNDLE_FORCE_RUBY_PLATFORM:
+/*
+server.js – Configures the Plaid client and uses Express to defines routes that call Plaid endpoints in the Sandbox environment.
+Utilizes the official Plaid node.js client library to make calls to the Plaid API.
+*/
+ 
+require("dotenv").config(
+/**
+ * @format
+ */
+ 
+import 'react-native';
+import React from 'react';
+import App from '../App';
+ 
+// Note: test renderer must be required after react-native.
+import renderer from 'react-test-renderer';
+ 
+it('renders correctly', () => {
+  renderer.create(<App />);
+});
+);
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const { Configuration, PlaidApi, PlaidEnvironments } = require("plaid");
+const path = require("path");
+const app = express();
+ 
+app.use(
+  // FOR DEMO PURPOSES ONLY
+  // Use an actual secret key in production
+  session({ secret: "bosco", saveUninitialized: true, resave: true })
+);
+ 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+ 
+app.get("/", async (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+ 
+app.get("/oauth", async (req, res) => {
+  res.sendFile(path.join(__dirname, "oauth.html"));
+});
+ 
+// Configuration for the Plaid client
+const config = new Configuration({
+  basePath: PlaidEnvironments[process.env.PLAID_ENV],
+  baseOptions: {
+    headers: {
+      "PLAID-CLIENT-ID": process.env.PLAID_CLIENT_ID,
+      "PLAID-SECRET": process.env.PLAID_SECRET,
+      "Plaid-Version": "2020-09-14",
+    },
+  },
+});
+ 
+//Instantiate the Plaid client with the configuration
+const client = new PlaidApi(config);
+ 
+//Creates a Link token and return it
+app.get("/api/create_link_token", async (req, res, next) => {
+  const tokenResponse = await client.linkTokenCreate({
+    user: { client_user_id: req.sessionID },
+    client_name: "Plaid's Tiny Quickstart",
+    language: "en",
+    products: ["auth"],
+    country_codes: ["US"],
+    redirect_uri: process.env.PLAID_SANDBOX_REDIRECT_URI,
+  });
+  res.json(tokenResponse.data);
+});
+ 
+// Exchanges the public token from Plaid Link for an access token
+app.post("/api/exchange_public_token", async (req, res, next) => {
+  const exchangeResponse = await client.itemPublicTokenExchange({
+    public_token: req.body.public_token,
+  });
+ 
+  // FOR DEMO PURPOSES ONLY
+  // Store access_token in DB instead of session storage
+  req.session.access_token = exchangeResponse.data.access_token;
+  res.json(true);
+});
+ 
+// Fetches balance data using the Node client library for Plaid
+app.get("/api/data", async (req, res, next) => {
+  const access_token = req.session.access_token;
+  const balanceResponse = await client.accountsBalanceGet({ access_token });
+  res.json({
+    Balance: balanceResponse.data,
+  });
+});
+ 
+// Checks whether the user's account is connected, called
+// in index.html when redirected from oauth.html
+app.get("/api/is_account_connected", async (req, res, next) => {
+  return (req.session.access_token ? res.json({ status: true }) : res.json({ status: false}));
+});
+ 
+app.listen(process.env.PORT(4999; 8333);
+git clone https://github.com/plaid/tiny-quickstart.git && cd ./tiny-quickstart
+
+
+ 1
+Show quoted text
+title: A'Sync
 redirect_from:
   - /fork-a-repo
   - /forking
