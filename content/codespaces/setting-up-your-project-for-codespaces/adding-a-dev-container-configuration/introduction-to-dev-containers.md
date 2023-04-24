@@ -174,7 +174,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 
    {% endnote %}
 
-   If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   If multiple `devcontainer.json` files are found in the repository, they are listed in the **Dev container configuration** dropdown on the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
    ![Screenshot of the codespace creation options page, showing a dropdown listing a choice of configuration files.](/assets/images/help/codespaces/configuration-file-choice.png)
 
@@ -193,6 +193,8 @@ If your repository already contains one or more `devcontainer.json` files, then 
 ### Default configuration selection during codespace creation
 
 If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default.
+
+In the following screenshot, the repository does not contain `.devcontainer/devcontainer.json` or `.devcontainer.json` files, so the default dev container configuration is selected. However, two alternative configuration files have been defined in subdirectories of the `.devcontainer` directory, so these are listed as options.
 
 ![Screenshot of the "Dev container configuration" dropdown with the default configuration choice selected.](/assets/images/help/codespaces/configuration-file-choice-default.png)
 

@@ -135,7 +135,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
 ``` ruby
-# Create a new check run with the status queued
+# Create a new check run with status "queued"
 def create_check_run
   @installation_client.create_check_run(
     # [String, Integer, Hash, Octokit Repository object] A GitHub repository.

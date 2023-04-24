@@ -124,7 +124,7 @@ The device flow allows you to authorize users for a headless app, such as a CLI 
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for GitHub Apps.
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for {% data variables.product.prodname_github_apps %} and "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for {% data variables.product.prodname_oauth_apps %}.
 
 {% endif %}
 

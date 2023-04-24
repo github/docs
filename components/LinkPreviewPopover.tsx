@@ -34,6 +34,16 @@ let currentlyOpen: HTMLLinkElement | null = null
 // change accoding to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
+type Info = {
+  product: string
+  title: string
+  intro: string
+  anchor?: string
+}
+type APIInfo = {
+  info: Info
+}
+
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
@@ -106,45 +116,58 @@ function popoverWrap(element: HTMLLinkElement) {
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
   }
-  let title = element.dataset.title
-  let product = element.dataset.productTitle || ''
-  let intro = element.dataset.intro || ''
+  let title = ''
+  let product = ''
+  let intro = ''
   let anchor = ''
 
-  if (!title) {
-    // But, is it an in-page anchor link? If so, get the title, intro
-    // and product from within the DOM. But only if we can use the anchor
-    // destination to find a DOM node that has text.
-    if (
-      element.href.includes('#') &&
-      element.href.split('#')[1] &&
-      element.href.startsWith(`${window.location.href.split('#')[0]}#`)
-    ) {
-      const domID = element.href.split('#')[1]
-      const domElement = document.querySelector(`#${domID}`)
-      if (domElement && domElement.textContent) {
-        anchor = domElement.textContent
-        // Now we have to make up the product, intro, and title
-        const domTitle = document.querySelector('h1')
-        if (domTitle && domTitle.textContent) {
-          title = domTitle.textContent
-          intro = ''
-          product = ''
-          const domProduct = document.querySelector('._product-title')
-          if (domProduct && domProduct.textContent) {
-            product = domProduct.textContent
-          }
-          const domIntro = document.querySelector('._page-intro')
-          if (domIntro && domIntro.textContent) {
-            intro = domIntro.textContent
-          }
+  // Is it an in-page anchor link? If so, get the title, intro
+  // and product from within the DOM. But only if we can use the anchor
+  // destination to find a DOM node that has text.
+  if (
+    element.href.includes('#') &&
+    element.href.split('#')[1] &&
+    element.href.startsWith(`${window.location.href.split('#')[0]}#`)
+  ) {
+    const domID = element.href.split('#')[1]
+    const domElement = document.querySelector(`#${domID}`)
+    if (domElement && domElement.textContent) {
+      anchor = domElement.textContent
+      // Now we have to make up the product, intro, and title
+      const domTitle = document.querySelector('h1')
+      if (domTitle && domTitle.textContent) {
+        title = domTitle.textContent
+        intro = ''
+        product = ''
+        const domProduct = document.querySelector('._product-title')
+        if (domProduct && domProduct.textContent) {
+          product = domProduct.textContent
+        }
+        const domIntro = document.querySelector('._page-intro')
+        if (domIntro && domIntro.textContent) {
+          intro = domIntro.textContent
         }
       }
     }
+
+    if (title) {
+      fillPopover(element, { product, title, intro, anchor })
+    }
+    return
   }
 
-  if (!title) return
+  const { pathname } = new URL(element.href)
 
+  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+    if (response.ok) {
+      const { info } = (await response.json()) as APIInfo
+      fillPopover(element, info)
+    }
+  })
+}
+
+function fillPopover(element: HTMLLinkElement, info: Info) {
+  const { product, title, intro, anchor } = info
   const popover = getOrCreatePopoverGlobal()
   const productHead = popover.querySelector('p.product') as HTMLParagraphElement | null
   if (productHead) {
@@ -293,58 +316,54 @@ function popoverHide() {
   }, DELAY_HIDE)
 }
 
-function testTarget(target: HTMLLinkElement) {
-  // Return true if:
-  //
-  // * the element is an A tag
-  // * whose `href` starts with a `/`
-  // * is contained in either the article-contents (the meat of the article)
-  //   or the article-intro (which contain product callouts)
-  // * the window width is > 767px, hovercards are less useful at the smaller
-  //   widths
-  // * it's not one of those permalink ones next to headings (with the chain
-  //   looking icon).
-  return (
-    target.tagName === 'A' &&
-    target.href.startsWith(window.location.origin) &&
-    target.closest('#article-contents, #article-intro') &&
-    window.innerWidth > 767 &&
-    !target.classList.contains('doctocat-link')
-  )
-}
-
 export function LinkPreviewPopover() {
   useEffect(() => {
-    // This event handler function is used for clicks anywhere in
-    // the `#article-contents` div. So we need to filter within.
     function showPopover(event: MouseEvent) {
-      const target = event.target as HTMLLinkElement
-      if (testTarget(target)) {
-        popoverShow(target)
+      // If the current window is too narrow, the popover is not useful.
+      // Since this is tested on every event callback here in the handler,
+      // if the window width has changed since the mount, the number
+      // will change accordingly.
+      if (window.innerWidth < 767) {
+        return
       }
-    }
-    function hidePopover(event: MouseEvent) {
-      const target = event.target as HTMLLinkElement
-      if (testTarget(target)) {
-        popoverHide()
-      }
+      const target = event.currentTarget as HTMLLinkElement
+      popoverShow(target)
     }
 
-    // The reason we have an event listener for ALL things within the
-    // <div>, instead of one for every `a[href]` element, is because
-    // this way we're prepared for the fact that new `a` elements
-    // might get introduced some other way. For example, if there's
-    // some any other code that does a `container.appendChild(newLink)`
-    const container = document.querySelector<HTMLDivElement>('#main-content')
-    if (container) {
-      container.addEventListener('mouseover', showPopover)
-      container.addEventListener('mouseout', hidePopover)
+    function hidePopover() {
+      popoverHide()
+    }
+
+    const links = Array.from(
+      document.querySelectorAll<HTMLLinkElement>(
+        '#article-contents a[href], #article-intro a[href]'
+      )
+    ).filter((link) => {
+      // This filters out links that are not internal or in-page
+      // and the ones that are in-page anchor links next to the headings.
+      return (
+        link.href.startsWith(window.location.origin) && !link.classList.contains('doctocat-link')
+      )
+    })
+
+    // Ideally, we'd have an event listener for the entire container and
+    // the filter, at "runtime", within by filtering for the target
+    // elements we're interested in. However, this is not possible
+    // because then when you hover over the text in
+    // a tag like <a href="..."><strong>Link</strong></a> the target
+    // element is that of the `STRONG` tag.
+    // The reason it would be better to have a single event listener and
+    // filter is because it would work even if the DOM changes by
+    // adding new `<a>` elements.
+    for (const link of links) {
+      link.addEventListener('mouseover', showPopover)
+      link.addEventListener('mouseout', hidePopover)
     }
 
     return () => {
-      if (container) {
-        container.removeEventListener('mouseover', showPopover)
-        container.removeEventListener('mouseout', hidePopover)
+      for (const link of links) {
+        link.removeEventListener('mouseover', showPopover)
+        link.removeEventListener('mouseout', hidePopover)
       }
     }
   }) // Note that this runs on every single mount

@@ -4,6 +4,144 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>BranchNamePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>BranchNamePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>BranchNamePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitAuthorEmailPatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitMessagePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>CommitterEmailPatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>PullRequestParameters.dismissStaleReviewsOnPush</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requireCodeOwnerReview</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requireLastPushApproval</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>PullRequestParameters.requiredApprovingReviewCount</code> changed type from <code>Int</code> to <code>Int!</code></p>",
+          "<p>Field <code>PullRequestParameters.requiredReviewThreadResolution</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>RefNameConditionTarget.exclude</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RefNameConditionTarget.include</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RepositoryNameConditionTarget.exclude</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RepositoryNameConditionTarget.include</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RequiredDeploymentsParameters.requiredDeploymentEnvironments</code> changed type from '[String!]<code>to</code>[String!]!'</p>",
+          "<p>Field <code>RequiredStatusChecksParameters.requiredStatusChecks</code> changed type from '[StatusCheckConfiguration!]<code>to</code>[StatusCheckConfiguration!]!'</p>",
+          "<p>Field <code>RequiredStatusChecksParameters.strictRequiredStatusChecksPolicy</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>",
+          "<p>Field <code>StatusCheckConfiguration.context</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>StatusCheckConfiguration.integrationId</code> changed type from <code>Int!</code> to <code>Int</code></p>",
+          "<p>Field <code>TagNamePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Field <code>TagNamePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>TagNamePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
+          "<p>Field <code>UpdateParameters.updateAllowsFetchAndMerge</code> changed type from <code>Boolean</code> to <code>Boolean!</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>assignees</code> was added to object type <code>IssueTemplate</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>labels</code> was added to object type <code>IssueTemplate</code></p>",
+          "<p><code>Workflow</code> object implements <code>UniformResourceLocatable</code> interface</p>",
+          "<p>Field <code>resourcePath</code> was added to object type <code>Workflow</code></p>",
+          "<p>Field <code>url</code> was added to object type <code>Workflow</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>BranchNamePatternParameters</code> was added</p>",
+          "<p>Type <code>BranchNamePatternParametersInput</code> was added</p>",
+          "<p>Type <code>BypassActor</code> was added</p>",
+          "<p>Type <code>CommitAuthorEmailPatternParameters</code> was added</p>",
+          "<p>Type <code>CommitAuthorEmailPatternParametersInput</code> was added</p>",
+          "<p>Type <code>CommitMessagePatternParameters</code> was added</p>",
+          "<p>Type <code>CommitMessagePatternParametersInput</code> was added</p>",
+          "<p>Type <code>CommitterEmailPatternParameters</code> was added</p>",
+          "<p>Type <code>CommitterEmailPatternParametersInput</code> was added</p>",
+          "<p>Type <code>CreateRepositoryRulesetInput</code> was added</p>",
+          "<p>Type <code>CreateRepositoryRulesetPayload</code> was added</p>",
+          "<p>Type <code>DeleteRepositoryRulesetInput</code> was added</p>",
+          "<p>Type <code>DeleteRepositoryRulesetPayload</code> was added</p>",
+          "<p>Type <code>PullRequestParameters</code> was added</p>",
+          "<p>Type <code>PullRequestParametersInput</code> was added</p>",
+          "<p>Type <code>RefNameConditionTarget</code> was added</p>",
+          "<p>Type <code>RefNameConditionTargetInput</code> was added</p>",
+          "<p>Type <code>RepositoryNameConditionTarget</code> was added</p>",
+          "<p>Type <code>RepositoryNameConditionTargetInput</code> was added</p>",
+          "<p>Type <code>RepositoryRule</code> was added</p>",
+          "<p>Type <code>RepositoryRuleConditions</code> was added</p>",
+          "<p>Type <code>RepositoryRuleConditionsInput</code> was added</p>",
+          "<p>Type <code>RepositoryRuleConnection</code> was added</p>",
+          "<p>Type <code>RepositoryRuleEdge</code> was added</p>",
+          "<p>Type <code>RepositoryRuleInput</code> was added</p>",
+          "<p>Type <code>RepositoryRuleType</code> was added</p>",
+          "<p>Type <code>RepositoryRuleset</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetBypassActor</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetBypassActorConnection</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetBypassActorEdge</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetConnection</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetEdge</code> was added</p>",
+          "<p>Type <code>RepositoryRulesetTarget</code> was added</p>",
+          "<p>Type <code>RequiredDeploymentsParameters</code> was added</p>",
+          "<p>Type <code>RequiredDeploymentsParametersInput</code> was added</p>",
+          "<p>Type <code>RequiredStatusChecksParameters</code> was added</p>",
+          "<p>Type <code>RequiredStatusChecksParametersInput</code> was added</p>",
+          "<p>Type <code>RuleBypassMode</code> was added</p>",
+          "<p>Type <code>RuleEnforcement</code> was added</p>",
+          "<p>Type <code>RuleParameters</code> was added</p>",
+          "<p>Type <code>RuleParametersInput</code> was added</p>",
+          "<p>Type <code>RuleSource</code> was added</p>",
+          "<p>Type <code>StatusCheckConfiguration</code> was added</p>",
+          "<p>Type <code>StatusCheckConfigurationInput</code> was added</p>",
+          "<p>Type <code>TagNamePatternParameters</code> was added</p>",
+          "<p>Type <code>TagNamePatternParametersInput</code> was added</p>",
+          "<p>Type <code>UpdateParameters</code> was added</p>",
+          "<p>Type <code>UpdateParametersInput</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryRulesetInput</code> was added</p>",
+          "<p>Type <code>UpdateRepositoryRulesetPayload</code> was added</p>",
+          "<p>Field <code>createRepositoryRuleset</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteRepositoryRuleset</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateRepositoryRuleset</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>rulesets</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>rulesets</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-04-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>BulkSponsorship</code> was added</p>",
           "<p>Type <code>CreateSponsorshipsInput</code> was added</p>",
           "<p>Type <code>CreateSponsorshipsPayload</code> was added</p>",

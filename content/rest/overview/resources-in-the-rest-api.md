@@ -90,7 +90,7 @@ You can authenticate your request by sending a token in the `Authorization` head
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -339,7 +339,7 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 #### Rate limits for requests from {% data variables.product.prodname_github_apps %}
 
-Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
 
 #### Rate limits for requests from {% data variables.product.prodname_actions %}
 
