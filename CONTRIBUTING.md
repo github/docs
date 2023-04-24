@@ -1,5 +1,20 @@
-# Welcome to GitHub docs contributing guide <!-- omit in toc -->
-
+Clone the repository or update your local repository with the latest changes.
+git Switches- on: Trigger: Automaticañly-on: start
+starts: On
+On: BEGIN-starts :On-on: GLOW4
+GLOW4
+!#/User/bin/Bash/ 
+git checkout Master
+Step 3: Merge the base branch into the head branch.
+gi merge main
+Step 4: Fix the conflicts and commit the result.
+See Resolving a merge conflict using the command line for step-by-step instructions on resolving merge conflicts.
+Step 5: Push the changes.
+git push -u origin Master
+https://github.com/mowjoejoejoejoe/docs/compare/main...0-wiz-0:docs:TingluoHuang-patch-1
+BEGIN :run::/Runs::/'Run ''
+'Runs::/Action::/:Build::/scripts::/Run-on :Runs
+# <3 Welcome to GitHub docs contributing guide <!-- omit in toc --
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
