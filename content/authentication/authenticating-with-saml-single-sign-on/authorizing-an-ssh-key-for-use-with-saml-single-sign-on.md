@@ -35,10 +35,8 @@ You do not need to authorize SSH certificates signed by your organization's SSH 
 {% data reusables.user-settings.ssh %}
 1. To the right of the SSH key you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
 
-   ![Screenshot of the SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
-1. To the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
-
-   ![Screenshot of the token authorize button](/assets/images/help/settings/ssh-sso-authorize.png)
+   ![Screenshot of the "Authentication Keys" section. Next to a key, a dropdown menu, labeled "Configure SSO," is outlined in orange.](/assets/images/help/settings/ssh-sso-button.png)
+1. In the dropdown menu, to the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
 
 ## Further reading
 
