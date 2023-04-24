@@ -12,7 +12,7 @@ redirect_from:
 topics:
   - GitHub Apps
 children:
-  - /about-apps
+  - /about-creating-github-apps
   - /differences-between-github-apps-and-oauth-apps
   - /rate-limits-for-github-apps
   - /creating-a-github-app

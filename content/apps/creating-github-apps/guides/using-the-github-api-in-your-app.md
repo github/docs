@@ -32,7 +32,7 @@ Once you've worked through the steps, you'll be ready to develop other kinds of 
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-apps)
+* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
