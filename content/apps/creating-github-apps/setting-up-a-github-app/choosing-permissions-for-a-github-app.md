@@ -9,6 +9,7 @@ redirect_from:
   - /developers/apps/setting-permissions-for-github-apps
   - /developers/apps/building-github-apps/setting-permissions-for-github-apps
   - /apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps
+  - /apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
@@ -30,7 +31,7 @@ You can modify the permissions for your app at any time. When you modify the per
 
 Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
 
-For more information about specifying permissions during app creation, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)." For more information about modifying permissions, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
+For more information about specifying permissions during app creation, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." For more information about modifying permissions, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
 
 ## Choosing permissions for webhook access
 

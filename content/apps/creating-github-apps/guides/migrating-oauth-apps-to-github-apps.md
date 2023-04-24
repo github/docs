@@ -20,13 +20,13 @@ This article provides guidelines for existing integrators who are considering mi
 
 [GitHub Apps](/apps) are the officially recommended way to integrate with GitHub because they offer many advantages over a pure OAuth-based integration:
 
-- [Fine-grained permissions](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
-- [Short-lived tokens](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
-- [Built-in, centralized webhooks](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
-- [Bot accounts](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts) don't consume a {% data variables.product.product_name %} seat and remain installed even when the person who initially installed the app leaves the organization.
+- [Fine-grained permissions](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
+- [Short-lived tokens](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
+- [Built-in, centralized webhooks](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
+- [Bot accounts](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts) don't consume a {% data variables.product.product_name %} seat and remain installed even when the person who initially installed the app leaves the organization.
 - Built-in support for OAuth is still available to GitHub Apps using [endpoints with a user access token](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps).
-- Dedicated [API rate limits](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps) for bot accounts scale with your integration.
-- Repository owners can [install GitHub Apps](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
+- Dedicated [API rate limits](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps) for bot accounts scale with your integration.
+- Repository owners can [install GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
 - Open Source community support is available through [Octokit libraries](/rest/overview/libraries) and other frameworks such as [Probot](https://probot.github.io/).
 - Integrators building GitHub Apps have opportunities to adopt earlier access to APIs.
 
@@ -53,11 +53,11 @@ We recommend reviewing the list of API endpoints you need as early as possible. 
 
 ### Design to stay within API rate limits
 
-GitHub Apps use [sliding rules for rate limits](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest/overview/resources-in-the-rest-api#conditional-requests) or consolidate requests by using the [GraphQL API](/graphql).
+GitHub Apps use [sliding rules for rate limits](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest/overview/resources-in-the-rest-api#conditional-requests) or consolidate requests by using the [GraphQL API](/graphql).
 
 ### Register a new GitHub App
 
-Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/creating-github-apps/creating-github-apps).
+Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/creating-github-apps/setting-up-a-github-app).
 
 ### Determine the permissions your app requires
 

@@ -5,6 +5,7 @@ redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
   - /developers/apps/creating-a-custom-badge-for-your-github-app
   - /developers/apps/building-github-apps/creating-a-custom-badge-for-your-github-app
+  - /apps/creating-github-apps/creating-github-apps/creating-a-custom-badge-for-your-github-app
 versions:
   fpt: '*'
   ghes: '*'
