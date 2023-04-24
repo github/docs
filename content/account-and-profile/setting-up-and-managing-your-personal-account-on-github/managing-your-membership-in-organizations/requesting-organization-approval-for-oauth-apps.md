@@ -30,7 +30,6 @@ Organization members can always request owner approval for {% data variables.pro
 4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.
 ![Request access button](/assets/images/help/settings/settings-third-party-request-access.png)
 5. After you review the information about requesting {% data variables.product.prodname_oauth_app %} access, click **Request approval from owners**.
-![Request approval button](/assets/images/help/settings/oauth-access-request-approval.png)
 
 ## Further reading
 
