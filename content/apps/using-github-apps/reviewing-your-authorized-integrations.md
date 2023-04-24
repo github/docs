@@ -22,9 +22,9 @@ shortTitle: Authorized integrations
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}
 3. Click the **Authorized {% data variables.product.prodname_github_apps %}** tab.
-![Authorized {% data variables.product.prodname_github_apps %} tab](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
 3. Review the {% data variables.product.prodname_github_apps %} that have access to your account. For those that you don't recognize or that are out of date, click **Revoke**. To revoke all {% data variables.product.prodname_github_apps %}, click **Revoke all**.
-   ![List of authorized {% data variables.product.prodname_github_app %}](/assets/images/help/settings/revoke-github-app.png)
+
+   ![Screenshot of the "Authorized {% data variables.product.prodname_github_apps %}" tab. Next to an app, a button, labeled "Revoke," is highlighted in orange.](/assets/images/help/settings/revoke-github-app.png)
 
 ## Further reading
 {% ifversion fpt or ghec %}
