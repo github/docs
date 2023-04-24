@@ -9,6 +9,9 @@ import {
   setFastlySurrogateKey,
   makeLanguageSurrogateKey,
 } from '../../middleware/set-fastly-surrogate-key.js'
+import shortVersions from '../../middleware/contextualizers/short-versions.js'
+import contextualize from '../../middleware/context.js'
+import features from '../../middleware/contextualizers/features.js'
 
 const router = express.Router()
 
@@ -39,8 +42,20 @@ router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function pageInfo(req, res) {
-    const { context } = req
     const { page, pathname } = req.pageinfo
+
+    const renderingReq = {
+      path: pathname,
+      language: page.languageCode,
+      pagePath: pathname,
+      cookies: {},
+    }
+    const next = () => {}
+    await contextualize(renderingReq, res, next)
+    await shortVersions(renderingReq, res, next)
+    renderingReq.context.page = page
+    await features(renderingReq, res, next)
+    const context = renderingReq.context
 
     const title = await page.renderProp('title', context, { textOnly: true })
     const intro = await page.renderProp('intro', context, { textOnly: true })
