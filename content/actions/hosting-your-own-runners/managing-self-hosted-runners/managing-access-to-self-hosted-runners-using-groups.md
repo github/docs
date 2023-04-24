@@ -3,6 +3,7 @@ title: Managing access to self-hosted runners using groups
 shortTitle: Manage access with runner groups
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
 redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
 versions:
   fpt: '*'
@@ -21,7 +22,7 @@ For information on how to route jobs to runners in a specific group, see "[AUTOT
 
 ## About runner groups
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
+{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 

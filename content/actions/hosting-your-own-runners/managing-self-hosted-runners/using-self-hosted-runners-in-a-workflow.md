@@ -4,6 +4,7 @@ intro: 'To use self-hosted runners in a workflow, you can use labels{% ifversion
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
+  - /actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,7 +25,7 @@ Labels allow you to send workflow jobs to specific types of self-hosted runners,
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-For information on creating custom and default labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+For information on creating custom and default labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion target-runner-groups %}
 
@@ -34,7 +35,7 @@ For self-hosted runners defined at the organization {% ifversion ghec or ghes or
 
 To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
 
-For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 {% ifversion fpt %}
 {% data reusables.actions.runner-groups-ent-note %}
@@ -64,9 +65,9 @@ The default labels are fixed and cannot be changed or removed. Consider using cu
 
 ## Using custom labels to route jobs
 
-You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled. 
+You can create custom labels and assign them to your self-hosted runners at any time. Custom labels let you send jobs to particular types of self-hosted runners, based on how they're labeled.
 
-For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job. 
+For example, if you have a job that requires a specific type of graphics hardware, you can create a custom label called `gpu` and assign it to the runners that have the hardware installed. A self-hosted runner that matches all the assigned labels will then be eligible to run the job.
 
 This example shows a job that combines default and custom labels:
 
@@ -77,7 +78,7 @@ runs-on: [self-hosted, linux, x64, gpu]
 - `self-hosted` - Run this job on a self-hosted runner.
 - `linux` - Only use a Linux-based runner.
 - `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed. 
+- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed.
 
 These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
 

@@ -1,6 +1,8 @@
 ---
 title: Customizing the containers used by jobs
 intro: You can customize how your self-hosted runner invokes a container for a job.
+redirect_from:
+  - /actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs
 versions:
   feature: container-hooks
 type: reference
@@ -25,10 +27,10 @@ This customization is only available for Linux-based self-hosted runners, and ro
 
 {% data variables.product.prodname_actions %} includes the following commands for container customization:
 
-- [`prepare_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
-- [`cleanup_job`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
-- [`run_container_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
-- [`run_script_step`](/actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
+- [`prepare_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
+- [`cleanup_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
+- [`run_container_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
+- [`run_script_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
 
 Each of these customization commands must be defined in its own JSON file. The file name must match the command name, with the extension `.json`. For example, the `prepare_job` command is defined in `prepare_job.json`. These JSON files will then be run together on the self-hosted runner, as part of the main `index.js` script. This process is described in more detail in "[Generating the customization script](#generating-the-customization-script)."
 

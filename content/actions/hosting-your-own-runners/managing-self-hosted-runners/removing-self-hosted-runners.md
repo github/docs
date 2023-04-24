@@ -4,6 +4,7 @@ intro: 'You can permanently remove a self-hosted runner from a repository{% ifve
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
+  - /actions/hosting-your-own-runners/removing-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
@@ -57,7 +58,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 ## Removing a runner from an enterprise
 
 {% ifversion fpt %}
-If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
+If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
 {% note %}

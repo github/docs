@@ -2,9 +2,10 @@
 title: Monitoring and troubleshooting self-hosted runners
 intro: You can monitor your self-hosted runners to view their activity and diagnose common issues.
 redirect_from:
-  - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/checking-the-status-of-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
+  - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
@@ -65,7 +66,7 @@ run.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
 
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements)."
 
 ### Disabling TLS certificate verification
 {% ifversion ghes %}
@@ -135,7 +136,7 @@ Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction co
 ```
 
 To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
 
 {% endlinux %}
 
@@ -163,7 +164,7 @@ Started:
 The resulting output includes the process ID and the name of the application’s `launchd` service.
 
 To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
 
 {% endmac %}
 
@@ -261,7 +262,7 @@ User=runner-user
 {% ifversion ghes %}
 ## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
 
-{% data reusables.actions.upgrade-runners-before-upgrade-ghes %} 
+{% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
 If your runners are offline for this reason, manually update the runners. For more information, see the installation instructions for [the latest release](https://github.com/actions/runner/releases/latest) in the actions/runner repository.
 {% endif %}
@@ -274,7 +275,7 @@ If your build fails with the following error:
 Error: Input required and not supplied: java-version
 ```
 
-Check which Docker engine is installed on your self-hosted runner. To pass the inputs of an action into the Docker container, the runner uses environment variables that might contain dashes as part of their names. The action may not able to get the inputs if the Docker engine is not a binary executable, but is instead a shell wrapper or a link (for example, a Docker engine installed on Linux using `snap`). To address this error, configure your self-hosted runner to use a different Docker engine. 
+Check which Docker engine is installed on your self-hosted runner. To pass the inputs of an action into the Docker container, the runner uses environment variables that might contain dashes as part of their names. The action may not able to get the inputs if the Docker engine is not a binary executable, but is instead a shell wrapper or a link (for example, a Docker engine installed on Linux using `snap`). To address this error, configure your self-hosted runner to use a different Docker engine.
 
 To check if your Docker engine was installed using `snap`, use the `which` command. In the following example, the Docker engine was installed using `snap`:
 

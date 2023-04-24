@@ -4,6 +4,7 @@ shortTitle: Run the runner app as a service
 intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
+  - /actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,7 +25,7 @@ defaultPlatform: linux
 {% note %}
 
 **Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 {% endnote %}
 {% endcapture %}
@@ -47,7 +48,7 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script that is cr
 
 **Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 {% endnote %}
 
@@ -134,7 +135,7 @@ Get-Service "{{ service_win_name }}"
 ```
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
 ## Stopping the service
 

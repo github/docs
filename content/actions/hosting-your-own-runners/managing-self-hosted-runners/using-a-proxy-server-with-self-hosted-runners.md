@@ -3,6 +3,7 @@ title: Using a proxy server with self-hosted runners
 intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.product_name %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
+  - /actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
