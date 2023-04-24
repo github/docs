@@ -38,7 +38,7 @@ Anyone can manage the spending limit for {% data variables.product.prodname_regi
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 ## Managing the spending limit for {% data variables.product.prodname_registry %} for your organization
@@ -47,7 +47,14 @@ Organizations owners and billing managers can manage the spending limit for {% d
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
-{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
+1. Under "Monthly spending limit", choose to limit spending or allow unlimited spending.
+
+   {% note %}
+
+   **Note:** If {% data variables.product.prodname_github_codespaces %} is enabled for your organization, scroll to "Actions & Packages", then choose to limit spending or allow unlimited spending.
+
+   {% endnote %}
+   
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
@@ -58,9 +65,11 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Above "{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**.
-  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
-{% data reusables.dotcom_billing.monthly-spending-limit %}
+1. On the "Billing" page, click the **Spending limit** tab.
+
+  ![Screenshot of the "Billing" page. A tab labeled "Spending limit" is highlighted with an orange outline.](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+
+{% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 {% endif %}
 

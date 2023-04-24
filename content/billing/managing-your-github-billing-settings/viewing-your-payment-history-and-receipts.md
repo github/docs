@@ -49,7 +49,7 @@ shortTitle: View history & receipts
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.user-settings.payment-info-link %}
+1. Click the "Payment information" tab.
 {% data reusables.dotcom_billing.download_receipt %}
 
 {% endif %}

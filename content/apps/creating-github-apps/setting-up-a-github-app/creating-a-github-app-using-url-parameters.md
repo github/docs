@@ -5,6 +5,7 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-using-url-parameters
   - /developers/apps/creating-a-github-app-using-url-parameters
   - /developers/apps/building-github-apps/creating-a-github-app-using-url-parameters
+  - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-using-url-parameters
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,7 +21,7 @@ You can use URL parameters to preselect the configuration settings of a new {% d
 
 This approach is useful for integrators who want customers to set up an app on their personal account or organization with certain specifications, or for customers using {% data variables.product.prodname_ghe_server %} who aren't able to install apps from the {% data variables.product.prodname_marketplace %}.
 
-Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest)."
+Alternatively, you can create a {% data variables.product.prodname_github_app %} manifest. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)."
 
 ## Creating a custom configuration URL with query parameters
 
@@ -46,7 +47,7 @@ Parameter name | Type | Description
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
 `url` | `string` | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.
-`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
+`callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to generate a user access token. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url)."
 `request_oauth_on_install` | `boolean` | If your app authorizes users using the OAuth flow, you can set this option to `true` to allow people to authorize the app when they install it, saving a step. If you select this option, the `setup_url` becomes unavailable and users will be redirected to your `callback_url` after installing the app.
 `setup_url` | `string` | The full URL to redirect to after someone installs the {% data variables.product.prodname_github_app %} if the app requires additional setup after installation.
 `setup_on_update` | `boolean` | Set to `true` to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
@@ -64,7 +65,7 @@ You can use query parameters to select the permissions for the {% data variables
 
 For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.
 
-For more information about permissions and {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
+For more information about permissions and {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
 ## {% data variables.product.prodname_github_app %} webhook events
 
@@ -76,4 +77,4 @@ For example, to subscribe a {% data variables.product.prodname_github_app %} to 
 
 You cannot use query parameters to set the value of a webhook secret. If an app requires a secret to secure its webhook, the value of the secret must be set in the {% data variables.product.company_short %} UI by the person creating the app.
 
-For more information about webhooks and {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+For more information about webhooks and {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps)."

@@ -5,6 +5,7 @@ redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
   - /developers/apps/creating-a-github-app-from-a-manifest
   - /developers/apps/building-github-apps/creating-a-github-app-from-a-manifest
+  - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest
 versions:
   fpt: '*'
   ghes: '*'
@@ -30,7 +31,7 @@ Here are some scenarios where you might use GitHub App Manifests to create preco
 
 ## Implementing the GitHub App Manifest flow
 
-The GitHub App Manifest flow uses a handshaking process similar to the [OAuth flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps). The flow uses a manifest to [register a GitHub App](/apps/creating-github-apps/creating-github-apps/creating-a-github-app) and receives a temporary `code` used to retrieve the app's private key, webhook secret, and ID.
+The GitHub App Manifest flow uses a handshaking process similar to the [OAuth flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps). The flow uses a manifest to [register a GitHub App](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app) and receives a temporary `code` used to retrieve the app's private key, webhook secret, and ID.
 
 {% note %}
 

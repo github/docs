@@ -8,6 +8,7 @@ redirect_from:
   - /apps/about-apps
   - /developers/apps/about-apps
   - /developers/apps/getting-started-with-apps/about-apps
+  - /apps/creating-github-apps/creating-github-apps/about-apps
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +19,7 @@ topics:
 ---
 Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% ifversion fpt or ghec %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)."{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)."
+{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps)."
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -49,7 +50,7 @@ Keep these ideas in mind when creating {% data variables.product.prodname_github
 * Don't build a {% data variables.product.prodname_github_app %} if you _only_ want to act as a GitHub user and do everything that user can do.{% ifversion fpt or ghec %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
-To begin developing {% data variables.product.prodname_github_apps %}, start with "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."{% ifversion fpt or ghec %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest)."{% endif %}
+To begin developing {% data variables.product.prodname_github_apps %}, start with "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."{% ifversion fpt or ghec %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)."{% endif %}
 
 ## About {% data variables.product.prodname_oauth_apps %}
 

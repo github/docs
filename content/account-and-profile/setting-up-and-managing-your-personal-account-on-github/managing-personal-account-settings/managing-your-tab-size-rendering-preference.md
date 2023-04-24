@@ -17,5 +17,4 @@ If you feel that tabbed indentation in code rendered on {% data variables.produc
 
 {% data reusables.user-settings.access_settings %}
 1. In the left sidebar, click **{% octicon "paintbrush" aria-label="The paintbrush icon" %} Appearance**.
-2. Under "Tab size preference", select the drop-down menu and choose your preference.
-   ![Tab size preference button](/assets/images/help/settings/tab-size-preference.png )
+2. Scroll down to "Tab size preference" and use the dropdown menu to choose your preference.

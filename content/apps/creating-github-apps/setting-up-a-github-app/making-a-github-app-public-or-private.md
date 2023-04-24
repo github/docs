@@ -9,6 +9,7 @@ redirect_from:
   - /apps/managing-github-apps/making-a-github-app-public-or-private
   - /developers/apps/making-a-github-app-public-or-private
   - /developers/apps/managing-github-apps/making-a-github-app-public-or-private
+  - /apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private
 versions:
   fpt: '*'
   ghes: '*'

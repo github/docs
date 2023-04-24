@@ -93,14 +93,10 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. In the "Change username" section, click **Change username**.
-   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
+3. In the "Change username" section, click **Change username**.{% ifversion fpt or ghec %}
 4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
 5. Type a new username.
-   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
 6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
 ## Further reading

@@ -10677,7 +10677,8 @@ type Enterprise implements AnnouncementBanner & Node {
   ): OrganizationConnection!
 
   """
-  Enterprise information only visible to enterprise owners.
+  Enterprise information visible to enterprise owners or enterprise owners'
+  personal access tokens (classic) with read:enterprise or admin:enterprise scope.
   """
   ownerInfo: EnterpriseOwnerInfo
 
@@ -11090,6 +11091,8 @@ type EnterpriseFailedInvitationEdge {
 
 """
 An identity provider configured to provision identities for an enterprise.
+Visible to enterprise owners or enterprise owners' personal access tokens
+(classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseIdentityProvider implements Node {
   """
@@ -11405,7 +11408,8 @@ type EnterpriseOutsideCollaboratorEdge {
 }
 
 """
-Enterprise information only visible to enterprise owners.
+Enterprise information visible to enterprise owners or enterprise owners'
+personal access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseOwnerInfo {
   """
@@ -11610,6 +11614,8 @@ type EnterpriseOwnerInfo {
 
   """
   The IP addresses that are allowed to access resources owned by the enterprise.
+  Visible to enterprise owners or enterprise owners' personal access tokens
+  (classic) with admin:enterprise scope.
   """
   ipAllowListEntries(
     """
@@ -12205,8 +12211,7 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The SAML Identity Provider for the enterprise. When used by a GitHub App,
-  requires an installation token with read and write access to members.
+  The SAML Identity Provider for the enterprise.
   """
   samlIdentityProvider: EnterpriseIdentityProvider
 
@@ -13215,7 +13220,13 @@ type EnvironmentEdge {
 }
 
 """
-An external identity provisioned by SAML SSO or SCIM.
+An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
+the organization, the external identity is visible to (1) organization owners,
+(2) organization owners' personal access tokens (classic) with read:org or
+admin:org scope, (3) GitHub App with an installation token with read or write
+access to members. If SAML is configured on the enterprise, the external
+identity is visible to (1) enterprise owners, (2) enterprise owners' personal
+access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type ExternalIdentity implements Node {
   """
@@ -24144,7 +24155,10 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   ): RepositoryRulesetConnection
 
   """
-  The Organization's SAML identity providers
+  The Organization's SAML identity provider. Visible to (1) organization owners,
+  (2) organization owners' personal access tokens (classic) with read:org or
+  admin:org scope, (3) GitHub App with an installation token with read or write
+  access to members.
   """
   samlIdentityProvider: OrganizationIdentityProvider
 
@@ -24508,7 +24522,10 @@ type OrganizationEnterpriseOwnerEdge {
 }
 
 """
-An Identity Provider configured to provision SAML and SCIM identities for Organizations
+An Identity Provider configured to provision SAML and SCIM identities for
+Organizations. Visible to (1) organization owners, (2) organization owners'
+personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
+App with an installation token with read or write access to members.
 """
 type OrganizationIdentityProvider implements Node {
   """
