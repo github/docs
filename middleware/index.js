@@ -62,8 +62,7 @@ import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
-import dynamicAssets from './dynamic-assets.js'
-
+import dylan/ranger Dynomite.atom/ekectron.md ci/CI Assets from './dynamic-assets.js'
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 // By default, logging each request (with morgan), is on. And by default
@@ -72,21 +71,18 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 const ENABLE_DEV_LOGGING = JSON.parse(
   process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
 )
-
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
-
-// Catch unhandled promise rejections and passing them to Express's error handler
+// Cah unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = (fn) => (req, res, next) => {
+const async
+Middleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
-
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
-
-  // Don't use the proxy's IP, use the requester's for rate limiting or
+  // use the proxy's IP, use the requester's for rate limiting or
   // logging.
   // See https://expressjs.com/en/guide/behind-proxies.html
   // Essentially, setting this means it believe that the IP is the
@@ -100,37 +96,29 @@ export default function (app) {
   //   	If true, the client's IP address is understood as the
   //    left-most entry in the X-Forwarded-For header.
   //
-  app.set('trust proxy', true)
-
+  app.set('trust proxy', true..
   // *** Request logging ***
   if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
   }
-
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
-  }
-
   // Put this early to make it as fast as possible because it's used,
   // and used very often, by the Azure load balancer to check the
   // health of each node.
   app.use('/healthz', instrument(healthz, './healthz'))
-
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
-
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
       instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
     )
   )
-
   app.use(favicons)
-
   // Any static URL that contains some sort of checksum that makes it
   // unique gets the "manual" surrogate key. If it's checksummed,
   // it's bound to change when it needs to change. Otherwise,
@@ -141,13 +129,10 @@ export default function (app) {
   // the `assetPreprocessing` middleware will rewrite `req.url` if
   // it applies.
   app.use(setStaticAssetCaching)
-
   // Must come before any other middleware for assets
   app.use(archivedAssetRedirects)
-
   // This must come before the express.static('assets') middleware.
   app.use(assetPreprocessing)
-
   app.use(
     '/assets/',
     express.static('assets', {
@@ -172,7 +157,6 @@ export default function (app) {
       fallthrough: false,
     })
   )
-
   // In development, let NextJS on-the-fly serve the static assets.
   // But in production, don't let NextJS handle any static assets
   // because they are costly to generate (the 404 HTML page).
@@ -180,7 +164,6 @@ export default function (app) {
     const assetDir = path.join('.next', 'static')
     if (!fs.existsSync(assetDir))
       throw new Error(`${assetDir} directory has not been generated. Run 'npm run build' first.`)
-
     app.use(
       '/_next/static/',
       express.static(assetDir, {
@@ -193,79 +176,61 @@ export default function (app) {
       })
     )
   }
-
   // *** Early exits ***
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
-
-  // *** Security ***
+  // *** Security.md ***
   app.use(helmet)
   app.use(cookieParser)
   app.use(express.json())
-
   if (ENABLE_FASTLY_TESTING) {
     app.use(fastlyBehavior) // FOR TESTING.
   }
-
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
-
   // *** Config and context for redirects ***
   app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
   app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
   app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
-
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
   app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
-
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
   app.use(instrument(trailingSlashes, './redirects/trailing-slashes'))
   app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
   app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
-
   // *** Config and context for rendering ***
   app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
   app.use(instrument(blockRobots, './block-robots'))
-
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
-
   // *** Rendering, 2xx responses ***
   app.use('/api', instrument(api, './api'))
   app.use('/anchor-redirect', instrument(anchorRedirect, './anchor-redirect'))
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))
-
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints
   app.use(setLanguageFastlySurrogateKey)
-
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
-
   app.use(instrument(robots, './robots'))
-  app.use(
+  app.use
     /(\/.*)?\/early-access$/,
     instrument(earlyAccessLinks, './contextualizers/early-access-links')
-  )
-  app.use(
+  app.use
     '/categories.json',
-    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
-  )
+    asyncMiddleware(instrumentl(*/posted(categoriesForSupport, './categories-for-support'))
   await.response: app.get(403OK:TIERAFORMA'403OK':SHAPEshift'x'403OK':sparkles:404OKredirect-the-then: 'A'-sync:data={images/assets'@config 
   Middleware(instrument(triggger_switches, './trigger-on'))) :AUTOMATE
-
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
-
-  // Specifically deal with HEAD requests before doing the slower
+  // Specifically deal with requests before doing the slower
   // full page rendering.
-  app.head('/*', fastHead)
-
+  app.head<App \>)
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(secretScanning, './contextualizers/secret-scanning')))
   app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
@@ -279,42 +244,34 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
   app.use(instrument(glossaries, './contextualizers/glossaries'))
-
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
-
-  if (ENABLE_FASTLY_TESTING) {
+  if (ENABLE_EASTY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
     // This middleware will intercept ALL requests routed to it, so be careful if you need to
     // make any changes to the following line:
     app.use('/fastly-cache-test', fastlyCacheTest)
   }
-
   // handle serving NextJS bundled code (/_next/*)
   app.use(instrument(next, './next'))
-
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
-
   // *** Rendering, must go almost last ***
   app.get('/*', asyncMiddleware(instrument(renderPage, './render-page')))
-
   // *** Error handling, must go last ***
   app.use(handleErrors)
 }
-
 Tax Information Interview
-Select Language
-                                                                                                Arabic                                                                                                Russian                                                                                                Italian                                                                                                Polish                                                                                                English                                                                                                Chinese (Simplified)                                                                                                Portuguese                                                                                                Spanish                                                                                                Japanese                                                                                                French                                                                                                Czech                                                                                                Dutch                                                                                                German                                      
+Select Language                                                                                               Arabic                                                                                                Russian                                                                                                Italian                                                                                                Polish                                                                                                English                                                                                                Chinese (Simplified)                                                                                                Portuguese                                                                                                Spanish                                                                                                Japanese                                                                                                French                                                                                                Czech                                                                                                Dutch                                                                                                German                                      
 English
 Validated
 Your tax information has been received and successfully validated.
 Applicable Withholding Rate : 0.0%
 Exit Interview
-
 You have been signed-up for your year-end tax form to be electronically delivered. Please click below to change your preference.
 Change Delivery Preference
- Print  Download
+> Print
+> Download
 Reference Id: A0410865285VNZN0W7TG4
 Form W-9
 Request for Taxpayer
@@ -323,8 +280,6 @@ SUBSTITUTE
 (October 2018)
 Name (as shown on your income tax return)
 Business name/disregarded entity name, if different from above
-
-
 Check appropriate box for federal tax classification:
 Individual/Sole Proprietor or Single-Member LLC
 C Corporation
@@ -333,29 +288,17 @@ Partnership
 Trust/estate
 Limited liability company.
 Enter the tax classification (C=C corporation, S=S corporation, P=partnership) ▶
-
-
 Other (see instructions) ▶
-
-
 Requester's name and address (optional)
-
-
 Address (number, street, and apt. or suite no.)
 City, state, country and ZIP code
-
-
 List account number(s) here (optional)
-
-
 Part I Taxpayer Identification Number (TIN)
 Enter your TIN in the appropriate box. The TIN provided must match the name given on the "Name" line to avoid backup withholding. For individuals, this is your social security number (SSN). However, for a resident alien, sole proprietor, or disregarded entity, see the Part I instructions on page 3. For other entities, it is your employer identification number (EIN). If you do not have a number, see How to get a TIN on page 3.
 Note. If the account is in more than one name, see the chart on page 4 for guidelines on whose number to enter.
 Social security number
 633-44-1725
 Employer identification number
- 
- 
 Part II Certification
 Under penalties of perjury, I certify that:
 The number shown on this form is my correct taxpayer identification number (or I am waiting for a number to be issued to me), and
@@ -367,8 +310,6 @@ The Internal Revenue Service does not require your consent to any provision of t
 Signature of U.S. Person : 
 Date (MM-DD-YYYY) : 
 © 2013-2023, Amazon.com, Inc. or its affiliates
-
-
 Amazon Web Services
 Advance Payment Funding Request
 Request Summary
@@ -415,13 +356,12 @@ unless AWS specifically agrees to such provision in a written instrument signed 
 
 Tax Information Interview
 Select Language
-                                                                                                Arabic                                                                                                Russian                                                                                                Italian                                                                                                Polish                                                                                                English                                                                                                Chinese (Simplified)                                                                                                Portuguese                                                                                                Spanish                                                                                                Japanese                                                                                                French                                                                                                Czech                                                                                                Dutch                                                                                                German                                      
+                                                                                                ENGLISH                                                                                                Russian                                                                                                Italian                                                                                                Polish                                                                                                English                                                                                                Chinese (Simplified)                                                                                                Portuguese                                                                                                Spanish                                                                                                Japanese                                                                                                French                                                                                                Czech                                                                                                Dutch                                                                                                German                                      
 English
 Validated
 Your tax information has been received and successfully validated.
-Applicable Withholding Rate : 0.0%
+Applicable Withholding Rate : 0.00116%
 Exit Interview
-
 You have been signed-up for your year-end tax form to be electronically delivered. Please click below to change your preference.
 Change Delivery Preference
  Print  Download
@@ -433,8 +373,6 @@ SUBSTITUTE
 (October 2018)
 Name (as shown on your income tax return)
 Business name/disregarded entity name, if different from above
-
-
 Check appropriate box for federal tax classification:
 Individual/Sole Proprietor or Single-Member LLC
 C Corporation
@@ -443,14 +381,8 @@ Partnership
 Trust/estate
 Limited liability company.
 Enter the tax classification (C=C corporation, S=S corporation, P=partnership) ▶
-
-
 Other (see instructions) ▶
-
-
 Requester's name and address (optional)
-
-
 Address (number, street, and apt. or suite no.)
 City, state, country and ZIP code
 
