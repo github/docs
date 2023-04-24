@@ -20,7 +20,7 @@ Integrations can be {% data variables.product.prodname_github_apps %}, {% data v
 
 For more information, see:
 - "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps)"
-- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)"
 - "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)"
 - "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)"
 - "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
