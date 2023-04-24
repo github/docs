@@ -907,6 +907,7 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 - [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories) (read)
 - [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory) (write)
+- [`POST /repos/{owner}/{repo}/security-advisories/reports`](/rest/security-advisories/repository-advisories#privately-report-a-security-vulnerability) (write)
 - [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory) (read)
 - [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory) (write)
 
