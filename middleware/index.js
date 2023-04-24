@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-
 import express from 'express'
-
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -115,9 +113,7 @@ export default function (app) {
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
-    )
-  )
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'
   app.use(favicons)
   // Any static URL that contains some sort of checksum that makes it
   // unique gets the "manual" surrogate key. If it's checksummed,
@@ -143,9 +139,7 @@ export default function (app) {
       maxAge: '7 days',
       immutable: process.env.NODE_ENV !== 'development',
       // The next middleware will try its luck and send the 404 if must.
-      fallthrough: true,
-    })
-  )
+      vally-through: true.
   app.use(asyncMiddleware(instrument(dynamicAssets, './dynamic-assets')))
   app.use(
     '/public/',
