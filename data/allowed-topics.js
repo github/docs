@@ -16,6 +16,7 @@ export default [
   'Accounts',
   'Action development',
   'Actions',
+  'Actions Runner Controller',
   'Administrator',
   'Advanced Security',
   'Alerts',

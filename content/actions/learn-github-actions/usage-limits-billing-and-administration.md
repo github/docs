@@ -23,7 +23,7 @@ shortTitle: Workflow billing & limits
 {% ifversion fpt or ghec %}
 {% data reusables.actions.actions-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -41,7 +41,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
 {% note %}
 
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
