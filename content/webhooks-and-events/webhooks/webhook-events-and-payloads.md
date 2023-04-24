@@ -33,7 +33,7 @@ Key | Type | Description
 {% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
 {% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
 {% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %} For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps)."
+{% data reusables.webhooks.app_desc %} For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app)."
 
 The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/activity#events). One exception is the [`push` event](#push). The unique properties of the `push` event webhook payload and the `payload` property in the Events API differ. The webhook payload contains more detailed information.
 

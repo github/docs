@@ -18,7 +18,7 @@ shortTitle: Deny OAuth App
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. Next to the application you'd like to disable, click {% octicon "pencil" aria-label="The edit icon" %}.
-  ![Edit icon](/assets/images/help/settings/settings-third-party-deny-edit.png)
-6. Click **Deny access**.
-  ![Deny confirmation button](/assets/images/help/settings/settings-third-party-deny-confirm.png)
+1. Next to the application you'd like to disable, click {% octicon "pencil" aria-label="Update policy" %}.
+
+   ![Screenshot of the "Third-party application access policy" page. To the right of an approved application, a pencil icon is outlined in dark orange.](/assets/images/help/settings/settings-third-party-deny-edit.png)
+1. Click **Deny access**.
