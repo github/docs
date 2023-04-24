@@ -52,15 +52,7 @@ First, enable {% data variables.product.prodname_actions %} for all organization
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Policies", select **Enable for all organizations**.
-   
-   ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
-
-   {% ifversion actions-workflow-policy %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
-   {%- else %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
-   {%- endif %}
+1. To enable local actions{% ifversion actions-workflow-policy %} and reusable workflows, {% endif %} and actions created by {% data variables.product.company_short %}, select {% data reusables.actions.policy-label-for-select-actions-workflows %}, then select **Allow actions created by {% data variables.product.company_short %}**.
 1. Click **Save**.
 
 You can configure additional policies to restrict the actions available to {% ifversion ghec or ghae %}enterprise members{% elsif ghes %}users of {% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-to-run)."
