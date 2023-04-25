@@ -2,8 +2,20 @@
 
 // [start-readme]
 //
-// Helps you move (a.k.a. rename) a file or a folder and does what's
-// needed with frontmatter redirect_from.
+// Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
+//
+// By default, the `move-content.js` script will commit the changes it makes. If you don't want the script to run any git commands for you, run it with the `--no-git` flag. Note: In most cases it will be easier and safer to let the script run the git commands for you, since git can get confused when a file is both renamed and edited.
+//
+// To learn more about the script, you can run `script/move-content.js --help`.
+//
+// To run the script for a file:
+// - `script/move-content.js PATH/TO/CURRENT-FILE.md PATH/TO/DESIRED-FILE-LOCATION-OR-NAME.md`
+//
+// To run the script for a folder:
+// - `script/move-content.js PATH/TO/CURRENT-FOLDER PATH/TO/DESIRED-FOLDER-LOCATION-OR-NAME`
+//
+// To undo the script, run the same command that you used to run the script, but add an `--undo` flag:
+// - `script/move-content.js --undo PATH/TO/OLD PATH/TO/NEW`
 //
 // [end-readme]
 

@@ -235,13 +235,13 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 1. On the primary node, enable maintenance mode and wait for all active processes to complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 {% data reusables.enterprise_installation.replica-ssh %}
 1. To stop replication on all nodes, run `ghe-repl-stop` on each node.
-1. To upgrade the primary node, follow the instructions in "[Upgrading a single node with an upgrade package](#upgrading-a-single-node-with-an-upgrade-package)."
+1. To upgrade the primary node, follow the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 
 #### Upgrading additional nodes with an upgrade package
 
 {% data reusables.enterprise_installation.multiple-node-upgrade-admonishment %}
 
-1. Upgrade the node by following the instructions in "[Upgrading a single node with an upgrade package](#upgrading-a-single-node-with-an-upgrade-package)."
+1. Upgrade the node by following the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 {% data reusables.enterprise_installation.start-replication %}

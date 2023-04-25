@@ -82,9 +82,9 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
    * **Use the default options**
 
-      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**.
+      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**. <br/><br/>
 
-   * **Configure options**
+   * **Configure advanced options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
@@ -96,19 +96,35 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          ![Screenshot of the advanced options page with buttons for "Branch," "Dev container configuration," "Region," and "Machine type."](/assets/images/help/codespaces/advanced-options.png)
 
+         The options page may also display the names of one or more secrets that it's recommended you create in your {% data variables.product.prodname_codespaces %} settings. For more information, see "[Recommended secrets](#recommended-secrets)."
+
          {% note %}
 
          **Notes**
 
          * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
          * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         * For more information about the `devcontainer.json` file, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson)."
+         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
          * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
          * {% data reusables.codespaces.codespaces-machine-type-availability %}
 
          {% endnote %}
 
       1. Click **Create codespace**.
+
+## Recommended secrets
+
+The names of user-defined secrets may be displayed on the advanced options page when you create a codespace. This will happen if recommended secrets have been specified in the dev container configuration you have selected. 
+         
+<img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem"  alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
+
+Entering values for these secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
+
+If you enter a value for a recommended secret, the secret will available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
+         
+If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
+         
+If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 
 {% endwebui %}
 
@@ -148,4 +164,4 @@ For full details of the options for this command, see [the {% data variables.pro
 
 ## Further reading
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"

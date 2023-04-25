@@ -189,6 +189,8 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
 
+If you want to migrate a single repository, skip to the next step.
+
 ### Generating a migration script
 
 To generate a migration script, run the `gh ado2gh generate-script` command.
@@ -223,10 +225,8 @@ You can migrate multiple repositories with a migration script or a single reposi
 To migrate a single repository, use the `gh ado2gh migrate-repo` command.
 
 ```shell{:copy}
-gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-repo CURRENT-NAME --github-org DESTINATION --github-repo NEW-NAME --wait
+gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-repo CURRENT-NAME --github-org DESTINATION --github-repo NEW-NAME
 ```
-
-{% data reusables.enterprise-migration-tool.wait-flag %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 

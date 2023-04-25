@@ -45,7 +45,7 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
       move-assigned-card:
         runs-on: ubuntu-latest
         steps:
-          - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+          - uses: alex-page/github-project-automation-plus@7ffb872c64bd809d23563a130a0a97d01dfa8f43
             with:
               project: Docs Work
               column: In Progress

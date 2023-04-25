@@ -5,6 +5,12 @@ redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program
   - /articles/adding-organization-members-to-a-team
   - /github/setting-up-and-managing-organizations-and-teams/adding-organization-members-to-a-team
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
+  - /enterprise/admin/user-management/adding-people-to-teams
+  - /admin/user-management/adding-people-to-teams
+  - /admin/user-management/managing-organizations-in-your-enterprise/adding-people-to-teams
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +28,7 @@ shortTitle: Add members to a team
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-6. Above the list of team members, click **Add a member**.
+1. Above the list of team members, click **Add a member**.
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 

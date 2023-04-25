@@ -69,19 +69,18 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 #### Setting up streaming to S3 with access keys
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information.
-
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* The name of your Amazon S3 bucket
 * Your AWS access key ID
 * Your AWS secret key
 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
+{% data reusables.audit_log.create-s3-bucket %}
+{% data reusables.audit_log.create-s3-policy %}
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
 1. Under "Authentication", click **Access keys**.{% endif %}
-1. Configure the stream settings.
+2. Configure the stream settings.
 
    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
@@ -96,6 +95,8 @@ For information on creating or accessing your access key ID and secret key, see 
 
    - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
    - For "Audience", use `sts.amazonaws.com`.
+{% data reusables.audit_log.create-s3-bucket %}
+{% data reusables.audit_log.create-s3-policy %}
 1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
 1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
@@ -115,7 +116,7 @@ For information on creating or accessing your access key ID and secret key, see 
    }
    ```
    For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+4. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.

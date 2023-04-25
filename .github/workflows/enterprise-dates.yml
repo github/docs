@@ -36,7 +36,7 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout repository code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # pin @3.1.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -48,7 +48,7 @@ jobs:
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@2b011faafdcbc9ceb11414d64d0573f37c774b04
+        uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # pin @v5.0.0
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'

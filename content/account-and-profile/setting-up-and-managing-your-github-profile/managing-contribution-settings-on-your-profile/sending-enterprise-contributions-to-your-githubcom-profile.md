@@ -49,7 +49,6 @@ Before you can connect your {% ifversion fpt or ghec %}{% data variables.product
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
-   ![Authorize connection between GitHub Enterprise Server and GitHub.com](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)
 {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% elsif ghae %}

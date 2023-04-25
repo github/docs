@@ -37,12 +37,9 @@ You can filter email notifications you receive for pushes to a repository. For m
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.sidebar-notifications %}
-5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address.
-![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
-1. If you operate your own server, you can verify the integrity of emails via the **Approved header**. The **Approved header** is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}.
-![Email approved header textbox](/assets/images/help/settings/email_services_approved_header.png)
+5. In the "Address" field, type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address.
+1. If you operate your own server, you can verify the integrity of emails via the "Approved header." The "Approved header" is a token or secret that you type in this field, and that is sent with the email. If the `Approved` header of an email matches the token, you can trust that the email is from {% data variables.product.product_name %}.
 7. Click **Setup notifications**.
-![Setup notifications button](/assets/images/help/settings/setup_notifications_settings.png)
 
 ## Further reading
 - "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"

@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
-import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
@@ -93,7 +92,7 @@ export const VersionPicker = ({ mediumOrLower }: Props) => {
         ariaLabel={`Select GitHub product version: current version is ${currentVersion}`}
         renderItem={(item) => {
           return (
-            <div data-testid="version-picker-item" className={cx(styles.itemsWidth)}>
+            <div data-testid="version-picker-item" className={styles.itemsWidth}>
               {item.text}
               {item.extra?.arrow && (
                 <ArrowRightIcon verticalAlign="middle" size={15} className="ml-1" />

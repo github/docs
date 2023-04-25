@@ -33,7 +33,7 @@ There are two ways to generate a user access token for a {% data variables.produ
 
 ## Prerequisites
 
-This tutorial assumes that you have already created a {% data variables.product.prodname_github_app %}. For more information about creating an app, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+This tutorial assumes that you have already created a {% data variables.product.prodname_github_app %}. For more information about creating an app, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
 
 Before following this tutorial, you must enable device flow for your app. For more information about enabling device flow for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
@@ -183,7 +183,7 @@ These steps lead you through building a CLI and using device flow to get a user 
    def help
      puts "usage: app_cli <help>"
    end
-   
+
    def main
      case ARGV[0]
      when "help"
@@ -238,7 +238,7 @@ The `login` command will run the device flow to get a user access token. For mor
      uri = URI("{% data variables.product.oauth_host_code %}/login/device/code")
      parameters = URI.encode_www_form("client_id" => CLIENT_ID)
      headers = {"Accept" => "application/json"}
-   
+
      response = Net::HTTP.post(uri, parameters, headers)
      parse_response(response)
    end
@@ -264,11 +264,11 @@ The `login` command will run the device flow to get a user access token. For mor
 
   ```ruby{:copy}
   def poll_for_token(device_code, interval)
-  
+
     loop do
       response = request_token(device_code)
       error, access_token = response.values_at("error", "access_token")
-  
+
       if error
         case error
         when "authorization_pending"
@@ -294,12 +294,12 @@ The `login` command will run the device flow to get a user access token. For mor
           exit 1
         end
       end
-  
+
       File.write("./.token", access_token)
-  
+
       # Set the file permissions so that only the file owner can read or modify the file
       FileUtils.chmod(0600, "./.token")
-  
+
       break
     end
   end
@@ -317,12 +317,12 @@ The `login` command will run the device flow to get a user access token. For mor
    ```ruby{:copy}
    def login
      verification_uri, user_code, device_code, interval = request_device_code.values_at("verification_uri", "user_code", "device_code", "interval")
-   
+
      puts "Please visit: #{verification_uri}"
      puts "and enter code: #{user_code}"
-   
+
      poll_for_token(device_code, interval)
-   
+
      puts "Successfully authenticated!"
    end
    ```
@@ -358,18 +358,18 @@ The `login` command will run the device flow to get a user access token. For mor
 
    ```ruby{:copy}
    #!/usr/bin/env ruby
-   
+
    require "net/http"
    require "json"
    require "uri"
    require "fileutils"
-   
+
    CLIENT_ID="YOUR_CLIENT_ID"
-   
+
    def help
      puts "usage: app_cli <login | help>"
    end
-   
+
    def main
      case ARGV[0]
      when "help"
@@ -382,7 +382,7 @@ The `login` command will run the device flow to get a user access token. For mor
        puts "Unknown command #{ARGV[0]}"
      end
    end
-   
+
    def parse_response(response)
      case response
      when Net::HTTPOK, Net::HTTPCreated
@@ -393,16 +393,16 @@ The `login` command will run the device flow to get a user access token. For mor
        exit 1
      end
    end
-   
+
    def request_device_code
      uri = URI("{% data variables.product.oauth_host_code %}/login/device/code")
      parameters = URI.encode_www_form("client_id" => CLIENT_ID)
      headers = {"Accept" => "application/json"}
-   
+
      response = Net::HTTP.post(uri, parameters, headers)
      parse_response(response)
    end
-   
+
    def request_token(device_code)
      uri = URI("{% data variables.product.oauth_host_code %}/login/oauth/access_token")
      parameters = URI.encode_www_form({
@@ -414,13 +414,13 @@ The `login` command will run the device flow to get a user access token. For mor
      response = Net::HTTP.post(uri, parameters, headers)
      parse_response(response)
    end
-   
+
    def poll_for_token(device_code, interval)
-   
+
      loop do
        response = request_token(device_code)
        error, access_token = response.values_at("error", "access_token")
-   
+
        if error
          case error
          when "authorization_pending"
@@ -446,27 +446,27 @@ The `login` command will run the device flow to get a user access token. For mor
            exit 1
          end
        end
-   
+
        File.write("./.token", access_token)
-   
+
        # Set the file permissions so that only the file owner can read or modify the file
        FileUtils.chmod(0600, "./.token")
-   
+
        break
      end
    end
-   
+
    def login
      verification_uri, user_code, device_code, interval = request_device_code.values_at("verification_uri", "user_code", "device_code", "interval")
-   
+
      puts "Please visit: #{verification_uri}"
      puts "and enter code: #{user_code}"
-   
+
      poll_for_token(device_code, interval)
-   
+
      puts "Successfully authenticated!"
    end
-   
+
    main
    ```
 
@@ -501,10 +501,10 @@ Now that your app can generate a user access token, you can make API requests on
      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
        body = {"access_token" => token}.to_json
        headers = {"Accept" => "application/vnd.github+json", "Authorization" => "Bearer #{token}"}
-   
+
        http.send_request("GET", uri.path, body, headers)
      end
-   
+
      parsed_response = parse_response(response)
      puts "You are #{parsed_response["login"]}"
    end
@@ -561,18 +561,18 @@ This is the full code example that was outlined in the previous section. Replace
 
    ```ruby{:copy}
    #!/usr/bin/env ruby
-   
+
    require "net/http"
    require "json"
    require "uri"
    require "fileutils"
-   
+
    CLIENT_ID="YOUR_CLIENT_ID"
-   
+
    def help
      puts "usage: app_cli <login | whoami | help>"
    end
-   
+
    def main
      case ARGV[0]
      when "help"
@@ -585,7 +585,7 @@ This is the full code example that was outlined in the previous section. Replace
        puts "Unknown command #{ARGV[0]}"
      end
    end
-   
+
    def parse_response(response)
      case response
      when Net::HTTPOK, Net::HTTPCreated
@@ -599,16 +599,16 @@ This is the full code example that was outlined in the previous section. Replace
        exit 1
      end
    end
-   
+
    def request_device_code
      uri = URI("{% data variables.product.oauth_host_code %}/login/device/code")
      parameters = URI.encode_www_form("client_id" => CLIENT_ID)
      headers = {"Accept" => "application/json"}
-   
+
      response = Net::HTTP.post(uri, parameters, headers)
      parse_response(response)
    end
-   
+
    def request_token(device_code)
      uri = URI("{% data variables.product.oauth_host_code %}/login/oauth/access_token")
      parameters = URI.encode_www_form({
@@ -620,13 +620,13 @@ This is the full code example that was outlined in the previous section. Replace
      response = Net::HTTP.post(uri, parameters, headers)
      parse_response(response)
    end
-   
+
    def poll_for_token(device_code, interval)
-   
+
      loop do
        response = request_token(device_code)
        error, access_token = response.values_at("error", "access_token")
-   
+
        if error
          case error
          when "authorization_pending"
@@ -652,24 +652,24 @@ This is the full code example that was outlined in the previous section. Replace
            exit 1
          end
        end
-   
+
        File.write("./.token", access_token)
-   
+
        # Set the file permissions so that only the file owner can read or modify the file
        FileUtils.chmod(0600, "./.token")
-   
+
        break
      end
    end
-   
+
    def login
      verification_uri, user_code, device_code, interval = request_device_code.values_at("verification_uri", "user_code", "device_code", "interval")
-   
+
      puts "Please visit: #{verification_uri}"
      puts "and enter code: #{user_code}"
-   
+
      poll_for_token(device_code, interval)
-   
+
      puts "Successfully authenticated!"
    end
 
@@ -686,14 +686,14 @@ This is the full code example that was outlined in the previous section. Replace
      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
        body = {"access_token" => token}.to_json
        headers = {"Accept" => "application/vnd.github+json", "Authorization" => "Bearer #{token}"}
-   
+
        http.send_request("GET", uri.path, body, headers)
      end
-   
+
      parsed_response = parse_response(response)
      puts "You are #{parsed_response["login"]}"
    end
-   
+
    main
    ```
 
@@ -741,7 +741,7 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 
 ### Adjust the code to meet your app's needs
 
-This tutorial demonstrated how to write a CLI that uses the device flow to generate a user access token. You can expand this CLI to accept additional commands. For example, you can add a `create-issue` command that opens an issue. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
+This tutorial demonstrated how to write a CLI that uses the device flow to generate a user access token. You can expand this CLI to accept additional commands. For example, you can add a `create-issue` command that opens an issue. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
 ### Securely store tokens
 

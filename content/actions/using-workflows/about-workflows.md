@@ -187,7 +187,7 @@ jobs:
 
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
 
-To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion fpt or ghec %}
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."

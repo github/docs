@@ -419,6 +419,7 @@ This event is available for the following issue types.
 |Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
+
 ## head_ref_force_pushed
 
 The pull request's HEAD branch was force pushed.
@@ -916,6 +917,7 @@ This event is available for the following issue types.
 |Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
+
 ### Properties for unpinned
 
 {% data reusables.issue-events.issue-event-common-properties %}

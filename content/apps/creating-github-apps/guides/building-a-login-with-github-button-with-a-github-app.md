@@ -27,9 +27,9 @@ There are two ways to generate a user access token for a {% data variables.produ
 
 ## Prerequisites
 
-This tutorial assumes that you have already created a {% data variables.product.prodname_github_app %}. For more information about creating an app, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+This tutorial assumes that you have already created a {% data variables.product.prodname_github_app %}. For more information about creating an app, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
 
-Before following this tutorial, you must set a callback URL for your app. This tutorial uses a local Sinatra server with the default URL of `http://localhost:4567`. For example, to work with the default URL for a local Sinatra application, your callback URL can be `http://localhost:4567/github/callback`. Once you are ready to deploy your app, you can change the callback URL to use your live server address. For more information about updating the callback URL for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
+Before following this tutorial, you must set a callback URL for your app. This tutorial uses a local Sinatra server with the default URL of `http://localhost:4567`. For example, to work with the default URL for a local Sinatra application, your callback URL can be `http://localhost:4567/github/callback`. Once you are ready to deploy your app, you can change the callback URL to use your live server address. For more information about updating the callback URL for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url)."
 
 This tutorial assumes that you have a basic understanding of Ruby and of the Ruby template system, ERB. For more information, see [Ruby](https://www.ruby-lang.org) and [ERB](https://github.com/ruby/erb).
 
@@ -144,10 +144,10 @@ These steps lead you through writing code to generate a user access token. To sk
    require "dotenv/load"
    require "net/http"
    require "json"
-   
+
    CLIENT_ID = ENV.fetch("CLIENT_ID")
    CLIENT_SECRET = ENV.fetch("CLIENT_SECRET")
-   
+
    get "/" do
      link = '<a href="{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=<%= CLIENT_ID %>">Login with GitHub</a>'
      erb link
@@ -183,10 +183,10 @@ These steps lead you through writing code to generate a user access token. To sk
    require "dotenv/load"
    require "net/http"
    require "json"
-   
+
    CLIENT_ID = ENV.fetch("CLIENT_ID")
    CLIENT_SECRET = ENV.fetch("CLIENT_SECRET")
-   
+
    def parse_response(response)
      case response
      when Net::HTTPOK
@@ -197,7 +197,7 @@ These steps lead you through writing code to generate a user access token. To sk
        {}
      end
    end
-   
+
    def exchange_code(code)
      params = {
        "client_id" => CLIENT_ID,
@@ -209,23 +209,23 @@ These steps lead you through writing code to generate a user access token. To sk
        URI.encode_www_form(params),
        {"Accept" => "application/json"}
      )
-   
+
      parse_response(result)
    end
-   
+
    get "/" do
      link = '<a href="{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=<%= CLIENT_ID %>">Login with GitHub</a>'
      erb link
    end
-   
+
    get "CALLBACK_URL" do
      code = params["code"]
-   
+
      token_data = exchange_code(code)
-   
+
      if token_data.key?("access_token")
        token = token_data["access_token"]
-   
+
        render = "Successfully authorized! Got code #{code} and exchanged it for a user access token ending in #{token[-9..-1]}."
        erb render
      else
@@ -250,16 +250,16 @@ These steps lead you through writing code to generate a user access token. To sk
    ```ruby{:copy}
    def user_info(token)
      uri = URI("{% data variables.product.api_url_code %}/user")
-   
+
      result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
        body = {"access_token" => token}.to_json
-   
+
        auth = "Bearer #{token}"
        headers = {"Accept" => "application/json", "Content-Type" => "application/json", "Authorization" => auth}
-   
+
        http.send_request("GET", uri.path, body, headers)
      end
-   
+
      parse_response(result)
    end
    ```
@@ -269,16 +269,16 @@ These steps lead you through writing code to generate a user access token. To sk
    ```ruby{:copy}
    get "CALLBACK_URL" do
      code = params["code"]
-   
+
      token_data = exchange_code(code)
-   
+
      if token_data.key?("access_token")
        token = token_data["access_token"]
-   
+
        user_info = user_info(token)
        handle = user_info["login"]
        name = user_info["name"]
-   
+
        render = "Successfully authorized! Welcome, #{name} (#{handle})."
        erb render
      else
@@ -397,7 +397,7 @@ For example, you can store the secret in an environment variable on the server w
 
 ### Update the callback URL for deployment
 
-This tutorial used a callback URL starting with `http://localhost:4567`. However, `http://localhost:4567` is only available locally to your computer when you start the Sinatra server. Before you deploy your app, you should update the callback URL to use the callback URL that you use in production. For more information about updating the callback URL for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
+This tutorial used a callback URL starting with `http://localhost:4567`. However, `http://localhost:4567` is only available locally to your computer when you start the Sinatra server. Before you deploy your app, you should update the callback URL to use the callback URL that you use in production. For more information about updating the callback URL for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url)."
 
 ### Handle multiple callback URLs
 
@@ -415,7 +415,7 @@ Unlike a traditional OAuth token, the user access token does not use scopes so y
 
 ### Adjust the code to meet your app's needs
 
-This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
+This tutorial demonstrated how to display information about the authenticated user, but you can adjust this code to take other actions. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 This tutorial stored all of the code into a single file, but you may want to move functions and components into separate files.
 

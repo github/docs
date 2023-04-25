@@ -4,6 +4,9 @@ intro: 'If members of your organization no longer require access to any reposito
 redirect_from:
   - /articles/removing-a-member-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-member-from-your-organization
+  - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
+  - /admin/user-management/removing-users-from-teams-and-organizations
+  - /admin/user-management/managing-organizations-in-your-enterprise/removing-users-from-teams-and-organizations
 versions:
   fpt: '*'
   ghes: '*'
@@ -57,13 +60,13 @@ To help the person you're removing from your organization transition and help en
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. Select the member or members you'd like to remove from the organization.
+1. Select the member or members you'd like to remove from the organization.
 
   ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, select the **X members selected...** dropdown menu, and click **Remove from organization**.
+1. Above the list of members, select the **X members selected...** dropdown menu, and click **Remove from organization**.
 
    ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)
-6. Review the member or members who will be removed from the organization, then click **Remove members**.
+1. Review the member or members who will be removed from the organization, then click **Remove members**.
 
 ## Further reading
 

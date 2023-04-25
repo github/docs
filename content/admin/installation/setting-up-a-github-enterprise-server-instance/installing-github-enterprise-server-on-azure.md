@@ -79,6 +79,10 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
+To configure the instance, you must confirm the instance's status, upload a license file, set the {% ifversion enterprise-management-console-multi-user-auth %}root {% endif %} {% data variables.enterprise.management_console %} password, configure the instance's settings, and restart the instance.
+
+{% data reusables.enterprise_installation.new-instance-attack-vector-warning %}
+
 1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
   $ az vm list -d -g RESOURCE_GROUP -o table
