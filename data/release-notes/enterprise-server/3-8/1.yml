@@ -1,5 +1,10 @@
 date: '2023-03-23'
 sections:
+  security_fixes:
+    - |
+      **HIGH**: Addressed an improper authentication vulnerability that allowed an unauthorized actor to modify other users' secret gists by authenticating through an SSH certificate authority. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23761](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23761). [Updated: 2023-04-07]
+    - |
+      **MEDIUM**: Addressed an incorrect comparison vulnerability that allowed commit smuggling by displaying an incorrect diff. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23762](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23762). [Updated: 2023-04-07]
   bugs:
     - On an instance with GitHub Actions enabled, a workflow job for GitHub Actions would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
     - On an instance with GitHub Actions enabled, GitHub Actions will now properly execute after restoration of a deleted repository.
@@ -21,6 +26,8 @@ sections:
     - When users searched for gists, the text in the search field was not visible in some cases because the texts color was identical to the color of the fields background.
     - In some cases on an instance with multiple nodes, GitHub Enterprise Server erroneously stopped writing to replica fileservers, causing repository data to fall out of sync.
     - On an instance with GitHub Connect enabled, if "Users can search GitHub.com" was enabled, users would not see issues in private and internal repositories in search results for GitHub.com.
+    - |
+      An enterprise owner could not enable two-factor authentication (2FA) for an instance if any enterprise owners had not enabled 2FA for their user accounts. [Updated: 2023-04-17]
   changes:
     - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
     - To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.

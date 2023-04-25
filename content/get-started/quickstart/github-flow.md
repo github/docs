@@ -77,9 +77,10 @@ If your repository has checks configured to run on pull requests, you will see a
 
 ### Address review comments
 
-Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
+Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines{% ifversion pull-request-comment-on-file %} or files{% endif %}. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
 
 You can continue to commit and push changes in response to the reviews. Your pull request will update automatically.
+
 
 ### Merge your pull request
 
@@ -87,7 +88,7 @@ Once your pull request is approved, merge your pull request. This will automatic
 
 {% data variables.product.prodname_dotcom %} will tell you if your pull request has conflicts that must be resolved before merging. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
-Branch protection settings may block merging if your pull request does not meet certain requirements. For example, you need a certain number of approving reviews or an approving review from a specific team. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Branch protection settings may block merging if your pull request does not meet certain requirements. For example, you need a certain number of approving reviews or an approving review from a specific team. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 ### Delete your branch
 

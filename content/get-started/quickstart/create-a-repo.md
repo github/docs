@@ -46,9 +46,9 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% data reusables.repositories.create_new %}
 2. Type a short, memorable name for your repository. For example, "hello-world".
-  ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
+
+   ![Screenshot of the first step in creating a {% data variables.product.prodname_dotcom %} repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
 3. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
-  ![Field for entering a repository description](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -72,18 +72,18 @@ Congratulations! You've successfully created your first repository, and initiali
 
 {% webui %}
 
-A *[commit](/get-started/quickstart/github-glossary#commit)* is like a snapshot of all the files in your project at a particular point in time.
+A [commit](/get-started/quickstart/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
 
 When you created your new repository, you initialized it with a *README* file. *README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository.
 
-Let's commit a change to the *README* file.
+Let's commit a change to the README file.
 
-1. In your repository's list of files, click ***README.md***.
+1. In your repository's list of files, select **README.md**.
   ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
 {% data reusables.repositories.edit-file-button %}
 3. In the text box, type some information about yourself.
 {% data reusables.files.preview_change %}
-5. Review the changes you made to the file. You will see the new content in green.
+1. Review the changes you made to the file. You will see the new content in green.
   ![File preview view](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

@@ -25,6 +25,18 @@ The issues you add to your tasklists will be automatically populated to show the
 
 ## Creating tasklists with Markdown
 
+{% note %}
+
+**Note:** If {% data variables.product.product_name %} cannot render your tasklist, make sure it is formatted like the example below.
+
+Tasklists do not currently support: 
+
+* Indented tasks.
+* Extra new lines between or after the list of tasks.
+
+{% endnote %}
+
+
 You can create a tasklist using Markdown in the issue description (the opening comment of an issue). You can include links to issues and pull requests or create draft issues.
 
 1. Start creating a new issue or edit the issue description of an existing issue.
@@ -47,12 +59,6 @@ Your finished tasklist should look like this:
 ````
 
 Your tasklist will be rendered by {% data variables.product.product_name %} when you save the issue. You can then make changes and add issues and draft issues using the {% data variables.product.product_name %} UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the tasklist in other issues.
-
-{% note %}
-
-**Note:** If {% data variables.product.product_name %} cannot render your tasklist, make sure it is formatted like the example above and that you do not have any unintended new lines.
-
-{% endnote %}
 
 You can also click {% octicon "checklist" aria-label="Add tasklist" %} in the formatting toolbar to insert a tasklist when creating a new issue or editing an issue description.
 

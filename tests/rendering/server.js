@@ -34,7 +34,7 @@ describe('server', () => {
     const res = await head('/en')
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-length']).toBe('0')
-    expect(res.text).toBe('')
+    expect(res.body).toBe('')
     // Because the HEAD requests can't be different no matter what's
     // in the request headers (Accept-Language or Cookies)
     // it's safe to let it cache. The only key is the URL.
@@ -155,7 +155,7 @@ describe('server', () => {
 
   test('renders a 404 page', async () => {
     const $ = await getDOM('/not-a-real-page', { allow404: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
       $.text().includes(
@@ -176,7 +176,7 @@ describe('server', () => {
 
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
-    expect($('h1').text()).toBe('Ooops!')
+    expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
       $.text().includes(
@@ -221,7 +221,7 @@ describe('server', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
 
-    const categories = JSON.parse(res.text)
+    const categories = JSON.parse(res.body)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
     categories.forEach((category) => {
@@ -359,34 +359,6 @@ describe('server', () => {
     })
   })
 
-  describe('article versions', () => {
-    test('includes links to all versions of each article', async () => {
-      const articlePath =
-        'get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
-      const $ = await getDOM(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`
-      )
-      // 2.13 predates this feature, so it should be excluded:
-      expect(
-        $(`[data-testid=version-picker] a[href="/en/enterprise/2.13/user/${articlePath}"]`).length
-      ).toBe(0)
-    })
-
-    test('is not displayed if dotcom article has only one version', async () => {
-      const $ = await getDOM('/en/articles/signing-up-for-a-new-github-account')
-      expect($('.article-versions').length).toBe(0)
-    })
-
-    test('is not displayed if ghec article has only one version', async () => {
-      const $ = await getDOM(
-        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users',
-        { allow404: true }
-      )
-      expect($.res.statusCode).toBe(404)
-      expect($('.article-versions').length).toBe(0)
-    })
-  })
-
   describeViaActionsOnly('Early Access articles', () => {
     test('have noindex meta tags', async () => {
       const allPages = await loadPages()
@@ -424,7 +396,7 @@ describe('server', () => {
     test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
       expect(res.statusCode).toBe(302)
-      expect(res.text).toBe(
+      expect(res.body).toBe(
         'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
       )
     })
@@ -666,14 +638,14 @@ describe('?json query param for context debugging', () => {
   it('uses query param value as a key', async () => {
     const res = await get('/en?json=page')
     expect(res.statusCode).toBe(200)
-    const page = JSON.parse(res.text)
+    const page = JSON.parse(res.body)
     expect(typeof page.title).toBe('string')
   })
 
   it('returns a helpful message with top-level keys if query param has no value', async () => {
     const res = await get('/en?json')
     expect(res.statusCode).toBe(200)
-    const context = JSON.parse(res.text)
+    const context = JSON.parse(res.body)
 
     expect(context.message.includes('context object is too big to display')).toBe(true)
     expect(Array.isArray(context.keys)).toBe(true)
@@ -748,28 +720,5 @@ describe('static routes', () => {
     expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
     expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
-  })
-})
-
-describe('index pages', () => {
-  const nonEnterpriseOnlyPath =
-    '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
-
-  test.skip('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/get-started/importing-your-projects-to-github')
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
-  })
-
-  test.skip('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/user/get-started/importing-your-projects-to-github`
-    )
-    expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
-  })
-
-  test('includes correctly versioned links in GHE', async () => {
-    const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
-    const $ = await getDOM(installationLatest)
-    expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
   })
 })

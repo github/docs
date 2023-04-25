@@ -56,6 +56,8 @@ The{% ifversion repositories-forks-page-improvement %} forks page {% else %} Mem
 
 You can filter the list of forks to display active, inactive, starred, or archived forks, or to only display forks that have been updated within a specified time period (up to a period of five years). To view the most useful or most active forks, you can sort the list of forks by most starred forks or most recently updated forks, or by the number of open issues or open pull requests.
 
+If you want to preserve the filters you have selected, you can save your filter and sort selections as the default so that any forks page you view, in any repository, will be filtered the same way.
+
 {% else %}
 
 Forks are listed alphabetically by the organization or username of the person who forked the repository. You can click on the organization or username to be redirected to the organization or user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
@@ -82,6 +84,10 @@ Forks are listed alphabetically by the organization or username of the person wh
 1. Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click **Sort**, then choose an option from the dropdown menu.
 
    ![Screenshot of the forks page with filter and sort options shown. The dropdown menu, titled "Sort", is highlighted with an orange outline.](/assets/images/help/graphs/repository-forks-page-sort-dropdown.png)
+
+1. Optionally, to preserve the filter values you have selected as the default filters for any time you view a forks page, click **Save Defaults**. If the currently selected filters are already the defaults, the button will be disabled and labeled as **Defaults Saved**. 
+
+   ![Screenshot of the forks page with filter and sort options shown. The "Defaults saved" button, which is disabled because the defaults are already saved, is highlighted with an orange outline."](/assets/images/help/graphs/repository-forks-page-save-defaults-button.png)
 
 {% endif %}
 

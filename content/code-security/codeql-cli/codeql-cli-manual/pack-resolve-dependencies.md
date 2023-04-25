@@ -36,6 +36,8 @@ for this QL pack.
 This command searches the configured registries for required
 dependencies and returns the list of resolved dependencies.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<dir>`
@@ -80,6 +82,8 @@ Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
 
+Available since `v2.11.3`.
+
 #### `--no-strict-mode`
 
 \[Advanced] Turn off strict mode to avoid a warning when resolving
@@ -89,6 +93,11 @@ and other locally resolved locations. Packages resolved locally are
 never downloaded
 
 and will not be added to the package lock.
+
+#### `--lock-override=<file>`
+
+\[Advanced] Specifies an alternate lock file to use as the input to
+dependency resolution.
 
 ### Options for resolving QL packs outside of the package registry
 

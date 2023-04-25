@@ -52,7 +52,7 @@ If you have many dependencies to manage, you may want to customize the configura
 
 ## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rebase-strategy)."
+By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. {% ifversion dependabot-updates-rebase-30-days-cutoff %}{% data reusables.dependabot.pull-requests-30-days-cutoff %}{% endif %} If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rebase-strategy)."
 
 ## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
 

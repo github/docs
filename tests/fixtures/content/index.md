@@ -20,6 +20,7 @@ children:
   - early-access
   - pages
   - code-security
+  - actions
   # - account-and-profile
   # - authentication
   # - repositories
@@ -29,7 +30,6 @@ children:
   # - organizations
   # - pull-requests
   # - issues
-  # - actions
   # - copilot
   # - codespaces
   # - packages

@@ -94,7 +94,7 @@ jobs:
         run: cat $GITHUB_WORKSPACE/translation-health-report.json
 
       - name: Log in to Azure
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 

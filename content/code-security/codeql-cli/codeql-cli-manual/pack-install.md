@@ -40,6 +40,8 @@ dependencies, updating the lock file with the newly chosen versions. If
 no lock file is present, this command installs the latest compatible
 version of all dependencies, creating a new lock file.
 
+Available since `v2.6.0`.
+
 ## Primary options
 
 #### `<dir>`
@@ -59,6 +61,13 @@ Allow overwriting already existing packs.
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
+
+#### `--lock-override=<file>`
+
+\[Advanced] Specifies an alternate lock file to use as the input to
+dependency resolution.
 
 #### `--no-strict-mode`
 

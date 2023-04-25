@@ -30,7 +30,7 @@ export const LandingHero = () => {
   return (
     <header className="d-lg-flex gutter-lg mb-6">
       <div className={cx('col-12 mb-3 mb-lg-0', productVideo && 'col-lg-6')}>
-        <h1>
+        <h1 id="title-h1">
           {title}{' '}
           {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
         </h1>
@@ -111,7 +111,7 @@ export const FullLink = ({ href, id, children, className }: Props) => {
       {children}{' '}
       {isExternal && (
         <span className="ml-1">
-          <LinkExternalIcon size="small" />
+          <LinkExternalIcon aria-label="(external site)" size="small" />
         </span>
       )}
     </Link>

@@ -60,7 +60,11 @@ You can update your enterprise account's credit card or PayPal details, or you c
 
 ### Updating your enterprise account's credit card or PayPal details
 
-If your enterprise account is invoiced, you cannot change your payment method on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+{% note %}
+
+**Note:** If your enterprise account is invoiced, you cannot change your payment method on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

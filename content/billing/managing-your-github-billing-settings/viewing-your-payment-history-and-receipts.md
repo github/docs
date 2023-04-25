@@ -40,12 +40,16 @@ shortTitle: View history & receipts
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-You cannot view receipts if your enterprise account is invoiced.
+{% note %}
+
+**Note:** You cannot view receipts if your enterprise account is invoiced.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.user-settings.payment-info-link %}
+1. Click the "Payment information" tab.
 {% data reusables.dotcom_billing.download_receipt %}
 
 {% endif %}

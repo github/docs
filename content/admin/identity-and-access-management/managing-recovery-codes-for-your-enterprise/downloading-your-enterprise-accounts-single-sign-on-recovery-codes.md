@@ -32,5 +32,5 @@ If you did not save your recovery codes when you configured SSO, you can still a
 
   {% endnote %}{% endif %}
 
-  ![Screenshot of the button to test SAML configuration before enforcing](/assets/images/help/enterprises/saml-recovery-codes-link.png)
+  ![Screenshot of the "Authentication security" screen. The "Save your recovery codes" hyperlink is highlighted with an orange outline.](/assets/images/help/enterprises/saml-recovery-codes-link.png)
 1. To save your recovery codes, click **Download**, **Print**, or **Copy**.

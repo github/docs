@@ -30,11 +30,11 @@ Optionally, you can connect a learning management system (LMS) to {% data variab
 
 ### Feedback pull requests
 
-With {% data variables.product.prodname_classroom %}, you can enable feedback pull requests. If you enable this feature for an assignment, {% data variables.product.prodname_classroom %} creates a special pull request titled **Feedback** in the assignment repository for each student or group. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)."
+{% data reusables.classroom.about-feedback-pull-requests %}
 
 ### Combination with an integrated development environment (IDE)
 
-In {% data variables.product.prodname_classroom %}, you can integrate a classroom with an IDE. Students can make changes to their assignment repositories through the IDE, or by checking out and running code locally with the appropriate software. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+{% data reusables.classroom.about-ide-integration %}
 
 ## Further reading
 

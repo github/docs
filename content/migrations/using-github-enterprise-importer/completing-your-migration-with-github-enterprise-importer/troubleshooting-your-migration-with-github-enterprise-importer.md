@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting your migration with GitHub Enterprise Importer
 shortTitle: Troubleshoot migrations
-intro: 'If your migration fails or produces unexpected results, you can try common troubleshooting steps.'
+intro: "If your migration fails or produces unexpected results, you can try common troubleshooting steps."
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
@@ -25,8 +25,8 @@ Before you investigate further, try these troubleshooting steps that commonly re
 
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
 1. Verify that you meet all the access requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
-2. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
-3. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
+1. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
+1. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
 
 If these steps do not resolve your issue, review the migration logs for error messages. The log you need to check will depend on whether your migration failed or succeeded.
 
@@ -43,6 +43,8 @@ The log contains a record of each command you issued and all of the API requests
 - [`Archive generation failed` response](#archive-generation-failed-response)
 - [`cipher name is not supported` error](#cipher-name-is-not-supported-error)
 - [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
+- [`Source export archive... does not exist` error](#source-export-archive-does-not-exist-error)
+- [`Repository rule violations found` error](#repository-rule-violations-found-error)
 
 ### Unable to run migrations
 
@@ -95,6 +97,26 @@ After generating a new SSH keypair, before you can use the key, you must add the
 If you're migrating from Bitbucket Server and receive an error like `Subsystem 'sftp' could not be executed`, SFTP is not enabled on your server or your user account does not have SFTP access.
 
 You should contact your server administrator and ask them to enable SFTP access for your user account.
+
+### `Source export archive... does not exist` error
+
+If you're migrating from Bitbucket Server and you receive an error like `Source export archive (/var/atlassian/application-data/bitbucket/shared/migration/export/Bitbucket_export_1.tar) does not exist`, the {% data variables.product.prodname_cli %} is looking for your migration archive in the wrong place on your Bitbucket Server instance.
+
+To resolve this issue, set the `--bbs-shared-home` argument for `gh bbs2gh migrate-repo` to your Bitbucket Server or Data Center's shared home directory. The default shared home directory is `/var/atlassian/application-data/bitbucket/shared`, but your configuration may be different.
+
+You can identify the shared home directory in Bitbucket Server.
+
+1. Navigate to the Administration area of your Bitbucket Server or Data Center instance.
+1. In the sidebar, under "System," click "Storage."
+1. Under "Shared directory," view the location of your server's shared home directory.
+
+If you're running Bitbucket Data Center in cluster mode with multiple notes, your shared directory will be shared between cluster nodes and should be mounted in the same location on each node.
+
+### `Repository rule violations found` error
+
+If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets (public beta) configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+You can temporarily disable your rulesets during your migration, or you can use bypass mode or the bypass list to exempt your migration from configured rules. For more information, see "[AUTOTITLE]({% ifversion repo-rules-enterprise %}{% else %}/enterprise-cloud@latest{% endif %}/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)."
 
 ## Troubleshooting successful migrations
 
