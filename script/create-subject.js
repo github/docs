@@ -52,13 +52,13 @@ const files = [
 
 TBD what is ${name.toUpperCase()}
 
-## Why ${name.toUpperCase()}
+## What ${name.toUpperCase()} does
 
-TBD why is ${name.toUpperCase()} on the docs, include metrics if applicable
+TBD why is ${name.toUpperCase()} on the docs
 
-## How to view ${name.toUpperCase()}
+## How ${name.toUpperCase()} works
 
-TBD step-by-step instructions to view/experience ${name.toUpperCase()}
+TBD step-by-step instructions to work on ${name.toUpperCase()}
 
 ## How to work on ${name.toUpperCase()}
 

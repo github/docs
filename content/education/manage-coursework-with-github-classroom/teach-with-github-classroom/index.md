@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/probot-settings
 children:
   - /manage-classrooms
+  - /about-assignments
   - /use-the-git-and-github-starter-assignment
   - /create-an-individual-assignment
   - /create-a-group-assignment

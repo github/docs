@@ -52,9 +52,9 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 3. Select the **admin:enterprise** scope.
    ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
 4. Click **Generate token**.
-   ![Generate token button](/assets/images/help/settings/generate_token.png)
-5. To copy the token to your clipboard, click {% octicon "paste" aria-label="Copy to clipboard" %}.
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+5. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
+
+   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal_access_tokens.png)
 6. To save the token for use later, store the new token securely in a password manager.
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}

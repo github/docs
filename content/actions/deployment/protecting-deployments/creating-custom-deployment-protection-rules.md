@@ -71,7 +71,7 @@ Once a workflow reaches a job that references an environment that has the custom
 
 1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)."
 
-1. Optionally, request the status of an approval for a workflow run by sending a `GET` request to `/repositories/REPOSITORY_ID/actions/runs/RUN_ID/approvals`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#get-the-review-history-for-a-workflow-run)."
+1. Optionally, request the status of an approval for a workflow run by sending a `GET` request to `/repos/OWNER/REPOSITORY_ID/actions/runs/RUN_ID/approvals`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#get-the-review-history-for-a-workflow-run)."
 
 1. Optionally, review the deployment on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 

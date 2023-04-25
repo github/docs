@@ -17655,7 +17655,7 @@
         },
         {
           "name": "ownerInfo",
-          "description": "<p>Enterprise information only visible to enterprise owners.</p>",
+          "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
           "type": "EnterpriseOwnerInfo",
           "id": "enterpriseownerinfo",
           "kind": "objects",
@@ -18075,7 +18075,7 @@
       "kind": "objects",
       "id": "enterpriseidentityprovider",
       "href": "/graphql/reference/objects#enterpriseidentityprovider",
-      "description": "<p>An identity provider configured to provision identities for an enterprise.</p>",
+      "description": "<p>An identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
       "implements": [
         {
           "name": "Node",
@@ -18493,7 +18493,7 @@
       "kind": "objects",
       "id": "enterpriseownerinfo",
       "href": "/graphql/reference/objects#enterpriseownerinfo",
-      "description": "<p>Enterprise information only visible to enterprise owners.</p>",
+      "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
       "fields": [
         {
           "name": "admins",
@@ -18887,7 +18887,7 @@
         },
         {
           "name": "ipAllowListEntries",
-          "description": "<p>The IP addresses that are allowed to access resources owned by the enterprise.</p>",
+          "description": "<p>The IP addresses that are allowed to access resources owned by the enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with admin:enterprise scope.</p>",
           "type": "IpAllowListEntryConnection!",
           "id": "ipallowlistentryconnection",
           "kind": "objects",
@@ -20045,7 +20045,7 @@
         },
         {
           "name": "samlIdentityProvider",
-          "description": "<p>The SAML Identity Provider for the enterprise. When used by a GitHub App,\nrequires an installation token with read and write access to members.</p>",
+          "description": "<p>The SAML Identity Provider for the enterprise.</p>",
           "type": "EnterpriseIdentityProvider",
           "id": "enterpriseidentityprovider",
           "kind": "objects",
@@ -21585,7 +21585,7 @@
       "kind": "objects",
       "id": "externalidentity",
       "href": "/graphql/reference/objects#externalidentity",
-      "description": "<p>An external identity provisioned by SAML SSO or SCIM.</p>",
+      "description": "<p>An external identity provisioned by SAML SSO or SCIM. If SAML is configured on\nthe organization, the external identity is visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members. If SAML is configured on the enterprise, the external\nidentity is visible to (1) enterprise owners, (2) enterprise owners' personal\naccess tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
       "implements": [
         {
           "name": "Node",
@@ -34070,7 +34070,7 @@
         },
         {
           "name": "samlIdentityProvider",
-          "description": "<p>The Organization's SAML identity providers.</p>",
+          "description": "<p>The Organization's SAML identity provider. Visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members.</p>",
           "type": "OrganizationIdentityProvider",
           "id": "organizationidentityprovider",
           "kind": "objects",
@@ -34552,7 +34552,7 @@
       "kind": "objects",
       "id": "organizationidentityprovider",
       "href": "/graphql/reference/objects#organizationidentityprovider",
-      "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for Organizations.</p>",
+      "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for\nOrganizations. Visible to (1) organization owners, (2) organization owners'\npersonal access tokens (classic) with read:org or admin:org scope, (3) GitHub\nApp with an installation token with read or write access to members.</p>",
       "implements": [
         {
           "name": "Node",

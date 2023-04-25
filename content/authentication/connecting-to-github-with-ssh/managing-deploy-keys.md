@@ -123,7 +123,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, installation access tokens from that GitHub App. The installation access tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the installation access tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps).
+Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the installation access tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps).
 
 ### Pros of installation access tokens
 
@@ -141,7 +141,7 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 
 1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
 1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
 1. Note your GitHub App `id`.
 1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.

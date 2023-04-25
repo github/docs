@@ -537,9 +537,8 @@ describe('Page class', () => {
   describe('platform specific content', () => {
     test('page.defaultPlatform frontmatter', async () => {
       const page = await Page.init({
-        relativePath:
-          'actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service.md',
-        basePath: path.join(__dirname, '../../content'),
+        relativePath: 'actions/some-category/some-article.md',
+        basePath: path.join(__dirname, '../fixtures/products'),
         languageCode: 'en',
       })
       expect(page.defaultPlatform).toBeDefined()

@@ -55,4 +55,25 @@ describe('pageinfo api', () => {
     const { info } = JSON.parse(res.body)
     expect(info.title).toBe('GitHub Fixture Documentation')
   })
+
+  test('a page that uses non-trivial Liquid to render', async () => {
+    // This page uses `{% ifversion not fpt %}` in the intro.
+
+    // First on the fpt version
+    {
+      const res = await get('/api/pageinfo/v1?pathname=/en/get-started/liquid/ifversion')
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.intro).toMatch(/\(on fpt\)/)
+    }
+    // Second on any other version
+    {
+      const res = await get(
+        `/api/pageinfo/v1?pathname=/en/enterprise-server@latest/get-started/liquid/ifversion`
+      )
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.intro).toMatch(/\(not on fpt\)/)
+    }
+  })
 })
