@@ -1,7 +1,6 @@
 import express from 'express'
 
 import statsd from '../../lib/statsd.js'
-import findPage from '../../lib/find-page.js'
 import { defaultCacheControl } from '../../middleware/cache-control.js'
 import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
 import {
@@ -12,11 +11,12 @@ import {
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
+import getRedirect from '../../lib/get-redirect.js'
 
 const router = express.Router()
 
 const validationMiddleware = (req, res, next) => {
-  const { pathname } = req.query
+  let { pathname } = req.query
   if (!pathname) {
     return res.status(400).json({ error: `No 'pathname' query` })
   }
@@ -24,7 +24,19 @@ const validationMiddleware = (req, res, next) => {
     return res.status(400).json({ error: `'pathname' query empty` })
   }
 
-  const page = findPage(pathname, req.context.pages, req.context.redirects)
+  // We can't use the `findPage` middleware utility function because we
+  // need to know when the pathname is a redirect.
+  // This is important so that the final `pathname` value
+  // matches the page's permalinks.
+  // This is important when rendering a page because of translations,
+  // if it needs to do a fallback, it needs to know the correct
+  // equivalent English page.
+  const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
+  const redirect = getRedirect(pathname, redirectsContext)
+  if (redirect) {
+    pathname = redirect
+  }
+  const page = req.context.pages[pathname]
 
   if (!page) {
     return res.status(400).json({ error: `No page found for '${pathname}'` })
@@ -42,7 +54,17 @@ router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function pageInfo(req, res) {
+    // Remember, the `validationMiddleware` will use redirects if the
+    // `pathname` used is a redirect (e.g. /en/articles/foo or
+    // /articles or '/en/enterprise-server@latest/foo/bar)
+    // So by the time we get here, the pathname should be one of the
+    // page's valid permalinks.
     const { page, pathname } = req.pageinfo
+
+    const pagePermalinks = page.permalinks.map((p) => p.href)
+    if (!pagePermalinks.includes(pathname)) {
+      throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
+    }
 
     const renderingReq = {
       path: pathname,
