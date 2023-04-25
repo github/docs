@@ -35,7 +35,7 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 
 ### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
 
-1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
 2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
 
    {% note %}

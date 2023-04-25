@@ -19,7 +19,7 @@ A user access token is a type of OAuth token. Unlike a traditional OAuth token, 
 
 Similarly, a user access token can only access resources that both the user and app can access. For example, if an app is granted access to repository `A` and `B`, and the user can access repository `B` and `C`, the user access token can access repository `B` but not `A` or `C`. You can use the REST API to check which installations and which repositories within an installation a user access token can access. For more information, see `GET /user/installations` and `GET /user/installations/{installation_id}/repositories` in "[AUTOTITLE](/rest/apps/installations)."
 
-When you make API requests with a user access token, the rate limits for user access tokens apply. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+When you make API requests with a user access token, the rate limits for user access tokens apply. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
 
 By default, the user access token expires after 8 hours. You can use a refresh token to regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 

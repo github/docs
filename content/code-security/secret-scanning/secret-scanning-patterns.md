@@ -80,7 +80,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 - **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}{% ifversion ghes or ghae %}
 - **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% ifversion secret-scanning-push-protection %}
 - **Push protection**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.{% endif %}{% ifversion secret-scanning-validity-check %}
-- **Validity check**—token for which a validity check is implemented. Currently only applies to GitHub tokens.{% endif %}
+- **Validity check**—token for which a validity check is implemented. For partner tokens, the token is sent to the relevant partner.{% endif %}
 
 <!-- FPT version of table -->
 {% ifversion fpt %}

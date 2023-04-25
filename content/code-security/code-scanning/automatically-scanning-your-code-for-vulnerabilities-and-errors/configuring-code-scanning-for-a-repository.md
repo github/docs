@@ -53,7 +53,7 @@ The {% data variables.code-scanning.tool_status_page %} shows useful information
 
 Before configuring {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
 
-Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 {% endif %}
 
 {% ifversion code-scanning-without-workflow %}

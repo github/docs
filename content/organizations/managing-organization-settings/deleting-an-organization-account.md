@@ -51,5 +51,5 @@ Deleting your organization account removes all repositories, forks of private re
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. Near the bottom of the organization's settings page, click **Delete this Organization**.
-   ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)
+1. In the "Danger zone" section, click **Delete this organization**.
+1. Read the warning. If you want to proceed, type the organization's name, then click **Cancel plan and delete the organization**.
