@@ -36,7 +36,7 @@ topics:
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
 4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.
-5. At the prompt, specify the key size you want, or press `Enter` to accept the default. Your key must be at least `4096` bits.
+5. At the prompt, specify the key size you want, or press `Enter` to accept the default.
 6. Enter the length of time the key should be valid. Press `Enter` to specify the default selection, indicating that the key doesn't expire. Unless you require an expiration date, we recommend accepting this default.
 7. Verify that your selections are correct.
 8. Enter your user ID information.
