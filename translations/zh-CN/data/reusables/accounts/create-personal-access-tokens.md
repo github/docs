@@ -1,1 +1,0 @@
-1. For each of your accounts, create a dedicated PAT with `repo` scope. 更多信息请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。

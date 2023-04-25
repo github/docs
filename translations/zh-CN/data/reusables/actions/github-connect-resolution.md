@@ -1,1 +1,0 @@
-当工作流程通过引用存储操作的存储库来使用操作时，{% data variables.product.prodname_actions %} 将首先尝试在 {% data variables.product.product_location %} 上查找存储库。 如果 {% data variables.product.product_location %} 上不存在该存储库，并且您启用了对 {% data variables.product.prodname_dotcom_the_website %} 的自动访问，{% data variables.product.prodname_actions %} 将尝试在 {% data variables.product.prodname_dotcom_the_website %} 上查找该存储库。

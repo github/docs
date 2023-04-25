@@ -1,7 +1,0 @@
-Para acessar {% data variables.product.prodname_community_exchange %}, acesse seu painel de {% data variables.product.prodname_global_campus %} em https://education.github.com.
-
-Se você é um aluno ou integrante do corpo docente de uma instituição de ensino credenciada, você pode solicitar benefícios de {% data variables.product.prodname_education %}, o que inclui acesso a {% data variables.product.prodname_community_exchange %} dentro de {% data variables.product.prodname_global_campus %}.
-
-- Se você é um estudante e ainda não participou de {% data variables.product.prodname_education %} , inscreva-se usando o [formulário de inscrição do aluno](https://education.github.com/discount_requests/student_application). For more information, see "[About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)."
-
-- Se você é um educador e ainda não se participou de {% data variables.product.prodname_education %}, inscreva-se usando o [formulário de candidatura do professor](https://education.github.com/discount_requests/teacher_application). Para obter mais informações, consulte "[Candidatar-se a {% data variables.product.prodname_global_campus %} como professor](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)".

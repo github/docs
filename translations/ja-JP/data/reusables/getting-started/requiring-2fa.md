@@ -1,1 +1,0 @@
-Organizationのメンバーが2要素認証を有効化しているかを表示させ、Organizationで2要素認証を必須にすることができます。 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。

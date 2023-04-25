@@ -1,1 +1,0 @@
-Puedes reutilizar las tareas existentes en cualquier otra aula en la que tengas acceso administrativo, incluyendo aquellas en una organización diferente. Para obtener más información, consulta la sección "[Reutilizar una tarea](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".

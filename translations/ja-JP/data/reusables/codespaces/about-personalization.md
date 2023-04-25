@@ -1,1 +1,0 @@
-[dotfiles](https://dotfiles.github.io/tutorials/)リポジトリと[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)を使用して、作成した任意のcodespace環境の様々な面をパーソナライズすることもできます。 パーソナライズには、シェルの環境設定や追加のツールが含まれます。

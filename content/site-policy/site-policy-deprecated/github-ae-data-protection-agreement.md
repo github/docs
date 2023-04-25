@@ -9,7 +9,7 @@ redirect_from:
   - /github/site-policy-deprecated/github-ae-data-protection-agreement
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
 ## INTRODUCTION
 
@@ -352,7 +352,7 @@ Signature of GitHub, Inc. appears below.
 
 Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of the data importer
 
-![Lynn Hashimoto](/assets/images/lynn_hashimoto.png)
+![Lynn Hashimoto's signature.](/assets/images/help/site-policy/lynn_hashimoto.png)
 
 Lynn Hashimoto, Head of Product & Regulatory Legal
 

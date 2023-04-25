@@ -1,1 +1,0 @@
-Si una persona tiene varias avenidas de acceso al {% data variables.projects.projects_v1_board %} de una organización (individualmente, mediante un equipo o como miembro de una organización), el nivel de permisos más alto de un {% data variables.projects.projects_v1_board %} anulará a los permisos más bajos.

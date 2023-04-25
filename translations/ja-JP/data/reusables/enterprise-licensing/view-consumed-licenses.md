@@ -1,1 +1,0 @@
-ライセンスの利用状況を同期すると、{% data variables.product.prodname_dotcom_the_website %}のEnterprise設定で、すべての環境に渡る消費されているライセンスのレポートを見ることができます。 詳しい情報については「[{% data variables.product.prodname_enterprise %}のライセンス利用状況の表示](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)」を参照してください。

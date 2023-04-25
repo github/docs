@@ -24,11 +24,11 @@ topics:
 shortTitle: About billing
 ---
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
+For more information about the products available for your account, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
 
-You can choose monthly or yearly billing, and you can upgrade or downgrade your subscription at any time. For more information, see "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)."
+You can choose monthly or yearly billing, and you can upgrade or downgrade your subscription at any time. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account)."
 
-You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
 
 {% data reusables.accounts.accounts-billed-separately %}
 

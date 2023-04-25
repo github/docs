@@ -1,1 +1,0 @@
-オープンソースプロジェクトにコントリビュートし、サポートされている地域で法的に活動しているOrganizationは、スポンサードOrganizationになることができます。 Organizationが{% data variables.product.prodname_sponsors %}にまだサポートされていない地域で活動している場合は、[{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)の待ちリストに加わってください。

@@ -62,29 +62,18 @@ export const ArticleList = ({
                 title={
                   !link.hideIntro && link.intro ? (
                     <h3 className="f4" data-testid="link-with-intro-title">
-                      <span
-                        dangerouslySetInnerHTML={
-                          link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
-                        }
-                      />
+                      <span>{link.fullTitle ? link.fullTitle : link.title}</span>
                     </h3>
                   ) : (
-                    <span
-                      className="f4 text-bold d-block"
-                      data-testid="link-with-intro-title"
-                      dangerouslySetInnerHTML={
-                        link.fullTitle ? { __html: link.fullTitle } : { __html: link.title }
-                      }
-                    ></span>
+                    <span className="f4 text-bold d-block" data-testid="link-with-intro-title">
+                      {link.fullTitle ? link.fullTitle : link.title}
+                    </span>
                   )
                 }
               >
                 {!link.hideIntro && link.intro && (
                   <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
-                    <span
-                      data-testid="link-with-intro-intro"
-                      dangerouslySetInnerHTML={{ __html: link.intro }}
-                    />
+                    <span data-testid="link-with-intro-intro">{link.intro}</span>
                   </TruncateLines>
                 )}
                 {link.date && (

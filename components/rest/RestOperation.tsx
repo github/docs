@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
@@ -7,21 +7,31 @@ import { LinkIconHeading } from 'components/article/LinkIconHeading'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
-import styles from './RestOperation.module.scss'
-import { RestParameterTable } from './RestParameterTable'
+import { ParameterTable } from 'components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { Operation } from './types'
+
+import styles from './RestOperation.module.scss'
 
 type Props = {
   operation: Operation
 }
 
+// all REST operations have this accept header by default
+const DEFAULT_ACCEPT_HEADER = {
+  name: 'accept',
+  type: 'string',
+  description: `<p>Setting to <code>application/vnd.github+json</code> is recommended.</p>`,
+  isRequired: false,
+}
+
 export function RestOperation({ operation }: Props) {
-  const slug = slugger.slug(operation.title)
+  const titleSlug = slug(operation.title)
   const { t } = useTranslation('products')
   const router = useRouter()
 
+  const headers = [DEFAULT_ACCEPT_HEADER]
   const numPreviews = operation.previews.length
   const hasStatusCodes = operation.statusCodes.length > 0
   const hasCodeSamples = operation.codeExamples.length > 0
@@ -29,8 +39,8 @@ export function RestOperation({ operation }: Props) {
 
   return (
     <div className="pb-8">
-      <h2 id={slug}>
-        <LinkIconHeading slug={slug} />
+      <h2 id={titleSlug}>
+        <LinkIconHeading slug={titleSlug} />
         {operation.title}
       </h2>
       {operation.enabledForGitHubApps && (
@@ -54,23 +64,62 @@ export function RestOperation({ operation }: Props) {
           />
 
           {hasParameters && (
-            <RestParameterTable
-              slug={slug}
+            <ParameterTable
+              slug={titleSlug}
               numPreviews={numPreviews}
+              heading={t('rest.reference.parameters').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
+              headers={headers}
               parameters={operation.parameters}
               bodyParameters={operation.bodyParameters}
             />
           )}
 
-          {hasStatusCodes && <RestStatusCodes statusCodes={operation.statusCodes} slug={slug} />}
+          {hasStatusCodes && (
+            <RestStatusCodes
+              statusCodes={operation.statusCodes}
+              slug={titleSlug}
+              heading={t('rest.reference.http_status_code').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
+            />
+          )}
         </div>
         <div
           className="col-md-12 col-lg-6 position-sticky flex-self-start"
           style={{ top: '6.5em' }}
         >
-          {hasCodeSamples && <RestCodeSamples operation={operation} slug={slug} />}
+          {hasCodeSamples && (
+            <RestCodeSamples
+              operation={operation}
+              slug={titleSlug}
+              heading={t('rest.reference.code_samples').replace(
+                '{{ RESTOperationTitle }}',
+                operation.title
+              )}
+            />
+          )}
 
-          {numPreviews > 0 && <RestPreviewNotice slug={slug} previews={operation.previews} />}
+          {numPreviews > 0 && (
+            <RestPreviewNotice
+              slug={titleSlug}
+              previews={operation.previews}
+              heading={
+                operation.previews.length > 1
+                  ? `${t('rest.reference.preview_notices').replace(
+                      '{{ RESTOperationTitle }}',
+                      operation.title
+                    )}`
+                  : `${t('rest.reference.preview_notice').replace(
+                      '{{ RESTOperationTitle }}',
+                      operation.title
+                    )}`
+              }
+            />
+          )}
         </div>
       </div>
     </div>

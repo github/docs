@@ -1,0 +1,7 @@
+# Reference: issue #8291
+# Incremental improvements - labels act as filters; improve a security advisory from the UI
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

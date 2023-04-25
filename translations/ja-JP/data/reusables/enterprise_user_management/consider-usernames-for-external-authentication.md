@@ -1,1 +1,0 @@
-{% data variables.product.product_name %}は{% ifversion ghec or ghae %}IdP{% elsif ghes %}外部認証プロバイダ{% endif %}からの値を正規化して、{% ifversion ghae %}{% data variables.product.product_name %}上の{% elsif ghec %}{% data variables.product.product_location %}上のEnteprise内の{% elsif ghes %}{% data variables.product.product_location %}上の{% endif %}それぞれの新しい個人アカウントのユーザ名を決定します。

@@ -1,3 +1,0 @@
-OrganizationのAudit logを使うと、OrganizationのオーナーはOrganizationのメンバーが当月及び過去6ヶ月に行ったアクションをレビューできます。 詳しい情報については「[OrganizationのAudit logのレビュー](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)」を参照してください。
-
-Organizationにインストールされたインテグレーションの権限レベルをレビューして設定することもできます。 詳しい情報については「[Organizationにインストールされたインテグレーションのレビュー](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)」を参照してください。

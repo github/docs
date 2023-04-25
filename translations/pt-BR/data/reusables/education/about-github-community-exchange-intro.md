@@ -1,1 +1,0 @@
-{% data variables.product.prodname_community_exchange %} é uma comunidade estudantil dentro do portal de {% data variables.product.prodname_global_campus %}. Como estudante, é um lugar onde você pode obter exposição para o seu projeto e descobrir outros repositórios estudantis que precisam de colaboradores e mantenedores.

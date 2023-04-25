@@ -1,1 +1,0 @@
-1. For each of your accounts, create a dedicated PAT with `repo` scope. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."

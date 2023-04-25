@@ -1,1 +1,0 @@
-混乱をもたらす振る舞いがコミュニティで行われた場合、{% data variables.product.prodname_dotcom %}は行動規範を適用し、衝突を縮小させるツールを提供します。 たとえば、加熱したやりとりを静めるために会話をロックできます。 詳しい情報については「[コメントと会話のモデレーション](/communities/moderating-comments-and-conversations)」を参照してください。

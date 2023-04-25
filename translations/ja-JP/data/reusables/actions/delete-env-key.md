@@ -1,1 +1,0 @@
-デプロイメント環境を設定したなら、`environment`の値をその環境の名前に変更してください。 環境を設定していない{% ifversion fpt or ghec %}か、ワークフローがプライベートリポジトリにあり、{% data variables.product.prodname_ghe_cloud %}を使っていない{% endif %}なら、`environment`キーを削除してください。

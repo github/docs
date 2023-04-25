@@ -23,4 +23,4 @@ shortTitle: Packaging with GitHub Actions
 
 ## Further reading
 
-- "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)"
+- "[AUTOTITLE](/actions/publishing-packages/publishing-nodejs-packages)"

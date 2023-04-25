@@ -1,1 +1,0 @@
-TeamはOrganizationメンバーのグループで、グループとして特定のリポジトリへの権限を付与できます。 個別のTeam、もしくはそれぞれのOrganizationに複数レベルの入れ子チームを作成できます。 詳しい情報については「[Teamの作成](/organizations/organizing-members-into-teams/creating-a-team)」及び「[Teamへの人の追加](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)」を参照してください。

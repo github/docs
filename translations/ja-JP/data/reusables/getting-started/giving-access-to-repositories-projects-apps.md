@@ -1,3 +1,0 @@
-リポジトリロールを使い、Organizationのメンバー、Team、外部のコラボレータに対して、Organizationが所有するリポジトリへの様々なレベルのアクセスを付与できます。 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
-
-また、Orgtanizationのプロジェクトボードに対するアクセスをカスタマイズしたり、個々のOrganizationのメンバーにOrganizationの{% data variables.product.prodname_github_apps %}の管理を許可したりできます。 詳しい情報については「[Organizationのプロジェクトボードへのアクセスの管理](/organizations/managing-access-to-your-organizations-project-boards)」及び「[Organizationのアプリケーションへのアクセスの管理](/organizations/managing-access-to-your-organizations-apps)」を参照してください。

@@ -2,3 +2,5 @@
 # Documentation for audit log streaming to a Datadog endpoint
 versions:
   ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

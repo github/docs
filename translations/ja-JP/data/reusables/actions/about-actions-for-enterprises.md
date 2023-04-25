@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %}を使うと、{% ifversion ghec or ghae %}Enterpriseのメンバーは{% elsif ghes %}{% data variables.product.product_location %}を使う人は{% endif %}ソフトウェアの開発ワークフローのすべてのフェーズを自動化することによって、生産性を改善できます。

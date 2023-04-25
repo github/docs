@@ -1,1 +1,0 @@
-Se a organização estiver usando um plano de cobrança por repositório herdado, você poderá trocar para preços por usuário a qualquer momento. No entanto, não poderá retornar para preços por repositório depois que tiver atualizado para preços por usuário.

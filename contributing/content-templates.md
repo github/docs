@@ -162,7 +162,7 @@ versions:
 ### Task chunk
 
 <!-- A step may require the user to perform several tasks - break those tasks down into chunks, allowing the user to scan quickly to find their place if they navigated away from this screen to perform the task. -->
-<!-- An example might be creating a PAT for the action to use and then storing it in secrets -->
+<!-- An example might be creating a personal access token for the action to use and then storing it in secrets -->
 <!-- For UI based tasks, include the button or options the users should click -->
 <!-- If the task adds code, include the code in context (don't just show `needs: setup` show the entire `setup` and `dependent` jobs) -->
 
@@ -219,7 +219,7 @@ versions:
 ### Task chunk
 
 <!-- A step may require the user to perform several tasks - break those tasks down into chunks, allowing the user to scan quickly to find their place if they navigated away from this screen to perform the task. -->
-<!-- An example might be creating a PAT for the action to use and then storing it in secrets -->
+<!-- An example might be creating a personal access token for the action to use and then storing it in secrets -->
 <!-- For UI based tasks, include the button or options the users should click -->
 <!-- If the task adds code, include the code in context (don't just show `needs: setup` show the entire `setup` and `dependent` jobs) -->
 

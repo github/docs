@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql_cli %}は現時点で、（muslベースの）Alpine Linuxなどの非glibc Linuxディストリビューションとは互換性がありません。

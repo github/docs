@@ -1,1 +1,0 @@
-{% data variables.product.prodname_cli %} es una herramienta de línea de comandos que tra solicitudes de cambios, propuestas, {% data variables.product.prodname_actions %} y otras características de {% data variables.product.product_name %} a tu terminal para que puedas hacer todo tu trabajo en un solo lugar.

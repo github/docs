@@ -39,13 +39,14 @@ export type ProductLandingContextT = {
   beta_product: boolean
   product: Product
   introLinks: Record<string, string> | null
-  product_video?: string
+  productVideo: string
+  productVideoTranscript: string
   featuredLinks: Record<string, Array<FeaturedLink>>
-  productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
   featuredArticles: Array<{
-    label: string // Guides
+    key: string // Featured article section key (startHere, popular, etc.)
+    label: string // Start here, Popular, etc.
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     viewAllTitleText?: string // Adds 'title' attribute text for the "View All" href
     articles: Array<FeaturedLink>
@@ -54,7 +55,7 @@ export type ProductLandingContextT = {
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
   hasGuidesPage: boolean
-  releases: Array<{
+  ghesReleases: Array<{
     version: string
     firstPreviousRelease: string
     secondPreviousRelease: string
@@ -93,29 +94,30 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
   )
 }
 
-export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
+export const getProductLandingContextFromRequest = async (
+  req: any
+): Promise<ProductLandingContextT> => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
   const hasGuidesPage = (page.children || []).includes('/guides')
+
+  const productVideo = page.product_video
+    ? await page.renderProp('product_video', req.context, { textOnly: true })
+    : ''
+
   return {
-    ...pick(page, [
-      'title',
-      'shortTitle',
-      'introPlainText',
-      'beta_product',
-      'intro',
-      'product_video',
-    ]),
+    ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
+    productVideo,
+    productVideoTranscript: page.product_video_transcript || null,
     hasGuidesPage,
     product: {
       href: productTree.href,
-      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+      title: productTree.page.shortTitle || productTree.page.title,
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],
-    productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
-    releases: req.context.releases || [],
+    ghesReleases: req.context.ghesReleases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -132,20 +134,17 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
-        return key === 'guides' || key === 'popular' || key === 'videos'
+        return key === 'startHere' || key === 'popular' || key === 'videos'
       })
-      // This is currently only used to filter out videos with a blank title
-      // indicating that the video is not available for the currently selected
-      // version
-      .filter(([, links]: any) => links.every((link: FeaturedLink) => link.title))
       .map(([key, links]: any) => {
         return {
+          key,
           label:
             key === 'popular' || key === 'videos'
               ? req.context.page.featuredLinks[key + 'Heading'] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
-            key === 'guides' && !req.context.currentCategory && hasGuidesPage
+            key === 'startHere' && !req.context.currentCategory && hasGuidesPage
               ? `${req.context.currentPath}/guides`
               : '',
           articles: links.map((link: any) => {

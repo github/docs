@@ -1,1 +1,0 @@
-Cuando intentas subir un secreto compatible a un repositorio u organización con {% data variables.product.prodname_secret_scanning %} como una protección contra subida habilitada, {% data variables.product.prodname_dotcom %} bloqueará la subida. You can remove the secret from your branch or follow a provided URL to allow the push. 

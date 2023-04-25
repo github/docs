@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %}のキャッシュは、{% data variables.product.prodname_dotcom_the_website %}もしくは{% data variables.product.prodname_ghe_server %} 3.5以降でホストされているリポジトリでのみ利用できます。 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ]({% ifversion actions-caching %}{% else %}/free-pro-team@latest{% endif %}/actions/guides/caching-dependencies-to-speed-up-workflows)」を参照してください。

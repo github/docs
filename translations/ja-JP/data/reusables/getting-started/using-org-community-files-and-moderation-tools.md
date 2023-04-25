@@ -1,3 +1,0 @@
-CONTRIBUTING.mdファイル、CODE_OF_CONDUCT.mdファイル、さらにはIssueやPull Requestのテンプレートファイルといったデフォルトのコミュニティ健全性ファイルを、Organizationに作成できます。 これらのデフォルトファイルは、それらのタイプの独自ファイルを含まないOrganizationが所有するリポジトリで使われます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
-
-{% data variables.product.prodname_dotcom %}は、コミュニティのモデレートと管理のための複数のツールを提供します。 詳しい情報については「[コミュニティのモデレートのためのツール](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation#tools-for-moderating-your-community)」を参照してください。

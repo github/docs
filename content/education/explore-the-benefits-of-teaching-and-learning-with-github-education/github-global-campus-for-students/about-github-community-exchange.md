@@ -23,10 +23,10 @@ You can help your peers learn open source skills, become a project maintainer, a
 - Submit a repository to teach new skills
 - Manage your repository submissions
 
-For more information, see "[Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)."
+For more information, see "[AUTOTITLE](/education/contribute-with-github-community-exchange)."
 
 {% data reusables.education.access-github-community-exchange %}
 
 ## Further reading
 
-- "[Getting started with {% data variables.product.prodname_community_exchange %}](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"
+- "[AUTOTITLE](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"

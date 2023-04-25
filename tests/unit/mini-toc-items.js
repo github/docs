@@ -1,10 +1,24 @@
 import { expect } from '@jest/globals'
 import getMiniTocItems from '../../lib/get-mini-toc-items'
 
+// The getMiniTocItems() function requires that every <h2> and <h3>
+// contains a...
+//
+//   <a class="doctocat-link">
+//
+// tag within the tag. Having to manually put that into every HTML
+// snippet in each test is tediuous so this function makes it convenient.
+function injectDoctocatLinks(html) {
+  let counter = 0
+  return html.replace(/<h\d>/g, (m) => {
+    return `${m}\n<a href="#section${++counter}" class="doctocat-link">🔗</a>\n`
+  })
+}
+
 describe('mini toc items', () => {
   // Mock scenario from: /en/rest/reference/activity
   test('basic nested structure is created', async () => {
-    const html = `
+    const html = injectDoctocatLinks(`
       <body>
         <h1>Test</h1>
         <h2>Section 1</h2>
@@ -14,8 +28,9 @@ describe('mini toc items', () => {
         <h2>Section 2</h2>
         <h3>Section 2 A</h3>
       </body>
-    `
+    `)
     const tocItems = getMiniTocItems(html, 3)
+    expect(tocItems.length).toBe(2)
     expect(tocItems[0].items.length).toBe(3)
   })
 
@@ -31,7 +46,7 @@ describe('mini toc items', () => {
    *     3
    */
   test('creates toc that starts with lower importance headers', async () => {
-    const html = `
+    const html = injectDoctocatLinks(`
       <h1>Test</h1>
       <h3>Section 1 A</h3>
       <h3>Section 1 B</h3>
@@ -39,7 +54,7 @@ describe('mini toc items', () => {
       <h3>Section 2 A</h3>
       <h2>Section 3</h2>
       <h3>Section 3 A</h3>
-    `
+    `)
     const tocItems = getMiniTocItems(html, 3)
     expect(tocItems.length).toBe(4)
     expect(tocItems[3].items.length).toBe(1)
@@ -56,18 +71,18 @@ describe('mini toc items', () => {
 
   // Mock scenario from: /en/repositories/creating-and-managing-repositories/about-repositories
   test('creates flat toc', async () => {
-    const html = `
+    const html = injectDoctocatLinks(`
       <h1>Test</h1>
       <h2>Section 1</h2>
       <h2>Section 2</h2>
-    `
+    `)
     const tocItems = getMiniTocItems(html, 3)
     expect(tocItems.length).toBe(2)
     expect(tocItems[0].items).toBeUndefined()
   })
 
   test('handles deeply nested toc', async () => {
-    const html = `
+    const html = injectDoctocatLinks(`
       <h1>Test</h1>
       <h2>Section 1</h2>
       <h2>Section 2</h2>
@@ -75,7 +90,7 @@ describe('mini toc items', () => {
       <h4>Section 2 A 1</h4>
       <h5>Section 2 A 1 a</h5>
       <h2>Section 3</h2>
-    `
+    `)
     const tocItems = getMiniTocItems(html, 5)
     expect(tocItems.length).toBe(3)
     expect(tocItems[1].items[0].items[0].items.length).toBe(1)

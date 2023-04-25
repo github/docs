@@ -4,11 +4,18 @@
 //
 // Run this script to get all broken docs.github.com links in github/github
 //
+// To run this locally, you'll generate a PAT and create an environment
+// variable called GITHUB_TOKEN.
+// Easiest is to create a *classic* Personal Access Token and make sure
+// it has all "repo" scopes. You also have to press the "Configure SSO"
+// for it.
+//
 // [end-readme]
 
 import fs from 'fs/promises'
 
 import got, { RequestError } from 'got'
+import { program } from 'commander'
 
 import { getContents, getPathsWithMatchingStrings } from './helpers/git-utils.js'
 
@@ -19,8 +26,15 @@ if (!process.env.GITHUB_TOKEN) {
 const FORCE_DOWNLOAD = Boolean(JSON.parse(process.env.FORCE_DOWNLOAD || 'false'))
 const BATCH_SIZE = JSON.parse(process.env.BATCH_SIZE || '10')
 const BASE_URL = process.env.BASE_URL || 'http://localhost:4000'
+const CACHE_SEARCHES = !JSON.parse(process.env.CI || 'false')
 
-main()
+program
+  .description('Check for broken links in github/github')
+  .option('--check', 'Exit non-zero if there were >0 broken links')
+  .argument('[output-file]', 'If omitted or "-", will write to stdout')
+  .parse(process.argv)
+
+main(program.opts(), program.args)
 
 // The way `got` does retries:
 //
@@ -46,7 +60,12 @@ const timeoutConfiguration = {
   request: 3000,
 }
 
-async function main() {
+async function main(opts, args) {
+  const { check } = opts
+  let outputFile = null
+  if (args && args.length > 0 && args[0] !== '-') {
+    outputFile = args[0]
+  }
   const searchStrings = ['https://docs.github.com', 'GitHub help_url', 'GitHub developer_help_url']
 
   const foundFiles = []
@@ -58,7 +77,12 @@ async function main() {
     }
   }
   if (!foundFiles.length || FORCE_DOWNLOAD) {
-    foundFiles.push(...(await getPathsWithMatchingStrings(searchStrings, 'github', 'github')))
+    foundFiles.push(
+      ...(await getPathsWithMatchingStrings(searchStrings, 'github', 'github', {
+        cache: CACHE_SEARCHES,
+        forceDownload: FORCE_DOWNLOAD,
+      }))
+    )
     await fs.writeFile('/tmp/foundFiles.json', JSON.stringify(foundFiles, undefined, 2), 'utf-8')
   }
   const searchFiles = [...new Set(foundFiles)] // filters out dupes
@@ -112,7 +136,10 @@ async function main() {
               (contents.substring(numIndex, numIndex + 11) === 'GitHub.help' &&
                 contents.charAt(numIndex + 16) === '#') ||
               (contents.substring(numIndex, numIndex + 16) === 'GitHub.developer' &&
-                contents.charAt(numIndex + 26) === '#')
+                contents.charAt(numIndex + 26) === '#') ||
+              // See internal issue #2180
+              contents.slice(numIndex, numIndex + 'GitHub.help_url}/github/#{'.length) ===
+                'GitHub.help_url}/github/#{'
             ) {
               return
             }
@@ -161,7 +188,7 @@ async function main() {
         // fail in quite a nice way and not "blame got".
         const url = new URL(BASE_URL + linkPath)
         try {
-          await got(url.href, {
+          await got.head(url.href, {
             retry: retryConfiguration,
             timeout: timeoutConfiguration,
           })
@@ -179,17 +206,22 @@ async function main() {
 
   if (!brokenLinks.length) {
     console.log('All links are good!')
-    process.exit(0)
+  } else {
+    let markdown = `Found ${brokenLinks.length} total broken links in github/github`
+    markdown += '\n\n```\n'
+    markdown += JSON.stringify([...brokenLinks], null, 2)
+    markdown += '\n```\n'
+    if (outputFile) {
+      await fs.writeFile(outputFile, markdown, 'utf-8')
+      console.log(`Wrote Markdown about broken files to ${outputFile}`)
+    } else {
+      console.log(markdown)
+    }
+
+    if (check) {
+      process.exit(brokenLinks.length)
+    }
   }
-
-  console.log(`Found ${brokenLinks.length} total broken links in github/github`)
-  console.log('```')
-
-  console.log(`${JSON.stringify([...brokenLinks], null, 2)}`)
-
-  console.log('```')
-  // Exit unsuccessfully if broken links are found.
-  process.exit(1)
 }
 
 function endsWithAny(suffixes, string) {

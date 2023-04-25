@@ -50,7 +50,8 @@ console.log(`Next oldest version: ${nextOldestRelease}\n`)
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const reusables = walkFiles('data/reusables', '.md', { includeEarlyAccess: true })
 const variables = walkFiles('data/variables', '.yml', { includeEarlyAccess: true })
-const allFiles = contentFiles.concat(reusables, variables)
+const learningTracks = walkFiles('data/learning-tracks', '.yml', { includeEarlyAccess: true })
+const allFiles = contentFiles.concat(reusables, variables, learningTracks)
 
 main()
 

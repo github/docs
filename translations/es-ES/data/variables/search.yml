@@ -1,5 +1,0 @@
----
-advanced_url: >-
-  {% ifversion fpt or ghec %}[advanced search](https://github.com/search/advanced) página{% else %}página de búsqueda avanzada (`https://[hostname]/search/advanced`){% endif %}
-search_page_url: >-
-  {% ifversion fpt or ghec %}[search](https://github.com/search) page{% else %}buscar página (`https://[hostname]/search`){% endif %}

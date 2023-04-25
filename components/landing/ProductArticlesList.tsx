@@ -1,13 +1,9 @@
 import cx from 'classnames'
-import { useState } from 'react'
 
-import { ChevronDownIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
-
-const maxArticles = 5
 
 export const ProductArticlesList = () => {
   const { currentProductTree } = useMainContext()
@@ -19,7 +15,7 @@ export const ProductArticlesList = () => {
   return (
     <div className="d-flex gutter flex-wrap" data-testid="product-articles-list">
       {currentProductTree.childPages.map((treeNode, i) => {
-        if (treeNode.page.documentType === 'article') {
+        if (treeNode.documentType === 'article') {
           return null
         }
 
@@ -30,13 +26,11 @@ export const ProductArticlesList = () => {
 }
 
 const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
-  const [isShowingMore, setIsShowingMore] = useState(false)
-
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
         <Link className="color-unset text-underline" href={treeNode.href}>
-          {treeNode.renderedFullTitle}
+          {treeNode.title}
         </Link>
       </h3>
 
@@ -46,10 +40,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
             <ActionList.Item
               as="li"
               key={childNode.href + index}
-              className={cx(
-                'width-full pl-0',
-                !isShowingMore && index >= maxArticles ? 'd-none' : null
-              )}
+              className={cx('width-full pl-0')}
               sx={{
                 borderRadius: 0,
                 ':hover': {
@@ -58,8 +49,8 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
               }}
             >
               <Link className="d-block width-full" href={childNode.href}>
-                {childNode.renderedFullTitle}
-                {childNode.page.documentType === 'mapTopic' ? (
+                {childNode.title}
+                {childNode.documentType === 'mapTopic' ? (
                   <small className="color-fg-muted d-inline-block">
                     &nbsp;&bull; {childNode.childPages.length} articles
                   </small>
@@ -69,12 +60,6 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
           )
         })}
       </ActionList>
-      {!isShowingMore && treeNode.childPages.length > maxArticles && (
-        <button onClick={() => setIsShowingMore(true)} className="mt-2 btn-link Link--secondary">
-          Show {treeNode.childPages.length - maxArticles} more{' '}
-          <ChevronDownIcon className="v-align-text-bottom" />
-        </button>
-      )}
     </div>
   )
 }

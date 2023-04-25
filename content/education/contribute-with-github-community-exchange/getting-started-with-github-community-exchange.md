@@ -1,6 +1,6 @@
 ---
 title: Getting started with GitHub Community Exchange
-shortTitle: 'Get started'
+shortTitle: Get started
 intro: 'Learn how to access {% data variables.product.prodname_community_exchange %} and submit your repository.'
 versions:
   fpt: '*'
@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.education.about-github-community-exchange-intro %} {% data variables.product.prodname_community_exchange %} can help you make your first open source contribution or grow your own open source project.
 
-For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange)."
+For more information about how {% data variables.product.prodname_community_exchange %} can help you as a student, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
 
 ## Accessing {% data variables.product.prodname_community_exchange %}
 
@@ -42,4 +42,4 @@ To report an abusive repository: Go to your {% data variables.product.prodname_c
 
 ## Further reading
 
-- ""[About {% data variables.product.prodname_community_exchange %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""
+- ""[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)""

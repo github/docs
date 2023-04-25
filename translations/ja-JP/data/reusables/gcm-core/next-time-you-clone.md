@@ -1,1 +1,0 @@
-認証が必要なHTTPS URLを次にクローンするときに、Gitはブラウザのウィンドウを使ってログインするよう求めます。 最初にOAuthアプリケーションを承認するよう求められることがあります。{% ifversion not ghae %}アカウントもしくはOrganizationが[2要素認証](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)を要求するなら、2要素認証のチャレンジを完了させなければなりません。{% endif %}

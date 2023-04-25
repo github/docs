@@ -1,1 +1,0 @@
-利用可能なマシンタイプの選択は、Organizationで設定されたポリシーによって、あるいはリポジトリのマシンタイプの最小仕様によって制限されていることがあります。 詳しい情報については「[マシンタイプへのアクセスの制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」及び「[codespaceマシンの最小仕様の設定](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)」を参照してください。

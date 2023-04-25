@@ -1,1 +1,0 @@
-默认情况下， {% data variables.product.product_name %} 将生成日志和项目存储 90 天，并且可以自定义此保留期。{% ifversion fpt or ghec or ghes %} 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。{% endif %}

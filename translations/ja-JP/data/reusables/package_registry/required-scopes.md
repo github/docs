@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %}内でパッケージを公開及びインストールするためには、適切なスコープで個人アクセストークンを使わなければなりません。 詳しい情報については「[{% data variables.product.prodname_registry %}について](/packages/learn-github-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。

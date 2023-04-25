@@ -1,15 +1,15 @@
 ---
-title: Archiving cards on a {% data variables.product.prodname_project_v1 %}
-intro: You can archive {% data variables.projects.projects_v1_board %} cards to declutter your workflow without losing the historical context of a project.
+title: 'Archiving cards on a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can archive {% data variables.projects.projects_v1_board %} cards to declutter your workflow without losing the historical context of a project.'
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/archiving-cards-on-a-project-board
   - /articles/archiving-cards-on-a-project-board
   - /github/managing-your-work-on-github/archiving-cards-on-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
-shortTitle: Archive cards on {% data variables.product.prodname_project_v1 %}
+shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

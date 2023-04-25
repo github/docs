@@ -1,1 +1,0 @@
-Commit SHA que acionou o fluxo de trabalho. O valor do commit deste SHA depende do evento que acionou o fluxo de trabalho. Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows)". Por exemplo, `ffac537e6cbbf934b08745a378932722df287a53`.

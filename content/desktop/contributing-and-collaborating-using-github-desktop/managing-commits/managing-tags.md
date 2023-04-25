@@ -9,7 +9,7 @@ versions:
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} allows you to create annotated tags. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[About releases](/github/administering-a-repository/about-releases)."
+{% data variables.product.prodname_desktop %} allows you to create annotated tags. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[AUTOTITLE](/repositories/releasing-projects-on-github/about-releases)."
 
 {% data reusables.desktop.tags-push-with-commits %}
 
@@ -30,10 +30,11 @@ versions:
 
   {% endnote %}
 
-  ![Viewing a tag in the history](/assets/images/help/desktop/viewing-tags-in-history.png)
+  ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. All tags associated with the commit are visible in that commit's metadata.
-![Viewing a tag in the commit](/assets/images/help/desktop/viewing-tags-in-commit.png)
+   
+   ![Screenshot of the detailed view of a commit. Above the commit's diff, in the commit's metadata, a tag icon and the label "hello-tag" are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-commit.png)
 
 ## Deleting tags
 

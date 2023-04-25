@@ -3,7 +3,7 @@
   $ gpg --list-secret-keys --keyid-format=long
   /Users/hubot/.gnupg/secring.gpg
   ------------------------------------
-  sec   4096R/<em>3AA5C34371567BD2</em> 2016-03-10 [expires: 2017-03-10]
+  sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
   uid                          Hubot <hubot@example.com>
-  ssb   4096R/42B317FD4BA89E7A 2016-03-10
+  ssb   4096R/4BB6D45482678BE3 2016-03-10
  ```

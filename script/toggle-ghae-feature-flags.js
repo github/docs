@@ -26,45 +26,54 @@ const plan = 'ghae'
 program
   .description(
     'Toggle issue-based, feature-flagged versioning for GitHub AE content like\n' +
-      'ghae-next or ghae-issue-1234, then commit the results.\n\n' +
+      'ghae-issue-1234, then commit the results.\n\n' +
       'Documentation: https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/content-creation/versioning-documentation.md#internal-versioning-conventions-for-github-ae\n\n' +
       'Examples:\n' +
-      `  ${scriptName} -n\n` +
-      `  ${scriptName} -f 'issue-1234, issue-5678'`
+      `  ${scriptName} -f 'issue-1234, issue-5678'\n` +
+      `  ${scriptName} -f 'issue-1234' -c '3.5'`
   )
-  .option('-n, --toggle-next', "toggle 'next' flags for M2 release")
   .option('-s, --show-flags', 'show list of existing flags')
   .option("-f, --toggle-flags '<flag-1>[,flag-2,...]'", 'toggle comma-separated list of flags')
+  .option("-c, --comparative-replacement '<version>'", 'convert flags to comparative versioning')
   .parse(process.argv)
 
 const options = program.opts()
 
 let optionsCount = 0
-options.toggleNext && optionsCount++
 options.showFlags && optionsCount++
 options.toggleFlags && optionsCount++
+options.comparativeReplacement && optionsCount++
 
-// Show help with no options; error when more than one.
+// Handle options:
+//   - Show help for no options
+//   - Indicate that --comparative-replacement requires --toggle-flags
+//   - Otherwise, if no --comparative-replacement, error when more than one
 
 if (optionsCount === 0) {
   program.help()
-} else if (optionsCount > 1) {
-  console.log(`Error: you specified ${optionsCount} options (accepts 1)`)
-  process.exit(1)
+} else {
+  if (options.comparativeReplacement && !options.toggleFlags) {
+    console.log(`Error: --comparative-replacement requires --toggle-flags`)
+    process.exit(1)
+  } else if (optionsCount > 1 && options.showFlags) {
+    console.log(`Error: you specified ${optionsCount} options (accepts 1 or 2)`)
+    process.exit(1)
+  } else if (optionsCount > 2) {
+    console.log(`Error: you specified ${optionsCount} options (accepts 1 or 2)`)
+    process.exit(1)
+  }
 }
 
 // Store flags that user wants to toggle.
 
 let flagsToToggle = []
 let flagCount = 0
-if (options.toggleNext) {
-  flagsToToggle = ['next']
-} else if (options.toggleFlags) {
+if (options.toggleFlags) {
   flagsToToggle = options.toggleFlags.split(',').map((item) => item.trim())
   flagCount = flagsToToggle.length
 }
 
-if (options.toggleNext || options.toggleFlags) {
+if (options.toggleFlags) {
   // Refuse to proceed if repository has uncommitted changes.
 
   const localChangesCount = execSync(
@@ -74,6 +83,38 @@ if (options.toggleNext || options.toggleFlags) {
   if (localChangesCount > 0) {
     console.log("Error: refusing to proceed due to uncommitted changes (review 'git status')")
     process.exit(1)
+  }
+}
+
+// Evaluate and store version number for comparative replacement, or abort.
+
+if (options.comparativeReplacement) {
+  if (!options.comparativeReplacement.match(/\d\.\d+/)) {
+    console.log(
+      `Error: you specified ${options.comparativeReplacement} for comparative replacement (must be #.# or #.##)`
+    )
+    process.exit(1)
+  }
+}
+
+// Set replacement values for YAML and Liquid.
+
+let replacementYAMLValue = '*'
+let replacementLiquidValue = plan
+
+if (options.comparativeReplacement) {
+  replacementYAMLValue = `>= ${options.comparativeReplacement}`
+
+  const liquidVersion = options.comparativeReplacement.split('.', 2)
+  if (liquidVersion[1] === '0') {
+    console.log(
+      `Error: you specified ${options.comparativeReplacement} for comparative replacement (can't be #.0)`
+    )
+    process.exit(1)
+  } else {
+    liquidVersion[1] = liquidVersion[1] - 1
+    const liquidVersionForComparison = liquidVersion.join('.')
+    replacementLiquidValue = `${plan} > ${liquidVersionForComparison}`
   }
 }
 
@@ -163,11 +204,7 @@ allFiles.forEach((file) => {
 if (options.showFlags) {
   let flag, files
   for ([flag, files] of Object.entries(allFlags)) {
-    if (flag === 'next') {
-      console.log(
-        `\n🚩 \x1b[7m ${plan}-${flag} \x1b[0m \x1b[1m\x1b[34m\x1b[4mhttps://github.com/github/docs-content/issues/3950\x1b[0m`
-      )
-    } else if (flag.match(/^issue-[0-9]+$/)) {
+    if (flag.match(/^issue-[0-9]+$/)) {
       console.log(
         `\n🚩 \x1b[7m ${plan}-${flag} \x1b[0m \x1b[1m\x1b[34m\x1b[4m${flag.replace(
           'issue-',
@@ -183,8 +220,8 @@ if (options.showFlags) {
     })
   }
 
-  // -------------------------------------------- --toggle-flags or --toggle-next
-} else if (options.toggleFlags || options.toggleNext) {
+  // ------------------------------------------------------------- --toggle-flags
+} else if (options.toggleFlags) {
   let commitCount = 0
 
   console.log(`Toggling flag${flagCount > 1 ? 's' : ''} (${flagsToToggle.join(', ')})...`)
@@ -204,12 +241,12 @@ if (options.showFlags) {
       if (file.endsWith('.md')) {
         // Update versions in Liquid conditionals.
 
-        newContent = fileContent.replace(liquidReplacementRegExp, plan)
+        newContent = fileContent.replace(liquidReplacementRegExp, replacementLiquidValue)
 
         if (data.versions && data.versions[plan] === flag) {
           // Update versions in content files with YAML front matter.
 
-          data.versions[plan] = '*'
+          data.versions[plan] = replacementYAMLValue
         }
         fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
       } else if (file.endsWith('.yml')) {
@@ -217,7 +254,10 @@ if (options.showFlags) {
 
         // Update versions in YAML files for feature-based versioning.
 
-        newContent = fileContent.replace(yamlReplacementRegExp, `${plan}: '*'`)
+        newContent = fileContent.replace(
+          yamlReplacementRegExp,
+          `${plan}: '${replacementYAMLValue}'`
+        )
 
         // Update versions in Liquid conditionals.
 

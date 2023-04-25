@@ -1,1 +1,0 @@
-{% data variables.product.prodname_community_exchange %}は{% data variables.product.prodname_global_campus %}ポータル内の学生のコミュニティです。 学生はここでプロジェクトを見てもらい、コラボレータやメンテナを必要としている他の学生のリポジトリを発見できます。

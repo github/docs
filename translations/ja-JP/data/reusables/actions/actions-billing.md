@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %}の利用は、パブリックリポジトリにおける標準の{% data variables.product.prodname_dotcom %}ホストランナーと、セルフホストランナーでは無料です。 プライベートリポジトリでは、それぞれの{% data variables.product.prodname_dotcom %}アカウントは使用している製品に応じて{% data variables.product.prodname_dotcom %}ホストランナーで利用できる一定量の無料の分とストレージを受け取ります。 含まれる金額を超える利用については、支出制限によって管理されます。

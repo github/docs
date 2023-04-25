@@ -1,1 +1,0 @@
-{% data variables.product.prodname_marketplace %}からのツール、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API、既存の{% data variables.product.product_name %}機能を使って作業をカスタマイズし、自動化できます。

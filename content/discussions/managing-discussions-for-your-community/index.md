@@ -9,5 +9,7 @@ children:
   - /managing-categories-for-discussions
   - /moderating-discussions
   - /viewing-insights-for-your-discussions
+  - /creating-discussion-category-forms
+  - /syntax-for-discussion-category-forms
 ---
 

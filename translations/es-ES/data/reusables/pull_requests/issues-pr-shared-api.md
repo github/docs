@@ -1,1 +1,0 @@
-Cada solicitud de extracción es un informe de problemas, pero no todos los informes de problemas son una solicitud de extracción. For this reason, "shared" actions for both features, like managing assignees, labels, and milestones, are provided within Issues API.

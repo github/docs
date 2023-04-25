@@ -1,6 +1,7 @@
 import { jest } from '@jest/globals'
 import fs from 'fs/promises'
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import addErrors from 'ajv-errors'
 import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
@@ -8,8 +9,8 @@ import { getLiquidConditionals } from '../../script/helpers/get-liquid-condition
 import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
-import frontmatter from '../../lib/frontmatter.js'
-import loadSiteData from '../../lib/site-data.js'
+import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -21,30 +22,30 @@ import loadSiteData from '../../lib/site-data.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
-const siteData = loadSiteData()
-const featureVersions = Object.entries(siteData.en.site.data.features)
+const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+addErrors(ajv)
+// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
+ajv.addFormat('semver', {
+  validate: (x) => semver.validRange(x),
+})
+// *** End TODO ***
+const validate = ajv.compile(featureVersionsSchema)
+
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
-  test.each(featureVersions)('data/features/%s matches the schema', (_, featureVersion) => {
-    const { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+  test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
+    const valid = validate(featureVersion)
+    let errors
 
-    const errorMessage = errors
-      .map((error) => {
-        // Make this one message a little more readable than the error we get from revalidator
-        // when additionalProperties is set to false and an additional prop is found.
-        const errorToReport =
-          error.message === 'must not exist' && error.actual.feature
-            ? `feature: '${error.actual.feature}'`
-            : JSON.stringify(error.actual, null, 2)
+    if (!valid) {
+      errors = formatAjvErrors(validate.errors)
+    }
 
-        return `- [${error.property}]: ${errorToReport}, ${error.message}`
-      })
-      .join('\n')
-
-    expect(errors.length, errorMessage).toBe(0)
+    expect(valid, errors).toBe(true)
   })
 })
 
@@ -61,15 +62,8 @@ describe('lint Liquid versioning', () => {
 
     beforeAll(async () => {
       fileContents = await fs.readFile(file, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      ifversionConditionals = getLiquidConditionals(data, ['ifversion', 'elsif']).concat(
-        getLiquidConditionals(bodyContent, ['ifversion', 'elsif'])
-      )
-
-      ifConditionals = getLiquidConditionals(data, 'if').concat(
-        getLiquidConditionals(bodyContent, 'if')
-      )
+      ifversionConditionals = getLiquidConditionals(fileContents, ['ifversion', 'elsif'])
+      ifConditionals = getLiquidConditionals(fileContents, 'if')
     })
 
     // `ifversion` supports both standard and feature-based versioning.
@@ -101,15 +95,8 @@ describe('lint Liquid versioning', () => {
 })
 
 // Return true if the shortname in the conditional is supported (fpt, ghec, ghes, ghae, all feature names).
-// If not, see if the shortname matches any exception pattern defined in lib/all-versions.js.
 function validateVersion(version) {
-  const isSupported = allowedVersionNames.includes(version)
-  const isException = Object.values(allVersions).some(
-    (v) => v.allowedInlinePattern && new RegExp(v.allowedInlinePattern).test(version)
-  )
-  const isValid = isSupported || isException
-
-  return isValid
+  return allowedVersionNames.includes(version)
 }
 
 function validateIfversionConditionals(conds) {
@@ -150,20 +137,17 @@ function validateIfversionConditionals(conds) {
       // the second item is a supported operator, and the third is a supported GHES release.
       if (strParts.length === 3) {
         const [version, operator, release] = strParts
-        if (version !== 'ghes') {
+        const hasSemanticVersioning = Object.values(allVersions).some(
+          (v) => (v.hasNumberedReleases || v.internalLatestRelease) && v.shortName === version
+        )
+        if (!hasSemanticVersioning) {
           errors.push(
-            `Found "${version}" inside "${cond}" with a "${operator}" operator; expected "ghes"`
+            `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`
           )
         }
         if (!allowedVersionOperators.includes(operator)) {
           errors.push(
             `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
-          )
-        }
-        // Check nextNext is one version ahead of next
-        if (!isNextVersion(next, nextNext)) {
-          errors.push(
-            `The nextNext version: "${nextNext} is not one version ahead of the next supported version: "${next}" - check lib/enterprise-server-releases.js`
           )
         }
         // Check that the versions in conditionals are supported
@@ -188,24 +172,4 @@ function validateIfversionConditionals(conds) {
   })
 
   return errors
-}
-
-function isNextVersion(v1, v2) {
-  const semverNext = semver.coerce(v1)
-  const semverNextNext = semver.coerce(v2)
-  const semverSupported = []
-
-  supported.forEach((el, i) => {
-    semverSupported[i] = semver.coerce(el)
-  })
-  // Check that the next version is the next version from the supported list first
-  const maxVersion = semver.maxSatisfying(semverSupported, '*').raw
-  const nextVersionCheck =
-    semverNext.raw === semver.inc(maxVersion, 'minor') ||
-    semverNext.raw === semver.inc(maxVersion, 'major')
-  return (
-    nextVersionCheck &&
-    (semver.inc(semverNext, 'minor') === semverNextNext.raw ||
-      semver.inc(semverNext, 'major') === semverNextNext.raw)
-  )
 }

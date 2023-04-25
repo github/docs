@@ -1,1 +1,0 @@
-触发工作流程的提交 SHA。 此提交 SHA 的值取决于触发工作流程的事件。 更多信息请参阅“[触发工作流程的事件](/actions/using-workflows/events-that-trigger-workflows)”。 例如 `ffac537e6cbbf934b08745a378932722df287a53`。

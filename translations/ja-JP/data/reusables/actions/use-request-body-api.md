@@ -1,1 +1,0 @@
-この設定を適用するには、APIエンドポイントにリクエストをサブミットし、そのリクエストのボディに必要な設定を含めてください。 詳しい情報については「[OrganizationのOIDCサブジェクトクレームのカスタマイズテンプレートの設定](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)」を参照してください。

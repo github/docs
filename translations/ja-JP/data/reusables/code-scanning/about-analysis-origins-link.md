@@ -1,1 +1,0 @@
-Code scanningを複数の設定で実行する場合、アラートが複数の分析元を持つことがあります。 アラートが複数の分析元がある場合、それぞれの分析元に対するアラートのステータスをアラートページで見ることができます。 詳しい情報については「[分析元について](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)」を参照してください。

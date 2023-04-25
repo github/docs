@@ -1,1 +1,0 @@
-請求書支払いの{% data variables.product.prodname_enterprise %}のお客様の場合、{% data variables.product.company_short %}は{% data variables.product.prodname_dotcom_the_website %}上のEnterpriseアカウントを通じて課金します。 各請求書には、すべての有料{% data variables.product.prodname_dotcom_the_website %}サービスと{% data variables.product.prodname_ghe_server %}インスタンスに対する単一の請求料金が含まれます。

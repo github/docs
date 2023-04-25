@@ -1,1 +1,0 @@
-詳しい情報については「[Enterpriseでの{% data variables.product.prodname_advanced_security %}のポリシーの施行]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)」を参照してください。

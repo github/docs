@@ -1,3 +1,0 @@
-Actionsの分の消費を削減するために、開発コンテナ設定ファイルを変更したときにのみ、あるいはカスタムのスケジュールだけに従って事前ビルドが更新されるように設定できます。 また、事前ビルドされた設定に対して保持されるテンプレートのバージョン数を調整することによって、ストレージの使用量を管理することもできます。 詳しい情報については「[事前ビルドの設定](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)」を参照してください。
-
-Organizationのオーナーは、事前ビルドされたワークフローとストレージの使用状況を、Organizationの{% data variables.product.prodname_actions %}使用状況レポートをダウンロードして追跡できます。 事前ビルドに対するワークフローの実行は、CSVの出力を"Create {% data variables.product.prodname_codespaces %} Prebuilds"というワークフローだけが含まれるようにフィルタリングすれば、特定できます。 詳しい情報については「[{% data variables.product.prodname_actions %}の利用状況の表示](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-organization)」を参照してください。

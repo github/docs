@@ -1,1 +1,0 @@
-Si estás iniciando un patrocinio mensual en nombre de tu cuenta personal, se te cargará una cantidad prorrateada inmediatamente por el momento hasta que llegue tu siguiente fecha de facturación habitual. Si estás patrocinando a alguien en nombre de una organización, puedes elegir pagar la cantidad prorrateada o hacer un pago completo mensual.

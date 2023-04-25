@@ -1,1 +1,0 @@
-サポートされているシークレットを、プッシュ保護としての{% data variables.product.prodname_secret_scanning %}が有効化されているリポジトリもしくはOrganizationにプッシュしようとすると、{% data variables.product.prodname_dotcom %}はそのプッシュをブロックします。 You can remove the secret from your branch or follow a provided URL to allow the push. 

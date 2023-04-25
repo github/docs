@@ -1,1 +1,0 @@
-Si se habilita el rastreo de progreso, se mostrará una barra de progreso sobre el {% data variables.projects.projects_v1_board %}, en la página de listado del proyecto, en la barra lateral de la propuesta y en las referencias al proyecto en otros {% data variables.projects.projects_v1_boards %}.

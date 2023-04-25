@@ -1,1 +1,0 @@
-カスタムの開発コンテナを使うようにリポジトリをセットアップするには、1つ以上の`devcontainer.json`ファイルを作成しなければなりません。 これらは{% data variables.product.prodname_vscode %}内でテンプレートから追加することも、独自に書くこともできます。 開発コンテナの設定に関する詳しい情報については「[開発コンテナの紹介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)」を参照してください。

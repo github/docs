@@ -41,5 +41,3 @@ jobs:
       - name: deploy
         # ...deployment-specific steps
 ```
-
-![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_enterprise %}のユーザライセンスの更新もしくは追加を行いたい場合、あるいはライセンスに関する質問がある場合は、{% data variables.contact.contact_enterprise_sales %}にお問い合わせください。 注文完了したら、新しいライセンスのファイルが直ちにダウンロード可能となります。

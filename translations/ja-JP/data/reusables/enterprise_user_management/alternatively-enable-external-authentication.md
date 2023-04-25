@@ -1,1 +1,0 @@
-あるいは、{% data variables.product.product_location %}の外部認証を設定することもできます。 外部認証を使う場合、認証プロバイダを通じてインスタンスを使うよう、ユーザを招待しなければなりません。 詳しい情報については「[Enterpriseでの認証について](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)」を参照してください。

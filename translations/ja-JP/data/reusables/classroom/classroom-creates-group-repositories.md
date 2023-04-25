@@ -1,1 +1,0 @@
-それぞれのグループ課題に対して、{% data variables.product.prodname_classroom %}は自動的にTeamがアクセスするための1つの共有リポジトリを作成します。 このリポジトリは空にすることも、スターターコード、ドキュメンテーション、テスト、その他のリソースを持つテンプレートリポジトリから作成することもできます。 リポジトリは{% data variables.product.product_name %}上のあなたのOrganizationアカウントに属し、{% data variables.product.prodname_classroom %}は課題を受け入れたときに学生が作成もしくは参加するTeamにアクセス権を付与します。

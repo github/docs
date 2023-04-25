@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}に個人アカウントを持っている人なら、誰でもOrganizationのメンバーになってもらうよう招待できます。 メンバーを削除したり、以前のメンバーの復帰もできます。 詳しい情報については「[Organizationのメンバーシップの管理](/organizations/managing-membership-in-your-organization)」を参照してください。

@@ -1,0 +1,1 @@
+Releases in the 3.6 series of GitHub Enterprise Server are no longer suitable for testing SCIM. To continue using the private beta of SCIM, upgrade your instance to version 3.7.3 or later. For more information, see "[Upgrading GitHub Enterprise Server](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."

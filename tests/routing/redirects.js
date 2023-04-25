@@ -12,19 +12,13 @@ import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// This is temporary solution until we have certainty in that the
-// dedicated search results page works.
-// In a near future, we won't be needing this and assume it's always
-// true.
-const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(process.env.ELASTICSEARCH_URL)
-
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   let redirects
   beforeAll(async () => {
     const res = await get('/en?json=redirects')
-    redirects = JSON.parse(res.text)
+    redirects = JSON.parse(res.body)
   })
 
   test('page.buildRedirects() returns an array', async () => {
@@ -58,27 +52,16 @@ describe('redirects', () => {
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        expect(res.statusCode).toBe(301)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        expect(res.statusCode).toBe(302)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        const expected = `/en/enterprise/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have faq= not converted to query=', async () => {
@@ -106,7 +89,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => !to.includes('://'))
+        .filter(([, to]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -124,10 +107,14 @@ describe('redirects', () => {
       const res = await get('/')
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/en')
-      expect(res.headers['cache-control']).toBe('private, no-store')
+      // language specific caching
+      expect(res.headers['cache-control']).toContain('public')
+      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+      expect(res.headers.vary).toContain('accept-language')
+      expect(res.headers.vary).toContain('x-user-language')
     })
 
-    test('trailing slash on languaged homepage should permantently redirect', async () => {
+    test('trailing slash on languaged homepage should permanently redirect', async () => {
       const res = await get('/en/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/en')
@@ -140,7 +127,7 @@ describe('redirects', () => {
   describe('external redirects', () => {
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([from_, to]) => to.includes('://'))
+        .filter(([, to]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)
@@ -445,7 +432,6 @@ describe('redirects', () => {
         'rate-limit',
         'reactions',
         'repos',
-        'scim',
         'search',
         'teams',
         'users',

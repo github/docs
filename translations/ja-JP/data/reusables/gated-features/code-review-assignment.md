@@ -1,1 +1,0 @@
-コードレビュー設定は、Organizationが所有するすべてのパブリックリポジトリ、そして{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.20+、{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %}、{% endif %}{% data variables.product.prodname_ghe_cloud %}上のOrganizationが所有するすべてのプライベートリポジトリで利用できます。 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

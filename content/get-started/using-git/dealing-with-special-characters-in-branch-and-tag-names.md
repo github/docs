@@ -47,3 +47,14 @@ If possible, create branch and tag names that don't contain special characters, 
   * forward slash (`/`)
 
 To avoid confusion, you should start branch names with a letter.
+
+{% ifversion fpt or ghec or ghes > 3.8 %}
+
+## Restrictions on names in {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.prodname_dotcom %} restricts a small number of branch and tag names from being pushed up.
+Those restrictions are:
+- No names which look like Git object IDs (40 characters containing only 0-9 and A-F), to prevent confusion with actual Git object IDs.
+- No names beginning with `refs/`, to prevent confusion with the full name of Git refs. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
+
+{% endif %}

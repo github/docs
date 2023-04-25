@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent, EventType } from 'components/lib/events'
+import { sendEvent, EventType } from 'src/events/browser'
 
 import styles from './Survey.module.scss'
 
@@ -16,7 +16,7 @@ enum ViewState {
 }
 
 export const Survey = () => {
-  const { asPath } = useRouter()
+  const { asPath, locale } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
   const [isEmailError, setIsEmailError] = useState(false)
@@ -36,7 +36,7 @@ export const Survey = () => {
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          'footer a[href="/github/site-policy/github-privacy-statement"]'
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`
         )
         ?.focus()
     }
@@ -80,7 +80,7 @@ export const Survey = () => {
 
   return (
     <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
-      <h2 className="f4 mb-3">{t`able_to_find`}</h2>
+      <h3 className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
       <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
@@ -193,8 +193,8 @@ export const Survey = () => {
       )}
 
       <Link
-        className="f6 text-normal color-fg-accent"
-        href="/github/site-policy/github-privacy-statement"
+        className="f6 text-underline"
+        href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
         target="_blank"
       >
         {t`privacy_policy`}

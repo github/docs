@@ -1,1 +1,0 @@
-1. Enterpriseアカウントのサイドバーで{% octicon "checklist" aria-label="The Compliance icon" %} **Compliance（コンプライアンス）**をクリックしてください。 ![Enterpriseアカウントサイドバーのコンプライアンスタブ](/assets/images/help/business-accounts/enterprise-accounts-compliance-tab.png)

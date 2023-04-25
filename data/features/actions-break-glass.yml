@@ -1,0 +1,5 @@
+# Reference: #9225
+# Documentation for Actions break glass feature (bypass branch protection rules)
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -7,9 +7,6 @@
 #
 # [end-readme]
 
-# Remove all but the english search indexes
-find lib/search/indexes ! -name '*-en.json.br' ! -name '*-en-records.json.br' -maxdepth 1 -type f -delete
-
 # Translations are never tested in preview environments
 # but let's keep the empty directory.
 rm -rf translations

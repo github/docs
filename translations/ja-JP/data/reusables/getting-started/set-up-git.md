@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}リポジトリを手元のコンピュータと同期すれば、ローカルで作業を行い変更を{% data variables.product.prodname_dotcom %}にプッシュできるようになります。 詳しい情報については「[Gitのセットアップ](/get-started/quickstart/set-up-git)」を参照してください。

@@ -1,1 +1,0 @@
-1. En el panel de "Inicia sesión utilizando tu buscador", haz clic en **Continuar con el buscador**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/sign-in-browser.png)

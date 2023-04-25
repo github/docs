@@ -16,6 +16,7 @@
 
   &.note pre code {
     color: var(--color-fg-default);
+    margin: 1rem;
   }
 
   &.note pre {
@@ -28,8 +29,8 @@
   &.warning,
   &.tip,
   &.danger {
-    p {
-      margin: 0;
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 }

@@ -1,1 +1,0 @@
-1. Debajo de "{% data variables.product.prodname_sponsors %}", a la derecha de la cuenta patrocinada, da clic en {% octicon "triangle-down" aria-label="The down triangle octicon" %} junto con tu cantidad de nivel y luego da clic en **cambiar nivel**. ![Botón de cambiar nivel](/assets/images/help/billing/edit-sponsor-billing.png)

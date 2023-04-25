@@ -1,1 +1,0 @@
-El SHA de confirmación que activó el flujo de trabajo. El valor de este SHA de confirmación depende del evento que activó el flujo de trabajo. Para obtener más información, consulta la sección "[Eventos que activan flujos de trabajo](/actions/using-workflows/events-that-trigger-workflows)". Por ejemplo, `ffac537e6cbbf934b08745a378932722df287a53`.

@@ -1,1 +1,0 @@
-1. "Notification preferences（通知設定）"の下で、**Restrict email notifications to only approved or verified domains（メール通知を承認済みもしくは検証済みドメインに制限する）**を選択してください。 ![メール通知を検証済みドメインのメールに制限するためのチェックボックス](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)

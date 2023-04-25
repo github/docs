@@ -1,1 +1,0 @@
-If a person has multiple avenues of access to an organization {% data variables.projects.projects_v1_board %} (individually, through a team, or as an organization member), the highest {% data variables.projects.projects_v1_board %} permission level overrides lower permission levels.

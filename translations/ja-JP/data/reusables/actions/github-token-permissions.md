@@ -1,1 +1,0 @@
-ワークフロー内のジョブが開始されるたびに、`GITHUB_TOKEN`はそのリポジトリのアクセストークンに設定されます。 `contents`スコープに対する読み取りアクセス権と、`packages`スコープに対する書き込み権を付与するために、ワークフローファイル中でこのアクセストークンに権限を設定しなければなりません。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。

@@ -1,1 +1,0 @@
-1. To the right of your existing views, click **New view** ![Captura de pantalla que muestra el menú de campo de columna](/assets/images/help/projects-v2/new-view.png)

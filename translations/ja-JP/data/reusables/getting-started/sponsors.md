@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %}を使うと、頼りにしているオープンソースのプロジェクトを設計、作成、メンテナンスしている開発者やOrganizationに、月次の定期的な支払いを行えます。 詳しい情報については「[{% data variables.product.prodname_sponsors %}について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」を参照してください。

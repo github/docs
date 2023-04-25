@@ -3,4 +3,3 @@
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: 'issue-7070'

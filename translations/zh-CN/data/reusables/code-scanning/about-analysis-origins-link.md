@@ -1,1 +1,0 @@
-如果使用多个配置运行代码扫描，则有时警报将具有多个分析源。 如果一个警报有多个分析源，您可以在警报页面上查看每个分析源的警报状态。 更多信息请参阅“[关于分析源](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)”。

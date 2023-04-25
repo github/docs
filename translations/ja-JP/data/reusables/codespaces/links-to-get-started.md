@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codespaces %}を使い始めるには、「[{% data variables.product.prodname_github_codespaces %}のクイックスタート](/codespaces/getting-started/quickstart)」を参照してください。 {% data variables.product.prodname_codespaces %}がどのように動作するのか、詳しく学ぶには「[{% data variables.product.prodname_github_codespaces %}を深く掘り下げる](/codespaces/getting-started/deep-dive)」を参照してください。

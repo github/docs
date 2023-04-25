@@ -1,1 +1,0 @@
-Puedes utilizar una plantilla de {% data variables.projects.projects_v1_board %} para crear un {% data variables.projects.projects_v1_board %} que ya tenga configurada la automatización. Para obtener más información, consulta la sección "[Acerca de los {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards#templates-for-project-boards)".
