@@ -1,1 +1,0 @@
-You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。

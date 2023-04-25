@@ -90,7 +90,7 @@ Although we've only added one subproject, any number of subprojects can be incor
 
 {% tip %}
 
-**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/github/getting-started-with-github/managing-remote-repositories).
+**Tip**: If you create a fresh clone of the repository in the future,  the remotes you've added will not be created for you. You will have to add them again using [the `git remote add` command](/get-started/getting-started-with-git/managing-remote-repositories).
 
 {% endtip %}
 
@@ -99,7 +99,7 @@ Although we've only added one subproject, any number of subprojects can be incor
 When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
 ```shell
-$ git pull -s subtree <em>remotename</em> <em>branchname</em>
+$ git pull -s subtree REMOTE-NAME BRANCH-NAME
 ```
 
 For the example above, this would be:

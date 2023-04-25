@@ -1,1 +1,0 @@
-La mayoría de las acciones oficiales de autoría de {% data variables.product.prodname_dotcom %} se agrupan automáticamente con {% data variables.product.product_name %} y se capturan en un punto en el tiempo desde {% data variables.product.prodname_marketplace %}.

@@ -11,7 +11,7 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import program from 'commander'
+import { program } from 'commander'
 import { escapeRegExp } from 'lodash-es'
 import frontmatter from '../../lib/read-frontmatter.js'
 import { getLiquidConditionals } from '../helpers/get-liquid-conditionals.js'
@@ -117,15 +117,14 @@ function getConditionalsToUpdate(content) {
 
 function updateLiquid(conditionalsToUpdate, content) {
   let newContent = content
-  conditionalsToUpdate.forEach((cond) => {
-    const oldConditional = `{% ifversion ${cond} %}`
-    const newConditional = `{% ifversion ${cond.concat(' or ghec')} %}`
-    const oldConditionalRegex = new RegExp(escapeRegExp(oldConditional), 'g')
-
-    // Then replace all instances of the conditional in the content
-    newContent = newContent.replace(oldConditionalRegex, newConditional)
+  conditionalsToUpdate.forEach((conditional) => {
+    // Append "or ghec" to all conditions without it and account for both "{%" and "{%-" tag syntax
+    // $1, $2 and $3 are the capture groups from the regex
+    newContent = newContent.replace(
+      new RegExp(`({%-?)\\s*(ifversion ${escapeRegExp(conditional)})\\s*(%})`),
+      '$1 $2 or ghec $3'
+    )
   })
-
   return newContent
 }
 

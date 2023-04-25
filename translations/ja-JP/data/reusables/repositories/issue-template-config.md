@@ -1,1 +1,0 @@
-リポジトリで新しいIssueを作成する時に表示されるIssueテンプレートの選択画面は、`.github/ISSUE_TEMPLATE`フォルダーに*config.yml*ファイルを追加することによってカスタマイズできます。

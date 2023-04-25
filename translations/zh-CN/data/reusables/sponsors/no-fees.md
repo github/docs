@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %} does not charge any fees for sponsorships from personal accounts, so 100% of these sponsorships go to the sponsored developer or organization. 在测试期间，组织免除 10% 的赞助费。

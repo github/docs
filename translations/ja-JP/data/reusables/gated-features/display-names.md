@@ -1,1 +1,0 @@
-コメント作者のプロフィール名のメンバーによる表示は、{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.18+、{% ifversion ghae %} {% data variables.product.prodname_ghe_managed %}、{% endif %}{% data variables.product.prodname_ghe_cloud %}で利用できます。 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

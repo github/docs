@@ -34,9 +34,9 @@ If you downgrade your number of additional data packs, your changes will take ef
 
 ## Further reading
 
-- "[About {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[Installing {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
-- "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
-- "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
-- "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)"
-- "[Downgrading {% data variables.large_files.product_name_long %}](/articles/downgrading-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage)"
+- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage)"

@@ -15,6 +15,7 @@ export interface Operation {
 }
 
 export interface Parameter {
+  exampleName?: string
   in: string
   name: string
   description: string
@@ -54,33 +55,27 @@ export interface BodyParameter {
   name: string
   description: string
   type: string
-  isRequired: boolean
+  isRequired?: boolean
   default?: string
   enum?: Array<string>
-  childParamsGroups?: Array<ChildParamsGroup>
-}
-
-export interface ChildParamsGroup {
-  id: string
-  params: Array<ChildParameter>
-  parentName: string
-  parentType: string
+  childParamsGroups?: Array<ChildParameter>
 }
 
 export interface ChildParameter {
   name: string
   description: string
   type: string
-  isRequired: boolean
+  isRequired?: boolean
   enum?: Array<string>
   default?: string
+  childParamsGroups?: ChildParameter[]
 }
 
 export type ExampleT = {
   description: string
-  curl: string
-  javascript: string
-  ghcli?: string
+  [CodeSampleKeys.curl]?: string
+  [CodeSampleKeys.javascript]?: string
+  [CodeSampleKeys.ghcli]?: string
   response: {
     statusCode: string
     contentType?: string
@@ -90,7 +85,13 @@ export type ExampleT = {
   }
 }
 
-export type LanguageOptionT = {
-  key: keyof ExampleT
-  text: string
+export enum ResponseKeys {
+  example = 'example',
+  schema = 'schema',
+}
+
+export enum CodeSampleKeys {
+  curl = 'curl',
+  javascript = 'javascript',
+  ghcli = 'ghcli',
 }

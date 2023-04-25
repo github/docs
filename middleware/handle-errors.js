@@ -1,14 +1,12 @@
 import FailBot from '../lib/failbot.js'
 import { nextApp } from './next.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { cacheControlFactory } from './cache-control.js'
+import { errorCacheControl } from './cache-control.js'
 
-const cacheControl = cacheControlFactory(60) // 1 minute
+const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
 function shouldLogException(error) {
   const IGNORED_ERRORS = [
-    // avoid sending CSRF token errors (from bad-actor POST requests)
-    'EBADCSRFTOKEN',
     // Client connected aborted
     'ECONNRESET',
   ]
@@ -25,18 +23,12 @@ async function logException(error, req) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
     await FailBot.report(error, {
       path: req.path,
+      url: req.url,
     })
   }
 }
 
 export default async function handleError(error, req, res, next) {
-  // When you run tests that use things doing get() requests in
-  // our supertest handler, if something goes wrong anywhere in the app
-  // and its middlewares, you get a 500 but the error is never displayed
-  // anywhere. So this is why we log it additionally.
-  // Note, not using console.error() because it's arguably handled.
-  // Some tests might actually expect a 500 error.
-
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
@@ -47,15 +39,13 @@ export default async function handleError(error, req, res, next) {
       // Let's cache our 404'ing assets conservatively.
       // The Cache-Control is short, and let's use the default surrogate
       // key just in case it was a mistake.
-      cacheControl(res)
-      // Undo the cookie setting that CSRF sets.
-      res.removeHeader('set-cookie')
+      errorCacheControl(res)
       // Makes sure the surrogate key is NOT the manual one if it failed.
       // This basically unsets what was assumed in the beginning of
       // loading all the middlewares.
       setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
     }
-  } else if (process.env.NODE_ENV === 'test') {
+  } else if (DEBUG_MIDDLEWARE_TESTS) {
     console.warn('An error occurrred in some middleware handler', error)
   }
 
@@ -79,11 +69,12 @@ export default async function handleError(error, req, res, next) {
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
+      // Note that if this fails, it will swallow that error.
       return nextApp.render404(req, res)
     }
 
     // If the error contains a status code, just send that back. This is usually
-    // from a middleware like `express.json()` or `csrf`.
+    // from a middleware like `express.json()`.
     if (error.statusCode || error.status) {
       return res.sendStatus(error.statusCode || error.status)
     }

@@ -1,5 +1,6 @@
 ---
-title: Site policy
+title: Site policy documentation
+shortTitle: Site policy
 redirect_from:
   - /categories/61/articles
   - /categories/site-policy
@@ -17,5 +18,6 @@ children:
   - /content-removal-policies
   - /security-policies
   - /github-company-policies
+  - /site-policy-deprecated
 ---
 

@@ -1,7 +1,6 @@
 import fs from 'fs'
 
 import walkSync from 'walk-sync'
-import minimatch from 'minimatch'
 
 /*
 This test exists to make sure we don't reference private GitHub owned repositories
@@ -10,71 +9,69 @@ in our open-source repository.
 If this test is failing...
 (1) edit the file to remove the reference; or
 (2) the repository is public,
-    add the repository name to PUBLIC_REPOS; or
-(3) the feature references a docs repository,
-    add the file name to ALLOW_DOCS_PATHS.
+    add the repository name to PUBLIC_REPOS.
 */
 
-// These are a list of known public repositories in the GitHub organization
+// These are a list of known public repositories in the GitHub organization.
+// The names below on their own, plus the same names ending with '.git', will be accepted.
+// Do not include '.git' in the names below.
 const PUBLIC_REPOS = new Set([
-  'site-policy',
-  'roadmap',
-  'linguist',
-  'super-linter',
+  'actions-oidc-gateway-example',
+  'advisory-database',
   'backup-utils',
+  'browser-support',
+  'choosealicense.com',
   'codeql-action-sync-tool',
   'codeql-action',
   'codeql-cli-binaries',
-  'platform-samples',
-  'github-services',
-  'explore',
-  'enterprise-releases',
-  'markup',
-  'hubot',
-  'VisualStudio',
+  'codeql-go',
   'codeql',
-  'gitignore',
+  'codespaces-precache',
+  'codespaces-jupyter',
+  'copilot.vim',
+  'dependency-submission-toolkit',
+  'dmca',
+  'docs',
+  'enterprise-releases',
+  'explore',
   'feedback',
-  'semantic',
+  'gh-net',
+  'gh-actions-importer',
   'git-lfs',
   'git-sizer',
-  'dmca',
+  'github-services',
+  'gitignore',
   'gov-takedowns',
-  'janky',
-  'rest-api-description',
-  'smimesign',
-  'tweetsodium',
-  'choosealicense.com',
-  'renaming',
-  'localization-support',
-  'docs',
-  'securitylab',
+  'haikus-for-codespaces',
   'hello-world',
-  'hello-world.git',
-  'insights-releases',
   'help-docs-archived-enterprise-versions',
+  'hubot',
+  'insights-releases',
+  'janky',
+  'linguist',
+  'localization-support',
+  'markup',
+  'platform-samples',
+  'renaming',
+  'rest-api-description',
+  'roadmap',
+  'securitylab',
+  'semantic',
+  'ssh_data',
+  'site-policy',
+  'smimesign',
   'stack-graphs',
-  'codespaces-precache',
-  'advisory-database',
-  'browser-support',
+  'super-linter',
+  'tweetsodium',
+  'VisualStudio',
+  'codespaces-getting-started-ml',
+  'dependabot-action',
+  'gh-migration-analyzer',
 ])
 
-const ALLOW_DOCS_PATHS = [
-  '.github/actions-scripts/enterprise-server-issue-templates/*.md',
-  '.github/review-template.md',
-  '.github/workflows/sync-search-indices.yml',
-  'contributing/search.md',
-  'lib/rest/**/*.json',
-  'lib/webhooks/**/*.json',
-  'ownership.yaml',
-  'docs/index.yaml',
-  'lib/excluded-links.js',
-  'script/README.md',
-  'script/toggle-ghae-feature-flags.js',
-  '.github/workflows/hubber-contribution-help.yml',
-]
-
-const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
+// This regexp will capture the last segment of a GitHub repo name.
+// E.g., it will capture `backup-utils.git` from `https://github.com/github/backup-utils.git`.
+const REPO_REGEXP = /\/\/github\.com\/github\/([\w\-.]+)/gi
 
 const IGNORE_PATHS = [
   '.git',
@@ -82,10 +79,10 @@ const IGNORE_PATHS = [
   '.vscode', // Not part of the repo but could be for a developer locally
   'node_modules',
   'translations',
-  '.linkinator',
   '**/*.png', // Do not check images or font files.
   '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
   '**/*.gif', // READMEs or other text-based files from being checked.
+  '**/*.webp',
   '**/*.pdf',
   '**/*.ico',
   '**/*.woff',
@@ -93,10 +90,8 @@ const IGNORE_PATHS = [
   '**/*.br', // E.g. the search index .json.br files
   '**/*.graphql', // E.g. data/graphql/ghec/schema.docs.graphql
   'package-lock.json', // At the time of writing it's 1.5MB!
-  '.linkinator/full.log', // Only present if you've run linkinator
-  'lib/search/popular-pages.json', // used to build search indexes
   'tests/**/*.json',
-
+  'src/**/*.json', // OpenAPI schema files
   'content/early-access', // Not committed to public repository.
   'data/early-access', // Not committed to public repository.
   'data/release-notes', // These include links to many internal issues in Liquid comments.
@@ -122,16 +117,20 @@ describe('check if a GitHub-owned private repository is referenced', () => {
     // the disk I/O is sufficiently small.
     const file = fs.readFileSync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
-      .map(([, repoName]) => repoName)
+      // The referenced repo may or may not end with '.git', so ignore that extension.
+      .map(([, repoName]) => repoName.replace(/\.git$/, ''))
       .filter((repoName) => !PUBLIC_REPOS.has(repoName))
-      .filter((repoName) => {
-        return !(
-          repoName.startsWith('docs') && ALLOW_DOCS_PATHS.some((path) => minimatch(filename, path))
-        )
-      })
+      .filter((repoName) => !repoName.startsWith('docs'))
     expect(
       matches,
-      `Please edit ${filename} to remove references to ${matches.join(', ')}`
+      `This test exists to make sure we don't reference private GitHub owned repositories in our open-source repository.
+
+      In '${filename}' we found references to these private repositories: ${matches.join(', ')}
+
+      You can:
+
+      (1) edit the file to remove the repository reference; or
+      (2) if the repository is public, add the repository name to the 'PUBLIC_REPOS' variable in this test file.`
     ).toHaveLength(0)
   })
 })

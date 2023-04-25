@@ -1,1 +1,0 @@
-{% data variables.product.prodname_sponsors %} allows you to make a monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on. 詳しい情報については「[{% data variables.product.prodname_sponsors %}について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」を参照してください。

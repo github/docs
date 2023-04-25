@@ -15,6 +15,8 @@ topics:
 shortTitle: Set collaborator policy
 ---
 
+{% data reusables.organizations.about-outside-collaborators %} For more information, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+
 By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to add outside collaborators to organization owners only.
 
 {% ifversion ghec %}
@@ -31,9 +33,6 @@ By default, anyone with admin access to a repository can invite outside collabor
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
-5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.
-   ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
-5. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
-  ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
-6. Click **Save**.
+{% data reusables.organizations.member-privileges %}
+1. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
+1. Click **Save**.

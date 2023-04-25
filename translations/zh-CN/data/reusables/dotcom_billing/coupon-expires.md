@@ -1,1 +1,0 @@
-如果您使用优惠券支付订阅费用，当优惠券到期时，您的支付方式将收取订阅的全部费用。 If you do not have a saved payment method, your account will be downgraded to {% data variables.product.prodname_free_user %} for personal accounts or {% data variables.product.prodname_free_team %} for organizations.

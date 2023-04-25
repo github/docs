@@ -1,1 +1,0 @@
-Por exemplo, você pode permitir o acesso somente a partir do endereço IP da rede do escritório. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.

@@ -1,4 +1,4 @@
-{% if codeql-ml-queries %}
+{% ifversion codeql-ml-queries %}
 
 {% note %}
 

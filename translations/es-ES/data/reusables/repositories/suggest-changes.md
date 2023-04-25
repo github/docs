@@ -1,1 +1,0 @@
-1. Opcionalmente, para sugerir un cambio específico a la línea {% ifversion fpt or ghes or ghae or ghec %} o líneas{% endif %},da clic en{% octicon "diff" aria-label="The diff symbol" %}, luego edita el texto dentro del bloque de sugerencia. ![Bloque de sugerencia](/assets/images/help/pull_requests/suggestion-block.png)

@@ -1,1 +1,0 @@
-`number`|`integer` | Pull Requestの番号。 `changes`|`object`| アクションが`edited`の場合、コメントへの変更。 `changes[title][from]`|`string` | アクションが`edited`の場合、以前のバージョンのタイトル。 `changes[body][from]`|`string` | アクションが`edited`の場合、以前のバージョンのボディ。 `pull_request`|`object` | [Pull Request](/rest/reference/pulls)自体。

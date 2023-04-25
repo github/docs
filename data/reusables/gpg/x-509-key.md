@@ -1,7 +1,7 @@
 
-### Telling Git about your X.509 key
+## Telling Git about your X.509 key
 
-You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
+You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME.
 
 {% data reusables.gpg.smime-git-version %}
 
@@ -15,7 +15,7 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   ```
   - To use S/MIME to sign for a single repository:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd PATH-TO-REPOSITORY
   $ git config --local gpg.x509.program smimesign
   $ git config --local gpg.format x509
   ```
@@ -26,7 +26,7 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
   ```
   - To use S/MIME to sign for a single repository:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
+  $ cd  PATH-TO-REPOSITORY
   $ git config --local gpg.program smimesign
   ```
   If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
@@ -48,10 +48,10 @@ You can use [smimesign](https://github.com/github/smimesign) to sign commits and
 6. To set your X.509 signing key in Git, paste the text below, substituting in the certificate ID you copied earlier.
   - To use your X.509 key to sign for all repositories:
   ```shell
-  $ git config --global user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ git config --global user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```
   - To use your X.509 key to sign for a single repository:
   ```shell
-  $ cd <em>/path/to/my/repository</em>
-  $ git config --local user.signingkey <em>0ff455a2708394633e4bb2f88002e3cd80cbd76f</em>
+  $ cd  PATH-TO-REPOSITORY
+  $ git config --local user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   ```

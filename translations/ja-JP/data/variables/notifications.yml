@@ -1,5 +1,0 @@
----
-no_reply_address: >-
-  {% ifversion fpt or ghec %}`noreply@github.com`{% else %}サイト管理者が設定した no-reply メールアドレス{% endif %}
-cc_address: >-
-  {% ifversion fpt or ghec %}`@noreply.github.com`{% else %}サイト管理者が設定した no-reply メールアドレスに基づく{% endif %}

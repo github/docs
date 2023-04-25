@@ -17,6 +17,7 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
+  merge_group:
   workflow_dispatch:
     inputs:
       PR_NUMBER:
@@ -27,9 +28,6 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-  push:
-    branches:
-      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -44,6 +42,16 @@ jobs:
   build-and-deploy-azure-preview:
     name: Build and deploy Azure preview environment
     runs-on: ubuntu-latest
+    # Ensure this is actually a pull request and not a merge group
+    # If its a merge group, report success without doing anything
+    # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
+    if: |
+      (
+        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
+         && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
+       )
+       && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+       &&  github.actor != 'dependabot[bot]'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -63,39 +71,34 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
           username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           ref: 'main'
           persist-credentials: 'false'
-          lfs: 'true'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # pin @3.1.0
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
-          lfs: 'true'
-
-      - name: Check out LFS objects
-        run: git lfs checkout
 
       - name: Get preview app info
         env:
@@ -110,7 +113,7 @@ jobs:
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
@@ -139,7 +142,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -152,7 +155,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -177,7 +180,7 @@ jobs:
         run: .github/actions-scripts/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true
@@ -187,6 +190,8 @@ jobs:
           cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: ''
+          build-args: |
+            BUILD_SHA=${{ env.COMMIT_REF }}
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
@@ -196,8 +201,7 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        id: deploy
-        uses: azure/arm-deploy@841b12551939c88af8f6df767c24c38a5620fd0d
+        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
@@ -208,6 +212,19 @@ jobs:
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
             dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
-          # this shows warnings in the github actions console, because the flag is passed through a validation run,
-          # but it *is* functional during the actual execution
-          additionalArguments: --no-wait
+
+      - name: Check that it can be reached
+        # This introduces a necessary delay. Because the preview evironment
+        # URL is announced to the pull request as soon as all the steps
+        # finish, what sometimes happens is that a viewer of the PR clicks
+        # that link too fast and are confronted with a broken page.
+        # It's because there's a delay between the `azure/arm-deploy`
+        # and when the server is actually started and can receive and
+        # process requests.
+        # By introducing a slight "delay" here we avoid announcing a
+        # preview environment URL that isn't actually working just yet.
+        # Note the use of `--fail`. It which means that if it actually
+        # did connect but the error code was >=400, the command will fail.
+        # The `--fail --retry N` combination means that a 4xx response
+        # code will exit immediately but a 5xx will exhaust the retries.
+        run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

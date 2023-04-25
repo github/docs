@@ -1,0 +1,85 @@
+name: 'Link Checker: Daily'
+
+# **What it does**: This script once a day checks all English links and reports in issue if any are broken.
+# **Why we have it**: We want to know if any links break internally or externally.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check_all_english_links:
+    name: Check all links
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Check that gh CLI is installed
+        run: gh --version
+
+      - name: Check out repo's default branch
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Figure out which docs-early-access branch to checkout, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: check-early-access
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+        run: node .github/actions-scripts/what-docs-early-access-branch.js
+
+      - name: Check out docs-early-access too, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.branch }}
+
+      - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: .github/actions-scripts/merge-early-access.sh
+
+      - name: Restore disk-cache file for external link checking
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        with:
+          path: external-link-checker-db.json
+          key: external-link-checker-${{ hashFiles('.github/actions/rendered-content-link-checker.js') }}
+
+      - name: Run link checker
+        env:
+          DISABLE_REWRITE_ASSET_URLS: true
+          LEVEL: 'critical'
+          # Set this to true in repo scope to enable debug logs
+          # ACTIONS_RUNNER_DEBUG = true
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          REPORT_AUTHOR: docs-bot
+          REPORT_LABEL: broken link report
+          REPORT_REPOSITORY: github/docs-content
+          CREATE_REPORT: true
+          CHECK_EXTERNAL_LINKS: true
+          PATIENT: true
+          # This means that we'll *re-check* external URLs once a week.
+          # But mind you that the number has a 10% chance of "jitter"
+          # to avoid a stampeding herd when they all expire some day.
+          EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS: 7
+          # If we're unable to connect or the server returns a 50x error,
+          # treat it as a warning and not as a broken link.
+          EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
+        timeout-minutes: 30
+        run: node .github/actions-scripts/rendered-content-link-checker.js
+
+      - name: Upload artifact(s)
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+        with:
+          name: artifacts
+          path: ./artifacts

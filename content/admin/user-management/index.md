@@ -18,6 +18,4 @@ children:
   - /managing-users-in-your-enterprise
   - /managing-organizations-in-your-enterprise
   - /managing-repositories-in-your-enterprise
-  - /migrating-data-to-and-from-your-enterprise
 ---
-

@@ -1,4 +1,4 @@
-To apply for an educator or researcher discount, you must meet the following requirements.
+To apply for teacher benefits and {% data variables.product.prodname_global_campus %} access, you must meet the following requirements.
 
 - Be an educator, faculty member, or researcher.
 - Have a verifiable school-issued email address.

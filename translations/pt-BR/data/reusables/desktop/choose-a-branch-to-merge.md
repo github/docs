@@ -1,1 +1,0 @@
-1. Clique em **Choose a branch to merge into <em>BRANCH</em>** (Escolha um branch para fazer merge em BRANCH). ![Escolha uma opção de branch no menu da lista de branches](/assets/images/help/desktop/merge-branch-button-list.png)

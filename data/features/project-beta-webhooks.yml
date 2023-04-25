@@ -1,0 +1,5 @@
+# Issue 6981
+# Projects (beta) webhooks
+versions:
+  fpt: '*'
+  ghec: '*'

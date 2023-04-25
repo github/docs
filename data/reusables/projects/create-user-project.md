@@ -1,4 +1,6 @@
-1. On any {% data variables.product.product_name %} page, click on your avatar, then select **Your projects**.
-2. Select the **New project** drop-down menu and click **New project (Beta)**.
-
-   ![New project](/assets/images/help/issues/new_project_beta.png)
+{% data reusables.profile.access_profile %}
+1. On your profile, click {% octicon "table" aria-hidden="true" %} **Projects**.
+  ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
+1. Click **New project**.
+   ![New project](/assets/images/help/projects-v2/new-project-button.png)
+1. In the left sidebar, click a format or template, then click **Create**.

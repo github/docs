@@ -1,0 +1,1 @@
+After you enable SAML SSO, {% data variables.product.prodname_oauth_app %} and {% data variables.product.prodname_github_app %} authorizations may need to be revoked and reauthorized before they can access the organization. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps#oauth-apps-and-organizations)."

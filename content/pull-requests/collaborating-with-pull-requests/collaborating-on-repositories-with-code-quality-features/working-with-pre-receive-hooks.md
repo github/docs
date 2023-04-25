@@ -28,6 +28,4 @@ To https://54.204.174.51/hodor/nope.git
 error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 ```
 
-![Error message for failed pre-receive hook](/assets/images/help/pull_requests/pre-receive-hook-failed-error.png)
-
-Your {% data variables.product.product_name %} site administrator can create and remove pre-receive hooks for your organization or repository, and may allow organization or repository administrators to enable or disable pre-receive hooks. For more information, see "[Using pre-receive hooks to enforce policy](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)."
+Your {% data variables.product.product_name %} site administrator can create and remove pre-receive hooks for your organization or repository, and may allow organization or repository administrators to enable or disable pre-receive hooks. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks)."

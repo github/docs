@@ -1,1 +1,1 @@
-{% if actions-workflow-policy %}{% ifversion ghec or ghes or ghae %}**Allow enterprise, and select non-enterprise, actions and reusable workflows**{% else %}**Allow *OWNER*, and select non-*OWNER*, actions and reusable workflows**{% endif %}{% else %}**Allow select actions**{% endif %}
+{% ifversion actions-workflow-policy %}{% ifversion ghec or ghes or ghae %}**Allow enterprise, and select non-enterprise, actions and reusable workflows**{% else %}**Allow *OWNER*, and select non-*OWNER*, actions and reusable workflows**{% endif %}{% else %}**Allow select actions**{% endif %}

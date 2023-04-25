@@ -13,10 +13,10 @@ If you specify multiple activity types, only one of those event activity types n
 
 ```yaml
 on:
-  issue:
+  issues:
     types:
       - opened
       - labeled
 ```
 
-For more information about each event and their activity types, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+For more information about each event and their activity types, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."

@@ -1,1 +1,0 @@
-{% data variables.product.company_short %} 为所有 {% data variables.product.prodname_dotcom_the_website %} 用户提供基本行为守则。 更多信息请参阅“[{% data variables.product.company_short %} 服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)”和“[{% data variables.product.company_short %} 社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)”。

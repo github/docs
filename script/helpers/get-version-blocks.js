@@ -23,7 +23,10 @@ export default function getVersionBlocks(rawBlocks) {
     // E.g., [ 'ghes', '<', '2.21' ]
     const ranges = condArgs
       .map((arg) => arg.split(' '))
-      .filter((args) => args.some((arg) => supportedOperators.includes(arg)))
+      .filter(
+        (args) =>
+          args.some((arg) => supportedOperators.includes(arg)) && args.some((arg) => arg === 'ghes')
+      )
       .map((args) => args.filter((arg) => !(arg === 'or' || (arg === 'and') | (arg === ''))))
 
     // Remove the start tag and the end tag so we are left with the inner text.
@@ -33,7 +36,7 @@ export default function getVersionBlocks(rawBlocks) {
     innerText = innerText.slice(0, indexOfLastEndif)
 
     // Remove any nested conditional content so we can check the top-level only.
-    const topLevelContent = innerText.replace(/{%-? ifversion[\S\s]+?{%-? endif -?%}/g, '')
+    const topLevelContent = innerText.replace(/{%-? ifversion[\S\s]+{%-? endif -?%}/g, '')
 
     versionBlocks.push({
       condKeyword,

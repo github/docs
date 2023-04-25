@@ -6,11 +6,13 @@ import { useMainContext } from 'components/context/MainContext'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { GuideCard } from 'components/landing/GuideCard'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 export const GuideCards = () => {
   const router = useRouter()
   const { currentCategory } = useMainContext()
   const { featuredLinks, hasGuidesPage } = useProductLandingContext()
+  const { t } = useTranslation('product_landing')
 
   const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
 
@@ -21,7 +23,7 @@ export const GuideCards = () => {
   return (
     <div>
       <div className="d-lg-flex flex-items-stretch">
-        <ul className="d-flex flex-wrap gutter">
+        <ul className="d-flex flex-wrap gutter width-full">
           {(featuredLinks.guideCards || []).map((guide) => {
             return <GuideCard key={guide.href} guide={guide} />
           })}
@@ -30,7 +32,7 @@ export const GuideCards = () => {
 
       {!currentCategory && hasGuidesPage && (
         <Link href={`${routePath}/guides`} className="btn btn-outline float-right">
-          Explore guides <ArrowRightIcon />
+          {t('explore_guides')} <ArrowRightIcon />
         </Link>
       )}
     </div>

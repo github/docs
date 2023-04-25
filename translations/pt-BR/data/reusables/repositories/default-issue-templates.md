@@ -1,2 +1,0 @@
-You can create default issue templates{% ifversion fpt or ghes or ghae or ghec %} and a default configuration file for issue templates{% endif %} for your organization{% ifversion fpt or ghes or ghae or ghec %} or personal account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-

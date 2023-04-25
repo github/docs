@@ -1,46 +1,17 @@
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
-import { UnderlineNav } from '@primer/react'
-import { sendEvent, EventType } from 'components/lib/events'
 import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { useArticleContext } from 'components/context/ArticleContext'
+import { InArticlePicker } from './InArticlePicker'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace
 
 // Nota bene: tool === application
 // Nota bene: picker === switcher
 
-const supportedTools = [
-  'cli',
-  'desktop',
-  'webui',
-  'curl',
-  'codespaces',
-  'vscode',
-  'importer_cli',
-  'graphql',
-  'powershell',
-  'bash',
-]
-const toolTitles = {
-  webui: 'Web browser',
-  cli: 'GitHub CLI',
-  curl: 'cURL',
-  desktop: 'Desktop',
-  codespaces: 'Codespaces',
-  vscode: 'Visual Studio Code',
-  importer_cli: 'GitHub Enterprise Importer CLI',
-  graphql: 'GraphQL API',
-  powershell: 'PowerShell',
-  bash: 'Bash',
-} as Record<string, string>
-
 // Imperatively modify article content to show only the selected tool
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% webui %} block content {% endwebui %}
-function showToolSpecificContent(tool: string) {
+function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
   markdowns
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
@@ -72,77 +43,30 @@ function getDefaultTool(defaultTool: string | undefined, detectedTools: Array<st
   return detectedTools[0]
 }
 
-type Props = {
-  variant?: 'subnav' | 'tabnav' | 'underlinenav'
-}
-export const ToolPicker = ({ variant = 'subnav' }: Props) => {
-  const { asPath } = useRouter()
-  const { defaultTool, detectedTools } = useArticleContext()
-  const [currentTool, setCurrentTool] = useState(getDefaultTool(defaultTool, detectedTools))
+const toolQueryKey = 'tool'
+export const ToolPicker = () => {
+  // allTools comes from the ArticleContext which contains the list of tools available
+  const { defaultTool, detectedTools, allTools } = useArticleContext()
 
-  const sharedContainerProps = {
-    'data-testid': 'tool-picker',
-    'aria-label': 'Tool picker',
-    'data-default-tool': defaultTool,
-    className: 'mb-4',
-  }
+  if (!detectedTools.length) return null
 
-  // Run on mount for client-side only features
-  useEffect(() => {
-    // If the user selected a tool preference and the tool is present on this page
-    // Has to be client-side only for cookie reading
-    const cookieValue = Cookies.get('toolPreferred')
-    if (cookieValue && detectedTools.includes(cookieValue)) {
-      setCurrentTool(cookieValue)
-    }
-  }, [])
+  const options = detectedTools.map((value) => {
+    return { value, label: allTools[value] }
+  })
 
-  // Whenever the currentTool is changed, update the article content
-  useEffect(() => {
-    preserveAnchorNodePosition(document, () => {
-      showToolSpecificContent(currentTool)
-    })
-  }, [currentTool, asPath])
-
-  function onClickTool(tool: string) {
-    setCurrentTool(tool)
-    sendEvent({
-      type: EventType.preference,
-      preference_name: 'application',
-      preference_value: tool,
-    })
-    Cookies.set('toolPreferred', tool, { sameSite: 'strict', secure: true })
-  }
-
-  if (variant === 'underlinenav') {
-    return (
-      <UnderlineNav {...sharedContainerProps}>
-        {detectedTools.map((tool) => (
-          <UnderlineNav.Link
-            key={tool}
-            data-tool={tool}
-            as="button"
-            selected={tool === currentTool}
-            // Temporary fix: This should be removed when this merges: PR 24123
-            sx={{
-              color: 'var(--color-fg-default)',
-              '&.selected': { color: 'var(--color-fg-default)' },
-              ':hover': { color: 'var(--color-fg-default)' },
-              ':focus': {
-                color: 'var(--color-fg-default)',
-                outline: '-webkit-focus-ring-color auto 1px;',
-              },
-            }}
-            onClick={() => {
-              onClickTool(tool)
-            }}
-          >
-            {toolTitles[tool]}
-          </UnderlineNav.Link>
-        ))}
-      </UnderlineNav>
-    )
-  }
-
-  return null
+  return (
+    <InArticlePicker
+      fallbackValue={getDefaultTool(defaultTool, detectedTools)}
+      cookieKey="toolPreferred"
+      queryStringKey={toolQueryKey}
+      onValue={(value: string) => {
+        preserveAnchorNodePosition(document, () => {
+          showToolSpecificContent(value, Object.keys(allTools))
+        })
+      }}
+      preferenceName="application"
+      ariaLabel="Tool"
+      options={options}
+    />
+  )
 }

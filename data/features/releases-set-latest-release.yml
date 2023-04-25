@@ -1,0 +1,7 @@
+# Reference: #8172.
+# Documentation for explicitly declarable latest release.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

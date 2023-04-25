@@ -1,1 +1,0 @@
-You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your personal account or an organization. 有多个赞助等级可供选择，一次性或月度支付金额和福利由被赞助帐户设定。 Your sponsorship will share your account’s existing billing date, payment method, and receipt.

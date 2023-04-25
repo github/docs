@@ -1,13 +1,12 @@
 ---
 title: Using environments for jobs
-shortTitle: Using environments for jobs
+shortTitle: Environments
 intro: Specify an environment for a job.
 versions:
   fpt: '*'
   ghes: '> 3.0'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}

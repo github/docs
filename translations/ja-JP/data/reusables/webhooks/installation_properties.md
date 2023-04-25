@@ -1,4 +1,0 @@
-| キー             | 種類       | 説明                                                |
-| -------------- | -------- | ------------------------------------------------- |
-| `action`       | `string` | 実行されたアクション. 次のいずれかになります。<ul><li>`created` - 誰かが{% data variables.product.prodname_github_app %}をインストールする。</li><li>`deleted` - だれかが{% data variables.product.prodname_github_app %}をアンインストールする。</li>{% ifversion fpt or ghes or ghae or ghec %}<li>`suspend` - だれかが{% data variables.product.prodname_github_app %}のインストールをサスペンドする。</li><li>`unsuspend` - だれかが{% data variables.product.prodname_github_app %}のインストールをサスペンド解除する。</li>{% endif %}<li>`new_permissions_accepted` - 誰かが{% data variables.product.prodname_github_app %}インストールに対する新しい権限を受け入れる。 {% data variables.product.prodname_github_app %}のオーナーが新しい権限をリクエストすると、{% data variables.product.prodname_github_app %}をインストールした人は新しい権限リクエストを受け入れなければならない。 </li></ul> |
-| `repositories` | `array`  | インストールがアクセスできるリポジトリオブジェクトの配列。                     |

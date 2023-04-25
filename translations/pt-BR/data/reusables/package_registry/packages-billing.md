@@ -1,1 +1,0 @@
-O uso de {% data variables.product.prodname_registry %} é gratuito para pacotes públicos. For private packages, each account on {% data variables.product.product_location %} receives a certain amount of free storage and data transfer, depending on the product used with the account. Qualquer uso para além dos montantes incluídos é controlado por limites de despesa.

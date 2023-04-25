@@ -1,24 +1,22 @@
-import cx from 'classnames'
-
 import { useTranslation } from 'components/hooks/useTranslation'
-import styles from './RestOperation.module.scss'
 import { StatusCode } from './types'
 
 type Props = {
   statusCodes: Array<StatusCode>
   slug: string
+  heading: string
 }
 
-export function RestStatusCodes({ statusCodes, slug }: Props) {
+export function RestStatusCodes({ statusCodes, slug, heading }: Props) {
   const { t } = useTranslation('products')
 
   return (
     <>
       <h3 className="mt-4 mb-3 pt-3 h4" id={`${slug}--status-codes`}>
-        <a href={`#${slug}--status-codes`}>{t('rest.reference.http_status_code')}</a>
+        <a href={`#${slug}--status-codes`}>{heading}</a>
       </h3>
 
-      <table className={cx(styles.restResponseTable, 'd-block')}>
+      <table>
         <thead>
           <tr className="text-left">
             <th>{t('rest.reference.status_code')}</th>
@@ -31,7 +29,7 @@ export function RestStatusCodes({ statusCodes, slug }: Props) {
               <td>
                 <code>{statusCode.httpStatusCode}</code>
               </td>
-              <td className="color-fg-muted">
+              <td>
                 {statusCode.description ? (
                   <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
                 ) : (

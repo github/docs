@@ -1,8 +1,8 @@
 ---
 title: Configuring a repository cache
-intro: 'You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache.'
+intro: 'You can configure a repository cache for {% data variables.product.product_name %} by creating a new instance, connecting the repository cache to your primary instance, and configuring replication of repository networks to the repository cache.'
 versions:
-  ghes: '>=3.3'
+  ghes: '*'
 type: how_to
 topics:
   - Enterprise
@@ -20,7 +20,7 @@ Repository caching is not supported with clustering.
 
 The primary instance and repository cache should have different DNS names. For example, if your primary instance is at `github.example.com`, you might decide to name a cache `europe-ci.github.example.com` or `github.asia.example.com`.
 
-To have your CI machines fetch from the repository cache instead of the primary instance, you can use Git's `url.<base>.insteadOf` configuration setting. For more information, see [`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf) in the Git documentation. 
+To have your CI machines fetch from the repository cache instead of the primary instance, you can use Git's `url.<base>.insteadOf` configuration setting. For more information, see [`git-config`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf) in the Git documentation.
 
 For example, the global `.gitconfig` for the CI machine would include these lines.
 
@@ -33,33 +33,51 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 
 ## Configuring a repository cache
 
-1. During the beta, you must enable the feature flag for repository caching on your primary {% data variables.product.prodname_ghe_server %} appliance.
-   
-   ```
-   $ ghe-config cluster.cache-enabled true
-   ```
-
-1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. This appliance will be your repository cache. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance on your desired platform. This instance will be your repository cache. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the repository cache's IP address using SSH.
 
    ```shell
-   $ ssh -p 122 admin@<em>REPLICA IP</em>
+   $ ssh -p 122 admin@REPLICA-IP
    ```
 
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
+   - If the repository cache is your only additional node, no arguments are required.
+      ```shell
+      $ ghe-repl-setup PRIMARY-IP
+      ```
+   - If you're configuring a repository cache in addition to one or more existing replicas, use the `-a` or `--add` argument.
+      ```
+      $ ghe-repl-setup -a PRIMARY-IP
+      ```
+{% ifversion ghes < 3.6 %}
+1. If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
+
+   ```
+   $ ghe-repl-node --datacenter DC-NAME
+   ```
+1. Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-setup <em>PRIMARY IP</em>
+   $ ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
+{% else %}
+1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
+    - Set a `cache-location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.  The *CACHE-LOCATION* value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
+    - Set a `cache-domain` for the repository cache, replacing *EXTERNAL-CACHE-DOMAIN* with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the *CACHE-LOCATION* value as a subdomain to the hostname configured for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+    - If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
 
-1. Set a `cache_location` for the repository cache, replacing *CACHE-LOCATION* with an alphanumeric identifier, such as the region where the cache is deployed.
+      ```
+      $ ghe-repl-node --datacenter DC-NAME
+      ```
+    - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing *REPLICA-DC-NAME* with the name of the datacenter where you're deploying the node.
 
-   ```shell
-   $ ghe-repl-node --cache <em>CACHE-LOCATION</em>
-   ```
+    ```shell
+    $ ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
+    ```
+{% endif %}
 
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}
@@ -73,9 +91,9 @@ Data location policies affect only Git content. Content in the database, such as
 
 {% note %}
 
-**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-{% endnote %} 
+{% endnote %}
 
 You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
 

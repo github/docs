@@ -1,1 +1,0 @@
-`project_card` | `object` | O objeto do cartão do projeto. `project_id` | `integer` | O identificador exclusivo do cartão do projeto. `project_url` | `string` | A REST API URL para recuperar o cartão do projeto. `column_name` | `string` | O nome da coluna na qual o problema está.

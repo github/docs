@@ -1,1 +1,0 @@
-{% data variables.product.prodname_actions %}とのサービスコンテナの動作と、ジョブを直接ランナー上で動作させる場合とコンテナ内で動作させる場合のネットワーキングの差異について、親しんでおいてください。 詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers)」を参照してください。

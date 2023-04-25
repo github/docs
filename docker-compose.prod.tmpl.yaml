@@ -14,7 +14,6 @@ services:
       HYDRO_SECRET: ${HYDRO_SECRET}
       HAYSTACK_URL: ${HAYSTACK_URL}
       HEROKU_APP_NAME: ${HEROKU_APP_NAME}
-      ENABLED_LANGUAGES: ${ENABLED_LANGUAGES}
       DEPLOYMENT_ENV: ${DEPLOYMENT_ENV}
       HEROKU_PRODUCTION_APP: true
       PORT: 4000
@@ -24,7 +23,7 @@ services:
     restart: always
 
   datadog-agent:
-    image: datadog/dogstatsd:7.32.4
+    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:7.32.4'
     ports:
       - '8125:8125'
     environment:

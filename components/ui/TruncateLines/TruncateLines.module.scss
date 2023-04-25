@@ -1,0 +1,7 @@
+.truncated {
+  // Note that `-webkit-line-clamp` gets set by the component JSX
+  // manually with a `style` attribute.
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

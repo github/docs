@@ -1,2 +1,0 @@
-Puedes crear plantillas de propuesta predeterminadas{% ifversion fpt or ghes or ghae or ghec %} y un archivo de configuración predeterminado para estas{% endif %} en tu cuenta de organización{% ifversion fpt or ghes or ghae or ghec %} o personal{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-
