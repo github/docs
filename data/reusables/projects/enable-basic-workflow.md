@@ -16,9 +16,6 @@
 1. Under "Default workflows", click on the workflow that you want to edit.
 1. Select whether the workflow should apply to issues, pull requests, or both.
 1. Next to "Set", choose the value that you want to set the status to.
-1. If the workflow is disabled, click the toggle next to "Off" to enable the workflow.
-   
-   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
-   
+1. If the workflow is disabled, click the toggle next to "Off" to enable the workflow.   
 
 {% endif %}
