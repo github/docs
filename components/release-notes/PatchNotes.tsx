@@ -39,7 +39,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             <div>
               <h3 className="pl-4" id={sectionSlug}>
                 <LinkIconHeading slug={sectionSlug} />
-                {SectionToLabelMap[key] || 'INVALID SECTION'}
+                {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
               </h3>
               <ul>
                 {sectionItems.map((item, i) => {

@@ -24,7 +24,7 @@ For example:
 - If {% data variables.product.prodname_actions %} downloads a 500 MB file that is tracked with LFS, it will use 500 MB of the repository owner's allotted bandwidth.
 
 {% ifversion fpt or ghec %}
-If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
+If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in [source code archives](/repositories/working-with-files/using-files/downloading-source-code-archives) for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% tip %}

@@ -58,14 +58,16 @@ The dependency graph allows you to explore the ecosystems and packages that your
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
+{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
+
 {% ifversion security-overview-displayed-alerts %}
 ### Security overview
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-the-security-overview)."
+Security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 {% else %}
 ### Security overview for repositories
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
+Security overview shows which security features are enabled for the repository, and lets you configure any available security features that are not already enabled.
 {% endif %}
 
 
@@ -74,7 +76,7 @@ The security overview shows which security features are enabled for the reposito
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
+Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
@@ -92,12 +94,11 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 {% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
 
-### {% data variables.product.prodname_code_scanning_capc %}
+### {% data variables.product.prodname_code_scanning_caps %}
 
 Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
-
 
 Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
 
@@ -112,7 +113,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 {% else %}
 ### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-the-security-overview)."
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 ## Further reading

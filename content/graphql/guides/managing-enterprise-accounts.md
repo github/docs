@@ -53,7 +53,7 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 
 1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of GHES you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
+2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     - `repo`
     - `admin:org`
     - `user`
@@ -84,16 +84,15 @@ The next steps will use Insomnia.
     - For your enterprise instance: `https://<HOST>/api/graphql`
     - For GitHub Enterprise Cloud: `https://api.github.com/graphql`
 
-2. To authenticate, open the authentication options menu and select **Bearer token**. Next, add your {% data variables.product.pat_generic %} that you copied earlier.
-
- ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
-
- ![Permissions options for {% data variables.product.pat_generic %}](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
-
-3. Include header information.
-   - Add `Content-Type` as the header and `application/json` as the value.
-   ![Standard header](/assets/images/developer/graphql/json-content-type-header.png)
-   ![Header with preview value for the Audit Log API](/assets/images/developer/graphql/preview-header-for-2.18.png)
+1. Select the "Auth" menu and click **Bearer Token**. If you've previously selected a different authentication method, the menu will be labeled with that method, such as "Basic Auth", instead.
+   ![Screenshot of the expanded "Auth" menu in Insomnia. The menu label, "Auth", and the "Bearer Token" option are outlined in dark orange.](/assets/images/developer/graphql/insomnia-bearer-token-option.png)
+1. In the "TOKEN" field, enter your {% data variables.product.pat_generic %} from an earlier step.
+   ![Screenshot of the "Bearer" authentication settings in Insomnia. The "TOKEN" field is outlined in dark orange.](/assets/images/developer/graphql/insomnia-base-url-and-pat.png)
+1. Click **Headers**.
+   ![Screenshot of the settings tabs in Insomnia. The "Headers" tab is outlined in dark orange.](/assets/images/developer/graphql/json-content-type-header.png)
+1. Under the **Headers** tab, click **Add**.
+1. In the "header" field, enter `Content-Type`.
+1. In the "value" field, enter `application/json`.
 
 Now you are ready to start making queries.
 

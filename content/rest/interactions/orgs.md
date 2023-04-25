@@ -1,7 +1,9 @@
 ---
 title: Organization interactions
 shortTitle: Organization
-intro: 'Use the REST API to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization''s public repositories.'
+intro: >-
+  Use the REST API to temporarily restrict which type of user can comment, open
+  issues, or create pull requests in the organization's public repositories.
 versions:
   fpt: '*'
   ghec: '*'

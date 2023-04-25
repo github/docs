@@ -49,7 +49,7 @@ describe('enterprise deprecation', () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const $ = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
     expect($.res.statusCode).toBe(200)
-    expect($('h1').text()).toBe('About branches')
+    expect($('h1').first().text()).toBe('About branches')
   })
 
   test('sets the expected headers for deprecated Enterprise pages', async () => {

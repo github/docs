@@ -41,7 +41,7 @@ Organization owners can verify custom domains for their organization.
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. Wait for your DNS configuration to change. This may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```

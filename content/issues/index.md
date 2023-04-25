@@ -1,5 +1,5 @@
 ---
-title: GitHub Issues
+title: GitHub Issues documentation
 shortTitle: GitHub Issues
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
@@ -21,7 +21,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
+    - /issues/tracking-your-work-with-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests

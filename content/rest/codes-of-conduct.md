@@ -3,9 +3,9 @@ title: Codes of conduct
 intro: Use the REST API to get information about codes of conduct.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:

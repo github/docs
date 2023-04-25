@@ -61,6 +61,15 @@ jobs:
 
           gh pr create \
             --title "Delete orphaned assets ($date)" \
-            --body "Found with the find-orphaned-assets.js script" \
+            --body "Found with the find-orphaned-assets.js script.\n\nFor more info see https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md" \
             --repo github/docs-internal \
             --label docs-content-fr
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last "Orphaned assets check" run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/orphaned-assets-check.yml

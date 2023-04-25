@@ -29,7 +29,7 @@ To allow users to use FIDO U2F for two-factor authentication, you must enable TL
 
 ## Prerequisites
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority.
+To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates)."
 
 Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
 

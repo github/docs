@@ -3,9 +3,9 @@ title: Check Suites
 intro: Use the REST API to manage check suites.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

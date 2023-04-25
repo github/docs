@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 import { Callout } from 'components/ui/Callout'
-
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
@@ -21,8 +21,7 @@ import { RestRedirect } from 'components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
-
-import { LinkExternalIcon } from '@primer/octicons-react'
+import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -43,12 +42,14 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    supportPortalVaIframeProps,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
   const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
+      <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
@@ -57,11 +58,14 @@ export const ArticlePage = () => {
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
+          supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
               {intro && (
-                <Lead data-testid="lead" data-search="lead">
+                // Note the `_page-intro` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                <Lead data-testid="lead" data-search="lead" className="_page-intro">
                   {intro}
                 </Lead>
               )}
@@ -91,7 +95,7 @@ export const ArticlePage = () => {
             {productVideoUrl && (
               <div className="my-2">
                 <Link id="product-video" href={productVideoUrl} target="_blank">
-                  <LinkExternalIcon className="octicon-link mr-2" />
+                  <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
                   {t('video_from_transcript')}
                 </Link>
               </div>

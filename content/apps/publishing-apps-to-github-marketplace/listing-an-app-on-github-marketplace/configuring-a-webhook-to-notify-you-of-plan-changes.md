@@ -42,4 +42,4 @@ By default, webhook deliveries are "Active." You can choose to disable the deliv
 
 Once you've configured your {% data variables.product.prodname_marketplace %} webhook, you'll be able to inspect `POST` request payloads from the **Webhook** page of your application's [{% data variables.product.prodname_marketplace %} listing](https://github.com/marketplace/manage). GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
 
-![Inspect recent {% data variables.product.prodname_marketplace %} webhook deliveries](/assets/images/marketplace/marketplace_webhook_deliveries.png)
+![Screenshot of the recent webhook deliveries for the {% data variables.product.prodname_marketplace %} listing.](/assets/images/marketplace/marketplace-webhook-deliveries.png)

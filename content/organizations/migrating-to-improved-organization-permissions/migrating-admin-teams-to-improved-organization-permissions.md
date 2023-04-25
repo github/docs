@@ -15,6 +15,8 @@ topics:
 shortTitle: Migrate admin team
 ---
 
+## About migrations for legacy admin teams
+
 By default, all organization members can create repositories. If you restrict [repository creation permissions](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization) to organization owners, and your organization was created under the legacy organization permissions structure, members of legacy admin teams will still be able to create repositories.
 
 Legacy admin teams are teams that were created with the admin permission level under the legacy organization permissions structure. Members of these teams were able to create repositories for the organization, and we've preserved this ability in the improved organization permissions structure.
@@ -35,9 +37,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-yo
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 1. Review your organization's legacy admin teams, then click **Migrate all teams**.
-  ![Migrate all teams button](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Read the information about possible permissions changes for members of these teams, then click **Migrate all teams.**
-  ![Confirm migration button](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ## Migrating a single admin team
 
@@ -45,4 +45,3 @@ For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-yo
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. In the team description box, click **Migrate team**.
-  ![Migrate team button](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

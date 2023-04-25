@@ -14,8 +14,6 @@ topics:
   - Open Source
 ---
 
-{% data reusables.sponsors.org-sponsors-release-phase %}
-
 ## Managing the privacy setting for your sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}

@@ -29,6 +29,7 @@ featuredLinks:
 changelog:
   label: codespaces
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
+product_video_transcript: /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/codespaces'
@@ -36,7 +37,6 @@ redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
 layout: product-landing
-examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
   fpt: '*'
   ghec: '*'

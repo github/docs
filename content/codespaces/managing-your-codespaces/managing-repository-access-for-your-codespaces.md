@@ -128,10 +128,10 @@ When you enable access and security for a repository owned by your personal acco
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "Access and security", select the setting you want for your personal account.
+1. Under "Access and security," select the setting you want for your personal account:
 
-   ![Screenshot of the "Access and security" options: "Disabled," "All repositories" (currently selected), and "Selected repositories."](/assets/images/help/codespaces/codespaces-access-and-security-radio-buttons.png)
+   - **Disabled** - Limit access of your personal codespaces to the repository they were created from.
+   - **All repositories** - All of your personal codespaces can access other repositories you own.
+   - **Selected repositories** - Personal codespaces created from specific repositories can access other repositories you own.
 
-1. If you chose "Selected repositories," select the dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat for all repositories whose codespaces you want to access other repositories you own.
-
-   ![Screenshot of the "Selected repositories" dropdown menu. Two repositories are listed in the dropdown menu.](/assets/images/help/codespaces/codespaces-access-and-security-repository-drop-down.png)
+1.  If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat this step for all repositories whose codespaces you want to access other repositories you own.

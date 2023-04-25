@@ -29,6 +29,6 @@ Across all organizations owned by your enterprise, you can control whether organ
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. Under "{% octicon "law" aria-label="" %} Policies", click **Organizations**.
+3. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Organizations**.
 4. Under "Dependency insights", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Under "Dependency insights", select the the dropdown menu and click a policy.

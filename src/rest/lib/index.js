@@ -71,7 +71,7 @@ export const categoriesWithoutSubcategories = fs
 // and the OpenApi Version bc it's not the same
 export default async function getRest(version, apiVersion, category, subCategory) {
   const openApiVersion = getOpenApiVersion(version)
-  const openapiSchemaName = apiVersion ? `${openApiVersion}.${apiVersion}` : `${openApiVersion}`
+  const openapiSchemaName = apiVersion ? `${openApiVersion}-${apiVersion}` : `${openApiVersion}`
   const apiDate = apiVersion || NOT_API_VERSIONED
   const fileName = path.join(REST_DATA_DIR, openapiSchemaName, REST_SCHEMA_FILENAME)
   if (!restOperations.has(openApiVersion)) {

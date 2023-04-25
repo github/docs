@@ -27,8 +27,7 @@ When you unpublish your site, the site will no longer be available. Any existing
 {% data reusables.repositories.navigate-to-repo %}
 1. Under **{% data variables.product.prodname_pages %}**, next to the **Your site is live at** message, click {% octicon "kebab-horizontal" aria-label="the horizontal kebab icon" %}.
 1. In the menu that appears, select **Unpublish site**.
-
-   ![Drop down menu to unpublish site](/assets/images/help/pages/unpublish-site.png)
+   ![Screenshot of {% data variables.product.prodname_pages %} settings showing the URL of a live Pages site. Under the horizontal kebab icon to the right, the "Unpublish site" dropdown option is outlined in dark orange.](/assets/images/help/pages/unpublish-site.png)
 
 {% else %}
 
@@ -39,8 +38,8 @@ When you unpublish your site, the site will no longer be available. Any existing
 3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
-  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
+5. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select **None.**
+  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
 ## Unpublishing a user or organization site

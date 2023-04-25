@@ -48,17 +48,22 @@ Use one of your recovery codes to automatically regain entry into your account. 
 1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or request a reset{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
 
-{% ifversion fpt or ghec %}
-## Authenticating with a fallback number
-
-If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
-{% endif %}
-
 ## Authenticating with a security key
 
 If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 {% ifversion fpt or ghec %}
+
+## Authenticating with a fallback number
+
+{% note %}
+
+**Note:** Configuring a fallback SMS number in addition to your primary SMS number is no longer supported. Instead, we strongly recommend registering multiple authentication methods.
+
+{% endnote %}
+
+If you lose access to your preferred TOTP app or phone number, you can provide a two-factor authentication code sent to your fallback number to automatically regain access to your account.
+
 ## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
 
 If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.

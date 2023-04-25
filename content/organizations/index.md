@@ -1,5 +1,5 @@
 ---
-title: Organizations and teams
+title: Organizations and teams documentation
 shortTitle: Organizations
 intro: 'You can use organizations to collaborate with an unlimited number of people across many projects at once, while managing access to your data and customizing settings.'
 redirect_from:

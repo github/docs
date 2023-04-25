@@ -35,8 +35,10 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_profile %}
-2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
-![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
+1. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
+
+  ![Project tab](/assets/images/help/projects/user-projects-tab.png){% ifversion projects-v2 %}
+  
 1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -84,6 +86,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.project-management.edit-project-columns %}
 
+{% ifversion projects-v1-create-repo-project %}
+
 ## Creating a repository {% data variables.projects.projects_v1_board %}
 
 {% data reusables.projects.classic-project-creation %}
@@ -104,6 +108,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.project-management.add-more-columns %}
 
 {% data reusables.project-management.edit-project-columns %}
+
+{% endif %}
 
 ## Further reading
 

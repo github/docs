@@ -29,32 +29,54 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 **Note:** As a member of an organization owned by a {% data variables.product.prodname_ghe_cloud %} account with a {% data variables.product.prodname_copilot %} subscription, you must be assigned a {% data variables.product.prodname_copilot %} seat by your organization before you can use {% data variables.product.prodname_copilot %}.
 {% endnote %}
 
-## Signing up for {% data variables.product.prodname_copilot %} for your organization{% ifversion ghec %} or enterprise{% endif %} account
+{% ifversion fpt %}
 
-{% ifversion ghec%}
-### Signing up for {% data variables.product.prodname_copilot %} for your enterprise account
+## Signing up for {% data variables.product.prodname_copilot %} for your organization account
 
-{% data reusables.copilot.signup-procedure-enterprise %}
-
-### Signing up for {% data variables.product.prodname_copilot %} for your organization account
-{% endif %}
 
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
+{% endif %}
+
+{% ifversion ghec %}
+
+## Signing up for {% data variables.product.prodname_copilot %} for your enterprise account
+
+{% note %}
+
+**Note:** If you already have a payment method set up for your enterprise account and are billed by {% data variables.product.prodname_dotcom %}, you can skip this section.
+
+{% endnote %}
+
+### Customers under a Microsoft Enterprise Agreement
+
+{% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
+
+### Customers under a direct GitHub contract
+
+{% data reusables.copilot.signup-procedure-enterprise %}
+
+## Enabling {% data variables.product.prodname_copilot %} for your enterprise account
+
+{% data reusables.copilot.enabling-in-enterprise %}
+
+For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business)."
+
+{% endif %}
+
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
 
 1. In the {% data variables.product.prodname_vscode %} Marketplace, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
-   ![Install {% data variables.product.prodname_copilot %} extension {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/install-copilot-extension-visual-studio-code.png)
 1. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
 1. In the "Extension: {% data variables.product.prodname_copilot %}" tab in {% data variables.product.prodname_vscode %}, click **Install**.
-   ![Install button in {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/in-visual-studio-code-install-button.png)
 1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
+
    - If you have previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, {% data variables.product.prodname_copilot %} will be automatically authorized.
-   ![Screen shot of {% data variables.product.prodname_vscode %} authorization screen](/assets/images/help/copilot/vsc-copilot-authorize.png)
+
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
 1. In {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialogue box, to confirm the authentication, click **Open**.
 
@@ -67,8 +89,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Open {% data variables.product.prodname_vscode %}.
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
-   {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ![First suggestion {% data variables.product.prodname_vscode %}](/assets/images/help/copilot/first-suggestion-visual-studio-code.png)
+   {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text. The exact suggestion may vary.
 {% data reusables.copilot.accept-suggestion %}
 
 ## Next Steps
@@ -78,7 +99,6 @@ You successfully installed {% data variables.product.prodname_copilot %} and rec
 - [AUTOTITLE](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
-
 
 ## Further reading
 

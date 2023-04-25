@@ -1,11 +1,13 @@
 ---
 title: Gitignore
-intro: Use the REST API to get `.gitignore` templates that can be used to ignore files and directories.
+intro: >-
+  Use the REST API to get `.gitignore` templates that can be used to ignore
+  files and directories.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 redirect_from:

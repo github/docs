@@ -40,16 +40,9 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
-
-   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
-
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-
 1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
-
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
-
-   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
 
 ## Decoding responses in _auth.log_
 
@@ -61,13 +54,13 @@ $ base64 --decode ENCODED_OUTPUT
 
 ## Error: "Another user already owns the account"
 
-When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
+When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` and `nameid-format` to the account.
 
-When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID`  or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` and `nameid-format` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` and `nameid-format` on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
 
 ## Error: Recipient in SAML response was blank or not valid
 

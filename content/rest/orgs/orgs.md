@@ -3,9 +3,9 @@ title: Organizations
 intro: Use the REST API to interact with organizations.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

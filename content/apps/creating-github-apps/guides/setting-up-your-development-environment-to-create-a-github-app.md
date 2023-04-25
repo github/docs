@@ -38,7 +38,7 @@ Here are the steps you'll take to configure the template GitHub App:
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/creating-github-apps/about-apps)
+* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
@@ -93,7 +93,7 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a [great time to join](https://github.com/join). Don't forget to verify your email before continuing! To register a new app, visit the [app settings page](https://github.com/settings/apps) in your GitHub profile, and click **New GitHub App**.
 
-You'll see a form where you can enter details about your app. See "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
+You'll see a form where you can enter details about your app. See "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
 
 {% note %}
 
@@ -237,7 +237,7 @@ To make API calls, you'll be using the [Octokit library](http://octokit.github.i
 
 You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
 
-[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app) lets you do a couple of things:
+[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) lets you do a couple of things:
 
  * You can retrieve high-level management information about your GitHub App.
  * You can request access tokens for an installation of the app.
@@ -272,7 +272,7 @@ def authenticate_app
 end
 ```
 
-The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-a-github-app)."
+The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)."
 
 #### Authenticating as an installation
 
@@ -293,7 +293,7 @@ The [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb
 * Installation (integer): The ID of a GitHub App installation
 * Options (hash, defaults to `{}`): A customizable set of options
 
-Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. If you look back at [the docs](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps#authenticating-as-an-installation), you can see the response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
+Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
 
 With this method in place, each time your app receives a new webhook payload, it creates a client for the installation that triggered the event. This authentication process enables your GitHub App to work for all installations on any account.
 

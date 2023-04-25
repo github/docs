@@ -10,6 +10,7 @@ topics:
   - Codespaces
   - Set up
 permissions: People with admin access to a repository can configure prebuilds for the repository.
+product: '{% data reusables.gated-features.codespaces-repo %}'
 ---
 
 You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.
@@ -21,6 +22,10 @@ Typically, when you configure prebuilds for a branch, prebuilds will be availabl
 ## Prerequisites
 
 Prebuilds are created using {% data variables.product.prodname_actions %}. As a result, {% data variables.product.prodname_actions %} must be enabled for the repository for which you are configuring prebuilds. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+
+You can set up prebuilds in any repository owned by a personal account. The prebuild will consume storage space that will either incur a billable charge or, for repositories owned by your personal account, will use some of your monthly included storage.
+
+For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)" and "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
 
 ## Configuring prebuilds
 
@@ -73,7 +78,7 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
    {% note %}
 
    **Notes**:
-   * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)."
+   * The prebuild in each region incurs individual storage charges. You should, therefore, only enable prebuilds for regions in which you know they'll be used. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)."
    * Developers can set their default region for {% data variables.product.prodname_github_codespaces %}, which can allow you to enable prebuilds for fewer regions. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
 
    {% endnote %}
@@ -104,7 +109,7 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
 
 After you create a prebuild configuration it is listed on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuilds in the regions you specified, based on the branch and dev container configuration file you selected.
 
-![Screenshot of the list of prebuild configurations](/assets/images/help/codespaces/prebuild-configs-list.png)
+![Screenshot of the list of prebuild configurations. One prebuild is listed, labeled "Currently running." To the right of it is a "See output" button.](/assets/images/help/codespaces/prebuild-configs-list.png)
 
 For information about editing and deleting prebuild configurations, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds)."
 

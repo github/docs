@@ -19,17 +19,23 @@ shortTitle: Project management with Jira
 ---
 ## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
-1. Sign into your {% data variables.product.prodname_enterprise %} account at `http[s]://[hostname]/login`. If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
-2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
-3. Click on the **Edit _organization name_ settings** link.
-4. In the left sidebar, under **Developer settings**, click **OAuth Apps**.
-5. Click on the **Register new application** button.
-6. Fill in the application settings:
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+1. Click **New {% data variables.product.prodname_oauth_app %}**.
+
+  {% note %}
+
+  **Note:** If you haven't created an app before, this button will say, **Register an application**.
+
+  {% endnote %}
+1. Fill in the application settings:
     - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
     - In the **Homepage URL** field, type the full URL of your Jira instance.
     - In the **Authorization callback URL** field, type the full URL of your Jira instance.
-7. Click **Register application**.
-8. At the top of the page, note the **Client ID** and **Client Secret**. You will need these for configuring your Jira instance.
+1. Click **Register application**.
+1. At the top of the page, note the **Client ID** and **Client Secret**. You will need these for configuring your Jira instance.
 
 ## Jira instance configuration
 

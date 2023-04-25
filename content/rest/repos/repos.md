@@ -1,11 +1,13 @@
 ---
 title: Repositories
-intro: 'Use the REST API to manage repositories on {% data variables.product.company_short %}.'
+intro: >-
+  Use the REST API to manage repositories on {% data
+  variables.product.company_short %}.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

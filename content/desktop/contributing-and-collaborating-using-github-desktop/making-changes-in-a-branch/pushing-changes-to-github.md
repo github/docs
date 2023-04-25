@@ -31,10 +31,10 @@ If you configure {% data variables.large_files.product_name_long %} to track you
 {% endnote %}
 
 {% data reusables.desktop.push-origin %}
-2. If {% data variables.product.prodname_desktop %} prompts you to fetch new commits from the remote, click **Fetch**.
-  ![The Fetch button](/assets/images/help/desktop/fetch-newer-commits.png)
-3. Optionally, click **Create Pull Request** to open a pull request and collaborate on your changes. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)"
-  ![The Create Pull Request button](/assets/images/help/desktop/create-pull-request.png)
+1. If there are commits on the remote branch that you don't have on your local branch, {% data variables.product.prodname_desktop %} prompts you to fetch new commits from the remote. In the "New Commits on Remote" window, click **Fetch**.
+1. Optionally, click **Preview Pull Request** to open a preview dialog where you can review your changes and begin to create a pull request. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+   
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
 
 ## Further reading
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary

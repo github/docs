@@ -45,7 +45,7 @@ There are costs associated with storing codespaces. You should therefore delete 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**.
 
-   ![Screenshot of the 'Delete' button](/assets/images/help/codespaces/delete-codespace.png)
+   ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Delete" option.](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
 

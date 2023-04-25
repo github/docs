@@ -27,11 +27,9 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
-3. To the right of your organization, click **Join the waitlist**.
+1. To the right of your organization, click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.payout-choice %}
-  ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/org-waitlist-payout-options.png)
-
 {% data reusables.sponsors.accept-legal-terms %}
 
 ## Completing your sponsored organization profile

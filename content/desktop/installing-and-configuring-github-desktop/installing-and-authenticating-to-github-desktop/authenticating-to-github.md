@@ -23,6 +23,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_dotcom_the_website %}".
 
    ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
+
 {% data reusables.desktop.sign-in-browser %}
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
@@ -35,6 +36,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
 
    ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub Enterprise", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-ghes.png)
+   
 1. To add an account on {% data variables.location.product_location_enterprise %}, in the "Sign in" modal window, type the URL for your instance under "Enterprise address," then click **Continue**.
 {% data reusables.desktop.sign-in-browser %}
 1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
@@ -48,9 +50,10 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 ## Authenticating an account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-3. To the right of "GitHub.com," click **Sign in**.
-  ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-github.png)
+1. In the "Options" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_dotcom_the_website %}".
+
+   ![Screenshot of the "Accounts" pane in the "Options" window. Next to "GitHub.com", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/windows-sign-in-github.png)
+
 {% data reusables.desktop.sign-in-browser %}
 
   {% data reusables.user-settings.password-authentication-deprecation-desktop %}
@@ -63,10 +66,11 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 
 {% data reusables.desktop.windows-choose-options %}
-{% data reusables.desktop.windows-select-accounts %}
-{% data reusables.desktop.choose-product-authenticate %}
+1. In the "Options" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
+
+   ![Screenshot of the "Accounts" pane in the "Options" window. Next to "GitHub Enterprise", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/windows-sign-in-ghes.png)
+
 4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
-  ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
@@ -82,7 +86,9 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 {% mac %}
 
 1. In the menu bar, select **Help**, then click **Show Logs in Finder**.
-  ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the open "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
+
+  ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the expanded "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
+
 2. Select the log file from the date when you encountered the authentication error.
 
 {% endmac %}
@@ -90,7 +96,9 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 {% windows %}
 
 1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
-  ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
+
+  ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Help" dropdown menu, an option labeled "Show Logs in Explorer" is outlined in orange.](/assets/images/help/desktop/windows-show-logs.png)
+
 2. Select the log file from the date when you encountered the authentication error.
 
 {% endwindows %}

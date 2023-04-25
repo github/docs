@@ -18,7 +18,7 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ---
-In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
+In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional authentication methods.
 
 ## Downloading your two-factor authentication recovery codes
 
@@ -50,33 +50,6 @@ Once you use a recovery code to regain access to your account, it cannot be reus
 ## Configuring a security key as an additional two-factor authentication method
 
 You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
-
-{% ifversion fpt or ghec %}
-
-## Setting a fallback authentication number
-
-You can provide a second number for a fallback device. If you lose access to both your preferred device and your recovery codes, a backup SMS number can get you back in to your account.
-
-You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
-
-{% warning %}
-
-**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
-- Bad actors may attack cell phone carriers, so SMS authentication is risky.
-- SMS messages are only supported for certain countries outside the US; for the list, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported)".
-
-{% endwarning %}
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-1. Next to "Fallback SMS number", click **Add**.
-
-   ![Screenshot of account recovery options in the 2FA settings. A gray button, labeled "Add", is outlined in orange.](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-1. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
-
-  After setup, the backup device will receive a confirmation SMS.
-
-{% endif %}
 
 ## Further reading
 

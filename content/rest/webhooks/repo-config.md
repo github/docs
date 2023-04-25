@@ -3,9 +3,9 @@ title: Repository Webhook Configuration
 intro: Use the REST API to manage the configuration for repository webhooks.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

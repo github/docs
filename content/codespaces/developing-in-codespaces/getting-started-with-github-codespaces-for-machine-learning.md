@@ -43,11 +43,15 @@ The image classifier notebook contains all the code you need to download a datas
 
 1. Click **Run All** to execute all of the notebook’s cells.
 
-   ![Screenshot of the Run All button](/assets/images/help/codespaces/jupyter-run-all.png)
+   ![Screenshot of the top of the editor tab for the "image-classifier.ipynb" file. A cursor hovers over a button labeled "Run All."](/assets/images/help/codespaces/jupyter-run-all.png)
+
+1. If you are prompted to choose a kernel source, select **Python Environments**, then select the version of Python at the recommended location.
+
+   ![Screenshot of the "Select a Python Environment" dropdown. The first option in the list of Python versions is labeled "Recommended."](/assets/images/help/codespaces/jupyter-choose-python.png)
 
 1. Scroll down to view the output of each cell.
 
-   ![Screenshot of Step 3 in the editor](/assets/images/help/codespaces/jupyter-notebook-step3.png)
+   ![Screenshot of the cell in the editor, with the header "Step 3: Train the network and save model."](/assets/images/help/codespaces/jupyter-notebook-step3.png)
 
 ## Configuring NVIDIA CUDA for your codespace
 

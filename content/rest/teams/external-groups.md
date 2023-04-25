@@ -1,6 +1,9 @@
 ---
 title: External groups
-intro: Use the REST API to view the external identity provider groups that are available to your organization and manage the connection between external groups and teams in your organization.
+intro: >-
+  Use the REST API to view the external identity provider groups that are
+  available to your organization and manage the connection between external
+  groups and teams in your organization.
 versions:
   ghae: '*'
   ghec: '*'

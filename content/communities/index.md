@@ -1,5 +1,5 @@
 ---
-title: Building communities
+title: Building communities documentation
 shortTitle: Building communities
 intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
 redirect_from:

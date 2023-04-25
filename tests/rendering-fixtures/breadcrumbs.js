@@ -1,12 +1,6 @@
 import { getDOM } from '../helpers/e2etest.js'
 
 describe('breadcrumbs', () => {
-  test('top-level product pages have breadcrumbs and breadcrumbs should exist regardless of header or in-article', async () => {
-    const $ = await getDOM('/get-started')
-    const links = $('[data-testid=breadcrumbs-in-article] a')
-    expect(links.attr('class').includes('d-none')).toBe(false)
-  })
-
   test('links always prefixed with language', async () => {
     const $ = await getDOM('/get-started/quickstart/hello-world')
     const links = $('[data-testid=breadcrumbs-in-article] a')
@@ -59,13 +53,6 @@ describe('breadcrumbs', () => {
     const $ghec = await getDOM('/enterprise-cloud@latest/get-started/quickstart/dynamic-title')
     const ghecLinks = $ghec('[data-testid=breadcrumbs-in-article] a')
     expect($ghec(ghecLinks[2]).text()).toBe('Greetings GitHub Enterprise Cloud')
-  })
-
-  // Note, early access always work for fixture content
-  test('top-level product pages have breadcrumbs', async () => {
-    const $ = await getDOM('/early-access/secrets/deeper/mariana-trench')
-    expect($('[data-testid=breadcrumbs-in-article]').length).toBe(1)
-    expect($('[data-testid=breadcrumbs-header]').length).toBe(1)
   })
 
   test('early access article pages have breadcrumbs with product, category, and article', async () => {

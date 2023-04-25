@@ -28,6 +28,10 @@ Once a {% data variables.product.prodname_dotcom %} team is connected to an IdP 
 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
+{% ifversion team-sync-manage-org-invites %}
+{% data reusables.identity-and-permissions.team-sync-org-invites %} For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#managing-whether-team-synchronization-can-invite-non-members-to-your-organization)" and "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise#managing-whether-team-synchronization-can-invite-non-members-to-organizations)."
+{% endif %}
+
 {% ifversion ghec %}
 All team membership changes made through your IdP will appear in the audit log on {% data variables.product.product_name %} as changes made by the team synchronization bot. Team synchronization will fetch group information from your IdP at least once every hour, and reflect any changes in IdP group membership into {% data variables.product.product_name %}.
 Connecting a team to an IdP group may remove some team members. For more information, see "[Requirements for members of synchronized teams](#requirements-for-members-of-synchronized-teams)."
@@ -47,7 +51,10 @@ To manage repository access for any {% data variables.product.prodname_dotcom %}
 ## Requirements for members of synchronized teams
 
 After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:
-- The person is a member of the organization on {% data variables.product.product_name %}.
+
+{%- ifversion team-sync-manage-org-invites %}
+- If team synchronization is not allowed to invite non-members to your organization, the person is already a member of the organization on {% data variables.product.product_name %}.
+{%- endif %}
 - The person has already logged in with their personal account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
 - The person's SSO identity is a member of the IdP group.
 
@@ -87,12 +94,12 @@ When you connect an IdP group to a {% data variables.product.product_name %} tea
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion ghec %}
-6. Under "Identity Provider Groups", use the drop-down menu, and select up to 5 identity provider groups.
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png){% elsif ghae %}
-6. Under "Identity Provider Group", use the drop-down menu, and select an identity provider group from the list.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png){% endif %}
-7. Click **Save changes**.
+{%- ifversion ghec %}
+1. Under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to 5 identity provider groups.
+{%- elsif ghae %}
+1. Under "Identity Provider Group", select the **Select Group** dropdown menu, and click an identity provider group from the list.
+{%- endif %}
+1. Click **Save changes**.
 
 ## Disconnecting an IdP group from a team
 
@@ -102,9 +109,11 @@ If you disconnect an IdP group from a {% data variables.product.prodname_dotcom 
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion ghec %}
-6. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}.
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/help/teams/unselect-idp-group.png){% elsif ghae %}
-6. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}.
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png){% endif %}
-7. Click **Save changes**.
+{%- ifversion ghec %}
+1. Under "Identity Provider Groups", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="Remove group" %}.
+{%- elsif ghae %}
+1. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="Remove group" %}.
+
+   ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
+{%- endif %}
+1. Click **Save changes**.

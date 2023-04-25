@@ -48,7 +48,19 @@ For more information about the authentication methods available for {% data vari
 
 ## Configure two-factor authentication
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
 The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.location.product_location %}{% elsif ghec %}your accounts{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %} is to configure two-factor authentication (2FA){% ifversion ghae %} on your SAML identity provider (IdP){% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+
+As a best practice, to ensure both security and reliable access to your account, you should always have at least two second-factor credentials registered on your account. Extra credentials ensures that even if you lose access to one credential, you won't be locked out of your account.{% ifversion fpt or ghec %}
+
+Additionally, you should prefer security keys and authenticator apps (called TOTP apps) over use of SMS whenever possible. SMS-based 2FA does not provide the same level of protection as TOTP apps or security keys, and it is no longer recommended under the [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) digital identity guidelines.
+
+{% endif %}{% ifversion mandatory-2fa-dotcom-contributors %}{% ifversion ghec %}
+If service accounts in your organization have been selected for 2FA enrollment by {% data variables.product.prodname_dotcom %}, their tokens and keys will continue to work after the deadline without interruption. Only access to {% data variables.product.prodname_dotcom %} through the website UI will be blocked until the account has enabled 2FA. We recommend setting up TOTP as the second factor for service accounts, and storing the TOTP secret exposed during setup in your company's shared password manager, with access to the secrets controlled through SSO.
+{% endif %}{% endif %}
 
 {% ifversion not ghae %}
 
@@ -61,6 +73,8 @@ If you're the site administrator for {% data variables.location.product_location
 {% endif %}
 
 If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
+
+To learn more about enabling 2FA on your own account, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)." To learn more about requiring 2FA in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
 {% ifversion ghec or ghes %}
 
@@ -96,7 +110,7 @@ For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/identity-and-a
 
 {% data variables.product.product_name %} supports several options for 2FA, and while any of them is better than nothing, the most secure option is WebAuthn. WebAuthn requires either a hardware security key or a device that supports it through things like Windows Hello or Mac TouchID. It's possible, although difficult, to phish other forms of 2FA (for example, someone asking you to read them your 6 digit one-time password). However WebAuthn isn't phishable, because domain scoping is built into the protocol, which prevents credentials from a website impersonating a login page from being used on {% data variables.product.product_name %}.
 
-When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)," "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)," and [GitHub Branded hardware security keys](https://thegithubshop.com/products/github-branded-yubikey) in the GitHub shop.
+When you set up 2FA, you should always download the recovery codes and set up more than one factor. This ensures that access to your account doesn't depend on a single device. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)."
 
 ### Configure your organization account
 

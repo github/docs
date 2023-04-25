@@ -38,19 +38,12 @@ When you enable log forwarding, you must upload a CA certificate to encrypt comm
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**.
-  ![Log forwarding tab](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
 1. Under "Log forwarding", select **Enable log forwarding**.
-  ![Checkbox to enable log forwarding](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
 1. Under "Server address", enter the address of the server you want to forward logs to.
-  ![Server address field](/assets/images/enterprise/business-accounts/server-address-field.png)
-1. Use the "Protocol" drop-down menu, and select a protocol.
-  ![Protocol drop-down menu](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
-1. Optionally, to enable TLS encrypted communication between syslog endpoints, select **Enable TLS**.
-  ![Checkbox to enable TLS](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
+1. Select the "Protocol" dropdown menu and click a protocol.
+1. Optionally, to encrypt communication between syslog endpoints using TLS, select **Enable TLS**.
 1. Under "Public certificate", paste your x509 certificate.
-  ![Text box for public certificate](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
 1. Click **Save**.
-  ![Save button for log forwarding](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
 {% endif %}
 
 {% ifversion ghes %}

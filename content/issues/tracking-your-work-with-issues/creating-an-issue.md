@@ -40,10 +40,11 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.repositories.new_issue %}
-1. If your repository uses issue templates, click **Get started** next to the type of issue you'd like to open.
-  ![Select the type of issue you want to create](/assets/images/help/issues/issue_template_get_started_button.png)
-   Or, click **Open a blank issue** if the type of issue you'd like to open isn't included in the available options.
-  ![Link to open a blank issue](/assets/images/help/issues/blank_issue_link.png)
+1. If your repository uses issue templates, next to the type of issue you'd like to open, click **Get started**.
+
+   If the type of issue you'd like to open isn't included in the available options, click **Open a blank issue**.
+
+   ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank_issue_link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -69,16 +70,14 @@ gh issue create --title "My new issue" --body "Here are more details." --assigne
 You can open a new issue from a comment in an issue or pull request. When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.
 
 1. Navigate to the comment that you would like to open an issue from.
-2. In that comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-  ![Kebab button in pull request review comment](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
-3. Click **Reference in new issue**.
-  ![Reference in new issue menu item](/assets/images/help/pull_requests/reference-in-new-issue.png)
-4. Use the "Repository" drop-down menu, and select the repository you want to open the issue in.
-  ![Repository dropdown for new issue](/assets/images/help/pull_requests/new-issue-repository.png)
-5. Type a descriptive title and body for the issue.
-  ![Title and body for new issue](/assets/images/help/pull_requests/new-issue-title-and-body.png)
-6. Click **Create issue**.
-  ![Button to create new issue](/assets/images/help/pull_requests/create-issue.png)
+1. In that comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}.
+
+   ![Screenshot of a comment on a pull request. The kebab button is outlined in dark orange.](/assets/images/help/pull_requests/kebab-in-pull-request-review-comment.png)
+
+1. Click **Reference in new issue**.
+1. Use the "Repository" dropdown menu, and select the repository you want to open the issue in.
+1. Type a descriptive title and body for the issue.
+1. Click **Create issue**.
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
@@ -86,15 +85,14 @@ You can open a new issue from a comment in an issue or pull request. When you op
 
 You can open a new issue from a specific line or lines of code in a file or pull request. When you open an issue from code, the issue contains a snippet showing the line or range of code you chose. You can only open an issue in the same repository where the code is stored.
 
-![Code snippet rendered in an issue opened from code](/assets/images/help/repository/issue-opened-from-code.png)
-
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     - To open an issue about code in a file, navigate to the file.
-    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-label="The file diff icon" %} **Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
+    - To open an issue about code in a pull request, navigate to the pull request and click {% octicon "diff" aria-hidden="true" %} **Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
-4. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. In the drop-down menu, click **Reference in new issue**.
-  ![Kebab menu with option to open a new issue from a selected line](/assets/images/help/repository/open-new-issue-specific-line.png)
+1. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the dropdown menu, click **Reference in new issue**.
+
+   ![Screenshot of a file, with 8 lines selected. To the left of the first selected line, a button labeled with a kebab icon is outlined in dark orange.](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
@@ -110,7 +108,9 @@ When you create an issue from a discussion, the contents of the discussion post 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**.
-   ![Button to create issue from discussion](/assets/images/help/discussions/create-issue-from-discussion.jpg)
+
+   ![Screenshot of the sidebar in a discussion. The "Create issue from discussion" option is outlined in dark orange.](/assets/images/help/discussions/create-issue-from-discussion.png)
+
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}

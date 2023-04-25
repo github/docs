@@ -138,6 +138,8 @@ If you don't already have a {% data variables.product.pat_generic %} to use for 
 
 When publishing, {% ifversion packages-nuget-v2 %}if you are linking your package to a repository, {% endif %}the `OWNER` of the repository specified in your *.csproj* file must match the `NAMESPACE` that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
+{% data reusables.package_registry.auto-inherit-permissions-note %}
+
 {% data reusables.package_registry.authenticate-step %}
 2. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
   ```shell

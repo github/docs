@@ -52,7 +52,7 @@ export async function getDiffOpenAPIContentRest() {
 
 async function createOpenAPISchemasCheck() {
   const openAPICheck = createCheckObj()
-  const restDirectory = fs.readdirSync(REST_DATA_DIR).filter((dir) => dir !== 'meta.json')
+  const restDirectory = fs.readdirSync(REST_DATA_DIR).filter((dir) => !dir.endsWith('.json'))
 
   restDirectory.forEach((dir) => {
     const filename = path.join(REST_DATA_DIR, dir, REST_SCHEMA_FILENAME)

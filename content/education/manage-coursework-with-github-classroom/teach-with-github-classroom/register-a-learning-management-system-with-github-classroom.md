@@ -30,7 +30,7 @@ You can register your Canvas installation with {% data variables.product.prodnam
 2. In the left sidebar on the home page, click **Admin**, then click **Site Admin**.
 3. Click **Developer Keys**.
 4. Under "Developer Keys", click the **+ Developer Key** button, then select **+ LTI Key** from the dropdown menu.
-5. On the "Key Settings" configuration screen, set the fields to the following values: 
+5. On the "Key Settings" configuration screen, set the fields to the following values.
 
     | Field in Canvas app configuration | Value or setting |
     | :- | :- |
@@ -46,14 +46,15 @@ You can register your Canvas installation with {% data variables.product.prodnam
     | **Additional Settings** dropdown | Under "Privacy Level", select `Public` |
     | **Placements** | Select `Course Settings Sub Navigation`. <br/><br/>**Note**: If you set the placement to something else, this must be communicated to teachers. Our documentation will expect that this is the placement of the button. |
 6. Click **Save**.
-7. In the table on the "Developer Keys" page, in the row for the GitHub Classroom developer key, take note of the value of the client ID in the "Details" column -- this must be communicated to teachers for them to finish setup. 
+7. In the table on the "Developer Keys" page, in the row for the GitHub Classroom developer key, take note of the value of the client ID in the "Details" column -- this must be communicated to teachers for them to finish setup.
 8. In the table on the "Developer Keys" page, under the "State" column, toggle the state of the key to "On".
 
 ### 2. Register your developer keys with {% data variables.product.prodname_classroom %}
 
-1. Go to https://classroom.github.com/register-lms. 
+1. Go to https://classroom.github.com/register-lms.
 2. Fill in the following information:
-   - Under "LMS Type", choose "Canvas" from the dropdown menu. 
+
+   - Under "LMS Type", choose "Canvas" from the dropdown menu.
    - "Issuer Identifier": `https://canvas.instructure.com`
    - "Domain": The base URL to your Canvas instance
    - "Client ID": The "Client ID" under "Details" from the developer key you created
@@ -61,10 +62,8 @@ You can register your Canvas installation with {% data variables.product.prodnam
    - "OAuth 2.0 Token Retrieval URL": The base URL to your Canvas instance with `/login/oauth2/token` appended at the end.
    - "Key Set URL": The base URL to your Canvas instance with `/api/lti/security/jwks` appended at the end.
 
-  ![Register Canvas instance with GitHub Classroom](/assets/images/help/classroom/register-canvas-with-github-classroom.png)
-
-3. Click **Register**. 
-4. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
+1. Click **Register**.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
 
 ## Configuring Moodle for {% data variables.product.prodname_classroom %}
 
@@ -85,10 +84,10 @@ You must be using Moodle version 3.0 or greater.
 
 ### 2. Register {% data variables.product.prodname_classroom %} as an external tool
 
-1. Return to the Moodle "Site administration" page by clicking on the "Site administration" tab in the top level menu. 
+1. Return to the Moodle "Site administration" page by clicking on the "Site administration" tab in the top level menu.
 2. Click the "Plugins" tab, then next to the "Activity modules" section, under "External tool", click **Manage tools**.
-3. Click **Configure a tool manually**. 
-4. Enter the following values in the fields:
+3. Click **Configure a tool manually**.
+4. Enter the following values in the fields.
 
     | Field in Moodle app configuration | Value or setting |
     | :- | :- |
@@ -102,35 +101,34 @@ You must be using Moodle version 3.0 or greater.
     | **Default launch container** | `New window` |
 
 5. Select the **Supports Deep Linking (Content-Item Message)** checkbox.
-6. Under the "Services" dropdown, next to "IMS LTI Names and Role Provisioning", select "Use this service to retrieve members' information as per privacy settings" from the dropdown menu. 
-7. Click **Save changes**. 
-8. GitHub Classroom has now been registered as an external tool. Under "Tools", on the 'GitHub Classroom" box, click the menu icon to see the "Tool configuration details" screen. This screen contains important information you'll need to input in the last step of registering your instance in {% data variables.product.prodname_classroom %} below. 
+6. Under the "Services" dropdown, next to "IMS LTI Names and Role Provisioning", select "Use this service to retrieve members' information as per privacy settings" from the dropdown menu.
+7. Click **Save changes**.
+8. GitHub Classroom has now been registered as an external tool. Under "Tools", on the 'GitHub Classroom" box, click the menu icon to see the "Tool configuration details" screen. This screen contains important information you'll need to input in the last step of registering your instance in {% data variables.product.prodname_classroom %} below.
 
 ### 3. Registering your Moodle instance with {% data variables.product.prodname_classroom %}
 
-1. Go to https://classroom.github.com/register-lms. 
-2. Fill in the following information:
-   - Under "LMS Type", choose "Moodle" from the dropdown menu. 
+1. Go to https://classroom.github.com/register-lms.
+1. Fill in the following information:
+
+   - Under "LMS Type", choose "Moodle" from the dropdown menu.
    - "Issuer Identifier": The "Platform ID" from the "Tool configuration details" of the external tool you created in Moodle
    - "Domain": The base URL to your Moodle instance
    - "Client ID": The "Client ID" from the "Tool configuration details" of the external tool you created in Moodle
    - "Authentication request URL": The "Authentication Request URL" from the "Tool configuration details" of the external tool you created in Moodle
    - "Access token URL": The "Access token URL" from the "Tool configuration details" of the external tool you created in Moodle
    - "Key Set URL": The "Public keyset URL" from the "Tool configuration details" of the external tool you created in Moodle
-  
-  ![Register Moodle instance with GitHub Classroom](/assets/images/help/classroom/register-moodle-with-github-classroom.png)
 
-3. Click **Register**.
-4. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
+1. Click **Register**.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
 
 ## Configuring Sakai for {% data variables.product.prodname_classroom %}
 
 ### 1. Register {% data variables.product.prodname_classroom %} as an external tool
 
 1. Go to Sakai and log in.
-2. Go to "Administration Workspace" and select **External Tools** in the left hand sidebar. 
+2. Go to "Administration Workspace" and select **External Tools** in the left hand sidebar.
 3. Click **Install LTI 1.x Tool**.
-4. Enter the following values in the fields:
+4. Enter the following values in the fields.
 
     | Field in Sakai app configuration | Value or setting |
     | :- | :- |
@@ -148,16 +146,14 @@ You must be using Moodle version 3.0 or greater.
 ### 2. Registering your Sakai instance with {% data variables.product.prodname_classroom %}
 
 1. Go to https://classroom.github.com/register-lms.
-2. Fill in the following information:
-   - Under "LMS Type", choose "Sakai" from the dropdown menu. 
+1. Fill in the following information:
+   - Under "LMS Type", choose "Sakai" from the dropdown menu.
    - "LTI 1.3 Platform Issuer": The "LTI 1.3 Platform Issuer" field as provided by Sakai
    - "Domain": The base URL to your Sakai instance
    - "LTI 1.3 Client ID": The "LTI 1.3 Client ID" field as provided by Sakai
    - "LTI 1.3 Platform OIDC Authentication URL":  The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
    - "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL": The "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL" field as provided by Sakai
    - "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL": The "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL" field as provided by Sakai
-  
-  ![Register Sakai instance with GitHub Classroom](/assets/images/help/classroom/register-sakai-with-github-classroom.png)
 
-3. Click **Register**. 
-4. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've  registered your LMS instance and teachers can now link their classrooms.
+1. Click **Register**.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've  registered your LMS instance and teachers can now link their classrooms.

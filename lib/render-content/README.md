@@ -47,6 +47,6 @@ You can add a header to code blocks by adding the `{:copy}` annotation after the
 
 This renders:
 
-![image](https://user-images.githubusercontent.com/10660468/95881747-e96c6900-0d46-11eb-9abf-1e8ad16c7646.png)
+![Screenshot of a code block showing the clipboard icon that is displayed when you use `{:copy}` annotation.](/assets/images/internal-docs/copy-block-header.png)
 
 The un-highlighted text is available as `button.js-btn-copy`'s `data-clipboard-text` attribute.

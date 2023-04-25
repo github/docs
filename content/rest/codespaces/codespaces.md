@@ -1,6 +1,8 @@
 ---
 title: Codespaces
-intro: 'Use the REST API to manage {% data variables.product.prodname_github_codespaces %}.'
+intro: >-
+  Use the REST API to manage {% data
+  variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'

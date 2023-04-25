@@ -1,11 +1,13 @@
 ---
 title: Code Scanning
-intro: 'Use the REST API to retrieve and update {% data variables.product.prodname_code_scanning %} alerts from a repository.'
+intro: >-
+  Use the REST API to retrieve and update {% data
+  variables.product.prodname_code_scanning %} alerts from a repository.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
   - Code scanning

@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 ## Overview
@@ -33,7 +34,7 @@ You can check the compute and storage usage for {% data variables.product.prodna
 
 {% note %}
 
-**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
+**Note**: Prebuilds for {% data variables.product.prodname_github_codespaces %} are created and updated using {% data variables.product.prodname_actions %}. This may incur billable costs for {% data variables.product.prodname_actions %}. You can set a spending limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds)" and "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)." Storage of the generated prebuilds is charged at the same rate as your codespaces, and is included in your {% data variables.product.prodname_github_codespaces %} spending limit.
 
 {% endnote %}
 

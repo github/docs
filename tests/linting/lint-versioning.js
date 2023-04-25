@@ -1,6 +1,8 @@
 import { jest } from '@jest/globals'
 import fs from 'fs/promises'
-import revalidator from 'revalidator'
+import Ajv from 'ajv'
+import addErrors from 'ajv-errors'
+import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
@@ -8,6 +10,7 @@ import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-o
 import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
 import walkFiles from '../../script/helpers/walk-files'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { formatAjvErrors } from '../helpers/schemas.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
@@ -23,25 +26,26 @@ const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
 const featureVersionNames = featureVersions.map((fv) => fv[0])
 const allowedVersionNames = Object.keys(allVersionShortnames).concat(featureVersionNames)
 
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
+addErrors(ajv)
+// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
+ajv.addFormat('semver', {
+  validate: (x) => semver.validRange(x),
+})
+// *** End TODO ***
+const validate = ajv.compile(featureVersionsSchema)
+
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
   test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
-    const { errors } = revalidator.validate(featureVersion, featureVersionsSchema)
+    const valid = validate(featureVersion)
+    let errors
 
-    const errorMessage = errors
-      .map((error) => {
-        // Make this one message a little more readable than the error we get from revalidator
-        // when additionalProperties is set to false and an additional prop is found.
-        const errorToReport =
-          error.message === 'must not exist' && error.actual.feature
-            ? `feature: '${error.actual.feature}'`
-            : JSON.stringify(error.actual, null, 2)
+    if (!valid) {
+      errors = formatAjvErrors(validate.errors)
+    }
 
-        return `- [${error.property}]: ${errorToReport}, ${error.message}`
-      })
-      .join('\n')
-
-    expect(errors.length, errorMessage).toBe(0)
+    expect(valid, errors).toBe(true)
   })
 })
 

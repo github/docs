@@ -7,14 +7,15 @@ Output looks like:
 src/
   xsubject/
     README.md
-    components/
+    docs/
       gitkeep
     lib/
-    tests/
-    scripts/
-    stylesheets/
+    middleware/
     pages/
-    docs/
+    components/
+    stylesheets/
+    scripts/
+    tests/
 */
 
 import fs from 'fs/promises'
@@ -33,7 +34,16 @@ if (!name) {
 
 const src = 'src/'
 
-const subfolders = ['components', 'lib', 'tests', 'scripts', 'stylesheets', 'pages', 'docs']
+const subfolders = [
+  'docs',
+  'lib',
+  'middleware',
+  'pages',
+  'components',
+  'stylesheets',
+  'scripts',
+  'tests',
+]
 
 const files = [
   [
@@ -42,13 +52,13 @@ const files = [
 
 TBD what is ${name.toUpperCase()}
 
-## Why ${name.toUpperCase()}
+## What ${name.toUpperCase()} does
 
-TBD why is ${name.toUpperCase()} on the docs, include metrics if applicable
+TBD why is ${name.toUpperCase()} on the docs
 
-## How to view ${name.toUpperCase()}
+## How ${name.toUpperCase()} works
 
-TBD step-by-step instructions to view/experience ${name.toUpperCase()}
+TBD step-by-step instructions to work on ${name.toUpperCase()}
 
 ## How to work on ${name.toUpperCase()}
 

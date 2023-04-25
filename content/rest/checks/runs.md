@@ -3,9 +3,9 @@ title: Check Runs
 intro: Use the REST API to manage check runs.
 versions:
   fpt: '*'
-  ghes: '*'
   ghae: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

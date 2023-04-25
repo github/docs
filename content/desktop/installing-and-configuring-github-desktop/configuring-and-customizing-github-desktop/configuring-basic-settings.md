@@ -22,15 +22,13 @@ shortTitle: Configure basic settings
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-2. To view or change your settings, toggle between these panes:
-   
-   ![The Options menu navigation](/assets/images/help/desktop/windows-select-accounts-pane.png)
+3. To view or change your settings, toggle between the panes in the "Options" window.
+  
+   ![Screenshot of the "Options" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/window-select-options-pane.png)
 
    {% indented_data_reference reusables.desktop.preferences-options-tabs spaces=3 %}
 
 {% endwindows %}
-
-You can choose from the following options.
 
 ## Further reading
 

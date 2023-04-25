@@ -6,11 +6,13 @@ import { Support } from 'components/page-footer/Support'
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import { useRouter } from 'next/router'
+import { useTranslation } from '../hooks/useTranslation'
 
 export const SupportSection = () => {
   const { currentVersion } = useVersion()
   const { relativePath, enterpriseServerReleases } = useMainContext()
   const router = useRouter()
+  const { t } = useTranslation('footer')
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
@@ -26,6 +28,7 @@ export const SupportSection = () => {
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
+      <h2 className="f3">{t('support_heading')}</h2>
       <div className="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
         {showSurvey && (
           <div

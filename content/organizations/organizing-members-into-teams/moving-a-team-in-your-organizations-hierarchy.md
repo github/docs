@@ -32,15 +32,12 @@ Organization owners can change the parent of any team. Team maintainers can chan
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
-4. In the list of teams, click the name of the team whose parent you'd like to change.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+1. In the list of teams, click the name of the team whose parent you'd like to change.
 {% data reusables.organizations.team_settings %}
-6. Use the drop-down menu to choose a parent team, or to remove an existing parent, select **Clear selected value**.
-  ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
-7. Click **Update**.
+1. Under "Parent team", select the **Select a parent team** dropdown menu and either click a parent team, or, to remove an existing parent, click **Clear selected value**.
+1. Click **Update**.
 {% data reusables.repositories.changed-repository-access-permissions %}
-9. Click **Confirm new parent team**.
-  ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
+1. Click **Confirm new parent team**.
 
 ## Further reading
 
