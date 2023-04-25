@@ -52,7 +52,6 @@ You should plan where you'll store your secrets. We recommend storing secrets in
 
 In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
 You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 ### Security considerations for third-party actions
