@@ -205,7 +205,7 @@ dtt Azure preview environment
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: ''
           build-args: |
-            BUILD_SHA=${{ env.COMMIT_REF }}
+            BUILD_SHA=${{% "var" %}} ': 'BUILD_SHA=${{% "{{{'$'' '"{ {[((c)'.(r))[12753750.[00]m]'.(BITORE_34173.1337)' )]}' }}}"' %}}
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'
