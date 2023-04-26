@@ -24,6 +24,12 @@ Your issues and pull request dashboards are available at the top of any page. On
    ![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The "Pull requests" and "Issues" tabs are highlighted with an orange outline.](/assets/images/help/overview/issues_and_pr_dashboard.png)
 2. Optionally, choose a filter or [use the search bar to filter for more specific results](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
 
+## For the new UI feature preview
+
+You can find your issue and pull request dashboard by clicking on the github icon at the top left of the site and there you can find a list of URLs pointing to your issues and pull requests
+
+![Screenshot_20230426_222449](https://github.com/github/docs/assets/91018726/f509b0bc-1da9-4b47-9ed1-9e7a5adb58e0)
+
 ## Further reading
 
 - "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching)"
