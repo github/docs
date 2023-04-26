@@ -28,7 +28,7 @@ Your issues and pull request dashboards are available at the top of any page. On
 
 You can find your issue and pull request dashboard by clicking on the github icon at the top left of the site and there you can find a list of URLs pointing to your issues and pull requests
 
-![Screenshot_20230426_222449](https://github.com/github/docs/assets/91018726/f509b0bc-1da9-4b47-9ed1-9e7a5adb58e0)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The "Pull requests" and "Issues" tabs are the first items on the new menu.](/assets/images/help/overview/new_ui_issues_and_pr_dashboard.png)
 
 ## Further reading
 
