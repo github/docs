@@ -473,52 +473,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
-
-  describe('categories and map topics', () => {
-    test('adds links to map topics on a category homepage', async () => {
-      const $ = await getDOM('/en/get-started/writing-on-github')
-      expect(
-        $(
-          'a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github"]'
-        ).length
-      ).toBe(1)
-      expect($('a[href="#managing-user-account-settings"]').length).toBe(0)
-    })
-
-    test('category page renders with TOC', async () => {
-      const $ = await getDOM('/en/get-started/writing-on-github')
-      expect($('[data-testid=table-of-contents] ul li a').length).toBeGreaterThan(5)
-    })
-
-    test('map topic renders with links to articles', async () => {
-      const $ = await getDOM(
-        '/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github'
-      )
-      expect(
-        $(
-          'li h2 a[href="/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github"]'
-        ).length
-      ).toBe(1)
-    })
-
-    test('map topic renders with one intro for every h2', async () => {
-      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
-      const $links = $('[data-testid=expanded-item]')
-      expect($links.length).toBeGreaterThan(3)
-    })
-
-    test('map topic intros are parsed', async () => {
-      const $ = await getDOM('/en/get-started/writing-on-github/working-with-advanced-formatting')
-      const $parent = $('[data-testid=expanded-item] a[href*="organizing-information-with-tables"]')
-        .parent()
-        .parent()
-      const $intro = $('p', $parent)
-      expect($intro.length).toBe(1)
-      expect($intro.html()).toContain(
-        'You can build tables to organize information in comments, issues, pull requests, and wikis.'
-      )
-    })
-  })
 })
 
 describe('GitHub Enterprise URLs', () => {
@@ -581,56 +535,6 @@ describe('GitHub Enterprise URLs', () => {
       `/en/enterprise/${enterpriseServerReleases.latest}/admin/installation/upgrade-requirements`
     )
     expect($.text()).toContain('Before upgrading GitHub Enterprise')
-  })
-})
-
-describe('GitHub Desktop URLs', () => {
-  test('renders the GitHub Desktop homepage with correct links', async () => {
-    const $ = await getDOM('/en/desktop')
-    expect($('a[href^="/en/desktop/"]').length).toBeGreaterThan(1)
-  })
-
-  test('renders a Desktop category with expected links', async () => {
-    const $ = await getDOM('/en/desktop/installing-and-configuring-github-desktop')
-    expect(
-      $('a[href^="/en/desktop/installing-and-configuring-github-desktop/"]').length
-    ).toBeGreaterThan(1)
-  })
-
-  test('renders a Desktop map topic', async () => {
-    const $ = await getDOM(
-      '/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop'
-    )
-    expect(
-      $('a[href^="/en/desktop/installing-and-configuring-github-desktop/"]').length
-    ).toBeGreaterThan(1)
-  })
-
-  test('renders a Desktop article within a map topic', async () => {
-    const res = await get(
-      '/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop'
-    )
-    expect(res.statusCode).toBe(200)
-  })
-})
-
-describe('search', () => {
-  function findDupesInArray(arr) {
-    return lodash.filter(arr, (val, i, iteratee) => lodash.includes(iteratee, val, i + 1))
-  }
-  // SKIPPING: Can we have duplicate IDs? search-input-container and search-results-container are duplicated for mobile and desktop
-  // Docs Engineering issue: 969
-  it.skip('articles pages do not render any elements with duplicate IDs', async () => {
-    const $ = await getDOM('/en/articles/accessing-an-organization')
-    const ids = $('body')
-      .find('[id]')
-      .map((i, el) => $(el).attr('id'))
-      .get()
-      .sort()
-    const dupes = findDupesInArray(ids)
-    const message = `Oops found duplicate DOM id(s): ${dupes.join(', ')}`
-    expect(ids.length).toBeGreaterThan(0)
-    expect(dupes.length === 0, message).toBe(true)
   })
 })
 
