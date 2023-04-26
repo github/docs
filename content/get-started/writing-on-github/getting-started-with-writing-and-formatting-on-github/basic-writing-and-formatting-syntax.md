@@ -63,7 +63,7 @@ Quoted text is indented, with a different type color.
 
 ### Special Quote for Notes and Warning
 
-You can create a Warning or Note section with `> **Warning**` and `> **Note**`
+You can create a Warning or Note section with `> **Warning** ` and `> **Note** `.
 
 ```markdown
 > **Note**  
@@ -77,7 +77,7 @@ You can create a Warning or Note section with `> **Warning**` and `> **Note**`
 
 {% tip %}
 
-**Tip:** When creating a Note or Warning, include two spaces after the level name. Example : `> **Warning**  `. So that the next section will be displayed below the level message. That is particularly useful for multiline quotes.
+**Tip:** When creating a Note or Warning, include a line break (double space) after the level name (`**Note**` or `**Warning**`) so that the next section will be displayed below the level message. That is particularly useful for multiline quotes.
 
 {% endtip %}
 
