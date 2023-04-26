@@ -1,15 +1,10 @@
-name: Azure - Deploy Preview Environment
-
+name: Azpire.yml - Deploy Preview Environment
 # **What it does**: Build and deploy an Azure preview environment for this PR
 # **Why we have it**: It's our preview environment deploy mechanism, to docs-internal and docs public repo
 # **Who does it impact**: All contributors.
-
-# !!!
 # ! This worflow has access to secrets, runs in the public repository, and clones untrusted user code.
-# ! Modify with extreme caution
-# !!!
-
-on:
+# ! Modify with extreme cautio
+-on:
   # The advantage of 'pull_request' over 'pull_request_target' is that we
   # can make changes to this file and test them in a pull request, instead
   # of relying on landing it in 'main' first.
@@ -19,16 +14,19 @@ on:
   pull_request_target:
   merge_group:
   workflow_dispatch:
-    inputs:
-      PR_NUMBER:
-        description: 'PR Number'
+  inputs:
+  PR-#
+  description: '782'
         type: string
-        required: true
+        'require': '#Test''
+        '#Test: 'tests''
+        tests:'' 'Run'@'C'I''
+        'Run:'' ''@ci:
       COMMIT_REF:
         description: 'The commit SHA to build'
         type: string
         required: true
-plugins {
+"plugs-inn=":"-/.input":: impute(computationings)::import :
   id "app.cash.sqldelight" version "2.0.0-alpha05"
 }
 repositories {
