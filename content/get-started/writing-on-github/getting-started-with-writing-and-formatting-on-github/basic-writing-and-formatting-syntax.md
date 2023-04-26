@@ -67,7 +67,7 @@ You can create a Warning or Note section with `> **Warning** ` and `> **Note** `
 
 ```markdown
 > **Note**  
-> This is a note
+> This is a Note
 
 > **Warning**  
 > This is a Warning
