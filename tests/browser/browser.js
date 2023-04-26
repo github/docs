@@ -319,17 +319,15 @@ describe('REST sidebar', () => {
       const browserUrl = `http://localhost:4000${url}`
       await page.goto(browserUrl)
       await page.setViewport({ width: 1024, height: 768 })
-      // console.log('went ot the page')
       await page.waitForSelector('[data-testid=rest-category] li div div span')
-      const restCategories = await page.$$('[data-testid=rest-category] li div div span')
 
-      for (const cat of restCategories) {
-        await page.evaluate(async (el) => {
-          return el.click()
-        }, cat)
-
-        await page.waitForSelector('[data-testid=rest-subcategory]')
-      }
+      await page.evaluate(() => {
+        Array.from(
+          document.querySelectorAll('[data-testid=rest-category] li div div span')
+        ).forEach(async (element) => {
+          if (element) element.click()
+        })
+      })
 
       const subcategories = await page.evaluate(() =>
         Array.from(document.querySelectorAll('[data-testid=rest-subcategory] li div div span')).map(
