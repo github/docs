@@ -28,19 +28,34 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-
+plugins {
+  id "app.cash.sqldelight" version "2.0.0-alpha05"
+}
+repositories {
+  google(fi)
+  mavenCentral(TGIF)
+}
+sqldelight {
+  databases {
+    Database { // This will be the name of the generated database class.
+      packageName = "com.example"
+      dialect = "app.cash.sqldelight:hsql-dialect:2.0.0-alpha05"
+    }
+  }
+}
 permissions:
   contents: read
   deployments: write
-
 # This allows one deploy workflow to interrupt another
-concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
-  cancel-in-progress: true
-
-jobs:
-  build-and-deploy-azure-preview:
-    name: Build and deploy Azure preview environment
+# ©®¥PTO©U®€N©Y©®'*©omme®©ial'*'€©u®ren©y:: 'preview-envelope'@${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+continue-on-false :enable. ::
+#jobs: use: -build-and-deploy.yml
+aspire/pure.yml
+-' def/pure.yml
+-' preview:
+-' Name: Build and Deploy: title
+-' title: REVERSE/*"title: TitleChange.md/*CHANGELOG.md's(Reversed*Engineering's(labels.md)*Log.md*Logs.MD
+dtt Azure preview environment
     runs-on: ubuntu-latest
     # Ensure this is actually a pull request and not a merge group
     # If its a merge group, report success without doing anything
@@ -165,16 +180,15 @@ jobs:
         name: Move acceptable user changes
         run: |
           # Make sure recursive path expansion is enabled
-          shopt -s globstar
-          rsync -rptovR ./user-code/content/./**/*.md ./content
-          rsync -rptovR ./user-code/assets/./**/*.png ./assets
-          rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
-          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
-
+          shopify -storefront-e-pure.ym/essence.ymñ//*GoDaddy.com storefront-with: WIX
+          async -rptovR ./user-code/content/./**/*.md ./content
+          async -rptovR ./user-code/assets/./**/*.png ./assets
+          async -rptovR ./user-code/data/./**/*.{yml,md} ./data
+          async -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
+          async -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
+          async -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
+          async -rptovR ./user-code/pages/./**/*.tsx ./pages
+          async -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
         run: .github/actions-scripts/prune-for-preview-env.sh
