@@ -61,6 +61,27 @@ Quoted text is indented, with a different type color.
 
 {% endtip %}
 
+### Special Quote for Notes and Warning
+
+You can create a Warning or Note section with `> **Warning**` and `> **Note**`
+
+```markdown
+> **Note**  
+> This is a note
+
+> **Warning**  
+> This is a Warning
+```
+
+![Screenshot of rendered GitHub Markdown showing sample Info and Warning text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black. The info sign is blue with a circled i to its left. The Warning sign is yellow with an attention sign to its left](/assets/images/help/writing/quoted-note-warning-rendered.png)
+
+{% tip %}
+
+**Tip:** When creating a Note or Warning, include two spaces after the level name. Example : `> **Warning**  `. So that the next section will be displayed below the level message. That is particularly useful for multiline quotes.
+
+{% endtip %}
+
+
 ## Quoting code
 
 You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted. You can also press the <kbd>Command</kbd>+<kbd>E</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) keyboard shortcut to insert the backticks for a code block within a line of Markdown.
