@@ -48,15 +48,18 @@ If you only have read access to a repository, you can usually create a codespace
 
 You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
 
-If you make a commit from the codespace, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
+If you make a commit from the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
+
+If you make a commit from the command line, you will see a prompt asking if you would like to proceed with linking your codespace to a new or existing fork. Enter `y` to proceed. If you commit changes from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}, or from the navigation bar in a JetBrains IDE, your codespace is automatically linked to a fork without you being prompted.
 
 {% note %}
 
-**Note:** If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+**Notes:** 
+
+- If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+- If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
 
 {% endnote %}
-
-If you make a commit from the command line, you will see a prompt asking if you would like to proceed with linking your codespace to a new or existing fork. Enter `y` to proceed. If you commit changes from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}, or from the navigation bar in a JetBrains IDE, your codespace is automatically linked to a fork without you being prompted.
 
 When {% data variables.product.prodname_github_codespaces %} creates a fork, or links your codespace to an existing fork, the following things happen.
 
