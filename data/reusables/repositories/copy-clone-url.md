@@ -1,5 +1,5 @@
-1. Above the list of files, click {% octicon "download" aria-hidden="true" %} **Code**.
-  !["Code" button](/assets/images/help/repository/code-button.png)
+1. Above the list of files, click {% octicon "code" aria-hidden="true" %} **Code**.
+  ![Screenshot of the list of files on the landing page of a repository. The "Code" button is highlighted with a dark orange outline.](/assets/images/help/repository/code-button.png)
 1. Copy the URL for the repository.
 
    - To clone the repository using HTTPS, under "HTTPS", click {% octicon "clippy" aria-label="Copy to clipboard" %}.

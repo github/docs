@@ -270,3 +270,36 @@ test('large viewports - 1012-1279', async ({ page }) => {
   await page.getByTestId('sidebar-hamburger').click()
   await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
 })
+
+test('medium viewports - 768-1011', async ({ page }) => {
+  page.setViewportSize({
+    width: 1000,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // version picker is visible
+  await page
+    .getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+    .click()
+  expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+  await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+  // language picker is in mobile menu
+  // TODO: currently no languages enabled for headless tests
+  // await page.getByTestId('mobile-menu').click()
+  // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+  // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+  // sign up button is in mobile menu
+  await expect(page.getByTestId('header-signup')).not.toBeVisible()
+  await page.getByTestId('mobile-menu').click()
+  await expect(page.getByTestId('mobile-signup')).toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+})

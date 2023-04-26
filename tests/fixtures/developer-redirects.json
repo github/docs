@@ -1,6 +1,6 @@
 {
   "/apps": "/en/apps",
-  "/apps/building-github-apps": "/en/apps/creating-github-apps/creating-github-apps",
+  "/apps/building-github-apps": "/en/apps/creating-github-apps/setting-up-a-github-app",
   "/apps/building-oauth-apps": "/en/apps/oauth-apps/building-oauth-apps",
   "/apps/managing-github-apps": "/en/apps/maintaining-github-apps",
   "/apps/managing-oauth-apps": "/en/apps/oauth-apps/maintaining-oauth-apps",

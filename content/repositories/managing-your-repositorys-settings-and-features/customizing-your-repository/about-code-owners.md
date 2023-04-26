@@ -25,9 +25,13 @@ Code owners are automatically requested for review when someone opens a pull req
 
 When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="The edit icon" %}.
+If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="Owned by USER or TEAM (from CODEOWNERS line NUMBER)" %} to see a tool tip with codeownership details.
 
-![Code owner for a file in a repository](/assets/images/help/repository/code-owner-for-a-file.png)
+{% ifversion fpt or ghec %}
+![Screenshot showing the header for a file. The cursor is hovering over the shield icon, which displays the tooltip "Owned by USER or TEAM (from CODEOWNERS line NUMBER)."](/assets/images/help/repository/code-owner-for-a-file.png)
+{% else %}
+![Screenshot showing the header for a file. The cursor is hovering over the shield icon, which displays the tooltip "Owned by USER or TEAM."](/assets/images/enterprise/repository/code-owner-for-a-file.png)
+{% endif %}
 
 ## CODEOWNERS file location
 
