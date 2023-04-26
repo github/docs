@@ -31,7 +31,7 @@ title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2017-12-18
-url: "https://github.com/github/linguist"
+url: "https://github.com/github-linguist/linguist"
 ```
 
 The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
@@ -51,7 +51,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
   doi = {10.5281/zenodo.1234},
   month = {12},
   title = {{My Research Software}},
-  url = {https://github.com/github/linguist},
+  url = {https://github.com/github-linguist/linguist},
   version = {2.0.4},
   year = {2017}
 }
@@ -108,7 +108,7 @@ title: "My Research Software"
 version: 2.0.4
 doi: 10.5281/zenodo.1234
 date-released: 2017-12-18
-url: "https://github.com/github/linguist"
+url: "https://github.com/github-linguist/linguist"
 preferred-citation:
   type: article
   authors:

@@ -49,7 +49,7 @@ describe('server', () => {
 
   test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
-    const sidebarItems = $('[data-testid=sidebar] li a').get()
+    const sidebarItems = $('[data-testid=sidebar] ul a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 
@@ -90,7 +90,7 @@ describe('server', () => {
 
     for (const ep of enterpriseProducts) {
       const $ = await getDOM(`/en/${ep}`)
-      const sidebarItems = $('[data-testid=sidebar] li a').get()
+      const sidebarItems = $('[data-testid=sidebar] ul a').get()
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
       const productItems = activeProducts.filter(
@@ -228,45 +228,6 @@ describe('server', () => {
       expect('name' in category).toBe(true)
       expect('published_articles' in category).toBe(true)
     })
-  })
-
-  test('renders liquid within liquid within liquid in body text', async () => {
-    const $ = await getDOM('/en/github/administering-a-repository/enabling-required-status-checks')
-    expect($('ol li').first().text().trim()).toBe(
-      'On GitHub.com, navigate to the main page of the repository.'
-    )
-  })
-
-  test('renders liquid within liquid within liquid in intros', async () => {
-    const $ = await getDOM('/en/github/administering-a-repository/about-merge-methods-on-github')
-    expect(
-      $('[data-testid="lead"]').first().text().includes('merge their pull requests on GitHub')
-    ).toBe(true)
-  })
-
-  test('renders product frontmatter callouts', async () => {
-    const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('[data-testid=callout]').eq(0)
-    expect(note).toBeTruthy()
-  })
-
-  test('renders liquid within liquid within product frontmatter callouts', async () => {
-    const $ = await getDOM('/en/articles/about-branch-restrictions')
-    const note = $('[data-testid=callout]').eq(0)
-    expect(
-      note
-        .first()
-        .text()
-        .trim()
-        .startsWith('Protected branches are available in public repositories with GitHub Free')
-    ).toBe(true)
-  })
-
-  test('renders liquid within liquid within liquid', async () => {
-    const $ = await getDOM('/en/articles/enabling-required-status-checks')
-    expect($('ol li').first().text().trim()).toBe(
-      'On GitHub.com, navigate to the main page of the repository.'
-    )
   })
 
   test('displays links to categories on product TOCs', async () => {

@@ -2,9 +2,9 @@ import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import { TreeView } from '@primer/react'
 
+import { Link } from 'components/Link'
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
-import { Link } from 'components/Link'
 
 export const SidebarHomepage = () => {
   const router = useRouter()
@@ -26,20 +26,32 @@ export const SidebarHomepage = () => {
             }`
 
             return (
-              <TreeView.Item id={product.id} key={product.id}>
-                <Link
-                  href={href}
-                  target={product.external ? '_blank' : undefined}
-                  className="d-block f4 my-1 pr-5 py-2 color-fg-default no-underline width-full"
+              <Link
+                id={href}
+                key={product.id}
+                href={href}
+                target={product.external ? '_blank' : undefined}
+                className="no-underline"
+              >
+                <TreeView.Item
+                  id={product.id}
+                  onSelect={(e) => {
+                    if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
+                      document.getElementById(href)?.click()
+                      e?.stopPropagation()
+                    }
+                  }}
                 >
-                  {product.name}
-                  {product.external && (
-                    <span className="ml-1">
-                      <LinkExternalIcon aria-label="(external site)" size="small" />
-                    </span>
-                  )}
-                </Link>
-              </TreeView.Item>
+                  <span className="d-block my-2 py-1 f4">
+                    {product.name}
+                    {product.external && (
+                      <span className="ml-1">
+                        <LinkExternalIcon aria-label="(external site)" size="small" />
+                      </span>
+                    )}
+                  </span>
+                </TreeView.Item>
+              </Link>
             )
           })}
       </TreeView>

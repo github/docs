@@ -33,17 +33,17 @@ When you enable log forwarding, you must upload a CA certificate to encrypt comm
 1. In the **Server address** field, type the address of the server to which you want to forward logs. You can specify multiple addresses in a comma-separated list.
 1. In the Protocol drop-down menu, select the protocol to use to communicate with the log server. The protocol will apply to all specified log destinations.
 1. Optionally, select **Enable TLS**. We recommend enabling TLS according to your local security policies, especially if there are untrusted networks between the appliance and any remote log servers. 
-1. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. The entire certificate chain will be validated, and must terminate in a root certificate. For more information, see [TLS options in the syslog-ng documentation](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.16/administration-guide/56#TOPIC-956599).
+2. To encrypt communication between syslog endpoints, click **Choose File** and choose a CA certificate for the remote syslog server. You should upload a CA bundle containing a concatenation of the certificates of the CAs involved in signing the certificate of the remote log server. The entire certificate chain will be validated, and must terminate in a root certificate. 
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**.
-1. Under "Log forwarding", select **Enable log forwarding**.
-1. Under "Server address", enter the address of the server you want to forward logs to.
-1. Select the "Protocol" dropdown menu and click a protocol.
-1. Optionally, to encrypt communication between syslog endpoints using TLS, select **Enable TLS**.
-1. Under "Public certificate", paste your x509 certificate.
-1. Click **Save**.
+2. Under "Log forwarding", select **Enable log forwarding**.
+3. Under "Server address", enter the address of the server you want to forward logs to.
+4. Select the "Protocol" dropdown menu and click a protocol.
+5. Optionally, to encrypt communication between syslog endpoints using TLS, select **Enable TLS**.
+6. Under "Public certificate", paste your x509 certificate.
+7. Click **Save**.
 {% endif %}
 
 {% ifversion ghes %}
