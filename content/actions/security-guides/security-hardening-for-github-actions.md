@@ -347,8 +347,8 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which personal account performed the action.
 
-For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets:
-  ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets.
+  ![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results detail API updates to two secrets that are available to selected repositories.](/assets/images/help/repository/audit-log-entries.png)
 
 The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see
 "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
