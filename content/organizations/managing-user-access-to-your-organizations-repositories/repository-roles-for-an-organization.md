@@ -167,13 +167,17 @@ In this section, you can find the access required for security features, such as
 | [View dependency reviews](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
-| [View and dismiss {% data variables.secret-scanning.alerts %} in a repository](/code-security/secret-scanning/managing-alerts-from-secret-scanning) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}[1]{% endif %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}[1]{% endif %} | {% octicon "check" aria-label="Yes" %} |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
-| [Resolve, revoke, or re-open {% data variables.secret-scanning.alerts %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}[1]{% endif %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}[1]{% endif %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion ghes or ghae or ghec %}
+| [View and dismiss {% data variables.secret-scanning.alerts %} in a repository](/code-security/secret-scanning/managing-alerts-from-secret-scanning) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}{% endif %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}{% endif %} | {% octicon "check" aria-label="Yes" %} |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+| [Resolve, revoke, or re-open {% data variables.secret-scanning.alerts %}](/code-security/secret-scanning/managing-alerts-from-secret-scanning) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}{% endif %} | {% octicon "check" aria-label="Yes" %}{% ifversion not ghae %}{% endif %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion ghes or ghae or ghec %}
 | [Designate additional people or teams to receive {% data variables.secret-scanning.alerts %}](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
 
 {% endrowheaders %}
 
-[1] Repository writers and maintainers can only see alert information for their own commits.
+{%note %}
+
+**Note:** Repository writers and maintainers can only see secret scanning alert information for their own commits.
+
+{% endnote %}
 
 ## Further reading
 

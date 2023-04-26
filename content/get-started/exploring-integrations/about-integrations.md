@@ -19,8 +19,8 @@ Integrations can be {% data variables.product.prodname_github_apps %}, {% data v
 {% data variables.product.prodname_github_apps %} offer granular permissions and request access to only what the app needs. {% data variables.product.prodname_github_apps %} also offer specific user-level permissions that each user must authorize individually when an app is installed or when the integrator changes the permissions requested by the app.
 
 For more information, see:
-- "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)"
-- "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)"
 - "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)"
 - "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)"
 - "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"

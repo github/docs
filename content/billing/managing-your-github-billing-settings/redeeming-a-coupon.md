@@ -28,7 +28,6 @@ You cannot apply coupons to paid plans for {% data variables.product.prodname_ma
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. Under "Redeem your coupon", click **Choose** next to your *personal* account's username.
-   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
 {% data reusables.dotcom_billing.redeem_coupon %}
 
 ## Redeeming a coupon for your organization
@@ -37,5 +36,4 @@ You cannot apply coupons to paid plans for {% data variables.product.prodname_ma
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
 4. Under "Redeem your coupon", click **Choose** next to the *organization* you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
-   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button.png)
 {% data reusables.dotcom_billing.redeem_coupon %}

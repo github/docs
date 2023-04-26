@@ -92,7 +92,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -249,7 +249,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -269,6 +269,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
 ### Using `curl` in the command line
 
+{% ifversion ghes or ghae %}
 {% note %}
 
 **Notes:**
@@ -277,6 +278,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 - If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
 
 {% endnote %}
+{% endif %}
 
 1. Install `curl` if it isn't already installed on your machine. To check if `curl` is installed, execute `curl --version` in the command line. If the output is information about the version of `curl`, it is installed. If you get a message similar to `command not found: curl`, you need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
@@ -362,7 +364,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

@@ -54,7 +54,7 @@ To replace GitHub Services with Webhooks:
 
    - **GitHub Apps**: Update your app's permissions and subscribed events to configure your app to receive the relevant webhook events.
    - **OAuth Apps**: Request either the `repo_hook` and/or `org_hook` scope(s) to manage the relevant events on behalf of users.
-   - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
+   - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 3. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or OAuth Apps where applicable.
 
@@ -72,4 +72,4 @@ Please [contact us](https://github.com/contact?form%5Bsubject%5D=GitHub+Services
 As a high-level overview, the process of migration typically involves:
   - Identifying how and where your product is using GitHub Services.
   - Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/creating-github-apps) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps#reasons-for-switching-to-github-apps)."
+  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps#reasons-for-switching-to-github-apps)."

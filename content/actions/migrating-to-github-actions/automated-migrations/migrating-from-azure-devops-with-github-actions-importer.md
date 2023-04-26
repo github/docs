@@ -556,18 +556,21 @@ steps:
 | number                | `inputs.number`                             |           Supported   |
 | boolean               | `inputs.boolean`                            |           Supported   |
 | object                | `inputs.string` with `fromJSON` expression  | Partially supported   |
-| step                  | `step`                                      | Partially supported [1]  |
-| stepList              | `step`                                      | Partially supported [1]  |
-| job                   | `job`                                       | Partially supported [2] |
-| jobList               | `job`                                       | Partially supported [2] |
-| deployment            | `job`                                       | Partially supported [2] |
-| deploymentList        | `job`                                       | Partially supported [2] |
-| stage                 | `job`                                       | Partially supported [2] |
-| stageList             | `job`                                       | Partially supported [2] |
+| step                  | `step`                                      | Partially supported  |
+| stepList              | `step`                                      | Partially supported  |
+| job                   | `job`                                       | Partially supported |
+| jobList               | `job`                                       | Partially supported |
+| deployment            | `job`                                       | Partially supported |
+| deploymentList        | `job`                                       | Partially supported |
+| stage                 | `job`                                       | Partially supported |
+| stageList             | `job`                                       | Partially supported |
 
-[1] A template used under the `step` key with this parameter type is only serialized as a composite action if the steps are used at the beginning or end of the template steps.
 
-[2] A template used under the `stage`, `deployment`, and `job` keys with this parameter type are not transformed into a reusable workflow, and instead are serialized as a standalone workflow.
+{% note %}
+
+**Note:** A template used under the `step` key with this parameter type is only serialized as a composite action if the steps are used at the beginning or end of the template steps. A template used under the `stage`, `deployment`, and `job` keys with this parameter type are not transformed into a reusable workflow, and instead are serialized as a standalone workflow.
+
+{% endnote %}
 
 ## Legal notice
 

@@ -10195,7 +10195,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -10211,7 +10211,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -10219,7 +10219,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -13353,7 +13353,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -13369,7 +13369,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -13377,7 +13377,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14158,7 +14158,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14174,7 +14174,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14182,7 +14182,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14199,7 +14199,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14215,7 +14215,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -14223,7 +14223,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -20356,7 +20356,7 @@
         },
         {
           "name": "ownerInfo",
-          "description": "<p>Enterprise information only visible to enterprise owners.</p>",
+          "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
           "type": "EnterpriseOwnerInfo",
           "id": "enterpriseownerinfo",
           "kind": "objects",
@@ -20776,7 +20776,7 @@
       "kind": "objects",
       "id": "enterpriseidentityprovider",
       "href": "/graphql/reference/objects#enterpriseidentityprovider",
-      "description": "<p>An identity provider configured to provision identities for an enterprise.</p>",
+      "description": "<p>An identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
       "implements": [
         {
           "name": "Node",
@@ -21194,7 +21194,7 @@
       "kind": "objects",
       "id": "enterpriseownerinfo",
       "href": "/graphql/reference/objects#enterpriseownerinfo",
-      "description": "<p>Enterprise information only visible to enterprise owners.</p>",
+      "description": "<p>Enterprise information visible to enterprise owners or enterprise owners'\npersonal access tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
       "fields": [
         {
           "name": "admins",
@@ -21520,7 +21520,7 @@
         },
         {
           "name": "domains",
-          "description": "<p>A list of domains owned by the enterprise.</p>",
+          "description": "<p>A list of domains owned by the enterprise. Visible to enterprise owners or\nenterprise owners' personal access tokens (classic) with admin:enterprise scope.</p>",
           "type": "VerifiableDomainConnection!",
           "id": "verifiabledomainconnection",
           "kind": "objects",
@@ -21739,7 +21739,7 @@
         },
         {
           "name": "ipAllowListEntries",
-          "description": "<p>The IP addresses that are allowed to access resources owned by the enterprise.</p>",
+          "description": "<p>The IP addresses that are allowed to access resources owned by the enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with admin:enterprise scope.</p>",
           "type": "IpAllowListEntryConnection!",
           "id": "ipallowlistentryconnection",
           "kind": "objects",
@@ -22913,7 +22913,7 @@
         },
         {
           "name": "samlIdentityProvider",
-          "description": "<p>The SAML Identity Provider for the enterprise. When used by a GitHub App,\nrequires an installation token with read and write access to members.</p>",
+          "description": "<p>The SAML Identity Provider for the enterprise.</p>",
           "type": "EnterpriseIdentityProvider",
           "id": "enterpriseidentityprovider",
           "kind": "objects",
@@ -24579,7 +24579,7 @@
       "kind": "objects",
       "id": "externalidentity",
       "href": "/graphql/reference/objects#externalidentity",
-      "description": "<p>An external identity provisioned by SAML SSO or SCIM.</p>",
+      "description": "<p>An external identity provisioned by SAML SSO or SCIM. If SAML is configured on\nthe organization, the external identity is visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members. If SAML is configured on the enterprise, the external\nidentity is visible to (1) enterprise owners, (2) enterprise owners' personal\naccess tokens (classic) with read:enterprise or admin:enterprise scope.</p>",
       "implements": [
         {
           "name": "Node",
@@ -28260,6 +28260,56 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "assignees",
+          "description": "<p>The suggested assignees.</p>",
+          "type": "UserConnection!",
+          "id": "userconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "body",
           "description": "<p>The suggested issue body.</p>",
           "type": "String",
@@ -28274,6 +28324,66 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "labels",
+          "description": "<p>The suggested issue labels.</p>",
+          "type": "LabelConnection",
+          "id": "labelconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#labelconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for labels returned from the connection.</p>",
+              "type": {
+                "name": "LabelOrder",
+                "id": "labelorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#labelorder"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -31855,7 +31965,7 @@
       "kind": "objects",
       "id": "oidcprovider",
       "href": "/graphql/reference/objects#oidcprovider",
-      "description": "<p>An OIDC identity provider configured to provision identities for an enterprise.</p>",
+      "description": "<p>An OIDC identity provider configured to provision identities for an enterprise.\nVisible to enterprise owners or enterprise owners' personal access tokens\n(classic) with read:enterprise or admin:enterprise scope.</p>",
       "implements": [
         {
           "name": "Node",
@@ -38769,7 +38879,7 @@
         },
         {
           "name": "samlIdentityProvider",
-          "description": "<p>The Organization's SAML identity providers.</p>",
+          "description": "<p>The Organization's SAML identity provider. Visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members.</p>",
           "type": "OrganizationIdentityProvider",
           "id": "organizationidentityprovider",
           "kind": "objects",
@@ -39822,7 +39932,7 @@
       "kind": "objects",
       "id": "organizationidentityprovider",
       "href": "/graphql/reference/objects#organizationidentityprovider",
-      "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for Organizations.</p>",
+      "description": "<p>An Identity Provider configured to provision SAML and SCIM identities for\nOrganizations. Visible to (1) organization owners, (2) organization owners'\npersonal access tokens (classic) with read:org or admin:org scope, (3) GitHub\nApp with an installation token with read or write access to members.</p>",
       "implements": [
         {
           "name": "Node",
@@ -48559,7 +48669,7 @@
         {
           "name": "dismissStaleReviewsOnPush",
           "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -48567,7 +48677,7 @@
         {
           "name": "requireCodeOwnerReview",
           "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -48575,7 +48685,7 @@
         {
           "name": "requireLastPushApproval",
           "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -48583,7 +48693,7 @@
         {
           "name": "requiredApprovingReviewCount",
           "description": "<p>The number of approving reviews that are required before a pull request can be merged.</p>",
-          "type": "Int",
+          "type": "Int!",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -48591,7 +48701,7 @@
         {
           "name": "requiredReviewThreadResolution",
           "description": "<p>All conversations on code must be resolved before a pull request can be merged.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -51425,7 +51535,7 @@
         {
           "name": "exclude",
           "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -51433,7 +51543,7 @@
         {
           "name": "include",
           "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -60125,7 +60235,7 @@
         {
           "name": "exclude",
           "description": "<p>Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -60133,7 +60243,7 @@
         {
           "name": "include",
           "description": "<p>Array of repository names or patterns to include. One of these patterns must\nmatch for the condition to pass. Also accepts <code>~ALL</code> to include all repositories.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -61409,7 +61519,7 @@
         {
           "name": "requiredDeploymentEnvironments",
           "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
-          "type": "[String!]",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -61451,7 +61561,7 @@
         {
           "name": "requiredStatusChecks",
           "description": "<p>Status checks that are required.</p>",
-          "type": "[StatusCheckConfiguration!]",
+          "type": "[StatusCheckConfiguration!]!",
           "id": "statuscheckconfiguration",
           "kind": "objects",
           "href": "/graphql/reference/objects#statuscheckconfiguration"
@@ -61459,7 +61569,7 @@
         {
           "name": "strictRequiredStatusChecksPolicy",
           "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -64537,7 +64647,7 @@
         {
           "name": "context",
           "description": "<p>The status check context name that must be present on the commit.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -64545,7 +64655,7 @@
         {
           "name": "integrationId",
           "description": "<p>The optional integration ID that this status check must originate from.</p>",
-          "type": "Int!",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
@@ -65249,7 +65359,7 @@
         {
           "name": "name",
           "description": "<p>How this rule will appear to users.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -65265,7 +65375,7 @@
         {
           "name": "operator",
           "description": "<p>The operator to use for matching.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -65273,7 +65383,7 @@
         {
           "name": "pattern",
           "description": "<p>The pattern to match with.</p>",
-          "type": "String",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -69539,7 +69649,7 @@
         {
           "name": "updateAllowsFetchAndMerge",
           "description": "<p>Branch can pull changes from its upstream repository.</p>",
-          "type": "Boolean",
+          "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
@@ -73216,6 +73326,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
         }
       ],
       "fields": [
@@ -73242,6 +73357,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         },
         {
           "name": "runs",
@@ -73318,6 +73441,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         }
       ]
     },

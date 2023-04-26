@@ -33,4 +33,4 @@ For more information on creating your own tool to list on {% data variables.prod
 - "[AUTOTITLE](/apps/using-github-apps)"
 - "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"
 - "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
-- "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps)"
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps)"

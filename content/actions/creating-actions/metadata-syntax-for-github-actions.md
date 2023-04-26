@@ -322,7 +322,7 @@ runs:
   using: "composite"
   steps:
     # Reference a specific commit
-    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+    - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
     # Reference the major version of a release
     - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version

@@ -53,14 +53,14 @@ The {% data variables.code-scanning.tool_status_page %} shows useful information
 
 Before configuring {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
 
-Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 {% endif %}
 
 {% ifversion code-scanning-without-workflow %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %} automatically
 
-The default setup for {% data variables.product.prodname_code_scanning %} will automatically configure {% data variables.product.prodname_code_scanning %} with the best settings for your repository. Default setup uses {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis without requiring you to commit a workflow file your repository.
+The default setup for {% data variables.product.prodname_code_scanning %} will automatically configure {% data variables.product.prodname_code_scanning %} with the best settings for your repository. Default setup uses {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis without requiring you to commit a workflow file to your repository.
 
 Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages:{% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by CodeQL, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."{% ifversion org-enable-code-scanning %} For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
 

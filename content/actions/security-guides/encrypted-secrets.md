@@ -212,9 +212,7 @@ You can check which access policies are being applied to a secret in your organi
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-1. The list of secrets includes any configured permissions and policies. For example:
-   ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
-1. For more details on the configured permissions for each secret, click **Update**.
+1. The list of secrets includes any configured permissions and policies. For more details about the configured permissions for each secret, click **Update**.
 
 ## Using encrypted secrets in a workflow
 

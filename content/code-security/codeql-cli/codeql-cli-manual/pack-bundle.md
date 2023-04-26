@@ -33,6 +33,8 @@ codeql pack bundle [--output=<file.tgz>] [--threads=<num>] [--ram=<MB>] <options
 This command bundles a QL library pack from the contents of the current
 directory.
 
+Available since `v2.6.3`.
+
 ## Primary options
 
 #### `<dir>`

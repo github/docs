@@ -34,6 +34,16 @@ let currentlyOpen: HTMLLinkElement | null = null
 // change accoding to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
+type Info = {
+  product: string
+  title: string
+  intro: string
+  anchor?: string
+}
+type APIInfo = {
+  info: Info
+}
+
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
@@ -106,45 +116,58 @@ function popoverWrap(element: HTMLLinkElement) {
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
   }
-  let title = element.dataset.title
-  let product = element.dataset.productTitle || ''
-  let intro = element.dataset.intro || ''
+  let title = ''
+  let product = ''
+  let intro = ''
   let anchor = ''
 
-  if (!title) {
-    // But, is it an in-page anchor link? If so, get the title, intro
-    // and product from within the DOM. But only if we can use the anchor
-    // destination to find a DOM node that has text.
-    if (
-      element.href.includes('#') &&
-      element.href.split('#')[1] &&
-      element.href.startsWith(`${window.location.href.split('#')[0]}#`)
-    ) {
-      const domID = element.href.split('#')[1]
-      const domElement = document.querySelector(`#${domID}`)
-      if (domElement && domElement.textContent) {
-        anchor = domElement.textContent
-        // Now we have to make up the product, intro, and title
-        const domTitle = document.querySelector('h1')
-        if (domTitle && domTitle.textContent) {
-          title = domTitle.textContent
-          intro = ''
-          product = ''
-          const domProduct = document.querySelector('._product-title')
-          if (domProduct && domProduct.textContent) {
-            product = domProduct.textContent
-          }
-          const domIntro = document.querySelector('._page-intro')
-          if (domIntro && domIntro.textContent) {
-            intro = domIntro.textContent
-          }
+  // Is it an in-page anchor link? If so, get the title, intro
+  // and product from within the DOM. But only if we can use the anchor
+  // destination to find a DOM node that has text.
+  if (
+    element.href.includes('#') &&
+    element.href.split('#')[1] &&
+    element.href.startsWith(`${window.location.href.split('#')[0]}#`)
+  ) {
+    const domID = element.href.split('#')[1]
+    const domElement = document.querySelector(`#${domID}`)
+    if (domElement && domElement.textContent) {
+      anchor = domElement.textContent
+      // Now we have to make up the product, intro, and title
+      const domTitle = document.querySelector('h1')
+      if (domTitle && domTitle.textContent) {
+        title = domTitle.textContent
+        intro = ''
+        product = ''
+        const domProduct = document.querySelector('._product-title')
+        if (domProduct && domProduct.textContent) {
+          product = domProduct.textContent
+        }
+        const domIntro = document.querySelector('._page-intro')
+        if (domIntro && domIntro.textContent) {
+          intro = domIntro.textContent
         }
       }
     }
+
+    if (title) {
+      fillPopover(element, { product, title, intro, anchor })
+    }
+    return
   }
 
-  if (!title) return
+  const { pathname } = new URL(element.href)
 
+  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+    if (response.ok) {
+      const { info } = (await response.json()) as APIInfo
+      fillPopover(element, info)
+    }
+  })
+}
+
+function fillPopover(element: HTMLLinkElement, info: Info) {
+  const { product, title, intro, anchor } = info
   const popover = getOrCreatePopoverGlobal()
   const productHead = popover.querySelector('p.product') as HTMLParagraphElement | null
   if (productHead) {

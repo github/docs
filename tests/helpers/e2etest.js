@@ -11,6 +11,7 @@ export async function get(
     followAllRedirects: false,
     headers: {},
     responseType: undefined,
+    retries: 0,
   }
 ) {
   const method = opts.method || 'get'
@@ -21,7 +22,7 @@ export async function get(
     {
       body: opts.body,
       headers: opts.headers,
-      retry: { limit: 0 },
+      retry: { limit: opts.retries || 0 },
       throwHttpErrors: false,
       followRedirect: opts.followAllRedirects || opts.followRedirects,
       responseType: opts.responseType,
