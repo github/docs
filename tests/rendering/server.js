@@ -49,7 +49,7 @@ describe('server', () => {
 
   test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
     const $ = await getDOM('/en')
-    const sidebarItems = $('[data-testid=sidebar] li a').get()
+    const sidebarItems = $('[data-testid=sidebar] ul a').get()
     const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
     const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
 
@@ -90,7 +90,7 @@ describe('server', () => {
 
     for (const ep of enterpriseProducts) {
       const $ = await getDOM(`/en/${ep}`)
-      const sidebarItems = $('[data-testid=sidebar] li a').get()
+      const sidebarItems = $('[data-testid=sidebar] ul a').get()
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
       const productItems = activeProducts.filter(

@@ -11,7 +11,7 @@ describe('sidebar', () => {
       // Because we know exactly what's in the `externalProducts`
       // frontmatter property of tests/fixtures/content/index.md
       // We can predict what to expect to be present.
-      const links = $('[data-testid=sidebar] ul li div div span a[href="https://github.com"]')
+      const links = $('[data-testid=sidebar] ul a[href="https://github.com"] li div div span span')
       expect(links.text()).toBe('GitHub itself')
     })
 
