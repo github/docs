@@ -63,9 +63,14 @@ export function ParameterRow({
               {rowParams.name ? (
                 <>
                   <code className={`text-bold f5`}>{rowParams.name}</code>
+                  {/* This whitespace is important otherwise, when the CSS is
+                      ignored, the plain text becomes `foobar` if the HTML
+                      was `<code>foo</code><span>bar</span>`.
+                   */}{' '}
                   <span className="color-fg-muted pl-2 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
+                  {/* Ditto about the important explicit whitespace */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -75,6 +80,7 @@ export function ParameterRow({
                   <span className="color-fg-muted pl-1 f5">
                     {Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
                   </span>
+                  {/* Ditto about the important explicit whitespace */}{' '}
                   {rowParams.isRequired ? (
                     <span className="color-fg-attention f5 pl-3">{t('required')}</span>
                   ) : null}
@@ -132,6 +138,7 @@ export function ParameterRow({
           parentType={Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
           childParamsGroups={rowParams.childParamsGroups}
           open={rowParams.name === clickedBodyParameterName}
+          oneOfObject={rowParams.oneOfObject}
         />
       )}
 
@@ -158,9 +165,15 @@ export function ParameterRow({
               onToggle={bodyParamExpandCallback}
             >
               <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
-                <span id={`${slug}-${rowParams.name}`}>
-                  Properties of <code>{rowParams.name}</code>
-                </span>
+                {rowParams.oneOfObject ? (
+                  <span id={`${slug}-${rowParams.name}`}>
+                    Can be one of these objects: <code>{rowParams.name}</code>
+                  </span>
+                ) : (
+                  <span id={`${slug}-${rowParams.name}`}>
+                    Properties of <code>{rowParams.name}</code>
+                  </span>
+                )}
               </summary>
             </details>
           </td>

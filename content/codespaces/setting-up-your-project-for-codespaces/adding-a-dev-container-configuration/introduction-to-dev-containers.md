@@ -151,7 +151,7 @@ You can add a predefined dev container configuration either while working in a c
 
 1. Follow the prompts to customize your definition.
 1. Click **OK**.
-1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. If you are working in a codespace, apply your changes by clicking **Rebuild now** in the pop-up at the bottom right of the window. For more information about rebuilding your container, see "[Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace)."
 
    ![Screenshot of the message: "We've noticed a change to the dev container configuration." Below this is the "Rebuild Now" button.](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -174,7 +174,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 
    {% endnote %}
 
-   If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   If multiple `devcontainer.json` files are found in the repository, they are listed in the **Dev container configuration** dropdown on the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
    ![Screenshot of the codespace creation options page, showing a dropdown listing a choice of configuration files.](/assets/images/help/codespaces/configuration-file-choice.png)
 
@@ -193,6 +193,8 @@ If your repository already contains one or more `devcontainer.json` files, then 
 ### Default configuration selection during codespace creation
 
 If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default.
+
+In the following screenshot, the repository does not contain `.devcontainer/devcontainer.json` or `.devcontainer.json` files, so the default dev container configuration is selected. However, two alternative configuration files have been defined in subdirectories of the `.devcontainer` directory, so these are listed as options.
 
 ![Screenshot of the "Dev container configuration" dropdown with the default configuration choice selected.](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
@@ -227,31 +229,12 @@ You can define default interface settings for {% data variables.product.prodname
 
 Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
 
+{% data reusables.codespaces.rebuild-note %}
+
 ### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.rebuild-command %}
-1. {% data reusables.codespaces.recovery-mode %}
-
-   ![Screenshot of a message saying that the codespace is running in recovery mode. Below the message are buttons labeled "Cancel" and "View creation log."](/assets/images/help/codespaces/recovery-mode-error-message.png)
-
-   - To diagnose the error by reviewing the creation logs, click **View creation log**.
-   - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container.
-
-### Using {% data variables.product.prodname_cli %} to rebuild a dev container
-
-If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
-
-1. In a terminal, enter the following command.
-
-   ```
-   gh cs rebuild
-   ```
-
-   Your codespaces are listed.
-
-1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
-
+{% data reusables.codespaces.rebuilding-container-procedures %}
 
 ## Further reading
 

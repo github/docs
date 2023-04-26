@@ -86,17 +86,8 @@ CircleCI and {% data variables.product.prodname_actions %} provide a method to m
 
 Below is an example of the syntax for each system.
 
-<table class="d-block">
-<tr>
-<th>
-CircleCI
-</th>
-<th>
-GitHub Actions
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### CircleCI syntax for caching
+
 {% raw %}
 ```yaml
 - restore_cache:
@@ -105,8 +96,8 @@ GitHub Actions
       - v1-npm-deps-
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### GitHub Actions syntax for caching
 
 ```yaml
 - name: Cache node modules
@@ -116,10 +107,6 @@ GitHub Actions
     key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-
-</td>
-</tr>
-</table>
 
 {% else %}
 
@@ -135,17 +122,8 @@ Both CircleCI and {% data variables.product.prodname_actions %} provide mechanis
 
 Below is an example in CircleCI and {% data variables.product.prodname_actions %} configuration syntax.
 
-<table>
-<tr>
-<th>
-CircleCI
-</th>
-<th>
-GitHub Actions
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### CircleCI syntax for persisting data between jobs
+
 {% raw %}
 ```yaml
 - persist_to_workspace:
@@ -159,9 +137,10 @@ GitHub Actions
     at: /tmp/workspace
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
 
+### GitHub Actions syntax for persisting data between jobs
+
+{% raw %}
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -176,10 +155,7 @@ GitHub Actions
   with:
     name: homework
 ```
-
-</td>
-</tr>
-</table>
+{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
@@ -191,17 +167,8 @@ In CircleCI, the first image listed in the *config.yaml* is the primary image us
 
 Below is an example in CircleCI and {% data variables.product.prodname_actions %} configuration syntax.
 
-<table class="d-block">
-<tr>
-<th>
-CircleCI
-</th>
-<th>
-GitHub Actions
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### CircleCI syntax for using databases and service containers
+
 {% raw %}
 ```yaml
 ---
@@ -254,9 +221,10 @@ workflows:
     at: /tmp/workspace
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
 
+### GitHub Actions syntax for using databases and service containers
+
+{% raw %}
 ```yaml
 name: Containers
 
@@ -301,9 +269,7 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
-</td>
-</tr>
-</table>
+{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 
@@ -311,17 +277,8 @@ For more information, see "[AUTOTITLE](/actions/using-containerized-services/abo
 
 Below is a real-world example. The left shows the actual CircleCI *config.yml* for the [thoughtbot/administrator](https://github.com/thoughtbot/administrate) repository. The right shows the {% data variables.product.prodname_actions %} equivalent.
 
-<table class="d-block">
-<tr>
-<th>
-CircleCI
-</th>
-<th>
-GitHub Actions
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### Complete example for CircleCI
+
 {% raw %}
 ```yaml
 ---
@@ -405,8 +362,8 @@ workflows:
       - ruby-25
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### Complete example for GitHub Actions
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -446,7 +403,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Ruby
-        uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: eregon/use-ruby-action@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - name: Cache dependencies
@@ -471,6 +428,3 @@ jobs:
       - name: Run appraisal
         run: bundle exec appraisal rake
 ```
-</td>
-</tr>
-</table>

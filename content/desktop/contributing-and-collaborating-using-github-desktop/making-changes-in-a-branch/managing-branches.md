@@ -30,29 +30,17 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% endtip %}
 
-{% mac %}
-
 {% data reusables.desktop.click-base-branch-in-drop-down %}
+
   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
+
 {% data reusables.desktop.create-new-branch %}
+
   ![Screenshot of the "Current Branch" dropdown view. Next to the "Filter" field, a button, labeled "New Branch", is outlined in orange.](/assets/images/help/desktop/new-branch-button-mac.png)
+
 {% data reusables.desktop.name-branch %}
 {% data reusables.desktop.select-base-branch %}
 {% data reusables.desktop.confirm-new-branch-button %}
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Drop-down menu to switch your current branch](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{% data reusables.desktop.create-new-branch %}
-  ![New Branch option in the Branch menu](/assets/images/help/desktop/new-branch-button-win.png)
-{% data reusables.desktop.name-branch %}
-{% data reusables.desktop.select-base-branch %}
-{% data reusables.desktop.confirm-new-branch-button %}
-
-{% endwindows %}
 
 ## Creating a branch from a previous commit
 
@@ -103,7 +91,7 @@ You can't delete a branch if it's currently associated with an open pull request
 {% data reusables.desktop.select-branch-to-delete %}
   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
-  ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
+  ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Delete" is outlined in orange.](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 

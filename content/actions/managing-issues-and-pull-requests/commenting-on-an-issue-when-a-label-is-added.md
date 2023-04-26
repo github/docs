@@ -48,7 +48,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
           issues: write
         steps:
           - name: Add comment
-            uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+            uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
             with:
               issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |

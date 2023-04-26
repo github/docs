@@ -21,9 +21,9 @@ You can download the source code archives in three ways.
 ### Downloading source code archives from the repository view
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click {% octicon "download" aria-label="The download icon" %} **Code**.
+1. Above the list of files, click {% octicon "code" aria-hidden="true" %} **Code**.
 
-   !["Code" button](/assets/images/help/repository/code-button.png)
+   ![Screenshot of the list of files on the landing page of a repository. The "Code" button is highlighted with a dark orange outline.](/assets/images/help/repository/code-button.png)
 
 1. Click {% octicon "file-zip" aria-label="The ZIP icon" %} **Download ZIP**.
 
@@ -50,7 +50,7 @@ Source code archives are available at specific URLs for each repository. For exa
 | Type of archive | Example | URL     |
 |-----------------|---------|---------|
 | Branch          | `main`  | [https://github.com/github/codeql/archive/refs/**heads/main**.tar.gz](https://github.com/github/codeql/archive/refs/heads/main.tar.gz) |
-| Tag             | `codeql-cli/latest` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/latest**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/latest.zip)  |
+| Tag             | `codeql-cli/v2.12.0` | [https://github.com/github/codeql/archive/refs/**tags/codeql-cli/v2.12.0**.zip](https://github.com/github/codeql/archive/refs/tags/codeql-cli/v2.12.0.zip)  |
 | Commit          | `aef66c4` | [https://github.com/github/codeql/archive/**aef66c462abe817e33aad91d97aa782a1e2ad2c7**.zip](https://github.com/github/codeql/archive/aef66c462abe817e33aad91d97aa782a1e2ad2c7.zip) |
 
 {% note %}

@@ -1,3 +1,4 @@
+import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
 
 describe('extended Markdown', () => {
@@ -6,6 +7,15 @@ describe('extended Markdown', () => {
     const nodes = $('div.extended-markdown.warning')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the warning.')).toBe(true)
+    expect(nodes.hasClass('color-border-danger')).toBe(true)
+    expect(nodes.hasClass('color-bg-danger')).toBe(true)
+  })
+
+  test('renders styled danger', async () => {
+    const $ = await getDOM('/get-started/liquid/danger')
+    const nodes = $('div.extended-markdown.danger')
+    expect(nodes.length).toBe(1)
+    expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
     expect(nodes.hasClass('color-border-danger')).toBe(true)
     expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
@@ -97,7 +107,7 @@ describe('extended Markdown', () => {
     expect($('tbody tr th', firstTable).length).toBe(2)
     expect($('tbody tr td', firstTable).length).toBe(2 * 3)
 
-    // The first table should have this structure:
+    // The second table should have this structure:
     //
     //   table
     //     tbody
@@ -110,5 +120,113 @@ describe('extended Markdown', () => {
     const secondTable = tables.filter((i) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
     expect($('tbody tr td', secondTable).length).toBe(3 * 4)
+
+    // More specifically, the <th> tags should have the appropriate
+    // `scope` attribute.
+    // See "Scope attribute should be used correctly on tables"
+    // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
+    $('thead th', firstTable).each((i, element) => {
+      expect($(element).attr('scope')).toBe('col')
+    })
+    $('tbody th', firstTable).each((i, element) => {
+      expect($(element).attr('scope')).toBe('row')
+    })
+    // The 5 here is the other `expect(...)` that happens before these
+    // two, just above, `expect(...)` inside the `.each(...)` loops.
+    let totalAssertions = 5
+    totalAssertions += $('thead th', firstTable).length
+    totalAssertions += $('tbody th', firstTable).length
+    expect.assertions(totalAssertions)
+  })
+
+  // tests for ifversion
+
+  // the matchesPerVersion object contains a list of conditions that
+  // should match per version tested, but we also operate against it
+  // to find out versions that shouldn't match
+  const matchesPerVersion = {
+    'free-pro-team@latest': [
+      'condition-a',
+      'condition-b',
+      'condition-d',
+      'condition-i',
+      'condition-j',
+      'condition-l',
+    ],
+    'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
+    'enterprise-server@3.4': [
+      'condition-c',
+      'condition-e',
+      'condition-g',
+      'condition-i',
+      'condition-j',
+      'condition-m',
+      'condition-n',
+    ],
+    'enterprise-server@3.5': [
+      'condition-c',
+      'condition-e',
+      'condition-f',
+      'condition-g',
+      'condition-h',
+      'condition-i',
+      'condition-k',
+      'condition-m',
+      'condition-o',
+    ],
+    'enterprise-server@3.6': [
+      'condition-c',
+      'condition-e',
+      'condition-f',
+      'condition-i',
+      'condition-j',
+      'condition-m',
+      'condition-o',
+    ],
+  }
+
+  test.each(Object.keys(matchesPerVersion))(
+    'ifversion using rendered version %p',
+    async (version) => {
+      const $ = await getDOM(`/${version}/get-started/liquid/ifversion`)
+      const html = $('#article-contents').html()
+
+      const allConditions = Object.values(matchesPerVersion).flat()
+
+      // this is all conditions that should match for this rendered version
+      const wantedConditions = allConditions.filter((condition) => {
+        return matchesPerVersion[version].includes(condition)
+      })
+
+      // this is the inverse of the above, conditions that shoudn't match for this rendered version
+      const unwantedConditions = allConditions.filter((condition) => {
+        return !matchesPerVersion[version].includes(condition)
+      })
+
+      wantedConditions.forEach((condition) => {
+        expect(html).toMatch(condition)
+      })
+      unwantedConditions.forEach((condition) => {
+        expect(html).not.toMatch(condition)
+      })
+    }
+  )
+})
+
+describe('misc Liquid', () => {
+  test('links with liquid from data', async () => {
+    const $ = await getDOM('/get-started/liquid/links-with-liquid')
+    // The URL comes from variables.product.pricing_url
+    const url = getDataByLanguage('variables.product.pricing_url', 'en')
+    if (!url) throw new Error('variable could not be found')
+    const links = $(`#article-contents a[href="${url}"]`)
+    expect(links.length).toBe(2)
+    const texts = links
+      .map((i, element) => {
+        return $(element).text()
+      })
+      .get()
+    expect(texts[0]).toBe(url)
+    expect(texts[1]).toBe('Pricing')
   })
 })

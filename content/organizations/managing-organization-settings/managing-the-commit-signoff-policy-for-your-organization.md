@@ -23,4 +23,3 @@ People with admin access to a repository can also enable compulsory commit signo
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 1. Select or deselect **Require contributors to sign off on web-based commits**.
-  ![Screenshot of Require contributors to sign off on web-based commits](/assets/images/help/organizations/require-signoffs.png)

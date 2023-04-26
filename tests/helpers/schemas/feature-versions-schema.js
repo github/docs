@@ -20,25 +20,4 @@ featureVersions.additionalProperties = false
 // avoid ajv strict warning
 featureVersions.type = 'object'
 
-// *** TODO: We can drop the following once the frontmatter.js schema has been updated to work with AJV. ***
-const properties = {}
-Object.keys(featureVersions.properties.versions.properties).forEach((key) => {
-  const value = Object.assign({}, featureVersions.properties.versions.properties[key])
-
-  // AJV supports errorMessage, not message.
-  value.errorMessage = value.message
-  delete value.message
-
-  // AJV doesn't support conform, so we'll add semver validation in the lint-versioning test.
-  if (value.conform) {
-    value.format = 'semver'
-    delete value.conform
-  }
-  properties[key] = value
-})
-
-featureVersions.properties.versions.properties = properties
-delete featureVersions.properties.versions.required
-// *** End TODO ***
-
 export default featureVersions

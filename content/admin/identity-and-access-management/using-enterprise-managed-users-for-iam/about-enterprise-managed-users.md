@@ -151,10 +151,8 @@ By default, when an unauthenticated user attempts to access an enterprise that u
 
 1. Navigate to [https://github.com/login](https://github.com/login).
 1. In the "Username or email address" text box, enter your username including the underscore and short code.
-  ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png)
   When the form recognizes your username, the form will update. You do not need to enter your password on this form.
 1. To continue to your identity provider, click **Sign in with your identity provider**.
-  ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
 
 ## Usernames and profile information
 

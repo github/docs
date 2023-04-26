@@ -32,7 +32,7 @@ You can monitor security alerts to discover when users are bypassing push protec
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-push-protection)."
+For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
@@ -52,6 +52,14 @@ Enterprise administrators can also enable or disable {% data variables.product.p
 {% endif %}
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
+
+{% ifversion code-security-multi-repo-enablement %}
+You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization:
+{% else %}
+You can use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization:
+{% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}

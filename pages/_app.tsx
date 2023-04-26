@@ -63,7 +63,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>GitHub Documentation</title>
+        <title>GitHub Docs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* The value in these "/cb-xxxxx" prefixes aren't important. They

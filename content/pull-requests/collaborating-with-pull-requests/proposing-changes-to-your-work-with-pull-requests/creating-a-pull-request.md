@@ -29,7 +29,7 @@ By default, pull requests are based on the parent repository's default branch. F
 
 If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
 
-![Pull Request editing branches](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
+![Screenshot of a pull request. The dropdown to edit the compare branch is expanded.](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
 
 When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
 
@@ -50,10 +50,12 @@ When you change any of the information in the branch range, the Commit and Files
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. In the "Branch" menu, choose the branch that contains your commits.
-  ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
+1. In the "Branch" menu, choose the branch that contains your commits.
+
+   ![Screenshot of the branch dropdown menu on the main page of a repository.](/assets/images/help/pull_requests/branch-dropdown.png)
+
 {% data reusables.repositories.new-pull-request %}
-4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
+1. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 
@@ -142,7 +144,7 @@ gh pr create --web
    Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
 
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
-  
+
   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.

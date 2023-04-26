@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![Diagram of an event triggering a workflow that uses scripts to test code.](/assets/images/help/actions/overview-actions-using-scripts-ci-example.png)
 
 ## Features used in this example
 
@@ -44,16 +44,6 @@ topics:
 {% data reusables.actions.example-docs-engineering-intro %} [`check-broken-links-github-github.yml`](https://github.com/github/docs/blob/main/.github/workflows/check-broken-links-github-github.yml).
 
 {% data reusables.actions.note-understanding-example %}
-
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
 
 ```yaml{:copy}
 name: 'Link Checker: All English'
@@ -124,10 +114,6 @@ jobs:
             --check-images \
             --level critical
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -136,8 +122,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>

@@ -11,12 +11,12 @@ redirect_from:
 
 {% data variables.product.prodname_vscode %} is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. With the [GitHub Classroom extension for {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/classroom-vscode-ext), students can easily browse, edit, submit, collaborate, and test their Classroom Assignments. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
-### Your student's editor of choice 
+### Your student's editor of choice
 The GitHub Classroom integration with {% data variables.product.prodname_vscode_shortname %} provides students with an extension pack which contains:
 
 1. [GitHub Classroom Extension](https://aka.ms/classroom-vscode-ext) with custom abstractions that make it easy for students to navigate getting started.
 2. [Visual Studio Live Share Extension](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) integrating into a student view for easy access to teaching assistants and classmates for help and collaboration.
-3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor. 
+3. [GitHub Pull Request Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) allowing students to see feedback from their instructors within the editor.
 
 ### How to launch the assignment in {% data variables.product.prodname_vscode_shortname %}
 When creating an assignment, {% data variables.product.prodname_vscode_shortname %} can be added as the preferred editor for an assignment. For more details, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
@@ -29,12 +29,10 @@ This will include an "Open in {% data variables.product.prodname_vscode_shortnam
 
 {% endnote %}
 
-### How to use GitHub Classroom extension pack 
-The GitHub Classroom extension has two major components: the 'Classrooms' view and the 'Active Assignment' view. 
+### How to use GitHub Classroom extension pack
+The GitHub Classroom extension has two major components: the 'Classrooms' view and the 'Active Assignment' view.
 
-When the student launches the extension for the first time, they are automatically navigated to the Explorer tab in {% data variables.product.prodname_vscode_shortname %}, where they can see the "Active Assignment" view alongside the tree-view of files in the repository. 
-
-![GitHub Classroom Active Assignment View](/assets/images/help/classroom/vs-code-active-assignment.png)
+When the student launches the extension for the first time, they are automatically navigated to the Explorer tab in {% data variables.product.prodname_vscode_shortname %}, where they can see the "Active Assignment" view alongside the tree-view of files in the repository.
 
 The student can push their commits to the latest version of remote, by clicking the **sync changes** button, displayed when hovering over the "Active Assignment" line. This abstracts away source control with Git, allowing instructors to teach Git at their own pace.
 Syncing changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.

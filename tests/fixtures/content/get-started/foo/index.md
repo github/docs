@@ -11,7 +11,8 @@ children:
   - /bar
   - /autotitling
   - /typo-autotitling
+  - /anchor-autotitling
   - /cross-version-linking
-  - /single-image
   - /for-playwright
+  - /html-short-title
 ---

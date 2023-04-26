@@ -75,6 +75,12 @@ This example pushes the `2.5` version of the image.
 
 {% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
+When you push a container image from the command line, the image is not linked to a repository by default. This is the case even if you tag the image with a namespace that matches the name of the repository, such as `{% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo:latest`.
+
+The easiest way to connect a repository to a container package is to publish the package from a workflow using `${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}`, as the repository that contains the workflow is linked automatically. Note that the `GITHUB_TOKEN` will not have permission to push the package if you have previously pushed a package to the same namespace, but have not connected the package to the repository.
+
+To connect a repository when publishing an image from the command line, and to ensure your `GITHUB_TOKEN` has appropriate permissions when using a GitHub Actions workflow, we recommend adding the label `org.opencontainers.image.source` to your `Dockerfile`. For more information, see “[Labelling container images](#labelling-container-images)” in this article and “[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions).”
+
 ## Pulling container images
 
 ### Pull by digest
@@ -212,7 +218,7 @@ For example, the following {% data variables.product.prodname_actions %} workflo
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 - name: Build and push Docker image
-  uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+  uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
   with:
     context: .
     file: ./Dockerfile

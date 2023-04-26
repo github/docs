@@ -25,22 +25,21 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 ## Creating an issue
 
-{% mac %}
-
 1. In the menu bar, select **Repository**, then click **Create Issue on {% data variables.product.prodname_dotcom %}**.
+   
+   {% mac %}
 
    ![Screenshot of the menu bar on a Mac. In the expanded "Repository" dropdown menu, the cursor hovers over "Create Issue on GitHub".](/assets/images/help/desktop/create-issue-mac.png)
+
+   {% endmac %}
+
+   {% windows %}
+
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Repository" dropdown menu, an option labeled "Create Issue on GitHub" is outlined in orange.](/assets/images/help/desktop/create-issue-windows.png)
+
+   {% endwindows %}
+
 2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
-
-{% endmac %}
-
-{% windows %}
-
-1. In the menu bar, use the **Repository** drop-down menu, then click **Create issue on {% data variables.product.prodname_dotcom %}**.
-    ![The Repository value in the Branch menu](/assets/images/help/desktop/create-issue-windows.png)
-2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
-
-{% endwindows %}
 
 {% note %}
 
@@ -77,7 +76,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 {% data reusables.repositories.create-pull-request %}
 
 ## Further reading
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#topic-branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[Issue](/get-started/quickstart/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[Pull request](/get-started/quickstart/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[Base branch](/get-started/quickstart/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[Topic branch](/get-started/quickstart/github-glossary#topic-branch)" in the {% data variables.product.prodname_dotcom %} glossary

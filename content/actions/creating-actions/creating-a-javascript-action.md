@@ -160,7 +160,7 @@ The time we greeted you.
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@v1.1
+uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
 with:
   who-to-greet: 'Mona the Octocat'
 ```
@@ -267,9 +267,9 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**.
 
-![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+Click **Hello world action step**, and you should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input printed in the log. To see the timestamp, click **Get the output time**.
 
 ## Template repositories for creating JavaScript actions
 

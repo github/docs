@@ -31,11 +31,12 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
-  {% ifversion ghes %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
-6. Optionally, enable the feature by default for new repositories that you own.
-  {% ifversion ghes %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
-7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
+1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
+1. Optionally, enable the feature by default for new repositories that you own.{% ifversion not ghes %}
+
+   ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+
+1. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
 
 {% data reusables.security.displayed-information %}
 
@@ -44,7 +45,6 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
 3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
-  {% ifversion ghes %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
 ## Further reading
 

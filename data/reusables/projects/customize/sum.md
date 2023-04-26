@@ -4,9 +4,4 @@ In a board layout, field sums are displayed at the top of each column. In table{
 
 {% data reusables.projects.open-view-menu %}
 1. Click {% octicon "number" aria-label="the number icon" %} **Field sum**.
-
-   ![Screenshot showing the field sum menu item](/assets/images/help/projects-v2/field-sum-menu.png)
-
 1. Select the fields you want to include.
-
-   ![Screenshot showing the field sum menu](/assets/images/help/projects-v2/field-sum-select-field.png)

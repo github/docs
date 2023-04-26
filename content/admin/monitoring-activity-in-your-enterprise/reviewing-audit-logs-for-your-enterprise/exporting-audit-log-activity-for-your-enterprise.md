@@ -15,7 +15,7 @@ topics:
 
 You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
 
-You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface. 
+You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface.
 
 {% data reusables.audit_log.git-events-export-limited %}
 
@@ -29,9 +29,7 @@ As an alternative to exporting log events, you can use the API to retrieve audit
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Optionally, to only export filtered results, search by one or more supported qualifiers or log filters.
-2. Select the {% octicon "download" aria-label="The Download icon" %} **Export** dropdown menu, and choose the file format (JSON or CSV) to export log events in.
-
-    ![Export button](/assets/images/help/organizations/org-audit-log-export.png)
+1. Select the {% octicon "download" aria-hidden="true" %} **Export** dropdown menu, and click a file format.
 
 ## Exporting Git events data
 
@@ -40,10 +38,8 @@ You can also export Git events data by date range.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Select the {% octicon "download" aria-label="The Download icon" %} **Export Git Events** dropdown menu and choose a date range to export log events for.
-
-    ![Export Git events button](/assets/images/help/organizations/org-audit-log-export-git-events.png)
-1. Click {% octicon "file-zip" aria-label="The File-zip icon" %} **Download Results** to download the file.
+1. Select the {% octicon "download" aria-hidden="true" %} **Export Git Events** dropdown menu and choose a date range to export log events for.
+1. Click {% octicon "file-zip" aria-hidden="true" %} **Download Results**.
 1. The data is exported as a compressed JSON file. To extract the JSON data, uncompress the file using an archive utility client or command. For example:
 
     ```

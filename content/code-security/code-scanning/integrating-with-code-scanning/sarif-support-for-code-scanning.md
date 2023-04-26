@@ -8,6 +8,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
   - /code-security/secure-coding/sarif-support-for-code-scanning
   - /code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/sarif-support-for-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -105,6 +106,8 @@ For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 1
 
 {% ifversion fpt or ghec or ghes > 3.8 %}
 
+{% rowheaders %}
+
 | **SARIF data** | **Maximum values** | **Additional limits** |
 |----------------|:------------------:|-----------------------|
 | Runs per file | 20 | None |
@@ -115,7 +118,11 @@ For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 1
 | Location per result |  1,000 | Only 100 locations will be included. |
 | Tags per rule |  20 | Only 10 tags will be included. |
 
+{% endrowheaders %}
+
 {% elsif ghes < 3.9 %}
+
+{% rowheaders %}
 
 | **SARIF data** | **Maximum values** | **Additional limits** |
 |----------------|:------------------:|-----------------------|
@@ -127,7 +134,11 @@ For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 1
 | Location per result | 1,000 | Only 100 locations will be included. |
 | Tags per rule | 20 | Only 10 tags will be included. |
 
+{% endrowheaders %}
+
 {% else %}
+
+{% rowheaders %}
 
 | **SARIF data** | **Maximum values** | **Additional limits** |
 |----------------|:------------------:|-----------------------|
@@ -136,6 +147,8 @@ For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 1
 | Rules per run | 25,000  | None |
 | Thread Flow Locations per result | 10,000 | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
 | Location per result |  1,000 | Only 100 locations will be included. | None |
+
+{% endrowheaders %}
 
 {% endif %}
 

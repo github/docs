@@ -40,6 +40,8 @@ topics:
 
 There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
+{% rowheaders %}
+
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
@@ -50,16 +52,16 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For Urgent priority tickets, as needed
-| Health Checks | Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)") | <ul><li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li><li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
-| Technical advisory hours| None | 4 hours per month  |
+| Health Checks | {% ifversion not ghes %}None{% else %}Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li>{% endif %}<li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
+| Technical advisory hours| None | 12 hours per quarter |
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |
 
+{% endrowheaders %}
+
   {% note %}
 
-  **Notes:**
-  - Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
-  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
+  **Note:** Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
   {% endnote %}
 
@@ -151,4 +153,4 @@ The following information **must be included** in your credit request:
 
 ## Accessing premium content
 
-You can access premium content by signing in to the {% data variables.contact.contact_landing_page_portal %}.
+You can access premium content by signing into the {% data variables.contact.contact_landing_page_portal %}, then clicking **Premium**.

@@ -45,9 +45,9 @@ The web application flow to authorize users for your app is:
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-This endpoint takes the following input parameters:
+This endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
 `redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
@@ -55,6 +55,8 @@ Name | Type | Description
 `scope`|`string` | A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
 `state` | `string` | {% data reusables.apps.state_description %}
 `allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+
+The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time.
 
 ### 2. Users are redirected back to your site by GitHub
 
@@ -64,9 +66,9 @@ Exchange this `code` for an access token:
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-This endpoint takes the following input parameters:
+This endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
@@ -124,7 +126,7 @@ The device flow allows you to authorize users for a headless app, such as a CLI 
 
 {% ifversion device-flow-is-opt-in %}
 
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for GitHub Apps.
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for {% data variables.product.prodname_github_apps %} and "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for {% data variables.product.prodname_oauth_apps %}.
 
 {% endif %}
 
@@ -140,12 +142,12 @@ Before you can use the device flow to authorize and identify users, you must fir
 
 Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
-The endpoint takes the following input parameters:
+The endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | The scope that your app is requesting access to.
+`scope` | `string` | A space-delimited list of the scopes that your app is requesting access to. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
 
 By default, the response takes the following form:
 
@@ -153,7 +155,7 @@ By default, the response takes the following form:
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `device_code` | `string` | The device verification code is 40 characters and used to verify the device.
 `user_code` | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.
@@ -199,9 +201,9 @@ The user must enter a valid code within 15 minutes (or 900 seconds). After 15 mi
 
 Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
-The endpoint takes the following input parameters:
+The endpoint takes the following input parameters.
 
-Name | Type | Description
+Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.

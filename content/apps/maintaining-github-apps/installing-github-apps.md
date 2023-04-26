@@ -21,7 +21,7 @@ topics:
 
 ## Installing your private GitHub App on your repository
 
-Once you create a private GitHub App, you can install it on one of your org or user repositories. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private#private-installation-flow)."
+Once you create a private GitHub App, you can install it on one of your org or user repositories. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private#private-installation-flow)."
 
 1. From the [GitHub Apps settings page](https://github.com/settings/apps), select your app.
 1. In the left sidebar, click **Install App**.
@@ -47,7 +47,7 @@ You can enable others to install your public app by providing the installation U
 
  If you are migrating from an OAuth App to a GitHub App, you can use query parameters to preselect the repositories and account when installing the GitHub App. See "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)" to learn more.
 
-These steps assume you have [built a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/creating-github-apps):
+These steps assume you have [built a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/setting-up-a-github-app):
 
 1. From the [GitHub Apps settings page](https://github.com/settings/apps), select the public app you want to configure for others to install.
 2. In the "General" tab, under "Homepage URL," type the URL for your app's homepage and click **Save changes**.
@@ -56,7 +56,7 @@ These steps assume you have [built a {% data variables.product.prodname_github_a
 
 ## Authorizing users during installation
 
-You can simplify the authorization process by completing it during app installation. To do this, select **Request user authorization (OAuth) during installation** when creating or modifying your app in GitHub. See "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)" to learn more.
+You can simplify the authorization process by completing it during app installation. To do this, select **Request user authorization (OAuth) during installation** when creating or modifying your app in GitHub. See "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" to learn more.
 
 Once someone has installed your app, you will need to get an access token for the user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 ## Preserving an application state during installation

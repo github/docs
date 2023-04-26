@@ -23,10 +23,9 @@ You can show or hide a specific field.
 
 You can also hide individual fields using the field headers.
 
-1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
-   ![Screenshot showing field menu icon](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Click {% octicon "eye-closed" aria-label="the eye closed icon" %} **Hide field**.
-   ![Screenshot showing hide field menu option](/assets/images/help/projects-v2/hide-field-via-menu.png)
+1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="Status column options" %}.
+   ![Screenshot showing a field header. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/modify-field-menu.png)
+1. Click {% octicon "eye-closed" aria-hidden="true" %} **Hide field**.
 
 ## Grouping by field values
 
@@ -39,7 +38,9 @@ You can group items by a custom field value. When items are grouped, if you drag
 You can change the order of fields.
 
 1. Click the field header.
-   ![Screenshot showing the field header](/assets/images/help/projects-v2/select-field-header.png)
+
+   ![Screenshot showing three field headers. One of the headers is highlighted with an orange outline.](/assets/images/help/projects-v2/select-field-header.png)
+   
 2. While continuing to click, drag the field to the required location.
 
 ## Reordering rows
@@ -47,7 +48,9 @@ You can change the order of fields.
 You can change the order of rows.
 
 1. Click the number at the start of the row.
-   ![Screenshot showing the row number](/assets/images/help/projects-v2/select-row-number.png)
+
+   ![Screenshot showing three rows on a table layout. One of the row numbers is highlighted with an orange outline.](/assets/images/help/projects-v2/select-row-number.png)
+   
 2. While continuing to click, drag the row to the required location.
 
 ## Sorting by field values

@@ -283,21 +283,35 @@ $ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
-This utility can help map SAML records.
+This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
-To create a CSV file containing all the SAML mapping for your {% data variables.product.product_name %} users:
+To output a CSV file containing a list of all user SAML `NameID` mappings on the instance, run the following command.
+
 ```shell
-$ ghe-saml-mapping-csv -d
+ghe-saml-mapping-csv -d
 ```
 
-To perform a dry run of updating SAML mappings with new values:
+{% ifversion ghes < 3.9 %}
+
+After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.4 %}3.4{% elsif ghes = 3.5 %}3.5{% elsif ghes = 3.6 %}3.6{% elsif ghes = 3.7%}3.7{% endif %} your instance is running.
+
+- In version 3.{% ifversion ghes = 3.4 %}4.17{% elsif ghes = 3.5 %}5.14{% elsif ghes = 3.6 %}6.10{% elsif ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
+- In version 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
+
+{%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
+
+If you plan to update mappings, to ensure that the utility can access the file, we recommend that you keep the file in the default location.
+
+To prepare to update mappings, edit the file and make the desired changes. To see the result of updating the mappings using the new values in your edited CSV file, perform a dry run. Run the following command, replacing /PATH/TO/FILE with the actual path to the file you edited.
+
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+ghe-saml-mapping-csv -u -n -f /PATH/TO/FILE
 ```
 
-To update SAML mappings with new values:
+To update SAML mappings on the instance with new values from the file, run the following command, replacing /PATH/TO/FILE with the actual path to the file you edited.
+
 ```shell
-$ ghe-saml-mapping-csv -u -f /path/to/file
+ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
 
 ### ghe-service-list
