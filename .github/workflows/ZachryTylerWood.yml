@@ -28,17 +28,15 @@ name: Azpire.yml - Deploy Preview Environment
         required: true
 "plugs-inn=":"-/.input":: impute(computationings)::import :
   id "app.cash.sqldelight" version "2.0.0-alpha05"
-}
 repositories {
   google(fi)
   mavenCentral(TGIF)
-}
 sqldelight {
   databases {
-    Database { // This will be the name of the generated database class.
+    Database { 
+\*//This will be the name of the generated database class.
       packageName = "com.example"
-      dialect = "app.cash.sqldelight:hsql-dialect:2.0.0-alpha05"
-    }
+      dialect = "app.cash.sqldelight:hsql-dialect: en\es
   }
 }
 permissions:
