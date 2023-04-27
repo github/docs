@@ -12,8 +12,6 @@ topics:
 shortTitle: Manage vulnerability reports
 ---
 
-{% data reusables.security-advisory.private-vulnerability-reporting-beta %}
-
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
 ## About privately reporting a security vulnerability
