@@ -538,6 +538,11 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes %}- [`DELETE /orgs/{org}/public_members/{username}`](/rest/orgs#remove-public-organization-membership-for-the-authenticated-user) (write){% endif %}
 - [`GET /orgs/{org}/teams`](/rest/teams#list-teams) (read)
 - [`POST /orgs/{org}/teams`](/rest/teams#create-a-team) (write)
+- [`GET /orgs/{org}/teams/{team_slug}/members`](/rest/teams/members#list-team-members) (read)
+- [`GET /orgs/{org}/teams/{team_slug}/invitations`](/rest/teams/members#list-pending-team-invitations) (read)
+- [`GET /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#get-team-membership-for-a-user) (read)
+- [`PUT /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#add-or-update-team-membership-for-a-user) (write)
+- [`DELETE /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#remove-team-membership-for-a-user) (write)
 - [`GET /teams/{team_id}/members/{username}`](/rest/teams#get-team-member-legacy) (read)
 - [`PUT /teams/{team_id}/members/{username}`](/rest/teams#add-team-member-legacy) (write)
 - [`DELETE /teams/{team_id}/members/{username}`](/rest/teams#remove-team-member-legacy) (write)
