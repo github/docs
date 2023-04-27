@@ -30,8 +30,8 @@ topics:
 children:
   - /using-github-apps
   - /creating-github-apps
-  - /publishing-apps-to-github-marketplace
   - /maintaining-github-apps
+  - /publishing-apps-to-github-marketplace
   - /oauth-apps
 redirect_from:
   - /developers
