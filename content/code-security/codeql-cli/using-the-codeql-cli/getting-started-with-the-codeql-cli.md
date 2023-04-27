@@ -12,6 +12,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
