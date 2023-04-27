@@ -81,8 +81,6 @@ Anytime you comment in a conversation or when someone @mentions your username, y
 
 {% ifversion update-notification-settings-22 %}For conversations you're watching or participating in, you can choose whether you want to receive notifications on {% data variables.product.company_short %} or by email in your notification settings. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
-![Animated GIF of participating and watching subscriptions options](/assets/images/help/notifications/selecting-participating-notifications.gif)
-
 {% else %}
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
@@ -110,8 +108,6 @@ After enabling email notifications, {% data variables.location.product_location 
 {% ifversion fpt or ghec %}
 
 If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
-
-![Buttons in Gmail](/assets/images/help/notifications/gmail-buttons.png)
 
 {% endif %}
 
@@ -186,17 +182,9 @@ If you belong to an organization, you can choose the email account you want noti
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-
-3. Under "Default notification email", select the email address you'd like notifications sent to.
-{% ifversion update-notification-settings-22 %}
-
-   ![Screenshot of the default notification email address setting](/assets/images/help/notifications/default-email-address-emphasized.png)
-
-{% else %}
-
-   ![Screenshot of the default notification email address dropdown](/assets/images/help/notifications/notifications_primary_email_for_orgs.png){% endif %}
+1. Under "Default notifications email", select the email address you'd like notifications sent to.
 {% ifversion ghes or ghae %}
-4. Click **Save**.{% endif %}
+1. Click **Save**.{% endif %}
 
 ### Customizing email routes per organization
 
@@ -205,34 +193,24 @@ If you are a member of more than one organization, you can configure each one to
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 {% ifversion update-notification-settings-22 %}
-3. Under "Default notifications email", click **Custom routing**.
+1. Under "Default notifications email", click **Custom routing**.
 
-   ![Screenshot of default notifications email settings with custom routing button emphasised](/assets/images/help/notifications/custom-router-emphasized.png)
+   ![Screenshot of the "Default notifications email" section. A button, titled "Custom routing", is highlighted with an orange outline.](/assets/images/help/notifications/custom-router-emphasized.png)
 
-4. Click **Add new route**.
+1. Click **Add new route**.
 
-   ![Screenshot of custom routing settings with add new route button emphasised](/assets/images/help/notifications/add-new-route-emphasized.png)
+1. Select the **Pick organization** dropdown, then click the organization you want to customize.
+1. Select one of your verified email addresses, then click **Save**.
 
-5. Click **Pick organization**, then select the organization you want to customize from the dropdown.
-
-   ![Screenshot of dropdown to pick organization](/assets/images/help/notifications/organization-dropdown-custom-routing-emphasis.png)
-
-6. Select one of your verified email addresses, then click **Save**.
-
-   ![Screenshot of custom routing page with save button](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
-
+   ![Screenshot of the "Custom Routing" page. A dropdown menu, showing a user's available email addresses, is highlighed with an orange outline.](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
 {% else %}
-3. Under "Custom routing," find your organization's name in the list.
+1. Under "Custom routing," find your organization's name in the list.
 
-   ![List of organizations and email addresses](/assets/images/help/notifications/notifications_org_emails.png)
+1. Click **Edit** next to the email address you want to change.
 
-4. Click **Edit** next to the email address you want to change.
+1. Select one of your verified email addresses, then click **Save**.
 
-   ![Editing an organization's email addresses](/assets/images/help/notifications/notifications_edit_org_emails.png)
-
-5. Select one of your verified email addresses, then click **Save**.
-
-   ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif){% endif %}
+{% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %} notification options
 
@@ -253,13 +231,23 @@ For more information on how to configure notifications for {% data variables.sec
 {% ifversion update-notification-settings-22 or ghes %}
 ## {% data variables.product.prodname_actions %} notification options
 
-For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates via the "Notification settings" page. You can choose to receive {% ifversion ghes %}email or web notifications{% endif %}{% ifversion update-notification-settings-22 %} notifications by email or on {% data variables.product.prodname_dotcom %}{% endif %}, and to only receive notifications for failed workflow runs.{% endif %}
+For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates.
 
 {% ifversion update-notification-settings-22 %}
-![Animated GIF of notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications/github-actions-customize-notifications.gif){% endif %}
+1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
+
+   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is highlighted with an orange outline.](/assets/images/help/notifications/github-actions-customize-notifications.png)
+1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}".
+
+   To opt into email notifications, from the dropdown menu, select "Email".
+1. Optionally, to only receive notifications for failed workflow runs, from the dropdown menu, select "Only notify for failed workflows", then click **Save**.{% endif %}
 
 {% ifversion ghes %}
+On the "Notification settings" page, select "Email" or "Web" notifications. Optionally, to only receive notifications for failed workflow runs, select "Send notifications for failed workflows only".
+
 ![Screenshot of the "Actions" section on the "Notification settings" page. Three checkboxes, titled "Email", "Web", and "Send notifications for failed workflows only", are shown.](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
+
+{% endif %}
 
 ## Organization alerts notification options
 
