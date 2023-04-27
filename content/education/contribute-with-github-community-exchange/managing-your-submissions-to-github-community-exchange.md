@@ -20,6 +20,6 @@ The {% data variables.product.prodname_community_exchange %} community moderates
 
 1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
 1. Above the list of repositories, click the **Submissions** tab.
-  ![Screenshot of the Submissions tab](/assets/images/help/education/community-exchange-submissions-tab.png)
+  ![Screenshot of the "Submissions" tab, under the search bar and next to the "Gallery" tab, on the GitHub Community Exchange home page.](/assets/images/help/education/community-exchange-submissions-tab.png)
 1. Optionally, edit your submitted repository. To the right of the repository you want to edit, click {% octicon "pencil" aria-label="The edit icon" %} to go directly to your repository homepage. From there, you can update the purpose, topics, and offers assigned to your repository.
 1. Optionally, delete a submitted repository from the gallery. To the right of the repository submission you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
