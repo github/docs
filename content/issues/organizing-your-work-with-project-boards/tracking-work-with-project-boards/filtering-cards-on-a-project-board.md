@@ -32,7 +32,6 @@ You can also use the "Filter cards" search bar at the top of each {% data variab
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} that contains the cards you want to filter.
 2. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
-![Filter card search bar](/assets/images/help/projects/filter-card-search-bar.png)
 
 {% tip %}
 

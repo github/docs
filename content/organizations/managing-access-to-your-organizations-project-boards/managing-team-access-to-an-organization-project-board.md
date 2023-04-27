@@ -45,9 +45,7 @@ You can give an entire team the same permission level to a {% data variables.pro
 {% data reusables.project-management.access-collaboration-settings %}
 1. In the left sidebar, click **Teams**.
 1. To add a team, click **Add a team: Select team**. Then, choose a team from the dropdown menu or search for the team you'd like to add.
- ![Add a team drop-down menu with list of teams in organization](/assets/images/help/projects/add-a-team.png)
 1. Next to the team name, use the dropdown menu to select the desired permission level: **Read**, **Write**, or **Admin**.
- ![Team permissions drop-down menu with read, write, and admin options](/assets/images/help/projects/org-project-team-choose-permissions.png)
 
 ## Configuring a team's access to a {% data variables.projects.projects_v1_board %}
 

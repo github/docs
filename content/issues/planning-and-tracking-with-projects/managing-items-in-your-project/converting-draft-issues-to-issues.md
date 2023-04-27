@@ -22,7 +22,7 @@ topics:
 
 1. Click the {% octicon "kebab-horizontal" aria-label="the item menu" %} on the draft issue that you want to convert.
   
-  ![Screenshot showing item menu button](/assets/images/help/projects-v2/item-context-menu-button-board.png)
+  ![Screenshot showing a draft issue. The item menu is highlighted with an orange outline.](/assets/images/help/projects-v2/item-context-menu-button-board.png)
   
 2. Select **Convert to issue**.
 3. Select the repository that you want to add the issue to.

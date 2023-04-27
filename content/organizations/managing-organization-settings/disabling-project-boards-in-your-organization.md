@@ -31,7 +31,6 @@ When you disable project boards, you will no longer see project board informatio
 1. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
     - To disable organization-wide project boards, unselect **Enable projects for the organization**.
     - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.
-  ![Checkboxes to disable projects for an organization or for all of an organization's repositories](/assets/images/help/projects/disable-org-projects-checkbox.png)
 1. Click **Save**.
 
 {% data reusables.organizations.disable_project_board_results %}
