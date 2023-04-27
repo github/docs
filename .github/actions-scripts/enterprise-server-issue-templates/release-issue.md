@@ -18,18 +18,29 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. Copy the latest GHES version of the decorate file from `src/rest/data` to a new file in the same directory for the new GHES release. Ex, `cp src/rest/data/ghes-3.4.json src/rest/data/ghes-3.5.json`.
-
-- [ ] Create GraphQL files based on previous version:
-
+- [ ] Create REST files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
   ```
-  script/enterprise-server-releases/create-graphql-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
+  cp -rf src/rest/data/ghes-3.8 src/rest/data/ghes-3.9
   ```
-- [ ] Create webhook files based on previous version:
+
+- [ ] Create GraphQL files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
 
   ```
-  script/enterprise-server-releases/create-webhook-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
+  cp -rf src/graphql/data/ghes-3.8 src/graphql/data/ghes-3.9
+  cp -rf data/graphql/ghes-3.8 data/graphql/ghes-3.9
   ```
+- [ ] Create webhook files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
+
+  ```
+  cp -rf src/webhooks/data/ghes-3.8 src/webhooks/data/ghes-3.9
+  ```
+
+- [ ] Create GitHub App files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
+
+  ```
+  cp -rf src/github-apps/data/ghes-3.8 src/github-apps/data/ghes-3.9
+  ```
+
 - [ ] Create a placeholder release notes file called `data/release-notes/<PRODUCT>/<RELEASE NUMBER>/PLACEHOLDER.yml`. For example `data/release-notes/enterprise-server/3-1/PLACEHOLDER.yml`. Add the following placeholder content to the file:
 
   **Note:** All of the content in this file will be updated when the release notes are created in the megabranch including the filename `PLACEHOLDER.yml`. You can update the date or leave it as-is and wait to update it when the release notes are finalized.
@@ -243,6 +254,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
   ```
   script/enterprise-server-releases/release-banner.js --action create --version <PLAN@RELEASE>
+  script/copy-fixture-data.js // This updates the fixtures to match the updated data/variables/release_candidate.yml file
   ```
 
 - [ ] Create a PR with the above changes. This PR is used to track all docs changes and smoke tests associated with the release. For example https://github.com/github/docs-internal/pull/22286.

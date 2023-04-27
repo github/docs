@@ -26,9 +26,10 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.appearance-settings %}
 
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
+1. Under "Theme mode", select the dropdown menu, then click a theme preference.
 
-   ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+   ![Screenshot of the "Theme mode" sub-section. A dropdown menu, labeled "Single theme," is highlighted with an orange outline.](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+
 1. Click the theme you'd like to use.
     - If you chose a single theme, click a theme.
 
@@ -41,11 +42,7 @@ If you have low vision, you may benefit from a high contrast theme, with greater
       {% endnote %}
       {%- endif %}
 
-      ![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png)
-    - If you chose to follow your system settings, click a day theme and a night theme.
-
-      ![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png)
-    {% ifversion fpt or ghec %}
+    - If you chose to follow your system settings, click a day theme and a night theme.{% ifversion fpt or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 
 {% ifversion command-palette %}

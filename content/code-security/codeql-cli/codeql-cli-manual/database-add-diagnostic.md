@@ -30,6 +30,8 @@ codeql database add-diagnostic --source-id=<id> --source-name=<name> <options>..
 
 \[Experimental] Add a piece of diagnostic information to a database.
 
+Available since `v2.12.6`.
+
 ## Primary options
 
 #### `<database>`

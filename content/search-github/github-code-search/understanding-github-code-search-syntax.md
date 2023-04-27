@@ -110,13 +110,13 @@ You can use specialized keywords to qualify your search.
 To search within a repository, use the `repo:` qualifier. You must provide the full repository name, including the owner. For example:
 
 ```
-repo:github/linguist
+repo:github-linguist/linguist
 ```
 
 To search within a set of repositories, you can combine multiple `repo:` qualifiers with the boolean operator `OR`. For example:
 
 ```
-repo:github/linguist OR repo:tree-sitter/tree-sitter
+repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
 ```
 
 {% note %}
@@ -154,7 +154,7 @@ To narrow down to a specific languages, use the `language:` qualifier. For examp
 language: ruby OR language:cpp OR language:csharp
 ```
 
-For a complete list of supported language names, see [languages.yaml](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) in [github/linguist](https://github.com/github/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
 
 ### Path qualifier
 
