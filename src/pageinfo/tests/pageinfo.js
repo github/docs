@@ -1,9 +1,22 @@
+import { beforeAll } from '@jest/globals'
+
 import { get } from '../../../tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
 
 const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
 
 describe('pageinfo api', () => {
+  beforeAll(() => {
+    // If you didn't set the `ROOT` variable, the tests will fail rather
+    // cryptically. So as a warning for engineers running these tests,
+    // alert in case it was accidentally forgotten.
+    if (!process.env.ROOT) {
+      console.warn(
+        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root'
+      )
+    }
+  })
+
   test('redirects without version suffix', async () => {
     const res = await get('/api/pageinfo')
     expect(res.statusCode).toBe(307)
